@@ -106,6 +106,33 @@ function Page() {
         </div>
       </Section>
 
+      <Section tone="muted">
+        <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-7">
+            <Eyebrow>CONECTA CON GUILLERMO</Eyebrow>
+            <h2 className="mt-4 font-display text-3xl md:text-4xl leading-[1.08]">
+              Sigue el desarrollo del ecosistema desde sus canales oficiales.
+            </h2>
+            <p className="mt-5 max-w-2xl text-base md:text-lg text-muted-foreground leading-relaxed">
+              Puedes seguir el desarrollo de G-Structure, G-Struct y las próximas iniciativas del
+              ecosistema a través de los canales oficiales de Guillermo.
+            </p>
+          </div>
+          <div className="lg:col-span-5">
+            <div className="border border-border bg-[color:var(--color-surface)] p-8">
+              <p className="eyebrow mb-5">Canales</p>
+              <SocialLinks only={["linkedin", "instagram", "whatsapp", "email"]} />
+              <ul className="mt-6 space-y-2 text-sm text-foreground/85">
+                <li><span className="text-muted-foreground">LinkedIn · </span>Guillermo Suco</li>
+                <li><span className="text-muted-foreground">Instagram · </span>@g.structurecbc</li>
+                <li><span className="text-muted-foreground">WhatsApp · </span>+593 98 687 5121</li>
+                <li><span className="text-muted-foreground">Email · </span>guillermo@g-structure.co</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </Section>
+
       <Section tone="deep">
         <div className="max-w-3xl">
           <h2 className="font-display text-3xl md:text-4xl leading-[1.08]">
