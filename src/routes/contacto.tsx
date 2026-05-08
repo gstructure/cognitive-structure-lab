@@ -39,6 +39,38 @@ function Page() {
         </div>
       </section>
 
+      <Section tone="muted">
+        <SectionHeader
+          eyebrow="ELIGE TU RUTA"
+          title="¿Qué te trae a G-Structure?"
+          subtitle="Si ya sabes qué te interesa explorar, ve directo a la página correspondiente. Si no, completa el formulario y nos coordinamos."
+        />
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          {[
+            { to: "/enterprise", icon: <Building2 size={18} />, t: "Enterprise", d: "Workshop, REESTRUCTURA Enterprise y continuidad." },
+            { to: "/reestructura", icon: <User size={18} />, t: "REESTRUCTURA 1:1", d: "Proceso individual de coaching cognitivo-conductual." },
+            { to: "/g-struct", icon: <Cpu size={18} />, t: "G-Struct", d: "Lista de espera de la app del método." },
+            { to: "/aliados-etw-2026", icon: <Handshake size={18} />, t: "Aliados ETW 2026", d: "Sumarse al Workshop en Ecuador Tech Week 2026." },
+            { to: "/unete-al-equipo", icon: <Users size={18} />, t: "Únete al equipo", d: "Construir desde una etapa temprana." },
+          ].map((r) => (
+            <Link
+              key={r.to}
+              to={r.to}
+              className="lift group flex h-full flex-col border border-border bg-[color:var(--color-surface)] p-6"
+            >
+              <span className="inline-flex h-9 w-9 items-center justify-center border border-border bg-[color:var(--color-brand-soft)]/40">
+                {r.icon}
+              </span>
+              <h3 className="mt-5 font-display text-base font-semibold">{r.t}</h3>
+              <p className="mt-2 flex-1 text-[13px] text-muted-foreground leading-relaxed">{r.d}</p>
+              <span className="mt-4 inline-flex items-center gap-1.5 text-[12px] font-medium text-foreground">
+                Ir a la página <ArrowUpRight size={13} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </span>
+            </Link>
+          ))}
+        </div>
+      </Section>
+
       <Section>
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7">
