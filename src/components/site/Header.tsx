@@ -22,7 +22,7 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70">
+    <header className={`sticky top-0 z-50 border-b bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70 transition-shadow duration-300 ${scrolled ? "border-border shadow-[0_8px_24px_-18px_rgba(5,50,90,0.25)]" : "border-transparent"}`}>
       <div className="container-x flex h-16 md:h-20 items-center justify-between gap-6">
         <Link to="/" className="shrink-0" onClick={() => setOpen(false)}>
           <Logo />
