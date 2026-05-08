@@ -257,18 +257,67 @@ function Announcements() {
   );
 }
 
-function AnnouncementCard({
-  tag, title, body, short, cta, to, micro,
-}: { tag: string; title: string; body: string; short: string; cta: string; to: string; micro: string }) {
+function Announcements() {
   return (
-    <div className="flex flex-col border border-border bg-[color:var(--color-surface)] p-8 md:p-10">
-      <span className="eyebrow">{tag}</span>
-      <h3 className="mt-4 font-display text-xl md:text-2xl font-semibold leading-snug">{title}</h3>
+    <Section>
+      <SectionHeader
+        eyebrow="MOMENTUM"
+        title="Construyendo la siguiente etapa de G-Structure."
+        subtitle="Estamos abriendo espacios estratégicos para aliados y colaboradores que quieran ser parte del crecimiento inicial del ecosistema G-Structure."
+      />
+      <div className="mt-12 grid gap-6 md:grid-cols-2">
+        <Reveal>
+          <AnnouncementCard
+            icon={<Handshake size={20} />}
+            tag="ALIADOS ETW 2026"
+            title="Aliados para el Workshop de Diagnóstico de Ejecución"
+            body="G-Structure está abriendo oportunidades de alianza para marcas, instituciones y empresas que quieran vincularse al Workshop de Diagnóstico de Ejecución durante Ecuador Tech Week 2026."
+            short="Buscamos aliados que entiendan el valor de apoyar conversaciones serias sobre ejecución, claridad, tecnología, emprendimiento y desarrollo profesional."
+            cta="Quiero ser aliado"
+            to="/aliados-etw-2026"
+            micro="Espacios limitados para aliados estratégicos, experiencia, sede o contenido."
+          />
+        </Reveal>
+        <Reveal delay={120}>
+          <AnnouncementCard
+            icon={<Users size={20} />}
+            tag="EQUIPO INICIAL"
+            title="Estamos formando el equipo que construirá G-Structure y G-Struct"
+            body="Buscamos colaboradores voluntarios en áreas clave para fortalecer la siguiente etapa del proyecto: producto, tecnología, ventas, marketing y negocios internacionales."
+            short="No buscamos espectadores. Buscamos personas con criterio, iniciativa y ganas de construir desde una etapa temprana."
+            cta="Quiero unirme al equipo"
+            to="/unete-al-equipo"
+            micro="Participación inicial voluntaria, con enfoque en construcción real, portafolio, aprendizaje aplicado y posible continuidad conforme el proyecto avance."
+          />
+        </Reveal>
+      </div>
+    </Section>
+  );
+}
+
+function AnnouncementCard({
+  icon, tag, title, body, short, cta, to, micro,
+}: { icon: React.ReactNode; tag: string; title: string; body: string; short: string; cta: string; to: string; micro: string }) {
+  return (
+    <div className="lift relative flex h-full flex-col border border-border bg-[color:var(--color-surface)] p-8 md:p-10 overflow-hidden">
+      <span
+        className="absolute left-0 top-0 h-px w-16"
+        style={{ background: "var(--color-brand)" }}
+        aria-hidden
+      />
+      <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full opacity-[0.05]" style={{ background: "radial-gradient(closest-side, var(--color-brand), transparent)" }} aria-hidden />
+      <div className="flex items-center gap-3">
+        <span className="inline-flex h-9 w-9 items-center justify-center border border-border bg-[color:var(--color-brand-soft)]/40 text-foreground">
+          {icon}
+        </span>
+        <span className="eyebrow">{tag}</span>
+      </div>
+      <h3 className="mt-5 font-display text-xl md:text-2xl font-semibold leading-snug">{title}</h3>
       <p className="mt-4 text-sm md:text-[15px] text-muted-foreground leading-relaxed">{body}</p>
       <p className="mt-3 text-sm md:text-[15px] text-foreground/80 leading-relaxed">{short}</p>
       <div className="mt-8 flex-1" />
       <div className="flex items-center justify-between gap-4 border-t border-border pt-6">
-        <p className="text-xs text-muted-foreground max-w-[60%]">{micro}</p>
+        <p className="text-xs text-muted-foreground max-w-[58%]">{micro}</p>
         <Link
           to={to}
           className="group inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground"
