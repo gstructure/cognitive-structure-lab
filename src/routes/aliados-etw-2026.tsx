@@ -4,21 +4,43 @@ import { SectionHeader } from "@/components/site/SectionHeader";
 import { Eyebrow } from "@/components/site/Eyebrow";
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
 import { Check } from "lucide-react";
+import etwBadge from "@/assets/etw-2026-badge.png";
+import { buildSeo, canonicalLink, jsonLdScript, breadcrumbSchema, SITE_URL } from "@/lib/seo";
+
+const eventSchema = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  name: "Workshop de Diagnóstico de Ejecución by G-Structure",
+  description:
+    "Workshop curado por G-Structure dentro de Ecuador Tech Week 2026 para identificar patrones cognitivo-conductuales que bloquean la ejecución en profesionales, founders y equipos.",
+  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+  eventStatus: "https://schema.org/EventScheduled",
+  url: "https://luma.com/lm4njhiu",
+  location: {
+    "@type": "Place",
+    name: "Ecuador Tech Week 2026",
+    address: { "@type": "PostalAddress", addressLocality: "Guayaquil", addressCountry: "EC" },
+  },
+  organizer: { "@type": "Organization", name: "G-Structure", url: SITE_URL },
+  superEvent: { "@type": "Event", name: "Ecuador Tech Week 2026" },
+};
 
 export const Route = createFileRoute("/aliados-etw-2026")({
   head: () => ({
-    meta: [
-      { title: "Aliados ETW 2026 | Workshop de Diagnóstico — G-Structure" },
-      {
-        name: "description",
-        content:
-          "G-Structure abre alianzas para el Workshop de Diagnóstico de Ejecución durante Ecuador Tech Week 2026. Marcas, instituciones y empresas alineadas con ejecución, claridad y tecnología.",
-      },
-      { property: "og:title", content: "Aliados ETW 2026 — G-Structure" },
-      {
-        property: "og:description",
-        content: "Sé parte del Workshop de Diagnóstico de Ejecución en Ecuador Tech Week 2026.",
-      },
+    meta: buildSeo({
+      path: "/aliados-etw-2026",
+      title: "Aliados ETW 2026 | Workshop de Diagnóstico — G-Structure",
+      description:
+        "Oportunidades de alianza para marcas, instituciones y empresas en el Workshop de Diagnóstico de Ejecución de G-Structure durante Ecuador Tech Week 2026 en Guayaquil.",
+      image: etwBadge,
+    }),
+    links: canonicalLink("/aliados-etw-2026"),
+    scripts: [
+      jsonLdScript(eventSchema),
+      jsonLdScript(breadcrumbSchema([
+        { name: "Inicio", path: "/" },
+        { name: "Aliados ETW 2026", path: "/aliados-etw-2026" },
+      ])),
     ],
   }),
   component: Page,

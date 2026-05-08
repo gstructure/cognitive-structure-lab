@@ -5,22 +5,23 @@ import { BrandMark } from "@/components/brand/Logo";
 import { Check } from "lucide-react";
 import { Timeline } from "@/components/site/Timeline";
 import gStructEcosystem from "@/assets/g-struct-ecosystem.png";
+import { buildSeo, canonicalLink, jsonLdScript, breadcrumbSchema } from "@/lib/seo";
 
 export const Route = createFileRoute("/g-struct")({
   head: () => ({
-    meta: [
-      { title: "G-Struct | Capa tecnológica del método G-Structure" },
-      {
-        name: "description",
-        content:
-          "G-Struct es la herramienta digital en desarrollo del ecosistema G-Structure: registrar patrones, estructurar ejercicios CBT y sostener la práctica entre sesiones.",
-      },
-      { property: "og:title", content: "G-Struct | App del método I-R-O" },
-      {
-        property: "og:description",
-        content:
-          "La capa tecnológica del método G-Structure. Identificar, reencuadrar y optimizar, también desde una app.",
-      },
+    meta: buildSeo({
+      path: "/g-struct",
+      title: "G-Struct | Herramienta Digital de Coaching Cognitivo-Conductual",
+      description:
+        "G-Struct es la app del método G-Structure (I-R-O), prototipo en desarrollo junto a ÉPICO rumbo a CodeLaunch LATAM 2026. Registro de patrones, ejercicios y radar.",
+      image: gStructEcosystem,
+    }),
+    links: canonicalLink("/g-struct"),
+    scripts: [
+      jsonLdScript(breadcrumbSchema([
+        { name: "Inicio", path: "/" },
+        { name: "G-Struct", path: "/g-struct" },
+      ])),
     ],
   }),
   component: Page,

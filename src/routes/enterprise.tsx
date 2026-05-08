@@ -5,22 +5,24 @@ import { Eyebrow } from "@/components/site/Eyebrow";
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
 import { Timeline } from "@/components/site/Timeline";
 import { Check } from "lucide-react";
+import etwBadge from "@/assets/etw-2026-badge.png";
+import { buildSeo, canonicalLink, jsonLdScript, breadcrumbSchema } from "@/lib/seo";
 
 export const Route = createFileRoute("/enterprise")({
   head: () => ({
-    meta: [
-      { title: "G-Structure Enterprise | Coaching para Equipos y Ejecución" },
-      {
-        name: "description",
-        content:
-          "Diagnóstico y programas de coaching cognitivo-conductual para equipos que enfrentan procrastinación, sobreanálisis, perfeccionismo y bloqueos de ejecución.",
-      },
-      { property: "og:title", content: "G-Structure Enterprise" },
-      {
-        property: "og:description",
-        content:
-          "Workshops de diagnóstico, programas piloto y procesos de continuidad para equipos de alta exigencia.",
-      },
+    meta: buildSeo({
+      path: "/enterprise",
+      title: "G-Structure Enterprise | Coaching para Equipos y Ejecución",
+      description:
+        "Diagnóstico, workshops y programas de coaching cognitivo-conductual para equipos y empresas en Ecuador. Reduce fricción interna y sostén la ejecución.",
+      image: etwBadge,
+    }),
+    links: canonicalLink("/enterprise"),
+    scripts: [
+      jsonLdScript(breadcrumbSchema([
+        { name: "Inicio", path: "/" },
+        { name: "Enterprise", path: "/enterprise" },
+      ])),
     ],
   }),
   component: Enterprise,
