@@ -16,14 +16,14 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const NAV = [
+  const NAV: Array<{ to: "/" | "/enterprise" | "/reestructura" | "/g-struct" | "/sobre-guillermo" | "/contacto"; label: string; exact?: boolean }> = [
     { to: "/", label: t("nav.home"), exact: true },
     { to: "/enterprise", label: t("nav.enterprise") },
     { to: "/reestructura", label: t("nav.reestructura") },
     { to: "/g-struct", label: t("nav.gstruct") },
     { to: "/sobre-guillermo", label: t("nav.aboutGuillermo") },
     { to: "/contacto", label: t("nav.contact") },
-  ] as const;
+  ];
 
   return (
     <header className={`sticky top-0 z-50 border-b bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70 transition-shadow duration-300 ${scrolled ? "border-border shadow-[0_8px_24px_-18px_rgba(5,50,90,0.25)]" : "border-transparent"}`}>
