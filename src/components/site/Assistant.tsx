@@ -126,7 +126,7 @@ export function Assistant({
                   {t("assistant.cta")} <ArrowRight size={14} />
                 </a>
                 <Link
-                  to="/contacto"
+                  to={(locale === "en" ? "/en/contact" : "/contacto") as string}
                   onClick={() => onOpenChange(false)}
                   className="inline-flex items-center justify-center gap-2 border border-foreground/30 px-4 py-3 text-[13px] font-medium text-foreground hover:border-foreground"
                 >

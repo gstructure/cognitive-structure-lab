@@ -1,6 +1,16 @@
 import { useState } from "react";
+import { useLocale } from "@/lib/i18n";
 
-const STEPS = [
+export type MethodStep = {
+  n: string;
+  t: string;
+  headline: string;
+  d: string;
+  micro: string;
+  bullets: string[];
+};
+
+const STEPS_ES: MethodStep[] = [
   {
     n: "01",
     t: "Identificar",
@@ -27,13 +37,43 @@ const STEPS = [
   },
 ];
 
-export function MethodTabs() {
+const STEPS_EN: MethodStep[] = [
+  {
+    n: "01",
+    t: "Identify",
+    headline: "We map the pattern before we intervene.",
+    d: "We surface automatic thoughts, rigid beliefs, avoidance, dysfunctional standards, postponement loops, and processing errors that interfere with execution.",
+    micro: "Understand the system first. Then intervene.",
+    bullets: ["Context reading", "Friction mapping", "Cognitive-behavioral hypothesis"],
+  },
+  {
+    n: "02",
+    t: "Reframe",
+    headline: "We reorganize how the problem is read.",
+    d: "We apply cognitive-behavioral methodology to challenge unproductive interpretations and build more functional responses — without falling into shallow positive thinking.",
+    micro: "It’s not about thinking positive. It’s about thinking with more precision.",
+    bullets: ["Structured reframing", "Belief work", "Functional risk reading"],
+  },
+  {
+    n: "03",
+    t: "Optimize",
+    headline: "We translate clarity into sustainable behavior.",
+    d: "We design decisions, routines, and protocols that sustain the change in day-to-day professional life. The goal is a clean exit toward action.",
+    micro: "Clarity must end in behavior.",
+    bullets: ["Behavioral design", "Decision protocols", "Continuity metrics"],
+  },
+];
+
+export function MethodTabs({ steps }: { steps?: MethodStep[] } = {}) {
+  const { locale } = useLocale();
+  const STEPS = steps ?? (locale === "en" ? STEPS_EN : STEPS_ES);
   const [active, setActive] = useState(0);
   const step = STEPS[active];
+  const tablistLabel = locale === "en" ? "I-R-O method steps" : "Pasos del método I-R-O";
   return (
     <div className="mt-12 grid gap-6 lg:grid-cols-12 lg:gap-10">
       <div className="lg:col-span-4">
-        <div role="tablist" aria-label="Pasos del método I-R-O" className="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible">
+        <div role="tablist" aria-label={tablistLabel} className="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible">
           {STEPS.map((s, i) => {
             const isActive = i === active;
             return (

@@ -4,8 +4,11 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useLocale } from "@/lib/i18n";
 
-const FAQS = [
+export type FAQItem = { q: string; a: string };
+
+const DEFAULT_ES: FAQItem[] = [
   {
     q: "¿G-Structure es terapia?",
     a: "No. Es un proceso de coaching cognitivo-conductual aplicado a la ejecución profesional. Si necesitas atención clínica de salud mental, te recomendamos un psicólogo o psicólogo clínico.",
@@ -28,7 +31,32 @@ const FAQS = [
   },
 ];
 
-export function FAQ() {
+const DEFAULT_EN: FAQItem[] = [
+  {
+    q: "Is G-Structure therapy?",
+    a: "No. It’s a cognitive-behavioral coaching process applied to professional execution. If you need clinical mental-health care, we recommend a licensed psychologist or clinical psychologist.",
+  },
+  {
+    q: "How does an engagement begin?",
+    a: "With a short initial conversation. We review your context, define whether G-Structure is the right fit, and propose a clear path: workshop, 1:1 process, Enterprise intervention, or continuity.",
+  },
+  {
+    q: "Do you work with companies or only with individuals?",
+    a: "Both. Enterprise is built for teams, founders, and organizations. RESTRUCTURE 1:1 is for professionals, leaders, and entrepreneurs who want to work on their own execution pattern.",
+  },
+  {
+    q: "What if I’m not sure what I need?",
+    a: "That’s precisely what the initial conversation is for. You don’t need to arrive with a diagnosis; we build it together.",
+  },
+  {
+    q: "What is G-Struct and when will it be available?",
+    a: "G-Struct is the technological layer of the method, in development with ÉPICO. It’s not yet publicly available. You can join the waitlist from the G-Struct page.",
+  },
+];
+
+export function FAQ({ items }: { items?: FAQItem[] } = {}) {
+  const { locale } = useLocale();
+  const FAQS = items ?? (locale === "en" ? DEFAULT_EN : DEFAULT_ES);
   return (
     <Accordion type="single" collapsible className="border-y border-border">
       {FAQS.map((f, i) => (
