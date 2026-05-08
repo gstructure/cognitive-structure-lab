@@ -38,10 +38,11 @@ export const Route = createFileRoute("/")({
 });
 
 function Hero() {
+  const t = useT();
   const steps = [
-    { n: "01", t: "Identificar", d: "Patrones que bloquean la acción." },
-    { n: "02", t: "Reencuadrar", d: "Lectura cognitivo-conductual aplicada." },
-    { n: "03", t: "Optimizar", d: "Decisiones traducidas en conducta." },
+    { n: "01", t: t("home.hero.step1.t"), d: t("home.hero.step1.d") },
+    { n: "02", t: t("home.hero.step2.t"), d: t("home.hero.step2.d") },
+    { n: "03", t: t("home.hero.step3.t"), d: t("home.hero.step3.d") },
   ];
   return (
     <section className="relative overflow-hidden border-b border-border">
@@ -74,30 +75,28 @@ function Hero() {
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-[color:var(--color-brand)]" />
               </span>
               <span className="text-[10px] font-semibold tracking-[0.22em] text-foreground">
-                HOST · ECUADOR TECH WEEK 2026
+                {t("home.hero.pillTitle")}
               </span>
               <span className="hidden sm:inline text-[11px] tracking-wide text-muted-foreground">
-                · Workshop de Diagnóstico · Julio 2026
+                {t("home.hero.pillSub")}
               </span>
               <ArrowUpRight size={14} className="text-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
 
-            <Eyebrow className="mt-8">G-STRUCTURE</Eyebrow>
+            <Eyebrow className="mt-8">{t("home.hero.eyebrow")}</Eyebrow>
             <h1 className="mt-5 max-w-2xl text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.04] text-foreground">
-              La ejecución no falla solo por falta de disciplina.
+              {t("home.hero.h1")}
             </h1>
             <p className="mt-6 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
-              G-Structure aplica coaching cognitivo-conductual para ayudar a líderes, profesionales y
-              equipos a identificar, reencuadrar y optimizar los patrones que bloquean la acción.
+              {t("home.hero.lead")}
             </p>
             <p className="mt-3 max-w-xl text-sm text-muted-foreground/90 leading-relaxed">
-              Procrastinación, perfeccionismo, sobreanálisis, autosabotaje y bloqueo de ejecución en
-              contextos profesionales de alta exigencia.
+              {t("home.hero.sub")}
             </p>
 
             <div className="mt-9 flex flex-wrap items-center gap-3">
-              <CTALink to="/contacto" variant="primary">Agendar conversación inicial</CTALink>
-              <CTALink to="/" hash="metodo" variant="outline">Conocer el método I-R-O</CTALink>
+              <CTALink to="/contacto" variant="primary">{t("home.hero.ctaPrimary")}</CTALink>
+              <CTALink to="/" hash="metodo" variant="outline">{t("home.hero.ctaSecondary")}</CTALink>
             </div>
 
             <div className="mt-12 grid gap-3 sm:grid-cols-3">
