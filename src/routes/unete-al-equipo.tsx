@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/site/Section";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { Eyebrow } from "@/components/site/Eyebrow";
-import { CTALink } from "@/components/site/CTAButton";
+import { CTALink, CTAExternal } from "@/components/site/CTAButton";
 
 export const Route = createFileRoute("/unete-al-equipo")({
   head: () => ({
