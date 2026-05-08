@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight, Handshake, Users } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Handshake, Users, Calendar, MapPin, ExternalLink, Sparkles } from "lucide-react";
 import { Section } from "@/components/site/Section";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { Eyebrow } from "@/components/site/Eyebrow";
@@ -11,6 +11,9 @@ import { CTALink, CTAExternal } from "@/components/site/CTAButton";
 import { BrandMark } from "@/components/brand/Logo";
 import logoCube from "@/assets/g-structure-cube.png";
 import gStructHomePreview from "@/assets/g-struct-home-preview.png";
+import etwBadge from "@/assets/etw-2026-badge.png";
+
+const ETW_URL = "https://luma.com/lm4njhiu";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -58,15 +61,24 @@ function Hero() {
       <div className="container-x relative py-16 md:py-24 lg:py-28">
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-10 lg:items-center">
           <div className="lg:col-span-7">
-            <div className="inline-flex flex-col items-start gap-1.5 border border-foreground/15 bg-[color:var(--color-surface)]/80 backdrop-blur px-3.5 py-2.5 shadow-[0_1px_0_0_rgba(5,50,90,0.04),0_8px_24px_-12px_rgba(5,50,90,0.18)]">
-              <span className="inline-flex items-center gap-2 text-[10px] font-semibold tracking-[0.22em] text-foreground">
-                <span className="h-1.5 w-1.5 bg-foreground" />
+            <a
+              href={ETW_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="group inline-flex items-center gap-3 border border-foreground/15 bg-[color:var(--color-surface)]/85 backdrop-blur px-3.5 py-2.5 shadow-[0_1px_0_0_rgba(5,50,90,0.04),0_8px_24px_-12px_rgba(5,50,90,0.18)] transition-all hover:border-foreground/35 hover:-translate-y-0.5"
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[color:var(--color-brand)] opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-[color:var(--color-brand)]" />
+              </span>
+              <span className="text-[10px] font-semibold tracking-[0.22em] text-foreground">
                 HOST · ECUADOR TECH WEEK 2026
               </span>
-              <span className="text-[11px] tracking-wide text-muted-foreground">
-                Workshop de Diagnóstico de Ejecución · Julio 2026
+              <span className="hidden sm:inline text-[11px] tracking-wide text-muted-foreground">
+                · Workshop de Diagnóstico · Julio 2026
               </span>
-            </div>
+              <ArrowUpRight size={14} className="text-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
 
             <Eyebrow className="mt-8">G-STRUCTURE</Eyebrow>
             <h1 className="mt-5 max-w-2xl text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.04] text-foreground">
@@ -125,99 +137,183 @@ function Hero() {
 }
 
 function HeroVisual({ compact = false }: { compact?: boolean }) {
+  // System mockup: stacked I-R-O panels presented as a working product surface.
   return (
-    <div className={`relative ${compact ? "h-[360px]" : "h-[520px]"} w-full`}>
-      <div className="absolute inset-0 border border-border bg-[color:var(--color-surface)]/60 backdrop-blur-sm" aria-hidden="true" />
-      {[
-        "top-2 left-2 border-t border-l",
-        "top-2 right-2 border-t border-r",
-        "bottom-2 left-2 border-b border-l",
-        "bottom-2 right-2 border-b border-r",
-      ].map((p) => (
-        <span
-          key={p}
-          className={`pointer-events-none absolute h-3 w-3 border-foreground/40 ${p}`}
-          aria-hidden="true"
-        />
-      ))}
-
-      <div className="absolute inset-0 grid-bg opacity-50" aria-hidden="true" />
-
+    <div className={`relative ${compact ? "h-[460px]" : "h-[600px]"} w-full`}>
+      {/* Ambient backdrop */}
       <div
-        className="absolute inset-x-6 top-6 h-[60%] rounded-full opacity-[0.18] blur-3xl"
-        style={{ background: "radial-gradient(closest-side, var(--color-brand), transparent)" }}
-        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none"
+        aria-hidden
+        style={{
+          background:
+            "radial-gradient(420px 280px at 75% 12%, color-mix(in oklch, var(--color-brand) 16%, transparent), transparent 70%), radial-gradient(360px 260px at 10% 95%, color-mix(in oklch, var(--color-brand-deep) 14%, transparent), transparent 70%)",
+        }}
       />
+      <div className="absolute inset-0 grid-bg opacity-30" aria-hidden />
 
-      <div className="absolute inset-0 flex items-center justify-center">
-        <img
-          src={logoCube}
-          alt=""
-          aria-hidden="true"
-          className={`${compact ? "h-44 w-44" : "h-72 w-72"} object-contain drop-shadow-[0_24px_40px_rgba(5,50,90,0.25)]`}
-        />
-      </div>
-
-      <div className="absolute left-4 top-6 border border-border bg-[color:var(--color-surface)] px-2.5 py-1.5 shadow-[0_8px_24px_-16px_rgba(5,50,90,0.4)]">
-        <span className="font-display text-[10px] font-semibold tracking-[0.22em] text-foreground">
-          SISTEMA · I-R-O
+      {/* Top frame badge */}
+      <div className="absolute left-0 right-0 top-0 flex items-center justify-between text-[10px] tracking-[0.22em] text-muted-foreground">
+        <span className="inline-flex items-center gap-2">
+          <span className="h-1.5 w-1.5 bg-[color:var(--color-brand)]" />
+          G-STRUCTURE · COGNITIVE OS
         </span>
-      </div>
-      <div className="absolute right-4 top-16 border border-border bg-[color:var(--color-surface)] px-2.5 py-1.5 shadow-[0_8px_24px_-16px_rgba(5,50,90,0.4)]">
-        <span className="font-display text-[10px] font-semibold tracking-[0.22em] text-foreground">
-          COGNITIVO · CONDUCTUAL
-        </span>
-      </div>
-      <div className="absolute bottom-6 left-6 border border-border bg-[color:var(--color-surface)] px-3 py-2 shadow-[0_8px_24px_-16px_rgba(5,50,90,0.4)]">
-        <span className="block font-display text-[10px] font-semibold tracking-[0.22em] text-muted-foreground">
-          EJECUCIÓN
-        </span>
-        <span className="block text-[12px] font-medium text-foreground">Patrones · Decisiones · Conducta</span>
-      </div>
-      <div className="absolute bottom-10 right-4 border border-foreground/20 bg-[color:var(--color-brand-deep)] px-3 py-2 text-[color:var(--color-background)] shadow-[0_12px_28px_-14px_rgba(5,50,90,0.55)]">
-        <span className="block font-display text-[10px] font-semibold tracking-[0.22em] opacity-70">
-          ETW 2026
-        </span>
-        <span className="block text-[12px] font-medium">Workshop · 14 Julio</span>
+        <span>v0.1 · LIVE</span>
       </div>
 
-      <svg className="absolute inset-0 h-full w-full pointer-events-none" aria-hidden="true">
-        <defs>
-          <linearGradient id="lineGrad" x1="0" x2="1" y1="0" y2="1">
-            <stop offset="0%" stopColor="var(--color-brand)" stopOpacity="0.35" />
-            <stop offset="100%" stopColor="var(--color-brand)" stopOpacity="0" />
-          </linearGradient>
-        </defs>
-        <line x1="22%" y1="20%" x2="50%" y2="50%" stroke="url(#lineGrad)" strokeWidth="1" />
-        <line x1="78%" y1="28%" x2="50%" y2="50%" stroke="url(#lineGrad)" strokeWidth="1" />
-        <line x1="28%" y1="82%" x2="50%" y2="50%" stroke="url(#lineGrad)" strokeWidth="1" />
-        <line x1="80%" y1="78%" x2="50%" y2="50%" stroke="url(#lineGrad)" strokeWidth="1" />
-      </svg>
+      {/* Panel 03 — Optimizar (back) */}
+      <div className="absolute right-0 top-10 w-[78%] border border-border bg-[color:var(--color-surface)]/95 backdrop-blur shadow-elev-2 p-5 rotate-[1.5deg]">
+        <div className="flex items-center justify-between">
+          <span className="font-display text-[10px] font-semibold tracking-[0.22em] text-muted-foreground">03 · OPTIMIZAR</span>
+          <span className="text-[10px] tracking-wide text-muted-foreground">Plan de acción</span>
+        </div>
+        <div className="mt-4 grid grid-cols-3 gap-2">
+          {["Decidir", "Ejecutar", "Sostener"].map((b) => (
+            <div key={b} className="border border-border bg-background px-2 py-2 text-[11px] text-foreground/80">{b}</div>
+          ))}
+        </div>
+        <div className="mt-3 h-1.5 w-full bg-border overflow-hidden">
+          <div className="h-full w-[72%] bg-[color:var(--color-brand)]" />
+        </div>
+        <div className="mt-2 flex justify-between text-[10px] text-muted-foreground">
+          <span>Continuidad</span><span className="text-foreground font-semibold">72%</span>
+        </div>
+      </div>
+
+      {/* Panel 02 — Reencuadrar (mid) */}
+      <div className="absolute right-6 top-32 w-[82%] border border-border bg-[color:var(--color-surface)] shadow-elev-3 p-5 -rotate-[1deg]">
+        <div className="flex items-center justify-between">
+          <span className="font-display text-[10px] font-semibold tracking-[0.22em] text-[color:var(--color-brand)]">02 · REENCUADRAR</span>
+          <span className="text-[10px] text-muted-foreground">Patrón cognitivo</span>
+        </div>
+        <p className="mt-3 text-[13px] leading-snug text-foreground">
+          “Si no es perfecto, no lo entrego.” → <span className="font-semibold">Avanzar con criterio reduce el costo de no decidir.</span>
+        </p>
+        <div className="mt-4 flex items-center gap-2 text-[10px] tracking-[0.18em] text-muted-foreground">
+          <span className="border border-border px-2 py-1">PERFECCIONISMO</span>
+          <span className="border border-border px-2 py-1">EVITACIÓN</span>
+        </div>
+      </div>
+
+      {/* Panel 01 — Identificar (front, focus) */}
+      <div className="absolute left-0 bottom-4 w-[88%] border border-foreground/15 bg-[color:var(--color-brand-deep)] text-[color:var(--color-background)] shadow-[0_30px_60px_-22px_rgba(5,50,90,0.45)] p-5">
+        <div className="flex items-center justify-between">
+          <span className="font-display text-[10px] font-semibold tracking-[0.22em] text-[color:var(--color-background)]/70">01 · IDENTIFICAR</span>
+          <span className="text-[10px] text-[color:var(--color-background)]/60">Sesión activa</span>
+        </div>
+        <p className="mt-3 text-[14px] leading-snug">
+          Patrón detectado: <span className="font-semibold">postergación bajo presión de decisión estratégica.</span>
+        </p>
+        <div className="mt-4 grid grid-cols-3 gap-3 text-[10px] tracking-wide text-[color:var(--color-background)]/75">
+          <div>
+            <p className="text-[color:var(--color-background)]/55">Fricción</p>
+            <p className="mt-1 text-[color:var(--color-background)] font-display text-base font-semibold">Alta</p>
+          </div>
+          <div>
+            <p className="text-[color:var(--color-background)]/55">Recurrencia</p>
+            <p className="mt-1 text-[color:var(--color-background)] font-display text-base font-semibold">7d</p>
+          </div>
+          <div>
+            <p className="text-[color:var(--color-background)]/55">Salida</p>
+            <p className="mt-1 text-[color:var(--color-background)] font-display text-base font-semibold">Diseño</p>
+          </div>
+        </div>
+        <div className="mt-4 flex items-center justify-between border-t border-[color:var(--color-background)]/15 pt-3">
+          <span className="text-[10px] tracking-[0.22em] text-[color:var(--color-background)]/60">I → R → O</span>
+          <span className="inline-flex items-center gap-1 text-[11px] font-semibold">
+            Reencuadrar <ArrowRight size={12} />
+          </span>
+        </div>
+      </div>
+
+      {/* Floating mark */}
+      <div className="absolute right-2 bottom-2 inline-flex items-center gap-2 border border-border bg-[color:var(--color-surface)] px-2.5 py-1.5 shadow-elev-1">
+        <img src={logoCube} alt="" aria-hidden className="h-4 w-4 object-contain" />
+        <span className="font-display text-[10px] font-semibold tracking-[0.22em] text-foreground">SISTEMA I-R-O</span>
+      </div>
     </div>
   );
 }
 
 function ETWBanner() {
   return (
-    <section className="border-b border-border bg-[color:var(--color-brand-soft)]/30">
-      <div className="container-x py-12 md:py-16">
-        <div className="grid gap-8 md:grid-cols-12 md:items-end">
-          <div className="md:col-span-8">
-            <div className="inline-flex items-center gap-2 border border-foreground/20 px-2.5 py-1 text-[10px] font-semibold tracking-[0.22em] text-foreground">
-              <span className="h-1.5 w-1.5 bg-foreground" /> HOST 2026
-            </div>
-            <h2 className="mt-4 font-display text-2xl md:text-3xl font-semibold leading-tight">
-              G-Structure será host de Ecuador Tech Week 2026.
-            </h2>
-            <p className="mt-3 text-sm md:text-base text-muted-foreground max-w-2xl leading-relaxed">
-              El 14 de julio, G-Structure presentará el Workshop de Diagnóstico de Ejecución como
-              parte de Ecuador Tech Week 2026: una experiencia diseñada para identificar patrones
-              que bloquean la acción en profesionales, emprendedores y equipos.
-            </p>
+    <section className="relative overflow-hidden border-b border-border">
+      <div
+        className="absolute inset-0"
+        aria-hidden
+        style={{
+          background:
+            "linear-gradient(135deg, var(--color-brand-deep) 0%, var(--color-brand) 55%, color-mix(in oklch, var(--color-brand) 70%, #d4a90a) 100%)",
+        }}
+      />
+      <div className="absolute inset-0 dot-bg-inverse opacity-[0.12]" aria-hidden />
+      <div
+        className="absolute -left-20 top-1/2 -translate-y-1/2 h-[420px] w-[420px] rounded-full opacity-30 blur-3xl"
+        aria-hidden
+        style={{ background: "radial-gradient(closest-side, #ffd400, transparent)" }}
+      />
+
+      <div className="container-x relative py-14 md:py-20">
+        <div className="grid gap-10 md:grid-cols-12 md:items-center">
+          <div className="md:col-span-5 lg:col-span-4">
+            <Reveal>
+              <div className="relative">
+                <div
+                  className="absolute -inset-4 opacity-40 blur-2xl"
+                  aria-hidden
+                  style={{ background: "radial-gradient(closest-side, #ffd400, transparent)" }}
+                />
+                <a href={ETW_URL} target="_blank" rel="noreferrer" className="block">
+                  <img
+                    src={etwBadge}
+                    alt="Badge oficial Host Ecuador Tech Week 2026 — G-Structure"
+                    width={1080}
+                    height={1350}
+                    className="relative w-full max-w-[360px] mx-auto md:mx-0 h-auto shadow-[0_30px_60px_-20px_rgba(0,0,0,0.55)] ring-1 ring-white/15"
+                  />
+                </a>
+              </div>
+            </Reveal>
           </div>
-          <div className="md:col-span-4 flex flex-wrap gap-3 md:justify-end">
-            <CTALink to="/enterprise" variant="primary">Conocer Enterprise</CTALink>
-            <CTALink to="/contacto" variant="ghost">Info del workshop</CTALink>
+
+          <div className="md:col-span-7 lg:col-span-8 text-[color:var(--color-background)]">
+            <div className="inline-flex items-center gap-2 border border-white/30 bg-white/10 backdrop-blur px-2.5 py-1 text-[10px] font-semibold tracking-[0.22em]">
+              <Sparkles size={12} /> ANUNCIO OFICIAL · ETW 2026
+            </div>
+            <h2 className="mt-5 font-display text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.05]">
+              G-Structure es Host de Ecuador Tech Week 2026.
+            </h2>
+            <p className="mt-4 max-w-2xl text-base md:text-lg text-white/85 leading-relaxed">
+              Presentamos el <strong className="text-white">Workshop de Diagnóstico de Ejecución</strong> dentro
+              de Ecuador Tech Week® powered by Startup Grind. Una experiencia curada para identificar
+              patrones que bloquean la acción en profesionales, founders y equipos.
+            </p>
+
+            <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/85">
+              <span className="inline-flex items-center gap-2"><Calendar size={14} /> 11–19 Julio, 2026</span>
+              <span className="inline-flex items-center gap-2"><MapPin size={14} /> Guayaquil, Ecuador</span>
+              <span className="inline-flex items-center gap-2 text-white/70">Powered by Startup Grind</span>
+            </div>
+
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <a
+                href={ETW_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="group inline-flex items-center gap-2 bg-white px-5 py-3 text-[13px] font-semibold tracking-wide text-[color:var(--color-brand-deep)] transition-all hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-12px_rgba(0,0,0,0.4)]"
+              >
+                Ver evento oficial
+                <ExternalLink size={14} className="transition-transform group-hover:translate-x-0.5" />
+              </a>
+              <Link
+                to="/aliados-etw-2026"
+                className="inline-flex items-center gap-2 border border-white/40 px-5 py-3 text-[13px] font-medium text-white transition-colors hover:bg-white/10"
+              >
+                Quiero ser aliado <ArrowRight size={14} />
+              </Link>
+            </div>
+            <p className="mt-4 text-[11px] tracking-wide text-white/60">
+              #SoyHost · Compartimos el propósito de hacer del Ecuador un referente tecnológico regional.
+            </p>
           </div>
         </div>
       </div>
