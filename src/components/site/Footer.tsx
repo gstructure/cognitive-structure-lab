@@ -1,30 +1,15 @@
 import { Link } from "@tanstack/react-router";
 import { Logo } from "@/components/brand/Logo";
 import { SocialLinks } from "@/components/site/SocialLinks";
-import { useT } from "@/lib/i18n";
+import { useLocale, useT } from "@/lib/i18n";
+import { navForLocale, opportunitiesForLocale } from "@/lib/routeMap";
 
 export function Footer() {
+  const { locale } = useLocale();
   const t = useT();
   const COLS = [
-    {
-      title: t("nav.navigation"),
-      links: [
-        { to: "/", label: t("nav.home") },
-        { to: "/enterprise", label: t("nav.enterprise") },
-        { to: "/reestructura", label: t("nav.reestructura") },
-        { to: "/g-struct", label: t("nav.gstruct") },
-        { to: "/sobre-guillermo", label: t("nav.aboutGuillermo") },
-        { to: "/contacto", label: t("nav.contact") },
-      ],
-    },
-    {
-      title: t("nav.opportunities"),
-      links: [
-        { to: "/aliados-etw-2026", label: t("nav.allies") },
-        { to: "/unete-al-equipo", label: t("nav.joinTeam") },
-        { to: "/g-struct", label: "G-Struct updates" },
-      ],
-    },
+    { title: t("nav.navigation"), links: navForLocale(locale).map((n) => ({ to: n.to, label: n.label })) },
+    { title: t("nav.opportunities"), links: opportunitiesForLocale(locale) },
   ] as const;
   return (
     <footer className="border-t border-border bg-background">
@@ -44,7 +29,7 @@ export function Footer() {
                 {col.links.map((l) => (
                   <li key={`${col.title}-${l.to}-${l.label}`}>
                     <Link
-                      to={l.to}
+                      to={l.to as string}
                       className="text-sm text-foreground/80 hover:text-foreground transition-colors"
                     >
                       {l.label}

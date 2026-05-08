@@ -1,5 +1,7 @@
-import { createContext, useContext, useEffect, useMemo, useState, useCallback } from "react";
+import { createContext, useContext, useEffect, useMemo, useCallback } from "react";
+import { useRouterState, useNavigate } from "@tanstack/react-router";
 import { dictionaries, type Dict } from "./translations";
+import { localeFromPath, swapLocalePath } from "./routeMap";
 
 export type Locale = "es" | "en";
 
@@ -12,49 +14,25 @@ type Ctx = {
 
 const LocaleContext = createContext<Ctx | null>(null);
 
-const STORAGE_KEY = "g-structure:locale";
-
-function readInitialLocale(): Locale {
-  if (typeof window === "undefined") return "es";
-  const url = new URL(window.location.href);
-  const q = url.searchParams.get("lang");
-  if (q === "en" || q === "es") return q;
-  const stored = window.localStorage.getItem(STORAGE_KEY);
-  if (stored === "en" || stored === "es") return stored as Locale;
-  const nav = window.navigator?.language?.toLowerCase() ?? "";
-  return nav.startsWith("en") ? "en" : "es";
-}
-
 export function LocaleProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("es");
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    const initial = readInitialLocale();
-    setLocaleState(initial);
-  }, []);
+  const locale: Locale = localeFromPath(pathname);
 
-  // Reflect locale on <html lang> + URL ?lang= and persist
+  // Reflect locale on <html lang>
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    if (typeof document === "undefined") return;
     document.documentElement.setAttribute("lang", locale);
-    try {
-      window.localStorage.setItem(STORAGE_KEY, locale);
-    } catch {}
-    const url = new URL(window.location.href);
-    if (locale === "en") {
-      if (url.searchParams.get("lang") !== "en") {
-        url.searchParams.set("lang", "en");
-        window.history.replaceState({}, "", url.toString());
-      }
-    } else {
-      if (url.searchParams.has("lang")) {
-        url.searchParams.delete("lang");
-        window.history.replaceState({}, "", url.toString());
-      }
-    }
   }, [locale]);
 
-  const setLocale = useCallback((l: Locale) => setLocaleState(l), []);
+  const setLocale = useCallback(
+    (l: Locale) => {
+      const target = swapLocalePath(pathname, l);
+      navigate({ to: target as string, replace: false });
+    },
+    [pathname, navigate],
+  );
 
   const dict = dictionaries[locale];
 
@@ -84,7 +62,7 @@ export function LocaleProvider({ children }: { children: React.ReactNode }) {
       if (typeof es === "string") return es;
       return fallback ?? key;
     },
-    [dict]
+    [dict],
   );
 
   const value = useMemo<Ctx>(() => ({ locale, setLocale, t, dict }), [locale, setLocale, t, dict]);
@@ -94,7 +72,6 @@ export function LocaleProvider({ children }: { children: React.ReactNode }) {
 export function useLocale(): Ctx {
   const ctx = useContext(LocaleContext);
   if (!ctx) {
-    // SSR-safe fallback
     return {
       locale: "es",
       setLocale: () => {},
