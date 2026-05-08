@@ -11,9 +11,6 @@ import {
 import appCss from "../styles.css?url";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
-import { LocaleProvider } from "@/lib/i18n";
-import { WhatsAppFAB } from "@/components/site/WhatsAppFAB";
-import { SITE_URL, organizationSchema, websiteSchema, jsonLdScript } from "@/lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -71,10 +68,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "theme-color", content: "#05325A" },
-      { name: "format-detection", content: "telephone=no" },
+      { title: "G-Structure | Coaching Cognitivo-Conductual para Ejecución" },
+      {
+        name: "description",
+        content:
+          "Coaching cognitivo-conductual para líderes, profesionales y equipos que buscan superar procrastinación, perfeccionismo y bloqueos de ejecución.",
+      },
       { name: "author", content: "G-Structure" },
-      { property: "og:site_name", content: "G-Structure" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "G-Structure | Coaching Cognitivo-Conductual para Ejecución" },
+      { name: "twitter:title", content: "G-Structure | Coaching Cognitivo-Conductual para Ejecución" },
+      { name: "description", content: "Coaching cognitivo-conductual para líderes y equipos que buscan superar procrastinación, perfeccionismo y bloqueos de ejecución." },
+      { property: "og:description", content: "Coaching cognitivo-conductual para líderes y equipos que buscan superar procrastinación, perfeccionismo y bloqueos de ejecución." },
+      { name: "twitter:description", content: "Coaching cognitivo-conductual para líderes y equipos que buscan superar procrastinación, perfeccionismo y bloqueos de ejecución." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/Je5n00n0siaOKAzfx3HmB52X2ke2/social-images/social-1778275109597-G-Structure_Banner.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/Je5n00n0siaOKAzfx3HmB52X2ke2/social-images/social-1778275109597-G-Structure_Banner.webp" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -84,14 +93,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&display=swap",
       },
-      { rel: "icon", href: "/favicon.ico", sizes: "any" },
-      { rel: "icon", href: "/favicon-32.png", type: "image/png", sizes: "32x32" },
-      { rel: "icon", href: "/favicon-16.png", type: "image/png", sizes: "16x16" },
-      { rel: "apple-touch-icon", href: "/apple-touch-icon.png", sizes: "180x180" },
-      { rel: "manifest", href: "/site.webmanifest" },
-    ],
-    scripts: [
-      jsonLdScript([organizationSchema, websiteSchema]),
     ],
   }),
   shellComponent: RootShell,
@@ -118,16 +119,13 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
-      <LocaleProvider>
-        <div className="flex min-h-screen flex-col">
-          <Header />
-          <main className="flex-1">
-            <Outlet />
-          </main>
-          <Footer />
-        </div>
-        <WhatsAppFAB />
-      </LocaleProvider>
+      <div className="flex min-h-screen flex-col">
+        <Header />
+        <main className="flex-1">
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
     </QueryClientProvider>
   );
 }
