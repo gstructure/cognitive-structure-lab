@@ -56,7 +56,7 @@ export function Footer() {
           ))}
 
           <div className="md:col-span-4">
-            <p className="eyebrow mb-4">Contacto</p>
+            <p className="eyebrow mb-4">{t("nav.contactCol")}</p>
             <ul className="space-y-2.5 text-sm">
               <li>
                 <a href="mailto:guillermo@g-structure.co" className="text-foreground/80 hover:text-foreground">
@@ -77,17 +77,15 @@ export function Footer() {
         </div>
 
         <p className="mt-14 max-w-3xl text-xs text-muted-foreground leading-relaxed">
-          G-Structure ofrece servicios de coaching y formación cognitivo-conductual aplicada a la
-          ejecución. No sustituye atención psicológica, médica o psiquiátrica.
+          {t("common.legal")}
         </p>
 
         <div className="mt-6 pt-6 border-t border-border flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} G-Structure. Todos los derechos reservados. Una iniciativa
-            de Guillermo Suco.
+            © {new Date().getFullYear()} G-Structure. {t("common.rightsReserved")} {t("common.initiativeOf")}
           </p>
           <p className="text-xs text-muted-foreground tracking-wide">
-            Identificar · Reencuadrar · Optimizar
+            {t("footer.irO")}
           </p>
         </div>
       </div>
