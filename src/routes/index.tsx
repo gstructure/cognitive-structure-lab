@@ -9,6 +9,7 @@ import { FAQ } from "@/components/site/FAQ";
 
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
 import { BrandMark } from "@/components/brand/Logo";
+import { GuillermoPortrait } from "@/components/site/GuillermoPortrait";
 import logoCube from "@/assets/g-structure-cube.png";
 import gStructHomePreview from "@/assets/g-struct-home-preview.png";
 import etwBadge from "@/assets/etw-2026-badge.png";
