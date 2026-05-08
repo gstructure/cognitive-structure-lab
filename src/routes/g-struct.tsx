@@ -162,12 +162,3 @@ function Page() {
     </div>
   );
 }
-
-function Pill({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="inline-flex w-full items-center justify-between border border-[color:var(--color-background)]/25 px-4 py-2.5 text-xs tracking-wide">
-      <span>{children}</span>
-      <span className="opacity-50">→</span>
-    </div>
-  );
-}
