@@ -3,6 +3,7 @@ import { Eyebrow } from "@/components/site/Eyebrow";
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
 import { BrandMark } from "@/components/brand/Logo";
 import { Check } from "lucide-react";
+import { Timeline } from "@/components/site/Timeline";
 import gStructEcosystem from "@/assets/g-struct-ecosystem.png";
 
 export const Route = createFileRoute("/g-struct")({
@@ -149,12 +150,18 @@ function Page() {
           <div className="lg:col-span-5">
             <div className="border border-[color:var(--color-background)]/25 p-8">
               <p className="text-[10px] tracking-[0.22em] text-[color:var(--color-background)]/70">ROADMAP</p>
-              <ul className="mt-5 space-y-4 text-sm text-[color:var(--color-background)]/85">
-                <li className="flex gap-3"><Check size={16} className="mt-0.5 shrink-0" /><span>Diseño de arquitectura cognitivo-conductual.</span></li>
-                <li className="flex gap-3"><Check size={16} className="mt-0.5 shrink-0" /><span>Prototipo funcional inicial junto a ÉPICO.</span></li>
-                <li className="flex gap-3 opacity-80"><span className="mt-1 h-2 w-2 shrink-0 border border-[color:var(--color-background)]/70" /><span>Beta cerrada con primeros usuarios y equipos.</span></li>
-                <li className="flex gap-3 opacity-60"><span className="mt-1 h-2 w-2 shrink-0 border border-[color:var(--color-background)]/40" /><span>Lanzamiento público de v1.</span></li>
-              </ul>
+              <div className="mt-6">
+                <Timeline
+                  tone="dark"
+                  items={[
+                    { n: "FASE 01", t: "Arquitectura cognitivo-conductual", d: "Diseño del modelo I-R-O sobre el que opera la app.", status: "done" },
+                    { n: "FASE 02", t: "Prototipo con ÉPICO", d: "Diseño del MVP en el Design Sprint con ÉPICO.", status: "done" },
+                    { n: "FASE 03", t: "Pitch & CodeLaunch LATAM 2026", d: "Postulación al programa CodeLaunch para acelerar el desarrollo.", status: "active" },
+                    { n: "FASE 04", t: "Beta cerrada", d: "Primeros usuarios y equipos validando el flujo." },
+                    { n: "FASE 05", t: "Lanzamiento v1 y Dallas", d: "Próximo objetivo: presentación internacional." },
+                  ]}
+                />
+              </div>
             </div>
           </div>
         </div>

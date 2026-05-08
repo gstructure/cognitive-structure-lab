@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/site/Section";
 import { Eyebrow } from "@/components/site/Eyebrow";
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
+import { Timeline } from "@/components/site/Timeline";
 
 export const Route = createFileRoute("/sobre-guillermo")({
   head: () => ({
@@ -78,22 +79,17 @@ function Page() {
           </div>
 
           <aside className="lg:col-span-5">
-            <div className="border border-border bg-[color:var(--color-surface)] p-8">
-              <p className="eyebrow mb-5">Trayectoria</p>
-              <ul className="space-y-5">
-                {[
-                  { t: "CBT Coach Practitioner", d: "Acreditado por la Complementary Therapists Accredited Association (CTAA)." },
-                  { t: "Psicología e Intervención", d: "Formación en Psicología e Intervención Psicológica en el Desarrollo y la Educación." },
-                  { t: "Educación", d: "Experiencia en docencia, consejería estudiantil y formación nacional e internacional." },
-                  { t: "Gerencia internacional", d: "Gerencia de proyectos a bordo del MV Logos Hope, en contextos multiculturales." },
-                  { t: "G-Struct", d: "Desarrollo y prototipado junto a ÉPICO." },
-                ].map((c) => (
-                  <li key={c.t} className="border-b border-border pb-4 last:border-0 last:pb-0">
-                    <p className="font-display text-sm font-semibold">{c.t}</p>
-                    <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{c.d}</p>
-                  </li>
-                ))}
-              </ul>
+            <div className="border border-border bg-[color:var(--color-surface)] p-8 shadow-elev-1">
+              <p className="eyebrow mb-6">Trayectoria</p>
+              <Timeline
+                items={[
+                  { n: "FORMACIÓN", t: "Psicología e Intervención", d: "Formación en Psicología e Intervención Psicológica en el Desarrollo y la Educación.", status: "done" },
+                  { n: "ACREDITACIÓN", t: "CBT Coach Practitioner", d: "Acreditado por la Complementary Therapists Accredited Association (CTAA).", status: "done" },
+                  { n: "EDUCACIÓN", t: "Docencia y consejería", d: "Experiencia en docencia, consejería estudiantil y formación nacional e internacional.", status: "done" },
+                  { n: "INTERNACIONAL", t: "MV Logos Hope", d: "Gerencia de proyectos a bordo, en contextos multiculturales y de alta exigencia.", status: "done" },
+                  { n: "ACTUAL", t: "G-Structure & G-Struct", d: "Dirección metodológica del ecosistema. Desarrollo de G-Struct junto a ÉPICO.", status: "active" },
+                ]}
+              />
             </div>
           </aside>
         </div>

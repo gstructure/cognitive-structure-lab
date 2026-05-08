@@ -1,8 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Handshake, Users } from "lucide-react";
 import { Section } from "@/components/site/Section";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { Eyebrow } from "@/components/site/Eyebrow";
+import { Reveal } from "@/components/site/Reveal";
+import { MethodTabs } from "@/components/site/MethodTabs";
+import { FAQ } from "@/components/site/FAQ";
 
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
 import { BrandMark } from "@/components/brand/Logo";
@@ -222,6 +225,7 @@ function ETWBanner() {
   );
 }
 
+
 function Announcements() {
   return (
     <Section>
@@ -231,41 +235,58 @@ function Announcements() {
         subtitle="Estamos abriendo espacios estratégicos para aliados y colaboradores que quieran ser parte del crecimiento inicial del ecosistema G-Structure."
       />
       <div className="mt-12 grid gap-6 md:grid-cols-2">
-        <AnnouncementCard
-          tag="ALIADOS ETW 2026"
-          title="Aliados para el Workshop de Diagnóstico de Ejecución"
-          body="G-Structure está abriendo oportunidades de alianza para marcas, instituciones y empresas que quieran vincularse al Workshop de Diagnóstico de Ejecución durante Ecuador Tech Week 2026."
-          short="Buscamos aliados que entiendan el valor de apoyar conversaciones serias sobre ejecución, claridad, tecnología, emprendimiento y desarrollo profesional."
-          cta="Quiero ser aliado"
-          to="/aliados-etw-2026"
-          micro="Espacios limitados para aliados estratégicos, experiencia, sede o contenido."
-        />
-        <AnnouncementCard
-          tag="EQUIPO INICIAL"
-          title="Estamos formando el equipo que construirá G-Structure y G-Struct"
-          body="Buscamos colaboradores voluntarios en áreas clave para fortalecer la siguiente etapa del proyecto: producto, tecnología, ventas, marketing y negocios internacionales."
-          short="No buscamos espectadores. Buscamos personas con criterio, iniciativa y ganas de construir desde una etapa temprana."
-          cta="Quiero unirme al equipo"
-          to="/unete-al-equipo"
-          micro="Participación inicial voluntaria, con enfoque en construcción real, portafolio, aprendizaje aplicado y posible continuidad conforme el proyecto avance."
-        />
+        <Reveal>
+          <AnnouncementCard
+            icon={<Handshake size={20} />}
+            tag="ALIADOS ETW 2026"
+            title="Aliados para el Workshop de Diagnóstico de Ejecución"
+            body="G-Structure está abriendo oportunidades de alianza para marcas, instituciones y empresas que quieran vincularse al Workshop de Diagnóstico de Ejecución durante Ecuador Tech Week 2026."
+            short="Buscamos aliados que entiendan el valor de apoyar conversaciones serias sobre ejecución, claridad, tecnología, emprendimiento y desarrollo profesional."
+            cta="Quiero ser aliado"
+            to="/aliados-etw-2026"
+            micro="Espacios limitados para aliados estratégicos, experiencia, sede o contenido."
+          />
+        </Reveal>
+        <Reveal delay={120}>
+          <AnnouncementCard
+            icon={<Users size={20} />}
+            tag="EQUIPO INICIAL"
+            title="Estamos formando el equipo que construirá G-Structure y G-Struct"
+            body="Buscamos colaboradores voluntarios en áreas clave para fortalecer la siguiente etapa del proyecto: producto, tecnología, ventas, marketing y negocios internacionales."
+            short="No buscamos espectadores. Buscamos personas con criterio, iniciativa y ganas de construir desde una etapa temprana."
+            cta="Quiero unirme al equipo"
+            to="/unete-al-equipo"
+            micro="Participación inicial voluntaria, con enfoque en construcción real, portafolio, aprendizaje aplicado y posible continuidad conforme el proyecto avance."
+          />
+        </Reveal>
       </div>
     </Section>
   );
 }
 
 function AnnouncementCard({
-  tag, title, body, short, cta, to, micro,
-}: { tag: string; title: string; body: string; short: string; cta: string; to: string; micro: string }) {
+  icon, tag, title, body, short, cta, to, micro,
+}: { icon: React.ReactNode; tag: string; title: string; body: string; short: string; cta: string; to: string; micro: string }) {
   return (
-    <div className="flex flex-col border border-border bg-[color:var(--color-surface)] p-8 md:p-10">
-      <span className="eyebrow">{tag}</span>
-      <h3 className="mt-4 font-display text-xl md:text-2xl font-semibold leading-snug">{title}</h3>
+    <div className="lift relative flex h-full flex-col border border-border bg-[color:var(--color-surface)] p-8 md:p-10 overflow-hidden">
+      <span
+        className="absolute left-0 top-0 h-px w-16"
+        style={{ background: "var(--color-brand)" }}
+        aria-hidden
+      />
+      <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full opacity-[0.05]" style={{ background: "radial-gradient(closest-side, var(--color-brand), transparent)" }} aria-hidden />
+      <div className="flex items-center gap-3">
+        <span className="inline-flex h-9 w-9 items-center justify-center border border-border bg-[color:var(--color-brand-soft)]/40 text-foreground">
+          {icon}
+        </span>
+        <span className="eyebrow">{tag}</span>
+      </div>
+      <h3 className="mt-5 font-display text-xl md:text-2xl font-semibold leading-snug">{title}</h3>
       <p className="mt-4 text-sm md:text-[15px] text-muted-foreground leading-relaxed">{body}</p>
       <p className="mt-3 text-sm md:text-[15px] text-foreground/80 leading-relaxed">{short}</p>
       <div className="mt-8 flex-1" />
       <div className="flex items-center justify-between gap-4 border-t border-border pt-6">
-        <p className="text-xs text-muted-foreground max-w-[60%]">{micro}</p>
+        <p className="text-xs text-muted-foreground max-w-[58%]">{micro}</p>
         <Link
           to={to}
           className="group inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground"
@@ -344,50 +365,49 @@ function MentalOS() {
 }
 
 function Method() {
-  const steps = [
-    {
-      n: "01",
-      t: "Identificar",
-      d: "Detectamos los patrones que interfieren con la ejecución: pensamientos automáticos, creencias rígidas, evitación, estándares disfuncionales, ciclos de postergación y errores de procesamiento.",
-      micro: "Primero se entiende el sistema. Luego se interviene.",
-    },
-    {
-      n: "02",
-      t: "Reencuadrar",
-      d: "Aplicamos metodología cognitivo-conductual para reorganizar la lectura del problema, cuestionar interpretaciones improductivas y construir respuestas más funcionales.",
-      micro: "No se trata de pensar positivo. Se trata de pensar con más precisión.",
-    },
-    {
-      n: "03",
-      t: "Optimizar",
-      d: "Traducimos el ajuste cognitivo en decisiones, acciones y rutinas sostenibles. El objetivo no es solo entender el bloqueo, sino generar una salida clara hacia la acción.",
-      micro: "La claridad debe terminar en conducta.",
-    },
-  ];
   return (
-    <Section id="metodo" tone="deep">
-      <div className="max-w-3xl">
+    <Section id="metodo" tone="deep" className="relative overflow-hidden">
+      <div className="absolute inset-0 dot-bg-inverse opacity-[0.07] pointer-events-none" aria-hidden />
+      <img
+        src={logoCube}
+        alt=""
+        aria-hidden
+        className="pointer-events-none absolute -right-20 -bottom-20 h-[420px] w-[420px] opacity-[0.05] invert brightness-200 select-none"
+      />
+      <div className="relative max-w-3xl">
         <p className="eyebrow text-[color:var(--color-background)]/70">EL MÉTODO</p>
         <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.08]">
           Identificar. Reencuadrar. Optimizar.
         </h2>
         <p className="mt-5 text-base md:text-lg text-[color:var(--color-background)]/75 leading-relaxed">
           Un framework estructurado para convertir fricción cognitivo-conductual en acción funcional.
+          Selecciona cada fase para ver el detalle.
         </p>
       </div>
-      <div className="mt-14 grid gap-px bg-[color:var(--color-background)]/15 md:grid-cols-3 border border-[color:var(--color-background)]/15">
-        {steps.map((s) => (
-          <div key={s.n} className="bg-[color:var(--color-brand-deep)] p-8 md:p-10">
-            <span className="font-display text-xs font-semibold tracking-[0.22em] text-[color:var(--color-background)]/60">
-              {s.n} — {s.t.toUpperCase()}
-            </span>
-            <h3 className="mt-5 font-display text-2xl font-semibold">{s.t}</h3>
-            <p className="mt-4 text-sm md:text-[15px] text-[color:var(--color-background)]/75 leading-relaxed">{s.d}</p>
-            <p className="mt-6 pt-5 border-t border-[color:var(--color-background)]/15 text-xs italic text-[color:var(--color-background)]/60">
-              {s.micro}
-            </p>
+      <div className="relative">
+        <MethodTabs />
+      </div>
+    </Section>
+  );
+}
+
+function FAQSection() {
+  return (
+    <Section tone="muted">
+      <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+        <div className="lg:col-span-5">
+          <SectionHeader
+            eyebrow="PREGUNTAS FRECUENTES"
+            title="Antes de agendar, esto suele aparecer."
+            subtitle="Respuestas breves a las preguntas más comunes sobre el método, los procesos y la app."
+          />
+          <div className="mt-8">
+            <CTALink to="/contacto" variant="outline">Tengo otra pregunta</CTALink>
           </div>
-        ))}
+        </div>
+        <div className="lg:col-span-7">
+          <FAQ />
+        </div>
       </div>
     </Section>
   );
@@ -428,20 +448,26 @@ function Solutions() {
         subtitle="G-Structure opera a través de diagnósticos, programas breves y procesos de continuidad diseñados para contextos profesionales de alta exigencia."
       />
       <div className="mt-12 grid gap-6 md:grid-cols-2">
-        {items.map((it) => (
-          <div key={it.t} className="flex flex-col border border-border bg-[color:var(--color-surface)] p-7 md:p-9">
-            <h3 className="font-display text-xl md:text-2xl font-semibold">{it.t}</h3>
-            <p className="mt-3 text-sm md:text-[15px] text-muted-foreground leading-relaxed">{it.d}</p>
-            <div className="mt-5 border-t border-border pt-4">
-              <p className="eyebrow mb-2">Ideal para</p>
-              <p className="text-sm text-foreground/80 leading-relaxed">{it.ideal}</p>
+        {items.map((it, idx) => (
+          <Reveal key={it.t} delay={idx * 80}>
+            <div className="lift relative flex h-full flex-col border border-border bg-[color:var(--color-surface)] p-7 md:p-9 overflow-hidden">
+              <span className="absolute left-0 top-0 h-px w-12" style={{ background: "var(--color-brand)" }} aria-hidden />
+              <span className="font-display text-[10px] font-semibold tracking-[0.22em] text-muted-foreground">
+                {String(idx + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mt-3 font-display text-xl md:text-2xl font-semibold">{it.t}</h3>
+              <p className="mt-3 text-sm md:text-[15px] text-muted-foreground leading-relaxed">{it.d}</p>
+              <div className="mt-5 border-t border-border pt-4">
+                <p className="eyebrow mb-2">Ideal para</p>
+                <p className="text-sm text-foreground/80 leading-relaxed">{it.ideal}</p>
+              </div>
+              <div className="mt-auto pt-6">
+                <Link to={it.to} className="group inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground">
+                  {it.cta} <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
+                </Link>
+              </div>
             </div>
-            <div className="mt-6 pt-2">
-              <Link to={it.to} className="group inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground">
-                {it.cta} <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
-              </Link>
-            </div>
-          </div>
+          </Reveal>
         ))}
       </div>
     </Section>
@@ -649,6 +675,7 @@ function Index() {
       <ForWhom />
       <GStructBridge />
       <Founder />
+      <FAQSection />
       <FinalCTA />
     </>
   );

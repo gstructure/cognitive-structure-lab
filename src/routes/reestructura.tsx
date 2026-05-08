@@ -82,18 +82,23 @@ function Page() {
         <div className="max-w-3xl">
           <p className="eyebrow text-[color:var(--color-background)]/70">EL PROCESO</p>
           <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.08]">
-            Identificar. Reencuadrar. Optimizar. Aplicado a tu caso.
+            Cuatro fases. Una secuencia clara.
           </h2>
+          <p className="mt-5 text-base md:text-lg text-[color:var(--color-background)]/75 leading-relaxed">
+            Identificar. Reencuadrar. Optimizar. Sostener. Aplicado a tu caso, en sesiones individuales con trabajo aplicado entre encuentros.
+          </p>
         </div>
-        <div className="mt-12 grid gap-px bg-[color:var(--color-background)]/15 md:grid-cols-3 border border-[color:var(--color-background)]/15">
+        <div className="mt-12 grid gap-px bg-[color:var(--color-background)]/15 md:grid-cols-2 lg:grid-cols-4 border border-[color:var(--color-background)]/15">
           {[
             { n: "01", t: "Diagnóstico personal", d: "Mapeamos los patrones cognitivo-conductuales que están interfiriendo con tu ejecución actual." },
             { n: "02", t: "Reencuadre estructurado", d: "Aplicamos herramientas CBT para reorganizar interpretaciones, creencias rígidas y respuestas automáticas." },
             { n: "03", t: "Acción optimizada", d: "Diseñamos rutinas, decisiones y conductas concretas que sostengan el cambio en tu día a día profesional." },
+            { n: "04", t: "Consolidación", d: "Cerramos con un plan de continuidad y métricas para sostener el cambio más allá del proceso." },
           ].map((s) => (
-            <div key={s.n} className="bg-[color:var(--color-brand-deep)] p-8">
-              <span className="font-display text-xs font-semibold tracking-[0.22em] text-[color:var(--color-background)]/60">
-                {s.n} — {s.t.toUpperCase()}
+            <div key={s.n} className="relative bg-[color:var(--color-brand-deep)] p-8 transition-colors hover:bg-[color:var(--color-brand)]">
+              <span className="absolute left-0 top-0 h-px w-10 bg-[color:var(--color-background)]" aria-hidden />
+              <span className="font-display text-[10px] font-semibold tracking-[0.22em] text-[color:var(--color-background)]/60">
+                {s.n} — FASE
               </span>
               <h3 className="mt-5 font-display text-xl font-semibold">{s.t}</h3>
               <p className="mt-4 text-sm text-[color:var(--color-background)]/75 leading-relaxed">{s.d}</p>

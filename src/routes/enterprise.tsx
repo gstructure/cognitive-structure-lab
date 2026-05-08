@@ -3,6 +3,7 @@ import { Section } from "@/components/site/Section";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { Eyebrow } from "@/components/site/Eyebrow";
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
+import { Timeline } from "@/components/site/Timeline";
 import { Check } from "lucide-react";
 
 export const Route = createFileRoute("/enterprise")({
@@ -138,6 +139,37 @@ function Enterprise() {
               </div>
             </div>
           </div>
+        </div>
+      </Section>
+
+      <Section tone="white">
+        <SectionHeader
+          eyebrow="CÓMO TRABAJAMOS"
+          title="Una secuencia clara de intervención."
+          subtitle="Cada compromiso parte de una conversación inicial y se traduce en un plan accionable. Sin venta agresiva, sin promesas inflables."
+        />
+        <div className="mt-12 grid gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-7">
+            <Timeline
+              items={[
+                { n: "01", t: "Conversación inicial", d: "Entendemos contexto, momento del equipo y objetivo de ejecución.", status: "done" },
+                { n: "02", t: "Workshop de Diagnóstico", d: "Sesión estratégica que identifica patrones, fricciones y ruta de intervención.", status: "active" },
+                { n: "03", t: "REESTRUCTURA Enterprise", d: "Programa piloto de 4 semanas para mover el sistema operativo del equipo." },
+                { n: "04", t: "Continuidad", d: "Seguimiento mensual o trimestral para sostener el cambio." },
+              ]}
+            />
+          </div>
+          <aside className="lg:col-span-5">
+            <div className="border border-border bg-[color:var(--color-surface)] p-8 shadow-elev-1">
+              <p className="eyebrow mb-4">Qué obtienes en cada etapa</p>
+              <ul className="space-y-3.5 text-sm text-foreground/85">
+                <li className="flex gap-3"><Check size={16} className="mt-0.5 text-foreground shrink-0" /><span>Diagnóstico documentado de fricciones.</span></li>
+                <li className="flex gap-3"><Check size={16} className="mt-0.5 text-foreground shrink-0" /><span>Mapa de patrones cognitivo-conductuales.</span></li>
+                <li className="flex gap-3"><Check size={16} className="mt-0.5 text-foreground shrink-0" /><span>Plan conductual con métricas de seguimiento.</span></li>
+                <li className="flex gap-3"><Check size={16} className="mt-0.5 text-foreground shrink-0" /><span>Acompañamiento ante decisiones críticas.</span></li>
+              </ul>
+            </div>
+          </aside>
         </div>
       </Section>
 
