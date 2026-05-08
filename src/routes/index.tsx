@@ -365,50 +365,49 @@ function MentalOS() {
 }
 
 function Method() {
-  const steps = [
-    {
-      n: "01",
-      t: "Identificar",
-      d: "Detectamos los patrones que interfieren con la ejecución: pensamientos automáticos, creencias rígidas, evitación, estándares disfuncionales, ciclos de postergación y errores de procesamiento.",
-      micro: "Primero se entiende el sistema. Luego se interviene.",
-    },
-    {
-      n: "02",
-      t: "Reencuadrar",
-      d: "Aplicamos metodología cognitivo-conductual para reorganizar la lectura del problema, cuestionar interpretaciones improductivas y construir respuestas más funcionales.",
-      micro: "No se trata de pensar positivo. Se trata de pensar con más precisión.",
-    },
-    {
-      n: "03",
-      t: "Optimizar",
-      d: "Traducimos el ajuste cognitivo en decisiones, acciones y rutinas sostenibles. El objetivo no es solo entender el bloqueo, sino generar una salida clara hacia la acción.",
-      micro: "La claridad debe terminar en conducta.",
-    },
-  ];
   return (
-    <Section id="metodo" tone="deep">
-      <div className="max-w-3xl">
+    <Section id="metodo" tone="deep" className="relative overflow-hidden">
+      <div className="absolute inset-0 dot-bg-inverse opacity-[0.07] pointer-events-none" aria-hidden />
+      <img
+        src={logoCube}
+        alt=""
+        aria-hidden
+        className="pointer-events-none absolute -right-20 -bottom-20 h-[420px] w-[420px] opacity-[0.05] invert brightness-200 select-none"
+      />
+      <div className="relative max-w-3xl">
         <p className="eyebrow text-[color:var(--color-background)]/70">EL MÉTODO</p>
         <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.08]">
           Identificar. Reencuadrar. Optimizar.
         </h2>
         <p className="mt-5 text-base md:text-lg text-[color:var(--color-background)]/75 leading-relaxed">
           Un framework estructurado para convertir fricción cognitivo-conductual en acción funcional.
+          Selecciona cada fase para ver el detalle.
         </p>
       </div>
-      <div className="mt-14 grid gap-px bg-[color:var(--color-background)]/15 md:grid-cols-3 border border-[color:var(--color-background)]/15">
-        {steps.map((s) => (
-          <div key={s.n} className="bg-[color:var(--color-brand-deep)] p-8 md:p-10">
-            <span className="font-display text-xs font-semibold tracking-[0.22em] text-[color:var(--color-background)]/60">
-              {s.n} — {s.t.toUpperCase()}
-            </span>
-            <h3 className="mt-5 font-display text-2xl font-semibold">{s.t}</h3>
-            <p className="mt-4 text-sm md:text-[15px] text-[color:var(--color-background)]/75 leading-relaxed">{s.d}</p>
-            <p className="mt-6 pt-5 border-t border-[color:var(--color-background)]/15 text-xs italic text-[color:var(--color-background)]/60">
-              {s.micro}
-            </p>
+      <div className="relative">
+        <MethodTabs />
+      </div>
+    </Section>
+  );
+}
+
+function FAQSection() {
+  return (
+    <Section tone="muted">
+      <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+        <div className="lg:col-span-5">
+          <SectionHeader
+            eyebrow="PREGUNTAS FRECUENTES"
+            title="Antes de agendar, esto suele aparecer."
+            subtitle="Respuestas breves a las preguntas más comunes sobre el método, los procesos y la app."
+          />
+          <div className="mt-8">
+            <CTALink to="/contacto" variant="outline">Tengo otra pregunta</CTALink>
           </div>
-        ))}
+        </div>
+        <div className="lg:col-span-7">
+          <FAQ />
+        </div>
       </div>
     </Section>
   );
