@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight, Handshake, Users } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Handshake, Users, Calendar, MapPin, ExternalLink, Sparkles } from "lucide-react";
 import { Section } from "@/components/site/Section";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { Eyebrow } from "@/components/site/Eyebrow";
@@ -11,6 +11,9 @@ import { CTALink, CTAExternal } from "@/components/site/CTAButton";
 import { BrandMark } from "@/components/brand/Logo";
 import logoCube from "@/assets/g-structure-cube.png";
 import gStructHomePreview from "@/assets/g-struct-home-preview.png";
+import etwBadge from "@/assets/etw-2026-badge.png";
+
+const ETW_URL = "https://luma.com/lm4njhiu";
 
 export const Route = createFileRoute("/")({
   head: () => ({
