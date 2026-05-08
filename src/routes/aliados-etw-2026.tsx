@@ -43,8 +43,11 @@ function Page() {
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
             <CTALink to="/contacto" variant="primary">Quiero ser aliado</CTALink>
-            <CTAExternal href="https://wa.me/593986875121" variant="outline">WhatsApp</CTAExternal>
+            <CTAExternal href="https://wa.me/593986875121" variant="outline">Contactar a Guillermo</CTAExternal>
           </div>
+          <p className="mt-4 text-xs text-muted-foreground">
+            También por correo: <a className="underline-offset-2 hover:underline" href="mailto:guillermo@g-structure.co">guillermo@g-structure.co</a>
+          </p>
         </div>
       </section>
 
