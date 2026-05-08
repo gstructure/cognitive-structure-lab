@@ -448,20 +448,26 @@ function Solutions() {
         subtitle="G-Structure opera a través de diagnósticos, programas breves y procesos de continuidad diseñados para contextos profesionales de alta exigencia."
       />
       <div className="mt-12 grid gap-6 md:grid-cols-2">
-        {items.map((it) => (
-          <div key={it.t} className="flex flex-col border border-border bg-[color:var(--color-surface)] p-7 md:p-9">
-            <h3 className="font-display text-xl md:text-2xl font-semibold">{it.t}</h3>
-            <p className="mt-3 text-sm md:text-[15px] text-muted-foreground leading-relaxed">{it.d}</p>
-            <div className="mt-5 border-t border-border pt-4">
-              <p className="eyebrow mb-2">Ideal para</p>
-              <p className="text-sm text-foreground/80 leading-relaxed">{it.ideal}</p>
+        {items.map((it, idx) => (
+          <Reveal key={it.t} delay={idx * 80}>
+            <div className="lift relative flex h-full flex-col border border-border bg-[color:var(--color-surface)] p-7 md:p-9 overflow-hidden">
+              <span className="absolute left-0 top-0 h-px w-12" style={{ background: "var(--color-brand)" }} aria-hidden />
+              <span className="font-display text-[10px] font-semibold tracking-[0.22em] text-muted-foreground">
+                {String(idx + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mt-3 font-display text-xl md:text-2xl font-semibold">{it.t}</h3>
+              <p className="mt-3 text-sm md:text-[15px] text-muted-foreground leading-relaxed">{it.d}</p>
+              <div className="mt-5 border-t border-border pt-4">
+                <p className="eyebrow mb-2">Ideal para</p>
+                <p className="text-sm text-foreground/80 leading-relaxed">{it.ideal}</p>
+              </div>
+              <div className="mt-auto pt-6">
+                <Link to={it.to} className="group inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground">
+                  {it.cta} <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
+                </Link>
+              </div>
             </div>
-            <div className="mt-6 pt-2">
-              <Link to={it.to} className="group inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground">
-                {it.cta} <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
-              </Link>
-            </div>
-          </div>
+          </Reveal>
         ))}
       </div>
     </Section>
