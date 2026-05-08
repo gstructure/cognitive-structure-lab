@@ -144,7 +144,7 @@ export const es: Dict = {
     restart: "Empezar de nuevo",
     close: "Cerrar",
   },
-} as const;
+};
 
 export const en: Dict = {
   common: {
