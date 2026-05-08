@@ -679,11 +679,11 @@ function GStructBridge() {
 
 function Founder() {
   const credentials = [
-    "CBT Coach Practitioner acreditado por CTAA.",
-    "Formación en Psicología e Intervención Psicológica en el Desarrollo y la Educación.",
-    "Experiencia en docencia, consejería estudiantil y formación.",
-    "Experiencia en gerencia de proyectos internacionales a bordo del MV Logos Hope.",
-    "Desarrollo y prototipado de G-Struct junto a ÉPICO.",
+    "CBT Coach Practitioner · CTAA",
+    "Psicología & Intervención Educativa",
+    "Docencia internacional",
+    "MV Logos Hope · gerencia de proyectos",
+    "G-Struct con ÉPICO",
   ];
   return (
     <Section>
