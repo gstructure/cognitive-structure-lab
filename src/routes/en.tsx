@@ -165,7 +165,7 @@ function EnHome() {
             </p>
           </div>
           <div className="lg:col-span-4 flex lg:justify-end">
-            <CTALink to="/en/contact" variant="onDeep">Book an initial conversation</CTALink>
+            <CTALink to="/en/contact" variant="inverse">Book an initial conversation</CTALink>
           </div>
         </div>
       </Section>
