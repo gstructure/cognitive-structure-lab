@@ -9,6 +9,7 @@ import { FAQ } from "@/components/site/FAQ";
 
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
 import { BrandMark } from "@/components/brand/Logo";
+import { GuillermoPortrait } from "@/components/site/GuillermoPortrait";
 import logoCube from "@/assets/g-structure-cube.png";
 import gStructHomePreview from "@/assets/g-struct-home-preview.png";
 import etwBadge from "@/assets/etw-2026-badge.png";
@@ -678,53 +679,46 @@ function GStructBridge() {
 
 function Founder() {
   const credentials = [
-    "CBT Coach Practitioner acreditado por CTAA.",
-    "Formación en Psicología e Intervención Psicológica en el Desarrollo y la Educación.",
-    "Experiencia en docencia, consejería estudiantil y formación.",
-    "Experiencia en gerencia de proyectos internacionales a bordo del MV Logos Hope.",
-    "Desarrollo y prototipado de G-Struct junto a ÉPICO.",
+    "CBT Coach Practitioner · CTAA",
+    "Psicología & Intervención Educativa",
+    "Docencia internacional",
+    "MV Logos Hope · gerencia de proyectos",
+    "G-Struct con ÉPICO",
   ];
   return (
     <Section>
-      <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-        <div className="lg:col-span-7">
+      <div className="grid gap-12 lg:grid-cols-12 lg:gap-16 items-start">
+        <aside className="lg:col-span-4 lg:order-1 order-2 flex justify-center lg:justify-start">
+          <GuillermoPortrait size="md" />
+        </aside>
+        <div className="lg:col-span-8 lg:order-2 order-1">
           <SectionHeader
             eyebrow="QUIÉN ESTÁ DETRÁS"
             title="Dirección metodológica con experiencia educativa, cognitivo-conductual y de proyectos."
           />
-          <div className="mt-8 space-y-5 text-base md:text-lg text-muted-foreground leading-relaxed">
+          <div className="mt-6 space-y-4 text-base md:text-lg text-muted-foreground leading-relaxed">
             <p>
               <strong className="text-foreground font-semibold">Guillermo Suco</strong> es fundador
               de G-Structure y Coach especializado en procesos cognitivo-conductuales aplicados a la
-              ejecución. Su trabajo integra formación en Psicología, Intervención Psicológica en el
-              Desarrollo y la Educación, experiencia docente nacional e internacional, acompañamiento
-              individual y gerencia de proyectos en contextos multiculturales.
-            </p>
-            <p>
-              Como CBT Coach Practitioner acreditado por la Complementary Therapists Accredited
-              Association, ha desarrollado G-Structure como una metodología orientada a identificar,
-              reencuadrar y optimizar patrones que interfieren con la acción. También participó en el
-              desarrollo y prototipado de G-Struct junto a ÉPICO, como parte de la visión tecnológica
-              del ecosistema.
+              ejecución. Su trabajo integra Psicología, intervención educativa, gerencia de
+              proyectos multiculturales y desarrollo de producto digital.
             </p>
           </div>
-          <div className="mt-8">
-            <CTALink to="/sobre-guillermo" variant="outline">Conversar con Guillermo</CTALink>
+          <div className="mt-6 flex flex-wrap gap-2">
+            {credentials.map((c) => (
+              <span
+                key={c}
+                className="border border-border bg-[color:var(--color-surface)] px-3 py-1.5 text-[11.5px] tracking-wide text-foreground/80"
+              >
+                {c}
+              </span>
+            ))}
+          </div>
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <CTAExternal href="https://wa.me/593986875121" variant="primary">Conversar con Guillermo</CTAExternal>
+            <CTALink to="/sobre-guillermo" variant="outline">Ver perfil</CTALink>
           </div>
         </div>
-        <aside className="lg:col-span-5">
-          <div className="border border-border bg-[color:var(--color-surface)] p-8">
-            <p className="eyebrow mb-5">Credenciales</p>
-            <ul className="space-y-4">
-              {credentials.map((c) => (
-                <li key={c} className="flex gap-3 text-sm text-foreground/85 leading-relaxed border-b border-border pb-4 last:border-0 last:pb-0">
-                  <span className="mt-2 h-1 w-3 shrink-0 bg-foreground" />
-                  <span>{c}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </aside>
       </div>
     </Section>
   );

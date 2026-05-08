@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/site/Section";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { Eyebrow } from "@/components/site/Eyebrow";
-import { CTALink } from "@/components/site/CTAButton";
+import { CTALink, CTAExternal } from "@/components/site/CTAButton";
 
 export const Route = createFileRoute("/unete-al-equipo")({
   head: () => ({
@@ -49,8 +49,9 @@ function Page() {
             No buscamos espectadores. Buscamos personas con criterio, iniciativa y ganas de
             construir desde una etapa temprana.
           </p>
-          <div className="mt-10">
+          <div className="mt-10 flex flex-wrap gap-3">
             <CTALink to="/contacto" variant="primary">Quiero unirme al equipo</CTALink>
+            <CTAExternal href="https://wa.me/593986875121" variant="outline">WhatsApp directo</CTAExternal>
           </div>
         </div>
       </section>

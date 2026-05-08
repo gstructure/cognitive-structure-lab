@@ -4,6 +4,7 @@ import { Section } from "@/components/site/Section";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { Eyebrow } from "@/components/site/Eyebrow";
 import { Mail, Phone, Globe, ArrowRight, ArrowUpRight, Building2, User, Cpu, Handshake, Users } from "lucide-react";
+import { SocialLinks } from "@/components/site/SocialLinks";
 
 export const Route = createFileRoute("/contacto")({
   head: () => ({
@@ -94,6 +95,33 @@ function Page() {
               label="Web"
               value="www.g-structure.co"
             />
+            <div className="border border-border bg-[color:var(--color-surface)] p-7">
+              <p className="eyebrow mb-4">Canales directos</p>
+              <ul className="space-y-2 text-sm text-foreground/85">
+                <li><span className="text-muted-foreground">Instagram · </span>@g.structurecbc</li>
+                <li><span className="text-muted-foreground">Facebook · </span>G-Structure</li>
+                <li><span className="text-muted-foreground">LinkedIn · </span>Guillermo Suco</li>
+              </ul>
+              <div className="mt-5">
+                <SocialLinks only={["instagram", "facebook", "linkedin", "whatsapp", "email"]} />
+              </div>
+              <div className="mt-6 flex flex-wrap gap-2">
+                <a
+                  href="https://wa.me/593986875121"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 bg-foreground px-4 py-2.5 text-[12.5px] font-medium text-background hover:opacity-90"
+                >
+                  Hablar por WhatsApp <ArrowRight size={13} />
+                </a>
+                <a
+                  href="mailto:guillermo@g-structure.co"
+                  className="inline-flex items-center gap-2 border border-foreground/30 px-4 py-2.5 text-[12.5px] font-medium text-foreground hover:border-foreground"
+                >
+                  Enviar correo <ArrowRight size={13} />
+                </a>
+              </div>
+            </div>
             <div className="border border-border p-7 bg-[color:var(--color-brand-soft)]/30">
               <p className="eyebrow mb-3">Qué esperar</p>
               <p className="text-sm text-foreground/85 leading-relaxed">
