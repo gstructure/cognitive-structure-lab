@@ -11,6 +11,9 @@ import {
 import appCss from "../styles.css?url";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
+import { LocaleProvider } from "@/lib/i18n";
+import { WhatsAppFAB } from "@/components/site/WhatsAppFAB";
+import { Assistant } from "@/components/site/Assistant";
 
 function NotFoundComponent() {
   return (
