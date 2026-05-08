@@ -3,6 +3,7 @@ import { Section } from "@/components/site/Section";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { Eyebrow } from "@/components/site/Eyebrow";
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
+import { Timeline } from "@/components/site/Timeline";
 import { Check } from "lucide-react";
 
 export const Route = createFileRoute("/enterprise")({
