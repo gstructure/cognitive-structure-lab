@@ -14,6 +14,7 @@ import { Route as SobreGuillermoRouteImport } from './routes/sobre-guillermo'
 import { Route as ReestructuraRouteImport } from './routes/reestructura'
 import { Route as GStructRouteImport } from './routes/g-struct'
 import { Route as EnterpriseRouteImport } from './routes/enterprise'
+import { Route as EnRouteImport } from './routes/en'
 import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as AliadosEtw2026RouteImport } from './routes/aliados-etw-2026'
 import { Route as IndexRouteImport } from './routes/index'
@@ -43,6 +44,11 @@ const EnterpriseRoute = EnterpriseRouteImport.update({
   path: '/enterprise',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EnRoute = EnRouteImport.update({
+  id: '/en',
+  path: '/en',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactoRoute = ContactoRouteImport.update({
   id: '/contacto',
   path: '/contacto',
@@ -63,6 +69,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/aliados-etw-2026': typeof AliadosEtw2026Route
   '/contacto': typeof ContactoRoute
+  '/en': typeof EnRoute
   '/enterprise': typeof EnterpriseRoute
   '/g-struct': typeof GStructRoute
   '/reestructura': typeof ReestructuraRoute
@@ -73,6 +80,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/aliados-etw-2026': typeof AliadosEtw2026Route
   '/contacto': typeof ContactoRoute
+  '/en': typeof EnRoute
   '/enterprise': typeof EnterpriseRoute
   '/g-struct': typeof GStructRoute
   '/reestructura': typeof ReestructuraRoute
@@ -84,6 +92,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/aliados-etw-2026': typeof AliadosEtw2026Route
   '/contacto': typeof ContactoRoute
+  '/en': typeof EnRoute
   '/enterprise': typeof EnterpriseRoute
   '/g-struct': typeof GStructRoute
   '/reestructura': typeof ReestructuraRoute
@@ -96,6 +105,7 @@ export interface FileRouteTypes {
     | '/'
     | '/aliados-etw-2026'
     | '/contacto'
+    | '/en'
     | '/enterprise'
     | '/g-struct'
     | '/reestructura'
@@ -106,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/aliados-etw-2026'
     | '/contacto'
+    | '/en'
     | '/enterprise'
     | '/g-struct'
     | '/reestructura'
@@ -116,6 +127,7 @@ export interface FileRouteTypes {
     | '/'
     | '/aliados-etw-2026'
     | '/contacto'
+    | '/en'
     | '/enterprise'
     | '/g-struct'
     | '/reestructura'
@@ -127,6 +139,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AliadosEtw2026Route: typeof AliadosEtw2026Route
   ContactoRoute: typeof ContactoRoute
+  EnRoute: typeof EnRoute
   EnterpriseRoute: typeof EnterpriseRoute
   GStructRoute: typeof GStructRoute
   ReestructuraRoute: typeof ReestructuraRoute
@@ -171,6 +184,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnterpriseRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/en': {
+      id: '/en'
+      path: '/en'
+      fullPath: '/en'
+      preLoaderRoute: typeof EnRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contacto': {
       id: '/contacto'
       path: '/contacto'
@@ -199,6 +219,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AliadosEtw2026Route: AliadosEtw2026Route,
   ContactoRoute: ContactoRoute,
+  EnRoute: EnRoute,
   EnterpriseRoute: EnterpriseRoute,
   GStructRoute: GStructRoute,
   ReestructuraRoute: ReestructuraRoute,
@@ -208,3 +229,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
