@@ -3,6 +3,7 @@ import { Eyebrow } from "@/components/site/Eyebrow";
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
 import { BrandMark } from "@/components/brand/Logo";
 import { Check } from "lucide-react";
+import { Timeline } from "@/components/site/Timeline";
 import gStructEcosystem from "@/assets/g-struct-ecosystem.png";
 
 export const Route = createFileRoute("/g-struct")({
