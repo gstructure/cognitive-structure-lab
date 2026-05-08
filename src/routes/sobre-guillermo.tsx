@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/site/Section";
 import { Eyebrow } from "@/components/site/Eyebrow";
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
+import { Timeline } from "@/components/site/Timeline";
 
 export const Route = createFileRoute("/sobre-guillermo")({
   head: () => ({
