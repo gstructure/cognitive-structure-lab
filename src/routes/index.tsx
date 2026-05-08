@@ -3,7 +3,7 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Section } from "@/components/site/Section";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { Eyebrow } from "@/components/site/Eyebrow";
-import { CardTile } from "@/components/site/CardTile";
+
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
 import { BrandMark } from "@/components/brand/Logo";
 
