@@ -225,37 +225,6 @@ function ETWBanner() {
   );
 }
 
-function Announcements() {
-  return (
-    <Section>
-      <SectionHeader
-        eyebrow="MOMENTUM"
-        title="Construyendo la siguiente etapa de G-Structure."
-        subtitle="Estamos abriendo espacios estratégicos para aliados y colaboradores que quieran ser parte del crecimiento inicial del ecosistema G-Structure."
-      />
-      <div className="mt-12 grid gap-6 md:grid-cols-2">
-        <AnnouncementCard
-          tag="ALIADOS ETW 2026"
-          title="Aliados para el Workshop de Diagnóstico de Ejecución"
-          body="G-Structure está abriendo oportunidades de alianza para marcas, instituciones y empresas que quieran vincularse al Workshop de Diagnóstico de Ejecución durante Ecuador Tech Week 2026."
-          short="Buscamos aliados que entiendan el valor de apoyar conversaciones serias sobre ejecución, claridad, tecnología, emprendimiento y desarrollo profesional."
-          cta="Quiero ser aliado"
-          to="/aliados-etw-2026"
-          micro="Espacios limitados para aliados estratégicos, experiencia, sede o contenido."
-        />
-        <AnnouncementCard
-          tag="EQUIPO INICIAL"
-          title="Estamos formando el equipo que construirá G-Structure y G-Struct"
-          body="Buscamos colaboradores voluntarios en áreas clave para fortalecer la siguiente etapa del proyecto: producto, tecnología, ventas, marketing y negocios internacionales."
-          short="No buscamos espectadores. Buscamos personas con criterio, iniciativa y ganas de construir desde una etapa temprana."
-          cta="Quiero unirme al equipo"
-          to="/unete-al-equipo"
-          micro="Participación inicial voluntaria, con enfoque en construcción real, portafolio, aprendizaje aplicado y posible continuidad conforme el proyecto avance."
-        />
-      </div>
-    </Section>
-  );
-}
 
 function Announcements() {
   return (
