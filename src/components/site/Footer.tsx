@@ -1,30 +1,31 @@
 import { Link } from "@tanstack/react-router";
 import { Logo } from "@/components/brand/Logo";
 import { SocialLinks } from "@/components/site/SocialLinks";
-
-const COLS = [
-  {
-    title: "Navegación",
-    links: [
-      { to: "/", label: "Inicio" },
-      { to: "/enterprise", label: "Enterprise" },
-      { to: "/reestructura", label: "REESTRUCTURA 1:1" },
-      { to: "/g-struct", label: "G-Struct" },
-      { to: "/sobre-guillermo", label: "Sobre Guillermo" },
-      { to: "/contacto", label: "Contacto" },
-    ],
-  },
-  {
-    title: "Oportunidades",
-    links: [
-      { to: "/aliados-etw-2026", label: "Aliados ETW 2026" },
-      { to: "/unete-al-equipo", label: "Únete al equipo" },
-      { to: "/g-struct", label: "G-Struct updates" },
-    ],
-  },
-] as const;
+import { useT } from "@/lib/i18n";
 
 export function Footer() {
+  const t = useT();
+  const COLS = [
+    {
+      title: t("nav.navigation"),
+      links: [
+        { to: "/", label: t("nav.home") },
+        { to: "/enterprise", label: t("nav.enterprise") },
+        { to: "/reestructura", label: t("nav.reestructura") },
+        { to: "/g-struct", label: t("nav.gstruct") },
+        { to: "/sobre-guillermo", label: t("nav.aboutGuillermo") },
+        { to: "/contacto", label: t("nav.contact") },
+      ],
+    },
+    {
+      title: t("nav.opportunities"),
+      links: [
+        { to: "/aliados-etw-2026", label: t("nav.allies") },
+        { to: "/unete-al-equipo", label: t("nav.joinTeam") },
+        { to: "/g-struct", label: "G-Struct updates" },
+      ],
+    },
+  ] as const;
   return (
     <footer className="border-t border-border bg-background">
       <div className="container-x py-16 md:py-20">
@@ -32,8 +33,7 @@ export function Footer() {
           <div className="md:col-span-4">
             <Logo />
             <p className="mt-5 max-w-sm text-sm text-muted-foreground leading-relaxed">
-              Ingeniería de resultados cognitivo-conductuales. Coaching cognitivo-conductual
-              aplicado a la ejecución para profesionales, líderes y equipos.
+              {t("footer.tagline")}
             </p>
           </div>
 
@@ -56,7 +56,7 @@ export function Footer() {
           ))}
 
           <div className="md:col-span-4">
-            <p className="eyebrow mb-4">Contacto</p>
+            <p className="eyebrow mb-4">{t("nav.contactCol")}</p>
             <ul className="space-y-2.5 text-sm">
               <li>
                 <a href="mailto:guillermo@g-structure.co" className="text-foreground/80 hover:text-foreground">
@@ -77,17 +77,15 @@ export function Footer() {
         </div>
 
         <p className="mt-14 max-w-3xl text-xs text-muted-foreground leading-relaxed">
-          G-Structure ofrece servicios de coaching y formación cognitivo-conductual aplicada a la
-          ejecución. No sustituye atención psicológica, médica o psiquiátrica.
+          {t("common.legal")}
         </p>
 
         <div className="mt-6 pt-6 border-t border-border flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} G-Structure. Todos los derechos reservados. Una iniciativa
-            de Guillermo Suco.
+            © {new Date().getFullYear()} G-Structure. {t("common.rightsReserved")} {t("common.initiativeOf")}
           </p>
           <p className="text-xs text-muted-foreground tracking-wide">
-            Identificar · Reencuadrar · Optimizar
+            {t("footer.irO")}
           </p>
         </div>
       </div>

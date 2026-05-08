@@ -11,6 +11,8 @@ import {
 import appCss from "../styles.css?url";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
+import { LocaleProvider } from "@/lib/i18n";
+import { WhatsAppFAB } from "@/components/site/WhatsAppFAB";
 
 function NotFoundComponent() {
   return (
@@ -86,6 +88,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&display=swap",
       },
+      { rel: "alternate", hrefLang: "es", href: "https://www.g-structure.co/" },
+      { rel: "alternate", hrefLang: "en", href: "https://www.g-structure.co/?lang=en" },
+      { rel: "alternate", hrefLang: "x-default", href: "https://www.g-structure.co/" },
     ],
   }),
   shellComponent: RootShell,
@@ -112,13 +117,16 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex min-h-screen flex-col">
-        <Header />
-        <main className="flex-1">
-          <Outlet />
-        </main>
-        <Footer />
-      </div>
+      <LocaleProvider>
+        <div className="flex min-h-screen flex-col">
+          <Header />
+          <main className="flex-1">
+            <Outlet />
+          </main>
+          <Footer />
+        </div>
+        <WhatsAppFAB />
+      </LocaleProvider>
     </QueryClientProvider>
   );
 }
