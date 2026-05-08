@@ -6,6 +6,7 @@ import { Eyebrow } from "@/components/site/Eyebrow";
 
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
 import { BrandMark } from "@/components/brand/Logo";
+import logoCube from "@/assets/g-structure-cube.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
