@@ -3,6 +3,8 @@ import { Section } from "@/components/site/Section";
 import { Eyebrow } from "@/components/site/Eyebrow";
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
 import { Timeline } from "@/components/site/Timeline";
+import { GuillermoPortrait } from "@/components/site/GuillermoPortrait";
+import { SocialLinks } from "@/components/site/SocialLinks";
 
 export const Route = createFileRoute("/sobre-guillermo")({
   head: () => ({
