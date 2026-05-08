@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Logo } from "@/components/brand/Logo";
 import { SocialLinks } from "@/components/site/SocialLinks";
+import { useT } from "@/lib/i18n";
 
 const COLS = [
   {
