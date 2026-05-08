@@ -3,29 +3,29 @@ import { Logo } from "@/components/brand/Logo";
 import { SocialLinks } from "@/components/site/SocialLinks";
 import { useT } from "@/lib/i18n";
 
-const COLS = [
-  {
-    title: "Navegación",
-    links: [
-      { to: "/", label: "Inicio" },
-      { to: "/enterprise", label: "Enterprise" },
-      { to: "/reestructura", label: "REESTRUCTURA 1:1" },
-      { to: "/g-struct", label: "G-Struct" },
-      { to: "/sobre-guillermo", label: "Sobre Guillermo" },
-      { to: "/contacto", label: "Contacto" },
-    ],
-  },
-  {
-    title: "Oportunidades",
-    links: [
-      { to: "/aliados-etw-2026", label: "Aliados ETW 2026" },
-      { to: "/unete-al-equipo", label: "Únete al equipo" },
-      { to: "/g-struct", label: "G-Struct updates" },
-    ],
-  },
-] as const;
-
 export function Footer() {
+  const t = useT();
+  const COLS = [
+    {
+      title: t("nav.navigation"),
+      links: [
+        { to: "/", label: t("nav.home") },
+        { to: "/enterprise", label: t("nav.enterprise") },
+        { to: "/reestructura", label: t("nav.reestructura") },
+        { to: "/g-struct", label: t("nav.gstruct") },
+        { to: "/sobre-guillermo", label: t("nav.aboutGuillermo") },
+        { to: "/contacto", label: t("nav.contact") },
+      ],
+    },
+    {
+      title: t("nav.opportunities"),
+      links: [
+        { to: "/aliados-etw-2026", label: t("nav.allies") },
+        { to: "/unete-al-equipo", label: t("nav.joinTeam") },
+        { to: "/g-struct", label: "G-Struct updates" },
+      ],
+    },
+  ] as const;
   return (
     <footer className="border-t border-border bg-background">
       <div className="container-x py-16 md:py-20">
