@@ -173,6 +173,11 @@ function Enterprise() {
         </div>
       </Section>
 
+      <Section>
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-6">
+            <SectionHeader
+              eyebrow="CONTINUIDAD"
               title="Continuidad Enterprise"
               subtitle="Seguimiento mensual o trimestral para consolidar avances, revisar patrones recurrentes y sostener cambios en la ejecución después de una intervención inicial."
             />
