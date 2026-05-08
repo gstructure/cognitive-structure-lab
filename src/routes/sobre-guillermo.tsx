@@ -30,25 +30,34 @@ function Page() {
     <>
       <section className="relative overflow-hidden border-b border-border">
         <div className="absolute inset-0 grid-bg opacity-50" aria-hidden />
-        <div className="container-x relative py-20 md:py-28 lg:py-32 grid lg:grid-cols-12 gap-12">
-          <div className="lg:col-span-8">
-            <Eyebrow>SOBRE GUILLERMO</Eyebrow>
+        <div className="container-x relative py-20 md:py-28 lg:py-32 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <div className="lg:col-span-7">
+            <Eyebrow>FUNDADOR</Eyebrow>
             <h1 className="mt-6 font-display text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.05]">
-              Guillermo Suco. Fundador de G-Structure y dirección metodológica del ecosistema.
+              Guillermo Suco
             </h1>
-            <p className="mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-              Coach especializado en procesos cognitivo-conductuales aplicados a la ejecución, con
-              formación en Psicología, experiencia educativa internacional y gerencia de proyectos
-              en contextos multiculturales.
+            <p className="mt-3 font-display text-lg md:text-xl text-foreground/80">
+              Fundador y Coach · G-Structure
             </p>
-          </div>
-          <aside className="lg:col-span-4">
-            <div className="aspect-square border border-border bg-[color:var(--color-brand-soft)]/40 p-6 flex flex-col justify-end">
-              <p className="font-display text-2xl leading-tight text-foreground">Guillermo Suco</p>
-              <p className="mt-1 text-sm text-muted-foreground">
-                CBT Coach Practitioner · CTAA acreditado
-              </p>
+            <p className="mt-6 max-w-2xl text-base md:text-lg text-muted-foreground leading-relaxed">
+              Guillermo Suco es fundador de G-Structure, una iniciativa enfocada en coaching
+              cognitivo-conductual aplicado a la ejecución en contextos de alta exigencia.
+            </p>
+            <p className="mt-4 max-w-2xl text-base text-muted-foreground leading-relaxed">
+              Su trabajo integra formación en Psicología, Intervención Psicológica en el Desarrollo
+              y la Educación, experiencia docente nacional e internacional, acompañamiento
+              individual, gerencia de proyectos multiculturales y desarrollo de producto digital.
+            </p>
+            <div className="mt-9 flex flex-wrap items-center gap-3">
+              <CTAExternal href="https://wa.me/593986875121" variant="primary">Conversar con Guillermo</CTAExternal>
+              <CTAExternal href="https://www.linkedin.com/in/guillermosuco" variant="outline">Conectar en LinkedIn</CTAExternal>
             </div>
+            <div className="mt-8">
+              <SocialLinks only={["linkedin", "instagram", "whatsapp", "email"]} />
+            </div>
+          </div>
+          <aside className="lg:col-span-5 flex justify-center lg:justify-end">
+            <GuillermoPortrait size="lg" />
           </aside>
         </div>
       </section>
