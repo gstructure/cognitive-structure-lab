@@ -669,6 +669,7 @@ function Index() {
       <ForWhom />
       <GStructBridge />
       <Founder />
+      <FAQSection />
       <FinalCTA />
     </>
   );
