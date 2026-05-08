@@ -3,6 +3,7 @@ import { Eyebrow } from "@/components/site/Eyebrow";
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
 import { BrandMark } from "@/components/brand/Logo";
 import { Check } from "lucide-react";
+import gStructEcosystem from "@/assets/g-struct-ecosystem.png";
 
 export const Route = createFileRoute("/g-struct")({
   head: () => ({
@@ -58,22 +59,28 @@ function Page() {
             </div>
           </div>
           <div className="lg:col-span-5">
-            <div className="relative aspect-[4/5] border border-[color:var(--color-background)]/25 bg-[color:var(--color-brand-deep)] p-8">
+            <div className="relative border border-[color:var(--color-background)]/20 bg-[color:var(--color-brand-deep)] p-6 md:p-7">
               <div className="absolute inset-0 grid-bg opacity-15" aria-hidden />
-              <div className="relative flex h-full flex-col justify-between">
-                <div className="flex items-center justify-between">
-                  <BrandMark size={28} color="currentColor" />
-                  <span className="text-[10px] tracking-[0.22em] opacity-70">v0.1 · BETA</span>
+              <div className="relative flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <BrandMark size={22} color="currentColor" />
+                  <span className="font-display text-[10px] font-semibold tracking-[0.22em] opacity-80">
+                    G-STRUCT · COGNITIVE OS
+                  </span>
                 </div>
-                <div className="space-y-4">
-                  <Pill>Identificar patrón</Pill>
-                  <Pill>Reencuadre guiado</Pill>
-                  <Pill>Ejercicio CBT</Pill>
-                  <Pill>Registro de ejecución</Pill>
-                </div>
-                <p className="font-display text-xl leading-snug">
-                  Identificar. Reencuadrar. Optimizar. Ahora también desde la palma de la mano.
-                </p>
+                <span className="text-[10px] tracking-[0.22em] opacity-70">v0.1 · BETA</span>
+              </div>
+              <img
+                src={gStructEcosystem}
+                alt="Ecosistema de G-Struct: app móvil del Motor de Reestructuración, dashboard del Cognitive OS y vistas de KPI, radar y plan de acción."
+                loading="lazy"
+                width={1600}
+                height={1100}
+                className="relative mt-5 w-full h-auto object-contain"
+              />
+              <div className="relative mt-4 flex items-center justify-between border-t border-[color:var(--color-background)]/15 pt-4 text-[10px] tracking-[0.22em] opacity-80">
+                <span>IDENTIFY · REFRAME · OPTIMIZE</span>
+                <span>PROTOTYPE IN PROGRESS</span>
               </div>
             </div>
           </div>
@@ -152,15 +159,6 @@ function Page() {
           </div>
         </div>
       </section>
-    </div>
-  );
-}
-
-function Pill({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="inline-flex w-full items-center justify-between border border-[color:var(--color-background)]/25 px-4 py-2.5 text-xs tracking-wide">
-      <span>{children}</span>
-      <span className="opacity-50">→</span>
     </div>
   );
 }

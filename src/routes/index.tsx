@@ -7,6 +7,7 @@ import { Eyebrow } from "@/components/site/Eyebrow";
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
 import { BrandMark } from "@/components/brand/Logo";
 import logoCube from "@/assets/g-structure-cube.png";
+import gStructHomePreview from "@/assets/g-struct-home-preview.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -522,16 +523,29 @@ function GStructBridge() {
           </div>
         </div>
         <div className="lg:col-span-5">
-          <div className="relative aspect-[4/5] border border-border bg-[color:var(--color-brand)] p-8 overflow-hidden">
-            <div className="absolute inset-0 grid-bg opacity-10" aria-hidden="true" />
-            <div className="relative flex h-full flex-col justify-between text-[color:var(--color-background)]">
-              <BrandMark size={36} color="currentColor" />
-              <div>
-                <p className="text-[10px] tracking-[0.22em] opacity-70">G-STRUCT · v0.1</p>
-                <p className="mt-3 font-display text-2xl md:text-3xl leading-tight">
-                  Identificar. Reencuadrar. Optimizar. Ahora también en una capa digital.
-                </p>
-              </div>
+          <div className="relative border border-border bg-[color:var(--color-surface)] p-6 md:p-8 overflow-hidden">
+            <div className="absolute inset-0 grid-bg opacity-30" aria-hidden="true" />
+            <div className="relative flex items-center justify-between">
+              <span className="font-display text-[10px] font-semibold tracking-[0.22em] text-muted-foreground">
+                G-STRUCT · v0.1 · PROTOTYPE IN PROGRESS
+              </span>
+              <BrandMark size={20} />
+            </div>
+            <img
+              src={gStructHomePreview}
+              alt="Vista previa de la app G-Struct mostrando el dashboard cognitivo y el radar de patrones."
+              loading="lazy"
+              width={1024}
+              height={1024}
+              className="relative mt-4 w-full h-auto object-contain drop-shadow-[0_24px_40px_rgba(5,50,90,0.18)]"
+            />
+            <div className="relative mt-2 flex items-center justify-between border-t border-border pt-4">
+              <span className="text-[11px] tracking-wide text-muted-foreground">
+                Registro · Radar · Acción
+              </span>
+              <span className="font-display text-[10px] font-semibold tracking-[0.22em] text-foreground">
+                IDENTIFICAR · REENCUADRAR · OPTIMIZAR
+              </span>
             </div>
           </div>
         </div>
