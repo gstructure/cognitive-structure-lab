@@ -2,9 +2,34 @@
 // Keys group by area (nav, common, home.*, footer.*, fab.*, assistant.*).
 // Tone: premium, sober, corporate. EN uses corporate American English.
 
-export type Dict = typeof es;
+type DeepReadonly<T> = { readonly [K in keyof T]: T[K] extends object ? DeepReadonly<T[K]> : T[K] };
+export type Dict = DeepReadonly<{
+  common: Record<string, string>;
+  nav: Record<string, string>;
+  language: { label: string; es: string; en: string; short: { es: string; en: string } };
+  home: {
+    meta: { title: string; desc: string };
+    hero: {
+      pillTitle: string; pillSub: string; eyebrow: string; h1: string; lead: string; sub: string;
+      ctaPrimary: string; ctaSecondary: string;
+      step1: { t: string; d: string }; step2: { t: string; d: string }; step3: { t: string; d: string };
+    };
+  };
+  footer: { tagline: string; irO: string };
+  fab: {
+    open: string; title: string; subtitle: string;
+    options: { enterprise: string; reestructura: string; gstruct: string; allies: string; team: string };
+    openAssistant: string; note: string;
+  };
+  assistant: {
+    open: string; title: string; subtitle: string; disclaimer: string; q1: string;
+    options: { enterprise: string; individual: string; gstruct: string; allies: string; team: string; other: string };
+    rec: { enterprise: string; individual: string; gstruct: string; allies: string; team: string; other: string };
+    cta: string; secondary: string; restart: string; close: string;
+  };
+}>;
 
-export const es = {
+export const es: Dict = {
   common: {
     bookCall: "Agendar conversación",
     bookCallShort: "Agendar conversación inicial",
