@@ -14,9 +14,17 @@ import { Route as SobreGuillermoRouteImport } from './routes/sobre-guillermo'
 import { Route as ReestructuraRouteImport } from './routes/reestructura'
 import { Route as GStructRouteImport } from './routes/g-struct'
 import { Route as EnterpriseRouteImport } from './routes/enterprise'
+import { Route as EnRouteImport } from './routes/en'
 import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as AliadosEtw2026RouteImport } from './routes/aliados-etw-2026'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as EnRestructure11RouteImport } from './routes/en.restructure-1-1'
+import { Route as EnJoinTheTeamRouteImport } from './routes/en.join-the-team'
+import { Route as EnGStructRouteImport } from './routes/en.g-struct'
+import { Route as EnEtw2026PartnersRouteImport } from './routes/en.etw-2026-partners'
+import { Route as EnEnterpriseRouteImport } from './routes/en.enterprise'
+import { Route as EnContactRouteImport } from './routes/en.contact'
+import { Route as EnAboutGuillermoRouteImport } from './routes/en.about-guillermo'
 
 const UneteAlEquipoRoute = UneteAlEquipoRouteImport.update({
   id: '/unete-al-equipo',
@@ -43,6 +51,11 @@ const EnterpriseRoute = EnterpriseRouteImport.update({
   path: '/enterprise',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EnRoute = EnRouteImport.update({
+  id: '/en',
+  path: '/en',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactoRoute = ContactoRouteImport.update({
   id: '/contacto',
   path: '/contacto',
@@ -58,37 +71,96 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EnRestructure11Route = EnRestructure11RouteImport.update({
+  id: '/restructure-1-1',
+  path: '/restructure-1-1',
+  getParentRoute: () => EnRoute,
+} as any)
+const EnJoinTheTeamRoute = EnJoinTheTeamRouteImport.update({
+  id: '/join-the-team',
+  path: '/join-the-team',
+  getParentRoute: () => EnRoute,
+} as any)
+const EnGStructRoute = EnGStructRouteImport.update({
+  id: '/g-struct',
+  path: '/g-struct',
+  getParentRoute: () => EnRoute,
+} as any)
+const EnEtw2026PartnersRoute = EnEtw2026PartnersRouteImport.update({
+  id: '/etw-2026-partners',
+  path: '/etw-2026-partners',
+  getParentRoute: () => EnRoute,
+} as any)
+const EnEnterpriseRoute = EnEnterpriseRouteImport.update({
+  id: '/enterprise',
+  path: '/enterprise',
+  getParentRoute: () => EnRoute,
+} as any)
+const EnContactRoute = EnContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => EnRoute,
+} as any)
+const EnAboutGuillermoRoute = EnAboutGuillermoRouteImport.update({
+  id: '/about-guillermo',
+  path: '/about-guillermo',
+  getParentRoute: () => EnRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/aliados-etw-2026': typeof AliadosEtw2026Route
   '/contacto': typeof ContactoRoute
+  '/en': typeof EnRouteWithChildren
   '/enterprise': typeof EnterpriseRoute
   '/g-struct': typeof GStructRoute
   '/reestructura': typeof ReestructuraRoute
   '/sobre-guillermo': typeof SobreGuillermoRoute
   '/unete-al-equipo': typeof UneteAlEquipoRoute
+  '/en/about-guillermo': typeof EnAboutGuillermoRoute
+  '/en/contact': typeof EnContactRoute
+  '/en/enterprise': typeof EnEnterpriseRoute
+  '/en/etw-2026-partners': typeof EnEtw2026PartnersRoute
+  '/en/g-struct': typeof EnGStructRoute
+  '/en/join-the-team': typeof EnJoinTheTeamRoute
+  '/en/restructure-1-1': typeof EnRestructure11Route
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/aliados-etw-2026': typeof AliadosEtw2026Route
   '/contacto': typeof ContactoRoute
+  '/en': typeof EnRouteWithChildren
   '/enterprise': typeof EnterpriseRoute
   '/g-struct': typeof GStructRoute
   '/reestructura': typeof ReestructuraRoute
   '/sobre-guillermo': typeof SobreGuillermoRoute
   '/unete-al-equipo': typeof UneteAlEquipoRoute
+  '/en/about-guillermo': typeof EnAboutGuillermoRoute
+  '/en/contact': typeof EnContactRoute
+  '/en/enterprise': typeof EnEnterpriseRoute
+  '/en/etw-2026-partners': typeof EnEtw2026PartnersRoute
+  '/en/g-struct': typeof EnGStructRoute
+  '/en/join-the-team': typeof EnJoinTheTeamRoute
+  '/en/restructure-1-1': typeof EnRestructure11Route
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/aliados-etw-2026': typeof AliadosEtw2026Route
   '/contacto': typeof ContactoRoute
+  '/en': typeof EnRouteWithChildren
   '/enterprise': typeof EnterpriseRoute
   '/g-struct': typeof GStructRoute
   '/reestructura': typeof ReestructuraRoute
   '/sobre-guillermo': typeof SobreGuillermoRoute
   '/unete-al-equipo': typeof UneteAlEquipoRoute
+  '/en/about-guillermo': typeof EnAboutGuillermoRoute
+  '/en/contact': typeof EnContactRoute
+  '/en/enterprise': typeof EnEnterpriseRoute
+  '/en/etw-2026-partners': typeof EnEtw2026PartnersRoute
+  '/en/g-struct': typeof EnGStructRoute
+  '/en/join-the-team': typeof EnJoinTheTeamRoute
+  '/en/restructure-1-1': typeof EnRestructure11Route
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -96,37 +168,62 @@ export interface FileRouteTypes {
     | '/'
     | '/aliados-etw-2026'
     | '/contacto'
+    | '/en'
     | '/enterprise'
     | '/g-struct'
     | '/reestructura'
     | '/sobre-guillermo'
     | '/unete-al-equipo'
+    | '/en/about-guillermo'
+    | '/en/contact'
+    | '/en/enterprise'
+    | '/en/etw-2026-partners'
+    | '/en/g-struct'
+    | '/en/join-the-team'
+    | '/en/restructure-1-1'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/aliados-etw-2026'
     | '/contacto'
+    | '/en'
     | '/enterprise'
     | '/g-struct'
     | '/reestructura'
     | '/sobre-guillermo'
     | '/unete-al-equipo'
+    | '/en/about-guillermo'
+    | '/en/contact'
+    | '/en/enterprise'
+    | '/en/etw-2026-partners'
+    | '/en/g-struct'
+    | '/en/join-the-team'
+    | '/en/restructure-1-1'
   id:
     | '__root__'
     | '/'
     | '/aliados-etw-2026'
     | '/contacto'
+    | '/en'
     | '/enterprise'
     | '/g-struct'
     | '/reestructura'
     | '/sobre-guillermo'
     | '/unete-al-equipo'
+    | '/en/about-guillermo'
+    | '/en/contact'
+    | '/en/enterprise'
+    | '/en/etw-2026-partners'
+    | '/en/g-struct'
+    | '/en/join-the-team'
+    | '/en/restructure-1-1'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AliadosEtw2026Route: typeof AliadosEtw2026Route
   ContactoRoute: typeof ContactoRoute
+  EnRoute: typeof EnRouteWithChildren
   EnterpriseRoute: typeof EnterpriseRoute
   GStructRoute: typeof GStructRoute
   ReestructuraRoute: typeof ReestructuraRoute
@@ -171,6 +268,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnterpriseRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/en': {
+      id: '/en'
+      path: '/en'
+      fullPath: '/en'
+      preLoaderRoute: typeof EnRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contacto': {
       id: '/contacto'
       path: '/contacto'
@@ -192,13 +296,85 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/en/restructure-1-1': {
+      id: '/en/restructure-1-1'
+      path: '/restructure-1-1'
+      fullPath: '/en/restructure-1-1'
+      preLoaderRoute: typeof EnRestructure11RouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/join-the-team': {
+      id: '/en/join-the-team'
+      path: '/join-the-team'
+      fullPath: '/en/join-the-team'
+      preLoaderRoute: typeof EnJoinTheTeamRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/g-struct': {
+      id: '/en/g-struct'
+      path: '/g-struct'
+      fullPath: '/en/g-struct'
+      preLoaderRoute: typeof EnGStructRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/etw-2026-partners': {
+      id: '/en/etw-2026-partners'
+      path: '/etw-2026-partners'
+      fullPath: '/en/etw-2026-partners'
+      preLoaderRoute: typeof EnEtw2026PartnersRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/enterprise': {
+      id: '/en/enterprise'
+      path: '/enterprise'
+      fullPath: '/en/enterprise'
+      preLoaderRoute: typeof EnEnterpriseRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/contact': {
+      id: '/en/contact'
+      path: '/contact'
+      fullPath: '/en/contact'
+      preLoaderRoute: typeof EnContactRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/about-guillermo': {
+      id: '/en/about-guillermo'
+      path: '/about-guillermo'
+      fullPath: '/en/about-guillermo'
+      preLoaderRoute: typeof EnAboutGuillermoRouteImport
+      parentRoute: typeof EnRoute
+    }
   }
 }
+
+interface EnRouteChildren {
+  EnAboutGuillermoRoute: typeof EnAboutGuillermoRoute
+  EnContactRoute: typeof EnContactRoute
+  EnEnterpriseRoute: typeof EnEnterpriseRoute
+  EnEtw2026PartnersRoute: typeof EnEtw2026PartnersRoute
+  EnGStructRoute: typeof EnGStructRoute
+  EnJoinTheTeamRoute: typeof EnJoinTheTeamRoute
+  EnRestructure11Route: typeof EnRestructure11Route
+}
+
+const EnRouteChildren: EnRouteChildren = {
+  EnAboutGuillermoRoute: EnAboutGuillermoRoute,
+  EnContactRoute: EnContactRoute,
+  EnEnterpriseRoute: EnEnterpriseRoute,
+  EnEtw2026PartnersRoute: EnEtw2026PartnersRoute,
+  EnGStructRoute: EnGStructRoute,
+  EnJoinTheTeamRoute: EnJoinTheTeamRoute,
+  EnRestructure11Route: EnRestructure11Route,
+}
+
+const EnRouteWithChildren = EnRoute._addFileChildren(EnRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AliadosEtw2026Route: AliadosEtw2026Route,
   ContactoRoute: ContactoRoute,
+  EnRoute: EnRouteWithChildren,
   EnterpriseRoute: EnterpriseRoute,
   GStructRoute: GStructRoute,
   ReestructuraRoute: ReestructuraRoute,
