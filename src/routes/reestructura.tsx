@@ -4,22 +4,22 @@ import { SectionHeader } from "@/components/site/SectionHeader";
 import { Eyebrow } from "@/components/site/Eyebrow";
 import { CTALink } from "@/components/site/CTAButton";
 import { Check } from "lucide-react";
+import { buildSeo, canonicalLink, jsonLdScript, breadcrumbSchema } from "@/lib/seo";
 
 export const Route = createFileRoute("/reestructura")({
   head: () => ({
-    meta: [
-      { title: "REESTRUCTURA 1:1 | Coaching individual de ejecución — G-Structure" },
-      {
-        name: "description",
-        content:
-          "Proceso individual de coaching cognitivo-conductual para profesionales, líderes y emprendedores que necesitan intervenir sus propios bloqueos de ejecución.",
-      },
-      { property: "og:title", content: "REESTRUCTURA 1:1 — G-Structure" },
-      {
-        property: "og:description",
-        content:
-          "Coaching cognitivo-conductual individual para reencuadrar patrones que bloquean la acción.",
-      },
+    meta: buildSeo({
+      path: "/reestructura",
+      title: "REESTRUCTURA 1:1 | Coaching para Procrastinación y Ejecución",
+      description:
+        "Proceso individual de coaching cognitivo-conductual para profesionales y líderes que necesitan trabajar procrastinación, perfeccionismo, sobreanálisis y autosabotaje.",
+    }),
+    links: canonicalLink("/reestructura"),
+    scripts: [
+      jsonLdScript(breadcrumbSchema([
+        { name: "Inicio", path: "/" },
+        { name: "REESTRUCTURA 1:1", path: "/reestructura" },
+      ])),
     ],
   }),
   component: Page,

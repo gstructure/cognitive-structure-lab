@@ -14,24 +14,30 @@ import { useT } from "@/lib/i18n";
 import logoCube from "@/assets/g-structure-cube.png";
 import gStructHomePreview from "@/assets/g-struct-home-preview.png";
 import etwBadge from "@/assets/etw-2026-badge.png";
+import { buildSeo, canonicalLink, jsonLdScript, faqSchema, breadcrumbSchema } from "@/lib/seo";
 
 const ETW_URL = "https://luma.com/lm4njhiu";
 
+const HOME_FAQ = [
+  { q: "¿Qué es G-Structure?", a: "Una iniciativa de coaching cognitivo-conductual aplicado a la ejecución, para líderes, profesionales y equipos que necesitan superar procrastinación, perfeccionismo improductivo, sobreanálisis y autosabotaje." },
+  { q: "¿G-Structure ofrece terapia?", a: "No. G-Structure es coaching cognitivo-conductual aplicado a contextos de ejecución profesional. No sustituye atención clínica ni psicoterapia." },
+  { q: "¿Qué es el método I-R-O?", a: "Identificar, Reencuadrar y Optimizar: una secuencia para detectar patrones que bloquean la acción, reformularlos y traducirlos en conducta funcional sostenida." },
+  { q: "¿Qué es G-Struct?", a: "La capa tecnológica del método G-Structure: una herramienta digital en desarrollo para registrar patrones, estructurar ejercicios y sostener la práctica entre sesiones." },
+];
+
 export const Route = createFileRoute("/")({
   head: () => ({
-    meta: [
-      { title: "G-Structure | Coaching Cognitivo-Conductual para Ejecución" },
-      {
-        name: "description",
-        content:
-          "Coaching cognitivo-conductual para líderes, profesionales y equipos que buscan superar procrastinación, perfeccionismo y bloqueos de ejecución.",
-      },
-      { property: "og:title", content: "G-Structure | Coaching Cognitivo-Conductual para Ejecución" },
-      {
-        property: "og:description",
-        content:
-          "Identificar, reencuadrar y optimizar los patrones que bloquean la acción. Coaching aplicado a la ejecución.",
-      },
+    meta: buildSeo({
+      path: "/",
+      title: "G-Structure | Coaching Cognitivo-Conductual para Ejecución",
+      description:
+        "Coaching cognitivo-conductual para líderes, profesionales y equipos en Ecuador y LATAM. Identificar, reencuadrar y optimizar los patrones que bloquean la acción.",
+      image: gStructHomePreview,
+    }),
+    links: canonicalLink("/"),
+    scripts: [
+      jsonLdScript(faqSchema(HOME_FAQ)),
+      jsonLdScript(breadcrumbSchema([{ name: "Inicio", path: "/" }])),
     ],
   }),
   component: Index,

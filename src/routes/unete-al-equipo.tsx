@@ -3,21 +3,22 @@ import { Section } from "@/components/site/Section";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { Eyebrow } from "@/components/site/Eyebrow";
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
+import { buildSeo, canonicalLink, jsonLdScript, breadcrumbSchema } from "@/lib/seo";
 
 export const Route = createFileRoute("/unete-al-equipo")({
   head: () => ({
-    meta: [
-      { title: "Únete al equipo | G-Structure & G-Struct" },
-      {
-        name: "description",
-        content:
-          "Buscamos colaboradores voluntarios para construir la siguiente etapa de G-Structure y G-Struct: producto, tecnología, ventas, marketing y negocios internacionales.",
-      },
-      { property: "og:title", content: "Únete al equipo G-Structure" },
-      {
-        property: "og:description",
-        content: "Construye desde una etapa temprana el ecosistema G-Structure y G-Struct.",
-      },
+    meta: buildSeo({
+      path: "/unete-al-equipo",
+      title: "Únete al Equipo | G-Structure & G-Struct",
+      description:
+        "G-Structure busca colaboradores voluntarios en UI/UX, desarrollo, ventas, marketing y negocios internacionales para construir su siguiente etapa rumbo a CodeLaunch 2026.",
+    }),
+    links: canonicalLink("/unete-al-equipo"),
+    scripts: [
+      jsonLdScript(breadcrumbSchema([
+        { name: "Inicio", path: "/" },
+        { name: "Únete al equipo", path: "/unete-al-equipo" },
+      ])),
     ],
   }),
   component: Page,

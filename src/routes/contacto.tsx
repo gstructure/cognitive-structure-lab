@@ -5,18 +5,22 @@ import { SectionHeader } from "@/components/site/SectionHeader";
 import { Eyebrow } from "@/components/site/Eyebrow";
 import { Mail, Phone, Globe, ArrowRight, ArrowUpRight, Building2, User, Cpu, Handshake, Users } from "lucide-react";
 import { SocialLinks } from "@/components/site/SocialLinks";
+import { buildSeo, canonicalLink, jsonLdScript, breadcrumbSchema } from "@/lib/seo";
 
 export const Route = createFileRoute("/contacto")({
   head: () => ({
-    meta: [
-      { title: "Contacto | G-Structure" },
-      {
-        name: "description",
-        content:
-          "Conversemos sobre tu contexto. Diagnóstico, proceso individual, intervención Enterprise o continuidad. Email, WhatsApp y formulario.",
-      },
-      { property: "og:title", content: "Contacto — G-Structure" },
-      { property: "og:description", content: "Agenda una conversación inicial con G-Structure." },
+    meta: buildSeo({
+      path: "/contacto",
+      title: "Contacto | G-Structure",
+      description:
+        "Conversemos sobre tu contexto: diagnóstico, REESTRUCTURA 1:1, intervención Enterprise, alianzas o equipo. Email, WhatsApp y formulario directo con G-Structure.",
+    }),
+    links: canonicalLink("/contacto"),
+    scripts: [
+      jsonLdScript(breadcrumbSchema([
+        { name: "Inicio", path: "/" },
+        { name: "Contacto", path: "/contacto" },
+      ])),
     ],
   }),
   component: Page,

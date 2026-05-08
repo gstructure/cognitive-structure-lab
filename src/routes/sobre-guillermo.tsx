@@ -5,21 +5,26 @@ import { CTALink, CTAExternal } from "@/components/site/CTAButton";
 import { Timeline } from "@/components/site/Timeline";
 import { GuillermoPortrait } from "@/components/site/GuillermoPortrait";
 import { SocialLinks } from "@/components/site/SocialLinks";
+import portrait from "@/assets/guillermo-suco.png";
+import { buildSeo, canonicalLink, jsonLdScript, personGuillermoSchema, breadcrumbSchema } from "@/lib/seo";
 
 export const Route = createFileRoute("/sobre-guillermo")({
   head: () => ({
-    meta: [
-      { title: "Sobre Guillermo Suco | Fundador de G-Structure" },
-      {
-        name: "description",
-        content:
-          "Guillermo Suco, CBT Coach Practitioner acreditado por CTAA, fundador de G-Structure. Psicología, intervención educativa y gerencia internacional de proyectos.",
-      },
-      { property: "og:title", content: "Sobre Guillermo Suco — G-Structure" },
-      {
-        property: "og:description",
-        content: "Dirección metodológica de G-Structure y G-Struct.",
-      },
+    meta: buildSeo({
+      path: "/sobre-guillermo",
+      title: "Guillermo Suco | Fundador de G-Structure",
+      description:
+        "Guillermo Suco, CBT Coach Practitioner acreditado por CTAA y fundador de G-Structure. Psicología, intervención educativa y gerencia internacional de proyectos.",
+      image: portrait,
+      type: "profile",
+    }),
+    links: canonicalLink("/sobre-guillermo"),
+    scripts: [
+      jsonLdScript(personGuillermoSchema),
+      jsonLdScript(breadcrumbSchema([
+        { name: "Inicio", path: "/" },
+        { name: "Sobre Guillermo", path: "/sobre-guillermo" },
+      ])),
     ],
   }),
   component: Page,

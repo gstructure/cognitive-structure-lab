@@ -13,6 +13,7 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { LocaleProvider } from "@/lib/i18n";
 import { WhatsAppFAB } from "@/components/site/WhatsAppFAB";
+import { SITE_URL, organizationSchema, websiteSchema, jsonLdScript } from "@/lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -70,15 +71,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "G-Structure | Coaching Cognitivo-Conductual para Ejecución" },
-      {
-        name: "description",
-        content:
-          "Coaching cognitivo-conductual para líderes, profesionales y equipos que buscan superar procrastinación, perfeccionismo y bloqueos de ejecución.",
-      },
+      { name: "theme-color", content: "#05325A" },
+      { name: "format-detection", content: "telephone=no" },
       { name: "author", content: "G-Structure" },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:site_name", content: "G-Structure" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -88,9 +84,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&display=swap",
       },
-      { rel: "alternate", hrefLang: "es", href: "https://www.g-structure.co/" },
-      { rel: "alternate", hrefLang: "en", href: "https://www.g-structure.co/?lang=en" },
-      { rel: "alternate", hrefLang: "x-default", href: "https://www.g-structure.co/" },
+      { rel: "icon", href: "/og-default.jpg", type: "image/jpeg" },
+    ],
+    scripts: [
+      jsonLdScript([organizationSchema, websiteSchema]),
     ],
   }),
   shellComponent: RootShell,
