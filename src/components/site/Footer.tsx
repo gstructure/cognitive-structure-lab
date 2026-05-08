@@ -1,21 +1,25 @@
 import { Link } from "@tanstack/react-router";
 import { Logo } from "@/components/brand/Logo";
+import { SocialLinks } from "@/components/site/SocialLinks";
 
 const COLS = [
   {
-    title: "Servicios",
+    title: "Navegación",
     links: [
+      { to: "/", label: "Inicio" },
       { to: "/enterprise", label: "Enterprise" },
       { to: "/reestructura", label: "REESTRUCTURA 1:1" },
       { to: "/g-struct", label: "G-Struct" },
+      { to: "/sobre-guillermo", label: "Sobre Guillermo" },
+      { to: "/contacto", label: "Contacto" },
     ],
   },
   {
-    title: "Marca",
+    title: "Oportunidades",
     links: [
-      { to: "/sobre-guillermo", label: "Sobre Guillermo" },
       { to: "/aliados-etw-2026", label: "Aliados ETW 2026" },
       { to: "/unete-al-equipo", label: "Únete al equipo" },
+      { to: "/g-struct", label: "G-Struct updates" },
     ],
   },
 ] as const;
@@ -25,11 +29,11 @@ export function Footer() {
     <footer className="border-t border-border bg-background">
       <div className="container-x py-16 md:py-20">
         <div className="grid gap-12 md:grid-cols-12">
-          <div className="md:col-span-5">
+          <div className="md:col-span-4">
             <Logo />
             <p className="mt-5 max-w-sm text-sm text-muted-foreground leading-relaxed">
               Ingeniería de resultados cognitivo-conductuales. Coaching cognitivo-conductual
-              aplicado a la ejecución en contextos profesionales de alta exigencia.
+              aplicado a la ejecución para profesionales, líderes y equipos.
             </p>
           </div>
 
@@ -38,7 +42,7 @@ export function Footer() {
               <p className="eyebrow mb-4">{col.title}</p>
               <ul className="space-y-2.5">
                 {col.links.map((l) => (
-                  <li key={l.to}>
+                  <li key={`${col.title}-${l.to}-${l.label}`}>
                     <Link
                       to={l.to}
                       className="text-sm text-foreground/80 hover:text-foreground transition-colors"
@@ -51,7 +55,7 @@ export function Footer() {
             </div>
           ))}
 
-          <div className="md:col-span-3">
+          <div className="md:col-span-4">
             <p className="eyebrow mb-4">Contacto</p>
             <ul className="space-y-2.5 text-sm">
               <li>
@@ -66,12 +70,21 @@ export function Footer() {
               </li>
               <li className="text-muted-foreground">www.g-structure.co</li>
             </ul>
+            <div className="mt-5">
+              <SocialLinks only={["instagram", "facebook", "linkedin", "whatsapp"]} />
+            </div>
           </div>
         </div>
 
-        <div className="mt-14 pt-6 border-t border-border flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <p className="mt-14 max-w-3xl text-xs text-muted-foreground leading-relaxed">
+          G-Structure ofrece servicios de coaching y formación cognitivo-conductual aplicada a la
+          ejecución. No sustituye atención psicológica, médica o psiquiátrica.
+        </p>
+
+        <div className="mt-6 pt-6 border-t border-border flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} G-Structure. Todos los derechos reservados.
+            © {new Date().getFullYear()} G-Structure. Todos los derechos reservados. Una iniciativa
+            de Guillermo Suco.
           </p>
           <p className="text-xs text-muted-foreground tracking-wide">
             Identificar · Reencuadrar · Optimizar
