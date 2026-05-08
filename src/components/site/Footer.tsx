@@ -33,8 +33,7 @@ export function Footer() {
           <div className="md:col-span-4">
             <Logo />
             <p className="mt-5 max-w-sm text-sm text-muted-foreground leading-relaxed">
-              Ingeniería de resultados cognitivo-conductuales. Coaching cognitivo-conductual
-              aplicado a la ejecución para profesionales, líderes y equipos.
+              {t("footer.tagline")}
             </p>
           </div>
 
