@@ -38,14 +38,16 @@ const BookingAdminNotificationEmail = ({
   <Html lang="es" dir="ltr">
     <Head />
     <Preview>
-      Nueva reserva — {name ?? "cliente"} ({packageName ?? ""})
+      Nueva solicitud de reserva (pendiente de pago) — {name ?? "cliente"}
     </Preview>
     <Body style={main}>
       <Container style={container}>
-        <Heading style={h1}>Nueva reserva recibida</Heading>
+        <Heading style={h1}>Nueva solicitud de reserva</Heading>
         <Text style={text}>
-          {name ?? "Un cliente"} acaba de reservar{" "}
-          <strong>{packageName ?? "una sesión"}</strong>.
+          {name ?? "Un cliente"} solicitó <strong>{packageName ?? "una sesión"}</strong>.
+          La reserva está en estado <strong>pendiente de pago</strong>.
+          Cuando recibas y valides el comprobante, marca la reserva como confirmada
+          desde el panel de admin para enviar el correo oficial al cliente.
         </Text>
 
         <Section style={card}>
