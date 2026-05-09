@@ -31,8 +31,15 @@ export const Route = createFileRoute("/reestructura-1-1")({
 });
 
 function Page() {
+  const [bookingPkg, setBookingPkg] = useState<BookablePackage | null>(null);
+  const openBooking = (slug: string) => setBookingPkg(findPackage(slug) ?? null);
   return (
     <>
+      <BookingDialog
+        pkg={bookingPkg}
+        open={!!bookingPkg}
+        onOpenChange={(o) => !o && setBookingPkg(null)}
+      />
       {/* HERO */}
       <section className="relative overflow-hidden border-b border-border">
         <div className="absolute inset-0 grid-bg opacity-50" aria-hidden />
