@@ -296,6 +296,189 @@ function Page() {
         </div>
       </Section>
 
+      {/* PAQUETES DE TRABAJO */}
+      <Section id="paquetes" tone="white">
+        <SectionHeader
+          eyebrow="PAQUETES DE TRABAJO"
+          title="Elige el formato que se ajusta a tu momento."
+          subtitle="Tres paquetes con la misma metodología cognitivo-conductual. Todos incluyen sesiones individuales online de 60 minutos, una vez por semana, con trabajo aplicado entre sesiones."
+          align="center"
+        />
+
+        <div className="mt-14 grid gap-px bg-border border border-border md:grid-cols-3">
+          {[
+            {
+              name: "Foco",
+              sessions: "4 sesiones",
+              duration: "4 semanas",
+              price: "USD 200",
+              perSession: "USD 50 / sesión",
+              tag: "Intervención breve",
+              fit: "Para quien tiene un patrón puntual claro: una decisión bloqueada, un proyecto detenido o una etapa específica de procrastinación.",
+              includes: [
+                "4 videollamadas individuales de 60 min (1 por semana).",
+                "Diagnóstico inicial de patrón.",
+                "Workbook digital REESTRUCTURA 1:1.",
+                "Ejercicios CBT entre sesiones.",
+                "Plan de acción al cierre.",
+              ],
+              highlighted: false,
+            },
+            {
+              name: "Reencuadre",
+              sessions: "6 sesiones",
+              duration: "6 semanas",
+              price: "USD 285",
+              perSession: "USD 47.50 / sesión",
+              tag: "Más recomendado",
+              fit: "Para quien necesita trabajar más de un patrón (perfeccionismo + sobreanálisis, autosabotaje + ejecución) y consolidar cambio sostenido.",
+              includes: [
+                "6 videollamadas individuales de 60 min (1 por semana).",
+                "Diagnóstico ampliado de patrones.",
+                "Workbook digital REESTRUCTURA 1:1.",
+                "Guía digital complementaria de reencuadre cognitivo.",
+                "Ejercicios CBT estructurados por sesión.",
+                "Plan de optimización conductual al cierre.",
+              ],
+              highlighted: true,
+            },
+            {
+              name: "Estructura",
+              sessions: "8 sesiones",
+              duration: "8 semanas",
+              price: "USD 360",
+              perSession: "USD 45 / sesión",
+              tag: "Cambio profundo",
+              fit: "Para profesionales y líderes que quieren intervenir patrones recurrentes y construir un sistema operativo personal sostenible.",
+              includes: [
+                "8 videollamadas individuales de 60 min (1 por semana).",
+                "Diagnóstico profundo de patrones recurrentes.",
+                "Workbook digital REESTRUCTURA 1:1.",
+                "Guía digital complementaria de reencuadre cognitivo.",
+                "Ejercicios CBT progresivos por fase.",
+                "Plan de optimización conductual + ruta de seguimiento.",
+                "1 sesión de revisión a los 30 días posteriores.",
+              ],
+              highlighted: false,
+            },
+          ].map((p) => (
+            <div
+              key={p.name}
+              className={`relative flex flex-col p-8 ${
+                p.highlighted
+                  ? "bg-[color:var(--color-brand-deep)] text-[color:var(--color-background)]"
+                  : "bg-background"
+              }`}
+            >
+              <p
+                className={`font-display text-[10px] font-semibold tracking-[0.22em] ${
+                  p.highlighted
+                    ? "text-[color:var(--color-background)]/70"
+                    : "text-[color:var(--color-brand-deep)]"
+                }`}
+              >
+                {p.tag.toUpperCase()}
+              </p>
+              <h3
+                className={`mt-3 font-display text-2xl font-semibold ${
+                  p.highlighted ? "text-[color:var(--color-background)]" : "text-foreground"
+                }`}
+              >
+                {p.name}
+              </h3>
+              <p
+                className={`mt-1 text-sm ${
+                  p.highlighted
+                    ? "text-[color:var(--color-background)]/75"
+                    : "text-muted-foreground"
+                }`}
+              >
+                {p.sessions} · {p.duration}
+              </p>
+
+              <div
+                className={`mt-6 pb-6 border-b ${
+                  p.highlighted ? "border-[color:var(--color-background)]/20" : "border-border"
+                }`}
+              >
+                <p
+                  className={`font-display text-4xl font-semibold ${
+                    p.highlighted ? "text-[color:var(--color-background)]" : "text-foreground"
+                  }`}
+                >
+                  {p.price}
+                </p>
+                <p
+                  className={`mt-1 text-xs ${
+                    p.highlighted
+                      ? "text-[color:var(--color-background)]/70"
+                      : "text-muted-foreground"
+                  }`}
+                >
+                  {p.perSession}
+                </p>
+              </div>
+
+              <p
+                className={`mt-6 text-sm leading-relaxed ${
+                  p.highlighted
+                    ? "text-[color:var(--color-background)]/85"
+                    : "text-foreground/80"
+                }`}
+              >
+                <span
+                  className={`block font-display text-[10px] font-semibold tracking-[0.22em] mb-2 ${
+                    p.highlighted
+                      ? "text-[color:var(--color-background)]/60"
+                      : "text-muted-foreground"
+                  }`}
+                >
+                  IDEAL PARA
+                </span>
+                {p.fit}
+              </p>
+
+              <ul className="mt-6 space-y-3 text-sm">
+                {p.includes.map((i) => (
+                  <li
+                    key={i}
+                    className={`flex gap-2.5 ${
+                      p.highlighted
+                        ? "text-[color:var(--color-background)]/90"
+                        : "text-foreground/85"
+                    }`}
+                  >
+                    <Check
+                      size={15}
+                      className={`mt-0.5 shrink-0 ${
+                        p.highlighted
+                          ? "text-[color:var(--color-background)]"
+                          : "text-[color:var(--color-brand-deep)]"
+                      }`}
+                    />
+                    <span>{i}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-8 pt-2">
+                <CTALink
+                  to="/contacto"
+                  variant={p.highlighted ? "inverse" : "primary"}
+                  className="w-full"
+                >
+                  Reservar {p.name}
+                </CTALink>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p className="mt-8 text-center text-xs text-muted-foreground">
+          Modalidad 100% online · Pago único o en dos partes · Reembolso disponible si tras la primera sesión decides no continuar.
+        </p>
+      </Section>
+
       {/* CIERRE COMERCIAL */}
       <Section tone="muted">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-16 items-center">
