@@ -475,13 +475,18 @@ function Page() {
               </ul>
 
               <div className="mt-8 pt-2">
-                <CTALink
-                  to="/contacto"
-                  variant={p.highlighted ? "inverse" : "primary"}
-                  className="w-full"
+                <button
+                  type="button"
+                  onClick={() => openBooking(p.slug)}
+                  className={`group inline-flex w-full items-center justify-center gap-2 px-5 py-3 text-[13px] font-medium tracking-wide transition-all ${
+                    p.highlighted
+                      ? "bg-background text-foreground hover:opacity-90"
+                      : "bg-foreground text-background hover:opacity-90"
+                  }`}
                 >
                   Reservar {p.name}
-                </CTALink>
+                  <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
+                </button>
               </div>
             </div>
           ))}
