@@ -25,6 +25,7 @@ import { Route as EnEtw2026PartnersRouteImport } from './routes/en.etw-2026-part
 import { Route as EnEnterpriseRouteImport } from './routes/en.enterprise'
 import { Route as EnContactRouteImport } from './routes/en.contact'
 import { Route as EnAboutGuillermoRouteImport } from './routes/en.about-guillermo'
+import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
 
 const UneteAlEquipoRoute = UneteAlEquipoRouteImport.update({
   id: '/unete-al-equipo',
@@ -106,6 +107,12 @@ const EnAboutGuillermoRoute = EnAboutGuillermoRouteImport.update({
   path: '/about-guillermo',
   getParentRoute: () => EnRoute,
 } as any)
+const LovableEmailQueueProcessRoute =
+  LovableEmailQueueProcessRouteImport.update({
+    id: '/lovable/email/queue/process',
+    path: '/lovable/email/queue/process',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -124,6 +131,7 @@ export interface FileRoutesByFullPath {
   '/en/g-struct': typeof EnGStructRoute
   '/en/join-the-team': typeof EnJoinTheTeamRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
+  '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -142,6 +150,7 @@ export interface FileRoutesByTo {
   '/en/g-struct': typeof EnGStructRoute
   '/en/join-the-team': typeof EnJoinTheTeamRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
+  '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -161,6 +170,7 @@ export interface FileRoutesById {
   '/en/g-struct': typeof EnGStructRoute
   '/en/join-the-team': typeof EnJoinTheTeamRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
+  '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -181,6 +191,7 @@ export interface FileRouteTypes {
     | '/en/g-struct'
     | '/en/join-the-team'
     | '/en/restructure-1-1'
+    | '/lovable/email/queue/process'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -199,6 +210,7 @@ export interface FileRouteTypes {
     | '/en/g-struct'
     | '/en/join-the-team'
     | '/en/restructure-1-1'
+    | '/lovable/email/queue/process'
   id:
     | '__root__'
     | '/'
@@ -217,6 +229,7 @@ export interface FileRouteTypes {
     | '/en/g-struct'
     | '/en/join-the-team'
     | '/en/restructure-1-1'
+    | '/lovable/email/queue/process'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -229,6 +242,7 @@ export interface RootRouteChildren {
   Reestructura11Route: typeof Reestructura11Route
   SobreGuillermoRoute: typeof SobreGuillermoRoute
   UneteAlEquipoRoute: typeof UneteAlEquipoRoute
+  LovableEmailQueueProcessRoute: typeof LovableEmailQueueProcessRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -345,6 +359,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnAboutGuillermoRouteImport
       parentRoute: typeof EnRoute
     }
+    '/lovable/email/queue/process': {
+      id: '/lovable/email/queue/process'
+      path: '/lovable/email/queue/process'
+      fullPath: '/lovable/email/queue/process'
+      preLoaderRoute: typeof LovableEmailQueueProcessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -380,6 +401,7 @@ const rootRouteChildren: RootRouteChildren = {
   Reestructura11Route: Reestructura11Route,
   SobreGuillermoRoute: SobreGuillermoRoute,
   UneteAlEquipoRoute: UneteAlEquipoRoute,
+  LovableEmailQueueProcessRoute: LovableEmailQueueProcessRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
