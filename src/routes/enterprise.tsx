@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/site/Section";
 import { SectionHeader } from "@/components/site/SectionHeader";
@@ -7,6 +8,8 @@ import { Check, ArrowRight } from "lucide-react";
 import etwBadge from "@/assets/etw-2026-badge.png";
 import reestructuraLogo from "@/assets/reestructura-enterprise-logo.png";
 import { buildSeo, canonicalLink, jsonLdScript, breadcrumbSchema } from "@/lib/seo";
+import { BookingDialog } from "@/components/booking/BookingDialog";
+import { findPackage } from "@/lib/booking-catalog";
 
 export const Route = createFileRoute("/enterprise")({
   head: () => ({
