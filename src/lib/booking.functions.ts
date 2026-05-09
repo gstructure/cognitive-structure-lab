@@ -8,7 +8,10 @@ import { findPackage, MIN_NOTICE_HOURS } from "./booking-catalog";
 // or an admin-blocked slot.
 export const getUnavailableSlots = createServerFn({ method: "POST" })
   .inputValidator((input: { startISO: string; endISO: string }) =>
-    z.object({ startISO: z.string().datetime(), endISO: z.string().datetime() }).parse(input))
+    z.object({
+      startISO: z.string().datetime({ offset: true }),
+      endISO: z.string().datetime({ offset: true }),
+    }).parse(input))
   .handler(async ({ data }) => {
     const [{ data: bookings, error: bErr }, { data: blocked, error: blErr }] = await Promise.all([
       supabaseAdmin.from("bookings")
