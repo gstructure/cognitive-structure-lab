@@ -11,7 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as UneteAlEquipoRouteImport } from './routes/unete-al-equipo'
 import { Route as SobreGuillermoRouteImport } from './routes/sobre-guillermo'
-import { Route as ReestructuraRouteImport } from './routes/reestructura'
+import { Route as Reestructura11RouteImport } from './routes/reestructura-1-1'
 import { Route as GStructRouteImport } from './routes/g-struct'
 import { Route as EnterpriseRouteImport } from './routes/enterprise'
 import { Route as EnRouteImport } from './routes/en'
@@ -36,9 +36,9 @@ const SobreGuillermoRoute = SobreGuillermoRouteImport.update({
   path: '/sobre-guillermo',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ReestructuraRoute = ReestructuraRouteImport.update({
-  id: '/reestructura',
-  path: '/reestructura',
+const Reestructura11Route = Reestructura11RouteImport.update({
+  id: '/reestructura-1-1',
+  path: '/reestructura-1-1',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GStructRoute = GStructRouteImport.update({
@@ -114,7 +114,7 @@ export interface FileRoutesByFullPath {
   '/en': typeof EnRouteWithChildren
   '/enterprise': typeof EnterpriseRoute
   '/g-struct': typeof GStructRoute
-  '/reestructura': typeof ReestructuraRoute
+  '/reestructura-1-1': typeof Reestructura11Route
   '/sobre-guillermo': typeof SobreGuillermoRoute
   '/unete-al-equipo': typeof UneteAlEquipoRoute
   '/en/about-guillermo': typeof EnAboutGuillermoRoute
@@ -132,7 +132,7 @@ export interface FileRoutesByTo {
   '/en': typeof EnRouteWithChildren
   '/enterprise': typeof EnterpriseRoute
   '/g-struct': typeof GStructRoute
-  '/reestructura': typeof ReestructuraRoute
+  '/reestructura-1-1': typeof Reestructura11Route
   '/sobre-guillermo': typeof SobreGuillermoRoute
   '/unete-al-equipo': typeof UneteAlEquipoRoute
   '/en/about-guillermo': typeof EnAboutGuillermoRoute
@@ -151,7 +151,7 @@ export interface FileRoutesById {
   '/en': typeof EnRouteWithChildren
   '/enterprise': typeof EnterpriseRoute
   '/g-struct': typeof GStructRoute
-  '/reestructura': typeof ReestructuraRoute
+  '/reestructura-1-1': typeof Reestructura11Route
   '/sobre-guillermo': typeof SobreGuillermoRoute
   '/unete-al-equipo': typeof UneteAlEquipoRoute
   '/en/about-guillermo': typeof EnAboutGuillermoRoute
@@ -171,7 +171,7 @@ export interface FileRouteTypes {
     | '/en'
     | '/enterprise'
     | '/g-struct'
-    | '/reestructura'
+    | '/reestructura-1-1'
     | '/sobre-guillermo'
     | '/unete-al-equipo'
     | '/en/about-guillermo'
@@ -189,7 +189,7 @@ export interface FileRouteTypes {
     | '/en'
     | '/enterprise'
     | '/g-struct'
-    | '/reestructura'
+    | '/reestructura-1-1'
     | '/sobre-guillermo'
     | '/unete-al-equipo'
     | '/en/about-guillermo'
@@ -207,7 +207,7 @@ export interface FileRouteTypes {
     | '/en'
     | '/enterprise'
     | '/g-struct'
-    | '/reestructura'
+    | '/reestructura-1-1'
     | '/sobre-guillermo'
     | '/unete-al-equipo'
     | '/en/about-guillermo'
@@ -226,7 +226,7 @@ export interface RootRouteChildren {
   EnRoute: typeof EnRouteWithChildren
   EnterpriseRoute: typeof EnterpriseRoute
   GStructRoute: typeof GStructRoute
-  ReestructuraRoute: typeof ReestructuraRoute
+  Reestructura11Route: typeof Reestructura11Route
   SobreGuillermoRoute: typeof SobreGuillermoRoute
   UneteAlEquipoRoute: typeof UneteAlEquipoRoute
 }
@@ -247,11 +247,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SobreGuillermoRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/reestructura': {
-      id: '/reestructura'
-      path: '/reestructura'
-      fullPath: '/reestructura'
-      preLoaderRoute: typeof ReestructuraRouteImport
+    '/reestructura-1-1': {
+      id: '/reestructura-1-1'
+      path: '/reestructura-1-1'
+      fullPath: '/reestructura-1-1'
+      preLoaderRoute: typeof Reestructura11RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/g-struct': {
@@ -377,10 +377,20 @@ const rootRouteChildren: RootRouteChildren = {
   EnRoute: EnRouteWithChildren,
   EnterpriseRoute: EnterpriseRoute,
   GStructRoute: GStructRoute,
-  ReestructuraRoute: ReestructuraRoute,
+  Reestructura11Route: Reestructura11Route,
   SobreGuillermoRoute: SobreGuillermoRoute,
   UneteAlEquipoRoute: UneteAlEquipoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

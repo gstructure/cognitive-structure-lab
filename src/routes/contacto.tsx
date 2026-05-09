@@ -53,7 +53,7 @@ function Page() {
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {[
             { to: "/enterprise", icon: <Building2 size={18} />, t: "Enterprise", d: "Workshop, REESTRUCTURA Enterprise y continuidad." },
-            { to: "/reestructura", icon: <User size={18} />, t: "REESTRUCTURA 1:1", d: "Proceso individual de coaching cognitivo-conductual." },
+            { to: "/reestructura-1-1", icon: <User size={18} />, t: "REESTRUCTURA 1:1", d: "Proceso individual de coaching cognitivo-conductual." },
             { to: "/g-struct", icon: <Cpu size={18} />, t: "G-Struct", d: "Lista de espera de la app del método." },
             { to: "/aliados-etw-2026", icon: <Handshake size={18} />, t: "Aliados ETW 2026", d: "Sumarse al Workshop en Ecuador Tech Week 2026." },
             { to: "/unete-al-equipo", icon: <Users size={18} />, t: "Únete al equipo", d: "Construir desde una etapa temprana." },
