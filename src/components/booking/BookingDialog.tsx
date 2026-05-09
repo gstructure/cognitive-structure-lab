@@ -239,6 +239,12 @@ export function BookingDialog({ pkg, open, onOpenChange }: Props) {
               </div>
             )}
 
+            <p className="text-xs text-muted-foreground border-l-2 border-border pl-3">
+              Las reservas se confirman con el pago del 50% del valor del servicio. Después de
+              solicitar una fecha recibirás por correo las instrucciones para realizar la
+              transferencia bancaria y enviar el comprobante.
+            </p>
+
             <div className="flex justify-end gap-3 pt-2">
               <button
                 type="button"
