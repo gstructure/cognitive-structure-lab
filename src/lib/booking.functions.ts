@@ -34,7 +34,7 @@ export const getUnavailableSlots = createServerFn({ method: "POST" })
 
 const bookingSchema = z.object({
   packageSlug: z.string().min(1).max(64),
-  slotAtISO: z.string().datetime(),
+  slotAtISO: z.string().datetime({ offset: true }),
   name: z.string().trim().min(2).max(120),
   email: z.string().trim().email().max(200),
   phone: z.string().trim().max(40).optional().or(z.literal("")),
