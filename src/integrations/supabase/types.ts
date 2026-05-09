@@ -14,10 +14,83 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      blocked_slots: {
+        Row: {
+          created_at: string
+          id: string
+          reason: string | null
+          slot_at: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          reason?: string | null
+          slot_at: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          reason?: string | null
+          slot_at?: string
+        }
+        Relationships: []
+      }
+      bookings: {
+        Row: {
+          country: string | null
+          created_at: string
+          email: string
+          id: string
+          name: string
+          notes: string | null
+          package_kind: string
+          package_name: string
+          package_slug: string
+          phone: string | null
+          price_usd: number | null
+          slot_at: string
+          status: string
+        }
+        Insert: {
+          country?: string | null
+          created_at?: string
+          email: string
+          id?: string
+          name: string
+          notes?: string | null
+          package_kind: string
+          package_name: string
+          package_slug: string
+          phone?: string | null
+          price_usd?: number | null
+          slot_at: string
+          status?: string
+        }
+        Update: {
+          country?: string | null
+          created_at?: string
+          email?: string
+          id?: string
+          name?: string
+          notes?: string | null
+          package_kind?: string
+          package_name?: string
+          package_slug?: string
+          phone?: string | null
+          price_usd?: number | null
+          slot_at?: string
+          status?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
-      [_ in never]: never
+      booked_slots: {
+        Row: {
+          slot_at: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       [_ in never]: never
