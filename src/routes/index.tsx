@@ -534,7 +534,7 @@ function Solutions() {
       t: "REESTRUCTURA 1:1",
       d: "Proceso individual de coaching cognitivo-conductual para profesionales que necesitan intervenir sus propios bloqueos de ejecución.",
       ideal: "Líderes, emprendedores y profesionales que quieren trabajar su patrón personal de acción.",
-      cta: "Conocer proceso individual", to: "/reestructura",
+      cta: "Conocer proceso individual", to: "/reestructura-1-1",
     },
     {
       t: "Continuidad Enterprise",

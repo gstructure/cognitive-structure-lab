@@ -14,7 +14,7 @@ export type RouteEntry = {
 export const ROUTES: RouteEntry[] = [
   { es: "/", en: "/en", label: { es: "Inicio", en: "Home" } },
   { es: "/enterprise", en: "/en/enterprise", label: { es: "Enterprise", en: "Enterprise" } },
-  { es: "/reestructura", en: "/en/restructure-1-1", label: { es: "REESTRUCTURA 1:1", en: "RESTRUCTURE 1:1" } },
+  { es: "/reestructura-1-1", en: "/en/restructure-1-1", label: { es: "REESTRUCTURA 1:1", en: "RESTRUCTURE 1:1" } },
   { es: "/g-struct", en: "/en/g-struct", label: { es: "G-Struct", en: "G-Struct" } },
   { es: "/sobre-guillermo", en: "/en/about-guillermo", label: { es: "Sobre Guillermo", en: "About Guillermo" } },
   { es: "/contacto", en: "/en/contact", label: { es: "Contacto", en: "Contact" } },
@@ -52,7 +52,7 @@ export function swapLocalePath(pathname: string, target: Locale): string {
 
 export function navForLocale(locale: Locale) {
   // Main header nav (excludes ETW Allies and Join Team — those live elsewhere)
-  const mainKeys = ["/", "/enterprise", "/reestructura", "/g-struct", "/sobre-guillermo", "/contacto"];
+  const mainKeys = ["/", "/enterprise", "/reestructura-1-1", "/g-struct", "/sobre-guillermo", "/contacto"];
   return ROUTES.filter((r) => mainKeys.includes(r.es)).map((r) => ({
     to: r[locale],
     label: r.label[locale],

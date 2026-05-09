@@ -6,19 +6,19 @@ import { CTALink } from "@/components/site/CTAButton";
 import { Check } from "lucide-react";
 import { buildSeo, canonicalLink, jsonLdScript, breadcrumbSchema } from "@/lib/seo";
 
-export const Route = createFileRoute("/reestructura")({
+export const Route = createFileRoute("/reestructura-1-1")({
   head: () => ({
     meta: buildSeo({
-      path: "/reestructura",
+      path: "/reestructura-1-1",
       title: "REESTRUCTURA 1:1 | Coaching para Procrastinación y Ejecución",
       description:
         "Proceso individual de coaching cognitivo-conductual para profesionales y líderes que necesitan trabajar procrastinación, perfeccionismo, sobreanálisis y autosabotaje.",
     }),
-    links: canonicalLink("/reestructura"),
+    links: canonicalLink("/reestructura-1-1"),
     scripts: [
       jsonLdScript(breadcrumbSchema([
         { name: "Inicio", path: "/" },
-        { name: "REESTRUCTURA 1:1", path: "/reestructura" },
+        { name: "REESTRUCTURA 1:1", path: "/reestructura-1-1" },
       ])),
     ],
   }),
@@ -41,7 +41,7 @@ function Page() {
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
             <CTALink to="/contacto" variant="primary">Agendar conversación inicial</CTALink>
-            <CTALink to="/reestructura" hash="proceso" variant="outline">Ver el proceso</CTALink>
+            <CTALink to="/reestructura-1-1" hash="proceso" variant="outline">Ver el proceso</CTALink>
           </div>
         </div>
       </section>
