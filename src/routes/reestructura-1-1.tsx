@@ -318,6 +318,7 @@ function Page() {
         <div className="mt-14 grid gap-px bg-border border border-border md:grid-cols-3">
           {[
             {
+              slug: "foco-4",
               name: "Foco",
               sessions: "4 sesiones",
               duration: "4 semanas",
@@ -335,6 +336,7 @@ function Page() {
               highlighted: false,
             },
             {
+              slug: "reencuadre-6",
               name: "Reencuadre",
               sessions: "6 sesiones",
               duration: "6 semanas",
@@ -353,6 +355,7 @@ function Page() {
               highlighted: true,
             },
             {
+              slug: "estructura-8",
               name: "Estructura",
               sessions: "8 sesiones",
               duration: "8 semanas",
