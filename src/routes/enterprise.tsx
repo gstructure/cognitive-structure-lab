@@ -309,6 +309,14 @@ function Enterprise() {
             <div className="mt-8 flex flex-wrap gap-3">
               <CTALink to="/contacto" variant="primary">Solicitar Workshop de Diagnóstico</CTALink>
               <CTAExternal href="https://wa.me/593986875121" variant="outline">Hablar por WhatsApp</CTAExternal>
+              <CTAExternal
+                href="/downloads/reestructura-enterprise-onepager.pdf"
+                download
+                variant="ghost"
+                withArrow={false}
+              >
+                Descargar one-pager (PDF)
+              </CTAExternal>
             </div>
           </div>
           <div className="lg:col-span-4">
