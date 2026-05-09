@@ -3,9 +3,9 @@ import { Section } from "@/components/site/Section";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { Eyebrow } from "@/components/site/Eyebrow";
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
-import { Timeline } from "@/components/site/Timeline";
-import { Check } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
 import etwBadge from "@/assets/etw-2026-badge.png";
+import reestructuraLogo from "@/assets/reestructura-enterprise-logo.png";
 import { buildSeo, canonicalLink, jsonLdScript, breadcrumbSchema } from "@/lib/seo";
 
 export const Route = createFileRoute("/enterprise")({
@@ -31,32 +31,50 @@ export const Route = createFileRoute("/enterprise")({
 function Enterprise() {
   return (
     <>
+      {/* HERO */}
       <section className="relative overflow-hidden border-b border-border">
         <div className="absolute inset-0 grid-bg opacity-50" aria-hidden />
-        <div className="container-x relative py-20 md:py-28 lg:py-36">
-          <Eyebrow>G-STRUCTURE ENTERPRISE</Eyebrow>
-          <h1 className="mt-6 max-w-4xl text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.05]">
-            Cuando un equipo no ejecuta, el problema no siempre es la estrategia.
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-            G-Structure Enterprise ayuda a organizaciones, founders y equipos a identificar
-            patrones cognitivo-conductuales que bloquean la ejecución y convertirlos en decisiones,
-            acciones y seguimiento más claros.
-          </p>
-          <p className="mt-4 max-w-2xl text-sm md:text-base text-muted-foreground/90 leading-relaxed">
-            Diseñamos workshops de diagnóstico, programas piloto y procesos de continuidad para
-            equipos que necesitan actuar con mayor precisión, reducir fricción interna y sostener
-            resultados.
-          </p>
-          <div className="mt-10 flex flex-wrap gap-3">
-            <CTALink to="/contacto" variant="primary">Solicitar Workshop de Diagnóstico</CTALink>
-            <CTALink to="/enterprise" hash="reestructura" variant="outline">
-              Conocer REESTRUCTURA Enterprise
-            </CTALink>
+        <div className="container-x relative py-20 md:py-28 lg:py-32">
+          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16 items-center">
+            <div className="lg:col-span-7">
+              <Eyebrow>REESTRUCTURA ENTERPRISE</Eyebrow>
+              <h1 className="mt-6 max-w-3xl text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.05]">
+                Equipos que piensan mejor, deciden con más claridad y ejecutan con más consistencia.
+              </h1>
+              <p className="mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
+                Un programa piloto de 4 semanas para identificar y reencuadrar patrones
+                cognitivo-conductuales que bloquean la ejecución en equipos y organizaciones.
+              </p>
+              <p className="mt-4 max-w-2xl text-sm md:text-base text-muted-foreground/90 leading-relaxed">
+                No es una charla motivacional. Es una intervención estructurada para convertir
+                fricción interna en decisiones, acciones y seguimiento.
+              </p>
+              <div className="mt-10 flex flex-wrap gap-3">
+                <CTALink to="/contacto" variant="primary">Solicitar Workshop de Diagnóstico</CTALink>
+                <CTALink to="/enterprise" hash="programa" variant="outline">
+                  Ver estructura del programa
+                </CTALink>
+              </div>
+            </div>
+            <div className="lg:col-span-5">
+              <div className="relative">
+                <div className="absolute -inset-3 border border-border" aria-hidden />
+                <div className="absolute -bottom-3 -right-3 h-24 w-24 bg-[color:var(--color-brand-deep)]" aria-hidden />
+                <div className="relative bg-[color:var(--color-surface)] border border-border p-6 md:p-8 shadow-elev-1">
+                  <img
+                    src={reestructuraLogo}
+                    alt="REESTRUCTURA Enterprise — Programa de Ingeniería Conductual y Cognitiva by G-Structure"
+                    className="w-full h-auto"
+                    loading="eager"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* PROBLEMA */}
       <Section tone="muted">
         <SectionHeader
           eyebrow="EL PROBLEMA"
@@ -79,6 +97,85 @@ function Enterprise() {
         </div>
       </Section>
 
+      {/* INTERVENCIÓN ESTRUCTURADA — featured con imagen */}
+      <Section>
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16 items-center">
+          <div className="lg:col-span-5 order-2 lg:order-1">
+            <div className="relative">
+              <div className="absolute -top-3 -left-3 h-24 w-24 border-l-2 border-t-2 border-[color:var(--color-brand-deep)]" aria-hidden />
+              <div className="absolute -bottom-3 -right-3 h-24 w-24 border-r-2 border-b-2 border-[color:var(--color-brand-deep)]" aria-hidden />
+              <div className="relative bg-[color:var(--color-surface)] p-6 md:p-10 transition-transform hover:-translate-y-0.5 duration-300">
+                <img
+                  src={reestructuraLogo}
+                  alt="REESTRUCTURA Enterprise"
+                  className="w-full h-auto"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="lg:col-span-7 order-1 lg:order-2">
+            <Eyebrow>REESTRUCTURA ENTERPRISE</Eyebrow>
+            <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-[2.5rem] leading-[1.08]">
+              Una intervención estructurada para equipos que necesitan ejecutar con más claridad.
+            </h2>
+            <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed">
+              REESTRUCTURA Enterprise traduce el método I-R-O de G-Structure en un proceso
+              aplicado para equipos: identificar patrones de fricción, reencuadrar lecturas
+              improductivas y convertir claridad en decisiones, acciones y seguimiento.
+            </p>
+            <ul className="mt-8 space-y-3.5">
+              {[
+                "Diagnóstico de patrones de ejecución.",
+                "Reencuadre cognitivo-conductual aplicado al contexto del equipo.",
+                "Priorización de decisiones y acciones.",
+                "Seguimiento para consolidar avance.",
+                "Ruta de continuidad si el equipo necesita sostener el cambio.",
+              ].map((i) => (
+                <li key={i} className="flex gap-3 text-sm md:text-[15px] text-foreground/85">
+                  <Check size={18} className="mt-0.5 shrink-0 text-[color:var(--color-brand-deep)]" />
+                  <span>{i}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-10">
+              <CTALink to="/contacto" variant="primary">Solicitar Workshop de Diagnóstico</CTALink>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* DIAGNÓSTICO → REENCUADRE → ACCIÓN → CONTINUIDAD */}
+      <Section tone="muted">
+        <SectionHeader
+          eyebrow="EL MÉTODO APLICADO"
+          title="De la fricción interna a la ejecución sostenida."
+          subtitle="Cuatro etapas conectadas que mueven el sistema operativo del equipo desde el patrón improductivo hacia la acción consistente."
+        />
+        <div className="mt-12 grid gap-px bg-border md:grid-cols-4 border border-border">
+          {[
+            { n: "01", t: "Diagnóstico", d: "Lectura del patrón cognitivo-conductual del equipo." },
+            { n: "02", t: "Reencuadre", d: "Intervención sobre creencias rígidas y lecturas improductivas." },
+            { n: "03", t: "Acción", d: "Diseño conductual: decisiones, rutinas y compromisos." },
+            { n: "04", t: "Continuidad", d: "Seguimiento y consolidación del cambio en el tiempo." },
+          ].map((s) => (
+            <div key={s.n} className="group relative bg-[color:var(--color-surface)] p-7 transition-colors hover:bg-background">
+              <span className="font-display text-xs font-semibold tracking-[0.22em] text-[color:var(--color-brand-deep)]">
+                {s.n}
+              </span>
+              <h3 className="mt-3 font-display text-lg font-semibold text-foreground">{s.t}</h3>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.d}</p>
+              <ArrowRight
+                size={16}
+                className="absolute top-7 right-6 text-muted-foreground/40 transition-transform group-hover:translate-x-1 group-hover:text-foreground"
+                aria-hidden
+              />
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* WORKSHOP DE DIAGNÓSTICO */}
       <Section id="workshop">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-6">
@@ -114,11 +211,12 @@ function Enterprise() {
         </div>
       </Section>
 
-      <Section id="reestructura" tone="deep">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-7">
+      {/* PROGRAMA 4 SEMANAS — banner premium */}
+      <Section id="programa" tone="deep">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16 items-start">
+          <div className="lg:col-span-5">
             <p className="eyebrow text-[color:var(--color-background)]/70">PROGRAMA PILOTO</p>
-            <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.08]">
+            <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-[2.5rem] leading-[1.08]">
               REESTRUCTURA Enterprise — 4 semanas.
             </h2>
             <p className="mt-5 text-base md:text-lg text-[color:var(--color-background)]/80 leading-relaxed">
@@ -126,56 +224,45 @@ function Enterprise() {
               perfeccionismo, sobreanálisis y autosabotaje en equipos. Cuatro semanas para mover el
               sistema operativo del equipo desde la fricción hacia la ejecución consistente.
             </p>
-          </div>
-          <div className="lg:col-span-5">
-            <div className="border border-[color:var(--color-background)]/20 p-8">
-              <p className="eyebrow text-[color:var(--color-background)]/70 mb-5">Estructura</p>
-              <ul className="space-y-4 text-sm text-[color:var(--color-background)]/85">
-                <li><strong className="text-[color:var(--color-background)]">Semana 1.</strong> Diagnóstico y mapa de patrones del equipo.</li>
-                <li><strong className="text-[color:var(--color-background)]">Semana 2.</strong> Reencuadre cognitivo y trabajo sobre creencias rígidas.</li>
-                <li><strong className="text-[color:var(--color-background)]">Semana 3.</strong> Diseño conductual: rutinas, protocolos y decisiones.</li>
-                <li><strong className="text-[color:var(--color-background)]">Semana 4.</strong> Consolidación, métricas y plan de continuidad.</li>
-              </ul>
-              <div className="mt-8">
-                <CTALink to="/contacto" variant="inverse">Solicitar información</CTALink>
-              </div>
+            <div className="mt-8 bg-[color:var(--color-background)]/5 border border-[color:var(--color-background)]/15 p-6">
+              <img
+                src={reestructuraLogo}
+                alt="REESTRUCTURA Enterprise"
+                className="w-full max-w-[280px] mx-auto h-auto"
+                loading="lazy"
+              />
             </div>
           </div>
-        </div>
-      </Section>
-
-      <Section tone="white">
-        <SectionHeader
-          eyebrow="CÓMO TRABAJAMOS"
-          title="Una secuencia clara de intervención."
-          subtitle="Cada compromiso parte de una conversación inicial y se traduce en un plan accionable. Sin venta agresiva, sin promesas inflables."
-        />
-        <div className="mt-12 grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-7">
-            <Timeline
-              items={[
-                { n: "01", t: "Conversación inicial", d: "Entendemos contexto, momento del equipo y objetivo de ejecución.", status: "done" },
-                { n: "02", t: "Workshop de Diagnóstico", d: "Sesión estratégica que identifica patrones, fricciones y ruta de intervención.", status: "active" },
-                { n: "03", t: "REESTRUCTURA Enterprise", d: "Programa piloto de 4 semanas para mover el sistema operativo del equipo." },
-                { n: "04", t: "Continuidad", d: "Seguimiento mensual o trimestral para sostener el cambio." },
-              ]}
-            />
-          </div>
-          <aside className="lg:col-span-5">
-            <div className="border border-border bg-[color:var(--color-surface)] p-8 shadow-elev-1">
-              <p className="eyebrow mb-4">Qué obtienes en cada etapa</p>
-              <ul className="space-y-3.5 text-sm text-foreground/85">
-                <li className="flex gap-3"><Check size={16} className="mt-0.5 text-foreground shrink-0" /><span>Diagnóstico documentado de fricciones.</span></li>
-                <li className="flex gap-3"><Check size={16} className="mt-0.5 text-foreground shrink-0" /><span>Mapa de patrones cognitivo-conductuales.</span></li>
-                <li className="flex gap-3"><Check size={16} className="mt-0.5 text-foreground shrink-0" /><span>Plan conductual con métricas de seguimiento.</span></li>
-                <li className="flex gap-3"><Check size={16} className="mt-0.5 text-foreground shrink-0" /><span>Acompañamiento ante decisiones críticas.</span></li>
-              </ul>
+            <div className="grid gap-px bg-[color:var(--color-background)]/15 border border-[color:var(--color-background)]/20 sm:grid-cols-2">
+              {[
+                { n: "SEMANA 1", t: "Diagnóstico", d: "Lectura del patrón de ejecución y mapa de fricciones del equipo." },
+                { n: "SEMANA 2", t: "Reencuadre", d: "Intervención cognitivo-conductual sobre creencias rígidas y lecturas improductivas." },
+                { n: "SEMANA 3", t: "Acción", d: "Traducción a decisiones, compromisos, rutinas y protocolos." },
+                { n: "SEMANA 4", t: "Continuidad", d: "Consolidación, métricas de seguimiento y ruta posterior." },
+              ].map((w) => (
+                <div key={w.n} className="bg-[color:var(--color-brand-deep)] p-7">
+                  <p className="font-display text-[10px] font-semibold tracking-[0.22em] text-[color:var(--color-background)]/60">
+                    {w.n}
+                  </p>
+                  <h3 className="mt-3 font-display text-xl font-semibold text-[color:var(--color-background)]">
+                    {w.t}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-[color:var(--color-background)]/75">
+                    {w.d}
+                  </p>
+                </div>
+              ))}
             </div>
-          </aside>
+            <div className="mt-8">
+              <CTALink to="/contacto" variant="inverse">Solicitar información del programa</CTALink>
+            </div>
+          </div>
         </div>
       </Section>
 
-      <Section>
+      {/* CONTINUIDAD */}
+      <Section tone="white">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-6">
             <SectionHeader
@@ -187,7 +274,7 @@ function Enterprise() {
               <CTALink to="/contacto">Diseñar continuidad</CTALink>
             </div>
           </div>
-          <div className="lg:col-span-6 border border-border bg-[color:var(--color-surface)] p-8">
+          <div className="lg:col-span-6 border border-border bg-background p-8">
             <p className="eyebrow mb-5">Formatos</p>
             <ul className="space-y-3.5 text-sm text-foreground/85">
               <li className="flex gap-3"><Check size={16} className="mt-0.5 text-foreground shrink-0" /><span>Sesiones mensuales con líderes clave.</span></li>
@@ -199,18 +286,32 @@ function Enterprise() {
         </div>
       </Section>
 
+      {/* CIERRE COMERCIAL */}
       <Section tone="muted">
-        <div className="max-w-3xl">
-          <h2 className="font-display text-3xl md:text-4xl leading-[1.08]">
-            ¿Quieres entender qué está bloqueando la ejecución de tu equipo?
-          </h2>
-          <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed">
-            Una conversación inicial permite definir si la ruta es un workshop puntual, un programa
-            piloto de cuatro semanas o un proceso de continuidad.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <CTALink to="/contacto" variant="primary">Agendar conversación</CTALink>
-            <CTAExternal href="https://wa.me/593986875121" variant="outline">WhatsApp</CTAExternal>
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-16 items-center">
+          <div className="lg:col-span-8">
+            <Eyebrow>SIGUIENTE PASO</Eyebrow>
+            <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-[2.5rem] leading-[1.08]">
+              Antes de intervenir al equipo, hay que entender el patrón.
+            </h2>
+            <p className="mt-5 max-w-2xl text-base md:text-lg text-muted-foreground leading-relaxed">
+              El Workshop de Diagnóstico permite identificar dónde se está generando la fricción:
+              inicio, decisión, priorización, seguimiento o cierre.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <CTALink to="/contacto" variant="primary">Solicitar Workshop de Diagnóstico</CTALink>
+              <CTAExternal href="https://wa.me/593986875121" variant="outline">Hablar por WhatsApp</CTAExternal>
+            </div>
+          </div>
+          <div className="lg:col-span-4">
+            <div className="border border-border bg-background p-6 text-center">
+              <img
+                src={reestructuraLogo}
+                alt="REESTRUCTURA Enterprise"
+                className="w-full max-w-[220px] mx-auto h-auto"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </Section>
