@@ -331,10 +331,17 @@ export function BookingDialog({ pkg, open, onOpenChange }: Props) {
               </p>
             )}
 
-            <p className="text-xs text-muted-foreground">
-              Al confirmar recibirás un email con la fecha y datos de la sesión. Si necesitas
-              reprogramar, contáctanos por WhatsApp con al menos 24 h de anticipación.
-            </p>
+            <div className="text-xs text-muted-foreground space-y-2 border border-border bg-muted/40 p-3">
+              <p>
+                Las reservas se confirman con el pago del 50% del valor del servicio. Después
+                de enviar tu solicitud recibirás las instrucciones para realizar la transferencia
+                bancaria y enviar el comprobante.
+              </p>
+              <p>
+                El envío de la solicitud no confirma automáticamente la reserva. La confirmación
+                oficial se enviará por correo una vez validado el pago.
+              </p>
+            </div>
 
             <div className="flex justify-end gap-3">
               <button
@@ -350,10 +357,10 @@ export function BookingDialog({ pkg, open, onOpenChange }: Props) {
               >
                 {submitting ? (
                   <>
-                    <Loader2 size={14} className="animate-spin" /> Reservando…
+                    <Loader2 size={14} className="animate-spin" /> Enviando…
                   </>
                 ) : (
-                  "Confirmar reserva"
+                  "Solicitar reserva"
                 )}
               </button>
             </div>
