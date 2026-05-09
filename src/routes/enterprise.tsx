@@ -32,8 +32,11 @@ export const Route = createFileRoute("/enterprise")({
 });
 
 function Enterprise() {
+  const workshopPkg = findPackage("enterprise-workshop") ?? null;
+  const [bookingOpen, setBookingOpen] = useState(false);
   return (
     <>
+      <BookingDialog pkg={workshopPkg} open={bookingOpen} onOpenChange={setBookingOpen} />
       {/* HERO */}
       <section className="relative overflow-hidden border-b border-border">
         <div className="absolute inset-0 grid-bg opacity-50" aria-hidden />
