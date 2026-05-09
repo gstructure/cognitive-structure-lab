@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UnsubscribeRouteImport } from './routes/unsubscribe'
 import { Route as UneteAlEquipoRouteImport } from './routes/unete-al-equipo'
 import { Route as SobreGuillermoRouteImport } from './routes/sobre-guillermo'
 import { Route as Reestructura11RouteImport } from './routes/reestructura-1-1'
@@ -31,6 +32,11 @@ import { Route as LovableEmailTransactionalSendRouteImport } from './routes/lova
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
 
+const UnsubscribeRoute = UnsubscribeRouteImport.update({
+  id: '/unsubscribe',
+  path: '/unsubscribe',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const UneteAlEquipoRoute = UneteAlEquipoRouteImport.update({
   id: '/unete-al-equipo',
   path: '/unete-al-equipo',
@@ -150,6 +156,7 @@ export interface FileRoutesByFullPath {
   '/reestructura-1-1': typeof Reestructura11Route
   '/sobre-guillermo': typeof SobreGuillermoRoute
   '/unete-al-equipo': typeof UneteAlEquipoRoute
+  '/unsubscribe': typeof UnsubscribeRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/en/about-guillermo': typeof EnAboutGuillermoRoute
   '/en/contact': typeof EnContactRoute
@@ -173,6 +180,7 @@ export interface FileRoutesByTo {
   '/reestructura-1-1': typeof Reestructura11Route
   '/sobre-guillermo': typeof SobreGuillermoRoute
   '/unete-al-equipo': typeof UneteAlEquipoRoute
+  '/unsubscribe': typeof UnsubscribeRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/en/about-guillermo': typeof EnAboutGuillermoRoute
   '/en/contact': typeof EnContactRoute
@@ -197,6 +205,7 @@ export interface FileRoutesById {
   '/reestructura-1-1': typeof Reestructura11Route
   '/sobre-guillermo': typeof SobreGuillermoRoute
   '/unete-al-equipo': typeof UneteAlEquipoRoute
+  '/unsubscribe': typeof UnsubscribeRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/en/about-guillermo': typeof EnAboutGuillermoRoute
   '/en/contact': typeof EnContactRoute
@@ -222,6 +231,7 @@ export interface FileRouteTypes {
     | '/reestructura-1-1'
     | '/sobre-guillermo'
     | '/unete-al-equipo'
+    | '/unsubscribe'
     | '/email/unsubscribe'
     | '/en/about-guillermo'
     | '/en/contact'
@@ -245,6 +255,7 @@ export interface FileRouteTypes {
     | '/reestructura-1-1'
     | '/sobre-guillermo'
     | '/unete-al-equipo'
+    | '/unsubscribe'
     | '/email/unsubscribe'
     | '/en/about-guillermo'
     | '/en/contact'
@@ -268,6 +279,7 @@ export interface FileRouteTypes {
     | '/reestructura-1-1'
     | '/sobre-guillermo'
     | '/unete-al-equipo'
+    | '/unsubscribe'
     | '/email/unsubscribe'
     | '/en/about-guillermo'
     | '/en/contact'
@@ -292,6 +304,7 @@ export interface RootRouteChildren {
   Reestructura11Route: typeof Reestructura11Route
   SobreGuillermoRoute: typeof SobreGuillermoRoute
   UneteAlEquipoRoute: typeof UneteAlEquipoRoute
+  UnsubscribeRoute: typeof UnsubscribeRoute
   EmailUnsubscribeRoute: typeof EmailUnsubscribeRoute
   LovableEmailSuppressionRoute: typeof LovableEmailSuppressionRoute
   LovableEmailQueueProcessRoute: typeof LovableEmailQueueProcessRoute
@@ -301,6 +314,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/unsubscribe': {
+      id: '/unsubscribe'
+      path: '/unsubscribe'
+      fullPath: '/unsubscribe'
+      preLoaderRoute: typeof UnsubscribeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/unete-al-equipo': {
       id: '/unete-al-equipo'
       path: '/unete-al-equipo'
@@ -483,6 +503,7 @@ const rootRouteChildren: RootRouteChildren = {
   Reestructura11Route: Reestructura11Route,
   SobreGuillermoRoute: SobreGuillermoRoute,
   UneteAlEquipoRoute: UneteAlEquipoRoute,
+  UnsubscribeRoute: UnsubscribeRoute,
   EmailUnsubscribeRoute: EmailUnsubscribeRoute,
   LovableEmailSuppressionRoute: LovableEmailSuppressionRoute,
   LovableEmailQueueProcessRoute: LovableEmailQueueProcessRoute,
