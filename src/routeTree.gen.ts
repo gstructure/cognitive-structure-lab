@@ -19,6 +19,7 @@ import { Route as EnterpriseRouteImport } from './routes/enterprise'
 import { Route as EnRouteImport } from './routes/en'
 import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as AliadosEtw2026RouteImport } from './routes/aliados-etw-2026'
+import { Route as AdminRouteImport } from './routes/_admin'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as EnRestructure11RouteImport } from './routes/en.restructure-1-1'
 import { Route as EnJoinTheTeamRouteImport } from './routes/en.join-the-team'
@@ -29,6 +30,7 @@ import { Route as EnContactRouteImport } from './routes/en.contact'
 import { Route as EnAboutGuillermoRouteImport } from './routes/en.about-guillermo'
 import { Route as EmailUnsubscribeRouteImport } from './routes/email/unsubscribe'
 import { Route as LovableEmailSuppressionRouteImport } from './routes/lovable/email/suppression'
+import { Route as AdminAdminReservasRouteImport } from './routes/_admin/admin.reservas'
 import { Route as LovableEmailTransactionalSendRouteImport } from './routes/lovable/email/transactional/send'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
@@ -83,6 +85,10 @@ const AliadosEtw2026Route = AliadosEtw2026RouteImport.update({
   path: '/aliados-etw-2026',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/_admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -133,6 +139,11 @@ const LovableEmailSuppressionRoute = LovableEmailSuppressionRouteImport.update({
   path: '/lovable/email/suppression',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminAdminReservasRoute = AdminAdminReservasRouteImport.update({
+  id: '/admin/reservas',
+  path: '/admin/reservas',
+  getParentRoute: () => AdminRoute,
+} as any)
 const LovableEmailTransactionalSendRoute =
   LovableEmailTransactionalSendRouteImport.update({
     id: '/lovable/email/transactional/send',
@@ -172,6 +183,7 @@ export interface FileRoutesByFullPath {
   '/en/g-struct': typeof EnGStructRoute
   '/en/join-the-team': typeof EnJoinTheTeamRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
+  '/admin/reservas': typeof AdminAdminReservasRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -197,6 +209,7 @@ export interface FileRoutesByTo {
   '/en/g-struct': typeof EnGStructRoute
   '/en/join-the-team': typeof EnJoinTheTeamRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
+  '/admin/reservas': typeof AdminAdminReservasRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -205,6 +218,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_admin': typeof AdminRouteWithChildren
   '/aliados-etw-2026': typeof AliadosEtw2026Route
   '/contacto': typeof ContactoRoute
   '/en': typeof EnRouteWithChildren
@@ -223,6 +237,7 @@ export interface FileRoutesById {
   '/en/g-struct': typeof EnGStructRoute
   '/en/join-the-team': typeof EnJoinTheTeamRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
+  '/_admin/admin/reservas': typeof AdminAdminReservasRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -250,6 +265,7 @@ export interface FileRouteTypes {
     | '/en/g-struct'
     | '/en/join-the-team'
     | '/en/restructure-1-1'
+    | '/admin/reservas'
     | '/lovable/email/suppression'
     | '/lovable/email/queue/process'
     | '/lovable/email/transactional/preview'
@@ -275,6 +291,7 @@ export interface FileRouteTypes {
     | '/en/g-struct'
     | '/en/join-the-team'
     | '/en/restructure-1-1'
+    | '/admin/reservas'
     | '/lovable/email/suppression'
     | '/lovable/email/queue/process'
     | '/lovable/email/transactional/preview'
@@ -282,6 +299,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/_admin'
     | '/aliados-etw-2026'
     | '/contacto'
     | '/en'
@@ -300,6 +318,7 @@ export interface FileRouteTypes {
     | '/en/g-struct'
     | '/en/join-the-team'
     | '/en/restructure-1-1'
+    | '/_admin/admin/reservas'
     | '/lovable/email/suppression'
     | '/lovable/email/queue/process'
     | '/lovable/email/transactional/preview'
@@ -308,6 +327,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRouteWithChildren
   AliadosEtw2026Route: typeof AliadosEtw2026Route
   ContactoRoute: typeof ContactoRoute
   EnRoute: typeof EnRouteWithChildren
@@ -397,6 +417,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AliadosEtw2026RouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_admin': {
+      id: '/_admin'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -467,6 +494,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LovableEmailSuppressionRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_admin/admin/reservas': {
+      id: '/_admin/admin/reservas'
+      path: '/admin/reservas'
+      fullPath: '/admin/reservas'
+      preLoaderRoute: typeof AdminAdminReservasRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/lovable/email/transactional/send': {
       id: '/lovable/email/transactional/send'
       path: '/lovable/email/transactional/send'
@@ -490,6 +524,16 @@ declare module '@tanstack/react-router' {
     }
   }
 }
+
+interface AdminRouteChildren {
+  AdminAdminReservasRoute: typeof AdminAdminReservasRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminAdminReservasRoute: AdminAdminReservasRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
 
 interface EnRouteChildren {
   EnAboutGuillermoRoute: typeof EnAboutGuillermoRoute
@@ -515,6 +559,7 @@ const EnRouteWithChildren = EnRoute._addFileChildren(EnRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRouteWithChildren,
   AliadosEtw2026Route: AliadosEtw2026Route,
   ContactoRoute: ContactoRoute,
   EnRoute: EnRouteWithChildren,
@@ -534,3 +579,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
