@@ -88,12 +88,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      get_unavailable_slots: {
-        Args: { range_end: string; range_start: string }
-        Returns: {
-          slot_at: string
-        }[]
-      }
+      [_ in never]: never
     }
     Enums: {
       [_ in never]: never
