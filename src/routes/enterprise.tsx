@@ -54,6 +54,14 @@ function Enterprise() {
                 <CTALink to="/enterprise" hash="programa" variant="outline">
                   Ver estructura del programa
                 </CTALink>
+                <CTAExternal
+                  href="/downloads/reestructura-enterprise-onepager.pdf"
+                  download
+                  variant="ghost"
+                  withArrow={false}
+                >
+                  Descargar one-pager (PDF)
+                </CTAExternal>
               </div>
             </div>
             <div className="lg:col-span-5">
