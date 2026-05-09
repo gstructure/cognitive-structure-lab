@@ -110,7 +110,7 @@ const Row = ({ label, value }: { label: string; value: string }) => (
 export const template = {
   component: BookingAdminNotificationEmail,
   subject: (data: Record<string, any>) =>
-    `Nueva reserva — ${data?.name ?? "cliente"} (${data?.packageName ?? ""})`,
+    `Nueva solicitud de reserva — ${data?.name ?? "cliente"} (${data?.packageName ?? ""})`,
   displayName: "Booking admin notification",
   previewData: {
     name: "María Pérez",
