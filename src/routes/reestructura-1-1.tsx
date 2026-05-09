@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/site/Section";
 import { SectionHeader } from "@/components/site/SectionHeader";
@@ -6,6 +7,8 @@ import { CTALink, CTAExternal } from "@/components/site/CTAButton";
 import { Check, ArrowRight, X } from "lucide-react";
 import reestructuraLogo from "@/assets/reestructura-1-1-logo.png";
 import { buildSeo, canonicalLink, jsonLdScript, breadcrumbSchema } from "@/lib/seo";
+import { BookingDialog } from "@/components/booking/BookingDialog";
+import { findPackage, type BookablePackage } from "@/lib/booking-catalog";
 
 export const Route = createFileRoute("/reestructura-1-1")({
   head: () => ({
