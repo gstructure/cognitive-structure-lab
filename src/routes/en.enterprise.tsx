@@ -42,6 +42,14 @@ function Page() {
           <div className="mt-10 flex flex-wrap gap-3">
             <CTALink to="/en/contact" variant="primary">Request the Diagnostic Workshop</CTALink>
             <CTAExternal href="https://wa.me/593986875121" variant="outline">Talk to Guillermo</CTAExternal>
+            <CTAExternal
+              href="/downloads/reestructura-enterprise-onepager.pdf"
+              download
+              variant="ghost"
+              withArrow={false}
+            >
+              Download one-pager (PDF)
+            </CTAExternal>
           </div>
         </div>
       </section>
