@@ -146,7 +146,7 @@ export const adminUpdateBooking = createServerFn({ method: "POST" })
     if (data.status === "confirmed" && prev.status !== "confirmed") patch.confirmed_at = new Date().toISOString();
     if (data.status === "cancelled" && prev.status !== "cancelled") patch.cancelled_at = new Date().toISOString();
 
-    const { error } = await supabaseAdmin.from("bookings").update(patch).eq("id", data.bookingId);
+    const { error } = await supabaseAdmin.from("bookings").update(patch as never).eq("id", data.bookingId);
     if (error) return { ok: false as const, error: error.message };
 
     // Trigger emails on status transitions.
