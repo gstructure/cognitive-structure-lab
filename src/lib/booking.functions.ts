@@ -1,31 +1,22 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
+import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { findPackage, MIN_NOTICE_HOURS } from "./booking-catalog";
 
-// --- List unavailable slots within a date range ---
+// Slots are unavailable when there's a pending_payment OR confirmed booking,
+// or an admin-blocked slot.
 export const getUnavailableSlots = createServerFn({ method: "POST" })
-  .inputValidator((input: { startISO: string; endISO: string }) => {
-    return z
-      .object({
-        startISO: z.string().datetime(),
-        endISO: z.string().datetime(),
-      })
-      .parse(input);
-  })
+  .inputValidator((input: { startISO: string; endISO: string }) =>
+    z.object({ startISO: z.string().datetime(), endISO: z.string().datetime() }).parse(input))
   .handler(async ({ data }) => {
     const [{ data: bookings, error: bErr }, { data: blocked, error: blErr }] = await Promise.all([
-      supabaseAdmin
-        .from("bookings")
+      supabaseAdmin.from("bookings")
         .select("slot_at")
-        .eq("status", "confirmed")
-        .gte("slot_at", data.startISO)
-        .lt("slot_at", data.endISO),
-      supabaseAdmin
-        .from("blocked_slots")
-        .select("slot_at")
-        .gte("slot_at", data.startISO)
-        .lt("slot_at", data.endISO),
+        .in("status", ["pending_payment", "confirmed"])
+        .gte("slot_at", data.startISO).lt("slot_at", data.endISO),
+      supabaseAdmin.from("blocked_slots")
+        .select("slot_at").gte("slot_at", data.startISO).lt("slot_at", data.endISO),
     ]);
     if (bErr || blErr) {
       console.error("getUnavailableSlots error", bErr, blErr);
@@ -38,7 +29,6 @@ export const getUnavailableSlots = createServerFn({ method: "POST" })
     return { unavailable: Array.from(set) };
   });
 
-// --- Create a booking ---
 const bookingSchema = z.object({
   packageSlug: z.string().min(1).max(64),
   slotAtISO: z.string().datetime(),
@@ -61,20 +51,15 @@ export const createBooking = createServerFn({ method: "POST" })
       return { ok: false as const, error: "Debe reservar con al menos 24 horas de anticipación." };
     }
 
-    // Check availability
+    // Availability: only existing pending/confirmed reservations block.
     const { data: existing } = await supabaseAdmin
-      .from("bookings")
-      .select("id")
-      .eq("slot_at", data.slotAtISO)
-      .maybeSingle();
+      .from("bookings").select("id, status").eq("slot_at", data.slotAtISO)
+      .in("status", ["pending_payment", "confirmed"]).maybeSingle();
     if (existing) {
-      return { ok: false as const, error: "Ese horario ya fue reservado. Por favor elige otro." };
+      return { ok: false as const, error: "Ese horario ya está reservado o pendiente. Por favor elige otro." };
     }
     const { data: blocked } = await supabaseAdmin
-      .from("blocked_slots")
-      .select("id")
-      .eq("slot_at", data.slotAtISO)
-      .maybeSingle();
+      .from("blocked_slots").select("id").eq("slot_at", data.slotAtISO).maybeSingle();
     if (blocked) {
       return { ok: false as const, error: "Ese horario no está disponible." };
     }
@@ -82,47 +67,134 @@ export const createBooking = createServerFn({ method: "POST" })
     const { data: booking, error } = await supabaseAdmin
       .from("bookings")
       .insert({
-        package_slug: pkg.slug,
-        package_name: pkg.name,
-        package_kind: pkg.kind,
-        price_usd: pkg.priceUsd,
-        slot_at: data.slotAtISO,
-        name: data.name,
-        email: data.email,
-        phone: data.phone || null,
-        country: data.country || null,
-        notes: data.notes || null,
-        status: "confirmed",
+        package_slug: pkg.slug, package_name: pkg.name, package_kind: pkg.kind,
+        price_usd: pkg.priceUsd, slot_at: data.slotAtISO,
+        name: data.name, email: data.email,
+        phone: data.phone || null, country: data.country || null, notes: data.notes || null,
+        status: "pending_payment",
       })
-      .select("id")
-      .single();
+      .select("id").single();
 
     if (error) {
-      // Unique violation = race condition
       if ((error as { code?: string }).code === "23505") {
-        return { ok: false as const, error: "Ese horario acaba de ser reservado. Elige otro." };
+        return { ok: false as const, error: "Ese horario acaba de ser solicitado. Elige otro." };
       }
       console.error("createBooking insert error", error);
-      return { ok: false as const, error: "No se pudo guardar la reserva. Intenta nuevamente." };
+      return { ok: false as const, error: "No se pudo guardar la solicitud. Intenta nuevamente." };
     }
 
-    // Trigger emails (non-blocking; failures logged but don't break the booking)
     try {
-      const { sendBookingEmails } = await import("./booking-emails.server");
-      await sendBookingEmails({
-        bookingId: booking.id,
-        packageName: pkg.name,
-        slotAtISO: data.slotAtISO,
-        name: data.name,
-        email: data.email,
-        phone: data.phone || null,
-        country: data.country || null,
-        notes: data.notes || null,
-        priceLabel: pkg.priceLabel,
+      const { sendBookingRequestEmails } = await import("./booking-emails.server");
+      await sendBookingRequestEmails({
+        bookingId: booking.id, packageName: pkg.name, slotAtISO: data.slotAtISO,
+        name: data.name, email: data.email,
+        phone: data.phone || null, country: data.country || null, notes: data.notes || null,
+        priceLabel: pkg.priceLabel, priceUsd: pkg.priceUsd,
       });
     } catch (e) {
-      console.error("sendBookingEmails failed", e);
+      console.error("sendBookingRequestEmails failed", e);
     }
 
-    return { ok: true as const, bookingId: booking.id };
+    return { ok: true as const, bookingId: booking.id, status: "pending_payment" as const };
+  });
+
+// ============================================================
+// Admin server functions (require authenticated admin)
+// ============================================================
+
+async function assertAdmin(userId: string): Promise<boolean> {
+  const { data } = await supabaseAdmin
+    .from("user_roles").select("id").eq("user_id", userId).eq("role", "admin").maybeSingle();
+  return !!data;
+}
+
+export const adminListBookings = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((input: { status?: string } | undefined) =>
+    z.object({ status: z.string().optional() }).optional().parse(input ?? {}))
+  .handler(async ({ context, data }) => {
+    if (!(await assertAdmin(context.userId))) {
+      return { ok: false as const, error: "No autorizado.", bookings: [] };
+    }
+    let q = supabaseAdmin.from("bookings").select("*").order("slot_at", { ascending: true });
+    if (data?.status && data.status !== "all") q = q.eq("status", data.status);
+    const { data: rows, error } = await q;
+    if (error) return { ok: false as const, error: error.message, bookings: [] };
+    return { ok: true as const, bookings: rows ?? [] };
+  });
+
+const updateSchema = z.object({
+  bookingId: z.string().uuid(),
+  status: z.enum(["pending_payment", "confirmed", "cancelled"]),
+  internal_notes: z.string().max(2000).optional(),
+});
+
+export const adminUpdateBooking = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((input: unknown) => updateSchema.parse(input))
+  .handler(async ({ context, data }) => {
+    if (!(await assertAdmin(context.userId))) {
+      return { ok: false as const, error: "No autorizado." };
+    }
+
+    const { data: prev, error: pErr } = await supabaseAdmin
+      .from("bookings").select("*").eq("id", data.bookingId).maybeSingle();
+    if (pErr || !prev) return { ok: false as const, error: "Reserva no encontrada." };
+
+    const patch: Record<string, any> = { status: data.status };
+    if (data.internal_notes !== undefined) patch.internal_notes = data.internal_notes;
+    if (data.status === "confirmed" && prev.status !== "confirmed") patch.confirmed_at = new Date().toISOString();
+    if (data.status === "cancelled" && prev.status !== "cancelled") patch.cancelled_at = new Date().toISOString();
+
+    const { error } = await supabaseAdmin.from("bookings").update(patch).eq("id", data.bookingId);
+    if (error) return { ok: false as const, error: error.message };
+
+    // Trigger emails on status transitions.
+    if (prev.status !== data.status) {
+      try {
+        const payload = {
+          bookingId: prev.id,
+          packageName: prev.package_name,
+          slotAtISO: prev.slot_at,
+          name: prev.name,
+          email: prev.email,
+          phone: prev.phone,
+          country: prev.country,
+          notes: prev.notes,
+          priceLabel: prev.price_usd ? `USD ${prev.price_usd}` : "A coordinar",
+          priceUsd: prev.price_usd,
+        };
+        if (data.status === "confirmed") {
+          const { sendBookingConfirmedEmail } = await import("./booking-emails.server");
+          await sendBookingConfirmedEmail(payload);
+        } else if (data.status === "cancelled") {
+          const { sendBookingCancelledEmail } = await import("./booking-emails.server");
+          await sendBookingCancelledEmail(payload);
+        }
+      } catch (e) {
+        console.error("status-change email failed", e);
+      }
+    }
+
+    return { ok: true as const };
+  });
+
+export const adminUpdateNotes = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((input: unknown) =>
+    z.object({ bookingId: z.string().uuid(), internal_notes: z.string().max(2000) }).parse(input))
+  .handler(async ({ context, data }) => {
+    if (!(await assertAdmin(context.userId))) {
+      return { ok: false as const, error: "No autorizado." };
+    }
+    const { error } = await supabaseAdmin
+      .from("bookings").update({ internal_notes: data.internal_notes }).eq("id", data.bookingId);
+    if (error) return { ok: false as const, error: error.message };
+    return { ok: true as const };
+  });
+
+export const adminCheckRole = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .handler(async ({ context }) => {
+    return { isAdmin: await assertAdmin(context.userId) };
   });
