@@ -313,7 +313,14 @@ function Enterprise() {
               inicio, decisión, priorización, seguimiento o cierre.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <CTALink to="/contacto" variant="primary">Solicitar Workshop de Diagnóstico</CTALink>
+              <button
+                type="button"
+                onClick={() => setBookingOpen(true)}
+                className="group inline-flex items-center justify-center gap-2 px-5 py-3 text-[13px] font-medium tracking-wide bg-foreground text-background hover:opacity-90 transition-opacity"
+              >
+                Reservar Workshop de Diagnóstico
+                <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
+              </button>
               <CTAExternal href="https://wa.me/593986875121" variant="outline">Hablar por WhatsApp</CTAExternal>
               <CTAExternal
                 href="/downloads/reestructura-enterprise-onepager.pdf"
