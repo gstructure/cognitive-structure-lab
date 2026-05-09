@@ -239,6 +239,12 @@ export function BookingDialog({ pkg, open, onOpenChange }: Props) {
               </div>
             )}
 
+            <p className="text-xs text-muted-foreground border-l-2 border-border pl-3">
+              Las reservas se confirman con el pago del 50% del valor del servicio. Después de
+              solicitar una fecha recibirás por correo las instrucciones para realizar la
+              transferencia bancaria y enviar el comprobante.
+            </p>
+
             <div className="flex justify-end gap-3 pt-2">
               <button
                 type="button"
@@ -331,10 +337,17 @@ export function BookingDialog({ pkg, open, onOpenChange }: Props) {
               </p>
             )}
 
-            <p className="text-xs text-muted-foreground">
-              Al confirmar recibirás un email con la fecha y datos de la sesión. Si necesitas
-              reprogramar, contáctanos por WhatsApp con al menos 24 h de anticipación.
-            </p>
+            <div className="text-xs text-muted-foreground space-y-2 border border-border bg-muted/40 p-3">
+              <p>
+                Las reservas se confirman con el pago del 50% del valor del servicio. Después
+                de enviar tu solicitud recibirás las instrucciones para realizar la transferencia
+                bancaria y enviar el comprobante.
+              </p>
+              <p>
+                El envío de la solicitud no confirma automáticamente la reserva. La confirmación
+                oficial se enviará por correo una vez validado el pago.
+              </p>
+            </div>
 
             <div className="flex justify-end gap-3">
               <button
@@ -350,10 +363,10 @@ export function BookingDialog({ pkg, open, onOpenChange }: Props) {
               >
                 {submitting ? (
                   <>
-                    <Loader2 size={14} className="animate-spin" /> Reservando…
+                    <Loader2 size={14} className="animate-spin" /> Enviando…
                   </>
                 ) : (
-                  "Confirmar reserva"
+                  "Solicitar reserva"
                 )}
               </button>
             </div>
@@ -362,19 +375,23 @@ export function BookingDialog({ pkg, open, onOpenChange }: Props) {
 
         {step === "success" && (
           <div className="py-6 text-center">
-            <div className="mx-auto w-12 h-12 rounded-full bg-foreground text-background flex items-center justify-center">
+            <div className="mx-auto w-12 h-12 rounded-full bg-amber-500 text-white flex items-center justify-center">
               <Check size={22} />
             </div>
-            <h3 className="mt-5 font-display text-2xl font-semibold">¡Reserva confirmada!</h3>
+            <h3 className="mt-5 font-display text-2xl font-semibold">Solicitud recibida</h3>
             <p className="mt-3 text-sm text-muted-foreground max-w-md mx-auto">
-              Te enviamos un email de confirmación a{" "}
-              <span className="text-foreground font-medium">{form.email}</span> con la fecha,
-              el horario y los siguientes pasos.
+              Enviamos las instrucciones de pago a{" "}
+              <span className="text-foreground font-medium">{form.email}</span>. Tu reserva queda
+              en estado <strong className="text-foreground">pendiente de pago</strong> hasta que
+              validemos manualmente la transferencia del anticipo (50%).
             </p>
             <div className="mt-4 text-sm border border-border bg-muted/30 p-3 inline-block text-left">
               <p className="font-medium">{pkg?.name}</p>
               <p className="text-xs text-muted-foreground mt-1">{slotLabel}</p>
             </div>
+            <p className="mt-4 text-xs text-muted-foreground max-w-md mx-auto">
+              Recibirás un segundo correo con la confirmación oficial una vez validado el pago.
+            </p>
             <div className="mt-6">
               <button
                 type="button"
