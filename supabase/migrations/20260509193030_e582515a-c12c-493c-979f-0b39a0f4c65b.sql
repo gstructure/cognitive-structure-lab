@@ -1,0 +1,2 @@
+
+DROP FUNCTION IF EXISTS public.get_unavailable_slots(TIMESTAMPTZ, TIMESTAMPTZ);

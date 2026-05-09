@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/site/Section";
 import { SectionHeader } from "@/components/site/SectionHeader";
@@ -6,6 +7,8 @@ import { CTALink, CTAExternal } from "@/components/site/CTAButton";
 import { Check, ArrowRight, X } from "lucide-react";
 import reestructuraLogo from "@/assets/reestructura-1-1-logo.png";
 import { buildSeo, canonicalLink, jsonLdScript, breadcrumbSchema } from "@/lib/seo";
+import { BookingDialog } from "@/components/booking/BookingDialog";
+import { findPackage, type BookablePackage } from "@/lib/booking-catalog";
 
 export const Route = createFileRoute("/reestructura-1-1")({
   head: () => ({
@@ -28,8 +31,15 @@ export const Route = createFileRoute("/reestructura-1-1")({
 });
 
 function Page() {
+  const [bookingPkg, setBookingPkg] = useState<BookablePackage | null>(null);
+  const openBooking = (slug: string) => setBookingPkg(findPackage(slug) ?? null);
   return (
     <>
+      <BookingDialog
+        pkg={bookingPkg}
+        open={!!bookingPkg}
+        onOpenChange={(o) => !o && setBookingPkg(null)}
+      />
       {/* HERO */}
       <section className="relative overflow-hidden border-b border-border">
         <div className="absolute inset-0 grid-bg opacity-50" aria-hidden />
@@ -308,6 +318,7 @@ function Page() {
         <div className="mt-14 grid gap-px bg-border border border-border md:grid-cols-3">
           {[
             {
+              slug: "foco-4",
               name: "Foco",
               sessions: "4 sesiones",
               duration: "4 semanas",
@@ -325,6 +336,7 @@ function Page() {
               highlighted: false,
             },
             {
+              slug: "reencuadre-6",
               name: "Reencuadre",
               sessions: "6 sesiones",
               duration: "6 semanas",
@@ -343,6 +355,7 @@ function Page() {
               highlighted: true,
             },
             {
+              slug: "estructura-8",
               name: "Estructura",
               sessions: "8 sesiones",
               duration: "8 semanas",
@@ -462,13 +475,18 @@ function Page() {
               </ul>
 
               <div className="mt-8 pt-2">
-                <CTALink
-                  to="/contacto"
-                  variant={p.highlighted ? "inverse" : "primary"}
-                  className="w-full"
+                <button
+                  type="button"
+                  onClick={() => openBooking(p.slug)}
+                  className={`group inline-flex w-full items-center justify-center gap-2 px-5 py-3 text-[13px] font-medium tracking-wide transition-all ${
+                    p.highlighted
+                      ? "bg-background text-foreground hover:opacity-90"
+                      : "bg-foreground text-background hover:opacity-90"
+                  }`}
                 >
                   Reservar {p.name}
-                </CTALink>
+                  <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
+                </button>
               </div>
             </div>
           ))}
