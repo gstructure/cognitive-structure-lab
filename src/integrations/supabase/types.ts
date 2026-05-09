@@ -85,15 +85,15 @@ export type Database = {
       }
     }
     Views: {
-      booked_slots: {
-        Row: {
-          slot_at: string | null
-        }
-        Relationships: []
-      }
+      [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_unavailable_slots: {
+        Args: { range_end: string; range_start: string }
+        Returns: {
+          slot_at: string
+        }[]
+      }
     }
     Enums: {
       [_ in never]: never
