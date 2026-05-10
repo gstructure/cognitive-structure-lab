@@ -10,6 +10,7 @@ import reestructuraLogo from "@/assets/reestructura-enterprise-logo.png";
 import { buildSeo, canonicalLink, jsonLdScript, breadcrumbSchema } from "@/lib/seo";
 import { BookingDialog } from "@/components/booking/BookingDialog";
 import { findPackage } from "@/lib/booking-catalog";
+import { BriefDownloadCard } from "@/components/site/BriefDownloadCard";
 
 export const Route = createFileRoute("/enterprise")({
   head: () => ({
