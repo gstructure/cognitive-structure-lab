@@ -54,6 +54,18 @@ export function Footer() {
                 </a>
               </li>
               <li className="text-muted-foreground">www.g-structure.co</li>
+              <li>
+                <a
+                  href="/downloads/g-structure-brief-comercial.pdf"
+                  target="_blank"
+                  rel="noopener"
+                  download
+                  aria-label="Descargar brief comercial de G-Structure en PDF"
+                  className="text-foreground/80 hover:text-foreground underline-offset-4 hover:underline"
+                >
+                  Descargar brief comercial (PDF)
+                </a>
+              </li>
             </ul>
             <div className="mt-5">
               <SocialLinks only={["instagram", "facebook", "linkedin", "whatsapp"]} />
