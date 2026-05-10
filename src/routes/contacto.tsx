@@ -45,6 +45,10 @@ function Page() {
         </div>
       </section>
 
+      <Section>
+        <BriefDownloadCard />
+      </Section>
+
       <Section tone="muted">
         <SectionHeader
           eyebrow="ELIGE TU RUTA"
