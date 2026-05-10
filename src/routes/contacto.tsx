@@ -6,6 +6,7 @@ import { Eyebrow } from "@/components/site/Eyebrow";
 import { Mail, Phone, Globe, ArrowRight, ArrowUpRight, Building2, User, Cpu, Handshake, Users } from "lucide-react";
 import { SocialLinks } from "@/components/site/SocialLinks";
 import { buildSeo, canonicalLink, jsonLdScript, breadcrumbSchema } from "@/lib/seo";
+import { BriefDownloadCard } from "@/components/site/BriefDownloadCard";
 
 export const Route = createFileRoute("/contacto")({
   head: () => ({
@@ -43,6 +44,10 @@ function Page() {
           </p>
         </div>
       </section>
+
+      <Section>
+        <BriefDownloadCard />
+      </Section>
 
       <Section tone="muted">
         <SectionHeader

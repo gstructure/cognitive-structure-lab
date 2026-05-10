@@ -6,6 +6,7 @@ import { Eyebrow } from "@/components/site/Eyebrow";
 import { Reveal } from "@/components/site/Reveal";
 import { MethodTabs } from "@/components/site/MethodTabs";
 import { FAQ } from "@/components/site/FAQ";
+import { BriefDownloadCard } from "@/components/site/BriefDownloadCard";
 
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
 import { BrandMark } from "@/components/brand/Logo";
@@ -771,6 +772,9 @@ function Index() {
       <ForWhom />
       <GStructBridge />
       <Founder />
+      <Section tone="muted">
+        <BriefDownloadCard />
+      </Section>
       <FAQSection />
       <FinalCTA />
     </>
