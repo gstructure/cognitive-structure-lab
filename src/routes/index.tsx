@@ -772,6 +772,9 @@ function Index() {
       <ForWhom />
       <GStructBridge />
       <Founder />
+      <Section tone="muted">
+        <BriefDownloadCard />
+      </Section>
       <FAQSection />
       <FinalCTA />
     </>
