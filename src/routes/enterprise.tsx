@@ -345,6 +345,10 @@ function Enterprise() {
           </div>
         </div>
       </Section>
+
+      <Section tone="muted">
+        <BriefDownloadCard />
+      </Section>
     </>
   );
 }
