@@ -13,6 +13,7 @@ import { Route as UnsubscribeRouteImport } from './routes/unsubscribe'
 import { Route as UneteAlEquipoRouteImport } from './routes/unete-al-equipo'
 import { Route as SobreGuillermoRouteImport } from './routes/sobre-guillermo'
 import { Route as Reestructura11RouteImport } from './routes/reestructura-1-1'
+import { Route as PoliticasLegalesRouteImport } from './routes/politicas-legales'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as GStructRouteImport } from './routes/g-struct'
 import { Route as EnterpriseRouteImport } from './routes/enterprise'
@@ -53,6 +54,11 @@ const SobreGuillermoRoute = SobreGuillermoRouteImport.update({
 const Reestructura11Route = Reestructura11RouteImport.update({
   id: '/reestructura-1-1',
   path: '/reestructura-1-1',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PoliticasLegalesRoute = PoliticasLegalesRouteImport.update({
+  id: '/politicas-legales',
+  path: '/politicas-legales',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoginRoute = LoginRouteImport.update({
@@ -171,6 +177,7 @@ export interface FileRoutesByFullPath {
   '/enterprise': typeof EnterpriseRoute
   '/g-struct': typeof GStructRoute
   '/login': typeof LoginRoute
+  '/politicas-legales': typeof PoliticasLegalesRoute
   '/reestructura-1-1': typeof Reestructura11Route
   '/sobre-guillermo': typeof SobreGuillermoRoute
   '/unete-al-equipo': typeof UneteAlEquipoRoute
@@ -197,6 +204,7 @@ export interface FileRoutesByTo {
   '/enterprise': typeof EnterpriseRoute
   '/g-struct': typeof GStructRoute
   '/login': typeof LoginRoute
+  '/politicas-legales': typeof PoliticasLegalesRoute
   '/reestructura-1-1': typeof Reestructura11Route
   '/sobre-guillermo': typeof SobreGuillermoRoute
   '/unete-al-equipo': typeof UneteAlEquipoRoute
@@ -225,6 +233,7 @@ export interface FileRoutesById {
   '/enterprise': typeof EnterpriseRoute
   '/g-struct': typeof GStructRoute
   '/login': typeof LoginRoute
+  '/politicas-legales': typeof PoliticasLegalesRoute
   '/reestructura-1-1': typeof Reestructura11Route
   '/sobre-guillermo': typeof SobreGuillermoRoute
   '/unete-al-equipo': typeof UneteAlEquipoRoute
@@ -253,6 +262,7 @@ export interface FileRouteTypes {
     | '/enterprise'
     | '/g-struct'
     | '/login'
+    | '/politicas-legales'
     | '/reestructura-1-1'
     | '/sobre-guillermo'
     | '/unete-al-equipo'
@@ -279,6 +289,7 @@ export interface FileRouteTypes {
     | '/enterprise'
     | '/g-struct'
     | '/login'
+    | '/politicas-legales'
     | '/reestructura-1-1'
     | '/sobre-guillermo'
     | '/unete-al-equipo'
@@ -306,6 +317,7 @@ export interface FileRouteTypes {
     | '/enterprise'
     | '/g-struct'
     | '/login'
+    | '/politicas-legales'
     | '/reestructura-1-1'
     | '/sobre-guillermo'
     | '/unete-al-equipo'
@@ -334,6 +346,7 @@ export interface RootRouteChildren {
   EnterpriseRoute: typeof EnterpriseRoute
   GStructRoute: typeof GStructRoute
   LoginRoute: typeof LoginRoute
+  PoliticasLegalesRoute: typeof PoliticasLegalesRoute
   Reestructura11Route: typeof Reestructura11Route
   SobreGuillermoRoute: typeof SobreGuillermoRoute
   UneteAlEquipoRoute: typeof UneteAlEquipoRoute
@@ -373,6 +386,13 @@ declare module '@tanstack/react-router' {
       path: '/reestructura-1-1'
       fullPath: '/reestructura-1-1'
       preLoaderRoute: typeof Reestructura11RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/politicas-legales': {
+      id: '/politicas-legales'
+      path: '/politicas-legales'
+      fullPath: '/politicas-legales'
+      preLoaderRoute: typeof PoliticasLegalesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/login': {
@@ -566,6 +586,7 @@ const rootRouteChildren: RootRouteChildren = {
   EnterpriseRoute: EnterpriseRoute,
   GStructRoute: GStructRoute,
   LoginRoute: LoginRoute,
+  PoliticasLegalesRoute: PoliticasLegalesRoute,
   Reestructura11Route: Reestructura11Route,
   SobreGuillermoRoute: SobreGuillermoRoute,
   UneteAlEquipoRoute: UneteAlEquipoRoute,
