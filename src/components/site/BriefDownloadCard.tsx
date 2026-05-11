@@ -1,8 +1,10 @@
 import { FileText, Download } from "lucide-react";
-import { trackConversion } from "@/lib/analytics";
+import { trackBriefDownload } from "@/lib/analytics";
 
-const handleBriefDownload = (source: "card" | "compact") =>
-  trackConversion("brief_pdf_download", { source, file: "g-structure-brief-comercial.pdf" });
+const handleBriefDownload = (e: React.MouseEvent<HTMLAnchorElement>, source: "card" | "compact") => {
+  e.preventDefault();
+  trackBriefDownload(PDF_HREF, { source, file: "g-structure-brief-comercial.pdf" });
+};
 
 type Props = {
   /** "default" = light card on muted bg; "compact" = inline minimal block. */
