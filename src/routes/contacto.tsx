@@ -172,58 +172,219 @@ function DirectChannel({
   return href ? <a href={href} className="block">{inner}</a> : inner;
 }
 
+type FormState = {
+  name: string;
+  email: string;
+  organization: string;
+  role: string;
+  whatsapp: string;
+  country: string;
+  context: keyof typeof REQUEST_TYPES;
+  message: string;
+  consent: boolean;
+  website: string; // honeypot
+};
+
 function ContactForm() {
-  const [data, setData] = useState({
-    name: "", email: "", org: "", context: "diagnostico", message: "",
+  const [data, setData] = useState<FormState>({
+    name: "", email: "", organization: "", role: "", whatsapp: "", country: "",
+    context: "diagnostico", message: "", consent: false, website: "",
   });
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [fieldError, setFieldError] = useState<string | null>(null);
 
-  const onChange = (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
-    setData((d) => ({ ...d, [k]: e.target.value }));
+  const onChange = (k: keyof FormState) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+      const v = e.target instanceof HTMLInputElement && e.target.type === "checkbox"
+        ? e.target.checked
+        : e.target.value;
+      setData((d) => ({ ...d, [k]: v as never }));
+    };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    trackConversion("contact_form_submit", {
-      context: data.context,
-      has_org: data.org.trim().length > 0,
-    });
-    const subject = `[G-Structure] ${data.context} — ${data.name}`;
-    const body = `Nombre: ${data.name}\nEmail: ${data.email}\nOrganización: ${data.org}\nContexto: ${data.context}\n\n${data.message}`;
-    window.location.href = `mailto:guillermo@g-structure.co?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const validate = (): string | null => {
+    if (!data.name.trim()) return "Por favor, ingresa tu nombre.";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email.trim())) return "Por favor, ingresa un correo válido.";
+    if (!data.context) return "Selecciona el tipo de solicitud.";
+    if (!data.message.trim()) return "Escribe tu mensaje.";
+    if (!data.consent) return "Debes aceptar las Políticas Legales para enviar el formulario.";
+    return null;
   };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setFieldError(null);
+    setErrorMsg(null);
+    const v = validate();
+    if (v) { setFieldError(v); return; }
+
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/public/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.name.trim(),
+          email: data.email.trim(),
+          organization: data.organization.trim(),
+          role: data.role.trim(),
+          whatsapp: data.whatsapp.trim(),
+          country: data.country.trim(),
+          requestType: REQUEST_TYPES[data.context],
+          message: data.message.trim(),
+          consent: data.consent,
+          website: data.website,
+          pageOrigin: typeof window !== "undefined" ? window.location.pathname : "",
+          language: typeof document !== "undefined" ? document.documentElement.lang || "es" : "es",
+        }),
+      });
+      if (!res.ok) {
+        const json = await res.json().catch(() => ({}));
+        throw new Error(json?.error || `HTTP ${res.status}`);
+      }
+      trackConversion("contact_form_submit", {
+        request_type: REQUEST_TYPES[data.context],
+        has_org: data.organization.trim().length > 0,
+      });
+      setStatus("success");
+    } catch (err) {
+      console.error("[contact] submit failed", err);
+      setStatus("error");
+      setErrorMsg("No pudimos enviar tu mensaje en este momento. Por favor intenta nuevamente o escríbenos por WhatsApp.");
+    }
+  };
+
+  if (status === "success") {
+    return (
+      <div className="border border-border bg-[color:var(--color-surface)] p-8 md:p-10">
+        <div className="flex items-center gap-3 text-foreground">
+          <CheckCircle2 size={22} />
+          <h2 className="font-display text-2xl font-semibold">Mensaje enviado</h2>
+        </div>
+        <p className="mt-4 text-sm text-foreground/85 leading-relaxed">
+          Gracias por escribirnos. Hemos recibido tu solicitud y revisaremos tu mensaje
+          para responderte a la brevedad.
+        </p>
+        <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+          Si tu solicitud es urgente, también puedes escribir directamente por WhatsApp.
+        </p>
+        <div className="mt-6 flex flex-wrap gap-2">
+          <a
+            href="https://wa.me/593986875121"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 bg-foreground px-5 py-3 text-[13px] font-medium text-background hover:opacity-90"
+          >
+            Hablar por WhatsApp <ArrowRight size={15} />
+          </a>
+          <button
+            type="button"
+            onClick={() => {
+              setData({
+                name: "", email: "", organization: "", role: "", whatsapp: "", country: "",
+                context: "diagnostico", message: "", consent: false, website: "",
+              });
+              setStatus("idle");
+            }}
+            className="inline-flex items-center gap-2 border border-foreground/30 px-5 py-3 text-[13px] font-medium text-foreground hover:border-foreground"
+          >
+            Enviar otro mensaje
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  const sending = status === "sending";
 
   return (
     <form onSubmit={handleSubmit} className="border border-border bg-[color:var(--color-surface)] p-7 md:p-9 space-y-5">
       <div className="grid gap-5 md:grid-cols-2">
         <Field label="Nombre" required>
-          <input required value={data.name} onChange={onChange("name")} className="form-input" />
+          <input required value={data.name} onChange={onChange("name")} className="form-input" autoComplete="name" />
         </Field>
         <Field label="Email" required>
-          <input required type="email" value={data.email} onChange={onChange("email")} className="form-input" />
+          <input required type="email" value={data.email} onChange={onChange("email")} className="form-input" autoComplete="email" />
         </Field>
       </div>
-      <Field label="Organización (opcional)">
-        <input value={data.org} onChange={onChange("org")} className="form-input" />
-      </Field>
-      <Field label="¿Qué te interesa explorar?">
+      <div className="grid gap-5 md:grid-cols-2">
+        <Field label="Empresa / institución (opcional)">
+          <input value={data.organization} onChange={onChange("organization")} className="form-input" autoComplete="organization" />
+        </Field>
+        <Field label="Cargo (opcional)">
+          <input value={data.role} onChange={onChange("role")} className="form-input" autoComplete="organization-title" />
+        </Field>
+      </div>
+      <div className="grid gap-5 md:grid-cols-2">
+        <Field label="WhatsApp (opcional)">
+          <input value={data.whatsapp} onChange={onChange("whatsapp")} className="form-input" inputMode="tel" autoComplete="tel" placeholder="+593 ..." />
+        </Field>
+        <Field label="País / ciudad (opcional)">
+          <input value={data.country} onChange={onChange("country")} className="form-input" autoComplete="country-name" />
+        </Field>
+      </div>
+      <Field label="Tipo de solicitud" required>
         <select value={data.context} onChange={onChange("context")} className="form-input">
-          <option value="diagnostico">Workshop de Diagnóstico</option>
-          <option value="enterprise">REESTRUCTURA Enterprise</option>
-          <option value="reestructura">REESTRUCTURA 1:1</option>
-          <option value="continuidad">Continuidad Enterprise</option>
-          <option value="g-struct">G-Struct (lista de espera)</option>
-          <option value="aliados">Aliados ETW 2026</option>
-          <option value="equipo">Unirme al equipo</option>
-          <option value="otro">Otro</option>
+          {Object.entries(REQUEST_TYPES).map(([k, v]) => (
+            <option key={k} value={k}>{v}</option>
+          ))}
         </select>
       </Field>
-      <Field label="Cuéntanos brevemente tu contexto" required>
+      <Field label="Mensaje" required>
         <textarea required rows={5} value={data.message} onChange={onChange("message")} className="form-input resize-none" />
       </Field>
+
+      {/* Honeypot — hidden from users */}
+      <div aria-hidden className="hidden" style={{ position: "absolute", left: "-10000px" }}>
+        <label>
+          Website
+          <input
+            tabIndex={-1}
+            autoComplete="off"
+            value={data.website}
+            onChange={onChange("website")}
+          />
+        </label>
+      </div>
+
+      <label className="flex items-start gap-3 text-[13px] text-foreground/85 leading-relaxed">
+        <input
+          type="checkbox"
+          checked={data.consent}
+          onChange={onChange("consent")}
+          className="mt-0.5 h-4 w-4 accent-foreground"
+        />
+        <span>
+          He leído y acepto las{" "}
+          <Link to="/politicas-legales" className="underline">Políticas Legales</Link> y la
+          Política de Privacidad. *
+        </span>
+      </label>
+
+      {fieldError ? (
+        <p className="text-[13px] font-medium text-destructive">{fieldError}</p>
+      ) : null}
+      {status === "error" && errorMsg ? (
+        <div className="border border-destructive/30 bg-destructive/5 p-4 text-[13px] text-foreground/90">
+          <p>{errorMsg}</p>
+          <a
+            href="https://wa.me/593986875121"
+            target="_blank"
+            rel="noreferrer"
+            className="mt-3 inline-flex items-center gap-2 bg-foreground px-4 py-2 text-[12.5px] font-medium text-background hover:opacity-90"
+          >
+            Escribir por WhatsApp <ArrowRight size={13} />
+          </a>
+        </div>
+      ) : null}
+
       <button
         type="submit"
-        className="inline-flex items-center justify-center gap-2 bg-foreground px-5 py-3 text-[13px] font-medium text-background transition-opacity hover:opacity-90"
+        disabled={sending}
+        className="inline-flex items-center justify-center gap-2 bg-foreground px-5 py-3 text-[13px] font-medium text-background transition-opacity hover:opacity-90 disabled:opacity-60 disabled:cursor-not-allowed"
       >
-        Enviar mensaje <ArrowRight size={15} />
+        {sending ? "Enviando..." : "Enviar mensaje"}
+        {!sending ? <ArrowRight size={15} /> : null}
       </button>
       <p className="text-xs text-muted-foreground">
         También puedes escribir directamente a guillermo@g-structure.co o por WhatsApp al +593 98 687 5121.
@@ -244,6 +405,7 @@ function ContactForm() {
     </form>
   );
 }
+
 
 function Field({ label, required, children }: { label: string; required?: boolean; children: React.ReactNode }) {
   return (
