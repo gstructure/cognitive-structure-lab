@@ -5,6 +5,7 @@ import { Logo } from "@/components/brand/Logo";
 import { LangSwitcher } from "@/components/site/LangSwitcher";
 import { useLocale, useT } from "@/lib/i18n";
 import { navForLocale } from "@/lib/routeMap";
+import { trackConversion } from "@/lib/analytics";
 
 export function Header() {
   const { locale } = useLocale();
@@ -48,6 +49,7 @@ export function Header() {
           <LangSwitcher />
           <Link
             to={contactTo as string}
+            onClick={() => trackConversion("contact_click", { source: "header_desktop" })}
             className="inline-flex items-center justify-center bg-foreground px-4 py-2.5 text-[13px] font-medium tracking-wide text-background transition-opacity hover:opacity-90"
           >
             {t("common.bookCall")}
@@ -84,7 +86,10 @@ export function Header() {
               <LangSwitcher />
               <Link
                 to={contactTo as string}
-                onClick={() => setOpen(false)}
+                onClick={() => {
+                  setOpen(false);
+                  trackConversion("contact_click", { source: "header_mobile" });
+                }}
                 className="inline-flex flex-1 items-center justify-center bg-foreground px-4 py-3 text-sm font-medium text-background"
               >
                 {t("common.bookCall")}
