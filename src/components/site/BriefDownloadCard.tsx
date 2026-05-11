@@ -1,7 +1,8 @@
+import type { MouseEvent } from "react";
 import { FileText, Download } from "lucide-react";
 import { trackBriefDownload } from "@/lib/analytics";
 
-const handleBriefDownload = (e: React.MouseEvent<HTMLAnchorElement>, source: "card" | "compact") => {
+const handleBriefDownload = (e: MouseEvent<HTMLAnchorElement>, source: "card" | "compact") => {
   e.preventDefault();
   trackBriefDownload(PDF_HREF, { source, file: "g-structure-brief-comercial.pdf" });
 };
