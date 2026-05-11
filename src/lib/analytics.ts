@@ -27,9 +27,9 @@ export type ConversionKey =
 // Replace with Google Ads conversion labels when available, e.g.
 // contact_form_submit: "AW-18154152582/AbCdEfGhIjK".
 const CONVERSION_LABELS: Record<ConversionKey, string | undefined> = {
-  contact_click: undefined,
-  contact_form_submit: undefined,
-  brief_pdf_download: undefined,
+  contact_click: "AW-18154152582/zzaxCI-jhqscEIbFydBD",
+  contact_form_submit: "AW-18154152582/aTpmCJKjhqscEIbFydBD",
+  brief_pdf_download: "AW-18154152582/hLADCJWjhqscEIbFydBD",
   booking_request: undefined,
 };
 
