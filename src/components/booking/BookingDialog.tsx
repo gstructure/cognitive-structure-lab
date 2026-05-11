@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
+import { Link } from "@tanstack/react-router";
 import { Calendar as CalendarIcon, Loader2, Check, ArrowLeft } from "lucide-react";
 import {
   Dialog,
@@ -57,6 +58,7 @@ export function BookingDialog({ pkg, open, onOpenChange }: Props) {
   const [loadingSlots, setLoadingSlots] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [accepted, setAccepted] = useState(false);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -75,6 +77,7 @@ export function BookingDialog({ pkg, open, onOpenChange }: Props) {
       setDate(undefined);
       setHour(null);
       setError(null);
+      setAccepted(false);
       setForm({ name: "", email: "", phone: "", country: "", notes: "" });
     }
   }, [open]);
@@ -158,6 +161,7 @@ export function BookingDialog({ pkg, open, onOpenChange }: Props) {
   const canSubmit =
     form.name.trim().length >= 2 &&
     /^\S+@\S+\.\S+$/.test(form.email.trim()) &&
+    accepted &&
     !submitting;
 
   return (
@@ -339,15 +343,41 @@ export function BookingDialog({ pkg, open, onOpenChange }: Props) {
 
             <div className="text-xs text-muted-foreground space-y-2 border border-border bg-muted/40 p-3">
               <p>
+                Usaremos tus datos únicamente para responder a tu solicitud, gestionar la
+                comunicación o prestar el servicio solicitado, conforme a nuestras{" "}
+                <Link to="/politicas-legales" className="underline hover:text-foreground">
+                  Políticas Legales
+                </Link>.
+              </p>
+              <p>
                 Las reservas se confirman con el pago del 50% del valor del servicio. Después
                 de enviar tu solicitud recibirás las instrucciones para realizar la transferencia
                 bancaria y enviar el comprobante.
               </p>
               <p>
-                El envío de la solicitud no confirma automáticamente la reserva. La confirmación
-                oficial se enviará por correo una vez validado el pago.
+                La solicitud de reserva no implica confirmación automática. La reserva se
+                confirma tras validación del pago correspondiente.
               </p>
             </div>
+
+            <label className="flex items-start gap-2 text-xs text-foreground/85 cursor-pointer select-none">
+              <input
+                type="checkbox"
+                checked={accepted}
+                onChange={(e) => setAccepted(e.target.checked)}
+                className="mt-0.5 h-4 w-4 accent-foreground"
+              />
+              <span>
+                He leído y acepto las{" "}
+                <Link to="/politicas-legales" className="underline hover:text-foreground" target="_blank" rel="noopener">
+                  Políticas Legales
+                </Link>{" "}
+                y la{" "}
+                <a href="/politicas-legales#privacidad" target="_blank" rel="noopener" className="underline hover:text-foreground">
+                  Política de Privacidad
+                </a>.
+              </span>
+            </label>
 
             <div className="flex justify-end gap-3">
               <button
