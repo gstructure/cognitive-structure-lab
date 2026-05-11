@@ -3,11 +3,21 @@ import { useState } from "react";
 import { Section } from "@/components/site/Section";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { Eyebrow } from "@/components/site/Eyebrow";
-import { Mail, Phone, Globe, ArrowRight, ArrowUpRight, Building2, User, Cpu, Handshake, Users } from "lucide-react";
+import { Mail, Phone, Globe, ArrowRight, ArrowUpRight, Building2, User, Cpu, Handshake, Users, CheckCircle2 } from "lucide-react";
 import { SocialLinks } from "@/components/site/SocialLinks";
 import { buildSeo, canonicalLink, jsonLdScript, breadcrumbSchema } from "@/lib/seo";
 import { BriefDownloadCard } from "@/components/site/BriefDownloadCard";
 import { trackConversion } from "@/lib/analytics";
+
+const REQUEST_TYPES: Record<string, string> = {
+  enterprise: "Enterprise / equipo",
+  reestructura: "REESTRUCTURA 1:1",
+  diagnostico: "Workshop de Diagnóstico",
+  "g-struct": "G-Struct",
+  aliados: "Alianza / sponsorship ETW 2026",
+  equipo: "Unirme al equipo",
+  otro: "Otro",
+};
 
 export const Route = createFileRoute("/contacto")({
   head: () => ({

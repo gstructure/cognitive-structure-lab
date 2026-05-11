@@ -31,6 +31,7 @@ import { Route as EnContactRouteImport } from './routes/en.contact'
 import { Route as EnAboutGuillermoRouteImport } from './routes/en.about-guillermo'
 import { Route as EmailUnsubscribeRouteImport } from './routes/email/unsubscribe'
 import { Route as LovableEmailSuppressionRouteImport } from './routes/lovable/email/suppression'
+import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
 import { Route as AdminAdminReservasRouteImport } from './routes/_admin/admin.reservas'
 import { Route as LovableEmailTransactionalSendRouteImport } from './routes/lovable/email/transactional/send'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
@@ -145,6 +146,11 @@ const LovableEmailSuppressionRoute = LovableEmailSuppressionRouteImport.update({
   path: '/lovable/email/suppression',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicContactRoute = ApiPublicContactRouteImport.update({
+  id: '/api/public/contact',
+  path: '/api/public/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminAdminReservasRoute = AdminAdminReservasRouteImport.update({
   id: '/admin/reservas',
   path: '/admin/reservas',
@@ -191,6 +197,7 @@ export interface FileRoutesByFullPath {
   '/en/join-the-team': typeof EnJoinTheTeamRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
   '/admin/reservas': typeof AdminAdminReservasRoute
+  '/api/public/contact': typeof ApiPublicContactRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -218,6 +225,7 @@ export interface FileRoutesByTo {
   '/en/join-the-team': typeof EnJoinTheTeamRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
   '/admin/reservas': typeof AdminAdminReservasRoute
+  '/api/public/contact': typeof ApiPublicContactRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -247,6 +255,7 @@ export interface FileRoutesById {
   '/en/join-the-team': typeof EnJoinTheTeamRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
   '/_admin/admin/reservas': typeof AdminAdminReservasRoute
+  '/api/public/contact': typeof ApiPublicContactRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -276,6 +285,7 @@ export interface FileRouteTypes {
     | '/en/join-the-team'
     | '/en/restructure-1-1'
     | '/admin/reservas'
+    | '/api/public/contact'
     | '/lovable/email/suppression'
     | '/lovable/email/queue/process'
     | '/lovable/email/transactional/preview'
@@ -303,6 +313,7 @@ export interface FileRouteTypes {
     | '/en/join-the-team'
     | '/en/restructure-1-1'
     | '/admin/reservas'
+    | '/api/public/contact'
     | '/lovable/email/suppression'
     | '/lovable/email/queue/process'
     | '/lovable/email/transactional/preview'
@@ -331,6 +342,7 @@ export interface FileRouteTypes {
     | '/en/join-the-team'
     | '/en/restructure-1-1'
     | '/_admin/admin/reservas'
+    | '/api/public/contact'
     | '/lovable/email/suppression'
     | '/lovable/email/queue/process'
     | '/lovable/email/transactional/preview'
@@ -352,6 +364,7 @@ export interface RootRouteChildren {
   UneteAlEquipoRoute: typeof UneteAlEquipoRoute
   UnsubscribeRoute: typeof UnsubscribeRoute
   EmailUnsubscribeRoute: typeof EmailUnsubscribeRoute
+  ApiPublicContactRoute: typeof ApiPublicContactRoute
   LovableEmailSuppressionRoute: typeof LovableEmailSuppressionRoute
   LovableEmailQueueProcessRoute: typeof LovableEmailQueueProcessRoute
   LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
@@ -514,6 +527,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LovableEmailSuppressionRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/contact': {
+      id: '/api/public/contact'
+      path: '/api/public/contact'
+      fullPath: '/api/public/contact'
+      preLoaderRoute: typeof ApiPublicContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_admin/admin/reservas': {
       id: '/_admin/admin/reservas'
       path: '/admin/reservas'
@@ -592,6 +612,7 @@ const rootRouteChildren: RootRouteChildren = {
   UneteAlEquipoRoute: UneteAlEquipoRoute,
   UnsubscribeRoute: UnsubscribeRoute,
   EmailUnsubscribeRoute: EmailUnsubscribeRoute,
+  ApiPublicContactRoute: ApiPublicContactRoute,
   LovableEmailSuppressionRoute: LovableEmailSuppressionRoute,
   LovableEmailQueueProcessRoute: LovableEmailQueueProcessRoute,
   LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
