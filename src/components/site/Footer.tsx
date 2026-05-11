@@ -81,6 +81,15 @@ export function Footer() {
           <p className="text-xs text-muted-foreground">
             © {new Date().getFullYear()} G-Structure. {t("common.rightsReserved")} {t("common.initiativeOf")}
           </p>
+          <nav aria-label="Legal" className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted-foreground">
+            <Link to="/politicas-legales" className="hover:text-foreground">Políticas Legales</Link>
+            <span aria-hidden>·</span>
+            <a href="/politicas-legales#privacidad" className="hover:text-foreground">Privacidad</a>
+            <span aria-hidden>·</span>
+            <a href="/politicas-legales#terminos" className="hover:text-foreground">Términos</a>
+            <span aria-hidden>·</span>
+            <a href="/politicas-legales#cookies" className="hover:text-foreground">Cookies</a>
+          </nav>
           <p className="text-xs text-muted-foreground tracking-wide">
             {t("footer.irO")}
           </p>
