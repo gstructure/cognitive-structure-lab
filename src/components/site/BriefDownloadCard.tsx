@@ -1,3 +1,4 @@
+import type { MouseEvent } from "react";
 import { FileText, Download } from "lucide-react";
 import { trackBriefDownload } from "@/lib/analytics";
 
