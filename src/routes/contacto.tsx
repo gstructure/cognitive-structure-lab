@@ -7,6 +7,7 @@ import { Mail, Phone, Globe, ArrowRight, ArrowUpRight, Building2, User, Cpu, Han
 import { SocialLinks } from "@/components/site/SocialLinks";
 import { buildSeo, canonicalLink, jsonLdScript, breadcrumbSchema } from "@/lib/seo";
 import { BriefDownloadCard } from "@/components/site/BriefDownloadCard";
+import { trackConversion } from "@/lib/analytics";
 
 export const Route = createFileRoute("/contacto")({
   head: () => ({
@@ -171,6 +172,10 @@ function ContactForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    trackConversion("contact_form_submit", {
+      context: data.context,
+      has_org: data.org.trim().length > 0,
+    });
     const subject = `[G-Structure] ${data.context} — ${data.name}`;
     const body = `Nombre: ${data.name}\nEmail: ${data.email}\nOrganización: ${data.org}\nContexto: ${data.context}\n\n${data.message}`;
     window.location.href = `mailto:guillermo@g-structure.co?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;

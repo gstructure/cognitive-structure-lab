@@ -1,4 +1,8 @@
 import { FileText, Download } from "lucide-react";
+import { trackConversion } from "@/lib/analytics";
+
+const handleBriefDownload = (source: "card" | "compact") =>
+  trackConversion("brief_pdf_download", { source, file: "g-structure-brief-comercial.pdf" });
 
 type Props = {
   /** "default" = light card on muted bg; "compact" = inline minimal block. */
@@ -18,6 +22,7 @@ export function BriefDownloadCard({ variant = "default", className }: Props) {
         rel="noopener"
         download
         aria-label={PDF_LABEL}
+        onClick={() => handleBriefDownload("compact")}
         className={`group inline-flex items-center gap-2.5 border border-border bg-[color:var(--color-surface)] px-4 py-2.5 text-[13px] font-medium text-foreground transition-colors hover:border-foreground ${className ?? ""}`}
       >
         <FileText size={15} className="text-muted-foreground group-hover:text-foreground transition-colors" />
@@ -99,6 +104,7 @@ export function BriefDownloadCard({ variant = "default", className }: Props) {
               rel="noopener"
               download
               aria-label={PDF_LABEL}
+              onClick={() => handleBriefDownload("card")}
               className="group inline-flex items-center justify-center gap-2 bg-foreground px-5 py-3 text-[13px] font-medium tracking-wide text-background transition-opacity hover:opacity-90"
             >
               Descargar PDF

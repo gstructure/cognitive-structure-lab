@@ -22,6 +22,7 @@ import {
   SLOT_HOURS,
 } from "@/lib/booking-catalog";
 import { createBooking, getUnavailableSlots } from "@/lib/booking.functions";
+import { trackConversion } from "@/lib/analytics";
 
 type Props = {
   pkg: BookablePackage | null;
@@ -144,6 +145,11 @@ export function BookingDialog({ pkg, open, onOpenChange }: Props) {
         },
       });
       if (res.ok) {
+        trackConversion("booking_request", {
+          package: pkg.slug,
+          slot_at: selectedISO,
+          price_label: pkg.priceLabel,
+        });
         setStep("success");
       } else {
         setError(res.error);
