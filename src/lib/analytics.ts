@@ -1,12 +1,10 @@
 // Google Ads / gtag helpers.
 // The base gtag.js + config('AW-18154152582') are injected globally from
 // src/routes/__root.tsx. Here we expose typed helpers for sending custom
-// events and conversions.
+// events and Google Ads conversions.
 //
-// To wire a real Google Ads conversion, replace `undefined` in the
-// CONVERSION_LABELS map with the labels generated in Google Ads
-// (format: "AW-18154152582/XXXXXXXXXXXX"). While a label is missing, we
-// still fire a generic `event` so it shows up in GA4 / Tag Assistant.
+// IMPORTANT: Conversions must only fire on successful actions, never on
+// page view or simple clicks. See trackConversion() and trackBriefDownload().
 
 export const GADS_ID = "AW-18154152582";
 
@@ -24,22 +22,30 @@ export type ConversionKey =
   | "brief_pdf_download"
   | "booking_request";
 
-// Replace with Google Ads conversion labels when available, e.g.
-// contact_form_submit: "AW-18154152582/AbCdEfGhIjK".
+// Google Ads conversion labels. `undefined` means: fire GA4 event only,
+// do NOT fire a Google Ads conversion.
 const CONVERSION_LABELS: Record<ConversionKey, string | undefined> = {
-  contact_click: "AW-18154152582/zzaxCI-jhqscEIbFydBD",
+  // Header / nav contact CTA — intent only, NOT a conversion.
+  contact_click: undefined,
+  // Contact form successfully submitted.
   contact_form_submit: "AW-18154152582/aTpmCJKjhqscEIbFydBD",
+  // Commercial brief PDF download click.
   brief_pdf_download: "AW-18154152582/hLADCJWjhqscEIbFydBD",
-  booking_request: undefined,
+  // Booking request successfully created.
+  booking_request: "AW-18154152582/zzaxCI-jhqscEIbFydBD",
 };
 
+const isDev =
+  typeof import.meta !== "undefined" && (import.meta as { env?: { DEV?: boolean } }).env?.DEV;
+
 function safeGtag(...args: unknown[]) {
-  if (typeof window === "undefined") return;
-  if (typeof window.gtag !== "function") return;
+  if (typeof window === "undefined") return false;
+  if (typeof window.gtag !== "function") return false;
   try {
     window.gtag(...args);
+    return true;
   } catch {
-    // never let analytics crash the UI
+    return false;
   }
 }
 
@@ -51,11 +57,53 @@ export function trackConversion(
   key: ConversionKey,
   params: Record<string, unknown> = {},
 ) {
-  // Always fire a named event for GA4 / debugging.
+  // Always fire a named GA4 / debug event.
   trackEvent(key, params);
-  // Fire the Google Ads conversion if a label is configured.
   const label = CONVERSION_LABELS[key];
   if (label) {
     safeGtag("event", "conversion", { send_to: label, ...params });
+    if (isDev) console.info(`[gtag] conversion fired: ${key} (${label})`);
+  } else if (isDev) {
+    console.info(`[gtag] event fired (no Ads conversion): ${key}`);
   }
+}
+
+/**
+ * Fires the brief PDF download conversion and then navigates / triggers the
+ * download. Uses Google Ads `event_callback` with an 800 ms safety fallback so
+ * navigation always happens even if gtag is blocked or slow.
+ *
+ * Usage in an onClick:
+ *   onClick={(e) => { e.preventDefault(); trackBriefDownload(PDF_HREF); }}
+ */
+export function trackBriefDownload(url: string, extra: Record<string, unknown> = {}) {
+  // Always fire a debug event for GA4.
+  trackEvent("brief_pdf_download", extra);
+
+  const label = CONVERSION_LABELS.brief_pdf_download;
+  let navigated = false;
+  const go = () => {
+    if (navigated) return;
+    navigated = true;
+    if (typeof window !== "undefined") window.location.href = url;
+  };
+
+  if (!label || typeof window === "undefined" || typeof window.gtag !== "function") {
+    go();
+    return;
+  }
+
+  try {
+    window.gtag("event", "conversion", {
+      send_to: label,
+      event_callback: go,
+      ...extra,
+    });
+    if (isDev) console.info(`[gtag] conversion fired: brief_pdf_download (${label})`);
+  } catch {
+    go();
+    return;
+  }
+  // Safety fallback in case event_callback never fires.
+  setTimeout(go, 800);
 }
