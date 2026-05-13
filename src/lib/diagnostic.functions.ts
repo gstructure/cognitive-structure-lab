@@ -44,10 +44,9 @@ export const adminUpdateDiagnosticFollowup = createServerFn({ method: "POST" })
   }).parse(i))
   .handler(async ({ context, data }) => {
     if (!(await assertAdmin(context.userId))) return { ok: false as const, error: "no_auth" };
-    const patch: Record<string, any> = { follow_up_status: data.follow_up_status };
-    if (data.admin_notes !== undefined) patch.admin_notes = data.admin_notes;
+    const patch = { follow_up_status: data.follow_up_status, admin_notes: data.admin_notes };
     const { error } = await supabaseAdmin
-      .from("admin_followup_recommendations").update(patch).eq("user_id", data.id);
+      .from("admin_followup_recommendations").update(patch as never).eq("user_id", data.id);
     if (error) return { ok: false as const, error: error.message };
     return { ok: true as const };
   });

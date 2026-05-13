@@ -132,6 +132,7 @@ function AdminDiagnostics() {
                       <Td className="text-xs">{res.recommended_program} {res.recommended_duration}</Td>
                       <Td className="text-xs">{fu.follow_up_status ?? "—"}</Td>
                       <Td><Button size="sm" variant="outline" onClick={() => openDetail(r.id)}>Ver</Button></Td>
+                      <Td>{null}</Td>
                     </tr>
                   );
                 })}
