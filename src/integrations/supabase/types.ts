@@ -14,6 +14,74 @@ export type Database = {
   }
   public: {
     Tables: {
+      admin_followup_recommendations: {
+        Row: {
+          admin_notes: string | null
+          created_at: string
+          follow_up_status: string
+          id: string
+          recommended_duration: string | null
+          recommended_program: string | null
+          sales_priority: string | null
+          updated_at: string
+          user_id: string
+          week_1_focus: string | null
+          week_2_focus: string | null
+          week_3_focus: string | null
+          week_4_focus: string | null
+          week_5_focus: string | null
+          week_6_focus: string | null
+          week_7_focus: string | null
+          week_8_focus: string | null
+        }
+        Insert: {
+          admin_notes?: string | null
+          created_at?: string
+          follow_up_status?: string
+          id?: string
+          recommended_duration?: string | null
+          recommended_program?: string | null
+          sales_priority?: string | null
+          updated_at?: string
+          user_id: string
+          week_1_focus?: string | null
+          week_2_focus?: string | null
+          week_3_focus?: string | null
+          week_4_focus?: string | null
+          week_5_focus?: string | null
+          week_6_focus?: string | null
+          week_7_focus?: string | null
+          week_8_focus?: string | null
+        }
+        Update: {
+          admin_notes?: string | null
+          created_at?: string
+          follow_up_status?: string
+          id?: string
+          recommended_duration?: string | null
+          recommended_program?: string | null
+          sales_priority?: string | null
+          updated_at?: string
+          user_id?: string
+          week_1_focus?: string | null
+          week_2_focus?: string | null
+          week_3_focus?: string | null
+          week_4_focus?: string | null
+          week_5_focus?: string | null
+          week_6_focus?: string | null
+          week_7_focus?: string | null
+          week_8_focus?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "admin_followup_recommendations_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "diagnostic_users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       blocked_slots: {
         Row: {
           created_at: string
@@ -98,6 +166,241 @@ export type Database = {
           price_usd?: number | null
           slot_at?: string
           status?: string
+        }
+        Relationships: []
+      }
+      diagnostic_responses: {
+        Row: {
+          behaviors: Json
+          created_at: string
+          emotions: Json
+          id: string
+          impact: Json
+          likert: Json
+          triggers: Json
+          user_id: string
+        }
+        Insert: {
+          behaviors: Json
+          created_at?: string
+          emotions: Json
+          id?: string
+          impact: Json
+          likert: Json
+          triggers: Json
+          user_id: string
+        }
+        Update: {
+          behaviors?: Json
+          created_at?: string
+          emotions?: Json
+          id?: string
+          impact?: Json
+          likert?: Json
+          triggers?: Json
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "diagnostic_responses_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "diagnostic_users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      diagnostic_results: {
+        Row: {
+          admin_notes: string | null
+          as_percent: number
+          as_raw: number
+          bridge_action: string | null
+          created_at: string
+          dominant_emotion: string | null
+          dominant_pattern: string
+          dominant_response_behavior: string | null
+          dominant_trigger: string | null
+          friction_level: string
+          iae_score: number
+          icr_score: number
+          id: string
+          ife_gs_score: number
+          ip_percent: number
+          ip_raw: number
+          mixed_profile_name: string | null
+          mixed_profile_type: string
+          p_percent: number
+          p_raw: number
+          pattern_difference: number
+          pe_percent: number
+          pe_raw: number
+          pi_percent: number
+          pi_raw: number
+          pp_score: number
+          recommended_duration: string
+          recommended_pathway: string | null
+          recommended_program: string
+          report_text: string | null
+          secondary_pattern: string
+          top_productivity_impact_1: string | null
+          top_productivity_impact_2: string | null
+          top_productivity_impact_3: string | null
+          user_id: string
+        }
+        Insert: {
+          admin_notes?: string | null
+          as_percent: number
+          as_raw: number
+          bridge_action?: string | null
+          created_at?: string
+          dominant_emotion?: string | null
+          dominant_pattern: string
+          dominant_response_behavior?: string | null
+          dominant_trigger?: string | null
+          friction_level: string
+          iae_score: number
+          icr_score: number
+          id?: string
+          ife_gs_score: number
+          ip_percent: number
+          ip_raw: number
+          mixed_profile_name?: string | null
+          mixed_profile_type: string
+          p_percent: number
+          p_raw: number
+          pattern_difference: number
+          pe_percent: number
+          pe_raw: number
+          pi_percent: number
+          pi_raw: number
+          pp_score: number
+          recommended_duration: string
+          recommended_pathway?: string | null
+          recommended_program: string
+          report_text?: string | null
+          secondary_pattern: string
+          top_productivity_impact_1?: string | null
+          top_productivity_impact_2?: string | null
+          top_productivity_impact_3?: string | null
+          user_id: string
+        }
+        Update: {
+          admin_notes?: string | null
+          as_percent?: number
+          as_raw?: number
+          bridge_action?: string | null
+          created_at?: string
+          dominant_emotion?: string | null
+          dominant_pattern?: string
+          dominant_response_behavior?: string | null
+          dominant_trigger?: string | null
+          friction_level?: string
+          iae_score?: number
+          icr_score?: number
+          id?: string
+          ife_gs_score?: number
+          ip_percent?: number
+          ip_raw?: number
+          mixed_profile_name?: string | null
+          mixed_profile_type?: string
+          p_percent?: number
+          p_raw?: number
+          pattern_difference?: number
+          pe_percent?: number
+          pe_raw?: number
+          pi_percent?: number
+          pi_raw?: number
+          pp_score?: number
+          recommended_duration?: string
+          recommended_pathway?: string | null
+          recommended_program?: string
+          report_text?: string | null
+          secondary_pattern?: string
+          top_productivity_impact_1?: string | null
+          top_productivity_impact_2?: string | null
+          top_productivity_impact_3?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "diagnostic_results_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "diagnostic_users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      diagnostic_users: {
+        Row: {
+          anonymous_research_accepted: boolean
+          anonymous_research_accepted_at: string | null
+          city: string | null
+          company: string | null
+          company_size: string | null
+          country: string | null
+          created_at: string
+          department: string | null
+          email: string
+          full_name: string
+          id: string
+          ip_hash: string | null
+          main_reason: string | null
+          phone: string | null
+          privacy_accepted: boolean
+          privacy_accepted_at: string | null
+          responsibility_level: string | null
+          role: string | null
+          sector: string | null
+          user_agent: string | null
+          years_experience: string | null
+        }
+        Insert: {
+          anonymous_research_accepted?: boolean
+          anonymous_research_accepted_at?: string | null
+          city?: string | null
+          company?: string | null
+          company_size?: string | null
+          country?: string | null
+          created_at?: string
+          department?: string | null
+          email: string
+          full_name: string
+          id?: string
+          ip_hash?: string | null
+          main_reason?: string | null
+          phone?: string | null
+          privacy_accepted?: boolean
+          privacy_accepted_at?: string | null
+          responsibility_level?: string | null
+          role?: string | null
+          sector?: string | null
+          user_agent?: string | null
+          years_experience?: string | null
+        }
+        Update: {
+          anonymous_research_accepted?: boolean
+          anonymous_research_accepted_at?: string | null
+          city?: string | null
+          company?: string | null
+          company_size?: string | null
+          country?: string | null
+          created_at?: string
+          department?: string | null
+          email?: string
+          full_name?: string
+          id?: string
+          ip_hash?: string | null
+          main_reason?: string | null
+          phone?: string | null
+          privacy_accepted?: boolean
+          privacy_accepted_at?: string | null
+          responsibility_level?: string | null
+          role?: string | null
+          sector?: string | null
+          user_agent?: string | null
+          years_experience?: string | null
         }
         Relationships: []
       }

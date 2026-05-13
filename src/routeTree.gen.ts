@@ -18,6 +18,7 @@ import { Route as LoginRouteImport } from './routes/login'
 import { Route as GStructRouteImport } from './routes/g-struct'
 import { Route as EnterpriseRouteImport } from './routes/enterprise'
 import { Route as EnRouteImport } from './routes/en'
+import { Route as DiagnosticoFriccionEjecutivaRouteImport } from './routes/diagnostico-friccion-ejecutiva'
 import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as AliadosEtw2026RouteImport } from './routes/aliados-etw-2026'
 import { Route as AdminRouteImport } from './routes/_admin'
@@ -31,8 +32,10 @@ import { Route as EnContactRouteImport } from './routes/en.contact'
 import { Route as EnAboutGuillermoRouteImport } from './routes/en.about-guillermo'
 import { Route as EmailUnsubscribeRouteImport } from './routes/email/unsubscribe'
 import { Route as LovableEmailSuppressionRouteImport } from './routes/lovable/email/suppression'
+import { Route as ApiPublicDiagnosticoSubmitRouteImport } from './routes/api/public/diagnostico-submit'
 import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
 import { Route as AdminAdminReservasRouteImport } from './routes/_admin/admin.reservas'
+import { Route as AdminAdminDiagnosticosRouteImport } from './routes/_admin/admin.diagnosticos'
 import { Route as LovableEmailTransactionalSendRouteImport } from './routes/lovable/email/transactional/send'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
@@ -82,6 +85,12 @@ const EnRoute = EnRouteImport.update({
   path: '/en',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DiagnosticoFriccionEjecutivaRoute =
+  DiagnosticoFriccionEjecutivaRouteImport.update({
+    id: '/diagnostico-friccion-ejecutiva',
+    path: '/diagnostico-friccion-ejecutiva',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ContactoRoute = ContactoRouteImport.update({
   id: '/contacto',
   path: '/contacto',
@@ -146,6 +155,12 @@ const LovableEmailSuppressionRoute = LovableEmailSuppressionRouteImport.update({
   path: '/lovable/email/suppression',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicDiagnosticoSubmitRoute =
+  ApiPublicDiagnosticoSubmitRouteImport.update({
+    id: '/api/public/diagnostico-submit',
+    path: '/api/public/diagnostico-submit',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiPublicContactRoute = ApiPublicContactRouteImport.update({
   id: '/api/public/contact',
   path: '/api/public/contact',
@@ -154,6 +169,11 @@ const ApiPublicContactRoute = ApiPublicContactRouteImport.update({
 const AdminAdminReservasRoute = AdminAdminReservasRouteImport.update({
   id: '/admin/reservas',
   path: '/admin/reservas',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAdminDiagnosticosRoute = AdminAdminDiagnosticosRouteImport.update({
+  id: '/admin/diagnosticos',
+  path: '/admin/diagnosticos',
   getParentRoute: () => AdminRoute,
 } as any)
 const LovableEmailTransactionalSendRoute =
@@ -179,6 +199,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/aliados-etw-2026': typeof AliadosEtw2026Route
   '/contacto': typeof ContactoRoute
+  '/diagnostico-friccion-ejecutiva': typeof DiagnosticoFriccionEjecutivaRoute
   '/en': typeof EnRouteWithChildren
   '/enterprise': typeof EnterpriseRoute
   '/g-struct': typeof GStructRoute
@@ -196,8 +217,10 @@ export interface FileRoutesByFullPath {
   '/en/g-struct': typeof EnGStructRoute
   '/en/join-the-team': typeof EnJoinTheTeamRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
+  '/admin/diagnosticos': typeof AdminAdminDiagnosticosRoute
   '/admin/reservas': typeof AdminAdminReservasRoute
   '/api/public/contact': typeof ApiPublicContactRoute
+  '/api/public/diagnostico-submit': typeof ApiPublicDiagnosticoSubmitRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -207,6 +230,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/aliados-etw-2026': typeof AliadosEtw2026Route
   '/contacto': typeof ContactoRoute
+  '/diagnostico-friccion-ejecutiva': typeof DiagnosticoFriccionEjecutivaRoute
   '/en': typeof EnRouteWithChildren
   '/enterprise': typeof EnterpriseRoute
   '/g-struct': typeof GStructRoute
@@ -224,8 +248,10 @@ export interface FileRoutesByTo {
   '/en/g-struct': typeof EnGStructRoute
   '/en/join-the-team': typeof EnJoinTheTeamRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
+  '/admin/diagnosticos': typeof AdminAdminDiagnosticosRoute
   '/admin/reservas': typeof AdminAdminReservasRoute
   '/api/public/contact': typeof ApiPublicContactRoute
+  '/api/public/diagnostico-submit': typeof ApiPublicDiagnosticoSubmitRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -237,6 +263,7 @@ export interface FileRoutesById {
   '/_admin': typeof AdminRouteWithChildren
   '/aliados-etw-2026': typeof AliadosEtw2026Route
   '/contacto': typeof ContactoRoute
+  '/diagnostico-friccion-ejecutiva': typeof DiagnosticoFriccionEjecutivaRoute
   '/en': typeof EnRouteWithChildren
   '/enterprise': typeof EnterpriseRoute
   '/g-struct': typeof GStructRoute
@@ -254,8 +281,10 @@ export interface FileRoutesById {
   '/en/g-struct': typeof EnGStructRoute
   '/en/join-the-team': typeof EnJoinTheTeamRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
+  '/_admin/admin/diagnosticos': typeof AdminAdminDiagnosticosRoute
   '/_admin/admin/reservas': typeof AdminAdminReservasRoute
   '/api/public/contact': typeof ApiPublicContactRoute
+  '/api/public/diagnostico-submit': typeof ApiPublicDiagnosticoSubmitRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -267,6 +296,7 @@ export interface FileRouteTypes {
     | '/'
     | '/aliados-etw-2026'
     | '/contacto'
+    | '/diagnostico-friccion-ejecutiva'
     | '/en'
     | '/enterprise'
     | '/g-struct'
@@ -284,8 +314,10 @@ export interface FileRouteTypes {
     | '/en/g-struct'
     | '/en/join-the-team'
     | '/en/restructure-1-1'
+    | '/admin/diagnosticos'
     | '/admin/reservas'
     | '/api/public/contact'
+    | '/api/public/diagnostico-submit'
     | '/lovable/email/suppression'
     | '/lovable/email/queue/process'
     | '/lovable/email/transactional/preview'
@@ -295,6 +327,7 @@ export interface FileRouteTypes {
     | '/'
     | '/aliados-etw-2026'
     | '/contacto'
+    | '/diagnostico-friccion-ejecutiva'
     | '/en'
     | '/enterprise'
     | '/g-struct'
@@ -312,8 +345,10 @@ export interface FileRouteTypes {
     | '/en/g-struct'
     | '/en/join-the-team'
     | '/en/restructure-1-1'
+    | '/admin/diagnosticos'
     | '/admin/reservas'
     | '/api/public/contact'
+    | '/api/public/diagnostico-submit'
     | '/lovable/email/suppression'
     | '/lovable/email/queue/process'
     | '/lovable/email/transactional/preview'
@@ -324,6 +359,7 @@ export interface FileRouteTypes {
     | '/_admin'
     | '/aliados-etw-2026'
     | '/contacto'
+    | '/diagnostico-friccion-ejecutiva'
     | '/en'
     | '/enterprise'
     | '/g-struct'
@@ -341,8 +377,10 @@ export interface FileRouteTypes {
     | '/en/g-struct'
     | '/en/join-the-team'
     | '/en/restructure-1-1'
+    | '/_admin/admin/diagnosticos'
     | '/_admin/admin/reservas'
     | '/api/public/contact'
+    | '/api/public/diagnostico-submit'
     | '/lovable/email/suppression'
     | '/lovable/email/queue/process'
     | '/lovable/email/transactional/preview'
@@ -354,6 +392,7 @@ export interface RootRouteChildren {
   AdminRoute: typeof AdminRouteWithChildren
   AliadosEtw2026Route: typeof AliadosEtw2026Route
   ContactoRoute: typeof ContactoRoute
+  DiagnosticoFriccionEjecutivaRoute: typeof DiagnosticoFriccionEjecutivaRoute
   EnRoute: typeof EnRouteWithChildren
   EnterpriseRoute: typeof EnterpriseRoute
   GStructRoute: typeof GStructRoute
@@ -365,6 +404,7 @@ export interface RootRouteChildren {
   UnsubscribeRoute: typeof UnsubscribeRoute
   EmailUnsubscribeRoute: typeof EmailUnsubscribeRoute
   ApiPublicContactRoute: typeof ApiPublicContactRoute
+  ApiPublicDiagnosticoSubmitRoute: typeof ApiPublicDiagnosticoSubmitRoute
   LovableEmailSuppressionRoute: typeof LovableEmailSuppressionRoute
   LovableEmailQueueProcessRoute: typeof LovableEmailQueueProcessRoute
   LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
@@ -434,6 +474,13 @@ declare module '@tanstack/react-router' {
       path: '/en'
       fullPath: '/en'
       preLoaderRoute: typeof EnRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/diagnostico-friccion-ejecutiva': {
+      id: '/diagnostico-friccion-ejecutiva'
+      path: '/diagnostico-friccion-ejecutiva'
+      fullPath: '/diagnostico-friccion-ejecutiva'
+      preLoaderRoute: typeof DiagnosticoFriccionEjecutivaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contacto': {
@@ -527,6 +574,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LovableEmailSuppressionRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/diagnostico-submit': {
+      id: '/api/public/diagnostico-submit'
+      path: '/api/public/diagnostico-submit'
+      fullPath: '/api/public/diagnostico-submit'
+      preLoaderRoute: typeof ApiPublicDiagnosticoSubmitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/contact': {
       id: '/api/public/contact'
       path: '/api/public/contact'
@@ -539,6 +593,13 @@ declare module '@tanstack/react-router' {
       path: '/admin/reservas'
       fullPath: '/admin/reservas'
       preLoaderRoute: typeof AdminAdminReservasRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/_admin/admin/diagnosticos': {
+      id: '/_admin/admin/diagnosticos'
+      path: '/admin/diagnosticos'
+      fullPath: '/admin/diagnosticos'
+      preLoaderRoute: typeof AdminAdminDiagnosticosRouteImport
       parentRoute: typeof AdminRoute
     }
     '/lovable/email/transactional/send': {
@@ -566,10 +627,12 @@ declare module '@tanstack/react-router' {
 }
 
 interface AdminRouteChildren {
+  AdminAdminDiagnosticosRoute: typeof AdminAdminDiagnosticosRoute
   AdminAdminReservasRoute: typeof AdminAdminReservasRoute
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
+  AdminAdminDiagnosticosRoute: AdminAdminDiagnosticosRoute,
   AdminAdminReservasRoute: AdminAdminReservasRoute,
 }
 
@@ -602,6 +665,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdminRoute: AdminRouteWithChildren,
   AliadosEtw2026Route: AliadosEtw2026Route,
   ContactoRoute: ContactoRoute,
+  DiagnosticoFriccionEjecutivaRoute: DiagnosticoFriccionEjecutivaRoute,
   EnRoute: EnRouteWithChildren,
   EnterpriseRoute: EnterpriseRoute,
   GStructRoute: GStructRoute,
@@ -613,6 +677,7 @@ const rootRouteChildren: RootRouteChildren = {
   UnsubscribeRoute: UnsubscribeRoute,
   EmailUnsubscribeRoute: EmailUnsubscribeRoute,
   ApiPublicContactRoute: ApiPublicContactRoute,
+  ApiPublicDiagnosticoSubmitRoute: ApiPublicDiagnosticoSubmitRoute,
   LovableEmailSuppressionRoute: LovableEmailSuppressionRoute,
   LovableEmailQueueProcessRoute: LovableEmailQueueProcessRoute,
   LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
@@ -621,13 +686,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
