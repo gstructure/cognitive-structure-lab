@@ -1,99 +1,64 @@
-## G-Structure — Website premium
+# Diagnóstico de Fricción Ejecutiva G-Structure (IGPE V1.1)
 
-Construiré el website completo para G-Structure como una firma boutique de coaching cognitivo-conductual aplicado a la ejecución. Estética sobria, corporativa, geométrica y tecnológica — nada de wellness ni autoayuda.
+Construcción de una herramienta diagnóstica privada completa con landing, test, cálculo, reporte, email automático, base de datos y panel admin.
 
-### Sistema de diseño
+## Alcance funcional
 
-**Paleta** (extendida sutilmente sobre la base de marca):
-- `--background`: #f8f8f4 (blanco cálido)
-- `--foreground` / `--brand`: #05325a (azul de marca)
-- `--brand-deep`: #03223d (azul profundo, secciones de contraste)
-- `--muted-foreground`: #697783 (gris)
-- `--border`: gris claro derivado
-- `--surface`: #ffffff (tarjetas)
-- Acento sutil: línea fina azul, sin colores chillones
+1. **Página privada** `/diagnostico-friccion-ejecutiva` (no en menú, footer ni sitemap; `noindex`).
+2. **Formulario inicial** de datos (obligatorios + opcionales) + 2 checkboxes de consentimiento + link a política de privacidad.
+3. **Test IGPE V1.1** mobile-first, tarjeta-por-pregunta, barra de progreso, botones Atrás/Siguiente, autosave en `localStorage`:
+   - Sección A: 40 ítems Likert (P, PE, AS, PI — 10 c/u)
+   - Sección B: hasta 3 triggers + intensidad 1–5
+   - Sección C: emociones 0–10 (top 3 cuentan)
+   - Sección D: hasta 3 conductas + frecuencia 1–5
+   - Sección E: 10 ítems impacto productivo 1–5
+4. **Cálculo** completo en cliente y verificación en servidor (fórmulas P_raw, %, PP, IP, IAE, ICR, IFE_GS, nivel, perfil mixto, dominante/secundario).
+5. **Reporte inmediato premium** con 7 secciones (resumen, barras, lectura funcional, impacto, pronóstico, ruta, CTAs WhatsApp + email). Texto generado desde catálogo de interpretaciones por patrón dominante y por perfil mixto (P+PE, P+PI, P+AS, PE+PI, PE+AS, AS+PI).
+6. **Email automático** al usuario vía sistema de app emails de Lovable Cloud (template React Email con branding G-Structure, asunto, resumen, CTAs WhatsApp).
+7. **Base de datos** Supabase: `diagnostic_users`, `diagnostic_responses`, `diagnostic_results`, `admin_followup_recommendations` con RLS estricta (solo admin lee; insert público vía server route con service role).
+8. **Panel admin** bajo `/admin/diagnosticos` (protegido por rol `admin` existente):
+   - Dashboard: total, IFE-GS promedio, distribución por patrón, por cargo/empresa, leads enterprise, alta/crítica fricción
+   - Lista filtrable (patrón, nivel, empresa, recomendación, fecha)
+   - Vista detalle con respuestas, resultados, reporte, ruta sugerida 4/6/8 semanas personalizada por patrón dominante, estado de seguimiento editable, copiar resumen WhatsApp, export CSV
+9. **Política de privacidad**: extender la página existente `politicas-legales.tsx` con sección específica del diagnóstico (datos recogidos, uso, no clínico, anonimización, eliminación, contacto).
 
-**Tipografía**:
-- Headings: Montserrat (consistente con el logo)
-- Body: Inter (mejor legibilidad web)
-- Tracking amplio en eyebrows, jerarquía clara
+## Detalles técnicos
 
-**Lenguaje visual**:
-- Mucho aire, grids estrictos, bordes finos 1px
-- Eyebrows en mayúscula con tracking
-- Numeración 01/02/03 en tarjetas de método
-- Isotipo como marca de agua sutil en algunas secciones
-- Sin imágenes stock; usaré composiciones geométricas sutiles
+### Backend
 
-### Arquitectura de rutas (TanStack Router)
+- **Migración Supabase**: 4 tablas + RLS (`admin` lee/edita todo, ninguna inserción anon directa) + trigger `updated_at` donde aplique.
+- **Server route público** `/api/public/diagnostico/submit`:
+  - Valida payload con Zod
+  - Verifica consentimientos
+  - Recalcula scoring server-side (fuente de verdad)
+  - Inserta `diagnostic_users` + `diagnostic_responses` + `diagnostic_results` + fila inicial `admin_followup_recommendations` con plan semanal según patrón/duración
+  - Encola email via `enqueue_email` (template `diagnostic-report`)
+  - Devuelve `{ id, results }` para mostrar reporte
+- **Server functions admin** (`requireSupabaseAuth` + verificación rol admin):
+  - `listDiagnostics(filters)`, `getDiagnostic(id)`, `updateFollowup(id, status, notes)`, `exportCsv()`
+- **Template email** `diagnostic-report.tsx` registrado en `registry.ts`. Requiere `setup_email_infra` ya activo (lo está).
 
-```
-src/routes/
-  __root.tsx          → Header + Footer compartidos
-  index.tsx           → Inicio (home)
-  enterprise.tsx      → Enterprise
-  reestructura.tsx    → REESTRUCTURA 1:1
-  g-struct.tsx        → G-Struct (paleta blanco/azul)
-  sobre-guillermo.tsx → Sobre Guillermo
-  contacto.tsx        → Contacto
-  aliados-etw-2026.tsx → Aliados ETW 2026
-  unete-al-equipo.tsx  → Únete al equipo
-```
+### Frontend
 
-Cada ruta con `head()` propio: title, description, og:title, og:description únicos.
+- Rutas nuevas:
+  - `src/routes/diagnostico-friccion-ejecutiva.tsx` (landing + flujo wizard)
+  - `src/routes/_admin/admin.diagnosticos.tsx` (lista)
+  - `src/routes/_admin/admin.diagnosticos.$id.tsx` (detalle)
+- Componentes en `src/components/diagnostic/`: `Landing`, `IntakeForm`, `ConsentStep`, `LikertCard`, `TriggersStep`, `EmotionsStep`, `BehaviorsStep`, `ImpactStep`, `ReviewStep`, `LoadingCalc`, `ReportView`, `ScoreBar`.
+- Catálogo de contenido en `src/lib/diagnostic/`: `items.ts` (40 Likert + listas), `scoring.ts` (fórmulas — usado en cliente y servidor), `interpretations.ts` (lecturas dominantes + 6 perfiles mixtos), `recommendations.ts` (programa + ruta semanal), `whatsapp.ts` (links).
+- `noindex` meta tag en la landing y exclusión de `sitemap.xml` y nav.
 
-### Header
+### Branding
 
-Logo izquierda + nav: Inicio · Enterprise · REESTRUCTURA 1:1 · G-Struct · Sobre Guillermo · Contacto + CTA "Agendar conversación". Mobile: drawer.
+- Tokens G-Structure ya existentes en `src/styles.css` (azul `#05325a`, gris `#697783`, fondo `#f8f8f4`). Nada hardcodeado en componentes.
+- Disclaimer no-clínico visible en: landing, antes de test, reporte, email.
 
-### Footer
+## Lo que voy a pedir aprobar primero
 
-Logo, tagline, contacto (guillermo@g-structure.co, +593 98 687 5121, www.g-structure.co), links rápidos, badge "Coaching cognitivo-conductual aplicado a la ejecución".
+Migración Supabase con las 4 tablas y RLS. Tras aprobación procedo con código en una sola tanda.
 
-### Componentes reutilizables
+## Fuera de alcance (para confirmar luego)
 
-- `SectionHeader` (eyebrow + h2 + subtítulo)
-- `Card` (tarjeta limpia con borde fino)
-- `MethodCard` (01/02/03 numeración)
-- `CTAButton` (variants: primary, ghost)
-- `Eyebrow`
-- `BrandMark` (isotipo decorativo)
-
-### Páginas — qué incluirá cada una
-
-**Inicio**: Hero, badge ETW Host 2026, bloque de 2 anuncios estratégicos (Aliados / Equipo), Problema con 5 tarjetas, Mente como sistema operativo + cita destacada, Método I-R-O (3 tarjetas), Soluciones (4 tarjetas), Para quién es (2 columnas), Puente a G-Struct, Fundador + credenciales, CTA final.
-
-**Enterprise**: Hero, Problema con tarjetas, Workshop de Diagnóstico (incluye lista), REESTRUCTURA Enterprise, Continuidad, CTA. Completaré las secciones que quedaron truncadas en el brief con copy fiel al tono y estructura ya establecidos.
-
-**REESTRUCTURA 1:1**: Hero, problema individual, descripción del proceso, fases, para quién, qué incluye, CTA.
-
-**G-Struct**: Paleta blanco/azul (#05325a + #ffffff). Hero con app en desarrollo, qué es, cómo se conecta con el método I-R-O, funcionalidades previstas (registro de patrones, ejercicios CBT estructurados, monitoreo, continuidad), estado actual, lista de espera/CTA.
-
-**Sobre Guillermo**: Bio extendida, credenciales, formación, experiencia (docencia, MV Logos Hope, ÉPICO), enfoque metodológico, CTA conversar.
-
-**Contacto**: Formulario (nombre, email, organización, contexto, mensaje), datos directos (email, WhatsApp), enlace a agendar, microcopy de qué esperar.
-
-**Aliados ETW 2026**: Contexto del workshop, qué buscamos en aliados (experiencia / sede / contenido / marca), beneficios para aliados, formulario o CTA.
-
-**Únete al equipo**: Áreas abiertas (producto, tecnología, ventas, marketing, negocios internacionales), qué buscamos, qué se ofrece (portafolio real, aprendizaje aplicado, posible continuidad), formulario.
-
-### SEO
-
-Cada ruta con metadata propia, H1 único, descripción <160 chars, semantic HTML, alt en imágenes, viewport responsive ya configurado.
-
-### Logo
-
-Esperaré a que subas el logo. Mientras tanto usaré un wordmark provisional "G-STRUCTURE" en Montserrat tracking amplio + un cuadrado geométrico como isotipo placeholder. Cuando subas el archivo lo reemplazo en header, footer y como marca de agua.
-
-### Detalles técnicos
-
-- styles.css: extender tokens en oklch (background, foreground, brand-deep, muted, border, surface), Montserrat + Inter por Google Fonts en `__root.tsx` head links.
-- Variants de Button: `default`, `ghost`, `outline` ya disponibles; añadiré `hero` si hace falta.
-- Sin librerías extra — solo lo ya instalado (shadcn, lucide, tailwind v4).
-- Respetando la regla: nada de `text-white` / `bg-black` en componentes; todo vía tokens.
-
-### Notas
-
-- El brief se cortó en mitad de Enterprise. Completaré las páginas faltantes con copy fiel al tono, mensajes clave y estructura ya establecidos en el resto del documento. Si prefieres revisar copy específico antes de que lo escriba, dímelo.
-- No implementaré toggle dark/light (no es prioridad).
-- El formulario de contacto será solo frontend de momento (mailto / WhatsApp link). Si quieres envío real con Lovable Cloud, dímelo y lo activamos.
+- Versión en inglés del diagnóstico
+- PDF descargable del reporte (puedo añadirlo después si lo necesitas; por ahora reporte en pantalla + email HTML)
+- Login separado para usuarios del diagnóstico (no es necesario; el admin usa el login existente)
