@@ -114,7 +114,7 @@ function AdminDiagnostics() {
             <table className="w-full text-sm">
               <thead style={{ backgroundColor: "#f8f8f4", color: "#697783" }}>
                 <tr>
-                  <Th>Fecha</Th><Th>Nombre</Th><Th>Empresa</Th><Th>Cargo</Th><Th>IFE-GS</Th><Th>Patrón</Th><Th>Programa</Th><Th>Estado</Th><Th></Th>
+                  <Th>Fecha</Th><Th>Nombre</Th><Th>Empresa</Th><Th>Cargo</Th><Th>IFE-GS</Th><Th>Patrón</Th><Th>Programa</Th><Th>Estado</Th><Th>{null}</Th>
                 </tr>
               </thead>
               <tbody>
@@ -132,7 +132,6 @@ function AdminDiagnostics() {
                       <Td className="text-xs">{res.recommended_program} {res.recommended_duration}</Td>
                       <Td className="text-xs">{fu.follow_up_status ?? "—"}</Td>
                       <Td><Button size="sm" variant="outline" onClick={() => openDetail(r.id)}>Ver</Button></Td>
-                      <Td>{null}</Td>
                     </tr>
                   );
                 })}
