@@ -114,7 +114,7 @@ function AdminDiagnostics() {
             <table className="w-full text-sm">
               <thead style={{ backgroundColor: "#f8f8f4", color: "#697783" }}>
                 <tr>
-                  <Th>Fecha</Th><Th>Nombre</Th><Th>Empresa</Th><Th>Cargo</Th><Th>IFE-GS</Th><Th>Patrón</Th><Th>Programa</Th><Th>Estado</Th><Th></Th>
+                  <Th>Fecha</Th><Th>Nombre</Th><Th>Empresa</Th><Th>Cargo</Th><Th>IFE-GS</Th><Th>Patrón</Th><Th>Programa</Th><Th>Estado</Th><Th>{null}</Th>
                 </tr>
               </thead>
               <tbody>
