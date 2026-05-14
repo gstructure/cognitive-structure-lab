@@ -1,4 +1,10 @@
 User-agent: *
 Allow: /
+Disallow: /login
+Disallow: /unsubscribe
+Disallow: /email/
+Disallow: /diagnostico-friccion-ejecutiva
+Disallow: /admin/
+Disallow: /lovable/
 
-Sitemap: https://www.g-structure.co/sitemap.xml
+Sitemap: https://g-structure.co/sitemap.xml
