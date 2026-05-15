@@ -34,6 +34,7 @@ import { Route as EnAboutGuillermoRouteImport } from './routes/en.about-guillerm
 import { Route as EmailUnsubscribeRouteImport } from './routes/email/unsubscribe'
 import { Route as AdminAdminIndexRouteImport } from './routes/_admin/admin.index'
 import { Route as LovableEmailSuppressionRouteImport } from './routes/lovable/email/suppression'
+import { Route as ApiPublicGstructWaitlistCountRouteImport } from './routes/api/public/gstruct-waitlist-count'
 import { Route as ApiPublicGstructWaitlistRouteImport } from './routes/api/public/gstruct-waitlist'
 import { Route as ApiPublicDiagnosticoSubmitRouteImport } from './routes/api/public/diagnostico-submit'
 import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
@@ -169,6 +170,12 @@ const LovableEmailSuppressionRoute = LovableEmailSuppressionRouteImport.update({
   path: '/lovable/email/suppression',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicGstructWaitlistCountRoute =
+  ApiPublicGstructWaitlistCountRouteImport.update({
+    id: '/api/public/gstruct-waitlist-count',
+    path: '/api/public/gstruct-waitlist-count',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiPublicGstructWaitlistRoute =
   ApiPublicGstructWaitlistRouteImport.update({
     id: '/api/public/gstruct-waitlist',
@@ -249,6 +256,7 @@ export interface FileRoutesByFullPath {
   '/api/public/contact': typeof ApiPublicContactRoute
   '/api/public/diagnostico-submit': typeof ApiPublicDiagnosticoSubmitRoute
   '/api/public/gstruct-waitlist': typeof ApiPublicGstructWaitlistRoute
+  '/api/public/gstruct-waitlist-count': typeof ApiPublicGstructWaitlistCountRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/admin/': typeof AdminAdminIndexRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
@@ -284,6 +292,7 @@ export interface FileRoutesByTo {
   '/api/public/contact': typeof ApiPublicContactRoute
   '/api/public/diagnostico-submit': typeof ApiPublicDiagnosticoSubmitRoute
   '/api/public/gstruct-waitlist': typeof ApiPublicGstructWaitlistRoute
+  '/api/public/gstruct-waitlist-count': typeof ApiPublicGstructWaitlistCountRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/admin': typeof AdminAdminIndexRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
@@ -321,6 +330,7 @@ export interface FileRoutesById {
   '/api/public/contact': typeof ApiPublicContactRoute
   '/api/public/diagnostico-submit': typeof ApiPublicDiagnosticoSubmitRoute
   '/api/public/gstruct-waitlist': typeof ApiPublicGstructWaitlistRoute
+  '/api/public/gstruct-waitlist-count': typeof ApiPublicGstructWaitlistCountRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/_admin/admin/': typeof AdminAdminIndexRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
@@ -358,6 +368,7 @@ export interface FileRouteTypes {
     | '/api/public/contact'
     | '/api/public/diagnostico-submit'
     | '/api/public/gstruct-waitlist'
+    | '/api/public/gstruct-waitlist-count'
     | '/lovable/email/suppression'
     | '/admin/'
     | '/lovable/email/queue/process'
@@ -393,6 +404,7 @@ export interface FileRouteTypes {
     | '/api/public/contact'
     | '/api/public/diagnostico-submit'
     | '/api/public/gstruct-waitlist'
+    | '/api/public/gstruct-waitlist-count'
     | '/lovable/email/suppression'
     | '/admin'
     | '/lovable/email/queue/process'
@@ -429,6 +441,7 @@ export interface FileRouteTypes {
     | '/api/public/contact'
     | '/api/public/diagnostico-submit'
     | '/api/public/gstruct-waitlist'
+    | '/api/public/gstruct-waitlist-count'
     | '/lovable/email/suppression'
     | '/_admin/admin/'
     | '/lovable/email/queue/process'
@@ -456,6 +469,7 @@ export interface RootRouteChildren {
   ApiPublicContactRoute: typeof ApiPublicContactRoute
   ApiPublicDiagnosticoSubmitRoute: typeof ApiPublicDiagnosticoSubmitRoute
   ApiPublicGstructWaitlistRoute: typeof ApiPublicGstructWaitlistRoute
+  ApiPublicGstructWaitlistCountRoute: typeof ApiPublicGstructWaitlistCountRoute
   LovableEmailSuppressionRoute: typeof LovableEmailSuppressionRoute
   LovableEmailQueueProcessRoute: typeof LovableEmailQueueProcessRoute
   LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
@@ -639,6 +653,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LovableEmailSuppressionRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/gstruct-waitlist-count': {
+      id: '/api/public/gstruct-waitlist-count'
+      path: '/api/public/gstruct-waitlist-count'
+      fullPath: '/api/public/gstruct-waitlist-count'
+      preLoaderRoute: typeof ApiPublicGstructWaitlistCountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/gstruct-waitlist': {
       id: '/api/public/gstruct-waitlist'
       path: '/api/public/gstruct-waitlist'
@@ -763,6 +784,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiPublicContactRoute: ApiPublicContactRoute,
   ApiPublicDiagnosticoSubmitRoute: ApiPublicDiagnosticoSubmitRoute,
   ApiPublicGstructWaitlistRoute: ApiPublicGstructWaitlistRoute,
+  ApiPublicGstructWaitlistCountRoute: ApiPublicGstructWaitlistCountRoute,
   LovableEmailSuppressionRoute: LovableEmailSuppressionRoute,
   LovableEmailQueueProcessRoute: LovableEmailQueueProcessRoute,
   LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
