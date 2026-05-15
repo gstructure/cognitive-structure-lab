@@ -9,30 +9,32 @@ export function Footer() {
   const { locale } = useLocale();
   const t = useT();
 
+  const gStructBase = locale === "en" ? "/en/g-struct" : "/g-struct";
+
   const productoLinks: FooterLink[] = [
-    { to: locale === "en" ? "/en/g-struct" : "/g-struct", label: "G-Struct" },
-    { to: (locale === "en" ? "/en/g-struct" : "/g-struct") + "#lista-de-espera", label: locale === "en" ? "Waitlist" : "Lista de espera" },
-    { to: (locale === "en" ? "/en/g-struct" : "/g-struct") + "#planes", label: locale === "en" ? "Plans" : "Planes" },
+    { to: gStructBase, label: "G-Struct" },
+    { to: gStructBase + "#lista-de-espera", label: locale === "en" ? "Waitlist" : "Lista de espera" },
+    { to: (locale === "en" ? "/en" : "/") + "#diagnostico", label: locale === "en" ? "Execution Diagnostic" : "Diagnóstico de Ejecución" },
   ];
 
-  const enterpriseLinks: FooterLink[] = [
-    { to: locale === "en" ? "/en/enterprise" : "/enterprise", label: locale === "en" ? "Diagnostic Workshop" : "Workshop de Diagnóstico" },
-    { to: locale === "en" ? "/en/enterprise" : "/enterprise", label: "REESTRUCTURA Enterprise" },
+  const solucionesLinks: FooterLink[] = [
+    { to: locale === "en" ? "/en/enterprise" : "/enterprise", label: "Enterprise" },
     { to: locale === "en" ? "/en/restructure-1-1" : "/reestructura-1-1", label: locale === "en" ? "RESTRUCTURE 1:1" : "REESTRUCTURA 1:1" },
-    { to: locale === "en" ? "/en/enterprise" : "/enterprise", label: locale === "en" ? "Continuity" : "Continuidad" },
+    { to: locale === "en" ? "/en/etw-2026-partners" : "/aliados-etw-2026", label: "Workshop ETW 2026" },
   ];
 
-  const ecosistemaLinks: FooterLink[] = [
+  const companiaLinks: FooterLink[] = [
+    { to: locale === "en" ? "/en/about-guillermo" : "/sobre-guillermo", label: locale === "en" ? "About" : "Nosotros" },
     { to: "/inversores", label: locale === "en" ? "Investors" : "Inversores" },
     { to: locale === "en" ? "/en/etw-2026-partners" : "/aliados-etw-2026", label: locale === "en" ? "ETW 2026 Partners" : "Aliados ETW 2026" },
     { to: locale === "en" ? "/en/join-the-team" : "/unete-al-equipo", label: locale === "en" ? "Join the team" : "Únete al equipo" },
-    { to: "/downloads/g-structure-brief-comercial.pdf", label: locale === "en" ? "Download brief" : "Descargar brief", external: true, download: true },
+    { to: locale === "en" ? "/en/contact" : "/contacto", label: locale === "en" ? "Contact" : "Contacto" },
   ];
 
   const COLS = [
     { title: locale === "en" ? "Product" : "Producto", links: productoLinks },
-    { title: "Enterprise", links: enterpriseLinks },
-    { title: locale === "en" ? "Ecosystem" : "Ecosistema", links: ecosistemaLinks },
+    { title: locale === "en" ? "Solutions" : "Soluciones", links: solucionesLinks },
+    { title: locale === "en" ? "Company" : "Compañía", links: companiaLinks },
   ];
 
   return (
