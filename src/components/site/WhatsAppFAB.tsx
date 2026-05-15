@@ -65,6 +65,9 @@ export function WhatsAppFAB() {
 
   return (
     <>
+  if (hidden) return null;
+  return (
+    <>
       <div className="fixed bottom-5 right-5 md:bottom-7 md:right-7 z-[60] flex flex-col items-end gap-3">
         {open && (
           <div
