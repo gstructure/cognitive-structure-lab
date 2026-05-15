@@ -16,7 +16,7 @@ interface Props {
 const Email = ({ email, name, source, pattern, total, submittedAt }: Props) => (
   <Html lang="es" dir="ltr">
     <Head />
-    <Preview>Nuevo registro en lista de espera G-Struct: {email}</Preview>
+    <Preview>{`Nuevo registro en lista de espera G-Struct: ${email ?? ""}`}</Preview>
     <Body style={main}>
       <Container style={container}>
         <Heading style={h1}>Nuevo registro en lista de espera</Heading>
