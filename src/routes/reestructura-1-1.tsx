@@ -322,8 +322,8 @@ function Page() {
               name: "Foco",
               sessions: "4 sesiones",
               duration: "4 semanas",
-              price: "USD 200",
-              perSession: "USD 50 / sesión",
+              price: "USD 320",
+              perSession: "USD 80 / sesión",
               tag: "Intervención breve",
               fit: "Para quien tiene un patrón puntual claro: una decisión bloqueada, un proyecto detenido o una etapa específica de procrastinación.",
               includes: [
