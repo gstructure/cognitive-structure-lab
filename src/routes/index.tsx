@@ -7,6 +7,9 @@ import { Reveal } from "@/components/site/Reveal";
 import { MethodTabs } from "@/components/site/MethodTabs";
 import { FAQ } from "@/components/site/FAQ";
 import { BriefDownloadCard } from "@/components/site/BriefDownloadCard";
+import { FrictionQuiz } from "@/components/site/FrictionQuiz";
+import { WaitlistForm } from "@/components/site/WaitlistForm";
+import { SocialProofBar } from "@/components/site/SocialProofBar";
 
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
 import { BrandMark } from "@/components/brand/Logo";
