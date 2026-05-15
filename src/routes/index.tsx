@@ -852,21 +852,127 @@ function Founder() {
   );
 }
 
+function ValidationChannels() {
+  const channels = [
+    {
+      tag: "01 · CANAL INDIVIDUAL",
+      t: "REESTRUCTURA 1:1",
+      d: "Sesiones individuales que permiten validar la metodología con profesionales, líderes y emprendedores que enfrentan fricción de ejecución.",
+      to: "/reestructura-1-1",
+      cta: "Conocer 1:1",
+    },
+    {
+      tag: "02 · CANAL B2B",
+      t: "REESTRUCTURA Enterprise",
+      d: "Programa B2B para mapear patrones de ejecución en equipos, founders y organizaciones — y generar revenue temprano para la startup.",
+      to: "/enterprise",
+      cta: "Conocer Enterprise",
+    },
+    {
+      tag: "03 · CANAL DE ACTIVACIÓN",
+      t: "Workshop de Diagnóstico de Ejecución",
+      d: "Experiencia grupal diseñada para educar, diagnosticar patrones de ejecución y activar usuarios tempranos para G-Struct.",
+      to: "/aliados-etw-2026",
+      cta: "Workshop · ETW 2026",
+    },
+    {
+      tag: "04 · PRODUCTO ESCALABLE",
+      t: "G-Struct App",
+      d: "El producto digital que escala la metodología. Lo que aprendemos en los canales anteriores alimenta directamente su construcción.",
+      to: "/g-struct",
+      cta: "Explorar G-Struct",
+    },
+  ] as const;
+
+  return (
+    <Section tone="muted" id="canales">
+      <SectionHeader
+        eyebrow="CÓMO ESTAMOS VALIDANDO G-STRUCT"
+        title="No son negocios separados. Son capas de una misma estrategia."
+        subtitle="G-Structure usa servicios, workshops y programas como canales de validación, datos cualitativos y revenue temprano para construir un producto digital escalable."
+      />
+      <div className="mt-12 grid gap-px bg-border md:grid-cols-2 lg:grid-cols-4 border border-border">
+        {channels.map((c) => (
+          <div key={c.t} className="relative flex flex-col bg-[color:var(--color-surface)] p-7">
+            <span className="font-display text-[10px] font-semibold tracking-[0.22em] text-[color:var(--color-brand)]">{c.tag}</span>
+            <h3 className="mt-3 font-display text-lg md:text-xl font-semibold leading-snug">{c.t}</h3>
+            <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{c.d}</p>
+            <div className="mt-auto pt-6">
+              <Link to={c.to} className="group inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground">
+                {c.cta} <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
+              </Link>
+            </div>
+          </div>
+        ))}
+      </div>
+      <p className="mt-8 max-w-3xl text-xs md:text-[13px] text-muted-foreground leading-relaxed">
+        Compañía: <strong className="text-foreground">G-Structure</strong> · Producto principal: <strong className="text-foreground">G-Struct</strong> ·
+        Canales de validación: <strong className="text-foreground">1:1, Enterprise, Workshop</strong> · Crecimiento: aliados, inversores y equipo.
+      </p>
+    </Section>
+  );
+}
+
+function StartupStage() {
+  const routes = [
+    { tag: "USUARIOS", t: "Probar o conocer G-Struct", to: "/g-struct" },
+    { tag: "EMPRESAS", t: "Llevar Enterprise a tu equipo", to: "/enterprise" },
+    { tag: "INVERSIONISTAS", t: "Revisar la oportunidad de inversión", to: "/inversores" },
+    { tag: "ALIADOS", t: "Sumarse al ecosistema · ETW 2026", to: "/aliados-etw-2026" },
+    { tag: "TALENTO", t: "Unirse al equipo fundador", to: "/unete-al-equipo" },
+  ] as const;
+  return (
+    <Section tone="white">
+      <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+        <div className="lg:col-span-5">
+          <Eyebrow>UNA STARTUP EN ETAPA TEMPRANA</Eyebrow>
+          <h2 className="mt-4 font-display text-3xl md:text-4xl leading-[1.08]">
+            De prototipo a MVP, con una tesis clara.
+          </h2>
+          <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed">
+            G-Structure se encuentra en etapa de validación, construyendo el camino de prototipo a MVP.
+            El objetivo es convertir <strong className="text-foreground">G-Struct</strong> en una plataforma escalable
+            para profesionales, founders y equipos que necesitan ejecutar mejor bajo presión.
+          </p>
+        </div>
+        <div className="lg:col-span-7">
+          <ul className="border border-border bg-[color:var(--color-surface)] divide-y divide-border">
+            {routes.map((r) => (
+              <li key={r.tag}>
+                <Link to={r.to} className="group flex items-center justify-between gap-6 px-6 py-5 hover:bg-[color:var(--color-brand-soft)]/40">
+                  <div className="flex items-baseline gap-4">
+                    <span className="font-display text-[10px] font-semibold tracking-[0.22em] text-muted-foreground w-28 shrink-0">
+                      {r.tag}
+                    </span>
+                    <span className="font-display text-base md:text-lg font-semibold text-foreground">{r.t}</span>
+                  </div>
+                  <ArrowRight size={16} className="text-muted-foreground transition-all group-hover:translate-x-0.5 group-hover:text-foreground" />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </Section>
+  );
+}
+
 function FinalCTA() {
   return (
     <Section tone="deep">
       <div className="max-w-3xl">
         <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.05]">
-          La fricción no se resuelve sola. Y el tiempo que pierdes hoy no lo recuperas mañana.
+          G-Structure está construyendo G-Struct. Decide cómo quieres ser parte.
         </h2>
         <p className="mt-6 text-base md:text-lg text-[color:var(--color-background)]/80 leading-relaxed">
-          Si eres un profesional o emprendedor que quiere ejecutar mejor, únete a G-Struct. Si lideras
-          un equipo u organización donde la fricción está costando resultados, hablemos de Enterprise.
+          Únete a la waitlist del producto, lleva la metodología a tu equipo, conoce la oportunidad
+          de inversión, o conversa con nosotros directamente.
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-3">
-          <CTALink to="/g-struct" variant="inverse">Únete a G-Struct</CTALink>
-          <CTALink to="/enterprise" variant="ghost" className="text-[color:var(--color-background)] hover:bg-[color:var(--color-background)]/10">
-            Soluciones para equipos
+          <CTALink to="/g-struct" variant="inverse">Explorar G-Struct</CTALink>
+          <CTALink to="/" hash="lista-de-espera" variant="inverse">Unirme a la waitlist</CTALink>
+          <CTALink to="/contacto" variant="ghost" className="text-[color:var(--color-background)] hover:bg-[color:var(--color-background)]/10">
+            Contactar
           </CTALink>
         </div>
       </div>
@@ -880,11 +986,12 @@ function Index() {
       <Hero />
       <SocialProofBar />
       <Problem />
-      <Method />
-      <FrictionQuiz />
       <GStructBridge />
+      <FrictionQuiz />
       <WaitlistForm />
-      <Solutions />
+      <Method />
+      <ValidationChannels />
+      <StartupStage />
       <ETWBanner />
       <Founder />
       <Announcements />
