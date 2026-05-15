@@ -28,6 +28,7 @@
   <url><loc>https://g-structure.co/contacto</loc><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/contacto"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/contact"/></url>
+  <url><loc>https://g-structure.co/inversores</loc><priority>0.7</priority></url>
   <url><loc>https://g-structure.co/politicas-legales</loc><priority>0.3</priority></url>
 
   <url><loc>https://g-structure.co/en</loc><priority>1.0</priority></url>
