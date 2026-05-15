@@ -59,7 +59,7 @@ export function CTAExternal({
     <a
       href={href}
       {...rest}
-      className={`group inline-flex items-center justify-center gap-2 px-5 py-3 text-[13px] font-medium tracking-wide transition-all ${styles[variant]} ${className ?? ""}`}
+      className={`${base} ${styles[variant]} ${className ?? ""}`}
     >
       {children}
       {withArrow ? (
