@@ -138,28 +138,32 @@ export const Route = createFileRoute("/api/public/diagnostico-submit")({
           admin_notes: path.focus,
         });
 
-        // Fire-and-forget email
-        sendDiagnosticReportEmail({
-          recipientEmail: d.user.email,
-          idempotencyKey: `diagreport-${userRow.id}`,
-          templateData: {
-            name: d.user.full_name,
-            company: d.user.company,
-            role: d.user.role,
-            dominantPattern: dimensionLabel(r.dominant),
-            secondaryPattern: dimensionLabel(r.secondary),
-            mixedProfile: mixed?.name,
-            ifeGs: r.ifeGs,
-            frictionLevel: r.frictionLevel,
-            dominantTrigger: triggerLabel(r.dominantTrigger),
-            dominantEmotion: emotionLabel(r.dominantEmotion),
-            dominantBehavior: behaviorLabel(r.dominantBehavior),
-            topImpactArea: r.topImpactAreas[0] ? impactLabel(r.topImpactAreas[0]) : null,
-            recommendedProgram: rec.program,
-            recommendedDuration: rec.duration,
-            showEnterprise,
-          },
-        }).catch((e) => console.error("[diag] email failed", e));
+        // Await so the Worker doesn't terminate before the email is enqueued.
+        try {
+          await sendDiagnosticReportEmail({
+            recipientEmail: d.user.email,
+            idempotencyKey: `diagreport-${userRow.id}`,
+            templateData: {
+              name: d.user.full_name,
+              company: d.user.company,
+              role: d.user.role,
+              dominantPattern: dimensionLabel(r.dominant),
+              secondaryPattern: dimensionLabel(r.secondary),
+              mixedProfile: mixed?.name,
+              ifeGs: r.ifeGs,
+              frictionLevel: r.frictionLevel,
+              dominantTrigger: triggerLabel(r.dominantTrigger),
+              dominantEmotion: emotionLabel(r.dominantEmotion),
+              dominantBehavior: behaviorLabel(r.dominantBehavior),
+              topImpactArea: r.topImpactAreas[0] ? impactLabel(r.topImpactAreas[0]) : null,
+              recommendedProgram: rec.program,
+              recommendedDuration: rec.duration,
+              showEnterprise,
+            },
+          });
+        } catch (e) {
+          console.error("[diag] email failed", e);
+        }
 
         return Response.json({ ok: true, id: userRow.id, results: r, recommendation: rec, mixed, reportText, showEnterprise });
       },
