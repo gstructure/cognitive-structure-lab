@@ -106,8 +106,13 @@ export function WaitlistForm({ source = "home" }: { source?: string } = {}) {
                 Sin spam. Solo actualizaciones del producto cuando haya algo real que decir.
               </p>
               {status === "error" && (
-                <p className="mt-3 text-xs text-destructive">
-                  No pudimos guardar tu correo ({errorMsg}). Intenta de nuevo.
+                <p className="mt-3 text-xs text-destructive whitespace-pre-line">
+                  {"Algo salió mal. Por favor intenta de nuevo o escríbenos:\nhola@g-structure.co"}
+                </p>
+              )}
+              {status === "duplicate" && (
+                <p className="mt-3 text-xs text-muted-foreground">
+                  Ya estás en la lista. Te avisamos cuando G-Struct esté listo.
                 </p>
               )}
             </form>
