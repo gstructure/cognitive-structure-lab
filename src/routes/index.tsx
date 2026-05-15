@@ -702,16 +702,25 @@ function GStructBridge() {
     { t: "Diagnóstico de Ejecución", d: "Identifica tus patrones recurrentes — procrastinación, perfeccionismo, autosabotaje — y trabaja directamente sobre ellos." },
   ];
   return (
-    <Section tone="white">
-      <div className="flex items-center gap-3">
-        <span className="eyebrow">G-STRUCT · EL PRODUCTO</span>
+    <Section tone="white" id="producto">
+      <div className="flex flex-wrap items-center gap-3">
+        <span className="eyebrow">EL PRODUCTO · G-STRUCT</span>
         <span className="border border-border px-2.5 py-1 text-[10px] font-semibold tracking-[0.22em] text-muted-foreground">
           PROTOTIPO ACTIVO · LANZAMIENTO Q3 2026
         </span>
       </div>
       <h2 className="mt-4 max-w-3xl font-display text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.08]">
-        El primer OS cognitivo-conductual para el high-performer en LATAM.
+        G-Struct es el producto principal de G-Structure.
       </h2>
+      <p className="mt-5 max-w-3xl text-base md:text-lg text-muted-foreground leading-relaxed">
+        Una app diseñada para convertir el método <strong className="text-foreground">Identificar → Reencuadrar → Optimizar</strong> en
+        una herramienta diaria de ejecución para profesionales, founders y equipos.
+      </p>
+      <p className="mt-3 max-w-3xl text-xs md:text-[13px] text-muted-foreground leading-relaxed">
+        No somos una app de terapia. No hacemos diagnóstico clínico. G-Struct es una herramienta de
+        coaching, psicoeducación y optimización de ejecución basada en principios cognitivo-conductuales.
+      </p>
+
       <div className="mt-8 grid gap-12 lg:grid-cols-12 lg:items-start">
         <div className="lg:col-span-7 space-y-5 text-base md:text-lg text-muted-foreground leading-relaxed">
           <p>
