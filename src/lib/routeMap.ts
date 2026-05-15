@@ -51,7 +51,6 @@ export function navForLocale(locale: Locale) {
     "/enterprise",
     "/reestructura-1-1",
     "/inversores",
-    "/aliados-etw-2026",
     "/sobre-guillermo",
     "/contacto",
   ];
