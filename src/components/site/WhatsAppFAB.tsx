@@ -63,8 +63,6 @@ export function WhatsAppFAB() {
     { key: "team", label: t("fab.options.team") },
   ];
 
-  return (
-    <>
   if (hidden) return null;
   return (
     <>
