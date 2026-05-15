@@ -36,6 +36,7 @@ import { Route as LovableEmailSuppressionRouteImport } from './routes/lovable/em
 import { Route as ApiPublicGstructWaitlistRouteImport } from './routes/api/public/gstruct-waitlist'
 import { Route as ApiPublicDiagnosticoSubmitRouteImport } from './routes/api/public/diagnostico-submit'
 import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
+import { Route as AdminAdminWaitlistRouteImport } from './routes/_admin/admin.waitlist'
 import { Route as AdminAdminReservasRouteImport } from './routes/_admin/admin.reservas'
 import { Route as AdminAdminDiagnosticosRouteImport } from './routes/_admin/admin.diagnosticos'
 import { Route as LovableEmailTransactionalSendRouteImport } from './routes/lovable/email/transactional/send'
@@ -179,6 +180,11 @@ const ApiPublicContactRoute = ApiPublicContactRouteImport.update({
   path: '/api/public/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminAdminWaitlistRoute = AdminAdminWaitlistRouteImport.update({
+  id: '/admin/waitlist',
+  path: '/admin/waitlist',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminAdminReservasRoute = AdminAdminReservasRouteImport.update({
   id: '/admin/reservas',
   path: '/admin/reservas',
@@ -233,6 +239,7 @@ export interface FileRoutesByFullPath {
   '/en/restructure-1-1': typeof EnRestructure11Route
   '/admin/diagnosticos': typeof AdminAdminDiagnosticosRoute
   '/admin/reservas': typeof AdminAdminReservasRoute
+  '/admin/waitlist': typeof AdminAdminWaitlistRoute
   '/api/public/contact': typeof ApiPublicContactRoute
   '/api/public/diagnostico-submit': typeof ApiPublicDiagnosticoSubmitRoute
   '/api/public/gstruct-waitlist': typeof ApiPublicGstructWaitlistRoute
@@ -266,6 +273,7 @@ export interface FileRoutesByTo {
   '/en/restructure-1-1': typeof EnRestructure11Route
   '/admin/diagnosticos': typeof AdminAdminDiagnosticosRoute
   '/admin/reservas': typeof AdminAdminReservasRoute
+  '/admin/waitlist': typeof AdminAdminWaitlistRoute
   '/api/public/contact': typeof ApiPublicContactRoute
   '/api/public/diagnostico-submit': typeof ApiPublicDiagnosticoSubmitRoute
   '/api/public/gstruct-waitlist': typeof ApiPublicGstructWaitlistRoute
@@ -301,6 +309,7 @@ export interface FileRoutesById {
   '/en/restructure-1-1': typeof EnRestructure11Route
   '/_admin/admin/diagnosticos': typeof AdminAdminDiagnosticosRoute
   '/_admin/admin/reservas': typeof AdminAdminReservasRoute
+  '/_admin/admin/waitlist': typeof AdminAdminWaitlistRoute
   '/api/public/contact': typeof ApiPublicContactRoute
   '/api/public/diagnostico-submit': typeof ApiPublicDiagnosticoSubmitRoute
   '/api/public/gstruct-waitlist': typeof ApiPublicGstructWaitlistRoute
@@ -336,6 +345,7 @@ export interface FileRouteTypes {
     | '/en/restructure-1-1'
     | '/admin/diagnosticos'
     | '/admin/reservas'
+    | '/admin/waitlist'
     | '/api/public/contact'
     | '/api/public/diagnostico-submit'
     | '/api/public/gstruct-waitlist'
@@ -369,6 +379,7 @@ export interface FileRouteTypes {
     | '/en/restructure-1-1'
     | '/admin/diagnosticos'
     | '/admin/reservas'
+    | '/admin/waitlist'
     | '/api/public/contact'
     | '/api/public/diagnostico-submit'
     | '/api/public/gstruct-waitlist'
@@ -403,6 +414,7 @@ export interface FileRouteTypes {
     | '/en/restructure-1-1'
     | '/_admin/admin/diagnosticos'
     | '/_admin/admin/reservas'
+    | '/_admin/admin/waitlist'
     | '/api/public/contact'
     | '/api/public/diagnostico-submit'
     | '/api/public/gstruct-waitlist'
@@ -629,6 +641,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_admin/admin/waitlist': {
+      id: '/_admin/admin/waitlist'
+      path: '/admin/waitlist'
+      fullPath: '/admin/waitlist'
+      preLoaderRoute: typeof AdminAdminWaitlistRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/_admin/admin/reservas': {
       id: '/_admin/admin/reservas'
       path: '/admin/reservas'
@@ -670,11 +689,13 @@ declare module '@tanstack/react-router' {
 interface AdminRouteChildren {
   AdminAdminDiagnosticosRoute: typeof AdminAdminDiagnosticosRoute
   AdminAdminReservasRoute: typeof AdminAdminReservasRoute
+  AdminAdminWaitlistRoute: typeof AdminAdminWaitlistRoute
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
   AdminAdminDiagnosticosRoute: AdminAdminDiagnosticosRoute,
   AdminAdminReservasRoute: AdminAdminReservasRoute,
+  AdminAdminWaitlistRoute: AdminAdminWaitlistRoute,
 }
 
 const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)

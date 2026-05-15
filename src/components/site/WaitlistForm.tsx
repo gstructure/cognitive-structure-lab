@@ -3,33 +3,34 @@ import { ArrowRight, Check } from "lucide-react";
 import { Section } from "./Section";
 import { trackConversion } from "@/lib/analytics";
 
-export function WaitlistForm() {
+export function WaitlistForm({ source = "home" }: { source?: string } = {}) {
   const [email, setEmail] = useState("");
   const [website, setWebsite] = useState(""); // honeypot
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "duplicate" | "error">("idle");
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (status === "loading") return;
     setStatus("loading");
-    setErrorMsg(null);
     try {
       const res = await fetch("/api/public/gstruct-waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, website, source: "home_waitlist", locale: "es" }),
+        body: JSON.stringify({ email, website, source, locale: "es" }),
       });
-      if (!res.ok) {
-        const data = (await res.json().catch(() => ({}))) as { error?: string };
-        throw new Error(data.error || "save_failed");
+      if (res.status === 409) {
+        setStatus("duplicate");
+        return;
       }
-      trackConversion("gstruct_waitlist_signup", { source: "home_waitlist" });
+      if (!res.ok) {
+        setStatus("error");
+        return;
+      }
+      trackConversion("gstruct_waitlist_signup", { source });
       setStatus("success");
       setEmail("");
-    } catch (err) {
+    } catch {
       setStatus("error");
-      setErrorMsg(err instanceof Error ? err.message : "save_failed");
     }
   };
 
@@ -105,8 +106,13 @@ export function WaitlistForm() {
                 Sin spam. Solo actualizaciones del producto cuando haya algo real que decir.
               </p>
               {status === "error" && (
-                <p className="mt-3 text-xs text-destructive">
-                  No pudimos guardar tu correo ({errorMsg}). Intenta de nuevo.
+                <p className="mt-3 text-xs text-destructive whitespace-pre-line">
+                  {"Algo salió mal. Por favor intenta de nuevo o escríbenos:\nhola@g-structure.co"}
+                </p>
+              )}
+              {status === "duplicate" && (
+                <p className="mt-3 text-xs text-muted-foreground">
+                  Ya estás en la lista. Te avisamos cuando G-Struct esté listo.
                 </p>
               )}
             </form>

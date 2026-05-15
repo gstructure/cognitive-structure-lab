@@ -492,11 +492,13 @@ function Loading() {
   );
 }
 
-function ErrorView({ msg, onRetry }: { msg: string; onRetry: () => void }) {
+function ErrorView({ msg: _msg, onRetry }: { msg: string; onRetry: () => void }) {
   return (
     <div className="bg-white border rounded-lg p-8" style={{ borderColor: "#e5e7eb" }}>
       <h2 className="font-semibold mb-2" style={{ color: "#05325a" }}>No pudimos enviar tu diagnóstico</h2>
-      <p className="text-sm mb-4" style={{ color: "#3f3f46" }}>{msg}</p>
+      <p className="text-sm mb-4 whitespace-pre-line" style={{ color: "#3f3f46" }}>
+        {"Algo salió mal al enviar tu diagnóstico.\nPor favor intenta de nuevo o escríbenos directamente:\nhola@g-structure.co"}
+      </p>
       <Button onClick={onRetry} style={{ backgroundColor: "#05325a", color: "#fff" }}>Reintentar</Button>
     </div>
   );
