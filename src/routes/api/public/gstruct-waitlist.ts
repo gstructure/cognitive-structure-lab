@@ -93,6 +93,19 @@ export const Route = createFileRoute("/api/public/gstruct-waitlist")({
           console.error("[waitlist] email send failed", e);
         }
 
+        // Notify admin of the new signup.
+        try {
+          await sendWaitlistAdminNotificationEmail({
+            email,
+            name: parsed.data.name?.trim() || null,
+            source: parsed.data.source ?? "other",
+            pattern: parsed.data.pattern?.trim() || null,
+            idempotencyKey: `waitlist-admin-${inserted!.id}`,
+          });
+        } catch (e) {
+          console.error("[waitlist] admin notification failed", e);
+        }
+
         return Response.json({ ok: true });
       },
     },
