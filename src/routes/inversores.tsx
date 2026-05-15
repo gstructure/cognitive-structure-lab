@@ -30,14 +30,14 @@ function PhoneMockup({ className = "", widthClass = "w-[220px]" }: { className?:
   return (
     <div className={`relative ${className}`}>
       {/* Annotation: top */}
-      <div className="hidden md:flex absolute -left-[140px] top-[18%] items-center gap-2 w-[200px] justify-end">
+      <div className="hidden lg:flex absolute -left-[140px] top-[18%] items-center gap-2 w-[200px] justify-end">
         <span className="text-[11px] tracking-wide text-muted-foreground text-right leading-tight">
           Motor de<br />Reestructuración
         </span>
         <span className="block h-px w-10 bg-border" aria-hidden />
       </div>
       {/* Annotation: bottom */}
-      <div className="hidden md:flex absolute -right-[140px] bottom-[22%] items-center gap-2 w-[200px]">
+      <div className="hidden lg:flex absolute -right-[140px] bottom-[22%] items-center gap-2 w-[200px]">
         <span className="block h-px w-10 bg-border" aria-hidden />
         <span className="text-[11px] tracking-wide text-muted-foreground leading-tight">
           Diagnóstico<br />de Ejecución
