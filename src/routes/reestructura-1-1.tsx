@@ -322,8 +322,8 @@ function Page() {
               name: "Foco",
               sessions: "4 sesiones",
               duration: "4 semanas",
-              price: "USD 200",
-              perSession: "USD 50 / sesión",
+              price: "USD 320",
+              perSession: "USD 80 / sesión",
               tag: "Intervención breve",
               fit: "Para quien tiene un patrón puntual claro: una decisión bloqueada, un proyecto detenido o una etapa específica de procrastinación.",
               includes: [
@@ -340,8 +340,8 @@ function Page() {
               name: "Reencuadre",
               sessions: "6 sesiones",
               duration: "6 semanas",
-              price: "USD 285",
-              perSession: "USD 47.50 / sesión",
+              price: "USD 480",
+              perSession: "USD 80 / sesión",
               tag: "Más recomendado",
               fit: "Para quien necesita trabajar más de un patrón (perfeccionismo + sobreanálisis, autosabotaje + ejecución) y consolidar cambio sostenido.",
               includes: [
@@ -359,8 +359,8 @@ function Page() {
               name: "Estructura",
               sessions: "8 sesiones",
               duration: "8 semanas",
-              price: "USD 360",
-              perSession: "USD 45 / sesión",
+              price: "USD 640",
+              perSession: "USD 80 / sesión",
               tag: "Cambio profundo",
               fit: "Para profesionales y líderes que quieren intervenir patrones recurrentes y construir un sistema operativo personal sostenible.",
               includes: [

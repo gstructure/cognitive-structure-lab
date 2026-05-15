@@ -19,8 +19,8 @@ export const PACKAGES: BookablePackage[] = [
     kind: "1on1",
     sessions: "4 sesiones",
     duration: "4 semanas",
-    priceUsd: 200,
-    priceLabel: "USD 200",
+    priceUsd: 320,
+    priceLabel: "USD 320",
     description: "Intervención breve. 4 videollamadas individuales de 60 min, una por semana.",
   },
   {
@@ -29,8 +29,8 @@ export const PACKAGES: BookablePackage[] = [
     kind: "1on1",
     sessions: "6 sesiones",
     duration: "6 semanas",
-    priceUsd: 285,
-    priceLabel: "USD 285",
+    priceUsd: 480,
+    priceLabel: "USD 480",
     description: "El más recomendado. 6 videollamadas individuales de 60 min, una por semana.",
   },
   {
@@ -39,8 +39,8 @@ export const PACKAGES: BookablePackage[] = [
     kind: "1on1",
     sessions: "8 sesiones",
     duration: "8 semanas",
-    priceUsd: 360,
-    priceLabel: "USD 360",
+    priceUsd: 640,
+    priceLabel: "USD 640",
     description: "Cambio profundo. 8 videollamadas + sesión de revisión a los 30 días.",
   },
   {
