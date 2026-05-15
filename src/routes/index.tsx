@@ -784,24 +784,18 @@ function FinalCTA() {
     <Section tone="deep">
       <div className="max-w-3xl">
         <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.05]">
-          Antes de intervenir la ejecución, hay que entender el patrón.
+          La fricción no se resuelve sola. Y el tiempo que pierdes hoy no lo recuperas mañana.
         </h2>
         <p className="mt-6 text-base md:text-lg text-[color:var(--color-background)]/80 leading-relaxed">
-          Si tú, tu equipo o tu organización están enfrentando procrastinación, perfeccionismo,
-          sobreanálisis o bloqueo de ejecución, el primer paso no es una charla motivacional. Es un
-          diagnóstico claro.
+          Si eres un profesional o emprendedor que quiere ejecutar mejor, únete a G-Struct. Si lideras
+          un equipo u organización donde la fricción está costando resultados, hablemos de Enterprise.
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-3">
-          <CTALink to="/contacto" variant="inverse">Agendar conversación inicial</CTALink>
-          <CTAExternal href="https://wa.me/593986875121" variant="ghost" className="text-[color:var(--color-background)] hover:bg-[color:var(--color-background)]/10">
-            Solicitar info por WhatsApp
-          </CTAExternal>
+          <CTALink to="/g-struct" variant="inverse">Únete a G-Struct</CTALink>
+          <CTALink to="/enterprise" variant="ghost" className="text-[color:var(--color-background)] hover:bg-[color:var(--color-background)]/10">
+            Soluciones para equipos
+          </CTALink>
         </div>
-        <p className="mt-8 text-xs text-[color:var(--color-background)]/60 max-w-xl leading-relaxed">
-          Una conversación inicial permite revisar si G-Structure es adecuado para tu contexto y qué
-          ruta tendría más sentido: diagnóstico, proceso individual, intervención Enterprise o
-          continuidad.
-        </p>
       </div>
     </Section>
   );
@@ -811,15 +805,13 @@ function Index() {
   return (
     <>
       <Hero />
-      <ETWBanner />
-      <Announcements />
       <Problem />
-      <MentalOS />
       <Method />
-      <Solutions />
-      <ForWhom />
       <GStructBridge />
+      <Solutions />
+      <ETWBanner />
       <Founder />
+      <Announcements />
       <Section tone="muted">
         <BriefDownloadCard />
       </Section>
