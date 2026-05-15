@@ -1,10 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
+import { sendWaitlistConfirmationEmail } from "@/lib/waitlist-emails.server";
 
 const Schema = z.object({
   email: z.string().trim().email("invalid_email").max(255),
+  name: z.string().trim().max(120).optional(),
   source: z.string().trim().max(60).optional(),
+  pattern: z.string().trim().max(60).optional(),
   locale: z.string().trim().max(10).optional(),
   // Honeypot — must be empty.
   website: z.string().max(0).optional().or(z.literal("")),
@@ -58,21 +61,36 @@ export const Route = createFileRoute("/api/public/gstruct-waitlist")({
         }
 
         const email = parsed.data.email.toLowerCase();
-        const { error } = await supabaseAdmin
-          .from("gstruct_waitlist")
-          .upsert(
-            {
-              email,
-              source: parsed.data.source ?? "web",
-              locale: parsed.data.locale ?? "es",
-              metadata: { ip_hash: null, ua: request.headers.get("user-agent") ?? null },
-            },
-            { onConflict: "email" },
-          );
+
+        // Insert into the new waitlist table. Unique on email -> duplicate detection.
+        const { data: inserted, error } = await supabaseAdmin
+          .from("waitlist")
+          .insert({
+            email,
+            name: parsed.data.name?.trim() || null,
+            source: parsed.data.source ?? "other",
+            pattern: parsed.data.pattern?.trim() || null,
+          })
+          .select("id")
+          .single();
 
         if (error) {
+          // Postgres unique violation
+          if ((error as any).code === "23505") {
+            return Response.json({ error: "already_subscribed" }, { status: 409 });
+          }
           console.error("[api/public/gstruct-waitlist] insert failed", error);
           return Response.json({ error: "save_failed" }, { status: 502 });
+        }
+
+        // Send confirmation email — await so the Worker doesn't terminate early.
+        try {
+          await sendWaitlistConfirmationEmail({
+            recipientEmail: email,
+            idempotencyKey: `waitlist-${inserted!.id}`,
+          });
+        } catch (e) {
+          console.error("[waitlist] email send failed", e);
         }
 
         return Response.json({ ok: true });
