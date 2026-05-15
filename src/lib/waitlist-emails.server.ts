@@ -92,3 +92,80 @@ export async function sendWaitlistConfirmationEmail(params: {
   }
   return { ok: true };
 }
+
+export async function sendWaitlistAdminNotificationEmail(params: {
+  email: string;
+  name?: string | null;
+  source?: string | null;
+  pattern?: string | null;
+  idempotencyKey: string;
+}): Promise<{ ok: boolean; error?: string }> {
+  const supabase = getSupabase();
+  if (!supabase) return { ok: false, error: "server_misconfigured" };
+
+  const tpl = TEMPLATES["waitlist-admin-notification"];
+  if (!tpl) return { ok: false, error: "template_not_found" };
+  const recipient = tpl.to;
+  if (!recipient) return { ok: false, error: "no_recipient" };
+
+  // Total count for context.
+  let total: number | undefined;
+  try {
+    const { count } = await supabase
+      .from("waitlist").select("id", { count: "exact", head: true });
+    if (typeof count === "number") total = count;
+  } catch { /* non-fatal */ }
+
+  let submittedAt: string;
+  try {
+    submittedAt = new Intl.DateTimeFormat("es-EC", {
+      timeZone: "America/Guayaquil", dateStyle: "full", timeStyle: "short",
+    }).format(new Date());
+  } catch { submittedAt = new Date().toISOString(); }
+
+  const data = {
+    email: params.email,
+    name: params.name ?? undefined,
+    source: params.source ?? undefined,
+    pattern: params.pattern ?? undefined,
+    total,
+    submittedAt,
+  };
+
+  const messageId = crypto.randomUUID();
+  const element = React.createElement(tpl.component, data);
+  const html = await render(element);
+  const text = await render(element, { plainText: true });
+  const subject = typeof tpl.subject === "function" ? tpl.subject(data) : tpl.subject;
+
+  await supabase.from("email_send_log").insert({
+    message_id: messageId, template_name: "waitlist-admin-notification",
+    recipient_email: recipient, status: "pending",
+  });
+
+  const { error } = await supabase.rpc("enqueue_email", {
+    queue_name: "transactional_emails",
+    payload: {
+      message_id: messageId,
+      to: recipient,
+      from: `${SITE_NAME} <${FROM_LOCAL}@${FROM_DOMAIN}>`,
+      sender_domain: SENDER_DOMAIN,
+      subject, html, text,
+      purpose: "transactional",
+      label: "waitlist-admin-notification",
+      idempotency_key: params.idempotencyKey,
+      queued_at: new Date().toISOString(),
+    },
+  });
+
+  if (error) {
+    console.error("[waitlist-admin-email] enqueue failed", error.message);
+    await supabase.from("email_send_log").insert({
+      message_id: messageId, template_name: "waitlist-admin-notification",
+      recipient_email: recipient, status: "failed",
+      error_message: error.message.slice(0, 1000),
+    });
+    return { ok: false, error: error.message };
+  }
+  return { ok: true };
+}
