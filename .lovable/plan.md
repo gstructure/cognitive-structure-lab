@@ -1,115 +1,66 @@
-## Overhaul de narrativa y arquitectura — g-structure.co
+# Reposicionamiento G-Structure → Tech Startup con G-Struct como producto principal
 
-Cambio de posicionamiento: G-Struct pasa a ser producto principal (B2C SaaS), G-Structure Enterprise mantiene el B2B, y se añade una página de Inversores. Sin tocar identidad visual, paleta, tipografía, disclaimer legal, ETW 2026, brief PDF, FAQ existente, ni URLs actuales.
+## Objetivo
+Que cualquier visitante entienda en 5 segundos: **G-Structure es la startup, G-Struct es el producto, y los servicios (1:1, Enterprise, Workshop) son canales de validación.** Sin perder los flujos de conversión actuales (quiz, waitlist, formularios).
 
----
+## Alcance prioritario
+1. **Home** (`src/routes/index.tsx`) — narrativa madre
+2. **G-Struct** (`src/routes/g-struct.tsx`) — página de producto
+3. **Inversores** (`src/routes/inversores.tsx`) — refuerzo de tesis "core asset = G-Struct"
+4. **Navegación + Footer** (`Header.tsx`, `Footer.tsx`) — jerarquía nueva
+5. Páginas internas secundarias (Enterprise, 1:1, Sobre Guillermo, Aliados ETW, Únete al equipo, Contacto) — ajustes de copy y CTAs para alinear con la tesis
 
-### 1. Navegación (`src/lib/routeMap.ts` + `src/components/site/Header.tsx`)
+## Cambios concretos
 
-Nueva nav ES (orden exacto):
-`G-Struct · Enterprise · Método · Inversores · Nosotros · Contacto`
+### Navegación (Header)
+Reordenar a: **G-Struct · Enterprise · REESTRUCTURA 1:1 · Inversores · Aliados ETW 2026 · Sobre Guillermo · Contacto**. G-Struct primero y visualmente destacado como "producto". Si hay overflow, agrupar "REESTRUCTURA 1:1 · Aliados · Sobre Guillermo" bajo un dropdown "Compañía / Ecosistema".
 
-- "Método" enlaza a `/#metodo` (sección home).
-- "Nosotros" enlaza a `/sobre-guillermo`.
-- "G-Struct" recibe tratamiento visual destacado (borde sutil / accent), manteniendo el design system.
-- Mobile: mismo orden, hamburguesa.
-- ES/EN switcher y barra ETW 2026: sin cambios.
+### Home — nueva arquitectura (orden estricto)
+1. **Hero** — Eyebrow "TECH STARTUP · ETAPA TEMPRANA". H1: *"G-Structure está construyendo G-Struct."* Subhead: plataforma cognitivo-conductual… CTAs: `Explorar G-Struct` (primario) + `Conocer la visión de la startup` (→ /inversores). Visual: mockup de app + badge "Compañía → Producto".
+2. **El problema: la crisis de ejecución** — bloque corto + 6 chips (procrastinación, perfeccionismo, sobreanálisis, evitación, autosabotaje, saturación).
+3. **El producto: G-Struct** — card-grid de módulos (Diagnóstico, Quick Reframe, Laboratorio, Activador Matutino, Night Insight, Radar Cognitivo). Microcopy disclaimer: "No somos terapia. No diagnóstico clínico."
+4. **Quiz / Diagnóstico** — `FrictionQuiz` reposicionado como "fase Identificar" del método I-R-O. Nuevo título "Empieza identificando tu patrón de ejecución" + subtítulo + CTA post-quiz hacia waitlist de G-Struct.
+5. **Lista de espera de G-Struct** — `WaitlistForm` con copy puente "Tu patrón es el punto de partida…".
+6. **Método I-R-O** — diagrama de 3 pasos como "sistema operativo".
+7. **Canales de validación** — 4 tarjetas: 1:1 / Enterprise / Workshop / G-Struct App, presentadas como capas de una misma estrategia.
+8. **Startup en etapa temprana** — bloque con rutas: usuarios / empresas / inversores / aliados / talento.
+9. **CTAs finales** — Explorar G-Struct · Unirme a waitlist · Contactar.
 
-EN: añadir `/en/investors` análogo y reordenar nav EN equivalente (mínima paridad — placeholder OK si no hay copy EN).
+Conservar: `FrictionQuiz`, `WaitlistForm`, todos los formularios y enlaces a waitlist/contacto existentes.
 
----
+### Página G-Struct
+- Hero refuerza: "Producto principal de G-Structure".
+- Mantener waitlist y disclaimers existentes; ajustar headings y eyebrows para reforzar "producto de la startup".
+- Añadir bloque "Cómo encaja en el ecosistema G-Structure" con link a Home / Inversores.
 
-### 2. Home (`src/routes/index.tsx`)
+### Página Inversores
+- Hero/tesis: enfatizar **G-Struct como core investable asset**; servicios = canales de validación, data y revenue temprano.
+- Ajustar copy de stat cards y timeline solo donde refuerce esa tesis. No tocar mockup de teléfono, comparación de precios ni timeline visual ya construidos.
 
-Reordenar secciones y reescribir copy con los textos exactos del prompt:
+### Páginas secundarias (ajustes mínimos de copy/eyebrow)
+- **Enterprise**: eyebrow "CANAL DE VALIDACIÓN B2B · G-STRUCTURE"; bloque "Cómo alimenta a G-Struct".
+- **REESTRUCTURA 1:1**: eyebrow "CANAL DE VALIDACIÓN INDIVIDUAL"; bloque "Lo que aprendemos aquí construye G-Struct".
+- **Sobre Guillermo**: añadir línea "Fundador de la startup que construye G-Struct" en hero.
+- **Aliados ETW 2026**: bloque conectando workshop con activación/validación de G-Struct.
+- **Únete al equipo**: eyebrow "STARTUP EN ETAPA TEMPRANA"; reframe "construyes producto, no apoyas una marca".
+- **Contacto**: reorganizar opciones por intención (G-Struct / 1:1 / Enterprise / Inversión / Aliado / Equipo / Guillermo).
 
-1. **Hero** — eyebrow `G-STRUCTURE`, nuevo headline/body, dos CTAs (`Únete a G-Struct` → `/g-struct`, `Soluciones para equipos` → `/enterprise`). Conservar widget I-R-O.
-2. **El Problema** — copy nuevo + 5 cards de fricción (reusar diseño existente).
-3. **El Método I-R-O** — copy nuevo, conservar `MethodTabs`, añadir footnote CBT.
-4. **G-Struct (producto)** — nueva sección full-width: headline, 3 features, 3 tiers de pricing (Free / Plus destacado / VIP), badge "Prototipo activo · Lanzamiento Q3 2026", CTA grande a `/g-struct`, conservar `g-struct-home-preview`.
-5. **Enterprise** — nuevo label, headline y 4 service cards con CTAs.
-6. **ETW 2026** — sin cambios, reubicar.
-7. **Fundador** — sin cambios, reubicar.
-8. **Momentum (Aliados + Equipo)** — sin cambios, reubicar.
-9. **Brief descargable** — sin cambios, reubicar.
-10. **FAQ** — añadir nueva pregunta "¿Estoy hablando con una startup o con una firma de coaching?" con la respuesta provista.
-11. **Cierre** — nuevo headline/body + 2 CTAs.
+### Microcopy estratégico (insertar donde aplique)
+- "No somos una app de terapia."
+- "No hacemos diagnóstico clínico."
+- "G-Struct es coaching, psicoeducación y optimización de ejecución."
+- "G-Structure usa servicios y workshops como canales de validación."
 
-Actualizar SEO meta del home (title, description, og:title, og:description) con los textos del prompt.
+### Visual
+- Paleta y tipografía actuales (#05325a primary, #f8f8f4 bg, Montserrat) ya alineadas — no cambiar tokens.
+- Más cards/diagramas, menos bloques largos. Diagrama de pirámide del ecosistema en sección "Canales de validación".
+- Badge visual "Compañía → Producto" cerca del logo en hero para anclar la relación G-Structure / G-Struct.
 
----
+## Lo que NO se toca
+- Lógica de quiz, waitlist (Supabase realtime), formularios, analytics, tracking.
+- Tokens de diseño en `styles.css`.
+- Mockup de teléfono, price comparison, timeline visual de Inversores.
+- Disclaimer legal, footer estructural, SEO/meta tags existentes (sólo se actualizan títulos/descripciones de Home y G-Struct para reflejar nuevo posicionamiento).
 
-### 3. Reescritura de `/g-struct` (`src/routes/g-struct.tsx`)
-
-Reemplazar contenido por el nuevo briefing completo:
-- Hero (label "PROTOTIPO ACTIVO · LANZAMIENTO Q3 2026", nuevo headline "El coach CBT en tu bolsillo. 24/7.").
-- Sección "Motor de Reestructuración" con timeline de 5 pasos.
-- "Funcionalidades clave" — 4 bloques.
-- "Planes" — 3 columnas Free / Plus / VIP (id `#planes`).
-- "Lista de espera" — sección full-width con form de email (id `#lista-de-espera`). Form guarda en tabla nueva `gstruct_waitlist` vía server function.
-- Nota metodológica.
-
-SEO: nuevo title y meta description del prompt.
-
----
-
-### 4. Nueva página `/inversores` (`src/routes/inversores.tsx`)
-
-Página minimal y seria con:
-- Hero "Pre-seed 2026".
-- "La oportunidad" — 3 stat cards ($67.94B, 75%, 33.37%) con citas.
-- "El producto" — copy + 3 diferenciadores.
-- "Tracción y hoja de ruta" — timeline 4 milestones.
-- "La ronda" — 3 stat cards ($75K / $750K pre-money / 10%).
-- "El equipo" — Guillermo + Jericko.
-- CTA final con dos botones (mailto deck + `/contacto`) y disclaimer legal.
-
-SEO: title/meta del prompt.
-
----
-
-### 5. Backend: lista de espera G-Struct
-
-- Migración Supabase: tabla `gstruct_waitlist` (id, email unique, source, locale, created_at) con RLS (insert público con rate-limit por email; select solo admin via `has_role`).
-- Server route público `src/routes/api/public/gstruct-waitlist.ts` con validación Zod (email, honeypot opcional) que inserta vía `supabaseAdmin`.
-- Form en `/g-struct` consume el endpoint, dispara `trackConversion("gstruct_waitlist_signup")` y muestra toast.
-
----
-
-### 6. Footer (`src/components/site/Footer.tsx`)
-
-Reestructurar columnas:
-- **Producto:** G-Struct, Lista de espera (`/g-struct#lista-de-espera`), Planes (`/g-struct#planes`).
-- **Enterprise:** Workshop, REESTRUCTURA Enterprise, REESTRUCTURA 1:1, Continuidad.
-- **Ecosistema:** Inversores, Aliados ETW 2026, Únete al equipo, Descargar brief.
-- **Contacto:** intacto.
-- Línea legal: intacta.
-
----
-
-### 7. Verificación
-
-- `tsc` pass tras cada bloque grande.
-- Sitemap.xml: añadir `/inversores`.
-- robots.txt: sin cambios (página pública).
-- Comprobar que canonicals y `og:url` apuntan a `https://g-structure.co/...`.
-
----
-
-### Archivos a tocar
-
-Modificar:
-- `src/routes/index.tsx`
-- `src/routes/g-struct.tsx`
-- `src/components/site/Header.tsx`
-- `src/components/site/Footer.tsx`
-- `src/lib/routeMap.ts`
-- `src/components/site/FAQ.tsx` (añadir pregunta)
-- `public/sitemap.xml`
-
-Crear:
-- `src/routes/inversores.tsx`
-- `src/routes/api/public/gstruct-waitlist.ts`
-- `supabase/migrations/<timestamp>_gstruct_waitlist.sql`
-
-No tocar: identidad visual, tokens, ETW bar, brief PDF, disclaimer, FAQ existente (solo se añade una pregunta), URLs actuales.
+## Entregable
+PR único con cambios incrementales por archivo, verificando build y que el flujo Quiz → Waitlist sigue intacto. QA visual rápido de Home en mobile + desktop al final.
