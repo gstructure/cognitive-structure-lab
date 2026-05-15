@@ -97,6 +97,9 @@ function Hero() {
             <h1 className="mt-5 max-w-2xl text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.04] text-foreground">
               {t("home.hero.h1")}
             </h1>
+            <p className="mt-5 max-w-xl text-base md:text-lg italic text-foreground/70 leading-relaxed">
+              Si sabes exactamente lo que tienes que hacer y aun así no lo haces — esto es para ti.
+            </p>
             <p className="mt-6 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
               {t("home.hero.lead")}
             </p>
@@ -104,10 +107,26 @@ function Hero() {
               {t("home.hero.sub")}
             </p>
 
-            <div className="mt-9 flex flex-wrap items-center gap-3">
-              <CTALink to="/g-struct" variant="primary">Únete a G-Struct</CTALink>
-              <CTALink to="/enterprise" variant="outline">Soluciones para equipos</CTALink>
-            </div>
+            <ul className="mt-9 space-y-3 text-[15px] md:text-base">
+              <li>
+                <Link to="/" hash="lista-de-espera" className="group inline-flex items-center gap-2 text-foreground hover:opacity-80">
+                  <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
+                  Únete a la lista de G-Struct
+                </Link>
+              </li>
+              <li>
+                <Link to="/enterprise" className="group inline-flex items-center gap-2 text-foreground hover:opacity-80">
+                  <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
+                  Soluciones para equipos
+                </Link>
+              </li>
+              <li>
+                <Link to="/" hash="quiz" className="group inline-flex items-center gap-2 text-foreground hover:opacity-80">
+                  <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
+                  Identifica tu patrón de fricción
+                </Link>
+              </li>
+            </ul>
 
             <div className="mt-12 grid gap-3 sm:grid-cols-3">
               {steps.map((s) => (
