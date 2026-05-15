@@ -49,7 +49,7 @@ function StatCard({ stat, title, body, source }: { stat: string; title: string; 
 
 function TermCard({ value, label }: { value: string; label: string }) {
   return (
-    <div className="border border-border bg-[color:var(--color-surface)] p-8">
+    <div className="border border-border bg-[color:var(--color-surface)] p-8 transition-shadow duration-200 hover:shadow-elev-1">
       <p className="font-display text-4xl md:text-5xl font-medium text-foreground leading-none tracking-tight">
         {value}
       </p>
