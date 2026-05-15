@@ -359,8 +359,8 @@ function Page() {
               name: "Estructura",
               sessions: "8 sesiones",
               duration: "8 semanas",
-              price: "USD 360",
-              perSession: "USD 45 / sesión",
+              price: "USD 640",
+              perSession: "USD 80 / sesión",
               tag: "Cambio profundo",
               fit: "Para profesionales y líderes que quieren intervenir patrones recurrentes y construir un sistema operativo personal sostenible.",
               includes: [
