@@ -25,4 +25,5 @@ export const TEMPLATES: Record<string, TemplateEntry> = {
   'contact-admin-notification': contactAdminNotification,
   'contact-user-confirmation': contactUserConfirmation,
   'diagnostic-report': diagnosticReport,
+  'waitlist-confirmation': waitlistConfirmation,
 }
