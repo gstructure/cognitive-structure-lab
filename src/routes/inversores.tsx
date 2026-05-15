@@ -4,6 +4,8 @@ import { CTALink, CTAExternal } from "@/components/site/CTAButton";
 import { Section } from "@/components/site/Section";
 import { Check } from "lucide-react";
 import { buildSeo, canonicalLink, jsonLdScript, breadcrumbSchema } from "@/lib/seo";
+import gStructHomePreview from "@/assets/g-struct-home-preview.png";
+import guillermoPhoto from "@/assets/guillermo-suco.png";
 
 export const Route = createFileRoute("/inversores")({
   head: () => ({
@@ -23,6 +25,145 @@ export const Route = createFileRoute("/inversores")({
   }),
   component: Page,
 });
+
+function PhoneMockup({ className = "", widthClass = "w-[220px]" }: { className?: string; widthClass?: string }) {
+  return (
+    <div className={`relative ${className}`}>
+      {/* Annotation: top */}
+      <div className="hidden md:flex absolute -left-[140px] top-[18%] items-center gap-2 w-[200px] justify-end">
+        <span className="text-[11px] tracking-wide text-muted-foreground text-right leading-tight">
+          Motor de<br />Reestructuración
+        </span>
+        <span className="block h-px w-10 bg-border" aria-hidden />
+      </div>
+      {/* Annotation: bottom */}
+      <div className="hidden md:flex absolute -right-[140px] bottom-[22%] items-center gap-2 w-[200px]">
+        <span className="block h-px w-10 bg-border" aria-hidden />
+        <span className="text-[11px] tracking-wide text-muted-foreground leading-tight">
+          Diagnóstico<br />de Ejecución
+        </span>
+      </div>
+
+      <div className={`${widthClass} mx-auto`}>
+        {/* Phone frame */}
+        <div className="relative aspect-[9/19] rounded-[34px] bg-[#1A1A1A] p-[10px] shadow-none">
+          {/* Notch */}
+          <div className="absolute left-1/2 top-[10px] -translate-x-1/2 h-[18px] w-[78px] rounded-full bg-[#0a0a0a] z-10" aria-hidden />
+          {/* Screen */}
+          <div className="relative h-full w-full overflow-hidden rounded-[26px] bg-background">
+            <img
+              src={gStructHomePreview}
+              alt="Pantalla de G-Struct"
+              className="h-full w-full object-cover object-top"
+              loading="lazy"
+            />
+            {/* Subtle inner border / reflection */}
+            <span
+              className="pointer-events-none absolute inset-0 rounded-[26px] border border-white/10"
+              aria-hidden
+            />
+          </div>
+        </div>
+        <p className="mt-4 text-center text-[11px] tracking-wide text-muted-foreground">
+          G-Struct · Prototipo activo · v0.1
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function PriceBar({
+  label,
+  value,
+  widthPct,
+  variant = "muted",
+  note,
+  dashed = false,
+}: {
+  label: string;
+  value: string;
+  widthPct: number;
+  variant?: "muted" | "brand";
+  note?: string;
+  dashed?: boolean;
+}) {
+  const isBrand = variant === "brand";
+  return (
+    <div>
+      <div className="flex items-baseline justify-between gap-3 mb-2">
+        <p
+          className={`text-[13px] ${
+            isBrand
+              ? "font-semibold text-foreground"
+              : "text-foreground/85"
+          }`}
+        >
+          {label}
+        </p>
+        <p
+          className={`text-[12px] tabular-nums ${
+            isBrand ? "font-semibold text-[color:var(--color-brand-deep)]" : "text-muted-foreground"
+          }`}
+        >
+          {value}
+        </p>
+      </div>
+      <div className="h-3 w-full bg-border/40">
+        <div
+          className={`h-full ${
+            dashed
+              ? "border border-dashed border-border bg-transparent"
+              : isBrand
+                ? "bg-[color:var(--color-brand)]"
+                : "bg-foreground/35"
+          }`}
+          style={{ width: `${Math.max(widthPct, dashed ? 30 : 4)}%` }}
+          aria-hidden
+        />
+      </div>
+      {note ? (
+        <p className="mt-2 text-[11px] text-muted-foreground">{note}</p>
+      ) : null}
+    </div>
+  );
+}
+
+function PriceComparison() {
+  // Reference: $279 = 100%
+  const max = 279;
+  return (
+    <div className="mt-12 border border-border bg-[color:var(--color-surface)] p-7 md:p-9">
+      <p className="text-[11px] font-semibold tracking-[0.18em] uppercase text-muted-foreground">
+        Comparación de precio · Coaching CBT para individuos
+      </p>
+      <div className="mt-6 space-y-6">
+        <PriceBar label="BetterUp" value="$279/mes" widthPct={(279 / max) * 100} />
+        <PriceBar
+          label="Woebot (descontinuado)"
+          value="N/A — salió del mercado B2C"
+          widthPct={0}
+          dashed
+        />
+        <PriceBar
+          label="Calm / Headspace"
+          value="$14/mes"
+          widthPct={(14 / max) * 100}
+          note="Bienestar — no coaching de ejecución"
+        />
+        <PriceBar
+          label="G-Struct"
+          value="$20/mes"
+          widthPct={(20 / max) * 100}
+          variant="brand"
+          note="CBT coaching · LATAM · móvil"
+        />
+      </div>
+      <p className="mt-7 pt-5 border-t border-border/60 text-[12px] text-muted-foreground leading-relaxed">
+        BetterUp requiere sponsor corporativo. G-Struct es acceso individual directo.
+      </p>
+    </div>
+  );
+}
 
 function StatCard({ stat, title, body, source }: { stat: string; title: string; body: string; source?: string }) {
   return (
@@ -58,20 +199,36 @@ function TermCard({ value, label }: { value: string; label: string }) {
   );
 }
 
+function MilestoneBadge({ kind }: { kind: "done" | "next" }) {
+  if (kind === "done") {
+    return (
+      <span className="inline-block px-2 py-0.5 text-[10px] font-semibold tracking-[0.14em] uppercase rounded-full bg-[color:var(--color-brand)] text-[color:var(--color-background)]">
+        Completado
+      </span>
+    );
+  }
+  return (
+    <span className="inline-block px-2 py-0.5 text-[10px] font-semibold tracking-[0.14em] uppercase rounded-full bg-amber-500/15 text-amber-700 dark:text-amber-400 border border-amber-500/40">
+      Próximo
+    </span>
+  );
+}
+
 function TimelineNode({
   tag,
   body,
   done,
+  isNext,
   isLast,
 }: {
   tag: string;
   body: string;
   done: boolean;
+  isNext: boolean;
   isLast: boolean;
 }) {
   return (
     <li className="relative grid grid-cols-[auto_1fr] gap-x-6 pb-10 last:pb-0">
-      {/* line */}
       {!isLast && (
         <span
           className={`absolute left-[11px] top-6 bottom-0 w-px ${
@@ -82,23 +239,26 @@ function TimelineNode({
           aria-hidden
         />
       )}
-      {/* node */}
       <span
         className={`relative z-10 mt-1 h-6 w-6 rounded-full border-2 ${
           done
             ? "bg-[color:var(--color-brand)] border-[color:var(--color-brand)]"
-            : "bg-background border-dashed border-border"
+            : "bg-background border-[color:var(--color-brand)]"
         }`}
         aria-hidden
       />
-      <div className={done ? "" : "opacity-75"}>
-        <p
-          className={`font-display text-[11px] font-semibold tracking-[0.22em] uppercase ${
-            done ? "text-[color:var(--color-brand)]" : "text-muted-foreground"
-          }`}
-        >
-          {tag}
-        </p>
+      <div className={done ? "" : "opacity-90"}>
+        <div className="flex flex-wrap items-center gap-2">
+          <p
+            className={`font-display text-[11px] font-semibold tracking-[0.22em] uppercase ${
+              done ? "text-[color:var(--color-brand)]" : "text-muted-foreground"
+            }`}
+          >
+            {tag}
+          </p>
+          {done ? <MilestoneBadge kind="done" /> : null}
+          {isNext ? <MilestoneBadge kind="next" /> : null}
+        </div>
         <p className="mt-3 text-base md:text-[17px] text-foreground/85 leading-relaxed">
           {body}
         </p>
@@ -107,26 +267,60 @@ function TimelineNode({
   );
 }
 
+function ValidationProgress({ done, total }: { done: number; total: number }) {
+  const pct = Math.round((done / total) * 100);
+  return (
+    <div className="mt-10 max-w-3xl">
+      <div className="flex items-center justify-between gap-4 mb-3">
+        <p className="text-[11px] font-semibold tracking-[0.18em] uppercase text-muted-foreground">
+          Progreso de validación
+        </p>
+        <p className="text-[12px] tabular-nums text-foreground/85">
+          {done} de {total} hitos completados
+        </p>
+      </div>
+      <div className="h-2 w-full bg-border/50 overflow-hidden">
+        <div
+          className="h-full bg-[color:var(--color-brand)] transition-[width] duration-500"
+          style={{ width: `${pct}%` }}
+          aria-hidden
+        />
+      </div>
+    </div>
+  );
+}
+
 function TeamCard({
   initials,
   role,
   name,
   items,
+  photo,
 }: {
   initials: string;
   role: string;
   name: string;
   items: string[];
+  photo?: string;
 }) {
   return (
     <div className="border border-border bg-[color:var(--color-surface)] p-8 transition-shadow duration-200 hover:shadow-elev-1">
       <div className="flex items-start gap-4">
-        <span
-          className="flex h-12 w-12 items-center justify-center rounded-full bg-[color:var(--color-brand)] text-[color:var(--color-background)] font-display text-sm font-semibold tracking-wider"
-          aria-hidden
-        >
-          {initials}
-        </span>
+        {photo ? (
+          <img
+            src={photo}
+            alt={name}
+            className="h-16 w-16 rounded-full object-cover border border-border"
+            loading="lazy"
+          />
+        ) : (
+          <span
+            className="flex h-12 w-12 items-center justify-center rounded-full bg-[color:var(--color-brand)] text-[color:var(--color-background)] font-display text-sm font-semibold tracking-wider"
+            aria-hidden
+          >
+            {initials}
+          </span>
+        )}
         <div>
           <span className="inline-block px-2.5 py-1 text-[10px] font-semibold tracking-[0.18em] uppercase border border-[color:var(--color-brand-deep)]/30 bg-[color:var(--color-brand-soft)] text-[color:var(--color-brand-deep)]">
             {role}
@@ -165,24 +359,59 @@ function Page() {
     "Universidad de Guayaquil — etapa de fundación por equity",
   ];
 
+  const milestones = [
+    {
+      tag: "✓ Completado",
+      body: "Metodología I-R-O validada a través de sesiones de coaching reales con emprendedores y profesionales en Ecuador.",
+      done: true,
+    },
+    {
+      tag: "✓ Activo",
+      body: "Prototipo funcional construido. Primera cohorte de 8–10 testers en curso.",
+      done: true,
+    },
+    {
+      tag: "Julio 14, 2026",
+      body: "Evento de validación con 30 emprendedores, founders y estudiantes. Primera data estructurada de NPS, disposición a pagar y fit de categoría.",
+      done: false,
+    },
+    {
+      tag: "Q3 2026",
+      body: "Lanzamiento público en Ecuador. Primeros 1,000 usuarios en plataforma freemium.",
+      done: false,
+    },
+  ];
+  const doneCount = milestones.filter((m) => m.done).length;
+  const nextIndex = milestones.findIndex((m) => !m.done);
+
   return (
     <>
       {/* HERO */}
       <section className="relative overflow-hidden border-b border-border bg-background">
         <div className="absolute inset-0 grid-bg opacity-30" aria-hidden />
-        <div className="container-x relative py-28 md:py-36">
-          <div className="border-l-2 border-[color:var(--color-brand)] pl-4">
-            <Eyebrow className="!mt-0">INVERSORES · PRE-SEED 2026</Eyebrow>
+        <div className="container-x relative py-24 md:py-32">
+          <div className="grid gap-14 lg:grid-cols-12 lg:gap-12 items-center">
+            <div className="lg:col-span-8">
+              <div className="border-l-2 border-[color:var(--color-brand)] pl-4">
+                <Eyebrow className="!mt-0">INVERSORES · PRE-SEED 2026</Eyebrow>
+              </div>
+              <h1 className="mt-8 max-w-3xl font-display text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.05] text-foreground">
+                El primer OS cognitivo-conductual para LATAM está levantando su primera ronda.
+              </h1>
+              <div className="mt-10 h-px w-24 bg-[color:var(--color-brand)]" aria-hidden />
+              <p className="mt-10 max-w-2xl text-base md:text-lg text-muted-foreground leading-relaxed">
+                G-Struct combina metodología CBT coaching validada, inteligencia artificial y un modelo
+                freemium para llevar coaching de ejecución de alto nivel al emprendedor latinoamericano —
+                a una fracción del costo de las alternativas globales.
+              </p>
+            </div>
+            <div className="lg:col-span-4 flex justify-center lg:justify-end">
+              <PhoneMockup
+                className="md:px-[140px] lg:px-0"
+                widthClass="w-[160px] md:w-[220px]"
+              />
+            </div>
           </div>
-          <h1 className="mt-8 max-w-3xl font-display text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.05] text-foreground">
-            El primer OS cognitivo-conductual para LATAM está levantando su primera ronda.
-          </h1>
-          <div className="mt-10 h-px w-24 bg-[color:var(--color-brand)]" aria-hidden />
-          <p className="mt-10 max-w-2xl text-base md:text-lg text-muted-foreground leading-relaxed">
-            G-Struct combina metodología CBT coaching validada, inteligencia artificial y un modelo
-            freemium para llevar coaching de ejecución de alto nivel al emprendedor latinoamericano —
-            a una fracción del costo de las alternativas globales.
-          </p>
         </div>
       </section>
 
@@ -212,6 +441,7 @@ function Page() {
             source="GEM Ecuador, 2024–2025"
           />
         </div>
+        <PriceComparison />
       </Section>
 
       {/* PRODUCTO */}
@@ -273,34 +503,15 @@ function Page() {
         <h2 className="mt-4 max-w-3xl font-display text-3xl md:text-4xl leading-[1.08]">
           Tracción y hoja de ruta.
         </h2>
-        <ol className="mt-14 max-w-3xl">
-          {[
-            {
-              tag: "✓ Completado",
-              body: "Metodología I-R-O validada a través de sesiones de coaching reales con emprendedores y profesionales en Ecuador.",
-              done: true,
-            },
-            {
-              tag: "✓ Activo",
-              body: "Prototipo funcional construido. Primera cohorte de 8–10 testers en curso.",
-              done: true,
-            },
-            {
-              tag: "Julio 14, 2026",
-              body: "Evento de validación con 30 emprendedores, founders y estudiantes. Primera data estructurada de NPS, disposición a pagar y fit de categoría.",
-              done: false,
-            },
-            {
-              tag: "Q3 2026",
-              body: "Lanzamiento público en Ecuador. Primeros 1,000 usuarios en plataforma freemium.",
-              done: false,
-            },
-          ].map((m, i, arr) => (
+        <ValidationProgress done={doneCount} total={milestones.length} />
+        <ol className="mt-12 max-w-3xl">
+          {milestones.map((m, i, arr) => (
             <TimelineNode
               key={m.tag}
               tag={m.tag}
               body={m.body}
               done={m.done}
+              isNext={i === nextIndex}
               isLast={i === arr.length - 1}
             />
           ))}
@@ -338,6 +549,7 @@ function Page() {
             role="Fundador & CEO"
             name="Guillermo Suco"
             items={teamGuillermo}
+            photo={guillermoPhoto}
           />
           <TeamCard
             initials="JS"
