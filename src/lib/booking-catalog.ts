@@ -29,8 +29,8 @@ export const PACKAGES: BookablePackage[] = [
     kind: "1on1",
     sessions: "6 sesiones",
     duration: "6 semanas",
-    priceUsd: 285,
-    priceLabel: "USD 285",
+    priceUsd: 480,
+    priceLabel: "USD 480",
     description: "El más recomendado. 6 videollamadas individuales de 60 min, una por semana.",
   },
   {
