@@ -65,13 +65,14 @@ export function navForLocale(locale: Locale) {
 
   // Insert "Método" after Enterprise (index 2)
   const metodo = {
-    to: locale === "en" ? "/en#metodo" : "/#metodo",
+    to: locale === "en" ? "/en" : "/",
+    hash: "metodo",
     label: locale === "en" ? "Method" : "Método",
     exact: false,
     highlight: false,
   };
-  items.splice(2, 0, metodo);
-  return items;
+  items.splice(2, 0, metodo as (typeof items)[number] & { hash?: string });
+  return items as Array<{ to: string; label: string; exact: boolean; highlight: boolean; hash?: string }>;
 }
 
 export function opportunitiesForLocale(locale: Locale) {
