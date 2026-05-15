@@ -861,9 +861,12 @@ function Index() {
   return (
     <>
       <Hero />
+      <SocialProofBar />
       <Problem />
       <Method />
+      <FrictionQuiz />
       <GStructBridge />
+      <WaitlistForm />
       <Solutions />
       <ETWBanner />
       <Founder />
