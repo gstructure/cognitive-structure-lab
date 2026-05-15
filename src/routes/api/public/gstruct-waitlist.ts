@@ -83,6 +83,19 @@ export const Route = createFileRoute("/api/public/gstruct-waitlist")({
           return Response.json({ error: "save_failed" }, { status: 502 });
         }
 
+        // Broadcast realtime event so connected clients update the counter instantly.
+        try {
+          const channel = supabaseAdmin.channel("gstruct-waitlist");
+          await channel.send({
+            type: "broadcast",
+            event: "joined",
+            payload: { at: Date.now() },
+          });
+          await supabaseAdmin.removeChannel(channel);
+        } catch (e) {
+          console.error("[waitlist] realtime broadcast failed", e);
+        }
+
         // Send confirmation email — await so the Worker doesn't terminate early.
         try {
           await sendWaitlistConfirmationEmail({
