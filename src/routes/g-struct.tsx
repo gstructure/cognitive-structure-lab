@@ -38,7 +38,7 @@ export const Route = createFileRoute("/g-struct")({
   component: Page,
 });
 
-// ----- shared waitlist count hook -----
+// ----- shared waitlist count hook (realtime via Supabase broadcast) -----
 function useWaitlistCount() {
   const [count, setCount] = useState<number | null>(null);
   const fetchCount = useCallback(async () => {
@@ -53,8 +53,26 @@ function useWaitlistCount() {
   }, []);
   useEffect(() => {
     fetchCount();
-    const id = setInterval(fetchCount, 30_000);
-    return () => clearInterval(id);
+    let cancelled = false;
+    let channel: ReturnType<typeof import("@/integrations/supabase/client").supabase.channel> | null = null;
+    (async () => {
+      const { supabase } = await import("@/integrations/supabase/client");
+      if (cancelled) return;
+      channel = supabase
+        .channel("gstruct-waitlist")
+        .on("broadcast", { event: "joined" }, () => {
+          setCount((c) => (c == null ? c : c + 1));
+        })
+        .subscribe();
+    })();
+    return () => {
+      cancelled = true;
+      if (channel) {
+        import("@/integrations/supabase/client").then(({ supabase }) => {
+          supabase.removeChannel(channel!);
+        });
+      }
+    };
   }, [fetchCount]);
   return { count, refetch: fetchCount };
 }
