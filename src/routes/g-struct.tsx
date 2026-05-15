@@ -202,8 +202,8 @@ function Engine() {
 
       {/* Desktop: horizontal flow with arrows */}
       <ol className="mt-12 hidden md:flex items-stretch gap-3">
-        {steps.map((s, i) => (
-          <>
+        {steps.flatMap((s, i) => {
+          const card = (
             <li
               key={s.n}
               className={`flex-1 relative bg-[color:var(--color-surface)] p-5 lg:p-6 border ${
@@ -223,17 +223,19 @@ function Engine() {
               <p className="mt-3 font-display text-sm font-semibold text-foreground">{s.t}</p>
               <p className="mt-2 text-[13px] text-muted-foreground leading-relaxed">{s.d}</p>
             </li>
-            {i < steps.length - 1 && (
-              <li
-                key={`arrow-${s.n}`}
-                className="flex items-center justify-center text-[color:var(--color-brand)]"
-                aria-hidden
-              >
-                <ChevronRight size={20} strokeWidth={2.25} />
-              </li>
-            )}
-          </>
-        ))}
+          );
+          if (i === steps.length - 1) return [card];
+          return [
+            card,
+            <li
+              key={`arrow-${s.n}`}
+              className="flex items-center justify-center text-[color:var(--color-brand)]"
+              aria-hidden
+            >
+              <ChevronRight size={20} strokeWidth={2.25} />
+            </li>,
+          ];
+        })}
       </ol>
 
       {/* Mobile: vertical timeline */}
