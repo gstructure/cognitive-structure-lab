@@ -1,0 +1,1 @@
+DROP POLICY IF EXISTS "Anyone can join waitlist" ON public.waitlist;
