@@ -91,14 +91,20 @@ export function FrictionQuiz() {
   return (
     <Section id="quiz" tone="muted">
       <div className="max-w-3xl">
-        <p className="eyebrow">DIAGNÓSTICO RÁPIDO</p>
+        <p className="eyebrow">FASE 01 · IDENTIFICAR</p>
         <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-[2.5rem] leading-[1.08]">
-          ¿Cuál es tu patrón de fricción?
+          Empieza identificando tu patrón de ejecución.
         </h2>
+        <p className="mt-5 text-base md:text-lg text-foreground/85 leading-relaxed">
+          Antes de optimizar tu ejecución, necesitas entender qué tipo de fricción está interfiriendo con tu acción.
+        </p>
         <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
-          3 preguntas. 60 segundos. Sin registro.
-          <br />
-          Identifica el patrón que más bloquea tu ejecución.
+          Este diagnóstico breve te ayuda a reconocer si tu bloqueo está más relacionado con procrastinación, perfeccionismo,
+          sobreanálisis, evitación, saturación mental o autosabotaje. Al finalizar, podrás unirte a la lista de espera de
+          G-Struct y recibir acceso temprano a la plataforma.
+        </p>
+        <p className="mt-4 text-xs text-muted-foreground leading-relaxed">
+          Este diagnóstico no es clínico y no sustituye atención psicológica. Es una herramienta de autoobservación orientada a patrones de ejecución.
         </p>
       </div>
 
