@@ -44,17 +44,18 @@ export function swapLocalePath(pathname: string, target: Locale): string {
 }
 
 export function navForLocale(locale: Locale) {
-  // Order: G-Struct · Enterprise · Método (home anchor) · Inversores · Nosotros · Contacto.
-  // "Método" is rendered as a virtual nav item below since it's a hash on home.
+  // New jerarquía: G-Struct (producto) primero, seguido por canales de validación,
+  // inversión, aliados, nosotros y contacto. G-Struct se destaca como "producto".
   const mainKeys = [
     "/g-struct",
     "/enterprise",
+    "/reestructura-1-1",
     "/inversores",
+    "/aliados-etw-2026",
     "/sobre-guillermo",
     "/contacto",
   ];
   const items = ROUTES.filter((r) => mainKeys.includes(r.es))
-    // Preserve mainKeys order
     .sort((a, b) => mainKeys.indexOf(a.es) - mainKeys.indexOf(b.es))
     .map((r) => ({
       to: r[locale],
@@ -62,16 +63,6 @@ export function navForLocale(locale: Locale) {
       exact: false,
       highlight: r.es === "/g-struct",
     }));
-
-  // Insert "Método" after Enterprise (index 2)
-  const metodo = {
-    to: locale === "en" ? "/en" : "/",
-    hash: "metodo",
-    label: locale === "en" ? "Method" : "Método",
-    exact: false,
-    highlight: false,
-  };
-  items.splice(2, 0, metodo as (typeof items)[number] & { hash?: string });
   return items as Array<{ to: string; label: string; exact: boolean; highlight: boolean; hash?: string }>;
 }
 
