@@ -122,19 +122,23 @@ function Hero({ count }: { count: number | null }) {
       <div className="absolute inset-0 grid-bg opacity-40" aria-hidden />
       <div className="container-x relative py-24 md:py-32 grid lg:grid-cols-12 gap-12 items-center">
         <div className="lg:col-span-7">
-          <Eyebrow>G-STRUCT · PROTOTIPO ACTIVO · LANZAMIENTO Q3 2026</Eyebrow>
+          <Eyebrow>PRODUCTO PRINCIPAL DE G-STRUCTURE · PROTOTIPO ACTIVO · LANZAMIENTO Q3 2026</Eyebrow>
           <h1 className="mt-6 font-display text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.04] text-foreground">
-            El coach CBT en tu bolsillo. 24/7.
+            G-Struct: la plataforma cognitivo-conductual de G-Structure.
           </h1>
           <p className="mt-5 max-w-xl font-display text-lg md:text-xl italic text-foreground/70 leading-snug">
-            Si sabes exactamente lo que tienes que hacer
+            Diagnostica, reencuadra y optimiza tu ejecución
             <br className="hidden sm:block" />
-            y aun así no lo haces — esto es para ti.
+            con metodología CBT coaching aplicada.
           </p>
           <p className="mt-6 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
             G-Struct identifica la fricción cognitivo-conductual que bloquea tu ejecución, te ayuda
-            a reencuadrarla usando metodología CBT coaching, y optimiza tu acción. No para que te
-            sientas mejor. Para que ejecutes mejor.
+            a reencuadrarla con metodología CBT coaching, y optimiza tu acción. No para que te
+            sientas mejor — para que ejecutes mejor.
+          </p>
+          <p className="mt-3 max-w-xl text-xs text-muted-foreground leading-relaxed">
+            No somos terapia. No diagnóstico clínico. G-Struct es una herramienta de coaching, psicoeducación
+            y optimización de ejecución basada en principios cognitivo-conductuales.
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-3">
             <a
