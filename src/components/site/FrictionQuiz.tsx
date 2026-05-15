@@ -153,8 +153,9 @@ export function FrictionQuiz() {
             <p className="mt-5 text-[15px] md:text-base leading-relaxed text-[color:var(--color-background)]/85 whitespace-pre-line">
               {result.body}
             </p>
-            <p className="mt-6 text-sm text-[color:var(--color-background)]/75">
-              ¿Quieres trabajar este patrón con metodología estructurada?
+            <p className="mt-6 text-sm text-[color:var(--color-background)]/85 leading-relaxed">
+              Tu patrón de ejecución es el punto de partida. <strong className="text-[color:var(--color-background)]">G-Struct</strong> está siendo
+              diseñado para ayudarte a trabajar ese patrón con herramientas de reencuadre, claridad y acción estructurada.
             </p>
             <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3">
               <Link
