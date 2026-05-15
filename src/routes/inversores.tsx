@@ -26,7 +26,7 @@ export const Route = createFileRoute("/inversores")({
 
 function StatCard({ stat, title, body, source }: { stat: string; title: string; body: string; source?: string }) {
   return (
-    <div className="relative border border-border bg-[color:var(--color-surface)] p-7 md:p-9 flex flex-col">
+    <div className="group relative border border-border bg-[color:var(--color-surface)] p-7 md:p-9 flex flex-col transition-shadow duration-200 hover:shadow-elev-1 focus-within:shadow-elev-1">
       <span
         className="absolute inset-x-0 top-0 h-[3px] bg-[color:var(--color-brand)]"
         aria-hidden
@@ -34,12 +34,12 @@ function StatCard({ stat, title, body, source }: { stat: string; title: string; 
       <p className="font-display text-5xl md:text-6xl lg:text-[4rem] font-medium text-foreground leading-none tracking-tight">
         {stat}
       </p>
-      <p className="mt-5 text-xs font-semibold tracking-[0.18em] uppercase text-muted-foreground">
+      <p className="mt-5 text-xs font-semibold tracking-[0.18em] uppercase text-foreground/70">
         {title}
       </p>
-      <p className="mt-3 text-sm text-foreground/75 leading-relaxed">{body}</p>
+      <p className="mt-3 text-sm text-foreground/85 leading-relaxed">{body}</p>
       {source ? (
-        <p className="mt-6 pt-4 border-t border-border/60 text-[10px] tracking-wide text-muted-foreground/70">
+        <p className="mt-6 pt-4 border-t border-border/60 text-[11px] tracking-wide text-muted-foreground">
           {source}
         </p>
       ) : null}
