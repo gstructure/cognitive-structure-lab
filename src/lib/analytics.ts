@@ -20,19 +20,18 @@ export type ConversionKey =
   | "contact_click"
   | "contact_form_submit"
   | "brief_pdf_download"
-  | "booking_request";
+  | "booking_request"
+  | "gstruct_waitlist_signup";
 
 // Google Ads conversion labels. `undefined` means: fire GA4 event only,
 // do NOT fire a Google Ads conversion.
 const CONVERSION_LABELS: Record<ConversionKey, string | undefined> = {
-  // Header / nav contact CTA — intent only, NOT a conversion.
   contact_click: undefined,
-  // Contact form successfully submitted.
   contact_form_submit: "AW-18154152582/aTpmCJKjhqscEIbFydBD",
-  // Commercial brief PDF download click.
   brief_pdf_download: "AW-18154152582/hLADCJWjhqscEIbFydBD",
-  // Booking request successfully created.
   booking_request: "AW-18154152582/zzaxCI-jhqscEIbFydBD",
+  // No Ads label yet — connect once Google Ads conversion is created.
+  gstruct_waitlist_signup: undefined,
 };
 
 const isDev =

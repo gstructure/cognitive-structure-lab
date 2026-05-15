@@ -32,6 +32,7 @@ import { Route as EnContactRouteImport } from './routes/en.contact'
 import { Route as EnAboutGuillermoRouteImport } from './routes/en.about-guillermo'
 import { Route as EmailUnsubscribeRouteImport } from './routes/email/unsubscribe'
 import { Route as LovableEmailSuppressionRouteImport } from './routes/lovable/email/suppression'
+import { Route as ApiPublicGstructWaitlistRouteImport } from './routes/api/public/gstruct-waitlist'
 import { Route as ApiPublicDiagnosticoSubmitRouteImport } from './routes/api/public/diagnostico-submit'
 import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
 import { Route as AdminAdminReservasRouteImport } from './routes/_admin/admin.reservas'
@@ -155,6 +156,12 @@ const LovableEmailSuppressionRoute = LovableEmailSuppressionRouteImport.update({
   path: '/lovable/email/suppression',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicGstructWaitlistRoute =
+  ApiPublicGstructWaitlistRouteImport.update({
+    id: '/api/public/gstruct-waitlist',
+    path: '/api/public/gstruct-waitlist',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiPublicDiagnosticoSubmitRoute =
   ApiPublicDiagnosticoSubmitRouteImport.update({
     id: '/api/public/diagnostico-submit',
@@ -221,6 +228,7 @@ export interface FileRoutesByFullPath {
   '/admin/reservas': typeof AdminAdminReservasRoute
   '/api/public/contact': typeof ApiPublicContactRoute
   '/api/public/diagnostico-submit': typeof ApiPublicDiagnosticoSubmitRoute
+  '/api/public/gstruct-waitlist': typeof ApiPublicGstructWaitlistRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -252,6 +260,7 @@ export interface FileRoutesByTo {
   '/admin/reservas': typeof AdminAdminReservasRoute
   '/api/public/contact': typeof ApiPublicContactRoute
   '/api/public/diagnostico-submit': typeof ApiPublicDiagnosticoSubmitRoute
+  '/api/public/gstruct-waitlist': typeof ApiPublicGstructWaitlistRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -285,6 +294,7 @@ export interface FileRoutesById {
   '/_admin/admin/reservas': typeof AdminAdminReservasRoute
   '/api/public/contact': typeof ApiPublicContactRoute
   '/api/public/diagnostico-submit': typeof ApiPublicDiagnosticoSubmitRoute
+  '/api/public/gstruct-waitlist': typeof ApiPublicGstructWaitlistRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -318,6 +328,7 @@ export interface FileRouteTypes {
     | '/admin/reservas'
     | '/api/public/contact'
     | '/api/public/diagnostico-submit'
+    | '/api/public/gstruct-waitlist'
     | '/lovable/email/suppression'
     | '/lovable/email/queue/process'
     | '/lovable/email/transactional/preview'
@@ -349,6 +360,7 @@ export interface FileRouteTypes {
     | '/admin/reservas'
     | '/api/public/contact'
     | '/api/public/diagnostico-submit'
+    | '/api/public/gstruct-waitlist'
     | '/lovable/email/suppression'
     | '/lovable/email/queue/process'
     | '/lovable/email/transactional/preview'
@@ -381,6 +393,7 @@ export interface FileRouteTypes {
     | '/_admin/admin/reservas'
     | '/api/public/contact'
     | '/api/public/diagnostico-submit'
+    | '/api/public/gstruct-waitlist'
     | '/lovable/email/suppression'
     | '/lovable/email/queue/process'
     | '/lovable/email/transactional/preview'
@@ -405,6 +418,7 @@ export interface RootRouteChildren {
   EmailUnsubscribeRoute: typeof EmailUnsubscribeRoute
   ApiPublicContactRoute: typeof ApiPublicContactRoute
   ApiPublicDiagnosticoSubmitRoute: typeof ApiPublicDiagnosticoSubmitRoute
+  ApiPublicGstructWaitlistRoute: typeof ApiPublicGstructWaitlistRoute
   LovableEmailSuppressionRoute: typeof LovableEmailSuppressionRoute
   LovableEmailQueueProcessRoute: typeof LovableEmailQueueProcessRoute
   LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
@@ -574,6 +588,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LovableEmailSuppressionRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/gstruct-waitlist': {
+      id: '/api/public/gstruct-waitlist'
+      path: '/api/public/gstruct-waitlist'
+      fullPath: '/api/public/gstruct-waitlist'
+      preLoaderRoute: typeof ApiPublicGstructWaitlistRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/diagnostico-submit': {
       id: '/api/public/diagnostico-submit'
       path: '/api/public/diagnostico-submit'
@@ -678,6 +699,7 @@ const rootRouteChildren: RootRouteChildren = {
   EmailUnsubscribeRoute: EmailUnsubscribeRoute,
   ApiPublicContactRoute: ApiPublicContactRoute,
   ApiPublicDiagnosticoSubmitRoute: ApiPublicDiagnosticoSubmitRoute,
+  ApiPublicGstructWaitlistRoute: ApiPublicGstructWaitlistRoute,
   LovableEmailSuppressionRoute: LovableEmailSuppressionRoute,
   LovableEmailQueueProcessRoute: LovableEmailQueueProcessRoute,
   LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
@@ -686,3 +708,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
