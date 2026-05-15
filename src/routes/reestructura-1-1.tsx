@@ -340,8 +340,8 @@ function Page() {
               name: "Reencuadre",
               sessions: "6 sesiones",
               duration: "6 semanas",
-              price: "USD 285",
-              perSession: "USD 47.50 / sesión",
+              price: "USD 480",
+              perSession: "USD 80 / sesión",
               tag: "Más recomendado",
               fit: "Para quien necesita trabajar más de un patrón (perfeccionismo + sobreanálisis, autosabotaje + ejecución) y consolidar cambio sostenido.",
               includes: [
