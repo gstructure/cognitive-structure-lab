@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
-import { sendWaitlistConfirmationEmail } from "@/lib/waitlist-emails.server";
+import { sendWaitlistConfirmationEmail, sendWaitlistAdminNotificationEmail } from "@/lib/waitlist-emails.server";
 
 const Schema = z.object({
   email: z.string().trim().email("invalid_email").max(255),
@@ -91,6 +91,19 @@ export const Route = createFileRoute("/api/public/gstruct-waitlist")({
           });
         } catch (e) {
           console.error("[waitlist] email send failed", e);
+        }
+
+        // Notify admin of the new signup.
+        try {
+          await sendWaitlistAdminNotificationEmail({
+            email,
+            name: parsed.data.name?.trim() || null,
+            source: parsed.data.source ?? "other",
+            pattern: parsed.data.pattern?.trim() || null,
+            idempotencyKey: `waitlist-admin-${inserted!.id}`,
+          });
+        } catch (e) {
+          console.error("[waitlist] admin notification failed", e);
         }
 
         return Response.json({ ok: true });
