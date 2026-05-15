@@ -21,7 +21,7 @@ export function Header() {
 
   const NAV = navForLocale(locale);
   const homeTo = locale === "en" ? "/en" : "/";
-  const ctaLabel = locale === "en" ? "Join G-Struct" : "Únete a G-Struct";
+  const ctaLabel = locale === "en" ? "Join Waitlist" : "Lista de espera";
 
   // Hide persistent waitlist CTA on /inversores (investor flow uses email).
   const hideWaitlistCTA = location.pathname.startsWith("/inversores");
