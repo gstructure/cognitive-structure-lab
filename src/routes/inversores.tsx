@@ -128,7 +128,7 @@ function TeamCard({
           {initials}
         </span>
         <div>
-          <span className="inline-block px-2.5 py-1 text-[10px] font-semibold tracking-[0.18em] uppercase bg-[color:var(--color-brand-soft)]/60 text-[color:var(--color-brand-deep)]">
+          <span className="inline-block px-2.5 py-1 text-[10px] font-semibold tracking-[0.18em] uppercase border border-[color:var(--color-brand-deep)]/30 bg-[color:var(--color-brand-soft)] text-[color:var(--color-brand-deep)]">
             {role}
           </span>
           <h3 className="mt-3 font-display text-lg font-medium">{name}</h3>
