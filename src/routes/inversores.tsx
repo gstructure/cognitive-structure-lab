@@ -26,7 +26,7 @@ export const Route = createFileRoute("/inversores")({
 
 function StatCard({ stat, title, body, source }: { stat: string; title: string; body: string; source?: string }) {
   return (
-    <div className="relative border border-border bg-[color:var(--color-surface)] p-7 md:p-9 flex flex-col">
+    <div className="group relative border border-border bg-[color:var(--color-surface)] p-7 md:p-9 flex flex-col transition-shadow duration-200 hover:shadow-elev-1 focus-within:shadow-elev-1">
       <span
         className="absolute inset-x-0 top-0 h-[3px] bg-[color:var(--color-brand)]"
         aria-hidden
@@ -34,12 +34,12 @@ function StatCard({ stat, title, body, source }: { stat: string; title: string; 
       <p className="font-display text-5xl md:text-6xl lg:text-[4rem] font-medium text-foreground leading-none tracking-tight">
         {stat}
       </p>
-      <p className="mt-5 text-xs font-semibold tracking-[0.18em] uppercase text-muted-foreground">
+      <p className="mt-5 text-xs font-semibold tracking-[0.18em] uppercase text-foreground/70">
         {title}
       </p>
-      <p className="mt-3 text-sm text-foreground/75 leading-relaxed">{body}</p>
+      <p className="mt-3 text-sm text-foreground/85 leading-relaxed">{body}</p>
       {source ? (
-        <p className="mt-6 pt-4 border-t border-border/60 text-[10px] tracking-wide text-muted-foreground/70">
+        <p className="mt-6 pt-4 border-t border-border/60 text-[11px] tracking-wide text-muted-foreground">
           {source}
         </p>
       ) : null}
@@ -49,7 +49,7 @@ function StatCard({ stat, title, body, source }: { stat: string; title: string; 
 
 function TermCard({ value, label }: { value: string; label: string }) {
   return (
-    <div className="border border-border bg-[color:var(--color-surface)] p-8">
+    <div className="border border-border bg-[color:var(--color-surface)] p-8 transition-shadow duration-200 hover:shadow-elev-1">
       <p className="font-display text-4xl md:text-5xl font-medium text-foreground leading-none tracking-tight">
         {value}
       </p>
@@ -119,7 +119,7 @@ function TeamCard({
   items: string[];
 }) {
   return (
-    <div className="border border-border bg-[color:var(--color-surface)] p-8">
+    <div className="border border-border bg-[color:var(--color-surface)] p-8 transition-shadow duration-200 hover:shadow-elev-1">
       <div className="flex items-start gap-4">
         <span
           className="flex h-12 w-12 items-center justify-center rounded-full bg-[color:var(--color-brand)] text-[color:var(--color-background)] font-display text-sm font-semibold tracking-wider"
@@ -128,7 +128,7 @@ function TeamCard({
           {initials}
         </span>
         <div>
-          <span className="inline-block px-2.5 py-1 text-[10px] font-semibold tracking-[0.18em] uppercase bg-[color:var(--color-brand-soft)]/60 text-[color:var(--color-brand-deep)]">
+          <span className="inline-block px-2.5 py-1 text-[10px] font-semibold tracking-[0.18em] uppercase border border-[color:var(--color-brand-deep)]/30 bg-[color:var(--color-brand-soft)] text-[color:var(--color-brand-deep)]">
             {role}
           </span>
           <h3 className="mt-3 font-display text-lg font-medium">{name}</h3>
@@ -373,7 +373,7 @@ function Page() {
               Agendar conversación
             </CTALink>
           </div>
-          <p className="mx-auto mt-12 max-w-2xl text-xs text-[color:var(--color-background)]/60 leading-relaxed">
+          <p className="mx-auto mt-12 max-w-2xl text-xs text-[color:var(--color-background)]/75 leading-relaxed">
             Esta página contiene información preliminar para inversores calificados. No constituye
             una oferta pública de valores.
           </p>

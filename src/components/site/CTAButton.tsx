@@ -4,6 +4,9 @@ import type { ComponentProps } from "react";
 
 type Variant = "primary" | "ghost" | "outline" | "inverse";
 
+const base =
+  "group inline-flex items-center justify-center gap-2 px-5 min-h-11 py-3 text-[13px] font-medium tracking-wide transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:ring-[color:var(--color-brand)]";
+
 const styles: Record<Variant, string> = {
   primary:
     "bg-foreground text-background hover:opacity-90",
@@ -12,7 +15,7 @@ const styles: Record<Variant, string> = {
   outline:
     "border border-foreground/30 text-foreground hover:border-foreground hover:bg-foreground/5",
   inverse:
-    "bg-background text-foreground hover:opacity-90",
+    "bg-background text-foreground hover:opacity-90 focus-visible:ring-offset-[color:var(--color-brand-deep)]",
 };
 
 type BaseProps = {
@@ -34,7 +37,7 @@ export function CTALink({
     <Link
       to={to}
       {...rest}
-      className={`group inline-flex items-center justify-center gap-2 px-5 py-3 text-[13px] font-medium tracking-wide transition-all ${styles[variant]} ${className ?? ""}`}
+      className={`${base} ${styles[variant]} ${className ?? ""}`}
     >
       {children}
       {withArrow ? (
@@ -56,7 +59,7 @@ export function CTAExternal({
     <a
       href={href}
       {...rest}
-      className={`group inline-flex items-center justify-center gap-2 px-5 py-3 text-[13px] font-medium tracking-wide transition-all ${styles[variant]} ${className ?? ""}`}
+      className={`${base} ${styles[variant]} ${className ?? ""}`}
     >
       {children}
       {withArrow ? (
