@@ -26,7 +26,7 @@ function WaitlistAdmin() {
         .from("waitlist" as any)
         .select("id, email, name, source, pattern, created_at")
         .order("created_at", { ascending: false });
-      setRows((data as Row[]) || []);
+      setRows(((data as unknown) as Row[]) || []);
       setLoading(false);
     })();
   }, []);
