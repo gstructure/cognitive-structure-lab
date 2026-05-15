@@ -97,33 +97,41 @@ function Hero() {
             <h1 className="mt-5 max-w-2xl text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.04] text-foreground">
               {t("home.hero.h1")}
             </h1>
-            <p className="mt-5 max-w-xl text-base md:text-lg italic text-foreground/70 leading-relaxed">
-              Si sabes exactamente lo que tienes que hacer y aun así no lo haces — esto es para ti.
-            </p>
-            <p className="mt-6 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
+            <p className="mt-5 max-w-xl text-base md:text-lg text-foreground/85 leading-relaxed">
               {t("home.hero.lead")}
             </p>
-            <p className="mt-3 max-w-xl text-sm text-muted-foreground/90 leading-relaxed">
+            <p className="mt-5 max-w-xl text-[15px] md:text-base text-muted-foreground leading-relaxed">
               {t("home.hero.sub")}
             </p>
 
-            <ul className="mt-9 space-y-3 text-[15px] md:text-base">
+            <div className="mt-9 flex flex-wrap items-center gap-3">
+              <CTALink to="/g-struct" variant="primary">{t("home.hero.ctaPrimary")}</CTALink>
+              <CTALink to="/inversores" variant="outline">{t("home.hero.ctaSecondary")}</CTALink>
+            </div>
+
+            <ul className="mt-8 grid gap-2 text-[13.5px] sm:grid-cols-2 max-w-xl">
               <li>
-                <Link to="/" hash="lista-de-espera" className="group inline-flex items-center gap-2 text-foreground hover:opacity-80">
-                  <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
-                  Únete a la lista de G-Struct
+                <Link to="/" hash="quiz" className="group inline-flex items-center gap-2 text-foreground/85 hover:text-foreground">
+                  <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
+                  Identifica tu patrón de ejecución
                 </Link>
               </li>
               <li>
-                <Link to="/enterprise" className="group inline-flex items-center gap-2 text-foreground hover:opacity-80">
-                  <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
-                  Soluciones para equipos
+                <Link to="/" hash="lista-de-espera" className="group inline-flex items-center gap-2 text-foreground/85 hover:text-foreground">
+                  <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
+                  Únete a la waitlist de G-Struct
                 </Link>
               </li>
               <li>
-                <Link to="/" hash="quiz" className="group inline-flex items-center gap-2 text-foreground hover:opacity-80">
-                  <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
-                  Identifica tu patrón de fricción
+                <Link to="/enterprise" className="group inline-flex items-center gap-2 text-foreground/85 hover:text-foreground">
+                  <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
+                  Soluciones para equipos · Enterprise
+                </Link>
+              </li>
+              <li>
+                <Link to="/inversores" className="group inline-flex items-center gap-2 text-foreground/85 hover:text-foreground">
+                  <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
+                  Oportunidad de inversión · Pre-seed
                 </Link>
               </li>
             </ul>
