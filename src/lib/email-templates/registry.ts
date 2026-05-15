@@ -7,6 +7,7 @@ import { template as contactAdminNotification } from './contact-admin-notificati
 import { template as contactUserConfirmation } from './contact-user-confirmation'
 import { template as diagnosticReport } from './diagnostic-report'
 import { template as waitlistConfirmation } from './waitlist-confirmation'
+import { template as waitlistAdminNotification } from './waitlist-admin-notification'
 
 export interface TemplateEntry {
   component: ComponentType<any>
