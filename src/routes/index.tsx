@@ -426,11 +426,31 @@ function AnnouncementCard({
 
 function Problem() {
   const cards = [
-    { t: "Procrastinación", d: "Cuando la acción se posterga aunque la tarea sea importante." },
-    { t: "Perfeccionismo improductivo", d: "Cuando el estándar se vuelve una excusa elegante para no avanzar." },
-    { t: "Sobreanálisis", d: "Cuando pensar más deja de aclarar y empieza a paralizar." },
-    { t: "Autosabotaje", d: "Cuando la conducta contradice el objetivo que la persona dice querer." },
-    { t: "Bloqueo de ejecución", d: "Cuando hay intención, pero no hay salida funcional a la acción." },
+    {
+      t: "Procrastinación",
+      d: "Cuando la acción se posterga aunque la tarea sea importante.",
+      reveal: "¿Lo pospones aunque sabes que es importante? G-Struct trabaja este patrón.",
+    },
+    {
+      t: "Perfeccionismo improductivo",
+      d: "Cuando el estándar se vuelve una excusa elegante para no avanzar.",
+      reveal: "¿El estándar se volvió una excusa elegante? Hay un patrón detrás de eso.",
+    },
+    {
+      t: "Sobreanálisis",
+      d: "Cuando pensar más deja de aclarar y empieza a paralizar.",
+      reveal: "¿Pensar más dejó de ayudar? Eso tiene una estructura cognitiva específica.",
+    },
+    {
+      t: "Autosabotaje",
+      d: "Cuando la conducta contradice el objetivo que la persona dice querer.",
+      reveal: "¿Tu conducta contradice tu objetivo? El Motor de Reestructuración mapea por qué.",
+    },
+    {
+      t: "Bloqueo de ejecución",
+      d: "Cuando hay intención, pero no hay salida funcional a la acción.",
+      reveal: "¿Hay intención pero no hay salida? G-Struct convierte eso en acción.",
+    },
   ];
   return (
     <Section tone="muted">
@@ -445,9 +465,23 @@ function Problem() {
       </p>
       <div className="mt-12 grid gap-px bg-border md:grid-cols-3 lg:grid-cols-5 border border-border">
         {cards.map((c) => (
-          <div key={c.t} className="bg-[color:var(--color-surface)] p-6">
+          <div
+            key={c.t}
+            className="group relative bg-[color:var(--color-surface)] p-6 transition-colors hover:bg-[color:var(--color-brand-soft)]/40 focus-within:bg-[color:var(--color-brand-soft)]/40"
+            tabIndex={0}
+          >
             <h3 className="font-display text-base font-semibold">{c.t}</h3>
             <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{c.d}</p>
+            <div className="mt-3 max-h-0 overflow-hidden opacity-0 transition-all duration-300 group-hover:max-h-40 group-hover:opacity-100 group-focus-within:max-h-40 group-focus-within:opacity-100">
+              <p className="text-xs text-foreground/80 leading-relaxed">{c.reveal}</p>
+              <Link
+                to="/"
+                hash="quiz"
+                className="mt-3 inline-flex items-center gap-1.5 text-[12px] font-medium text-foreground"
+              >
+                <ArrowRight size={12} /> Haz el diagnóstico
+              </Link>
+            </div>
           </div>
         ))}
       </div>
