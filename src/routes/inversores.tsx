@@ -119,7 +119,7 @@ function TeamCard({
   items: string[];
 }) {
   return (
-    <div className="border border-border bg-[color:var(--color-surface)] p-8">
+    <div className="border border-border bg-[color:var(--color-surface)] p-8 transition-shadow duration-200 hover:shadow-elev-1">
       <div className="flex items-start gap-4">
         <span
           className="flex h-12 w-12 items-center justify-center rounded-full bg-[color:var(--color-brand)] text-[color:var(--color-background)] font-display text-sm font-semibold tracking-wider"
