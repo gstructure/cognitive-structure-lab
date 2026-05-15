@@ -15,6 +15,7 @@ import { Route as SobreGuillermoRouteImport } from './routes/sobre-guillermo'
 import { Route as Reestructura11RouteImport } from './routes/reestructura-1-1'
 import { Route as PoliticasLegalesRouteImport } from './routes/politicas-legales'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as InversoresRouteImport } from './routes/inversores'
 import { Route as GStructRouteImport } from './routes/g-struct'
 import { Route as EnterpriseRouteImport } from './routes/enterprise'
 import { Route as EnRouteImport } from './routes/en'
@@ -69,6 +70,11 @@ const PoliticasLegalesRoute = PoliticasLegalesRouteImport.update({
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InversoresRoute = InversoresRouteImport.update({
+  id: '/inversores',
+  path: '/inversores',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GStructRoute = GStructRouteImport.update({
@@ -210,6 +216,7 @@ export interface FileRoutesByFullPath {
   '/en': typeof EnRouteWithChildren
   '/enterprise': typeof EnterpriseRoute
   '/g-struct': typeof GStructRoute
+  '/inversores': typeof InversoresRoute
   '/login': typeof LoginRoute
   '/politicas-legales': typeof PoliticasLegalesRoute
   '/reestructura-1-1': typeof Reestructura11Route
@@ -242,6 +249,7 @@ export interface FileRoutesByTo {
   '/en': typeof EnRouteWithChildren
   '/enterprise': typeof EnterpriseRoute
   '/g-struct': typeof GStructRoute
+  '/inversores': typeof InversoresRoute
   '/login': typeof LoginRoute
   '/politicas-legales': typeof PoliticasLegalesRoute
   '/reestructura-1-1': typeof Reestructura11Route
@@ -276,6 +284,7 @@ export interface FileRoutesById {
   '/en': typeof EnRouteWithChildren
   '/enterprise': typeof EnterpriseRoute
   '/g-struct': typeof GStructRoute
+  '/inversores': typeof InversoresRoute
   '/login': typeof LoginRoute
   '/politicas-legales': typeof PoliticasLegalesRoute
   '/reestructura-1-1': typeof Reestructura11Route
@@ -310,6 +319,7 @@ export interface FileRouteTypes {
     | '/en'
     | '/enterprise'
     | '/g-struct'
+    | '/inversores'
     | '/login'
     | '/politicas-legales'
     | '/reestructura-1-1'
@@ -342,6 +352,7 @@ export interface FileRouteTypes {
     | '/en'
     | '/enterprise'
     | '/g-struct'
+    | '/inversores'
     | '/login'
     | '/politicas-legales'
     | '/reestructura-1-1'
@@ -375,6 +386,7 @@ export interface FileRouteTypes {
     | '/en'
     | '/enterprise'
     | '/g-struct'
+    | '/inversores'
     | '/login'
     | '/politicas-legales'
     | '/reestructura-1-1'
@@ -409,6 +421,7 @@ export interface RootRouteChildren {
   EnRoute: typeof EnRouteWithChildren
   EnterpriseRoute: typeof EnterpriseRoute
   GStructRoute: typeof GStructRoute
+  InversoresRoute: typeof InversoresRoute
   LoginRoute: typeof LoginRoute
   PoliticasLegalesRoute: typeof PoliticasLegalesRoute
   Reestructura11Route: typeof Reestructura11Route
@@ -467,6 +480,13 @@ declare module '@tanstack/react-router' {
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/inversores': {
+      id: '/inversores'
+      path: '/inversores'
+      fullPath: '/inversores'
+      preLoaderRoute: typeof InversoresRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/g-struct': {
@@ -690,6 +710,7 @@ const rootRouteChildren: RootRouteChildren = {
   EnRoute: EnRouteWithChildren,
   EnterpriseRoute: EnterpriseRoute,
   GStructRoute: GStructRoute,
+  InversoresRoute: InversoresRoute,
   LoginRoute: LoginRoute,
   PoliticasLegalesRoute: PoliticasLegalesRoute,
   Reestructura11Route: Reestructura11Route,
@@ -708,3 +729,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
