@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { MessageCircle, X, ArrowRight, Sparkles } from "lucide-react";
+import { useLocation } from "@tanstack/react-router";
 import { useT, useLocale } from "@/lib/i18n";
 import { Assistant } from "./Assistant";
 
@@ -34,6 +35,8 @@ export function WhatsAppFAB() {
   const [open, setOpen] = useState(false);
   const [showAssistant, setShowAssistant] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
+  const hidden = location.pathname.startsWith("/inversores");
 
   useEffect(() => {
     if (!open) return;
