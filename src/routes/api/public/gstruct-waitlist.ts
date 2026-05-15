@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
-import { sendWaitlistConfirmationEmail } from "@/lib/waitlist-emails.server";
+import { sendWaitlistConfirmationEmail, sendWaitlistAdminNotificationEmail } from "@/lib/waitlist-emails.server";
 
 const Schema = z.object({
   email: z.string().trim().email("invalid_email").max(255),
