@@ -30,19 +30,26 @@ export function Header() {
           <Logo />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-7">
-          {NAV.map((n) => (
-            <Link
-              key={n.to}
-              to={n.to as string}
-              activeProps={{ className: "text-foreground" }}
-              inactiveProps={{ className: "text-muted-foreground hover:text-foreground" }}
-              activeOptions={{ exact: n.exact ?? false }}
-              className="text-[13px] font-medium tracking-wide transition-colors"
-            >
-              {n.label}
-            </Link>
-          ))}
+        <nav className="hidden lg:flex items-center gap-6">
+          {NAV.map((n) => {
+            const baseClass = "text-[13px] font-medium tracking-wide transition-colors";
+            const highlightClass = n.highlight
+              ? "border border-foreground/40 px-3 py-1.5 text-foreground hover:bg-foreground/5"
+              : "";
+            return (
+              <Link
+                key={`${n.to}-${n.label}`}
+                to={n.to as string}
+                hash={n.hash}
+                activeProps={{ className: "text-foreground" }}
+                inactiveProps={{ className: n.highlight ? "text-foreground" : "text-muted-foreground hover:text-foreground" }}
+                activeOptions={{ exact: n.exact ?? false }}
+                className={`${baseClass} ${highlightClass}`}
+              >
+                {n.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
@@ -71,15 +78,17 @@ export function Header() {
           <div className="container-x py-4 flex flex-col">
             {NAV.map((n) => (
               <Link
-                key={n.to}
+                key={`${n.to}-${n.label}`}
                 to={n.to as string}
+                hash={n.hash}
                 onClick={() => setOpen(false)}
                 activeProps={{ className: "text-foreground" }}
                 inactiveProps={{ className: "text-muted-foreground" }}
                 activeOptions={{ exact: n.exact ?? false }}
-                className="py-3 text-sm font-medium border-b border-border last:border-0"
+                className={`py-3 text-sm font-medium border-b border-border last:border-0 ${n.highlight ? "text-foreground" : ""}`}
               >
                 {n.label}
+                {n.highlight ? <span className="ml-2 text-[10px] tracking-[0.22em] text-muted-foreground">PRODUCTO</span> : null}
               </Link>
             ))}
             <div className="mt-4 flex items-center justify-between gap-3">

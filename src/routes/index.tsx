@@ -30,9 +30,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: buildSeo({
       path: "/",
-      title: "G-Structure | Coaching Cognitivo-Conductual para Ejecución",
+      title: "G-Structure | Metodología I-R-O · G-Struct App · Coaching Cognitivo-Conductual para Ejecución",
       description:
-        "Coaching cognitivo-conductual para líderes, profesionales y equipos en Ecuador y LATAM. Identificar, reencuadrar y optimizar los patrones que bloquean la acción.",
+        "G-Structure aplica metodología CBT coaching para eliminar la fricción que bloquea la ejecución de líderes, emprendedores y equipos en Ecuador y LATAM. G-Struct es el producto digital. Enterprise es la solución para equipos.",
       image: gStructHomePreview,
     }),
     links: canonicalLink("/"),
@@ -102,8 +102,8 @@ function Hero() {
             </p>
 
             <div className="mt-9 flex flex-wrap items-center gap-3">
-              <CTALink to="/contacto" variant="primary">{t("home.hero.ctaPrimary")}</CTALink>
-              <CTALink to="/" hash="metodo" variant="outline">{t("home.hero.ctaSecondary")}</CTALink>
+              <CTALink to="/g-struct" variant="primary">Únete a G-Struct</CTALink>
+              <CTALink to="/enterprise" variant="outline">Soluciones para equipos</CTALink>
             </div>
 
             <div className="mt-12 grid gap-3 sm:grid-cols-3">
@@ -628,57 +628,101 @@ function List({ title, items }: { title: string; items: string[] }) {
 }
 
 function GStructBridge() {
+  const features = [
+    { t: "Motor de Reestructuración", d: "Identifica la situación, nombra la emoción, mide su intensidad, llega a la creencia núcleo. Si puedes medirlo, puedes optimizarlo." },
+    { t: "Laboratorio de Pensamientos con IA", d: "Con asistencia de inteligencia artificial, aprende a reencuadrar el pensamiento automático en uno funcional que habilite la acción." },
+    { t: "Diagnóstico de Ejecución", d: "Identifica tus patrones recurrentes — procrastinación, perfeccionismo, autosabotaje — y trabaja directamente sobre ellos." },
+  ];
   return (
     <Section tone="white">
-      <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
-        <div className="lg:col-span-7">
-          <SectionHeader
-            eyebrow="CONTINUIDAD Y ESCALABILIDAD"
-            title="G-Struct: la capa tecnológica del método."
-          />
-          <div className="mt-8 space-y-5 text-base md:text-lg text-muted-foreground leading-relaxed">
-            <p>
-              G-Struct es la herramienta digital en desarrollo que acompaña la continuidad del modelo
-              G-Structure. Su propósito es ayudar a registrar patrones, estructurar ejercicios
-              cognitivo-conductuales, monitorear avances y sostener la práctica entre sesiones o
-              programas.
-            </p>
-            <p>La app no reemplaza el proceso humano. Lo extiende, lo ordena y lo vuelve más escalable.</p>
-          </div>
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            <CTALink to="/g-struct" variant="primary">Conocer G-Struct</CTALink>
-            <p className="text-xs text-muted-foreground">
-              Actualmente en desarrollo como parte del ecosistema G-Structure.
-            </p>
-          </div>
+      <div className="flex items-center gap-3">
+        <span className="eyebrow">G-STRUCT · EL PRODUCTO</span>
+        <span className="border border-border px-2.5 py-1 text-[10px] font-semibold tracking-[0.22em] text-muted-foreground">
+          PROTOTIPO ACTIVO · LANZAMIENTO Q3 2026
+        </span>
+      </div>
+      <h2 className="mt-4 max-w-3xl font-display text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.08]">
+        El primer OS cognitivo-conductual para el high-performer en LATAM.
+      </h2>
+      <div className="mt-8 grid gap-12 lg:grid-cols-12 lg:items-start">
+        <div className="lg:col-span-7 space-y-5 text-base md:text-lg text-muted-foreground leading-relaxed">
+          <p>
+            G-Struct lleva el método I-R-O a tu bolsillo. Una app móvil diseñada para identificar la
+            fricción que bloquea tu ejecución, reencuadrarla con metodología CBT coaching, y optimizar
+            tu acción — disponible 24/7.
+          </p>
+          <p className="text-foreground/85">
+            No es una app de bienestar. No es un diario de pensamientos. No es otra lista de tareas.
+            Es la herramienta que separa a quienes saben lo que hay que hacer de quienes realmente lo
+            hacen.
+          </p>
         </div>
         <div className="lg:col-span-5">
-          <div className="relative border border-border bg-[color:var(--color-surface)] p-6 md:p-8 overflow-hidden">
-            <div className="absolute inset-0 grid-bg opacity-30" aria-hidden="true" />
-            <div className="relative flex items-center justify-between">
-              <span className="font-display text-[10px] font-semibold tracking-[0.22em] text-muted-foreground">
-                G-STRUCT · v0.1 · PROTOTYPE IN PROGRESS
-              </span>
-              <BrandMark size={20} />
-            </div>
+          <div className="relative border border-border bg-[color:var(--color-surface)] p-6">
             <img
               src={gStructHomePreview}
-              alt="Vista previa de la app G-Struct mostrando el dashboard cognitivo y el radar de patrones."
+              alt="Vista previa de la app G-Struct."
               loading="lazy"
               width={1024}
               height={1024}
-              className="relative mt-4 w-full h-auto object-contain drop-shadow-[0_24px_40px_rgba(5,50,90,0.18)]"
+              className="w-full h-auto object-contain"
             />
-            <div className="relative mt-2 flex items-center justify-between border-t border-border pt-4">
-              <span className="text-[11px] tracking-wide text-muted-foreground">
-                Registro · Radar · Acción
-              </span>
-              <span className="font-display text-[10px] font-semibold tracking-[0.22em] text-foreground">
-                IDENTIFICAR · REENCUADRAR · OPTIMIZAR
-              </span>
-            </div>
           </div>
         </div>
+      </div>
+
+      <div className="mt-12 grid gap-px bg-border md:grid-cols-3 border border-border">
+        {features.map((f) => (
+          <div key={f.t} className="bg-[color:var(--color-surface)] p-7">
+            <h3 className="font-display text-base md:text-lg font-semibold">{f.t}</h3>
+            <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{f.d}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-16">
+        <p className="eyebrow">PLANES</p>
+        <div className="mt-6 grid gap-6 md:grid-cols-3">
+          <div className="border border-border bg-[color:var(--color-surface)] p-7">
+            <p className="font-display text-[11px] font-semibold tracking-[0.22em] text-muted-foreground">FREE</p>
+            <p className="mt-3 font-display text-3xl font-semibold">Gratis</p>
+            <ul className="mt-5 space-y-2 text-sm text-foreground/85 leading-relaxed">
+              <li>· 3 registros en el Motor de Reestructuración</li>
+              <li>· 5 Activadores Matutinos por mes</li>
+              <li>· Fase 1 de la Guía CBT</li>
+              <li>· Recursos base</li>
+            </ul>
+          </div>
+          <div className="relative border border-foreground bg-[color:var(--color-brand-deep)] text-[color:var(--color-background)] p-7">
+            <span className="absolute -top-3 left-7 inline-flex items-center bg-foreground px-2.5 py-1 text-[10px] font-semibold tracking-[0.22em] text-background">DESTACADO</span>
+            <p className="font-display text-[11px] font-semibold tracking-[0.22em] text-[color:var(--color-background)]/70">PLUS</p>
+            <p className="mt-3 font-display text-3xl font-semibold">$20 / mes</p>
+            <ul className="mt-5 space-y-2 text-sm text-[color:var(--color-background)]/90 leading-relaxed">
+              <li>· Motor de Reestructuración ilimitado</li>
+              <li>· Activadores Matutinos ilimitados</li>
+              <li>· Guía CBT completa</li>
+              <li>· Laboratorio de Pensamientos con IA</li>
+              <li>· Plataforma de Diagnóstico de Ejecución</li>
+            </ul>
+          </div>
+          <div className="border border-border bg-[color:var(--color-surface)] p-7">
+            <p className="font-display text-[11px] font-semibold tracking-[0.22em] text-muted-foreground">VIP</p>
+            <p className="mt-3 font-display text-3xl font-semibold">$50 / mes</p>
+            <ul className="mt-5 space-y-2 text-sm text-foreground/85 leading-relaxed">
+              <li>· Sesión mensual con coach humano</li>
+              <li>· Auditoría mensual de patrones</li>
+              <li>· Foro privado de comunidad</li>
+              <li>· Masterclasses premium</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-12 flex flex-col items-center text-center gap-3">
+        <CTALink to="/g-struct" variant="primary">Únete a la lista de espera</CTALink>
+        <p className="text-sm text-muted-foreground">
+          Sé parte del primer grupo que accede a G-Struct en Ecuador.
+        </p>
       </div>
     </Section>
   );

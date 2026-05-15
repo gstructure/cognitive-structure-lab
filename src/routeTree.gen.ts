@@ -15,6 +15,7 @@ import { Route as SobreGuillermoRouteImport } from './routes/sobre-guillermo'
 import { Route as Reestructura11RouteImport } from './routes/reestructura-1-1'
 import { Route as PoliticasLegalesRouteImport } from './routes/politicas-legales'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as InversoresRouteImport } from './routes/inversores'
 import { Route as GStructRouteImport } from './routes/g-struct'
 import { Route as EnterpriseRouteImport } from './routes/enterprise'
 import { Route as EnRouteImport } from './routes/en'
@@ -32,6 +33,7 @@ import { Route as EnContactRouteImport } from './routes/en.contact'
 import { Route as EnAboutGuillermoRouteImport } from './routes/en.about-guillermo'
 import { Route as EmailUnsubscribeRouteImport } from './routes/email/unsubscribe'
 import { Route as LovableEmailSuppressionRouteImport } from './routes/lovable/email/suppression'
+import { Route as ApiPublicGstructWaitlistRouteImport } from './routes/api/public/gstruct-waitlist'
 import { Route as ApiPublicDiagnosticoSubmitRouteImport } from './routes/api/public/diagnostico-submit'
 import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
 import { Route as AdminAdminReservasRouteImport } from './routes/_admin/admin.reservas'
@@ -68,6 +70,11 @@ const PoliticasLegalesRoute = PoliticasLegalesRouteImport.update({
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InversoresRoute = InversoresRouteImport.update({
+  id: '/inversores',
+  path: '/inversores',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GStructRoute = GStructRouteImport.update({
@@ -155,6 +162,12 @@ const LovableEmailSuppressionRoute = LovableEmailSuppressionRouteImport.update({
   path: '/lovable/email/suppression',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicGstructWaitlistRoute =
+  ApiPublicGstructWaitlistRouteImport.update({
+    id: '/api/public/gstruct-waitlist',
+    path: '/api/public/gstruct-waitlist',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiPublicDiagnosticoSubmitRoute =
   ApiPublicDiagnosticoSubmitRouteImport.update({
     id: '/api/public/diagnostico-submit',
@@ -203,6 +216,7 @@ export interface FileRoutesByFullPath {
   '/en': typeof EnRouteWithChildren
   '/enterprise': typeof EnterpriseRoute
   '/g-struct': typeof GStructRoute
+  '/inversores': typeof InversoresRoute
   '/login': typeof LoginRoute
   '/politicas-legales': typeof PoliticasLegalesRoute
   '/reestructura-1-1': typeof Reestructura11Route
@@ -221,6 +235,7 @@ export interface FileRoutesByFullPath {
   '/admin/reservas': typeof AdminAdminReservasRoute
   '/api/public/contact': typeof ApiPublicContactRoute
   '/api/public/diagnostico-submit': typeof ApiPublicDiagnosticoSubmitRoute
+  '/api/public/gstruct-waitlist': typeof ApiPublicGstructWaitlistRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -234,6 +249,7 @@ export interface FileRoutesByTo {
   '/en': typeof EnRouteWithChildren
   '/enterprise': typeof EnterpriseRoute
   '/g-struct': typeof GStructRoute
+  '/inversores': typeof InversoresRoute
   '/login': typeof LoginRoute
   '/politicas-legales': typeof PoliticasLegalesRoute
   '/reestructura-1-1': typeof Reestructura11Route
@@ -252,6 +268,7 @@ export interface FileRoutesByTo {
   '/admin/reservas': typeof AdminAdminReservasRoute
   '/api/public/contact': typeof ApiPublicContactRoute
   '/api/public/diagnostico-submit': typeof ApiPublicDiagnosticoSubmitRoute
+  '/api/public/gstruct-waitlist': typeof ApiPublicGstructWaitlistRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -267,6 +284,7 @@ export interface FileRoutesById {
   '/en': typeof EnRouteWithChildren
   '/enterprise': typeof EnterpriseRoute
   '/g-struct': typeof GStructRoute
+  '/inversores': typeof InversoresRoute
   '/login': typeof LoginRoute
   '/politicas-legales': typeof PoliticasLegalesRoute
   '/reestructura-1-1': typeof Reestructura11Route
@@ -285,6 +303,7 @@ export interface FileRoutesById {
   '/_admin/admin/reservas': typeof AdminAdminReservasRoute
   '/api/public/contact': typeof ApiPublicContactRoute
   '/api/public/diagnostico-submit': typeof ApiPublicDiagnosticoSubmitRoute
+  '/api/public/gstruct-waitlist': typeof ApiPublicGstructWaitlistRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -300,6 +319,7 @@ export interface FileRouteTypes {
     | '/en'
     | '/enterprise'
     | '/g-struct'
+    | '/inversores'
     | '/login'
     | '/politicas-legales'
     | '/reestructura-1-1'
@@ -318,6 +338,7 @@ export interface FileRouteTypes {
     | '/admin/reservas'
     | '/api/public/contact'
     | '/api/public/diagnostico-submit'
+    | '/api/public/gstruct-waitlist'
     | '/lovable/email/suppression'
     | '/lovable/email/queue/process'
     | '/lovable/email/transactional/preview'
@@ -331,6 +352,7 @@ export interface FileRouteTypes {
     | '/en'
     | '/enterprise'
     | '/g-struct'
+    | '/inversores'
     | '/login'
     | '/politicas-legales'
     | '/reestructura-1-1'
@@ -349,6 +371,7 @@ export interface FileRouteTypes {
     | '/admin/reservas'
     | '/api/public/contact'
     | '/api/public/diagnostico-submit'
+    | '/api/public/gstruct-waitlist'
     | '/lovable/email/suppression'
     | '/lovable/email/queue/process'
     | '/lovable/email/transactional/preview'
@@ -363,6 +386,7 @@ export interface FileRouteTypes {
     | '/en'
     | '/enterprise'
     | '/g-struct'
+    | '/inversores'
     | '/login'
     | '/politicas-legales'
     | '/reestructura-1-1'
@@ -381,6 +405,7 @@ export interface FileRouteTypes {
     | '/_admin/admin/reservas'
     | '/api/public/contact'
     | '/api/public/diagnostico-submit'
+    | '/api/public/gstruct-waitlist'
     | '/lovable/email/suppression'
     | '/lovable/email/queue/process'
     | '/lovable/email/transactional/preview'
@@ -396,6 +421,7 @@ export interface RootRouteChildren {
   EnRoute: typeof EnRouteWithChildren
   EnterpriseRoute: typeof EnterpriseRoute
   GStructRoute: typeof GStructRoute
+  InversoresRoute: typeof InversoresRoute
   LoginRoute: typeof LoginRoute
   PoliticasLegalesRoute: typeof PoliticasLegalesRoute
   Reestructura11Route: typeof Reestructura11Route
@@ -405,6 +431,7 @@ export interface RootRouteChildren {
   EmailUnsubscribeRoute: typeof EmailUnsubscribeRoute
   ApiPublicContactRoute: typeof ApiPublicContactRoute
   ApiPublicDiagnosticoSubmitRoute: typeof ApiPublicDiagnosticoSubmitRoute
+  ApiPublicGstructWaitlistRoute: typeof ApiPublicGstructWaitlistRoute
   LovableEmailSuppressionRoute: typeof LovableEmailSuppressionRoute
   LovableEmailQueueProcessRoute: typeof LovableEmailQueueProcessRoute
   LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
@@ -453,6 +480,13 @@ declare module '@tanstack/react-router' {
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/inversores': {
+      id: '/inversores'
+      path: '/inversores'
+      fullPath: '/inversores'
+      preLoaderRoute: typeof InversoresRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/g-struct': {
@@ -574,6 +608,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LovableEmailSuppressionRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/gstruct-waitlist': {
+      id: '/api/public/gstruct-waitlist'
+      path: '/api/public/gstruct-waitlist'
+      fullPath: '/api/public/gstruct-waitlist'
+      preLoaderRoute: typeof ApiPublicGstructWaitlistRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/diagnostico-submit': {
       id: '/api/public/diagnostico-submit'
       path: '/api/public/diagnostico-submit'
@@ -669,6 +710,7 @@ const rootRouteChildren: RootRouteChildren = {
   EnRoute: EnRouteWithChildren,
   EnterpriseRoute: EnterpriseRoute,
   GStructRoute: GStructRoute,
+  InversoresRoute: InversoresRoute,
   LoginRoute: LoginRoute,
   PoliticasLegalesRoute: PoliticasLegalesRoute,
   Reestructura11Route: Reestructura11Route,
@@ -678,6 +720,7 @@ const rootRouteChildren: RootRouteChildren = {
   EmailUnsubscribeRoute: EmailUnsubscribeRoute,
   ApiPublicContactRoute: ApiPublicContactRoute,
   ApiPublicDiagnosticoSubmitRoute: ApiPublicDiagnosticoSubmitRoute,
+  ApiPublicGstructWaitlistRoute: ApiPublicGstructWaitlistRoute,
   LovableEmailSuppressionRoute: LovableEmailSuppressionRoute,
   LovableEmailQueueProcessRoute: LovableEmailQueueProcessRoute,
   LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
@@ -686,13 +729,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

@@ -26,6 +26,10 @@ const DEFAULT_ES: FAQItem[] = [
     a: "Justamente esa es la función de la conversación inicial. No hace falta llegar con un diagnóstico previo; lo construimos juntos.",
   },
   {
+    q: "¿Estoy hablando con una startup o con una firma de coaching?",
+    a: "Con las dos — y eso es intencional. G-Structure es la metodología y el ecosistema de intervención humana (Enterprise, REESTRUCTURA, workshops). G-Struct es el producto tecnológico que lleva ese método a escala. Ambos comparten el mismo ADN: el método I-R-O, construido sobre metodología cognitivo-conductual aplicada al coaching de ejecución.",
+  },
+  {
     q: "¿Qué es G-Struct y cuándo estará disponible?",
     a: "G-Struct es la capa tecnológica del método, en desarrollo junto a ÉPICO. Aún no está disponible al público. Puedes sumarte a la lista de espera desde la página G-Struct.",
   },

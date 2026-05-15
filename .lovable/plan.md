@@ -1,64 +1,115 @@
-# Diagnóstico de Fricción Ejecutiva G-Structure (IGPE V1.1)
+## Overhaul de narrativa y arquitectura — g-structure.co
 
-Construcción de una herramienta diagnóstica privada completa con landing, test, cálculo, reporte, email automático, base de datos y panel admin.
+Cambio de posicionamiento: G-Struct pasa a ser producto principal (B2C SaaS), G-Structure Enterprise mantiene el B2B, y se añade una página de Inversores. Sin tocar identidad visual, paleta, tipografía, disclaimer legal, ETW 2026, brief PDF, FAQ existente, ni URLs actuales.
 
-## Alcance funcional
+---
 
-1. **Página privada** `/diagnostico-friccion-ejecutiva` (no en menú, footer ni sitemap; `noindex`).
-2. **Formulario inicial** de datos (obligatorios + opcionales) + 2 checkboxes de consentimiento + link a política de privacidad.
-3. **Test IGPE V1.1** mobile-first, tarjeta-por-pregunta, barra de progreso, botones Atrás/Siguiente, autosave en `localStorage`:
-   - Sección A: 40 ítems Likert (P, PE, AS, PI — 10 c/u)
-   - Sección B: hasta 3 triggers + intensidad 1–5
-   - Sección C: emociones 0–10 (top 3 cuentan)
-   - Sección D: hasta 3 conductas + frecuencia 1–5
-   - Sección E: 10 ítems impacto productivo 1–5
-4. **Cálculo** completo en cliente y verificación en servidor (fórmulas P_raw, %, PP, IP, IAE, ICR, IFE_GS, nivel, perfil mixto, dominante/secundario).
-5. **Reporte inmediato premium** con 7 secciones (resumen, barras, lectura funcional, impacto, pronóstico, ruta, CTAs WhatsApp + email). Texto generado desde catálogo de interpretaciones por patrón dominante y por perfil mixto (P+PE, P+PI, P+AS, PE+PI, PE+AS, AS+PI).
-6. **Email automático** al usuario vía sistema de app emails de Lovable Cloud (template React Email con branding G-Structure, asunto, resumen, CTAs WhatsApp).
-7. **Base de datos** Supabase: `diagnostic_users`, `diagnostic_responses`, `diagnostic_results`, `admin_followup_recommendations` con RLS estricta (solo admin lee; insert público vía server route con service role).
-8. **Panel admin** bajo `/admin/diagnosticos` (protegido por rol `admin` existente):
-   - Dashboard: total, IFE-GS promedio, distribución por patrón, por cargo/empresa, leads enterprise, alta/crítica fricción
-   - Lista filtrable (patrón, nivel, empresa, recomendación, fecha)
-   - Vista detalle con respuestas, resultados, reporte, ruta sugerida 4/6/8 semanas personalizada por patrón dominante, estado de seguimiento editable, copiar resumen WhatsApp, export CSV
-9. **Política de privacidad**: extender la página existente `politicas-legales.tsx` con sección específica del diagnóstico (datos recogidos, uso, no clínico, anonimización, eliminación, contacto).
+### 1. Navegación (`src/lib/routeMap.ts` + `src/components/site/Header.tsx`)
 
-## Detalles técnicos
+Nueva nav ES (orden exacto):
+`G-Struct · Enterprise · Método · Inversores · Nosotros · Contacto`
 
-### Backend
+- "Método" enlaza a `/#metodo` (sección home).
+- "Nosotros" enlaza a `/sobre-guillermo`.
+- "G-Struct" recibe tratamiento visual destacado (borde sutil / accent), manteniendo el design system.
+- Mobile: mismo orden, hamburguesa.
+- ES/EN switcher y barra ETW 2026: sin cambios.
 
-- **Migración Supabase**: 4 tablas + RLS (`admin` lee/edita todo, ninguna inserción anon directa) + trigger `updated_at` donde aplique.
-- **Server route público** `/api/public/diagnostico/submit`:
-  - Valida payload con Zod
-  - Verifica consentimientos
-  - Recalcula scoring server-side (fuente de verdad)
-  - Inserta `diagnostic_users` + `diagnostic_responses` + `diagnostic_results` + fila inicial `admin_followup_recommendations` con plan semanal según patrón/duración
-  - Encola email via `enqueue_email` (template `diagnostic-report`)
-  - Devuelve `{ id, results }` para mostrar reporte
-- **Server functions admin** (`requireSupabaseAuth` + verificación rol admin):
-  - `listDiagnostics(filters)`, `getDiagnostic(id)`, `updateFollowup(id, status, notes)`, `exportCsv()`
-- **Template email** `diagnostic-report.tsx` registrado en `registry.ts`. Requiere `setup_email_infra` ya activo (lo está).
+EN: añadir `/en/investors` análogo y reordenar nav EN equivalente (mínima paridad — placeholder OK si no hay copy EN).
 
-### Frontend
+---
 
-- Rutas nuevas:
-  - `src/routes/diagnostico-friccion-ejecutiva.tsx` (landing + flujo wizard)
-  - `src/routes/_admin/admin.diagnosticos.tsx` (lista)
-  - `src/routes/_admin/admin.diagnosticos.$id.tsx` (detalle)
-- Componentes en `src/components/diagnostic/`: `Landing`, `IntakeForm`, `ConsentStep`, `LikertCard`, `TriggersStep`, `EmotionsStep`, `BehaviorsStep`, `ImpactStep`, `ReviewStep`, `LoadingCalc`, `ReportView`, `ScoreBar`.
-- Catálogo de contenido en `src/lib/diagnostic/`: `items.ts` (40 Likert + listas), `scoring.ts` (fórmulas — usado en cliente y servidor), `interpretations.ts` (lecturas dominantes + 6 perfiles mixtos), `recommendations.ts` (programa + ruta semanal), `whatsapp.ts` (links).
-- `noindex` meta tag en la landing y exclusión de `sitemap.xml` y nav.
+### 2. Home (`src/routes/index.tsx`)
 
-### Branding
+Reordenar secciones y reescribir copy con los textos exactos del prompt:
 
-- Tokens G-Structure ya existentes en `src/styles.css` (azul `#05325a`, gris `#697783`, fondo `#f8f8f4`). Nada hardcodeado en componentes.
-- Disclaimer no-clínico visible en: landing, antes de test, reporte, email.
+1. **Hero** — eyebrow `G-STRUCTURE`, nuevo headline/body, dos CTAs (`Únete a G-Struct` → `/g-struct`, `Soluciones para equipos` → `/enterprise`). Conservar widget I-R-O.
+2. **El Problema** — copy nuevo + 5 cards de fricción (reusar diseño existente).
+3. **El Método I-R-O** — copy nuevo, conservar `MethodTabs`, añadir footnote CBT.
+4. **G-Struct (producto)** — nueva sección full-width: headline, 3 features, 3 tiers de pricing (Free / Plus destacado / VIP), badge "Prototipo activo · Lanzamiento Q3 2026", CTA grande a `/g-struct`, conservar `g-struct-home-preview`.
+5. **Enterprise** — nuevo label, headline y 4 service cards con CTAs.
+6. **ETW 2026** — sin cambios, reubicar.
+7. **Fundador** — sin cambios, reubicar.
+8. **Momentum (Aliados + Equipo)** — sin cambios, reubicar.
+9. **Brief descargable** — sin cambios, reubicar.
+10. **FAQ** — añadir nueva pregunta "¿Estoy hablando con una startup o con una firma de coaching?" con la respuesta provista.
+11. **Cierre** — nuevo headline/body + 2 CTAs.
 
-## Lo que voy a pedir aprobar primero
+Actualizar SEO meta del home (title, description, og:title, og:description) con los textos del prompt.
 
-Migración Supabase con las 4 tablas y RLS. Tras aprobación procedo con código en una sola tanda.
+---
 
-## Fuera de alcance (para confirmar luego)
+### 3. Reescritura de `/g-struct` (`src/routes/g-struct.tsx`)
 
-- Versión en inglés del diagnóstico
-- PDF descargable del reporte (puedo añadirlo después si lo necesitas; por ahora reporte en pantalla + email HTML)
-- Login separado para usuarios del diagnóstico (no es necesario; el admin usa el login existente)
+Reemplazar contenido por el nuevo briefing completo:
+- Hero (label "PROTOTIPO ACTIVO · LANZAMIENTO Q3 2026", nuevo headline "El coach CBT en tu bolsillo. 24/7.").
+- Sección "Motor de Reestructuración" con timeline de 5 pasos.
+- "Funcionalidades clave" — 4 bloques.
+- "Planes" — 3 columnas Free / Plus / VIP (id `#planes`).
+- "Lista de espera" — sección full-width con form de email (id `#lista-de-espera`). Form guarda en tabla nueva `gstruct_waitlist` vía server function.
+- Nota metodológica.
+
+SEO: nuevo title y meta description del prompt.
+
+---
+
+### 4. Nueva página `/inversores` (`src/routes/inversores.tsx`)
+
+Página minimal y seria con:
+- Hero "Pre-seed 2026".
+- "La oportunidad" — 3 stat cards ($67.94B, 75%, 33.37%) con citas.
+- "El producto" — copy + 3 diferenciadores.
+- "Tracción y hoja de ruta" — timeline 4 milestones.
+- "La ronda" — 3 stat cards ($75K / $750K pre-money / 10%).
+- "El equipo" — Guillermo + Jericko.
+- CTA final con dos botones (mailto deck + `/contacto`) y disclaimer legal.
+
+SEO: title/meta del prompt.
+
+---
+
+### 5. Backend: lista de espera G-Struct
+
+- Migración Supabase: tabla `gstruct_waitlist` (id, email unique, source, locale, created_at) con RLS (insert público con rate-limit por email; select solo admin via `has_role`).
+- Server route público `src/routes/api/public/gstruct-waitlist.ts` con validación Zod (email, honeypot opcional) que inserta vía `supabaseAdmin`.
+- Form en `/g-struct` consume el endpoint, dispara `trackConversion("gstruct_waitlist_signup")` y muestra toast.
+
+---
+
+### 6. Footer (`src/components/site/Footer.tsx`)
+
+Reestructurar columnas:
+- **Producto:** G-Struct, Lista de espera (`/g-struct#lista-de-espera`), Planes (`/g-struct#planes`).
+- **Enterprise:** Workshop, REESTRUCTURA Enterprise, REESTRUCTURA 1:1, Continuidad.
+- **Ecosistema:** Inversores, Aliados ETW 2026, Únete al equipo, Descargar brief.
+- **Contacto:** intacto.
+- Línea legal: intacta.
+
+---
+
+### 7. Verificación
+
+- `tsc` pass tras cada bloque grande.
+- Sitemap.xml: añadir `/inversores`.
+- robots.txt: sin cambios (página pública).
+- Comprobar que canonicals y `og:url` apuntan a `https://g-structure.co/...`.
+
+---
+
+### Archivos a tocar
+
+Modificar:
+- `src/routes/index.tsx`
+- `src/routes/g-struct.tsx`
+- `src/components/site/Header.tsx`
+- `src/components/site/Footer.tsx`
+- `src/lib/routeMap.ts`
+- `src/components/site/FAQ.tsx` (añadir pregunta)
+- `public/sitemap.xml`
+
+Crear:
+- `src/routes/inversores.tsx`
+- `src/routes/api/public/gstruct-waitlist.ts`
+- `supabase/migrations/<timestamp>_gstruct_waitlist.sql`
+
+No tocar: identidad visual, tokens, ETW bar, brief PDF, disclaimer, FAQ existente (solo se añade una pregunta), URLs actuales.

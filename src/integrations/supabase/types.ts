@@ -491,6 +491,33 @@ export type Database = {
         }
         Relationships: []
       }
+      gstruct_waitlist: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          locale: string | null
+          metadata: Json | null
+          source: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          locale?: string | null
+          metadata?: Json | null
+          source?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          locale?: string | null
+          metadata?: Json | null
+          source?: string | null
+        }
+        Relationships: []
+      }
       suppressed_emails: {
         Row: {
           created_at: string
