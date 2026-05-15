@@ -393,16 +393,16 @@ function Page() {
           <div className="grid gap-14 lg:grid-cols-12 lg:gap-12 items-center">
             <div className="lg:col-span-8">
               <div className="border-l-2 border-[color:var(--color-brand)] pl-4">
-                <Eyebrow className="!mt-0">INVERSORES · PRE-SEED 2026</Eyebrow>
+                <Eyebrow className="!mt-0">INVERSORES · PRE-SEED 2026 · CORE ASSET: G-STRUCT</Eyebrow>
               </div>
               <h1 className="mt-8 max-w-3xl font-display text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.05] text-foreground">
-                El primer OS cognitivo-conductual para LATAM está levantando su primera ronda.
+                G-Structure está construyendo G-Struct: una plataforma cognitivo-conductual escalable para LATAM.
               </h1>
               <div className="mt-10 h-px w-24 bg-[color:var(--color-brand)]" aria-hidden />
               <p className="mt-10 max-w-2xl text-base md:text-lg text-muted-foreground leading-relaxed">
                 G-Struct combina metodología CBT coaching validada, inteligencia artificial y un modelo
-                freemium para llevar coaching de ejecución de alto nivel al emprendedor latinoamericano —
-                a una fracción del costo de las alternativas globales.
+                freemium. Los servicios <strong className="text-foreground">1:1, Enterprise y Workshop</strong> operan como
+                canales de validación, datos cualitativos y revenue temprano para construir el producto.
               </p>
             </div>
             <div className="lg:col-span-4 flex justify-center lg:justify-end">
