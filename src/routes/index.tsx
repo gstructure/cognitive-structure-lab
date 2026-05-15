@@ -491,6 +491,10 @@ function Method() {
       <div className="relative">
         <MethodTabs />
       </div>
+      <p className="relative mt-10 max-w-3xl text-xs md:text-[13px] text-[color:var(--color-background)]/60 leading-relaxed">
+        El método I-R-O está basado en principios de la Terapia Cognitivo-Conductual (CBT), adaptados
+        a contextos de ejecución profesional. No constituye terapia ni sustituye atención clínica.
+      </p>
     </Section>
   );
 }
