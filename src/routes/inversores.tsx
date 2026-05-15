@@ -373,7 +373,7 @@ function Page() {
               Agendar conversación
             </CTALink>
           </div>
-          <p className="mx-auto mt-12 max-w-2xl text-xs text-[color:var(--color-background)]/60 leading-relaxed">
+          <p className="mx-auto mt-12 max-w-2xl text-xs text-[color:var(--color-background)]/75 leading-relaxed">
             Esta página contiene información preliminar para inversores calificados. No constituye
             una oferta pública de valores.
           </p>
