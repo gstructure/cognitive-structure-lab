@@ -32,6 +32,7 @@ import { Route as EnEnterpriseRouteImport } from './routes/en.enterprise'
 import { Route as EnContactRouteImport } from './routes/en.contact'
 import { Route as EnAboutGuillermoRouteImport } from './routes/en.about-guillermo'
 import { Route as EmailUnsubscribeRouteImport } from './routes/email/unsubscribe'
+import { Route as AdminAdminIndexRouteImport } from './routes/_admin/admin.index'
 import { Route as LovableEmailSuppressionRouteImport } from './routes/lovable/email/suppression'
 import { Route as ApiPublicGstructWaitlistRouteImport } from './routes/api/public/gstruct-waitlist'
 import { Route as ApiPublicDiagnosticoSubmitRouteImport } from './routes/api/public/diagnostico-submit'
@@ -158,6 +159,11 @@ const EmailUnsubscribeRoute = EmailUnsubscribeRouteImport.update({
   path: '/email/unsubscribe',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminAdminIndexRoute = AdminAdminIndexRouteImport.update({
+  id: '/admin/',
+  path: '/admin/',
+  getParentRoute: () => AdminRoute,
+} as any)
 const LovableEmailSuppressionRoute = LovableEmailSuppressionRouteImport.update({
   id: '/lovable/email/suppression',
   path: '/lovable/email/suppression',
@@ -244,6 +250,7 @@ export interface FileRoutesByFullPath {
   '/api/public/diagnostico-submit': typeof ApiPublicDiagnosticoSubmitRoute
   '/api/public/gstruct-waitlist': typeof ApiPublicGstructWaitlistRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
+  '/admin/': typeof AdminAdminIndexRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
   '/lovable/email/transactional/send': typeof LovableEmailTransactionalSendRoute
@@ -278,6 +285,7 @@ export interface FileRoutesByTo {
   '/api/public/diagnostico-submit': typeof ApiPublicDiagnosticoSubmitRoute
   '/api/public/gstruct-waitlist': typeof ApiPublicGstructWaitlistRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
+  '/admin': typeof AdminAdminIndexRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
   '/lovable/email/transactional/send': typeof LovableEmailTransactionalSendRoute
@@ -314,6 +322,7 @@ export interface FileRoutesById {
   '/api/public/diagnostico-submit': typeof ApiPublicDiagnosticoSubmitRoute
   '/api/public/gstruct-waitlist': typeof ApiPublicGstructWaitlistRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
+  '/_admin/admin/': typeof AdminAdminIndexRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
   '/lovable/email/transactional/send': typeof LovableEmailTransactionalSendRoute
@@ -350,6 +359,7 @@ export interface FileRouteTypes {
     | '/api/public/diagnostico-submit'
     | '/api/public/gstruct-waitlist'
     | '/lovable/email/suppression'
+    | '/admin/'
     | '/lovable/email/queue/process'
     | '/lovable/email/transactional/preview'
     | '/lovable/email/transactional/send'
@@ -384,6 +394,7 @@ export interface FileRouteTypes {
     | '/api/public/diagnostico-submit'
     | '/api/public/gstruct-waitlist'
     | '/lovable/email/suppression'
+    | '/admin'
     | '/lovable/email/queue/process'
     | '/lovable/email/transactional/preview'
     | '/lovable/email/transactional/send'
@@ -419,6 +430,7 @@ export interface FileRouteTypes {
     | '/api/public/diagnostico-submit'
     | '/api/public/gstruct-waitlist'
     | '/lovable/email/suppression'
+    | '/_admin/admin/'
     | '/lovable/email/queue/process'
     | '/lovable/email/transactional/preview'
     | '/lovable/email/transactional/send'
@@ -613,6 +625,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EmailUnsubscribeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_admin/admin/': {
+      id: '/_admin/admin/'
+      path: '/admin'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminAdminIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/lovable/email/suppression': {
       id: '/lovable/email/suppression'
       path: '/lovable/email/suppression'
@@ -690,12 +709,14 @@ interface AdminRouteChildren {
   AdminAdminDiagnosticosRoute: typeof AdminAdminDiagnosticosRoute
   AdminAdminReservasRoute: typeof AdminAdminReservasRoute
   AdminAdminWaitlistRoute: typeof AdminAdminWaitlistRoute
+  AdminAdminIndexRoute: typeof AdminAdminIndexRoute
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
   AdminAdminDiagnosticosRoute: AdminAdminDiagnosticosRoute,
   AdminAdminReservasRoute: AdminAdminReservasRoute,
   AdminAdminWaitlistRoute: AdminAdminWaitlistRoute,
+  AdminAdminIndexRoute: AdminAdminIndexRoute,
 }
 
 const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
