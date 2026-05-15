@@ -13,6 +13,7 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { LocaleProvider } from "@/lib/i18n";
 import { WhatsAppFAB } from "@/components/site/WhatsAppFAB";
+import { ScrollTopButton } from "@/components/site/ScrollTopButton";
 
 function NotFoundComponent() {
   return (
@@ -136,6 +137,7 @@ function RootComponent() {
           </main>
           <Footer />
           <WhatsAppFAB />
+          <ScrollTopButton />
         </div>
       </LocaleProvider>
     </QueryClientProvider>

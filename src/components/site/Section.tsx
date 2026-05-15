@@ -14,7 +14,7 @@ const toneClass: Record<NonNullable<SectionProps["tone"]>, string> = {
 
 export function Section({ children, id, tone = "default", className }: SectionProps) {
   return (
-    <section id={id} className={`relative py-20 md:py-28 ${toneClass[tone]} ${className ?? ""}`}>
+    <section id={id} className={`relative py-12 md:py-28 ${toneClass[tone]} ${className ?? ""}`}>
       <div className="container-x">{children}</div>
     </section>
   );
