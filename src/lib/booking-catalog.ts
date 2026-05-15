@@ -39,8 +39,8 @@ export const PACKAGES: BookablePackage[] = [
     kind: "1on1",
     sessions: "8 sesiones",
     duration: "8 semanas",
-    priceUsd: 360,
-    priceLabel: "USD 360",
+    priceUsd: 640,
+    priceLabel: "USD 640",
     description: "Cambio profundo. 8 videollamadas + sesión de revisión a los 30 días.",
   },
   {
