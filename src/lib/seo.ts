@@ -60,15 +60,22 @@ export function buildSeo({
 // ES/EN counterpart so /enterprise and /en/enterprise cross-reference each
 // other correctly (instead of the legacy ?lang=en hack).
 export function canonicalLink(path: string) {
-  // Local import to avoid a cycle at module init.
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const { ROUTES } = require("./routeMap") as typeof import("./routeMap");
+export function canonicalLink(path: string) {
   const clean = path.split(/[?#]/)[0] || "/";
   const abs = (p: string) => `${SITE_URL}${p === "/" ? "" : p}`;
 
   const entry = ROUTES.find((r) => r.es === clean || r.en === clean);
-  const esPath = entry?.es ?? (clean.startsWith("/en/") ? clean.slice(3) || "/" : clean);
+  const esPath = entry?.es ?? (clean.startsWith("/en/") ? clean.slice(3) || "/" : clean === "/en" ? "/" : clean);
   const enPath = entry?.en ?? (clean.startsWith("/en") ? clean : `/en${clean === "/" ? "" : clean}`);
+
+  return [
+    { rel: "canonical", href: abs(clean) },
+    { rel: "alternate", hrefLang: "es", href: abs(esPath) },
+    { rel: "alternate", hrefLang: "es-EC", href: abs(esPath) },
+    { rel: "alternate", hrefLang: "en", href: abs(enPath) },
+    { rel: "alternate", hrefLang: "x-default", href: abs(esPath) },
+  ];
+}
 
   return [
     { rel: "canonical", href: abs(clean) },
