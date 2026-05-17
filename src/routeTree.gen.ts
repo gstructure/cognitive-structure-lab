@@ -26,6 +26,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as EnIndexRouteImport } from './routes/en.index'
 import { Route as EnRestructure11RouteImport } from './routes/en.restructure-1-1'
 import { Route as EnJoinTheTeamRouteImport } from './routes/en.join-the-team'
+import { Route as EnInvestorsRouteImport } from './routes/en.investors'
 import { Route as EnGStructRouteImport } from './routes/en.g-struct'
 import { Route as EnEtw2026PartnersRouteImport } from './routes/en.etw-2026-partners'
 import { Route as EnEnterpriseRouteImport } from './routes/en.enterprise'
@@ -128,6 +129,11 @@ const EnRestructure11Route = EnRestructure11RouteImport.update({
 const EnJoinTheTeamRoute = EnJoinTheTeamRouteImport.update({
   id: '/en/join-the-team',
   path: '/en/join-the-team',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnInvestorsRoute = EnInvestorsRouteImport.update({
+  id: '/en/investors',
+  path: '/en/investors',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EnGStructRoute = EnGStructRouteImport.update({
@@ -247,6 +253,7 @@ export interface FileRoutesByFullPath {
   '/en/enterprise': typeof EnEnterpriseRoute
   '/en/etw-2026-partners': typeof EnEtw2026PartnersRoute
   '/en/g-struct': typeof EnGStructRoute
+  '/en/investors': typeof EnInvestorsRoute
   '/en/join-the-team': typeof EnJoinTheTeamRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
   '/en/': typeof EnIndexRoute
@@ -283,6 +290,7 @@ export interface FileRoutesByTo {
   '/en/enterprise': typeof EnEnterpriseRoute
   '/en/etw-2026-partners': typeof EnEtw2026PartnersRoute
   '/en/g-struct': typeof EnGStructRoute
+  '/en/investors': typeof EnInvestorsRoute
   '/en/join-the-team': typeof EnJoinTheTeamRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
   '/en': typeof EnIndexRoute
@@ -321,6 +329,7 @@ export interface FileRoutesById {
   '/en/enterprise': typeof EnEnterpriseRoute
   '/en/etw-2026-partners': typeof EnEtw2026PartnersRoute
   '/en/g-struct': typeof EnGStructRoute
+  '/en/investors': typeof EnInvestorsRoute
   '/en/join-the-team': typeof EnJoinTheTeamRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
   '/en/': typeof EnIndexRoute
@@ -359,6 +368,7 @@ export interface FileRouteTypes {
     | '/en/enterprise'
     | '/en/etw-2026-partners'
     | '/en/g-struct'
+    | '/en/investors'
     | '/en/join-the-team'
     | '/en/restructure-1-1'
     | '/en/'
@@ -395,6 +405,7 @@ export interface FileRouteTypes {
     | '/en/enterprise'
     | '/en/etw-2026-partners'
     | '/en/g-struct'
+    | '/en/investors'
     | '/en/join-the-team'
     | '/en/restructure-1-1'
     | '/en'
@@ -432,6 +443,7 @@ export interface FileRouteTypes {
     | '/en/enterprise'
     | '/en/etw-2026-partners'
     | '/en/g-struct'
+    | '/en/investors'
     | '/en/join-the-team'
     | '/en/restructure-1-1'
     | '/en/'
@@ -470,6 +482,7 @@ export interface RootRouteChildren {
   EnEnterpriseRoute: typeof EnEnterpriseRoute
   EnEtw2026PartnersRoute: typeof EnEtw2026PartnersRoute
   EnGStructRoute: typeof EnGStructRoute
+  EnInvestorsRoute: typeof EnInvestorsRoute
   EnJoinTheTeamRoute: typeof EnJoinTheTeamRoute
   EnRestructure11Route: typeof EnRestructure11Route
   EnIndexRoute: typeof EnIndexRoute
@@ -602,6 +615,13 @@ declare module '@tanstack/react-router' {
       path: '/en/join-the-team'
       fullPath: '/en/join-the-team'
       preLoaderRoute: typeof EnJoinTheTeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/investors': {
+      id: '/en/investors'
+      path: '/en/investors'
+      fullPath: '/en/investors'
+      preLoaderRoute: typeof EnInvestorsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/en/g-struct': {
@@ -770,6 +790,7 @@ const rootRouteChildren: RootRouteChildren = {
   EnEnterpriseRoute: EnEnterpriseRoute,
   EnEtw2026PartnersRoute: EnEtw2026PartnersRoute,
   EnGStructRoute: EnGStructRoute,
+  EnInvestorsRoute: EnInvestorsRoute,
   EnJoinTheTeamRoute: EnJoinTheTeamRoute,
   EnRestructure11Route: EnRestructure11Route,
   EnIndexRoute: EnIndexRoute,
