@@ -13,7 +13,7 @@ export const ROUTES: RouteEntry[] = [
   { es: "/g-struct", en: "/en/g-struct", label: { es: "G-Struct", en: "G-Struct" } },
   { es: "/enterprise", en: "/en/enterprise", label: { es: "Enterprise", en: "Enterprise" } },
   { es: "/reestructura-1-1", en: "/en/restructure-1-1", label: { es: "REESTRUCTURA 1:1", en: "RESTRUCTURE 1:1" } },
-  { es: "/inversores", en: "/inversores", label: { es: "Inversores", en: "Investors" } },
+  { es: "/inversores", en: "/en/investors", label: { es: "Inversores", en: "Investors" } },
   { es: "/sobre-guillermo", en: "/en/about-guillermo", label: { es: "Nosotros", en: "About" } },
   { es: "/contacto", en: "/en/contact", label: { es: "Contacto", en: "Contact" } },
   { es: "/aliados-etw-2026", en: "/en/etw-2026-partners", label: { es: "Aliados ETW 2026", en: "ETW 2026 Partners" } },
