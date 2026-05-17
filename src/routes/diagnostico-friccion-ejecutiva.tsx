@@ -222,10 +222,10 @@ function Intake({ user, setUser, canContinue, onNext }: { user: UserData; setUse
           <Field label="Cargo / rol actual *"><Input value={user.role} onChange={(e) => set("role", e.target.value)} required /></Field>
           <Field label="Área o departamento *"><Input value={user.department} onChange={(e) => set("department", e.target.value)} required /></Field>
           <Field label="Nivel de responsabilidad *">
-            <SelectNative value={user.responsibility_level} onChange={(v) => set("responsibility_level", v)} options={RESPONSIBILITY_LEVELS} />
+            <SelectNative value={user.responsibility_level} onChange={(v) => set("responsibility_level", v)} options={["", ...RESPONSIBILITY_LEVELS]} />
           </Field>
           <Field label="Principal motivo *" full>
-            <SelectNative value={user.main_reason} onChange={(v) => set("main_reason", v)} options={MAIN_REASONS} />
+            <SelectNative value={user.main_reason} onChange={(v) => set("main_reason", v)} options={["", ...MAIN_REASONS]} />
           </Field>
         </Grid>
       </Card>
