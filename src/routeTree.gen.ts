@@ -18,12 +18,12 @@ import { Route as LoginRouteImport } from './routes/login'
 import { Route as InversoresRouteImport } from './routes/inversores'
 import { Route as GStructRouteImport } from './routes/g-struct'
 import { Route as EnterpriseRouteImport } from './routes/enterprise'
-import { Route as EnRouteImport } from './routes/en'
 import { Route as DiagnosticoFriccionEjecutivaRouteImport } from './routes/diagnostico-friccion-ejecutiva'
 import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as AliadosEtw2026RouteImport } from './routes/aliados-etw-2026'
 import { Route as AdminRouteImport } from './routes/_admin'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as EnIndexRouteImport } from './routes/en.index'
 import { Route as EnRestructure11RouteImport } from './routes/en.restructure-1-1'
 import { Route as EnJoinTheTeamRouteImport } from './routes/en.join-the-team'
 import { Route as EnGStructRouteImport } from './routes/en.g-struct'
@@ -90,11 +90,6 @@ const EnterpriseRoute = EnterpriseRouteImport.update({
   path: '/enterprise',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EnRoute = EnRouteImport.update({
-  id: '/en',
-  path: '/en',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const DiagnosticoFriccionEjecutivaRoute =
   DiagnosticoFriccionEjecutivaRouteImport.update({
     id: '/diagnostico-friccion-ejecutiva',
@@ -118,6 +113,11 @@ const AdminRoute = AdminRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnIndexRoute = EnIndexRouteImport.update({
+  id: '/en/',
+  path: '/en/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EnRestructure11Route = EnRestructure11RouteImport.update({
@@ -232,7 +232,6 @@ export interface FileRoutesByFullPath {
   '/aliados-etw-2026': typeof AliadosEtw2026Route
   '/contacto': typeof ContactoRoute
   '/diagnostico-friccion-ejecutiva': typeof DiagnosticoFriccionEjecutivaRoute
-  '/en': typeof EnRouteWithChildren
   '/enterprise': typeof EnterpriseRoute
   '/g-struct': typeof GStructRoute
   '/inversores': typeof InversoresRoute
@@ -250,6 +249,7 @@ export interface FileRoutesByFullPath {
   '/en/g-struct': typeof EnGStructRoute
   '/en/join-the-team': typeof EnJoinTheTeamRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
+  '/en/': typeof EnIndexRoute
   '/admin/diagnosticos': typeof AdminAdminDiagnosticosRoute
   '/admin/reservas': typeof AdminAdminReservasRoute
   '/admin/waitlist': typeof AdminAdminWaitlistRoute
@@ -268,7 +268,6 @@ export interface FileRoutesByTo {
   '/aliados-etw-2026': typeof AliadosEtw2026Route
   '/contacto': typeof ContactoRoute
   '/diagnostico-friccion-ejecutiva': typeof DiagnosticoFriccionEjecutivaRoute
-  '/en': typeof EnRouteWithChildren
   '/enterprise': typeof EnterpriseRoute
   '/g-struct': typeof GStructRoute
   '/inversores': typeof InversoresRoute
@@ -286,6 +285,7 @@ export interface FileRoutesByTo {
   '/en/g-struct': typeof EnGStructRoute
   '/en/join-the-team': typeof EnJoinTheTeamRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
+  '/en': typeof EnIndexRoute
   '/admin/diagnosticos': typeof AdminAdminDiagnosticosRoute
   '/admin/reservas': typeof AdminAdminReservasRoute
   '/admin/waitlist': typeof AdminAdminWaitlistRoute
@@ -306,7 +306,6 @@ export interface FileRoutesById {
   '/aliados-etw-2026': typeof AliadosEtw2026Route
   '/contacto': typeof ContactoRoute
   '/diagnostico-friccion-ejecutiva': typeof DiagnosticoFriccionEjecutivaRoute
-  '/en': typeof EnRouteWithChildren
   '/enterprise': typeof EnterpriseRoute
   '/g-struct': typeof GStructRoute
   '/inversores': typeof InversoresRoute
@@ -324,6 +323,7 @@ export interface FileRoutesById {
   '/en/g-struct': typeof EnGStructRoute
   '/en/join-the-team': typeof EnJoinTheTeamRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
+  '/en/': typeof EnIndexRoute
   '/_admin/admin/diagnosticos': typeof AdminAdminDiagnosticosRoute
   '/_admin/admin/reservas': typeof AdminAdminReservasRoute
   '/_admin/admin/waitlist': typeof AdminAdminWaitlistRoute
@@ -344,7 +344,6 @@ export interface FileRouteTypes {
     | '/aliados-etw-2026'
     | '/contacto'
     | '/diagnostico-friccion-ejecutiva'
-    | '/en'
     | '/enterprise'
     | '/g-struct'
     | '/inversores'
@@ -362,6 +361,7 @@ export interface FileRouteTypes {
     | '/en/g-struct'
     | '/en/join-the-team'
     | '/en/restructure-1-1'
+    | '/en/'
     | '/admin/diagnosticos'
     | '/admin/reservas'
     | '/admin/waitlist'
@@ -380,7 +380,6 @@ export interface FileRouteTypes {
     | '/aliados-etw-2026'
     | '/contacto'
     | '/diagnostico-friccion-ejecutiva'
-    | '/en'
     | '/enterprise'
     | '/g-struct'
     | '/inversores'
@@ -398,6 +397,7 @@ export interface FileRouteTypes {
     | '/en/g-struct'
     | '/en/join-the-team'
     | '/en/restructure-1-1'
+    | '/en'
     | '/admin/diagnosticos'
     | '/admin/reservas'
     | '/admin/waitlist'
@@ -417,7 +417,6 @@ export interface FileRouteTypes {
     | '/aliados-etw-2026'
     | '/contacto'
     | '/diagnostico-friccion-ejecutiva'
-    | '/en'
     | '/enterprise'
     | '/g-struct'
     | '/inversores'
@@ -435,6 +434,7 @@ export interface FileRouteTypes {
     | '/en/g-struct'
     | '/en/join-the-team'
     | '/en/restructure-1-1'
+    | '/en/'
     | '/_admin/admin/diagnosticos'
     | '/_admin/admin/reservas'
     | '/_admin/admin/waitlist'
@@ -455,7 +455,6 @@ export interface RootRouteChildren {
   AliadosEtw2026Route: typeof AliadosEtw2026Route
   ContactoRoute: typeof ContactoRoute
   DiagnosticoFriccionEjecutivaRoute: typeof DiagnosticoFriccionEjecutivaRoute
-  EnRoute: typeof EnRouteWithChildren
   EnterpriseRoute: typeof EnterpriseRoute
   GStructRoute: typeof GStructRoute
   InversoresRoute: typeof InversoresRoute
@@ -466,6 +465,7 @@ export interface RootRouteChildren {
   UneteAlEquipoRoute: typeof UneteAlEquipoRoute
   UnsubscribeRoute: typeof UnsubscribeRoute
   EmailUnsubscribeRoute: typeof EmailUnsubscribeRoute
+  EnIndexRoute: typeof EnIndexRoute
   ApiPublicContactRoute: typeof ApiPublicContactRoute
   ApiPublicDiagnosticoSubmitRoute: typeof ApiPublicDiagnosticoSubmitRoute
   ApiPublicGstructWaitlistRoute: typeof ApiPublicGstructWaitlistRoute
@@ -541,13 +541,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnterpriseRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/en': {
-      id: '/en'
-      path: '/en'
-      fullPath: '/en'
-      preLoaderRoute: typeof EnRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/diagnostico-friccion-ejecutiva': {
       id: '/diagnostico-friccion-ejecutiva'
       path: '/diagnostico-friccion-ejecutiva'
@@ -581,6 +574,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/': {
+      id: '/en/'
+      path: '/en'
+      fullPath: '/en/'
+      preLoaderRoute: typeof EnIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/en/restructure-1-1': {
@@ -742,35 +742,12 @@ const AdminRouteChildren: AdminRouteChildren = {
 
 const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
 
-interface EnRouteChildren {
-  EnAboutGuillermoRoute: typeof EnAboutGuillermoRoute
-  EnContactRoute: typeof EnContactRoute
-  EnEnterpriseRoute: typeof EnEnterpriseRoute
-  EnEtw2026PartnersRoute: typeof EnEtw2026PartnersRoute
-  EnGStructRoute: typeof EnGStructRoute
-  EnJoinTheTeamRoute: typeof EnJoinTheTeamRoute
-  EnRestructure11Route: typeof EnRestructure11Route
-}
-
-const EnRouteChildren: EnRouteChildren = {
-  EnAboutGuillermoRoute: EnAboutGuillermoRoute,
-  EnContactRoute: EnContactRoute,
-  EnEnterpriseRoute: EnEnterpriseRoute,
-  EnEtw2026PartnersRoute: EnEtw2026PartnersRoute,
-  EnGStructRoute: EnGStructRoute,
-  EnJoinTheTeamRoute: EnJoinTheTeamRoute,
-  EnRestructure11Route: EnRestructure11Route,
-}
-
-const EnRouteWithChildren = EnRoute._addFileChildren(EnRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdminRoute: AdminRouteWithChildren,
   AliadosEtw2026Route: AliadosEtw2026Route,
   ContactoRoute: ContactoRoute,
   DiagnosticoFriccionEjecutivaRoute: DiagnosticoFriccionEjecutivaRoute,
-  EnRoute: EnRouteWithChildren,
   EnterpriseRoute: EnterpriseRoute,
   GStructRoute: GStructRoute,
   InversoresRoute: InversoresRoute,
@@ -781,6 +758,7 @@ const rootRouteChildren: RootRouteChildren = {
   UneteAlEquipoRoute: UneteAlEquipoRoute,
   UnsubscribeRoute: UnsubscribeRoute,
   EmailUnsubscribeRoute: EmailUnsubscribeRoute,
+  EnIndexRoute: EnIndexRoute,
   ApiPublicContactRoute: ApiPublicContactRoute,
   ApiPublicDiagnosticoSubmitRoute: ApiPublicDiagnosticoSubmitRoute,
   ApiPublicGstructWaitlistRoute: ApiPublicGstructWaitlistRoute,
