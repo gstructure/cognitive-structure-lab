@@ -16,7 +16,7 @@ const HOME_FAQ_EN = [
   { q: "What is G-Struct?", a: "The technological layer of the G-Structure method: a digital tool in development for logging patterns, structuring exercises, and sustaining practice between sessions." },
 ];
 
-export const Route = createFileRoute("/en")({
+export const Route = createFileRoute("/en/")({
   head: () => ({
     meta: buildSeo({
       path: "/en",
