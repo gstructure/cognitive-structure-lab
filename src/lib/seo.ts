@@ -1,5 +1,6 @@
 // Centralized SEO helpers for G-Structure
 // Builds meta arrays (OG, Twitter, canonical) and JSON-LD blocks.
+import { ROUTES } from "./routeMap";
 
 export const SITE_URL = "https://www.g-structure.co";
 export const SITE_NAME = "G-Structure";
@@ -55,13 +56,23 @@ export function buildSeo({
   ];
 }
 
+// Builds canonical + hreflang alternates. Uses ROUTES map to resolve the
+// ES/EN counterpart so /enterprise and /en/enterprise cross-reference each
+// other correctly (instead of the legacy ?lang=en hack).
 export function canonicalLink(path: string) {
-  const url = `${SITE_URL}${path === "/" ? "" : path}`;
+  const clean = path.split(/[?#]/)[0] || "/";
+  const abs = (p: string) => `${SITE_URL}${p === "/" ? "" : p}`;
+
+  const entry = ROUTES.find((r) => r.es === clean || r.en === clean);
+  const esPath = entry?.es ?? (clean.startsWith("/en/") ? clean.slice(3) || "/" : clean === "/en" ? "/" : clean);
+  const enPath = entry?.en ?? (clean.startsWith("/en") ? clean : `/en${clean === "/" ? "" : clean}`);
+
   return [
-    { rel: "canonical", href: url },
-    { rel: "alternate", hrefLang: "es", href: url },
-    { rel: "alternate", hrefLang: "en", href: `${url}?lang=en` },
-    { rel: "alternate", hrefLang: "x-default", href: url },
+    { rel: "canonical", href: abs(clean) },
+    { rel: "alternate", hrefLang: "es", href: abs(esPath) },
+    { rel: "alternate", hrefLang: "es-EC", href: abs(esPath) },
+    { rel: "alternate", hrefLang: "en", href: abs(enPath) },
+    { rel: "alternate", hrefLang: "x-default", href: abs(esPath) },
   ];
 }
 
