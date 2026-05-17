@@ -980,7 +980,7 @@ function FinalCTA() {
   );
 }
 
-function Index() {
+export function Index() {
   return (
     <>
       <Hero />
