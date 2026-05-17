@@ -122,14 +122,14 @@ const EnIndexRoute = EnIndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const EnRestructure11Route = EnRestructure11RouteImport.update({
-  id: '/restructure-1-1',
-  path: '/restructure-1-1',
-  getParentRoute: () => EnRoute,
+  id: '/en/restructure-1-1',
+  path: '/en/restructure-1-1',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const EnJoinTheTeamRoute = EnJoinTheTeamRouteImport.update({
-  id: '/join-the-team',
-  path: '/join-the-team',
-  getParentRoute: () => EnRoute,
+  id: '/en/join-the-team',
+  path: '/en/join-the-team',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const EnInvestorsRoute = EnInvestorsRouteImport.update({
   id: '/en/investors',
@@ -137,29 +137,29 @@ const EnInvestorsRoute = EnInvestorsRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const EnGStructRoute = EnGStructRouteImport.update({
-  id: '/g-struct',
-  path: '/g-struct',
-  getParentRoute: () => EnRoute,
+  id: '/en/g-struct',
+  path: '/en/g-struct',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const EnEtw2026PartnersRoute = EnEtw2026PartnersRouteImport.update({
-  id: '/etw-2026-partners',
-  path: '/etw-2026-partners',
-  getParentRoute: () => EnRoute,
+  id: '/en/etw-2026-partners',
+  path: '/en/etw-2026-partners',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const EnEnterpriseRoute = EnEnterpriseRouteImport.update({
-  id: '/enterprise',
-  path: '/enterprise',
-  getParentRoute: () => EnRoute,
+  id: '/en/enterprise',
+  path: '/en/enterprise',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const EnContactRoute = EnContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => EnRoute,
+  id: '/en/contact',
+  path: '/en/contact',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const EnAboutGuillermoRoute = EnAboutGuillermoRouteImport.update({
-  id: '/about-guillermo',
-  path: '/about-guillermo',
-  getParentRoute: () => EnRoute,
+  id: '/en/about-guillermo',
+  path: '/en/about-guillermo',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const EmailUnsubscribeRoute = EmailUnsubscribeRouteImport.update({
   id: '/email/unsubscribe',
@@ -477,7 +477,14 @@ export interface RootRouteChildren {
   UneteAlEquipoRoute: typeof UneteAlEquipoRoute
   UnsubscribeRoute: typeof UnsubscribeRoute
   EmailUnsubscribeRoute: typeof EmailUnsubscribeRoute
+  EnAboutGuillermoRoute: typeof EnAboutGuillermoRoute
+  EnContactRoute: typeof EnContactRoute
+  EnEnterpriseRoute: typeof EnEnterpriseRoute
+  EnEtw2026PartnersRoute: typeof EnEtw2026PartnersRoute
+  EnGStructRoute: typeof EnGStructRoute
   EnInvestorsRoute: typeof EnInvestorsRoute
+  EnJoinTheTeamRoute: typeof EnJoinTheTeamRoute
+  EnRestructure11Route: typeof EnRestructure11Route
   EnIndexRoute: typeof EnIndexRoute
   ApiPublicContactRoute: typeof ApiPublicContactRoute
   ApiPublicDiagnosticoSubmitRoute: typeof ApiPublicDiagnosticoSubmitRoute
@@ -598,17 +605,17 @@ declare module '@tanstack/react-router' {
     }
     '/en/restructure-1-1': {
       id: '/en/restructure-1-1'
-      path: '/restructure-1-1'
+      path: '/en/restructure-1-1'
       fullPath: '/en/restructure-1-1'
       preLoaderRoute: typeof EnRestructure11RouteImport
-      parentRoute: typeof EnRoute
+      parentRoute: typeof rootRouteImport
     }
     '/en/join-the-team': {
       id: '/en/join-the-team'
-      path: '/join-the-team'
+      path: '/en/join-the-team'
       fullPath: '/en/join-the-team'
       preLoaderRoute: typeof EnJoinTheTeamRouteImport
-      parentRoute: typeof EnRoute
+      parentRoute: typeof rootRouteImport
     }
     '/en/investors': {
       id: '/en/investors'
@@ -619,38 +626,38 @@ declare module '@tanstack/react-router' {
     }
     '/en/g-struct': {
       id: '/en/g-struct'
-      path: '/g-struct'
+      path: '/en/g-struct'
       fullPath: '/en/g-struct'
       preLoaderRoute: typeof EnGStructRouteImport
-      parentRoute: typeof EnRoute
+      parentRoute: typeof rootRouteImport
     }
     '/en/etw-2026-partners': {
       id: '/en/etw-2026-partners'
-      path: '/etw-2026-partners'
+      path: '/en/etw-2026-partners'
       fullPath: '/en/etw-2026-partners'
       preLoaderRoute: typeof EnEtw2026PartnersRouteImport
-      parentRoute: typeof EnRoute
+      parentRoute: typeof rootRouteImport
     }
     '/en/enterprise': {
       id: '/en/enterprise'
-      path: '/enterprise'
+      path: '/en/enterprise'
       fullPath: '/en/enterprise'
       preLoaderRoute: typeof EnEnterpriseRouteImport
-      parentRoute: typeof EnRoute
+      parentRoute: typeof rootRouteImport
     }
     '/en/contact': {
       id: '/en/contact'
-      path: '/contact'
+      path: '/en/contact'
       fullPath: '/en/contact'
       preLoaderRoute: typeof EnContactRouteImport
-      parentRoute: typeof EnRoute
+      parentRoute: typeof rootRouteImport
     }
     '/en/about-guillermo': {
       id: '/en/about-guillermo'
-      path: '/about-guillermo'
+      path: '/en/about-guillermo'
       fullPath: '/en/about-guillermo'
       preLoaderRoute: typeof EnAboutGuillermoRouteImport
-      parentRoute: typeof EnRoute
+      parentRoute: typeof rootRouteImport
     }
     '/email/unsubscribe': {
       id: '/email/unsubscribe'
@@ -778,7 +785,14 @@ const rootRouteChildren: RootRouteChildren = {
   UneteAlEquipoRoute: UneteAlEquipoRoute,
   UnsubscribeRoute: UnsubscribeRoute,
   EmailUnsubscribeRoute: EmailUnsubscribeRoute,
+  EnAboutGuillermoRoute: EnAboutGuillermoRoute,
+  EnContactRoute: EnContactRoute,
+  EnEnterpriseRoute: EnEnterpriseRoute,
+  EnEtw2026PartnersRoute: EnEtw2026PartnersRoute,
+  EnGStructRoute: EnGStructRoute,
   EnInvestorsRoute: EnInvestorsRoute,
+  EnJoinTheTeamRoute: EnJoinTheTeamRoute,
+  EnRestructure11Route: EnRestructure11Route,
   EnIndexRoute: EnIndexRoute,
   ApiPublicContactRoute: ApiPublicContactRoute,
   ApiPublicDiagnosticoSubmitRoute: ApiPublicDiagnosticoSubmitRoute,
@@ -792,13 +806,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
