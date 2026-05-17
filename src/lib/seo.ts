@@ -1,5 +1,6 @@
 // Centralized SEO helpers for G-Structure
 // Builds meta arrays (OG, Twitter, canonical) and JSON-LD blocks.
+import { ROUTES } from "./routeMap";
 
 export const SITE_URL = "https://www.g-structure.co";
 export const SITE_NAME = "G-Structure";
