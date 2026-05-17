@@ -2,8 +2,44 @@ import { useState } from "react";
 import { ArrowRight, Check } from "lucide-react";
 import { Section } from "./Section";
 import { trackConversion } from "@/lib/analytics";
+import { useLocale } from "@/lib/i18n";
+
+const COPY = {
+  es: {
+    eyebrow: "ACCESO ANTICIPADO",
+    title: "Sé parte del primer grupo.",
+    lead: "G-Struct está en prototipo activo con primeros testers en Ecuador. Los usuarios de la lista de espera tendrán acceso anticipado, precio de fundadores y la oportunidad de dar forma al producto.",
+    micro: "Lanzamiento Q3 2026 · Solo Ecuador en primera fase.",
+    successTitle: "Estás en la lista.",
+    successBody: "Te escribimos cuando G-Struct esté listo para ti.",
+    label: "Tu correo electrónico",
+    placeholder: "tu@correo.com",
+    submit: "Quiero acceso anticipado",
+    sending: "Enviando…",
+    noSpam: "Sin spam. Solo actualizaciones del producto cuando haya algo real que decir.",
+    error: "Algo salió mal. Por favor intenta de nuevo o escríbenos:\nhola@g-structure.co",
+    duplicate: "Ya estás en la lista. Te avisamos cuando G-Struct esté listo.",
+  },
+  en: {
+    eyebrow: "EARLY ACCESS",
+    title: "Be part of the first cohort.",
+    lead: "G-Struct is in active prototype with first testers in Ecuador. Waitlist users get early access, founder pricing, and the chance to shape the product.",
+    micro: "Launch Q3 2026 · Ecuador only in the first phase.",
+    successTitle: "You’re on the list.",
+    successBody: "We’ll write to you when G-Struct is ready for you.",
+    label: "Your email address",
+    placeholder: "you@email.com",
+    submit: "I want early access",
+    sending: "Sending…",
+    noSpam: "No spam. Only product updates when there’s something real to say.",
+    error: "Something went wrong. Please try again or write to us:\nhola@g-structure.co",
+    duplicate: "You’re already on the list. We’ll let you know when G-Struct is ready.",
+  },
+} as const;
 
 export function WaitlistForm({ source = "home" }: { source?: string } = {}) {
+  const { locale } = useLocale();
+  const t = COPY[locale];
   const [email, setEmail] = useState("");
   const [website, setWebsite] = useState(""); // honeypot
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "duplicate" | "error">("idle");
@@ -16,7 +52,7 @@ export function WaitlistForm({ source = "home" }: { source?: string } = {}) {
       const res = await fetch("/api/public/gstruct-waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, website, source, locale: "es" }),
+        body: JSON.stringify({ email, website, source, locale }),
       });
       if (res.status === 409) {
         setStatus("duplicate");
@@ -38,18 +74,14 @@ export function WaitlistForm({ source = "home" }: { source?: string } = {}) {
     <Section id="lista-de-espera" tone="white">
       <div className="grid gap-12 lg:grid-cols-12 lg:gap-16 items-start">
         <div className="lg:col-span-6">
-          <p className="eyebrow">ACCESO ANTICIPADO</p>
+          <p className="eyebrow">{t.eyebrow}</p>
           <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.08]">
-            Sé parte del primer grupo.
+            {t.title}
           </h2>
           <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed">
-            G-Struct está en prototipo activo con primeros testers en Ecuador. Los usuarios de la
-            lista de espera tendrán acceso anticipado, precio de fundadores y la oportunidad de dar
-            forma al producto.
+            {t.lead}
           </p>
-          <p className="mt-3 text-sm text-muted-foreground">
-            Lanzamiento Q3 2026 · Solo Ecuador en primera fase.
-          </p>
+          <p className="mt-3 text-sm text-muted-foreground">{t.micro}</p>
         </div>
         <div className="lg:col-span-6">
           {status === "success" ? (
@@ -58,10 +90,10 @@ export function WaitlistForm({ source = "home" }: { source?: string } = {}) {
                 <Check size={18} />
               </div>
               <p className="mt-5 font-display text-xl md:text-2xl text-foreground leading-snug">
-                Estás en la lista.
+                {t.successTitle}
               </p>
               <p className="mt-3 text-sm md:text-base text-muted-foreground leading-relaxed">
-                Te escribimos cuando G-Struct esté listo para ti.
+                {t.successBody}
               </p>
             </div>
           ) : (
@@ -70,7 +102,7 @@ export function WaitlistForm({ source = "home" }: { source?: string } = {}) {
               className="border border-border bg-[color:var(--color-surface)] p-7 md:p-8"
             >
               <label htmlFor="waitlist-email" className="eyebrow">
-                Tu correo electrónico
+                {t.label}
               </label>
               <div className="mt-3 flex flex-col sm:flex-row gap-3">
                 <input
@@ -79,7 +111,7 @@ export function WaitlistForm({ source = "home" }: { source?: string } = {}) {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="tu@correo.com"
+                  placeholder={t.placeholder}
                   className="flex-1 border border-border bg-background px-4 py-3 text-base text-foreground placeholder:text-muted-foreground focus:border-foreground focus:outline-none"
                 />
                 {/* Honeypot */}
@@ -98,21 +130,21 @@ export function WaitlistForm({ source = "home" }: { source?: string } = {}) {
                   disabled={status === "loading"}
                   className="inline-flex items-center justify-center gap-2 bg-foreground px-5 py-3 text-[13px] font-semibold tracking-wide text-background transition-opacity hover:opacity-90 disabled:opacity-60"
                 >
-                  {status === "loading" ? "Enviando…" : "Quiero acceso anticipado"}
+                  {status === "loading" ? t.sending : t.submit}
                   <ArrowRight size={14} />
                 </button>
               </div>
               <p className="mt-4 text-xs text-muted-foreground leading-relaxed">
-                Sin spam. Solo actualizaciones del producto cuando haya algo real que decir.
+                {t.noSpam}
               </p>
               {status === "error" && (
                 <p className="mt-3 text-xs text-destructive whitespace-pre-line">
-                  {"Algo salió mal. Por favor intenta de nuevo o escríbenos:\nhola@g-structure.co"}
+                  {t.error}
                 </p>
               )}
               {status === "duplicate" && (
                 <p className="mt-3 text-xs text-muted-foreground">
-                  Ya estás en la lista. Te avisamos cuando G-Struct esté listo.
+                  {t.duplicate}
                 </p>
               )}
             </form>

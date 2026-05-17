@@ -14,13 +14,21 @@ import { SocialProofBar } from "@/components/site/SocialProofBar";
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
 import { BrandMark } from "@/components/brand/Logo";
 import { GuillermoPortrait } from "@/components/site/GuillermoPortrait";
-import { useT } from "@/lib/i18n";
+import { useT, useLocale, type Locale } from "@/lib/i18n";
+import { ROUTES } from "@/lib/routeMap";
 import logoCube from "@/assets/g-structure-cube.png";
 import gStructHomePreview from "@/assets/g-struct-home-preview.png";
 import etwBadge from "@/assets/etw-2026-badge.png";
 import { buildSeo, canonicalLink, jsonLdScript, faqSchema, breadcrumbSchema } from "@/lib/seo";
 
 const ETW_URL = "https://luma.com/lm4njhiu";
+
+// Helper: resolve a Spanish canonical path to current-locale path.
+function lp(esPath: string, locale: Locale): string {
+  const entry = ROUTES.find((r) => r.es === esPath);
+  if (!entry) return esPath;
+  return entry[locale];
+}
 
 const HOME_FAQ = [
   { q: "¿Qué es G-Structure?", a: "Una iniciativa de coaching cognitivo-conductual aplicado a la ejecución, para líderes, profesionales y equipos que necesitan superar procrastinación, perfeccionismo improductivo, sobreanálisis y autosabotaje." },
@@ -47,8 +55,506 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+// =============================================================================
+// COPY DICTIONARY — all Home text, keyed by locale
+// =============================================================================
+const COPY = {
+  es: {
+    hero: {
+      linkQuiz: "Identifica tu patrón de ejecución",
+      linkWaitlist: "Únete a la waitlist de G-Struct",
+      linkEnterprise: "Soluciones para equipos · Enterprise",
+      linkInvestors: "Oportunidad de inversión · Pre-seed",
+    },
+    etw: {
+      pill: "ANUNCIO OFICIAL · ETW 2026",
+      h2: "G-Structure es Host de Ecuador Tech Week 2026.",
+      body: (
+        <>
+          Presentamos el <strong className="text-white">Workshop de Diagnóstico de Ejecución</strong> dentro
+          de Ecuador Tech Week® powered by Startup Grind. Una experiencia curada para identificar
+          patrones que bloquean la acción en profesionales, founders y equipos.
+        </>
+      ),
+      date: "11–19 Julio, 2026",
+      city: "Guayaquil, Ecuador",
+      poweredBy: "Powered by Startup Grind",
+      ctaEvent: "Ver evento oficial",
+      ctaPartner: "Quiero ser aliado",
+      micro: "#SoyHost · Compartimos el propósito de hacer del Ecuador un referente tecnológico regional.",
+      badgeAlt: "Badge oficial Host Ecuador Tech Week 2026 — G-Structure",
+    },
+    announcements: {
+      eyebrow: "MOMENTUM",
+      title: "Construyendo la siguiente etapa de G-Structure.",
+      subtitle: "Estamos abriendo espacios estratégicos para aliados y colaboradores que quieran ser parte del crecimiento inicial del ecosistema G-Structure.",
+      allies: {
+        tag: "ALIADOS ETW 2026",
+        title: "Aliados para el Workshop de Diagnóstico de Ejecución",
+        body: "G-Structure está abriendo oportunidades de alianza para marcas, instituciones y empresas que quieran vincularse al Workshop de Diagnóstico de Ejecución durante Ecuador Tech Week 2026.",
+        short: "Buscamos aliados que entiendan el valor de apoyar conversaciones serias sobre ejecución, claridad, tecnología, emprendimiento y desarrollo profesional.",
+        cta: "Quiero ser aliado",
+        micro: "Espacios limitados para aliados estratégicos, experiencia, sede o contenido.",
+      },
+      team: {
+        tag: "EQUIPO INICIAL",
+        title: "Estamos formando el equipo que construirá G-Structure y G-Struct",
+        body: "Buscamos colaboradores voluntarios en áreas clave para fortalecer la siguiente etapa del proyecto: producto, tecnología, ventas, marketing y negocios internacionales.",
+        short: "No buscamos espectadores. Buscamos personas con criterio, iniciativa y ganas de construir desde una etapa temprana.",
+        cta: "Quiero unirme al equipo",
+        micro: "Participación inicial voluntaria, con enfoque en construcción real, portafolio, aprendizaje aplicado y posible continuidad conforme el proyecto avance.",
+      },
+    },
+    problem: {
+      eyebrow: "EL PROBLEMA",
+      title: "No siempre falta capacidad. A veces sobra fricción.",
+      subtitle: "Muchos profesionales y equipos saben lo que tienen que hacer. Tienen objetivos, recursos, información y experiencia. Pero entre la intención y la acción aparece una zona de interferencia: pensamientos rígidos, lectura distorsionada del riesgo, perfeccionismo improductivo, evitación o decisiones que se postergan demasiado.",
+      lead: "G-Structure trabaja precisamente en esa zona: donde la cognición, la emoción y la conducta empiezan a bloquear la ejecución.",
+      diagnose: "Haz el diagnóstico",
+      cards: [
+        { t: "Procrastinación", d: "Cuando la acción se posterga aunque la tarea sea importante.", reveal: "¿Lo pospones aunque sabes que es importante? G-Struct trabaja este patrón." },
+        { t: "Perfeccionismo improductivo", d: "Cuando el estándar se vuelve una excusa elegante para no avanzar.", reveal: "¿El estándar se volvió una excusa elegante? Hay un patrón detrás de eso." },
+        { t: "Sobreanálisis", d: "Cuando pensar más deja de aclarar y empieza a paralizar.", reveal: "¿Pensar más dejó de ayudar? Eso tiene una estructura cognitiva específica." },
+        { t: "Autosabotaje", d: "Cuando la conducta contradice el objetivo que la persona dice querer.", reveal: "¿Tu conducta contradice tu objetivo? El Motor de Reestructuración mapea por qué." },
+        { t: "Bloqueo de ejecución", d: "Cuando hay intención, pero no hay salida funcional a la acción.", reveal: "¿Hay intención pero no hay salida? G-Struct convierte eso en acción." },
+      ],
+    },
+    method: {
+      eyebrow: "EL MÉTODO",
+      title: "Identificar. Reencuadrar. Optimizar.",
+      lead: "Un framework estructurado para convertir fricción cognitivo-conductual en acción funcional. Selecciona cada fase para ver el detalle.",
+      footnote: "El método I-R-O está basado en principios de la Terapia Cognitivo-Conductual (CBT), adaptados a contextos de ejecución profesional. No constituye terapia ni sustituye atención clínica.",
+    },
+    faq: {
+      eyebrow: "PREGUNTAS FRECUENTES",
+      title: "Antes de agendar, esto suele aparecer.",
+      subtitle: "Respuestas breves a las preguntas más comunes sobre el método, los procesos y la app.",
+      cta: "Tengo otra pregunta",
+    },
+    mentalOS: {
+      eyebrow: "NUESTRA LECTURA",
+      title: "Tratamos la mente como un sistema operativo.",
+      p1: "En contextos de alta exigencia, el problema no siempre está en la meta. Muchas veces está en el procesamiento: cómo se interpreta la presión, cómo se anticipa el error, cómo se evalúa el riesgo y cómo se convierte una decisión en conducta.",
+      p2: "Cuando ese sistema entra en fricción, la acción se distorsiona. G-Structure interviene sobre esos patrones para que la persona o el equipo pueda pensar con más claridad, decidir con más precisión y actuar con mayor consistencia.",
+      quote: "El orden mental no es un lujo. Es la base de una acción clara, funcional y sostenible.",
+    },
+    gstruct: {
+      tag: "EL PRODUCTO · G-STRUCT",
+      pill: "PROTOTIPO ACTIVO · LANZAMIENTO Q3 2026",
+      h2: "G-Struct es el producto principal de G-Structure.",
+      lead: (
+        <>
+          Una app diseñada para convertir el método <strong className="text-foreground">Identificar → Reencuadrar → Optimizar</strong> en
+          una herramienta diaria de ejecución para profesionales, founders y equipos.
+        </>
+      ),
+      disclaimer: "No somos una app de terapia. No hacemos diagnóstico clínico. G-Struct es una herramienta de coaching, psicoeducación y optimización de ejecución basada en principios cognitivo-conductuales.",
+      p1: "G-Struct lleva el método I-R-O a tu bolsillo. Una app móvil diseñada para identificar la fricción que bloquea tu ejecución, reencuadrarla con metodología CBT coaching, y optimizar tu acción — disponible 24/7.",
+      p2: "No es una app de bienestar. No es un diario de pensamientos. No es otra lista de tareas. Es la herramienta que separa a quienes saben lo que hay que hacer de quienes realmente lo hacen.",
+      previewAlt: "Vista previa de la app G-Struct.",
+      features: [
+        { t: "Motor de Reestructuración", d: "Identifica la situación, nombra la emoción, mide su intensidad, llega a la creencia núcleo. Si puedes medirlo, puedes optimizarlo." },
+        { t: "Laboratorio de Pensamientos con IA", d: "Con asistencia de inteligencia artificial, aprende a reencuadrar el pensamiento automático en uno funcional que habilite la acción." },
+        { t: "Diagnóstico de Ejecución", d: "Identifica tus patrones recurrentes — procrastinación, perfeccionismo, autosabotaje — y trabaja directamente sobre ellos." },
+      ],
+      plansLabel: "PLANES",
+      plans: {
+        freeTag: "FREE",
+        freePrice: "Gratis",
+        freeItems: ["· 3 registros en el Motor de Reestructuración", "· 5 Activadores Matutinos por mes", "· Fase 1 de la Guía CBT", "· Recursos base"],
+        plusTag: "PLUS",
+        plusBadge: "DESTACADO",
+        plusPrice: "$20 / mes",
+        plusItems: ["· Motor de Reestructuración ilimitado", "· Activadores Matutinos ilimitados", "· Guía CBT completa", "· Laboratorio de Pensamientos con IA", "· Plataforma de Diagnóstico de Ejecución"],
+        vipTag: "VIP",
+        vipPrice: "$50 / mes",
+        vipItems: ["· Sesión mensual con coach humano", "· Auditoría mensual de patrones", "· Foro privado de comunidad", "· Masterclasses premium"],
+      },
+      ctaWaitlist: "Únete a la lista de espera",
+      ctaSub: "Sé parte del primer grupo que accede a G-Struct en Ecuador.",
+    },
+    founder: {
+      eyebrow: "QUIÉN ESTÁ DETRÁS",
+      title: "Dirección metodológica con experiencia educativa, cognitivo-conductual y de proyectos.",
+      body: (
+        <>
+          <strong className="text-foreground font-semibold">Guillermo Suco</strong> es fundador
+          de G-Structure y Coach especializado en procesos cognitivo-conductuales aplicados a la
+          ejecución. Su trabajo integra Psicología, intervención educativa, gerencia de
+          proyectos multiculturales y desarrollo de producto digital.
+        </>
+      ),
+      credentials: [
+        "CBT Coach Practitioner · CTAA",
+        "Psicología & Intervención Educativa",
+        "Docencia internacional",
+        "MV Logos Hope · gerencia de proyectos",
+        "G-Struct con ÉPICO",
+      ],
+      ctaTalk: "Conversar con Guillermo",
+      ctaProfile: "Ver perfil",
+    },
+    channels: {
+      eyebrow: "CÓMO ESTAMOS VALIDANDO G-STRUCT",
+      title: "No son negocios separados. Son capas de una misma estrategia.",
+      subtitle: "G-Structure usa servicios, workshops y programas como canales de validación, datos cualitativos y revenue temprano para construir un producto digital escalable.",
+      items: [
+        { tag: "01 · CANAL INDIVIDUAL", t: "REESTRUCTURA 1:1", d: "Sesiones individuales que permiten validar la metodología con profesionales, líderes y emprendedores que enfrentan fricción de ejecución.", esTo: "/reestructura-1-1", cta: "Conocer 1:1" },
+        { tag: "02 · CANAL B2B", t: "REESTRUCTURA Enterprise", d: "Programa B2B para mapear patrones de ejecución en equipos, founders y organizaciones — y generar revenue temprano para la startup.", esTo: "/enterprise", cta: "Conocer Enterprise" },
+        { tag: "03 · CANAL DE ACTIVACIÓN", t: "Workshop de Diagnóstico de Ejecución", d: "Experiencia grupal diseñada para educar, diagnosticar patrones de ejecución y activar usuarios tempranos para G-Struct.", esTo: "/aliados-etw-2026", cta: "Workshop · ETW 2026" },
+        { tag: "04 · PRODUCTO ESCALABLE", t: "G-Struct App", d: "El producto digital que escala la metodología. Lo que aprendemos en los canales anteriores alimenta directamente su construcción.", esTo: "/g-struct", cta: "Explorar G-Struct" },
+      ],
+      footer: (
+        <>
+          Compañía: <strong className="text-foreground">G-Structure</strong> · Producto principal: <strong className="text-foreground">G-Struct</strong> ·
+          Canales de validación: <strong className="text-foreground">1:1, Enterprise, Workshop</strong> · Crecimiento: aliados, inversores y equipo.
+        </>
+      ),
+    },
+    solutions: {
+      eyebrow: "SOLUCIONES",
+      title: "Intervenciones estructuradas para personas y equipos que necesitan ejecutar mejor.",
+      subtitle: "G-Structure opera a través de diagnósticos, programas breves y procesos de continuidad diseñados para contextos profesionales de alta exigencia.",
+      idealFor: "Ideal para",
+    },
+    forWhom: {
+      eyebrow: "APLICACIÓN",
+      title: "Diseñado para contextos donde pensar bien no basta: hay que ejecutar.",
+      titleA: "G-Structure es para:",
+      titleB: "Es especialmente útil cuando aparecen:",
+      a: [
+        "Profesionales con alta carga de decisión.",
+        "Líderes que necesitan mayor claridad de acción.",
+        "Founders que viven bajo presión constante.",
+        "Equipos que postergan decisiones importantes.",
+        "Organizaciones que quieren intervenir fricciones de ejecución sin caer en charlas motivacionales.",
+      ],
+      b: [
+        "Procrastinación en tareas críticas.",
+        "Reuniones que no se traducen en acción.",
+        "Perfeccionismo que retrasa entregables.",
+        "Sobreanálisis en decisiones estratégicas.",
+        "Desgaste por falta de claridad operativa.",
+        "Patrones repetidos de bloqueo, evitación o autosabotaje.",
+      ],
+      closing: "El objetivo no es hacer más por hacer más. Es pensar, decidir y actuar con mayor precisión.",
+    },
+    startup: {
+      eyebrow: "UNA STARTUP EN ETAPA TEMPRANA",
+      title: "De prototipo a MVP, con una tesis clara.",
+      lead: (
+        <>
+          G-Structure se encuentra en etapa de validación, construyendo el camino de prototipo a MVP.
+          El objetivo es convertir <strong className="text-foreground">G-Struct</strong> en una plataforma escalable
+          para profesionales, founders y equipos que necesitan ejecutar mejor bajo presión.
+        </>
+      ),
+      routes: [
+        { tag: "USUARIOS", t: "Probar o conocer G-Struct", esTo: "/g-struct" },
+        { tag: "EMPRESAS", t: "Llevar Enterprise a tu equipo", esTo: "/enterprise" },
+        { tag: "INVERSIONISTAS", t: "Revisar la oportunidad de inversión", esTo: "/inversores" },
+        { tag: "ALIADOS", t: "Sumarse al ecosistema · ETW 2026", esTo: "/aliados-etw-2026" },
+        { tag: "TALENTO", t: "Unirse al equipo fundador", esTo: "/unete-al-equipo" },
+      ],
+    },
+    finalCTA: {
+      title: "G-Structure está construyendo G-Struct. Decide cómo quieres ser parte.",
+      body: "Únete a la waitlist del producto, lleva la metodología a tu equipo, conoce la oportunidad de inversión, o conversa con nosotros directamente.",
+      ctaExplore: "Explorar G-Struct",
+      ctaWaitlist: "Unirme a la waitlist",
+      ctaContact: "Contactar",
+    },
+    visualPanels: {
+      systemLabel: "G-STRUCTURE · COGNITIVE OS",
+      version: "v0.1 · LIVE",
+      p3Label: "03 · OPTIMIZAR",
+      p3Subtitle: "Plan de acción",
+      p3Buttons: ["Decidir", "Ejecutar", "Sostener"],
+      p3Continuity: "Continuidad",
+      p2Label: "02 · REENCUADRAR",
+      p2Subtitle: "Patrón cognitivo",
+      p2Quote: (
+        <>
+          "Si no es perfecto, no lo entrego." → <span className="font-semibold">Avanzar con criterio reduce el costo de no decidir.</span>
+        </>
+      ),
+      p2Tags: ["PERFECCIONISMO", "EVITACIÓN"],
+      p1Label: "01 · IDENTIFICAR",
+      p1Subtitle: "Sesión activa",
+      p1Quote: (
+        <>
+          Patrón detectado: <span className="font-semibold">postergación bajo presión de decisión estratégica.</span>
+        </>
+      ),
+      p1Friction: "Fricción",
+      p1FrictionVal: "Alta",
+      p1Recurrence: "Recurrencia",
+      p1RecurrenceVal: "7d",
+      p1Output: "Salida",
+      p1OutputVal: "Diseño",
+      p1Next: "Reencuadrar",
+      mark: "SISTEMA I-R-O",
+    },
+    solutionsItems: [
+      { t: "Workshop de Diagnóstico", d: "Sesión estratégica para identificar fricciones de ejecución en profesionales, líderes o equipos.", ideal: "Empresas, founders o equipos que necesitan entender qué está bloqueando la acción antes de diseñar una intervención.", cta: "Explorar workshop", esTo: "/enterprise" },
+      { t: "REESTRUCTURA Enterprise", d: "Programa piloto de 4 semanas para trabajar patrones de procrastinación, perfeccionismo, sobreanálisis y autosabotaje en equipos.", ideal: "Organizaciones que necesitan mejorar claridad, toma de decisiones y consistencia conductual.", cta: "Solicitar información", esTo: "/enterprise" },
+      { t: "REESTRUCTURA 1:1", d: "Proceso individual de coaching cognitivo-conductual para profesionales que necesitan intervenir sus propios bloqueos de ejecución.", ideal: "Líderes, emprendedores y profesionales que quieren trabajar su patrón personal de acción.", cta: "Conocer proceso individual", esTo: "/reestructura-1-1" },
+      { t: "Continuidad Enterprise", d: "Seguimiento mensual o trimestral para consolidar avances, revisar patrones recurrentes y sostener cambios en la ejecución.", ideal: "Equipos que necesitan mantener el trabajo después de una intervención inicial.", cta: "Diseñar continuidad", esTo: "/enterprise" },
+    ],
+  },
+  en: {
+    hero: {
+      linkQuiz: "Identify your execution pattern",
+      linkWaitlist: "Join the G-Struct waitlist",
+      linkEnterprise: "Team solutions · Enterprise",
+      linkInvestors: "Investment opportunity · Pre-seed",
+    },
+    etw: {
+      pill: "OFFICIAL ANNOUNCEMENT · ETW 2026",
+      h2: "G-Structure is Host of Ecuador Tech Week 2026.",
+      body: (
+        <>
+          We're presenting the <strong className="text-white">Execution Diagnostic Workshop</strong> inside
+          Ecuador Tech Week® powered by Startup Grind. A curated experience to identify
+          patterns that block action in professionals, founders, and teams.
+        </>
+      ),
+      date: "July 11–19, 2026",
+      city: "Guayaquil, Ecuador",
+      poweredBy: "Powered by Startup Grind",
+      ctaEvent: "View official event",
+      ctaPartner: "I want to be a partner",
+      micro: "#SoyHost · We share the purpose of making Ecuador a regional tech reference.",
+      badgeAlt: "Official Host badge — Ecuador Tech Week 2026 — G-Structure",
+    },
+    announcements: {
+      eyebrow: "MOMENTUM",
+      title: "Building the next stage of G-Structure.",
+      subtitle: "We're opening strategic spaces for partners and collaborators who want to be part of the early growth of the G-Structure ecosystem.",
+      allies: {
+        tag: "ETW 2026 PARTNERS",
+        title: "Partners for the Execution Diagnostic Workshop",
+        body: "G-Structure is opening partnership opportunities for brands, institutions, and companies that want to connect with the Execution Diagnostic Workshop during Ecuador Tech Week 2026.",
+        short: "We're looking for partners who understand the value of supporting serious conversations about execution, clarity, technology, entrepreneurship, and professional development.",
+        cta: "I want to be a partner",
+        micro: "Limited spaces for strategic, experience, venue, or content partners.",
+      },
+      team: {
+        tag: "FOUNDING TEAM",
+        title: "We're forming the team that will build G-Structure and G-Struct",
+        body: "We're looking for volunteer collaborators in key areas to strengthen the next stage of the project: product, technology, sales, marketing, and international business.",
+        short: "We're not looking for spectators. We're looking for people with judgment, initiative, and the drive to build from an early stage.",
+        cta: "I want to join the team",
+        micro: "Initial volunteer participation, focused on real building, portfolio, applied learning, and possible continuity as the project advances.",
+      },
+    },
+    problem: {
+      eyebrow: "THE PROBLEM",
+      title: "It's not always lack of capacity. Sometimes it's excess friction.",
+      subtitle: "Many professionals and teams know what they have to do. They have goals, resources, information, and experience. But between intent and action, an interference zone appears: rigid thoughts, distorted risk reading, unproductive perfectionism, avoidance, or decisions postponed too long.",
+      lead: "G-Structure works precisely in that zone: where cognition, emotion, and behavior start to block execution.",
+      diagnose: "Take the diagnostic",
+      cards: [
+        { t: "Procrastination", d: "When action is postponed even when the task is important.", reveal: "Postponing it even though you know it's important? G-Struct works this pattern." },
+        { t: "Unproductive perfectionism", d: "When the standard becomes an elegant excuse not to move forward.", reveal: "Has the standard become an elegant excuse? There's a pattern behind that." },
+        { t: "Overthinking", d: "When thinking more stops clarifying and starts to paralyze.", reveal: "Thinking more stopped helping? That has a specific cognitive structure." },
+        { t: "Self-sabotage", d: "When behavior contradicts the goal the person says they want.", reveal: "Behavior contradicting your goal? The Restructuring Engine maps why." },
+        { t: "Execution block", d: "When there's intent, but no functional exit toward action.", reveal: "Intent but no exit? G-Struct turns that into action." },
+      ],
+    },
+    method: {
+      eyebrow: "THE METHOD",
+      title: "Identify. Reframe. Optimize.",
+      lead: "A structured framework to turn cognitive-behavioral friction into functional action. Select each phase to see the detail.",
+      footnote: "The I-R-O method is based on Cognitive-Behavioral Therapy (CBT) principles, adapted to professional execution contexts. It is not therapy and does not replace clinical care.",
+    },
+    faq: {
+      eyebrow: "FREQUENTLY ASKED QUESTIONS",
+      title: "Before booking, this usually comes up.",
+      subtitle: "Short answers to the most common questions about the method, the processes, and the app.",
+      cta: "I have another question",
+    },
+    mentalOS: {
+      eyebrow: "OUR READING",
+      title: "We treat the mind as an operating system.",
+      p1: "In high-demand contexts, the problem isn't always the goal. Often it's the processing: how pressure is interpreted, how error is anticipated, how risk is evaluated, and how a decision is converted into behavior.",
+      p2: "When that system enters friction, action gets distorted. G-Structure intervenes on those patterns so the person or team can think more clearly, decide more precisely, and act more consistently.",
+      quote: "Mental order isn't a luxury. It's the foundation of clear, functional, sustainable action.",
+    },
+    gstruct: {
+      tag: "THE PRODUCT · G-STRUCT",
+      pill: "ACTIVE PROTOTYPE · LAUNCH Q3 2026",
+      h2: "G-Struct is the main product of G-Structure.",
+      lead: (
+        <>
+          An app designed to turn the <strong className="text-foreground">Identify → Reframe → Optimize</strong> method
+          into a daily execution tool for professionals, founders, and teams.
+        </>
+      ),
+      disclaimer: "We're not a therapy app. We don't make clinical diagnoses. G-Struct is a coaching, psychoeducation, and execution-optimization tool based on cognitive-behavioral principles.",
+      p1: "G-Struct brings the I-R-O method to your pocket. A mobile app designed to identify the friction blocking your execution, reframe it with CBT coaching methodology, and optimize your action — available 24/7.",
+      p2: "It's not a wellness app. It's not a thought journal. It's not another to-do list. It's the tool that separates those who know what to do from those who actually do it.",
+      previewAlt: "Preview of the G-Struct app.",
+      features: [
+        { t: "Restructuring Engine", d: "Identify the situation, name the emotion, measure its intensity, reach the core belief. If you can measure it, you can optimize it." },
+        { t: "AI Thought Lab", d: "With AI assistance, learn to reframe the automatic thought into a functional one that enables action." },
+        { t: "Execution Diagnostic", d: "Identify your recurring patterns — procrastination, perfectionism, self-sabotage — and work directly on them." },
+      ],
+      plansLabel: "PLANS",
+      plans: {
+        freeTag: "FREE",
+        freePrice: "Free",
+        freeItems: ["· 3 Restructuring Engine entries", "· 5 Morning Activators per month", "· Phase 1 of the CBT Guide", "· Base resources"],
+        plusTag: "PLUS",
+        plusBadge: "FEATURED",
+        plusPrice: "$20 / mo",
+        plusItems: ["· Unlimited Restructuring Engine", "· Unlimited Morning Activators", "· Full CBT Guide", "· AI Thought Lab", "· Execution Diagnostic Platform"],
+        vipTag: "VIP",
+        vipPrice: "$50 / mo",
+        vipItems: ["· Monthly session with human coach", "· Monthly pattern audit", "· Private community forum", "· Premium masterclasses"],
+      },
+      ctaWaitlist: "Join the waitlist",
+      ctaSub: "Be part of the first group with access to G-Struct in Ecuador.",
+    },
+    founder: {
+      eyebrow: "WHO'S BEHIND THIS",
+      title: "Methodological direction with educational, cognitive-behavioral, and project experience.",
+      body: (
+        <>
+          <strong className="text-foreground font-semibold">Guillermo Suco</strong> is the founder
+          of G-Structure and a Coach specialized in cognitive-behavioral processes applied to
+          execution. His work integrates Psychology, educational intervention, multicultural
+          project management, and digital product development.
+        </>
+      ),
+      credentials: [
+        "CBT Coach Practitioner · CTAA",
+        "Psychology & Educational Intervention",
+        "International teaching",
+        "MV Logos Hope · project management",
+        "G-Struct with ÉPICO",
+      ],
+      ctaTalk: "Talk to Guillermo",
+      ctaProfile: "View profile",
+    },
+    channels: {
+      eyebrow: "HOW WE'RE VALIDATING G-STRUCT",
+      title: "They're not separate businesses. They're layers of one strategy.",
+      subtitle: "G-Structure uses services, workshops, and programs as validation channels, qualitative data, and early revenue to build a scalable digital product.",
+      items: [
+        { tag: "01 · INDIVIDUAL CHANNEL", t: "RESTRUCTURE 1:1", d: "Individual sessions that validate the methodology with professionals, leaders, and entrepreneurs facing execution friction.", esTo: "/reestructura-1-1", cta: "Learn about 1:1" },
+        { tag: "02 · B2B CHANNEL", t: "RESTRUCTURE Enterprise", d: "B2B program to map execution patterns in teams, founders, and organizations — and generate early revenue for the startup.", esTo: "/enterprise", cta: "Learn about Enterprise" },
+        { tag: "03 · ACTIVATION CHANNEL", t: "Execution Diagnostic Workshop", d: "Group experience designed to educate, diagnose execution patterns, and activate early users for G-Struct.", esTo: "/aliados-etw-2026", cta: "Workshop · ETW 2026" },
+        { tag: "04 · SCALABLE PRODUCT", t: "G-Struct App", d: "The digital product that scales the methodology. What we learn in the previous channels feeds directly into its construction.", esTo: "/g-struct", cta: "Explore G-Struct" },
+      ],
+      footer: (
+        <>
+          Company: <strong className="text-foreground">G-Structure</strong> · Main product: <strong className="text-foreground">G-Struct</strong> ·
+          Validation channels: <strong className="text-foreground">1:1, Enterprise, Workshop</strong> · Growth: partners, investors, and team.
+        </>
+      ),
+    },
+    solutions: {
+      eyebrow: "SOLUTIONS",
+      title: "Structured interventions for people and teams that need to execute better.",
+      subtitle: "G-Structure operates through diagnostics, brief programs, and continuity processes designed for high-demand professional contexts.",
+      idealFor: "Ideal for",
+    },
+    forWhom: {
+      eyebrow: "APPLICATION",
+      title: "Designed for contexts where thinking well isn't enough — you have to execute.",
+      titleA: "G-Structure is for:",
+      titleB: "It's especially useful when these appear:",
+      a: [
+        "Professionals with a high decision load.",
+        "Leaders who need greater clarity of action.",
+        "Founders living under constant pressure.",
+        "Teams that postpone important decisions.",
+        "Organizations that want to intervene on execution friction without falling into motivational talks.",
+      ],
+      b: [
+        "Procrastination on critical tasks.",
+        "Meetings that don't translate into action.",
+        "Perfectionism that delays deliverables.",
+        "Overthinking on strategic decisions.",
+        "Burnout from lack of operational clarity.",
+        "Repeated patterns of blocking, avoidance, or self-sabotage.",
+      ],
+      closing: "The goal isn't to do more for the sake of doing more. It's to think, decide, and act with greater precision.",
+    },
+    startup: {
+      eyebrow: "AN EARLY-STAGE STARTUP",
+      title: "From prototype to MVP, with a clear thesis.",
+      lead: (
+        <>
+          G-Structure is in a validation stage, building the path from prototype to MVP.
+          The goal is to turn <strong className="text-foreground">G-Struct</strong> into a scalable platform
+          for professionals, founders, and teams who need to execute better under pressure.
+        </>
+      ),
+      routes: [
+        { tag: "USERS", t: "Try or learn about G-Struct", esTo: "/g-struct" },
+        { tag: "COMPANIES", t: "Bring Enterprise to your team", esTo: "/enterprise" },
+        { tag: "INVESTORS", t: "Review the investment opportunity", esTo: "/inversores" },
+        { tag: "PARTNERS", t: "Join the ecosystem · ETW 2026", esTo: "/aliados-etw-2026" },
+        { tag: "TALENT", t: "Join the founding team", esTo: "/unete-al-equipo" },
+      ],
+    },
+    finalCTA: {
+      title: "G-Structure is building G-Struct. Decide how you want to be part of it.",
+      body: "Join the product waitlist, bring the methodology to your team, learn about the investment opportunity, or talk to us directly.",
+      ctaExplore: "Explore G-Struct",
+      ctaWaitlist: "Join the waitlist",
+      ctaContact: "Contact",
+    },
+    visualPanels: {
+      systemLabel: "G-STRUCTURE · COGNITIVE OS",
+      version: "v0.1 · LIVE",
+      p3Label: "03 · OPTIMIZE",
+      p3Subtitle: "Action plan",
+      p3Buttons: ["Decide", "Execute", "Sustain"],
+      p3Continuity: "Continuity",
+      p2Label: "02 · REFRAME",
+      p2Subtitle: "Cognitive pattern",
+      p2Quote: (
+        <>
+          "If it's not perfect, I won't ship it." → <span className="font-semibold">Moving forward with judgment reduces the cost of not deciding.</span>
+        </>
+      ),
+      p2Tags: ["PERFECTIONISM", "AVOIDANCE"],
+      p1Label: "01 · IDENTIFY",
+      p1Subtitle: "Active session",
+      p1Quote: (
+        <>
+          Pattern detected: <span className="font-semibold">postponement under strategic decision pressure.</span>
+        </>
+      ),
+      p1Friction: "Friction",
+      p1FrictionVal: "High",
+      p1Recurrence: "Recurrence",
+      p1RecurrenceVal: "7d",
+      p1Output: "Output",
+      p1OutputVal: "Design",
+      p1Next: "Reframe",
+      mark: "I-R-O SYSTEM",
+    },
+    solutionsItems: [
+      { t: "Diagnostic Workshop", d: "Strategic session to identify execution friction in professionals, leaders, or teams.", ideal: "Companies, founders, or teams that need to understand what's blocking action before designing an intervention.", cta: "Explore workshop", esTo: "/enterprise" },
+      { t: "RESTRUCTURE Enterprise", d: "4-week pilot program to work on procrastination, perfectionism, overthinking, and self-sabotage patterns in teams.", ideal: "Organizations that need to improve clarity, decision-making, and behavioral consistency.", cta: "Request information", esTo: "/enterprise" },
+      { t: "RESTRUCTURE 1:1", d: "Individual cognitive-behavioral coaching process for professionals who need to intervene on their own execution blocks.", ideal: "Leaders, entrepreneurs, and professionals who want to work on their personal action pattern.", cta: "Learn about 1:1 process", esTo: "/reestructura-1-1" },
+      { t: "Enterprise Continuity", d: "Monthly or quarterly follow-up to consolidate progress, review recurring patterns, and sustain execution changes.", ideal: "Teams that need to sustain the work after an initial intervention.", cta: "Design continuity", esTo: "/enterprise" },
+    ],
+  },
+} as const;
+
+// =============================================================================
+// Sections
+// =============================================================================
+
 function Hero() {
   const t = useT();
+  const { locale } = useLocale();
+  const c = COPY[locale].hero;
   const steps = [
     { n: "01", t: t("home.hero.step1.t"), d: t("home.hero.step1.d") },
     { n: "02", t: t("home.hero.step2.t"), d: t("home.hero.step2.d") },
@@ -105,33 +611,33 @@ function Hero() {
             </p>
 
             <div className="mt-9 flex flex-wrap items-center gap-3">
-              <CTALink to="/g-struct" variant="primary">{t("home.hero.ctaPrimary")}</CTALink>
-              <CTALink to="/inversores" variant="outline">{t("home.hero.ctaSecondary")}</CTALink>
+              <CTALink to={lp("/g-struct", locale)} variant="primary">{t("home.hero.ctaPrimary")}</CTALink>
+              <CTALink to={lp("/inversores", locale)} variant="outline">{t("home.hero.ctaSecondary")}</CTALink>
             </div>
 
             <ul className="mt-8 grid gap-2 text-[13.5px] sm:grid-cols-2 max-w-xl">
               <li>
-                <Link to="/" hash="quiz" className="group inline-flex items-center gap-2 text-foreground/85 hover:text-foreground">
+                <Link to={lp("/", locale)} hash="quiz" className="group inline-flex items-center gap-2 text-foreground/85 hover:text-foreground">
                   <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
-                  Identifica tu patrón de ejecución
+                  {c.linkQuiz}
                 </Link>
               </li>
               <li>
-                <Link to="/" hash="lista-de-espera" className="group inline-flex items-center gap-2 text-foreground/85 hover:text-foreground">
+                <Link to={lp("/", locale)} hash="lista-de-espera" className="group inline-flex items-center gap-2 text-foreground/85 hover:text-foreground">
                   <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
-                  Únete a la waitlist de G-Struct
+                  {c.linkWaitlist}
                 </Link>
               </li>
               <li>
-                <Link to="/enterprise" className="group inline-flex items-center gap-2 text-foreground/85 hover:text-foreground">
+                <Link to={lp("/enterprise", locale)} className="group inline-flex items-center gap-2 text-foreground/85 hover:text-foreground">
                   <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
-                  Soluciones para equipos · Enterprise
+                  {c.linkEnterprise}
                 </Link>
               </li>
               <li>
-                <Link to="/inversores" className="group inline-flex items-center gap-2 text-foreground/85 hover:text-foreground">
+                <Link to={lp("/inversores", locale)} className="group inline-flex items-center gap-2 text-foreground/85 hover:text-foreground">
                   <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
-                  Oportunidad de inversión · Pre-seed
+                  {c.linkInvestors}
                 </Link>
               </li>
             </ul>
@@ -175,10 +681,10 @@ function Hero() {
 }
 
 function HeroVisual({ compact = false }: { compact?: boolean }) {
-  // System mockup: stacked I-R-O panels presented as a working product surface.
+  const { locale } = useLocale();
+  const v = COPY[locale].visualPanels;
   return (
     <div className={`relative ${compact ? "h-[460px]" : "h-[600px]"} w-full`}>
-      {/* Ambient backdrop */}
       <div
         className="absolute inset-0 pointer-events-none"
         aria-hidden
@@ -189,23 +695,21 @@ function HeroVisual({ compact = false }: { compact?: boolean }) {
       />
       <div className="absolute inset-0 grid-bg opacity-30" aria-hidden />
 
-      {/* Top frame badge */}
       <div className="absolute left-0 right-0 top-0 flex items-center justify-between text-[10px] tracking-[0.22em] text-muted-foreground">
         <span className="inline-flex items-center gap-2">
           <span className="h-1.5 w-1.5 bg-[color:var(--color-brand)]" />
-          G-STRUCTURE · COGNITIVE OS
+          {v.systemLabel}
         </span>
-        <span>v0.1 · LIVE</span>
+        <span>{v.version}</span>
       </div>
 
-      {/* Panel 03 — Optimizar (back) */}
       <div className="absolute right-0 top-10 w-[78%] border border-border bg-[color:var(--color-surface)]/95 backdrop-blur shadow-elev-2 p-5 rotate-[1.5deg]">
         <div className="flex items-center justify-between">
-          <span className="font-display text-[10px] font-semibold tracking-[0.22em] text-muted-foreground">03 · OPTIMIZAR</span>
-          <span className="text-[10px] tracking-wide text-muted-foreground">Plan de acción</span>
+          <span className="font-display text-[10px] font-semibold tracking-[0.22em] text-muted-foreground">{v.p3Label}</span>
+          <span className="text-[10px] tracking-wide text-muted-foreground">{v.p3Subtitle}</span>
         </div>
         <div className="mt-4 grid grid-cols-3 gap-2">
-          {["Decidir", "Ejecutar", "Sostener"].map((b) => (
+          {v.p3Buttons.map((b) => (
             <div key={b} className="border border-border bg-background px-2 py-2 text-[11px] text-foreground/80">{b}</div>
           ))}
         </div>
@@ -213,66 +717,66 @@ function HeroVisual({ compact = false }: { compact?: boolean }) {
           <div className="h-full w-[72%] bg-[color:var(--color-brand)]" />
         </div>
         <div className="mt-2 flex justify-between text-[10px] text-muted-foreground">
-          <span>Continuidad</span><span className="text-foreground font-semibold">72%</span>
+          <span>{v.p3Continuity}</span><span className="text-foreground font-semibold">72%</span>
         </div>
       </div>
 
-      {/* Panel 02 — Reencuadrar (mid) */}
       <div className="absolute right-6 top-32 w-[82%] border border-border bg-[color:var(--color-surface)] shadow-elev-3 p-5 -rotate-[1deg]">
         <div className="flex items-center justify-between">
-          <span className="font-display text-[10px] font-semibold tracking-[0.22em] text-[color:var(--color-brand)]">02 · REENCUADRAR</span>
-          <span className="text-[10px] text-muted-foreground">Patrón cognitivo</span>
+          <span className="font-display text-[10px] font-semibold tracking-[0.22em] text-[color:var(--color-brand)]">{v.p2Label}</span>
+          <span className="text-[10px] text-muted-foreground">{v.p2Subtitle}</span>
         </div>
         <p className="mt-3 text-[13px] leading-snug text-foreground">
-          “Si no es perfecto, no lo entrego.” → <span className="font-semibold">Avanzar con criterio reduce el costo de no decidir.</span>
+          {v.p2Quote}
         </p>
         <div className="mt-4 flex items-center gap-2 text-[10px] tracking-[0.18em] text-muted-foreground">
-          <span className="border border-border px-2 py-1">PERFECCIONISMO</span>
-          <span className="border border-border px-2 py-1">EVITACIÓN</span>
+          {v.p2Tags.map((tag) => (
+            <span key={tag} className="border border-border px-2 py-1">{tag}</span>
+          ))}
         </div>
       </div>
 
-      {/* Panel 01 — Identificar (front, focus) */}
       <div className="absolute left-0 bottom-4 w-[88%] border border-foreground/15 bg-[color:var(--color-brand-deep)] text-[color:var(--color-background)] shadow-[0_30px_60px_-22px_rgba(5,50,90,0.45)] p-5">
         <div className="flex items-center justify-between">
-          <span className="font-display text-[10px] font-semibold tracking-[0.22em] text-[color:var(--color-background)]/70">01 · IDENTIFICAR</span>
-          <span className="text-[10px] text-[color:var(--color-background)]/60">Sesión activa</span>
+          <span className="font-display text-[10px] font-semibold tracking-[0.22em] text-[color:var(--color-background)]/70">{v.p1Label}</span>
+          <span className="text-[10px] text-[color:var(--color-background)]/60">{v.p1Subtitle}</span>
         </div>
         <p className="mt-3 text-[14px] leading-snug">
-          Patrón detectado: <span className="font-semibold">postergación bajo presión de decisión estratégica.</span>
+          {v.p1Quote}
         </p>
         <div className="mt-4 grid grid-cols-3 gap-3 text-[10px] tracking-wide text-[color:var(--color-background)]/75">
           <div>
-            <p className="text-[color:var(--color-background)]/55">Fricción</p>
-            <p className="mt-1 text-[color:var(--color-background)] font-display text-base font-semibold">Alta</p>
+            <p className="text-[color:var(--color-background)]/55">{v.p1Friction}</p>
+            <p className="mt-1 text-[color:var(--color-background)] font-display text-base font-semibold">{v.p1FrictionVal}</p>
           </div>
           <div>
-            <p className="text-[color:var(--color-background)]/55">Recurrencia</p>
-            <p className="mt-1 text-[color:var(--color-background)] font-display text-base font-semibold">7d</p>
+            <p className="text-[color:var(--color-background)]/55">{v.p1Recurrence}</p>
+            <p className="mt-1 text-[color:var(--color-background)] font-display text-base font-semibold">{v.p1RecurrenceVal}</p>
           </div>
           <div>
-            <p className="text-[color:var(--color-background)]/55">Salida</p>
-            <p className="mt-1 text-[color:var(--color-background)] font-display text-base font-semibold">Diseño</p>
+            <p className="text-[color:var(--color-background)]/55">{v.p1Output}</p>
+            <p className="mt-1 text-[color:var(--color-background)] font-display text-base font-semibold">{v.p1OutputVal}</p>
           </div>
         </div>
         <div className="mt-4 flex items-center justify-between border-t border-[color:var(--color-background)]/15 pt-3">
           <span className="text-[10px] tracking-[0.22em] text-[color:var(--color-background)]/60">I → R → O</span>
           <span className="inline-flex items-center gap-1 text-[11px] font-semibold">
-            Reencuadrar <ArrowRight size={12} />
+            {v.p1Next} <ArrowRight size={12} />
           </span>
         </div>
       </div>
 
-      {/* Floating mark */}
       <div className="absolute right-2 bottom-2 inline-flex items-center gap-2 border border-border bg-[color:var(--color-surface)] px-2.5 py-1.5 shadow-elev-1">
         <img src={logoCube} alt="" aria-hidden className="h-4 w-4 object-contain" />
-        <span className="font-display text-[10px] font-semibold tracking-[0.22em] text-foreground">SISTEMA I-R-O</span>
+        <span className="font-display text-[10px] font-semibold tracking-[0.22em] text-foreground">{v.mark}</span>
       </div>
     </div>
   );
 }
 
 function ETWBanner() {
+  const { locale } = useLocale();
+  const c = COPY[locale].etw;
   return (
     <section className="relative overflow-hidden border-b border-border">
       <div
@@ -303,7 +807,7 @@ function ETWBanner() {
                 <a href={ETW_URL} target="_blank" rel="noreferrer" className="block">
                   <img
                     src={etwBadge}
-                    alt="Badge oficial Host Ecuador Tech Week 2026 — G-Structure"
+                    alt={c.badgeAlt}
                     width={1080}
                     height={1350}
                     className="relative w-full max-w-[360px] mx-auto md:mx-0 h-auto shadow-[0_30px_60px_-20px_rgba(0,0,0,0.55)] ring-1 ring-white/15"
@@ -315,21 +819,19 @@ function ETWBanner() {
 
           <div className="md:col-span-7 lg:col-span-8 text-[color:var(--color-background)]">
             <div className="inline-flex items-center gap-2 border border-white/30 bg-white/10 backdrop-blur px-2.5 py-1 text-[10px] font-semibold tracking-[0.22em]">
-              <Sparkles size={12} /> ANUNCIO OFICIAL · ETW 2026
+              <Sparkles size={12} /> {c.pill}
             </div>
             <h2 className="mt-5 font-display text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.05]">
-              G-Structure es Host de Ecuador Tech Week 2026.
+              {c.h2}
             </h2>
             <p className="mt-4 max-w-2xl text-base md:text-lg text-white/85 leading-relaxed">
-              Presentamos el <strong className="text-white">Workshop de Diagnóstico de Ejecución</strong> dentro
-              de Ecuador Tech Week® powered by Startup Grind. Una experiencia curada para identificar
-              patrones que bloquean la acción en profesionales, founders y equipos.
+              {c.body}
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/85">
-              <span className="inline-flex items-center gap-2"><Calendar size={14} /> 11–19 Julio, 2026</span>
-              <span className="inline-flex items-center gap-2"><MapPin size={14} /> Guayaquil, Ecuador</span>
-              <span className="inline-flex items-center gap-2 text-white/70">Powered by Startup Grind</span>
+              <span className="inline-flex items-center gap-2"><Calendar size={14} /> {c.date}</span>
+              <span className="inline-flex items-center gap-2"><MapPin size={14} /> {c.city}</span>
+              <span className="inline-flex items-center gap-2 text-white/70">{c.poweredBy}</span>
             </div>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -339,18 +841,18 @@ function ETWBanner() {
                 rel="noreferrer"
                 className="group inline-flex items-center gap-2 bg-white px-5 py-3 text-[13px] font-semibold tracking-wide text-[color:var(--color-brand-deep)] transition-all hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-12px_rgba(0,0,0,0.4)]"
               >
-                Ver evento oficial
+                {c.ctaEvent}
                 <ExternalLink size={14} className="transition-transform group-hover:translate-x-0.5" />
               </a>
               <Link
-                to="/aliados-etw-2026"
+                to={lp("/aliados-etw-2026", locale)}
                 className="inline-flex items-center gap-2 border border-white/40 px-5 py-3 text-[13px] font-medium text-white transition-colors hover:bg-white/10"
               >
-                Quiero ser aliado <ArrowRight size={14} />
+                {c.ctaPartner} <ArrowRight size={14} />
               </Link>
             </div>
             <p className="mt-4 text-[11px] tracking-wide text-white/60">
-              #SoyHost · Compartimos el propósito de hacer del Ecuador un referente tecnológico regional.
+              {c.micro}
             </p>
           </div>
         </div>
@@ -361,36 +863,38 @@ function ETWBanner() {
 
 
 function Announcements() {
+  const { locale } = useLocale();
+  const c = COPY[locale].announcements;
   return (
     <Section>
       <SectionHeader
-        eyebrow="MOMENTUM"
-        title="Construyendo la siguiente etapa de G-Structure."
-        subtitle="Estamos abriendo espacios estratégicos para aliados y colaboradores que quieran ser parte del crecimiento inicial del ecosistema G-Structure."
+        eyebrow={c.eyebrow}
+        title={c.title}
+        subtitle={c.subtitle}
       />
       <div className="mt-12 grid gap-6 md:grid-cols-2">
         <Reveal>
           <AnnouncementCard
             icon={<Handshake size={20} />}
-            tag="ALIADOS ETW 2026"
-            title="Aliados para el Workshop de Diagnóstico de Ejecución"
-            body="G-Structure está abriendo oportunidades de alianza para marcas, instituciones y empresas que quieran vincularse al Workshop de Diagnóstico de Ejecución durante Ecuador Tech Week 2026."
-            short="Buscamos aliados que entiendan el valor de apoyar conversaciones serias sobre ejecución, claridad, tecnología, emprendimiento y desarrollo profesional."
-            cta="Quiero ser aliado"
-            to="/aliados-etw-2026"
-            micro="Espacios limitados para aliados estratégicos, experiencia, sede o contenido."
+            tag={c.allies.tag}
+            title={c.allies.title}
+            body={c.allies.body}
+            short={c.allies.short}
+            cta={c.allies.cta}
+            to={lp("/aliados-etw-2026", locale)}
+            micro={c.allies.micro}
           />
         </Reveal>
         <Reveal delay={120}>
           <AnnouncementCard
             icon={<Users size={20} />}
-            tag="EQUIPO INICIAL"
-            title="Estamos formando el equipo que construirá G-Structure y G-Struct"
-            body="Buscamos colaboradores voluntarios en áreas clave para fortalecer la siguiente etapa del proyecto: producto, tecnología, ventas, marketing y negocios internacionales."
-            short="No buscamos espectadores. Buscamos personas con criterio, iniciativa y ganas de construir desde una etapa temprana."
-            cta="Quiero unirme al equipo"
-            to="/unete-al-equipo"
-            micro="Participación inicial voluntaria, con enfoque en construcción real, portafolio, aprendizaje aplicado y posible continuidad conforme el proyecto avance."
+            tag={c.team.tag}
+            title={c.team.title}
+            body={c.team.body}
+            short={c.team.short}
+            cta={c.team.cta}
+            to={lp("/unete-al-equipo", locale)}
+            micro={c.team.micro}
           />
         </Reveal>
       </div>
@@ -433,61 +937,35 @@ function AnnouncementCard({
 }
 
 function Problem() {
-  const cards = [
-    {
-      t: "Procrastinación",
-      d: "Cuando la acción se posterga aunque la tarea sea importante.",
-      reveal: "¿Lo pospones aunque sabes que es importante? G-Struct trabaja este patrón.",
-    },
-    {
-      t: "Perfeccionismo improductivo",
-      d: "Cuando el estándar se vuelve una excusa elegante para no avanzar.",
-      reveal: "¿El estándar se volvió una excusa elegante? Hay un patrón detrás de eso.",
-    },
-    {
-      t: "Sobreanálisis",
-      d: "Cuando pensar más deja de aclarar y empieza a paralizar.",
-      reveal: "¿Pensar más dejó de ayudar? Eso tiene una estructura cognitiva específica.",
-    },
-    {
-      t: "Autosabotaje",
-      d: "Cuando la conducta contradice el objetivo que la persona dice querer.",
-      reveal: "¿Tu conducta contradice tu objetivo? El Motor de Reestructuración mapea por qué.",
-    },
-    {
-      t: "Bloqueo de ejecución",
-      d: "Cuando hay intención, pero no hay salida funcional a la acción.",
-      reveal: "¿Hay intención pero no hay salida? G-Struct convierte eso en acción.",
-    },
-  ];
+  const { locale } = useLocale();
+  const c = COPY[locale].problem;
   return (
     <Section tone="muted">
       <SectionHeader
-        eyebrow="EL PROBLEMA"
-        title="No siempre falta capacidad. A veces sobra fricción."
-        subtitle="Muchos profesionales y equipos saben lo que tienen que hacer. Tienen objetivos, recursos, información y experiencia. Pero entre la intención y la acción aparece una zona de interferencia: pensamientos rígidos, lectura distorsionada del riesgo, perfeccionismo improductivo, evitación o decisiones que se postergan demasiado."
+        eyebrow={c.eyebrow}
+        title={c.title}
+        subtitle={c.subtitle}
       />
       <p className="mt-6 max-w-3xl text-base md:text-lg text-foreground leading-relaxed">
-        G-Structure trabaja precisamente en esa zona: donde la cognición, la emoción y la conducta
-        empiezan a bloquear la ejecución.
+        {c.lead}
       </p>
       <div className="mt-12 grid gap-px bg-border md:grid-cols-3 lg:grid-cols-5 border border-border">
-        {cards.map((c) => (
+        {c.cards.map((card) => (
           <div
-            key={c.t}
+            key={card.t}
             className="group relative bg-[color:var(--color-surface)] p-6 transition-colors hover:bg-[color:var(--color-brand-soft)]/40 focus-within:bg-[color:var(--color-brand-soft)]/40"
             tabIndex={0}
           >
-            <h3 className="font-display text-base font-semibold">{c.t}</h3>
-            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{c.d}</p>
+            <h3 className="font-display text-base font-semibold">{card.t}</h3>
+            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{card.d}</p>
             <div className="mt-3 max-h-0 overflow-hidden opacity-0 transition-all duration-300 group-hover:max-h-40 group-hover:opacity-100 group-focus-within:max-h-40 group-focus-within:opacity-100">
-              <p className="text-xs text-foreground/80 leading-relaxed">{c.reveal}</p>
+              <p className="text-xs text-foreground/80 leading-relaxed">{card.reveal}</p>
               <Link
-                to="/"
+                to={lp("/", locale)}
                 hash="quiz"
                 className="mt-3 inline-flex items-center gap-1.5 text-[12px] font-medium text-foreground"
               >
-                <ArrowRight size={12} /> Haz el diagnóstico
+                <ArrowRight size={12} /> {c.diagnose}
               </Link>
             </div>
           </div>
@@ -498,32 +976,26 @@ function Problem() {
 }
 
 function MentalOS() {
+  const { locale } = useLocale();
+  const c = COPY[locale].mentalOS;
   return (
     <Section>
       <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-7">
           <SectionHeader
-            eyebrow="NUESTRA LECTURA"
-            title="Tratamos la mente como un sistema operativo."
+            eyebrow={c.eyebrow}
+            title={c.title}
           />
           <div className="mt-8 space-y-5 text-base md:text-lg text-muted-foreground leading-relaxed">
-            <p>
-              En contextos de alta exigencia, el problema no siempre está en la meta. Muchas veces
-              está en el procesamiento: cómo se interpreta la presión, cómo se anticipa el error,
-              cómo se evalúa el riesgo y cómo se convierte una decisión en conducta.
-            </p>
-            <p>
-              Cuando ese sistema entra en fricción, la acción se distorsiona. G-Structure interviene
-              sobre esos patrones para que la persona o el equipo pueda pensar con más claridad,
-              decidir con más precisión y actuar con mayor consistencia.
-            </p>
+            <p>{c.p1}</p>
+            <p>{c.p2}</p>
           </div>
         </div>
         <aside className="lg:col-span-5 flex">
           <blockquote className="relative flex-1 border-l-2 border-foreground p-8 md:p-10 bg-[color:var(--color-brand-soft)]/30">
             <BrandMark size={28} className="opacity-60" />
             <p className="mt-6 font-display text-xl md:text-2xl leading-snug text-foreground">
-              El orden mental no es un lujo. Es la base de una acción clara, funcional y sostenible.
+              {c.quote}
             </p>
           </blockquote>
         </aside>
@@ -533,6 +1005,8 @@ function MentalOS() {
 }
 
 function Method() {
+  const { locale } = useLocale();
+  const c = COPY[locale].method;
   return (
     <Section id="metodo" tone="deep" className="relative overflow-hidden">
       <div className="absolute inset-0 dot-bg-inverse opacity-[0.07] pointer-events-none" aria-hidden />
@@ -543,38 +1017,38 @@ function Method() {
         className="pointer-events-none absolute -right-20 -bottom-20 h-[420px] w-[420px] opacity-[0.05] invert brightness-200 select-none"
       />
       <div className="relative max-w-3xl">
-        <p className="eyebrow text-[color:var(--color-background)]/70">EL MÉTODO</p>
+        <p className="eyebrow text-[color:var(--color-background)]/70">{c.eyebrow}</p>
         <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.08]">
-          Identificar. Reencuadrar. Optimizar.
+          {c.title}
         </h2>
         <p className="mt-5 text-base md:text-lg text-[color:var(--color-background)]/75 leading-relaxed">
-          Un framework estructurado para convertir fricción cognitivo-conductual en acción funcional.
-          Selecciona cada fase para ver el detalle.
+          {c.lead}
         </p>
       </div>
       <div className="relative">
         <MethodTabs />
       </div>
       <p className="relative mt-10 max-w-3xl text-xs md:text-[13px] text-[color:var(--color-background)]/60 leading-relaxed">
-        El método I-R-O está basado en principios de la Terapia Cognitivo-Conductual (CBT), adaptados
-        a contextos de ejecución profesional. No constituye terapia ni sustituye atención clínica.
+        {c.footnote}
       </p>
     </Section>
   );
 }
 
 function FAQSection() {
+  const { locale } = useLocale();
+  const c = COPY[locale].faq;
   return (
     <Section tone="muted">
       <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-5">
           <SectionHeader
-            eyebrow="PREGUNTAS FRECUENTES"
-            title="Antes de agendar, esto suele aparecer."
-            subtitle="Respuestas breves a las preguntas más comunes sobre el método, los procesos y la app."
+            eyebrow={c.eyebrow}
+            title={c.title}
+            subtitle={c.subtitle}
           />
           <div className="mt-8">
-            <CTALink to="/contacto" variant="outline">Tengo otra pregunta</CTALink>
+            <CTALink to={lp("/contacto", locale)} variant="outline">{c.cta}</CTALink>
           </div>
         </div>
         <div className="lg:col-span-7">
@@ -586,38 +1060,15 @@ function FAQSection() {
 }
 
 function Solutions() {
-  const items = [
-    {
-      t: "Workshop de Diagnóstico",
-      d: "Sesión estratégica para identificar fricciones de ejecución en profesionales, líderes o equipos.",
-      ideal: "Empresas, founders o equipos que necesitan entender qué está bloqueando la acción antes de diseñar una intervención.",
-      cta: "Explorar workshop", to: "/enterprise",
-    },
-    {
-      t: "REESTRUCTURA Enterprise",
-      d: "Programa piloto de 4 semanas para trabajar patrones de procrastinación, perfeccionismo, sobreanálisis y autosabotaje en equipos.",
-      ideal: "Organizaciones que necesitan mejorar claridad, toma de decisiones y consistencia conductual.",
-      cta: "Solicitar información", to: "/enterprise",
-    },
-    {
-      t: "REESTRUCTURA 1:1",
-      d: "Proceso individual de coaching cognitivo-conductual para profesionales que necesitan intervenir sus propios bloqueos de ejecución.",
-      ideal: "Líderes, emprendedores y profesionales que quieren trabajar su patrón personal de acción.",
-      cta: "Conocer proceso individual", to: "/reestructura-1-1",
-    },
-    {
-      t: "Continuidad Enterprise",
-      d: "Seguimiento mensual o trimestral para consolidar avances, revisar patrones recurrentes y sostener cambios en la ejecución.",
-      ideal: "Equipos que necesitan mantener el trabajo después de una intervención inicial.",
-      cta: "Diseñar continuidad", to: "/enterprise",
-    },
-  ] as const;
+  const { locale } = useLocale();
+  const c = COPY[locale].solutions;
+  const items = COPY[locale].solutionsItems;
   return (
     <Section>
       <SectionHeader
-        eyebrow="SOLUCIONES"
-        title="Intervenciones estructuradas para personas y equipos que necesitan ejecutar mejor."
-        subtitle="G-Structure opera a través de diagnósticos, programas breves y procesos de continuidad diseñados para contextos profesionales de alta exigencia."
+        eyebrow={c.eyebrow}
+        title={c.title}
+        subtitle={c.subtitle}
       />
       <div className="mt-12 grid gap-6 md:grid-cols-2">
         {items.map((it, idx) => (
@@ -630,11 +1081,11 @@ function Solutions() {
               <h3 className="mt-3 font-display text-xl md:text-2xl font-semibold">{it.t}</h3>
               <p className="mt-3 text-sm md:text-[15px] text-muted-foreground leading-relaxed">{it.d}</p>
               <div className="mt-5 border-t border-border pt-4">
-                <p className="eyebrow mb-2">Ideal para</p>
+                <p className="eyebrow mb-2">{c.idealFor}</p>
                 <p className="text-sm text-foreground/80 leading-relaxed">{it.ideal}</p>
               </div>
               <div className="mt-auto pt-6">
-                <Link to={it.to} className="group inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground">
+                <Link to={lp(it.esTo, locale)} className="group inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground">
                   {it.cta} <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
                 </Link>
               </div>
@@ -647,39 +1098,26 @@ function Solutions() {
 }
 
 function ForWhom() {
-  const a = [
-    "Profesionales con alta carga de decisión.",
-    "Líderes que necesitan mayor claridad de acción.",
-    "Founders que viven bajo presión constante.",
-    "Equipos que postergan decisiones importantes.",
-    "Organizaciones que quieren intervenir fricciones de ejecución sin caer en charlas motivacionales.",
-  ];
-  const b = [
-    "Procrastinación en tareas críticas.",
-    "Reuniones que no se traducen en acción.",
-    "Perfeccionismo que retrasa entregables.",
-    "Sobreanálisis en decisiones estratégicas.",
-    "Desgaste por falta de claridad operativa.",
-    "Patrones repetidos de bloqueo, evitación o autosabotaje.",
-  ];
+  const { locale } = useLocale();
+  const c = COPY[locale].forWhom;
   return (
     <Section tone="muted">
       <SectionHeader
-        eyebrow="APLICACIÓN"
-        title="Diseñado para contextos donde pensar bien no basta: hay que ejecutar."
+        eyebrow={c.eyebrow}
+        title={c.title}
       />
       <div className="mt-12 grid gap-10 md:grid-cols-2 md:gap-16">
-        <List title="G-Structure es para:" items={a} />
-        <List title="Es especialmente útil cuando aparecen:" items={b} />
+        <List title={c.titleA} items={c.a} />
+        <List title={c.titleB} items={c.b} />
       </div>
       <p className="mt-12 max-w-3xl font-display text-xl md:text-2xl leading-snug text-foreground">
-        El objetivo no es hacer más por hacer más. Es pensar, decidir y actuar con mayor precisión.
+        {c.closing}
       </p>
     </Section>
   );
 }
 
-function List({ title, items }: { title: string; items: string[] }) {
+function List({ title, items }: { title: string; items: readonly string[] }) {
   return (
     <div>
       <p className="eyebrow mb-5">{title}</p>
@@ -696,49 +1134,36 @@ function List({ title, items }: { title: string; items: string[] }) {
 }
 
 function GStructBridge() {
-  const features = [
-    { t: "Motor de Reestructuración", d: "Identifica la situación, nombra la emoción, mide su intensidad, llega a la creencia núcleo. Si puedes medirlo, puedes optimizarlo." },
-    { t: "Laboratorio de Pensamientos con IA", d: "Con asistencia de inteligencia artificial, aprende a reencuadrar el pensamiento automático en uno funcional que habilite la acción." },
-    { t: "Diagnóstico de Ejecución", d: "Identifica tus patrones recurrentes — procrastinación, perfeccionismo, autosabotaje — y trabaja directamente sobre ellos." },
-  ];
+  const { locale } = useLocale();
+  const c = COPY[locale].gstruct;
   return (
     <Section tone="white" id="producto">
       <div className="flex flex-wrap items-center gap-3">
-        <span className="eyebrow">EL PRODUCTO · G-STRUCT</span>
+        <span className="eyebrow">{c.tag}</span>
         <span className="border border-border px-2.5 py-1 text-[10px] font-semibold tracking-[0.22em] text-muted-foreground">
-          PROTOTIPO ACTIVO · LANZAMIENTO Q3 2026
+          {c.pill}
         </span>
       </div>
       <h2 className="mt-4 max-w-3xl font-display text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.08]">
-        G-Struct es el producto principal de G-Structure.
+        {c.h2}
       </h2>
       <p className="mt-5 max-w-3xl text-base md:text-lg text-muted-foreground leading-relaxed">
-        Una app diseñada para convertir el método <strong className="text-foreground">Identificar → Reencuadrar → Optimizar</strong> en
-        una herramienta diaria de ejecución para profesionales, founders y equipos.
+        {c.lead}
       </p>
       <p className="mt-3 max-w-3xl text-xs md:text-[13px] text-muted-foreground leading-relaxed">
-        No somos una app de terapia. No hacemos diagnóstico clínico. G-Struct es una herramienta de
-        coaching, psicoeducación y optimización de ejecución basada en principios cognitivo-conductuales.
+        {c.disclaimer}
       </p>
 
       <div className="mt-8 grid gap-12 lg:grid-cols-12 lg:items-start">
         <div className="lg:col-span-7 space-y-5 text-base md:text-lg text-muted-foreground leading-relaxed">
-          <p>
-            G-Struct lleva el método I-R-O a tu bolsillo. Una app móvil diseñada para identificar la
-            fricción que bloquea tu ejecución, reencuadrarla con metodología CBT coaching, y optimizar
-            tu acción — disponible 24/7.
-          </p>
-          <p className="text-foreground/85">
-            No es una app de bienestar. No es un diario de pensamientos. No es otra lista de tareas.
-            Es la herramienta que separa a quienes saben lo que hay que hacer de quienes realmente lo
-            hacen.
-          </p>
+          <p>{c.p1}</p>
+          <p className="text-foreground/85">{c.p2}</p>
         </div>
         <div className="lg:col-span-5">
           <div className="relative border border-border bg-[color:var(--color-surface)] p-6">
             <img
               src={gStructHomePreview}
-              alt="Vista previa de la app G-Struct."
+              alt={c.previewAlt}
               loading="lazy"
               width={1024}
               height={1024}
@@ -749,7 +1174,7 @@ function GStructBridge() {
       </div>
 
       <div className="mt-12 grid gap-px bg-border md:grid-cols-3 border border-border">
-        {features.map((f) => (
+        {c.features.map((f) => (
           <div key={f.t} className="bg-[color:var(--color-surface)] p-7">
             <h3 className="font-display text-base md:text-lg font-semibold">{f.t}</h3>
             <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{f.d}</p>
@@ -758,47 +1183,37 @@ function GStructBridge() {
       </div>
 
       <div className="mt-16">
-        <p className="eyebrow">PLANES</p>
+        <p className="eyebrow">{c.plansLabel}</p>
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           <div className="border border-border bg-[color:var(--color-surface)] p-7">
-            <p className="font-display text-[11px] font-semibold tracking-[0.22em] text-muted-foreground">FREE</p>
-            <p className="mt-3 font-display text-3xl font-semibold">Gratis</p>
+            <p className="font-display text-[11px] font-semibold tracking-[0.22em] text-muted-foreground">{c.plans.freeTag}</p>
+            <p className="mt-3 font-display text-3xl font-semibold">{c.plans.freePrice}</p>
             <ul className="mt-5 space-y-2 text-sm text-foreground/85 leading-relaxed">
-              <li>· 3 registros en el Motor de Reestructuración</li>
-              <li>· 5 Activadores Matutinos por mes</li>
-              <li>· Fase 1 de la Guía CBT</li>
-              <li>· Recursos base</li>
+              {c.plans.freeItems.map((i) => <li key={i}>{i}</li>)}
             </ul>
           </div>
           <div className="relative border border-foreground bg-[color:var(--color-brand-deep)] text-[color:var(--color-background)] p-7">
-            <span className="absolute -top-3 left-7 inline-flex items-center bg-foreground px-2.5 py-1 text-[10px] font-semibold tracking-[0.22em] text-background">DESTACADO</span>
-            <p className="font-display text-[11px] font-semibold tracking-[0.22em] text-[color:var(--color-background)]/70">PLUS</p>
-            <p className="mt-3 font-display text-3xl font-semibold">$20 / mes</p>
+            <span className="absolute -top-3 left-7 inline-flex items-center bg-foreground px-2.5 py-1 text-[10px] font-semibold tracking-[0.22em] text-background">{c.plans.plusBadge}</span>
+            <p className="font-display text-[11px] font-semibold tracking-[0.22em] text-[color:var(--color-background)]/70">{c.plans.plusTag}</p>
+            <p className="mt-3 font-display text-3xl font-semibold">{c.plans.plusPrice}</p>
             <ul className="mt-5 space-y-2 text-sm text-[color:var(--color-background)]/90 leading-relaxed">
-              <li>· Motor de Reestructuración ilimitado</li>
-              <li>· Activadores Matutinos ilimitados</li>
-              <li>· Guía CBT completa</li>
-              <li>· Laboratorio de Pensamientos con IA</li>
-              <li>· Plataforma de Diagnóstico de Ejecución</li>
+              {c.plans.plusItems.map((i) => <li key={i}>{i}</li>)}
             </ul>
           </div>
           <div className="border border-border bg-[color:var(--color-surface)] p-7">
-            <p className="font-display text-[11px] font-semibold tracking-[0.22em] text-muted-foreground">VIP</p>
-            <p className="mt-3 font-display text-3xl font-semibold">$50 / mes</p>
+            <p className="font-display text-[11px] font-semibold tracking-[0.22em] text-muted-foreground">{c.plans.vipTag}</p>
+            <p className="mt-3 font-display text-3xl font-semibold">{c.plans.vipPrice}</p>
             <ul className="mt-5 space-y-2 text-sm text-foreground/85 leading-relaxed">
-              <li>· Sesión mensual con coach humano</li>
-              <li>· Auditoría mensual de patrones</li>
-              <li>· Foro privado de comunidad</li>
-              <li>· Masterclasses premium</li>
+              {c.plans.vipItems.map((i) => <li key={i}>{i}</li>)}
             </ul>
           </div>
         </div>
       </div>
 
       <div className="mt-12 flex flex-col items-center text-center gap-3">
-        <CTALink to="/g-struct" variant="primary">Únete a la lista de espera</CTALink>
+        <CTALink to={lp("/g-struct", locale)} variant="primary">{c.ctaWaitlist}</CTALink>
         <p className="text-sm text-muted-foreground">
-          Sé parte del primer grupo que accede a G-Struct en Ecuador.
+          {c.ctaSub}
         </p>
       </div>
     </Section>
@@ -806,13 +1221,8 @@ function GStructBridge() {
 }
 
 function Founder() {
-  const credentials = [
-    "CBT Coach Practitioner · CTAA",
-    "Psicología & Intervención Educativa",
-    "Docencia internacional",
-    "MV Logos Hope · gerencia de proyectos",
-    "G-Struct con ÉPICO",
-  ];
+  const { locale } = useLocale();
+  const c = COPY[locale].founder;
   return (
     <Section>
       <div className="grid gap-12 lg:grid-cols-12 lg:gap-16 items-start">
@@ -821,30 +1231,25 @@ function Founder() {
         </aside>
         <div className="lg:col-span-8 lg:order-2 order-1">
           <SectionHeader
-            eyebrow="QUIÉN ESTÁ DETRÁS"
-            title="Dirección metodológica con experiencia educativa, cognitivo-conductual y de proyectos."
+            eyebrow={c.eyebrow}
+            title={c.title}
           />
           <div className="mt-6 space-y-4 text-base md:text-lg text-muted-foreground leading-relaxed">
-            <p>
-              <strong className="text-foreground font-semibold">Guillermo Suco</strong> es fundador
-              de G-Structure y Coach especializado en procesos cognitivo-conductuales aplicados a la
-              ejecución. Su trabajo integra Psicología, intervención educativa, gerencia de
-              proyectos multiculturales y desarrollo de producto digital.
-            </p>
+            <p>{c.body}</p>
           </div>
           <div className="mt-6 flex flex-wrap gap-2">
-            {credentials.map((c) => (
+            {c.credentials.map((cr) => (
               <span
-                key={c}
+                key={cr}
                 className="border border-border bg-[color:var(--color-surface)] px-3 py-1.5 text-[11.5px] tracking-wide text-foreground/80"
               >
-                {c}
+                {cr}
               </span>
             ))}
           </div>
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <CTAExternal href="https://wa.me/593986875121" variant="primary">Conversar con Guillermo</CTAExternal>
-            <CTALink to="/sobre-guillermo" variant="outline">Ver perfil</CTALink>
+            <CTAExternal href="https://wa.me/593986875121" variant="primary">{c.ctaTalk}</CTAExternal>
+            <CTALink to={lp("/sobre-guillermo", locale)} variant="outline">{c.ctaProfile}</CTALink>
           </div>
         </div>
       </div>
@@ -853,93 +1258,56 @@ function Founder() {
 }
 
 function ValidationChannels() {
-  const channels = [
-    {
-      tag: "01 · CANAL INDIVIDUAL",
-      t: "REESTRUCTURA 1:1",
-      d: "Sesiones individuales que permiten validar la metodología con profesionales, líderes y emprendedores que enfrentan fricción de ejecución.",
-      to: "/reestructura-1-1",
-      cta: "Conocer 1:1",
-    },
-    {
-      tag: "02 · CANAL B2B",
-      t: "REESTRUCTURA Enterprise",
-      d: "Programa B2B para mapear patrones de ejecución en equipos, founders y organizaciones — y generar revenue temprano para la startup.",
-      to: "/enterprise",
-      cta: "Conocer Enterprise",
-    },
-    {
-      tag: "03 · CANAL DE ACTIVACIÓN",
-      t: "Workshop de Diagnóstico de Ejecución",
-      d: "Experiencia grupal diseñada para educar, diagnosticar patrones de ejecución y activar usuarios tempranos para G-Struct.",
-      to: "/aliados-etw-2026",
-      cta: "Workshop · ETW 2026",
-    },
-    {
-      tag: "04 · PRODUCTO ESCALABLE",
-      t: "G-Struct App",
-      d: "El producto digital que escala la metodología. Lo que aprendemos en los canales anteriores alimenta directamente su construcción.",
-      to: "/g-struct",
-      cta: "Explorar G-Struct",
-    },
-  ] as const;
-
+  const { locale } = useLocale();
+  const c = COPY[locale].channels;
   return (
     <Section tone="muted" id="canales">
       <SectionHeader
-        eyebrow="CÓMO ESTAMOS VALIDANDO G-STRUCT"
-        title="No son negocios separados. Son capas de una misma estrategia."
-        subtitle="G-Structure usa servicios, workshops y programas como canales de validación, datos cualitativos y revenue temprano para construir un producto digital escalable."
+        eyebrow={c.eyebrow}
+        title={c.title}
+        subtitle={c.subtitle}
       />
       <div className="mt-12 grid gap-px bg-border md:grid-cols-2 lg:grid-cols-4 border border-border">
-        {channels.map((c) => (
-          <div key={c.t} className="relative flex flex-col bg-[color:var(--color-surface)] p-7">
-            <span className="font-display text-[10px] font-semibold tracking-[0.22em] text-[color:var(--color-brand)]">{c.tag}</span>
-            <h3 className="mt-3 font-display text-lg md:text-xl font-semibold leading-snug">{c.t}</h3>
-            <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{c.d}</p>
+        {c.items.map((item) => (
+          <div key={item.t} className="relative flex flex-col bg-[color:var(--color-surface)] p-7">
+            <span className="font-display text-[10px] font-semibold tracking-[0.22em] text-[color:var(--color-brand)]">{item.tag}</span>
+            <h3 className="mt-3 font-display text-lg md:text-xl font-semibold leading-snug">{item.t}</h3>
+            <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{item.d}</p>
             <div className="mt-auto pt-6">
-              <Link to={c.to} className="group inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground">
-                {c.cta} <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
+              <Link to={lp(item.esTo, locale)} className="group inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground">
+                {item.cta} <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
               </Link>
             </div>
           </div>
         ))}
       </div>
       <p className="mt-8 max-w-3xl text-xs md:text-[13px] text-muted-foreground leading-relaxed">
-        Compañía: <strong className="text-foreground">G-Structure</strong> · Producto principal: <strong className="text-foreground">G-Struct</strong> ·
-        Canales de validación: <strong className="text-foreground">1:1, Enterprise, Workshop</strong> · Crecimiento: aliados, inversores y equipo.
+        {c.footer}
       </p>
     </Section>
   );
 }
 
 function StartupStage() {
-  const routes = [
-    { tag: "USUARIOS", t: "Probar o conocer G-Struct", to: "/g-struct" },
-    { tag: "EMPRESAS", t: "Llevar Enterprise a tu equipo", to: "/enterprise" },
-    { tag: "INVERSIONISTAS", t: "Revisar la oportunidad de inversión", to: "/inversores" },
-    { tag: "ALIADOS", t: "Sumarse al ecosistema · ETW 2026", to: "/aliados-etw-2026" },
-    { tag: "TALENTO", t: "Unirse al equipo fundador", to: "/unete-al-equipo" },
-  ] as const;
+  const { locale } = useLocale();
+  const c = COPY[locale].startup;
   return (
     <Section tone="white">
       <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-5">
-          <Eyebrow>UNA STARTUP EN ETAPA TEMPRANA</Eyebrow>
+          <Eyebrow>{c.eyebrow}</Eyebrow>
           <h2 className="mt-4 font-display text-3xl md:text-4xl leading-[1.08]">
-            De prototipo a MVP, con una tesis clara.
+            {c.title}
           </h2>
           <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed">
-            G-Structure se encuentra en etapa de validación, construyendo el camino de prototipo a MVP.
-            El objetivo es convertir <strong className="text-foreground">G-Struct</strong> en una plataforma escalable
-            para profesionales, founders y equipos que necesitan ejecutar mejor bajo presión.
+            {c.lead}
           </p>
         </div>
         <div className="lg:col-span-7">
           <ul className="border border-border bg-[color:var(--color-surface)] divide-y divide-border">
-            {routes.map((r) => (
+            {c.routes.map((r) => (
               <li key={r.tag}>
-                <Link to={r.to} className="group flex items-center justify-between gap-6 px-6 py-5 hover:bg-[color:var(--color-brand-soft)]/40">
+                <Link to={lp(r.esTo, locale)} className="group flex items-center justify-between gap-6 px-6 py-5 hover:bg-[color:var(--color-brand-soft)]/40">
                   <div className="flex items-baseline gap-4">
                     <span className="font-display text-[10px] font-semibold tracking-[0.22em] text-muted-foreground w-28 shrink-0">
                       {r.tag}
@@ -958,21 +1326,22 @@ function StartupStage() {
 }
 
 function FinalCTA() {
+  const { locale } = useLocale();
+  const c = COPY[locale].finalCTA;
   return (
     <Section tone="deep">
       <div className="max-w-3xl">
         <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.05]">
-          G-Structure está construyendo G-Struct. Decide cómo quieres ser parte.
+          {c.title}
         </h2>
         <p className="mt-6 text-base md:text-lg text-[color:var(--color-background)]/80 leading-relaxed">
-          Únete a la waitlist del producto, lleva la metodología a tu equipo, conoce la oportunidad
-          de inversión, o conversa con nosotros directamente.
+          {c.body}
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-3">
-          <CTALink to="/g-struct" variant="inverse">Explorar G-Struct</CTALink>
-          <CTALink to="/" hash="lista-de-espera" variant="inverse">Unirme a la waitlist</CTALink>
-          <CTALink to="/contacto" variant="ghost" className="text-[color:var(--color-background)] hover:bg-[color:var(--color-background)]/10">
-            Contactar
+          <CTALink to={lp("/g-struct", locale)} variant="inverse">{c.ctaExplore}</CTALink>
+          <CTALink to={lp("/", locale)} hash="lista-de-espera" variant="inverse">{c.ctaWaitlist}</CTALink>
+          <CTALink to={lp("/contacto", locale)} variant="ghost" className="text-[color:var(--color-background)] hover:bg-[color:var(--color-background)]/10">
+            {c.ctaContact}
           </CTALink>
         </div>
       </div>
@@ -981,6 +1350,10 @@ function FinalCTA() {
 }
 
 export function Index() {
+  // Keep MentalOS/Solutions/ForWhom available for layouts that want them later.
+  void MentalOS;
+  void Solutions;
+  void ForWhom;
   return (
     <>
       <Hero />

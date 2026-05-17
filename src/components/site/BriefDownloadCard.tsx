@@ -1,6 +1,7 @@
 import type { MouseEvent } from "react";
 import { FileText, Download } from "lucide-react";
 import { trackBriefDownload } from "@/lib/analytics";
+import { useLocale } from "@/lib/i18n";
 
 const handleBriefDownload = (e: MouseEvent<HTMLAnchorElement>, source: "card" | "compact") => {
   e.preventDefault();
@@ -14,9 +15,53 @@ type Props = {
 };
 
 const PDF_HREF = "/downloads/g-structure-brief-comercial.pdf";
-const PDF_LABEL = "Descargar brief comercial de G-Structure en PDF";
+
+const COPY = {
+  es: {
+    ariaLabel: "Descargar brief comercial de G-Structure en PDF",
+    compactLabel: "Descargar brief comercial (PDF)",
+    coverEyebrow: "INGENIERÍA DE EJECUCIÓN",
+    coverTagline: (
+      <>
+        Ingeniería de resultados<br />cognitivo-conductuales.
+      </>
+    ),
+    eyebrow: "RECURSO DESCARGABLE",
+    title: "Descarga el brief comercial de G-Structure.",
+    body: "Un documento breve, sobrio y directo para conocer la metodología I-R-O, las soluciones, el ecosistema G-Struct y el equipo detrás. Pensado para empresas, aliados, sponsors y potenciales colaboradores.",
+    bullets: [
+      "· 8 páginas · A4 vertical",
+      "· Método, soluciones y founder",
+      "· Apto para lectura digital e impresión",
+      "· Actualizado 2026",
+    ],
+    cta: "Descargar PDF",
+  },
+  en: {
+    ariaLabel: "Download G-Structure commercial brief in PDF",
+    compactLabel: "Download commercial brief (PDF)",
+    coverEyebrow: "EXECUTION ENGINEERING",
+    coverTagline: (
+      <>
+        Cognitive-behavioral<br />results engineering.
+      </>
+    ),
+    eyebrow: "DOWNLOADABLE RESOURCE",
+    title: "Download the G-Structure commercial brief.",
+    body: "A short, sober, and direct document covering the I-R-O methodology, the solutions, the G-Struct ecosystem, and the team behind it. Designed for companies, partners, sponsors, and potential collaborators.",
+    bullets: [
+      "· 8 pages · A4 vertical",
+      "· Method, solutions, and founder",
+      "· Fit for digital reading and print",
+      "· Updated 2026",
+    ],
+    cta: "Download PDF",
+  },
+} as const;
 
 export function BriefDownloadCard({ variant = "default", className }: Props) {
+  const { locale } = useLocale();
+  const t = COPY[locale];
   if (variant === "compact") {
     return (
       <a
@@ -24,12 +69,12 @@ export function BriefDownloadCard({ variant = "default", className }: Props) {
         target="_blank"
         rel="noopener"
         download
-        aria-label={PDF_LABEL}
+        aria-label={t.ariaLabel}
         onClick={(e) => handleBriefDownload(e, "compact")}
         className={`group inline-flex items-center gap-2.5 border border-border bg-[color:var(--color-surface)] px-4 py-2.5 text-[13px] font-medium text-foreground transition-colors hover:border-foreground ${className ?? ""}`}
       >
         <FileText size={15} className="text-muted-foreground group-hover:text-foreground transition-colors" />
-        Descargar brief comercial (PDF)
+        {t.compactLabel}
         <Download size={14} className="transition-transform group-hover:translate-y-0.5" />
       </a>
     );
@@ -48,7 +93,6 @@ export function BriefDownloadCard({ variant = "default", className }: Props) {
             style={{ backgroundColor: "var(--color-brand)" }}
             aria-hidden
           >
-            {/* faint grid */}
             <div
               className="pointer-events-none absolute inset-0 opacity-30"
               style={{
@@ -64,13 +108,13 @@ export function BriefDownloadCard({ variant = "default", className }: Props) {
             <div className="absolute left-4 right-4 bottom-10">
               <span className="block text-[9px] font-semibold tracking-[0.2em] text-white/60">
                 <span className="mr-1 inline-block h-[6px] w-[6px] translate-y-[-1px] bg-white/50" />
-                INGENIERÍA DE EJECUCIÓN
+                {t.coverEyebrow}
               </span>
               <h3 className="mt-3 font-display text-[26px] leading-none font-bold text-white">
                 G&#8209;Structure
               </h3>
               <p className="mt-2 text-[10px] leading-snug text-white/70">
-                Ingeniería de resultados<br />cognitivo-conductuales.
+                {t.coverTagline}
               </p>
             </div>
             <div className="absolute left-4 bottom-3 right-4 flex items-center justify-between text-[8px] tracking-[0.18em] text-white/50">
@@ -82,23 +126,20 @@ export function BriefDownloadCard({ variant = "default", className }: Props) {
 
         {/* Copy + CTA */}
         <div className="md:col-span-8">
-          <p className="eyebrow text-muted-foreground">RECURSO DESCARGABLE</p>
+          <p className="eyebrow text-muted-foreground">{t.eyebrow}</p>
           <h3
             id="brief-download-title"
             className="mt-3 font-display text-2xl md:text-3xl leading-[1.1] text-foreground"
           >
-            Descarga el brief comercial de G-Structure.
+            {t.title}
           </h3>
           <p className="mt-4 max-w-xl text-sm md:text-base text-muted-foreground leading-relaxed">
-            Un documento breve, sobrio y directo para conocer la metodología I-R-O,
-            las soluciones, el ecosistema G-Struct y el equipo detrás. Pensado para
-            empresas, aliados, sponsors y potenciales colaboradores.
+            {t.body}
           </p>
           <ul className="mt-5 grid gap-1.5 text-[12.5px] text-muted-foreground sm:grid-cols-2">
-            <li>· 8 páginas · A4 vertical</li>
-            <li>· Método, soluciones y founder</li>
-            <li>· Apto para lectura digital e impresión</li>
-            <li>· Actualizado 2026</li>
+            {t.bullets.map((b) => (
+              <li key={b}>{b}</li>
+            ))}
           </ul>
           <div className="mt-7 flex flex-wrap items-center gap-3">
             <a
@@ -106,11 +147,11 @@ export function BriefDownloadCard({ variant = "default", className }: Props) {
               target="_blank"
               rel="noopener"
               download
-              aria-label={PDF_LABEL}
+              aria-label={t.ariaLabel}
               onClick={(e) => handleBriefDownload(e, "card")}
               className="group inline-flex items-center justify-center gap-2 bg-foreground px-5 py-3 text-[13px] font-medium tracking-wide text-background transition-opacity hover:opacity-90"
             >
-              Descargar PDF
+              {t.cta}
               <Download size={15} className="transition-transform group-hover:translate-y-0.5" />
             </a>
             <span className="inline-flex items-center gap-2 text-[12px] text-muted-foreground">
