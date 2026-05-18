@@ -5,38 +5,157 @@
     <loc>https://g-structure.co/</loc>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/"/>
+    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/"/>
   </url>
-  <url><loc>https://g-structure.co/enterprise</loc><priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/enterprise"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/enterprise"/></url>
-  <url><loc>https://g-structure.co/reestructura-1-1</loc><priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/reestructura-1-1"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/restructure-1-1"/></url>
-  <url><loc>https://g-structure.co/g-struct</loc><priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/g-struct"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/g-struct"/></url>
-  <url><loc>https://g-structure.co/sobre-guillermo</loc><priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/sobre-guillermo"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/about-guillermo"/></url>
-  <url><loc>https://g-structure.co/aliados-etw-2026</loc><priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/aliados-etw-2026"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/etw-2026-partners"/></url>
-  <url><loc>https://g-structure.co/unete-al-equipo</loc><priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/unete-al-equipo"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/join-the-team"/></url>
-  <url><loc>https://g-structure.co/contacto</loc><priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/contacto"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/contact"/></url>
-  <url><loc>https://g-structure.co/inversores</loc><priority>0.7</priority></url>
-  <url><loc>https://g-structure.co/politicas-legales</loc><priority>0.3</priority></url>
+  <url>
+    <loc>https://g-structure.co/en</loc>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/"/>
+    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/"/>
+  </url>
 
-  <url><loc>https://g-structure.co/en</loc><priority>1.0</priority></url>
-  <url><loc>https://g-structure.co/en/enterprise</loc><priority>0.9</priority></url>
-  <url><loc>https://g-structure.co/en/restructure-1-1</loc><priority>0.9</priority></url>
-  <url><loc>https://g-structure.co/en/g-struct</loc><priority>0.9</priority></url>
-  <url><loc>https://g-structure.co/en/about-guillermo</loc><priority>0.8</priority></url>
-  <url><loc>https://g-structure.co/en/etw-2026-partners</loc><priority>0.8</priority></url>
-  <url><loc>https://g-structure.co/en/join-the-team</loc><priority>0.7</priority></url>
-  <url><loc>https://g-structure.co/en/contact</loc><priority>0.7</priority></url>
+  <url>
+    <loc>https://g-structure.co/g-struct</loc>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/g-struct"/>
+    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/g-struct"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/g-struct"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/g-struct"/>
+  </url>
+  <url>
+    <loc>https://g-structure.co/en/g-struct</loc>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/g-struct"/>
+    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/g-struct"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/g-struct"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/g-struct"/>
+  </url>
+
+  <url>
+    <loc>https://g-structure.co/enterprise</loc>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/enterprise"/>
+    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/enterprise"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/enterprise"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/enterprise"/>
+  </url>
+  <url>
+    <loc>https://g-structure.co/en/enterprise</loc>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/enterprise"/>
+    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/enterprise"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/enterprise"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/enterprise"/>
+  </url>
+
+  <url>
+    <loc>https://g-structure.co/reestructura-1-1</loc>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/reestructura-1-1"/>
+    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/reestructura-1-1"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/restructure-1-1"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/reestructura-1-1"/>
+  </url>
+  <url>
+    <loc>https://g-structure.co/en/restructure-1-1</loc>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/reestructura-1-1"/>
+    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/reestructura-1-1"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/restructure-1-1"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/reestructura-1-1"/>
+  </url>
+
+  <url>
+    <loc>https://g-structure.co/inversores</loc>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/inversores"/>
+    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/inversores"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/investors"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/inversores"/>
+  </url>
+  <url>
+    <loc>https://g-structure.co/en/investors</loc>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/inversores"/>
+    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/inversores"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/investors"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/inversores"/>
+  </url>
+
+  <url>
+    <loc>https://g-structure.co/sobre-guillermo</loc>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/sobre-guillermo"/>
+    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/sobre-guillermo"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/about-guillermo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/sobre-guillermo"/>
+  </url>
+  <url>
+    <loc>https://g-structure.co/en/about-guillermo</loc>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/sobre-guillermo"/>
+    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/sobre-guillermo"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/about-guillermo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/sobre-guillermo"/>
+  </url>
+
+  <url>
+    <loc>https://g-structure.co/aliados-etw-2026</loc>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/aliados-etw-2026"/>
+    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/aliados-etw-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/etw-2026-partners"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/aliados-etw-2026"/>
+  </url>
+  <url>
+    <loc>https://g-structure.co/en/etw-2026-partners</loc>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/aliados-etw-2026"/>
+    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/aliados-etw-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/etw-2026-partners"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/aliados-etw-2026"/>
+  </url>
+
+  <url>
+    <loc>https://g-structure.co/unete-al-equipo</loc>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/unete-al-equipo"/>
+    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/unete-al-equipo"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/join-the-team"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/unete-al-equipo"/>
+  </url>
+  <url>
+    <loc>https://g-structure.co/en/join-the-team</loc>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/unete-al-equipo"/>
+    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/unete-al-equipo"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/join-the-team"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/unete-al-equipo"/>
+  </url>
+
+  <url>
+    <loc>https://g-structure.co/contacto</loc>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/contacto"/>
+    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/contacto"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/contacto"/>
+  </url>
+  <url>
+    <loc>https://g-structure.co/en/contact</loc>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/contacto"/>
+    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/contacto"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/contacto"/>
+  </url>
+
+  <url>
+    <loc>https://g-structure.co/politicas-legales</loc>
+    <priority>0.3</priority>
+  </url>
 </urlset>

@@ -54,7 +54,7 @@ const Email = ({ name, packageName, slotLabel, contact }: Props) => (
           <br /><br />
           G-Structure<br />
           Ingeniería de resultados cognitivo-conductuales<br />
-          <Link href="https://www.g-structure.co" style={link}>www.g-structure.co</Link>
+          <Link href="https://g-structure.co" style={link}>g-structure.co</Link>
         </Text>
       </Container>
     </Body>

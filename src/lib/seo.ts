@@ -2,7 +2,7 @@
 // Builds meta arrays (OG, Twitter, canonical) and JSON-LD blocks.
 import { ROUTES } from "./routeMap";
 
-export const SITE_URL = "https://www.g-structure.co";
+export const SITE_URL = "https://g-structure.co";
 export const SITE_NAME = "G-Structure";
 
 type ImgInput = string | { src: string };
@@ -119,11 +119,37 @@ export const personGuillermoSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Guillermo Suco",
-  jobTitle: "Founder & CBT Coach Practitioner",
+  jobTitle: "Founder & CEO",
+  description: "Creator of G-Struct and the I-R-O™ Method.",
   worksFor: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
   url: `${SITE_URL}/sobre-guillermo`,
   sameAs: ["https://www.linkedin.com/in/guillermosuco"],
 };
+
+export function gStructSoftwareSchema(locale: "es" | "en" = "es") {
+  const isEs = locale === "es";
+  return {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "G-Struct",
+    applicationCategory: "ProductivityApplication",
+    operatingSystem: "iOS, Android, Web",
+    url: `${SITE_URL}${isEs ? "/g-struct" : "/en/g-struct"}`,
+    inLanguage: isEs ? "es" : "en",
+    description: isEs
+      ? "Plataforma cognitivo-conductual de ejecucion profesional impulsada por el metodo I-R-O."
+      : "Cognitive-behavioral execution platform powered by the I-R-O Method.",
+    brand: { "@type": "Brand", name: SITE_NAME },
+    publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+    creator: { "@type": "Person", name: "Guillermo Suco" },
+    offers: {
+      "@type": "Offer",
+      availability: "https://schema.org/PreOrder",
+      price: "0",
+      priceCurrency: "USD",
+    },
+  };
+}
 
 export function breadcrumbSchema(items: { name: string; path: string }[]) {
   return {

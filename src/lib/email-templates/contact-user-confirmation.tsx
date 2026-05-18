@@ -51,7 +51,7 @@ const ContactUserConfirmationEmail = ({ name, requestType, message }: Props) => 
           <Text style={footerStrong}>G-Structure</Text>
           <Text style={footerSmall}>Ingeniería de resultados cognitivo-conductuales</Text>
           <Text style={footerSmall}>
-            <Link href="https://www.g-structure.co" style={link}>www.g-structure.co</Link>
+            <Link href="https://g-structure.co" style={link}>g-structure.co</Link>
           </Text>
           <Text style={footerNote}>
             G-Structure ofrece servicios de coaching y formación cognitivo-conductual aplicada

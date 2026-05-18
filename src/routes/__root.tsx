@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -71,22 +72,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "G-Structure | Coaching Cognitivo-Conductual para Ejecución" },
+      { title: "G-Structure | G-Struct, metodo I-R-O y ejecucion profesional" },
       {
         name: "description",
         content:
-          "Coaching cognitivo-conductual para líderes, profesionales y equipos que buscan superar procrastinación, perfeccionismo y bloqueos de ejecución.",
+          "G-Structure es una tech startup construyendo G-Struct, una plataforma cognitivo-conductual de ejecucion profesional impulsada por el metodo I-R-O.",
       },
       { name: "author", content: "G-Structure" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:title", content: "G-Structure | Coaching Cognitivo-Conductual para Ejecución" },
-      { name: "twitter:title", content: "G-Structure | Coaching Cognitivo-Conductual para Ejecución" },
-      { name: "description", content: "Coaching cognitivo-conductual para líderes y equipos que buscan superar procrastinación, perfeccionismo y bloqueos de ejecución." },
-      { property: "og:description", content: "Coaching cognitivo-conductual para líderes y equipos que buscan superar procrastinación, perfeccionismo y bloqueos de ejecución." },
-      { name: "twitter:description", content: "Coaching cognitivo-conductual para líderes y equipos que buscan superar procrastinación, perfeccionismo y bloqueos de ejecución." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/Je5n00n0siaOKAzfx3HmB52X2ke2/social-images/social-1778275109597-G-Structure_Banner.webp" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/Je5n00n0siaOKAzfx3HmB52X2ke2/social-images/social-1778275109597-G-Structure_Banner.webp" },
+      { property: "og:title", content: "G-Structure | G-Struct, metodo I-R-O y ejecucion profesional" },
+      { name: "twitter:title", content: "G-Structure | G-Struct, metodo I-R-O y ejecucion profesional" },
+      { property: "og:description", content: "G-Structure es una tech startup construyendo G-Struct, una plataforma cognitivo-conductual de ejecucion profesional impulsada por el metodo I-R-O." },
+      { name: "twitter:description", content: "G-Structure es una tech startup construyendo G-Struct, una plataforma cognitivo-conductual de ejecucion profesional impulsada por el metodo I-R-O." },
+      { property: "og:image", content: "https://g-structure.co/og-default.jpg" },
+      { name: "twitter:image", content: "https://g-structure.co/og-default.jpg" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -112,8 +112,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: React.ReactNode }) {
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const lang = pathname === "/en" || pathname.startsWith("/en/") ? "en" : "es";
+
   return (
-    <html lang="es">
+    <html lang={lang}>
       <head>
         <HeadContent />
       </head>

@@ -16,9 +16,9 @@ export const Route = createFileRoute("/enterprise")({
   head: () => ({
     meta: buildSeo({
       path: "/enterprise",
-      title: "G-Structure Enterprise | Coaching para Equipos y Ejecución",
+      title: "Enterprise Pilot | Validacion B2B para G-Struct",
       description:
-        "Diagnóstico, workshops y programas de coaching cognitivo-conductual para equipos y empresas en Ecuador. Reduce fricción interna y sostén la ejecución.",
+        "Canal de validacion B2B de G-Structure: workshops y pilotos Enterprise para mapear patrones de ejecucion en equipos y alimentar el desarrollo de G-Struct.",
       image: etwBadge,
     }),
     links: canonicalLink("/enterprise"),

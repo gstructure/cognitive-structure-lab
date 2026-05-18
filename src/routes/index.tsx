@@ -179,9 +179,9 @@ const COPY = {
       body: (
         <>
           <strong className="text-foreground font-semibold">Guillermo Suco</strong> es fundador
-          de G-Structure y Coach especializado en procesos cognitivo-conductuales aplicados a la
-          ejecución. Su trabajo integra Psicología, intervención educativa, gerencia de
-          proyectos multiculturales y desarrollo de producto digital.
+          y CEO de G-Structure, creador de G-Struct y del método I-R-O™. Su trabajo integra
+          Psicología, intervención educativa, validación con usuarios, gerencia de proyectos
+          multiculturales y desarrollo de producto digital.
         </>
       ),
       credentials: [
@@ -422,9 +422,9 @@ const COPY = {
       body: (
         <>
           <strong className="text-foreground font-semibold">Guillermo Suco</strong> is the founder
-          of G-Structure and a Coach specialized in cognitive-behavioral processes applied to
-          execution. His work integrates Psychology, educational intervention, multicultural
-          project management, and digital product development.
+          and CEO of G-Structure, creator of G-Struct and the I-R-O™ Method. His work integrates
+          Psychology, educational intervention, user validation, multicultural project management,
+          and digital product development.
         </>
       ),
       credentials: [

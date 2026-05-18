@@ -99,7 +99,7 @@ export function Footer() {
                   +593 98 687 5121
                 </a>
               </li>
-              <li className="text-muted-foreground">www.g-structure.co</li>
+              <li className="text-muted-foreground">g-structure.co</li>
             </ul>
             <div className="mt-5">
               <SocialLinks only={["instagram", "facebook", "linkedin", "whatsapp"]} />

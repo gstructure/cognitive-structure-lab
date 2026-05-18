@@ -12,9 +12,9 @@ export const Route = createFileRoute("/sobre-guillermo")({
   head: () => ({
     meta: buildSeo({
       path: "/sobre-guillermo",
-      title: "Guillermo Suco | Fundador de G-Structure",
+      title: "Guillermo Suco | Fundador & CEO de G-Structure",
       description:
-        "Guillermo Suco, CBT Coach Practitioner acreditado por CTAA y fundador de G-Structure. Psicología, intervención educativa y gerencia internacional de proyectos.",
+        "Guillermo Suco, Fundador & CEO de G-Structure, creador de G-Struct y del método I-R-O™. CBT Coach Practitioner acreditado por CTAA.",
       image: portrait,
       type: "profile",
     }),
@@ -37,21 +37,25 @@ function Page() {
         <div className="absolute inset-0 grid-bg opacity-50" aria-hidden />
         <div className="container-x relative py-20 md:py-28 lg:py-32 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           <div className="lg:col-span-7">
-            <Eyebrow>FUNDADOR</Eyebrow>
+            <Eyebrow>FUNDADOR & CEO</Eyebrow>
             <h1 className="mt-6 font-display text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.05]">
               Guillermo Suco
             </h1>
             <p className="mt-3 font-display text-lg md:text-xl text-foreground/80">
-              Fundador y Coach · G-Structure
+              Fundador & CEO · G-Structure
+              <span className="block text-sm md:text-base text-muted-foreground">
+                Creador de G-Struct y del método I-R-O™
+              </span>
             </p>
             <p className="mt-6 max-w-2xl text-base md:text-lg text-muted-foreground leading-relaxed">
-              Guillermo Suco es fundador de G-Structure, una iniciativa enfocada en coaching
-              cognitivo-conductual aplicado a la ejecución en contextos de alta exigencia.
+              Guillermo Suco es fundador y CEO de G-Structure, la tech startup que construye
+              G-Struct: una plataforma cognitivo-conductual de ejecución profesional impulsada
+              por el método I-R-O™.
             </p>
             <p className="mt-4 max-w-2xl text-base text-muted-foreground leading-relaxed">
               Su trabajo integra formación en Psicología, Intervención Psicológica en el Desarrollo
-              y la Educación, experiencia docente nacional e internacional, acompañamiento
-              individual, gerencia de proyectos multiculturales y desarrollo de producto digital.
+              y la Educación, experiencia docente nacional e internacional, validación con usuarios,
+              gerencia de proyectos multiculturales y desarrollo de producto digital.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-3">
               <CTAExternal href="https://wa.me/593986875121" variant="primary">Conversar con Guillermo</CTAExternal>
@@ -62,7 +66,7 @@ function Page() {
             </div>
           </div>
           <aside className="lg:col-span-5 flex justify-center lg:justify-end">
-            <GuillermoPortrait size="lg" />
+            <GuillermoPortrait size="lg" subcaption="Fundador & CEO · G-Struct" />
           </aside>
         </div>
       </section>
@@ -77,9 +81,10 @@ function Page() {
               proyectos en contextos multiculturales.
             </p>
             <p>
-              Como <strong className="text-foreground font-semibold">CBT Coach Practitioner acreditado por la Complementary Therapists Accredited Association</strong>,
-              ha desarrollado G-Structure como una metodología orientada a identificar, reencuadrar y
-              optimizar patrones que interfieren con la acción.
+              Como <strong className="text-foreground font-semibold">creador de G-Struct y del método I-R-O™</strong>,
+              ha desarrollado G-Structure como una compañía de producto que usa principios
+              cognitivo-conductuales para identificar, reencuadrar y optimizar patrones que interfieren
+              con la acción.
             </p>
             <p>
               Su experiencia en gerencia de proyectos a bordo del MV Logos Hope le permitió trabajar
@@ -89,8 +94,8 @@ function Page() {
             </p>
             <p>
               Junto a <strong className="text-foreground font-semibold">ÉPICO</strong> participó en el desarrollo
-              y prototipado de G-Struct, la capa tecnológica del ecosistema, como una extensión
-              natural del método.
+              y prototipado de G-Struct, el producto principal de G-Structure, como una extensión
+              tecnológica del método I-R-O™.
             </p>
           </div>
 

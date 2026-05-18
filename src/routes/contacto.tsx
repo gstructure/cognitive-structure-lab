@@ -113,7 +113,7 @@ function Page() {
             <DirectChannel
               icon={<Globe size={18} />}
               label="Web"
-              value="www.g-structure.co"
+              value="g-structure.co"
             />
             <div className="border border-border bg-[color:var(--color-surface)] p-7">
               <p className="eyebrow mb-4">Canales directos</p>

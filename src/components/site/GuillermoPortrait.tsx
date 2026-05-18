@@ -15,7 +15,7 @@ const sizes: Record<NonNullable<Props["size"]>, string> = {
 
 export function GuillermoPortrait({
   caption = "Guillermo Suco",
-  subcaption = "Fundador · Dirección metodológica",
+  subcaption = "Fundador & CEO · G-Struct",
   className,
   size = "md",
 }: Props) {

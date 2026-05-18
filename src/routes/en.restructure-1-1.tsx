@@ -8,9 +8,9 @@ export const Route = createFileRoute("/en/restructure-1-1")({
   head: () => ({
     meta: buildSeo({
       path: "/en/restructure-1-1",
-      title: "RESTRUCTURE 1:1 | Coaching for Procrastination & Execution",
+      title: "RESTRUCTURE 1:1 | Individual validation of the I-R-O Method",
       description:
-        "Individual cognitive-behavioral coaching process for professionals and leaders working through procrastination, perfectionism, overthinking, and self-sabotage.",
+        "G-Structure's individual validation channel for applying the I-R-O Method with professionals, leaders, and entrepreneurs while feeding the development of G-Struct.",
       locale: "en_US",
     }),
     links: canonicalLink("/en/restructure-1-1"),

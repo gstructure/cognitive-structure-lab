@@ -35,7 +35,7 @@ const Email = () => (
         <Hr style={hr} />
         <Text style={footerSmall}>
           G-Structure · Guayaquil, Ecuador<br />
-          <Link href="https://www.g-structure.co" style={link}>www.g-structure.co</Link>
+          <Link href="https://g-structure.co" style={link}>g-structure.co</Link>
         </Text>
         <Text style={disclaimer}>
           No sustituye atención psicológica, médica o psiquiátrica.

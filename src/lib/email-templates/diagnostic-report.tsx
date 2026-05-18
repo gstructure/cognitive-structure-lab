@@ -84,7 +84,7 @@ const Email = (p: Props) => (
           <Text style={footerSmall}>
             <Link href="mailto:guillermo@g-structure.co" style={link}>guillermo@g-structure.co</Link>
             {" · "}
-            <Link href="https://www.g-structure.co" style={link}>www.g-structure.co</Link>
+            <Link href="https://g-structure.co" style={link}>g-structure.co</Link>
           </Text>
         </Section>
       </Container>

@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { buildSeo, canonicalLink, jsonLdScript, breadcrumbSchema } from "@/lib/seo";
+import { buildSeo, canonicalLink, jsonLdScript, breadcrumbSchema, gStructSoftwareSchema } from "@/lib/seo";
 import gStructHomePreview from "@/assets/g-struct-home-preview.png";
 import { GStructPage } from "@/components/pages/GStructPage";
 
@@ -19,6 +19,7 @@ export const Route = createFileRoute("/en/g-struct")({
         { name: "Home", path: "/en" },
         { name: "G-Struct", path: "/en/g-struct" },
       ])),
+      jsonLdScript(gStructSoftwareSchema("en")),
     ],
   }),
   component: () => <GStructPage locale="en" />,

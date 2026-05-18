@@ -136,7 +136,7 @@ function Page() {
                 <li><strong>País:</strong> Ecuador</li>
                 <li><strong>Email:</strong> <a className="underline" href="mailto:guillermo@g-structure.co">guillermo@g-structure.co</a></li>
                 <li><strong>WhatsApp:</strong> <a className="underline" href="https://wa.me/593986875121">+593 98 687 5121</a></li>
-                <li><strong>Website:</strong> www.g-structure.co</li>
+                <li><strong>Website:</strong> g-structure.co</li>
               </ul>
             </Block>
 

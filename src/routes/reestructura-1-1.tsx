@@ -14,9 +14,9 @@ export const Route = createFileRoute("/reestructura-1-1")({
   head: () => ({
     meta: buildSeo({
       path: "/reestructura-1-1",
-      title: "REESTRUCTURA 1:1 | Coaching para Procrastinación y Ejecución",
+      title: "REESTRUCTURA 1:1 | Validacion individual del metodo I-R-O",
       description:
-        "Proceso individual de coaching cognitivo-conductual para profesionales y líderes que necesitan trabajar procrastinación, perfeccionismo, sobreanálisis y autosabotaje.",
+        "Canal individual de validacion de G-Structure para aplicar el metodo I-R-O con profesionales, lideres y emprendedores mientras alimenta el desarrollo de G-Struct.",
       image: reestructuraLogo,
     }),
     links: canonicalLink("/reestructura-1-1"),
