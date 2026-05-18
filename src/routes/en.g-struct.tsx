@@ -7,9 +7,9 @@ export const Route = createFileRoute("/en/g-struct")({
   head: () => ({
     meta: buildSeo({
       path: "/en/g-struct",
-      title: "G-Struct | The Cognitive-Behavioral OS for High-Performers",
+      title: "G-Struct | Execution platform powered by the I-R-O™ Method",
       description:
-        "G-Struct is the first mobile app applying CBT coaching methodology to identify the friction blocking your execution, reframe it, and optimize your action. Available in Ecuador and LATAM.",
+        "G-Struct is G-Structure's mobile app applying the I-R-O™ Method to identify the friction blocking your execution, reframe it, and optimize your action. Launching Q3 2026.",
       image: gStructHomePreview,
       locale: "en_US",
     }),

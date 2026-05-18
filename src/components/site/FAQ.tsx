@@ -27,11 +27,11 @@ const DEFAULT_ES: FAQItem[] = [
   },
   {
     q: "¿Estoy hablando con una startup o con una firma de coaching?",
-    a: "Con las dos — y eso es intencional. G-Structure es la metodología y el ecosistema de intervención humana (Enterprise, REESTRUCTURA, workshops). G-Struct es el producto tecnológico que lleva ese método a escala. Ambos comparten el mismo ADN: el método I-R-O, construido sobre metodología cognitivo-conductual aplicada al coaching de ejecución.",
+    a: "Con una tech startup. G-Struct es el producto principal. REESTRUCTURA 1:1, Enterprise y workshops son canales de validación, revenue temprano e insight para entrenar el método I-R-O™ antes del lanzamiento.",
   },
   {
     q: "¿Qué es G-Struct y cuándo estará disponible?",
-    a: "G-Struct es la capa tecnológica del método, en desarrollo junto a ÉPICO. Aún no está disponible al público. Puedes sumarte a la lista de espera desde la página G-Struct.",
+    a: "G-Struct es la plataforma tecnológica impulsada por el método I-R-O™. Está en desarrollo junto a ÉPICO y su lanzamiento público está previsto para Q3 2026. Puedes sumarte a la lista de espera desde la página G-Struct.",
   },
 ];
 
@@ -53,8 +53,12 @@ const DEFAULT_EN: FAQItem[] = [
     a: "That’s precisely what the initial conversation is for. You don’t need to arrive with a diagnosis; we build it together.",
   },
   {
+    q: "Is this a startup or a coaching firm?",
+    a: "A tech startup. G-Struct is the main product. RESTRUCTURE 1:1, Enterprise, and workshops are validation, early revenue, and insight channels that help train the I-R-O™ Method before launch.",
+  },
+  {
     q: "What is G-Struct and when will it be available?",
-    a: "G-Struct is the technological layer of the method, in development with ÉPICO. It’s not yet publicly available. You can join the waitlist from the G-Struct page.",
+    a: "G-Struct is the technology platform powered by the I-R-O™ Method. It is in development with ÉPICO and its public launch is planned for Q3 2026. You can join the waitlist from the G-Struct page.",
   },
 ];
 

@@ -42,7 +42,7 @@ export const es: Dict = {
     requestInfo: "Solicitar información",
     skipToContent: "Saltar al contenido",
     legal:
-      "G-Structure ofrece servicios de coaching y formación cognitivo-conductual aplicada a la ejecución. No sustituye atención psicológica, médica o psiquiátrica.",
+      "G-Structure ofrece coaching y formación cognitivo-conductual aplicada a la ejecución. No sustituye atención psicológica, médica o psiquiátrica.",
     rightsReserved: "Todos los derechos reservados.",
     initiativeOf: "Una iniciativa de Guillermo Suco.",
   },
@@ -70,21 +70,21 @@ export const es: Dict = {
   },
   home: {
     meta: {
-      title: "G-Structure | Coaching Cognitivo-Conductual para Ejecución",
+      title: "G-Structure | G-Struct e I-R-O™ para ejecución profesional",
       desc:
-        "Coaching cognitivo-conductual para líderes, profesionales y equipos que buscan superar procrastinación, perfeccionismo y bloqueos de ejecución.",
+        "G-Structure es una tech startup construyendo G-Struct, una plataforma cognitivo-conductual de ejecución profesional impulsada por el método I-R-O™.",
     },
     hero: {
       pillTitle: "TECH STARTUP · ETAPA TEMPRANA",
-      pillSub: "· Construyendo G-Struct · Validación activa",
-      eyebrow: "G-STRUCTURE · COMPAÑÍA → G-STRUCT · PRODUCTO",
+      pillSub: "· G-Struct · Método I-R-O™ · Validación activa",
+      eyebrow: "G-STRUCTURE · STARTUP → G-STRUCT · PRODUCTO",
       h1: "G-Structure está construyendo G-Struct.",
       lead:
-        "Una plataforma cognitivo-conductual diseñada para diagnosticar, reencuadrar y optimizar la ejecución profesional.",
+        "Una plataforma cognitivo-conductual de ejecución profesional, impulsada por el método I-R-O™: Identificar, Reencuadrar y Optimizar.",
       sub:
-        "G-Struct convierte principios de coaching cognitivo-conductual en una experiencia digital que ayuda a profesionales, founders y equipos a identificar fricción mental, transformar bloqueos en claridad y ejecutar con mayor estructura.",
+        "G-Struct convierte el método I-R-O™ en una experiencia digital para diagnosticar fricción mental, reencuadrar patrones y convertir claridad en acción. REESTRUCTURA 1:1, Enterprise y workshops existen como canales de validación, revenue e insight para mejorar el producto antes de su lanzamiento en Q3 2026.",
       ctaPrimary: "Explorar G-Struct",
-      ctaSecondary: "Conocer la visión de la startup",
+      ctaSecondary: "Ver tesis para inversores",
       step1: { t: "Identificar", d: "Patrones que bloquean la acción." },
       step2: { t: "Reencuadrar", d: "Lectura cognitivo-conductual aplicada." },
       step3: { t: "Optimizar", d: "Decisiones traducidas en conducta." },
@@ -92,8 +92,8 @@ export const es: Dict = {
   },
   footer: {
     tagline:
-      "Ingeniería de resultados cognitivo-conductuales. Coaching cognitivo-conductual aplicado a la ejecución para profesionales, líderes y equipos.",
-    irO: "Identificar · Reencuadrar · Optimizar",
+      "Tech startup construyendo G-Struct: una plataforma cognitivo-conductual de ejecución profesional impulsada por el método I-R-O™.",
+    irO: "Método I-R-O™ · Identificar · Reencuadrar · Optimizar",
   },
   fab: {
     open: "Abrir opciones de contacto",
@@ -127,11 +127,11 @@ export const es: Dict = {
     },
     rec: {
       enterprise:
-        "Te conviene explorar nuestra línea Enterprise: Workshop de Diagnóstico, REESTRUCTURA Enterprise o Continuidad. Una conversación inicial con Guillermo permite definir la ruta exacta.",
+        "Enterprise es un canal de validación B2B para G-Struct. Una conversación inicial permite definir si tu equipo encaja para diagnóstico, piloto o continuidad.",
       individual:
-        "REESTRUCTURA 1:1 está diseñado para trabajar tus patrones de ejecución de forma estructurada. Te conviene una conversación inicial para revisar contexto.",
+        "REESTRUCTURA 1:1 permite validar el método I-R-O™ con casos reales de ejecución. Te conviene una conversación inicial para revisar contexto.",
       gstruct:
-        "G-Struct es la capa tecnológica del método, hoy en desarrollo. Puedes sumarte a la lista de espera y, si tu caso lo amerita, agendar una llamada con Guillermo.",
+        "G-Struct es el producto principal de G-Structure. Puedes sumarte a la lista de espera y seguir el lanzamiento previsto para Q3 2026.",
       allies:
         "Si tu marca, institución o empresa quiere vincularse al Workshop de Diagnóstico durante Ecuador Tech Week 2026, conversemos directamente.",
       team:
@@ -187,21 +187,21 @@ export const en: Dict = {
   },
   home: {
     meta: {
-      title: "G-Structure | Cognitive-Behavioral Coaching for Execution",
+      title: "G-Structure | G-Struct and the I-R-O™ Method for professional execution",
       desc:
-        "Cognitive-behavioral coaching for leaders, professionals, and teams who need to move past procrastination, perfectionism, and execution bottlenecks.",
+        "G-Structure is a tech startup building G-Struct, a cognitive-behavioral execution platform powered by the I-R-O™ Method.",
     },
     hero: {
       pillTitle: "TECH STARTUP · EARLY STAGE",
-      pillSub: "· Building G-Struct · Active validation",
-      eyebrow: "G-STRUCTURE · COMPANY → G-STRUCT · PRODUCT",
+      pillSub: "· G-Struct · I-R-O™ Method · Active validation",
+      eyebrow: "G-STRUCTURE · STARTUP → G-STRUCT · PRODUCT",
       h1: "G-Structure is building G-Struct.",
       lead:
-        "A cognitive-behavioral platform designed to diagnose, reframe, and optimize professional execution.",
+        "A cognitive-behavioral execution platform powered by the I-R-O™ Method: Identify, Reframe, Optimize.",
       sub:
-        "G-Struct turns cognitive-behavioral coaching principles into a digital experience that helps professionals, founders, and teams identify mental friction, transform blockers into clarity, and execute with greater structure.",
+        "G-Struct turns the I-R-O™ Method into a digital experience to diagnose mental friction, reframe patterns, and convert clarity into action. RESTRUCTURE 1:1, Enterprise, and workshops exist as validation, revenue, and insight channels to improve the product before its Q3 2026 launch.",
       ctaPrimary: "Explore G-Struct",
-      ctaSecondary: "See the startup vision",
+      ctaSecondary: "See the investor thesis",
       step1: { t: "Identify", d: "Patterns that block action." },
       step2: { t: "Reframe", d: "Applied cognitive-behavioral reading." },
       step3: { t: "Optimize", d: "Decisions translated into behavior." },
@@ -209,8 +209,8 @@ export const en: Dict = {
   },
   footer: {
     tagline:
-      "Cognitive-behavioral results engineering. Coaching applied to execution for professionals, leaders, and teams.",
-    irO: "Identify · Reframe · Optimize",
+      "Tech startup building G-Struct: a cognitive-behavioral execution platform powered by the I-R-O™ Method.",
+    irO: "I-R-O™ Method · Identify · Reframe · Optimize",
   },
   fab: {
     open: "Open contact options",
@@ -244,11 +244,11 @@ export const en: Dict = {
     },
     rec: {
       enterprise:
-        "Our Enterprise track fits best: Diagnostic Workshop, RESTRUCTURE Enterprise, or Continuity. A first conversation with Guillermo defines the exact path.",
+        "Enterprise is a B2B validation channel for G-Struct. A first conversation defines whether your team fits a diagnostic, pilot, or continuity path.",
       individual:
-        "RESTRUCTURE 1:1 is designed to work on your execution patterns in a structured way. A first conversation will review your context.",
+        "RESTRUCTURE 1:1 validates the I-R-O™ Method through real execution cases. A first conversation will review your context.",
       gstruct:
-        "G-Struct is the technological layer of the method, currently in development. You can join the waitlist and, if relevant, schedule a call with Guillermo.",
+        "G-Struct is G-Structure’s main product. You can join the waitlist and follow the Q3 2026 launch.",
       allies:
         "If your brand, institution, or company wants to join the Diagnostic Workshop during Ecuador Tech Week 2026, let’s talk directly.",
       team:

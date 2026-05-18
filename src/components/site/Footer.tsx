@@ -13,19 +13,20 @@ export function Footer() {
 
   const productoLinks: FooterLink[] = [
     { to: gStructBase, label: "G-Struct" },
-    { to: gStructBase + "#lista-de-espera", label: locale === "en" ? "Waitlist" : "Lista de espera" },
+    { to: gStructBase + "#waitlist", label: locale === "en" ? "Waitlist" : "Lista de espera" },
     { to: (locale === "en" ? "/en" : "/") + "#diagnostico", label: locale === "en" ? "Execution Diagnostic" : "Diagnóstico de Ejecución" },
   ];
 
-  const solucionesLinks: FooterLink[] = [
-    { to: locale === "en" ? "/en/enterprise" : "/enterprise", label: "Enterprise" },
+  const validationLinks: FooterLink[] = [
+    { to: (locale === "en" ? "/en" : "/") + "#metodo", label: locale === "en" ? "I-R-O™ Method" : "Método I-R-O™" },
+    { to: locale === "en" ? "/en/enterprise" : "/enterprise", label: "Enterprise pilot" },
     { to: locale === "en" ? "/en/restructure-1-1" : "/reestructura-1-1", label: locale === "en" ? "RESTRUCTURE 1:1" : "REESTRUCTURA 1:1" },
     { to: locale === "en" ? "/en/etw-2026-partners" : "/aliados-etw-2026", label: "Workshop ETW 2026" },
   ];
 
   const companiaLinks: FooterLink[] = [
     { to: locale === "en" ? "/en/about-guillermo" : "/sobre-guillermo", label: locale === "en" ? "About" : "Nosotros" },
-    { to: "/inversores", label: locale === "en" ? "Investors" : "Inversores" },
+    { to: locale === "en" ? "/en/investors" : "/inversores", label: locale === "en" ? "Investors" : "Inversores" },
     { to: locale === "en" ? "/en/etw-2026-partners" : "/aliados-etw-2026", label: locale === "en" ? "ETW 2026 Partners" : "Aliados ETW 2026" },
     { to: locale === "en" ? "/en/join-the-team" : "/unete-al-equipo", label: locale === "en" ? "Join the team" : "Únete al equipo" },
     { to: locale === "en" ? "/en/contact" : "/contacto", label: locale === "en" ? "Contact" : "Contacto" },
@@ -33,7 +34,7 @@ export function Footer() {
 
   const COLS = [
     { title: locale === "en" ? "Product" : "Producto", links: productoLinks },
-    { title: locale === "en" ? "Solutions" : "Soluciones", links: solucionesLinks },
+    { title: locale === "en" ? "Validation" : "Validación", links: validationLinks },
     { title: locale === "en" ? "Company" : "Compañía", links: companiaLinks },
   ];
 

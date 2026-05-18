@@ -4,19 +4,19 @@ import gStructHomePreview from "@/assets/g-struct-home-preview.png";
 import { Index } from "./index";
 
 const HOME_FAQ_EN = [
-  { q: "What is G-Structure?", a: "A cognitive-behavioral coaching practice applied to execution, for leaders, professionals, and teams who need to move past procrastination, perfectionism, overthinking, and self-sabotage." },
+  { q: "What is G-Structure?", a: "A tech startup building G-Struct: a cognitive-behavioral execution platform powered by the I-R-O™ Method." },
   { q: "Does G-Structure offer therapy?", a: "No. G-Structure is cognitive-behavioral coaching applied to professional execution. It does not replace clinical care or psychotherapy." },
-  { q: "What is the I-R-O method?", a: "Identify, Reframe, and Optimize: a sequence to surface patterns that block action, reformulate them, and translate them into sustained functional behavior." },
-  { q: "What is G-Struct?", a: "The technological layer of the G-Structure method: a digital tool in development for logging patterns, structuring exercises, and sustaining practice between sessions." },
+  { q: "What is the I-R-O™ Method?", a: "Identify, Reframe, and Optimize: the proprietary framework that powers G-Struct and turns cognitive-behavioral friction into functional action." },
+  { q: "What is G-Struct?", a: "G-Structure's main product: an app in development to diagnose execution patterns, reframe them, and sustain concrete action before its Q3 2026 launch." },
 ];
 
 export const Route = createFileRoute("/en/")({
   head: () => ({
     meta: buildSeo({
       path: "/en",
-      title: "G-Structure | Cognitive-Behavioral Coaching for Execution · G-Struct App · I-R-O Method",
+      title: "G-Structure | G-Struct · I-R-O™ Method · Professional execution startup",
       description:
-        "G-Structure applies CBT coaching to remove the friction that blocks execution for leaders, founders, and teams in Ecuador and LATAM. G-Struct is the digital product. Enterprise is the team solution.",
+        "G-Structure is a tech startup building G-Struct, a cognitive-behavioral execution platform powered by the I-R-O™ Method. 1:1, Enterprise, and workshops are validation channels.",
       image: gStructHomePreview,
       locale: "en_US",
     }),

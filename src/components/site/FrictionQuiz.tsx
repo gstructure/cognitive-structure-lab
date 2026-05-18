@@ -104,7 +104,7 @@ const RESULTS_EN: Record<Letter, { label: string; title: string; body: string }>
   C: {
     label: "OVERTHINKING",
     title: "Your main pattern is overthinking.",
-    body: "Thinking more stopped clarifying — and started to paralyze. This pattern has specific cognitive roots the I-R-O method can map and reframe.",
+    body: "Thinking more stopped clarifying — and started to paralyze. This pattern has specific cognitive roots the I-R-O™ Method can map and reframe.",
   },
   D: {
     label: "IMPOSTOR PATTERN",

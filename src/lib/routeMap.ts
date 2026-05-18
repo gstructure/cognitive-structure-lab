@@ -1,4 +1,4 @@
-// Bidirectional ES↔EN route map for G-Structure.
+// Bidirectional ES<->EN route map for G-Structure.
 
 import type { Locale } from "./i18n";
 
@@ -44,24 +44,47 @@ export function swapLocalePath(pathname: string, target: Locale): string {
 }
 
 export function navForLocale(locale: Locale) {
-  // New jerarquía: G-Struct (producto) primero, seguido por canales de validación,
-  // inversión, aliados, nosotros y contacto. G-Struct se destaca como "producto".
-  const mainKeys = [
-    "/g-struct",
-    "/enterprise",
-    "/reestructura-1-1",
-    "/inversores",
-    "/sobre-guillermo",
-    "/contacto",
-  ];
-  const items = ROUTES.filter((r) => mainKeys.includes(r.es))
-    .sort((a, b) => mainKeys.indexOf(a.es) - mainKeys.indexOf(b.es))
-    .map((r) => ({
-      to: r[locale],
-      label: r.label[locale],
+  const home = locale === "en" ? "/en" : "/";
+  const items = [
+    {
+      to: locale === "en" ? "/en/g-struct" : "/g-struct",
+      label: "G-Struct",
       exact: false,
-      highlight: r.es === "/g-struct",
-    }));
+      highlight: true,
+    },
+    {
+      to: home,
+      hash: "metodo",
+      label: locale === "en" ? "I-R-O™ Method" : "Método I-R-O™",
+      exact: false,
+      highlight: false,
+    },
+    {
+      to: home,
+      hash: "canales",
+      label: locale === "en" ? "Validation" : "Validación",
+      exact: false,
+      highlight: false,
+    },
+    {
+      to: locale === "en" ? "/en/investors" : "/inversores",
+      label: locale === "en" ? "Investors" : "Inversores",
+      exact: false,
+      highlight: false,
+    },
+    {
+      to: locale === "en" ? "/en/about-guillermo" : "/sobre-guillermo",
+      label: locale === "en" ? "About" : "Nosotros",
+      exact: false,
+      highlight: false,
+    },
+    {
+      to: locale === "en" ? "/en/contact" : "/contacto",
+      label: locale === "en" ? "Contact" : "Contacto",
+      exact: false,
+      highlight: false,
+    },
+  ];
   return items as Array<{ to: string; label: string; exact: boolean; highlight: boolean; hash?: string }>;
 }
 

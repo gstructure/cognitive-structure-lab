@@ -31,19 +31,19 @@ function lp(esPath: string, locale: Locale): string {
 }
 
 const HOME_FAQ = [
-  { q: "¿Qué es G-Structure?", a: "Una iniciativa de coaching cognitivo-conductual aplicado a la ejecución, para líderes, profesionales y equipos que necesitan superar procrastinación, perfeccionismo improductivo, sobreanálisis y autosabotaje." },
+  { q: "¿Qué es G-Structure?", a: "Una tech startup construyendo G-Struct: una plataforma cognitivo-conductual de ejecución profesional impulsada por el método I-R-O™." },
   { q: "¿G-Structure ofrece terapia?", a: "No. G-Structure es coaching cognitivo-conductual aplicado a contextos de ejecución profesional. No sustituye atención clínica ni psicoterapia." },
-  { q: "¿Qué es el método I-R-O?", a: "Identificar, Reencuadrar y Optimizar: una secuencia para detectar patrones que bloquean la acción, reformularlos y traducirlos en conducta funcional sostenida." },
-  { q: "¿Qué es G-Struct?", a: "La capa tecnológica del método G-Structure: una herramienta digital en desarrollo para registrar patrones, estructurar ejercicios y sostener la práctica entre sesiones." },
+  { q: "¿Qué es el método I-R-O™?", a: "Identificar, Reencuadrar y Optimizar: el framework propietario que impulsa G-Struct y convierte fricción cognitivo-conductual en acción funcional." },
+  { q: "¿Qué es G-Struct?", a: "El producto principal de G-Structure: una app en desarrollo para diagnosticar patrones de ejecución, reencuadrarlos y sostener acciones concretas antes del lanzamiento Q3 2026." },
 ];
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: buildSeo({
       path: "/",
-      title: "G-Structure | Metodología I-R-O · G-Struct App · Coaching Cognitivo-Conductual para Ejecución",
+      title: "G-Structure | G-Struct · Método I-R-O™ · Startup de ejecución profesional",
       description:
-        "G-Structure aplica metodología CBT coaching para eliminar la fricción que bloquea la ejecución de líderes, emprendedores y equipos en Ecuador y LATAM. G-Struct es el producto digital. Enterprise es la solución para equipos.",
+        "G-Structure es una tech startup construyendo G-Struct, una plataforma cognitivo-conductual de ejecución profesional impulsada por el método I-R-O™. 1:1, Enterprise y workshops son canales de validación.",
       image: gStructHomePreview,
     }),
     links: canonicalLink("/"),
@@ -63,7 +63,7 @@ const COPY = {
     hero: {
       linkQuiz: "Identifica tu patrón de ejecución",
       linkWaitlist: "Únete a la waitlist de G-Struct",
-      linkEnterprise: "Soluciones para equipos · Enterprise",
+      linkEnterprise: "Canal de validación · Enterprise",
       linkInvestors: "Oportunidad de inversión · Pre-seed",
     },
     etw: {
@@ -120,10 +120,10 @@ const COPY = {
       ],
     },
     method: {
-      eyebrow: "EL MÉTODO",
-      title: "Identificar. Reencuadrar. Optimizar.",
-      lead: "Un framework estructurado para convertir fricción cognitivo-conductual en acción funcional. Selecciona cada fase para ver el detalle.",
-      footnote: "El método I-R-O está basado en principios de la Terapia Cognitivo-Conductual (CBT), adaptados a contextos de ejecución profesional. No constituye terapia ni sustituye atención clínica.",
+      eyebrow: "EL MÉTODO PROPIETARIO",
+      title: "I-R-O™: Identificar. Reencuadrar. Optimizar.",
+      lead: "El framework que impulsa G-Struct: una secuencia estructurada para convertir fricción cognitivo-conductual en acción funcional. Selecciona cada fase para ver el detalle.",
+      footnote: "El método I-R-O™ está basado en principios de la Terapia Cognitivo-Conductual (CBT), adaptados a contextos de ejecución profesional. No constituye terapia ni sustituye atención clínica. I-R-O™ Method es un framework propietario desarrollado por G-Structure.",
     },
     faq: {
       eyebrow: "PREGUNTAS FRECUENTES",
@@ -144,12 +144,12 @@ const COPY = {
       h2: "G-Struct es el producto principal de G-Structure.",
       lead: (
         <>
-          Una app diseñada para convertir el método <strong className="text-foreground">Identificar → Reencuadrar → Optimizar</strong> en
+          Una app diseñada para convertir el método <strong className="text-foreground">I-R-O™: Identificar → Reencuadrar → Optimizar</strong> en
           una herramienta diaria de ejecución para profesionales, founders y equipos.
         </>
       ),
       disclaimer: "No somos una app de terapia. No hacemos diagnóstico clínico. G-Struct es una herramienta de coaching, psicoeducación y optimización de ejecución basada en principios cognitivo-conductuales.",
-      p1: "G-Struct lleva el método I-R-O a tu bolsillo. Una app móvil diseñada para identificar la fricción que bloquea tu ejecución, reencuadrarla con metodología CBT coaching, y optimizar tu acción — disponible 24/7.",
+      p1: "G-Struct lleva el método I-R-O™ a tu bolsillo. Una app móvil diseñada para identificar la fricción que bloquea tu ejecución, reencuadrarla con metodología CBT coaching, y optimizar tu acción — disponible 24/7.",
       p2: "No es una app de bienestar. No es un diario de pensamientos. No es otra lista de tareas. Es la herramienta que separa a quienes saben lo que hay que hacer de quienes realmente lo hacen.",
       previewAlt: "Vista previa de la app G-Struct.",
       features: [
@@ -197,9 +197,9 @@ const COPY = {
     channels: {
       eyebrow: "CÓMO ESTAMOS VALIDANDO G-STRUCT",
       title: "No son negocios separados. Son capas de una misma estrategia.",
-      subtitle: "G-Structure usa servicios, workshops y programas como canales de validación, datos cualitativos y revenue temprano para construir un producto digital escalable.",
+      subtitle: "G-Structure no opera tres negocios separados: usa 1:1, Enterprise y workshops como canales de validación, datos cualitativos y revenue temprano para construir G-Struct como producto digital escalable.",
       items: [
-        { tag: "01 · CANAL INDIVIDUAL", t: "REESTRUCTURA 1:1", d: "Sesiones individuales que permiten validar la metodología con profesionales, líderes y emprendedores que enfrentan fricción de ejecución.", esTo: "/reestructura-1-1", cta: "Conocer 1:1" },
+        { tag: "01 · CANAL INDIVIDUAL", t: "REESTRUCTURA 1:1", d: "Sesiones individuales que validan el método I-R-O™ con profesionales, líderes y emprendedores que enfrentan fricción de ejecución.", esTo: "/reestructura-1-1", cta: "Conocer 1:1" },
         { tag: "02 · CANAL B2B", t: "REESTRUCTURA Enterprise", d: "Programa B2B para mapear patrones de ejecución en equipos, founders y organizaciones — y generar revenue temprano para la startup.", esTo: "/enterprise", cta: "Conocer Enterprise" },
         { tag: "03 · CANAL DE ACTIVACIÓN", t: "Workshop de Diagnóstico de Ejecución", d: "Experiencia grupal diseñada para educar, diagnosticar patrones de ejecución y activar usuarios tempranos para G-Struct.", esTo: "/aliados-etw-2026", cta: "Workshop · ETW 2026" },
         { tag: "04 · PRODUCTO ESCALABLE", t: "G-Struct App", d: "El producto digital que escala la metodología. Lo que aprendemos en los canales anteriores alimenta directamente su construcción.", esTo: "/g-struct", cta: "Explorar G-Struct" },
@@ -245,8 +245,8 @@ const COPY = {
       lead: (
         <>
           G-Structure se encuentra en etapa de validación, construyendo el camino de prototipo a MVP.
-          El objetivo es convertir <strong className="text-foreground">G-Struct</strong> en una plataforma escalable
-          para profesionales, founders y equipos que necesitan ejecutar mejor bajo presión.
+          El objetivo es convertir <strong className="text-foreground">G-Struct</strong>, impulsado por el método I-R-O™,
+          en una plataforma escalable para profesionales, founders y equipos que necesitan ejecutar mejor bajo presión.
         </>
       ),
       routes: [
@@ -306,7 +306,7 @@ const COPY = {
     hero: {
       linkQuiz: "Identify your execution pattern",
       linkWaitlist: "Join the G-Struct waitlist",
-      linkEnterprise: "Team solutions · Enterprise",
+      linkEnterprise: "Validation channel · Enterprise",
       linkInvestors: "Investment opportunity · Pre-seed",
     },
     etw: {
@@ -363,10 +363,10 @@ const COPY = {
       ],
     },
     method: {
-      eyebrow: "THE METHOD",
-      title: "Identify. Reframe. Optimize.",
-      lead: "A structured framework to turn cognitive-behavioral friction into functional action. Select each phase to see the detail.",
-      footnote: "The I-R-O method is based on Cognitive-Behavioral Therapy (CBT) principles, adapted to professional execution contexts. It is not therapy and does not replace clinical care.",
+      eyebrow: "THE PROPRIETARY METHOD",
+      title: "I-R-O™: Identify. Reframe. Optimize.",
+      lead: "The framework that powers G-Struct: a structured sequence to turn cognitive-behavioral friction into functional action. Select each phase to see the detail.",
+      footnote: "The I-R-O™ Method is based on Cognitive-Behavioral Therapy (CBT) principles, adapted to professional execution contexts. It is not therapy and does not replace clinical care. I-R-O™ Method is a proprietary framework developed by G-Structure.",
     },
     faq: {
       eyebrow: "FREQUENTLY ASKED QUESTIONS",
@@ -387,12 +387,12 @@ const COPY = {
       h2: "G-Struct is the main product of G-Structure.",
       lead: (
         <>
-          An app designed to turn the <strong className="text-foreground">Identify → Reframe → Optimize</strong> method
+          An app designed to turn the <strong className="text-foreground">I-R-O™: Identify → Reframe → Optimize</strong> method
           into a daily execution tool for professionals, founders, and teams.
         </>
       ),
       disclaimer: "We're not a therapy app. We don't make clinical diagnoses. G-Struct is a coaching, psychoeducation, and execution-optimization tool based on cognitive-behavioral principles.",
-      p1: "G-Struct brings the I-R-O method to your pocket. A mobile app designed to identify the friction blocking your execution, reframe it with CBT coaching methodology, and optimize your action — available 24/7.",
+      p1: "G-Struct brings the I-R-O™ Method to your pocket. A mobile app designed to identify the friction blocking your execution, reframe it with CBT coaching methodology, and optimize your action — available 24/7.",
       p2: "It's not a wellness app. It's not a thought journal. It's not another to-do list. It's the tool that separates those who know what to do from those who actually do it.",
       previewAlt: "Preview of the G-Struct app.",
       features: [
@@ -440,9 +440,9 @@ const COPY = {
     channels: {
       eyebrow: "HOW WE'RE VALIDATING G-STRUCT",
       title: "They're not separate businesses. They're layers of one strategy.",
-      subtitle: "G-Structure uses services, workshops, and programs as validation channels, qualitative data, and early revenue to build a scalable digital product.",
+      subtitle: "G-Structure is not operating three separate businesses: it uses 1:1, Enterprise, and workshops as validation, qualitative data, and early revenue channels to build G-Struct as the scalable digital product.",
       items: [
-        { tag: "01 · INDIVIDUAL CHANNEL", t: "RESTRUCTURE 1:1", d: "Individual sessions that validate the methodology with professionals, leaders, and entrepreneurs facing execution friction.", esTo: "/reestructura-1-1", cta: "Learn about 1:1" },
+        { tag: "01 · INDIVIDUAL CHANNEL", t: "RESTRUCTURE 1:1", d: "Individual sessions that validate the I-R-O™ Method with professionals, leaders, and entrepreneurs facing execution friction.", esTo: "/reestructura-1-1", cta: "Learn about 1:1" },
         { tag: "02 · B2B CHANNEL", t: "RESTRUCTURE Enterprise", d: "B2B program to map execution patterns in teams, founders, and organizations — and generate early revenue for the startup.", esTo: "/enterprise", cta: "Learn about Enterprise" },
         { tag: "03 · ACTIVATION CHANNEL", t: "Execution Diagnostic Workshop", d: "Group experience designed to educate, diagnose execution patterns, and activate early users for G-Struct.", esTo: "/aliados-etw-2026", cta: "Workshop · ETW 2026" },
         { tag: "04 · SCALABLE PRODUCT", t: "G-Struct App", d: "The digital product that scales the methodology. What we learn in the previous channels feeds directly into its construction.", esTo: "/g-struct", cta: "Explore G-Struct" },
@@ -488,8 +488,8 @@ const COPY = {
       lead: (
         <>
           G-Structure is in a validation stage, building the path from prototype to MVP.
-          The goal is to turn <strong className="text-foreground">G-Struct</strong> into a scalable platform
-          for professionals, founders, and teams who need to execute better under pressure.
+          The goal is to turn <strong className="text-foreground">G-Struct</strong>, powered by the I-R-O™ Method,
+          into a scalable platform for professionals, founders, and teams who need to execute better under pressure.
         </>
       ),
       routes: [
@@ -1358,11 +1358,11 @@ export function Index() {
     <>
       <Hero />
       <SocialProofBar />
-      <Problem />
       <GStructBridge />
+      <Method />
+      <Problem />
       <FrictionQuiz />
       <WaitlistForm />
-      <Method />
       <ValidationChannels />
       <StartupStage />
       <ETWBanner />

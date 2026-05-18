@@ -69,7 +69,7 @@ export function MethodTabs({ steps }: { steps?: MethodStep[] } = {}) {
   const STEPS = steps ?? (locale === "en" ? STEPS_EN : STEPS_ES);
   const [active, setActive] = useState(0);
   const step = STEPS[active];
-  const tablistLabel = locale === "en" ? "I-R-O method steps" : "Pasos del método I-R-O";
+  const tablistLabel = locale === "en" ? "I-R-O™ Method steps" : "Pasos del método I-R-O™";
   return (
     <div className="mt-12 grid gap-6 lg:grid-cols-12 lg:gap-10">
       <div className="lg:col-span-4">

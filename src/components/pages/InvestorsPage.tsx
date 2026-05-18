@@ -65,11 +65,11 @@ const COPY: Record<Locale, Copy> = {
   es: {
     hero: {
       eyebrow: "INVERSORES · PRE-SEED 2026 · CORE ASSET: G-STRUCT",
-      h1: "G-Structure está construyendo G-Struct: una plataforma cognitivo-conductual escalable para LATAM.",
+      h1: "G-Structure no es una firma de servicios. Es una tech startup construyendo G-Struct.",
       lead: {
-        a: "G-Struct combina metodología CBT coaching validada, inteligencia artificial y un modelo freemium. Los servicios ",
+        a: "G-Struct convierte el método I-R-O™ en una plataforma cognitivo-conductual escalable para LATAM. Los servicios ",
         channels: "1:1, Enterprise y Workshop",
-        b: " operan como canales de validación, datos cualitativos y revenue temprano para construir el producto.",
+        b: " operan como canales de validación, datos cualitativos y revenue temprano para construir el producto principal.",
       },
       phoneCaption: "G-Struct · Prototipo activo · v0.1",
       phoneAnnotTop: "Motor de\nReestructuración",
@@ -95,7 +95,7 @@ const COPY: Record<Locale, Copy> = {
     product: {
       eyebrow: "QUÉ CONSTRUIMOS",
       title: "El producto.",
-      p1: "G-Struct es una app móvil freemium que aplica el método I-R-O — Identificar, Reencuadrar, Optimizar — para ayudar a emprendedores y high-performers a identificar los patrones cognitivos que bloquean su ejecución y convertirlos en acción.",
+      p1: "G-Struct es una app móvil freemium que aplica el método I-R-O™ — Identificar, Reencuadrar, Optimizar — para ayudar a emprendedores y high-performers a identificar los patrones cognitivos que bloquean su ejecución y convertirlos en acción.",
       p2: "No es una app de bienestar. No es terapia. Es infraestructura de rendimiento cognitivo para el profesional latinoamericano.",
       bullets: [
         { highlight: "Woebot", rest: " cerró su versión consumer en junio 2025 — dejando un vacío directo en el mercado CBT B2C." },
@@ -109,7 +109,7 @@ const COPY: Record<Locale, Copy> = {
       progressLabel: "Progreso de validación",
       progressCount: (d, t) => `${d} de ${t} hitos completados`,
       milestones: [
-        { tag: "✓ Completado", body: "Metodología I-R-O validada a través de sesiones de coaching reales con emprendedores y profesionales en Ecuador.", done: true },
+        { tag: "✓ Completado", body: "Método I-R-O™ validado a través de sesiones de coaching reales con emprendedores y profesionales en Ecuador.", done: true },
         { tag: "✓ Activo", body: "Prototipo funcional construido. Primera cohorte de 8–10 testers en curso.", done: true },
         { tag: "Julio 14, 2026", body: "Evento de validación con 30 emprendedores, founders y estudiantes. Primera data estructurada de NPS, disposición a pagar y fit de categoría.", done: false },
         { tag: "Q3 2026", body: "Lanzamiento público en Ecuador. Primeros 1,000 usuarios en plataforma freemium.", done: false },
@@ -166,11 +166,11 @@ const COPY: Record<Locale, Copy> = {
   en: {
     hero: {
       eyebrow: "INVESTORS · PRE-SEED 2026 · CORE ASSET: G-STRUCT",
-      h1: "G-Structure is building G-Struct: a scalable cognitive-behavioral platform for LATAM.",
+      h1: "G-Structure is not a services firm. It is a tech startup building G-Struct.",
       lead: {
-        a: "G-Struct combines a validated CBT coaching methodology, artificial intelligence, and a freemium model. The ",
+        a: "G-Struct turns the I-R-O™ Method into a scalable cognitive-behavioral platform for LATAM. The ",
         channels: "1:1, Enterprise, and Workshop",
-        b: " services operate as validation channels, qualitative data, and early revenue to build the product.",
+        b: " services operate as validation, qualitative data, and early revenue channels to build the main product.",
       },
       phoneCaption: "G-Struct · Active prototype · v0.1",
       phoneAnnotTop: "Restructuring\nEngine",
@@ -196,7 +196,7 @@ const COPY: Record<Locale, Copy> = {
     product: {
       eyebrow: "WHAT WE BUILD",
       title: "The product.",
-      p1: "G-Struct is a freemium mobile app that applies the I-R-O method — Identify, Reframe, Optimize — to help entrepreneurs and high-performers spot the cognitive patterns blocking their execution and turn them into action.",
+      p1: "G-Struct is a freemium mobile app that applies the I-R-O™ Method — Identify, Reframe, Optimize — to help entrepreneurs and high-performers spot the cognitive patterns blocking their execution and turn them into action.",
       p2: "It is not a wellness app. It is not therapy. It is cognitive performance infrastructure for the Latin American professional.",
       bullets: [
         { highlight: "Woebot", rest: " shut down its consumer version in June 2025 — leaving a direct gap in the CBT B2C market." },
@@ -210,7 +210,7 @@ const COPY: Record<Locale, Copy> = {
       progressLabel: "Validation progress",
       progressCount: (d, t) => `${d} of ${t} milestones completed`,
       milestones: [
-        { tag: "✓ Completed", body: "I-R-O methodology validated through real coaching sessions with entrepreneurs and professionals in Ecuador.", done: true },
+        { tag: "✓ Completed", body: "I-R-O™ Method validated through real coaching sessions with entrepreneurs and professionals in Ecuador.", done: true },
         { tag: "✓ Active", body: "Functional prototype built. First cohort of 8–10 testers in progress.", done: true },
         { tag: "July 14, 2026", body: "Validation event with 30 entrepreneurs, founders, and students. First structured data on NPS, willingness to pay, and category fit.", done: false },
         { tag: "Q3 2026", body: "Public launch in Ecuador. First 1,000 users on the freemium platform.", done: false },

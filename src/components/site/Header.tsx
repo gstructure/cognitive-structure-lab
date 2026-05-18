@@ -23,8 +23,8 @@ export function Header() {
   const homeTo = locale === "en" ? "/en" : "/";
   const ctaLabel = locale === "en" ? "Join Waitlist" : "Lista de espera";
 
-  // Hide persistent waitlist CTA on /inversores (investor flow uses email).
-  const hideWaitlistCTA = location.pathname.startsWith("/inversores");
+  // Hide persistent waitlist CTA on investor pages; that flow uses email/deck requests.
+  const hideWaitlistCTA = location.pathname.startsWith("/inversores") || location.pathname.startsWith("/en/investors");
 
   const onCtaClick = () => trackEvent("nav_waitlist_click", { source: "header" });
 
