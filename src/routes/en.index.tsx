@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo, canonicalLink, jsonLdScript, faqSchema, breadcrumbSchema } from "@/lib/seo";
-import gStructHomePreview from "@/assets/g-struct-home-preview.png";
+import gStructHomePreview from "@/assets/g-struct-home-preview.webp";
 import { Index } from "./index";
 
 const HOME_FAQ_EN = [

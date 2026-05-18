@@ -13,7 +13,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { toast } from "sonner";
-import gStructHomePreview from "@/assets/g-struct-home-preview.png";
+import gStructHomePreview from "@/assets/g-struct-home-preview.webp";
 import { trackConversion } from "@/lib/analytics";
 import type { Locale } from "@/lib/i18n";
 

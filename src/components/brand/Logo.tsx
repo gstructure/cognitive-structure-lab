@@ -1,4 +1,4 @@
-import logoCube from "@/assets/g-structure-cube.png";
+import logoCube from "@/assets/g-structure-cube.webp";
 
 type LogoProps = {
   variant?: "default" | "inverse";

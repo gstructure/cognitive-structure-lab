@@ -3,7 +3,7 @@ import { Eyebrow } from "@/components/site/Eyebrow";
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
 import { GuillermoPortrait } from "@/components/site/GuillermoPortrait";
 import { SocialLinks } from "@/components/site/SocialLinks";
-import portrait from "@/assets/guillermo-suco.png";
+import portrait from "@/assets/guillermo-suco.webp";
 import { buildSeo, canonicalLink, jsonLdScript, personGuillermoSchema, breadcrumbSchema } from "@/lib/seo";
 
 export const Route = createFileRoute("/en/about-guillermo")({

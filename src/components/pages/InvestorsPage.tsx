@@ -2,8 +2,8 @@ import { Eyebrow } from "@/components/site/Eyebrow";
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
 import { Section } from "@/components/site/Section";
 import { Check } from "lucide-react";
-import gStructHomePreview from "@/assets/g-struct-home-preview.png";
-import guillermoPhoto from "@/assets/guillermo-suco.png";
+import gStructHomePreview from "@/assets/g-struct-home-preview.webp";
+import guillermoPhoto from "@/assets/guillermo-suco.webp";
 import type { Locale } from "@/lib/i18n";
 
 type Copy = {

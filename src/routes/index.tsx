@@ -16,9 +16,9 @@ import { BrandMark } from "@/components/brand/Logo";
 import { GuillermoPortrait } from "@/components/site/GuillermoPortrait";
 import { useT, useLocale, type Locale } from "@/lib/i18n";
 import { ROUTES } from "@/lib/routeMap";
-import logoCube from "@/assets/g-structure-cube.png";
-import gStructHomePreview from "@/assets/g-struct-home-preview.png";
-import etwBadge from "@/assets/etw-2026-badge.png";
+import logoCube from "@/assets/g-structure-cube.webp";
+import gStructHomePreview from "@/assets/g-struct-home-preview.webp";
+import etwBadge from "@/assets/etw-2026-badge.webp";
 import { buildSeo, canonicalLink, jsonLdScript, faqSchema, breadcrumbSchema } from "@/lib/seo";
 
 const ETW_URL = "https://luma.com/lm4njhiu";

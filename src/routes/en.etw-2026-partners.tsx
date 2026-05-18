@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/site/Section";
 import { Eyebrow } from "@/components/site/Eyebrow";
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
-import etwBadge from "@/assets/etw-2026-badge.png";
+import etwBadge from "@/assets/etw-2026-badge.webp";
 import { buildSeo, canonicalLink, jsonLdScript, breadcrumbSchema, SITE_URL } from "@/lib/seo";
 
 const eventSchema = {

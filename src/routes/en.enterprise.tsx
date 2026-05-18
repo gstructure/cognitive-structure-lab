@@ -3,7 +3,7 @@ import { Section } from "@/components/site/Section";
 import { Eyebrow } from "@/components/site/Eyebrow";
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
 import { buildSeo, canonicalLink, jsonLdScript, breadcrumbSchema } from "@/lib/seo";
-import etwBadge from "@/assets/etw-2026-badge.png";
+import etwBadge from "@/assets/etw-2026-badge.webp";
 
 export const Route = createFileRoute("/en/enterprise")({
   head: () => ({

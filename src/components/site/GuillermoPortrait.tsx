@@ -1,4 +1,4 @@
-import portrait from "@/assets/guillermo-suco.png";
+import portrait from "@/assets/guillermo-suco.webp";
 
 type Props = {
   caption?: string;

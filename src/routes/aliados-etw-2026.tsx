@@ -4,7 +4,7 @@ import { SectionHeader } from "@/components/site/SectionHeader";
 import { Eyebrow } from "@/components/site/Eyebrow";
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
 import { Check } from "lucide-react";
-import etwBadge from "@/assets/etw-2026-badge.png";
+import etwBadge from "@/assets/etw-2026-badge.webp";
 import { buildSeo, canonicalLink, jsonLdScript, breadcrumbSchema, SITE_URL } from "@/lib/seo";
 
 const eventSchema = {

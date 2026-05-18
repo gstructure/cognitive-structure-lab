@@ -5,7 +5,7 @@ import { SectionHeader } from "@/components/site/SectionHeader";
 import { Eyebrow } from "@/components/site/Eyebrow";
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
 import { Check, ArrowRight, X } from "lucide-react";
-import reestructuraLogo from "@/assets/reestructura-1-1-logo.png";
+import reestructuraLogo from "@/assets/reestructura-1-1-logo.webp";
 import { buildSeo, canonicalLink, jsonLdScript, breadcrumbSchema } from "@/lib/seo";
 import { BookingDialog } from "@/components/booking/BookingDialog";
 import { findPackage, type BookablePackage } from "@/lib/booking-catalog";
