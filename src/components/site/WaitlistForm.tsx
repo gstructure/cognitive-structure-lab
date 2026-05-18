@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ArrowRight, Check } from "lucide-react";
 import { Section } from "./Section";
-import { trackConversion } from "@/lib/analytics";
+import { trackConversion, trackCtaClick } from "@/lib/analytics";
 import { useLocale } from "@/lib/i18n";
 
 const COPY = {
@@ -47,6 +47,7 @@ export function WaitlistForm({ source = "home" }: { source?: string } = {}) {
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (status === "loading") return;
+    trackCtaClick("gstruct_waitlist_submit_attempt", { source });
     setStatus("loading");
     try {
       const res = await fetch("/api/public/gstruct-waitlist", {
@@ -71,7 +72,7 @@ export function WaitlistForm({ source = "home" }: { source?: string } = {}) {
   };
 
   return (
-    <Section id="lista-de-espera" tone="white">
+    <Section id="waitlist" tone="white">
       <div className="grid gap-12 lg:grid-cols-12 lg:gap-16 items-start">
         <div className="lg:col-span-6">
           <p className="eyebrow">{t.eyebrow}</p>

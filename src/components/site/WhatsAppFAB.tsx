@@ -3,6 +3,7 @@ import { MessageCircle, X, ArrowRight, Sparkles } from "lucide-react";
 import { useLocation } from "@tanstack/react-router";
 import { useT, useLocale } from "@/lib/i18n";
 import { Assistant } from "./Assistant";
+import { trackContactClick, trackCtaClick } from "@/lib/analytics";
 
 const WA_NUMBER = "593986875121";
 
@@ -98,7 +99,11 @@ export function WhatsAppFAB() {
                     href={buildWaUrl(it.key, locale)}
                     target="_blank"
                     rel="noreferrer"
-                    onClick={() => setOpen(false)}
+                    onClick={() => {
+                      trackContactClick("whatsapp", { source: "fab", intent: it.key });
+                      trackCtaClick("whatsapp_fab_intent", { intent: it.key });
+                      setOpen(false);
+                    }}
                     className="group flex items-center justify-between gap-3 px-5 py-3 text-[13px] text-foreground/90 hover:bg-[color:var(--color-brand-soft)]/40"
                   >
                     <span>{it.label}</span>
@@ -135,7 +140,10 @@ export function WhatsAppFAB() {
         <button
           type="button"
           aria-label={t("fab.open")}
-          onClick={() => setOpen((v) => !v)}
+          onClick={() => {
+            trackCtaClick("whatsapp_fab_toggle", { state: open ? "close" : "open" });
+            setOpen((v) => !v);
+          }}
           className={`relative inline-flex h-12 w-12 items-center justify-center rounded-full border border-[color:var(--color-brand-deep)] bg-[color:var(--color-brand-deep)] text-[color:var(--color-background)] shadow-[0_18px_36px_-12px_rgba(5,50,90,0.55)] transition-transform hover:-translate-y-0.5 ${
             open ? "rotate-90" : ""
           }`}

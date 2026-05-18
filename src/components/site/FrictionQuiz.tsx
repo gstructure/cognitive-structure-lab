@@ -252,7 +252,7 @@ export function FrictionQuiz() {
             <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3">
               <Link
                 to="/"
-                hash="lista-de-espera"
+                hash="waitlist"
                 className="inline-flex items-center gap-2 bg-[color:var(--color-background)] px-5 py-3 text-[13px] font-semibold tracking-wide text-[color:var(--color-brand-deep)] hover:opacity-90"
               >
                 {ui.ctaWaitlist} <ArrowRight size={14} />

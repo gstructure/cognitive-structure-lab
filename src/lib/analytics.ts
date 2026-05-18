@@ -21,7 +21,8 @@ export type ConversionKey =
   | "contact_form_submit"
   | "brief_pdf_download"
   | "booking_request"
-  | "gstruct_waitlist_signup";
+  | "gstruct_waitlist_signup"
+  | "investor_interest";
 
 // Google Ads conversion labels. `undefined` means: fire GA4 event only,
 // do NOT fire a Google Ads conversion.
@@ -32,6 +33,7 @@ const CONVERSION_LABELS: Record<ConversionKey, string | undefined> = {
   booking_request: "AW-18154152582/zzaxCI-jhqscEIbFydBD",
   // No Ads label yet — connect once Google Ads conversion is created.
   gstruct_waitlist_signup: undefined,
+  investor_interest: undefined,
 };
 
 const isDev =
@@ -50,6 +52,20 @@ function safeGtag(...args: unknown[]) {
 
 export function trackEvent(name: string, params: Record<string, unknown> = {}) {
   safeGtag("event", name, params);
+}
+
+export function trackCtaClick(
+  label: string,
+  params: Record<string, unknown> = {},
+) {
+  trackEvent("cta_click", { label, ...params });
+}
+
+export function trackContactClick(
+  channel: "whatsapp" | "email" | "external" | "internal",
+  params: Record<string, unknown> = {},
+) {
+  trackEvent("contact_click", { channel, ...params });
 }
 
 export function trackConversion(

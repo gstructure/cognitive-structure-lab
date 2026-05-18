@@ -7,7 +7,7 @@ import { Mail, Phone, Globe, ArrowRight, ArrowUpRight, Building2, User, Cpu, Han
 import { SocialLinks } from "@/components/site/SocialLinks";
 import { buildSeo, canonicalLink, jsonLdScript, breadcrumbSchema } from "@/lib/seo";
 import { BriefDownloadCard } from "@/components/site/BriefDownloadCard";
-import { trackConversion } from "@/lib/analytics";
+import { trackContactClick, trackConversion } from "@/lib/analytics";
 
 const REQUEST_TYPES: Record<string, string> = {
   enterprise: "Enterprise / equipo",
@@ -169,7 +169,20 @@ function DirectChannel({
       {href ? <ArrowRight size={16} className="mt-1 text-muted-foreground" /> : null}
     </div>
   );
-  return href ? <a href={href} className="block">{inner}</a> : inner;
+  return href ? (
+    <a
+      href={href}
+      className="block"
+      onClick={() => {
+        trackContactClick(href.startsWith("https://wa.me") ? "whatsapp" : "email", {
+          source: "contact_direct_channel",
+          label,
+        });
+      }}
+    >
+      {inner}
+    </a>
+  ) : inner;
 }
 
 type FormState = {

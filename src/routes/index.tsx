@@ -611,8 +611,15 @@ function Hero() {
             </p>
 
             <div className="mt-9 flex flex-wrap items-center gap-3">
-              <CTALink to={lp("/g-struct", locale)} variant="primary">{t("home.hero.ctaPrimary")}</CTALink>
-              <CTALink to={lp("/inversores", locale)} variant="outline">{t("home.hero.ctaSecondary")}</CTALink>
+              <CTALink to={lp("/", locale)} hash="waitlist" variant="primary" analyticsLabel="home_hero_waitlist">
+                {c.linkWaitlist}
+              </CTALink>
+              <CTALink to={lp("/g-struct", locale)} variant="outline" analyticsLabel="home_hero_gstruct">
+                {t("home.hero.ctaPrimary")}
+              </CTALink>
+              <CTALink to={lp("/inversores", locale)} variant="ghost" analyticsLabel="home_hero_investors">
+                {t("home.hero.ctaSecondary")}
+              </CTALink>
             </div>
 
             <ul className="mt-8 grid gap-2 text-[13.5px] sm:grid-cols-2 max-w-xl">
@@ -623,7 +630,7 @@ function Hero() {
                 </Link>
               </li>
               <li>
-                <Link to={lp("/", locale)} hash="lista-de-espera" className="group inline-flex items-center gap-2 text-foreground/85 hover:text-foreground">
+                <Link to={lp("/", locale)} hash="waitlist" className="group inline-flex items-center gap-2 text-foreground/85 hover:text-foreground">
                   <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
                   {c.linkWaitlist}
                 </Link>
@@ -1211,7 +1218,9 @@ function GStructBridge() {
       </div>
 
       <div className="mt-12 flex flex-col items-center text-center gap-3">
-        <CTALink to={lp("/g-struct", locale)} variant="primary">{c.ctaWaitlist}</CTALink>
+        <CTALink to={lp("/", locale)} hash="waitlist" variant="primary" analyticsLabel="home_gstruct_section_waitlist">
+          {c.ctaWaitlist}
+        </CTALink>
         <p className="text-sm text-muted-foreground">
           {c.ctaSub}
         </p>
@@ -1339,7 +1348,9 @@ function FinalCTA() {
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-3">
           <CTALink to={lp("/g-struct", locale)} variant="inverse">{c.ctaExplore}</CTALink>
-          <CTALink to={lp("/", locale)} hash="lista-de-espera" variant="inverse">{c.ctaWaitlist}</CTALink>
+          <CTALink to={lp("/", locale)} hash="waitlist" variant="inverse" analyticsLabel="home_final_waitlist">
+            {c.ctaWaitlist}
+          </CTALink>
           <CTALink to={lp("/contacto", locale)} variant="ghost" className="text-[color:var(--color-background)] hover:bg-[color:var(--color-background)]/10">
             {c.ctaContact}
           </CTALink>

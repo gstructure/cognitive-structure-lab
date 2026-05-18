@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import type { ComponentProps } from "react";
+import { trackContactClick, trackCtaClick } from "@/lib/analytics";
 
 type Variant = "primary" | "ghost" | "outline" | "inverse";
 
@@ -23,6 +24,7 @@ type BaseProps = {
   withArrow?: boolean;
   children: React.ReactNode;
   className?: string;
+  analyticsLabel?: string;
 };
 
 export function CTALink({
@@ -31,12 +33,23 @@ export function CTALink({
   withArrow = true,
   children,
   className,
+  analyticsLabel,
+  onClick,
   ...rest
 }: BaseProps & { to: ComponentProps<typeof Link>["to"] } & Omit<ComponentProps<typeof Link>, "children" | "className" | "to">) {
   return (
     <Link
       to={to}
       {...rest}
+      onClick={(event) => {
+        if (analyticsLabel) {
+          trackCtaClick(analyticsLabel, {
+            destination: typeof to === "string" ? to : String(to),
+            type: "internal",
+          });
+        }
+        onClick?.(event);
+      }}
       className={`${base} ${styles[variant]} ${className ?? ""}`}
     >
       {children}
@@ -53,12 +66,24 @@ export function CTAExternal({
   withArrow = true,
   children,
   className,
+  analyticsLabel,
+  onClick,
   ...rest
 }: BaseProps & { href: string } & React.AnchorHTMLAttributes<HTMLAnchorElement>) {
   return (
     <a
       href={href}
       {...rest}
+      onClick={(event) => {
+        const channel = href.startsWith("https://wa.me")
+          ? "whatsapp"
+          : href.startsWith("mailto:")
+            ? "email"
+            : "external";
+        trackContactClick(channel, { href, label: analyticsLabel ?? String(children) });
+        if (analyticsLabel) trackCtaClick(analyticsLabel, { destination: href, type: "external" });
+        onClick?.(event);
+      }}
       className={`${base} ${styles[variant]} ${className ?? ""}`}
     >
       {children}

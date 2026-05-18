@@ -62,7 +62,7 @@ export function Header() {
           {!hideWaitlistCTA && (
             <Link
               to={homeTo as string}
-              hash="lista-de-espera"
+              hash="waitlist"
               onClick={onCtaClick}
               className="inline-flex items-center justify-center bg-foreground px-4 py-2.5 text-[13px] font-medium tracking-wide text-background transition-opacity hover:opacity-90"
             >
@@ -75,7 +75,7 @@ export function Header() {
           {!hideWaitlistCTA && (
             <Link
               to={homeTo as string}
-              hash="lista-de-espera"
+              hash="waitlist"
               onClick={() => {
                 setOpen(false);
                 onCtaClick();
@@ -120,7 +120,7 @@ export function Header() {
               {!hideWaitlistCTA && (
                 <Link
                   to={homeTo as string}
-                  hash="lista-de-espera"
+                  hash="waitlist"
                   onClick={() => {
                     setOpen(false);
                     onCtaClick();

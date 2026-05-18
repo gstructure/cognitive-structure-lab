@@ -4,6 +4,7 @@ import { Eyebrow } from "@/components/site/Eyebrow";
 import { Mail, ArrowUpRight } from "lucide-react";
 import { SocialLinks } from "@/components/site/SocialLinks";
 import { buildSeo, canonicalLink, jsonLdScript, breadcrumbSchema } from "@/lib/seo";
+import { trackContactClick } from "@/lib/analytics";
 
 export const Route = createFileRoute("/en/contact")({
   head: () => ({
@@ -64,10 +65,20 @@ function Page() {
         <p className="eyebrow">DIRECT CHANNELS</p>
         <h2 className="mt-3 font-display text-3xl md:text-4xl leading-[1.08]">Talk to Guillermo directly.</h2>
         <div className="mt-8 flex flex-wrap items-center gap-4">
-          <a href="https://wa.me/593986875121" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-foreground px-5 py-3 text-[13px] font-medium text-background">
+          <a
+            href="https://wa.me/593986875121"
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => trackContactClick("whatsapp", { source: "en_contact_direct_channel" })}
+            className="inline-flex items-center gap-2 bg-foreground px-5 py-3 text-[13px] font-medium text-background"
+          >
             Message on WhatsApp
           </a>
-          <a href="mailto:guillermo@g-structure.co" className="inline-flex items-center gap-2 border border-foreground/30 px-5 py-3 text-[13px] font-medium text-foreground hover:border-foreground">
+          <a
+            href="mailto:guillermo@g-structure.co"
+            onClick={() => trackContactClick("email", { source: "en_contact_direct_channel" })}
+            className="inline-flex items-center gap-2 border border-foreground/30 px-5 py-3 text-[13px] font-medium text-foreground hover:border-foreground"
+          >
             <Mail size={14} /> guillermo@g-structure.co
           </a>
         </div>

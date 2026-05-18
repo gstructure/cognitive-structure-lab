@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import gStructHomePreview from "@/assets/g-struct-home-preview.webp";
-import { trackConversion } from "@/lib/analytics";
+import { trackConversion, trackCtaClick } from "@/lib/analytics";
 import type { Locale } from "@/lib/i18n";
 
 type Copy = {
@@ -387,6 +387,7 @@ function Hero({ locale, count }: { locale: Locale; count: number | null }) {
           <div className="mt-9 flex flex-wrap items-center gap-3">
             <a
               href="#waitlist"
+              onClick={() => trackCtaClick("gstruct_hero_waitlist", { source: "gstruct_page" })}
               className="group inline-flex items-center justify-center gap-2 bg-foreground px-5 min-h-11 py-3 text-[13px] font-medium tracking-wide text-background transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:ring-[color:var(--color-brand)]"
             >
               {c.cta}
@@ -550,6 +551,7 @@ function PlanCTA({
   return (
     <a
       href="#waitlist"
+      onClick={() => trackCtaClick("gstruct_plan_waitlist", { plan: String(children) })}
       className={`group mt-7 inline-flex w-full items-center justify-center gap-2 px-5 min-h-11 py-3 text-[13px] font-medium tracking-wide transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[color:var(--color-brand)] ${
         variant === "ghost-light" ? "focus-visible:ring-offset-[color:var(--color-brand-deep)]" : "focus-visible:ring-offset-background"
       } ${styles}`}
@@ -629,6 +631,7 @@ function Waitlist({
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (submitting || done) return;
+    trackCtaClick("gstruct_waitlist_submit_attempt", { source: "gstruct_page" });
     setSubmitting(true);
     try {
       const res = await fetch("/api/public/gstruct-waitlist", {

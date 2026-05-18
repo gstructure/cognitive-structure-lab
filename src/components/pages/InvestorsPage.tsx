@@ -5,6 +5,7 @@ import { Check } from "lucide-react";
 import gStructHomePreview from "@/assets/g-struct-home-preview.webp";
 import guillermoPhoto from "@/assets/guillermo-suco.webp";
 import type { Locale } from "@/lib/i18n";
+import { trackConversion } from "@/lib/analytics";
 
 type Copy = {
   hero: {
@@ -23,6 +24,7 @@ type Copy = {
     priceBars: { label: string; value: string; note?: string }[];
     priceFoot: string;
   };
+  thesis: { label: string; title: string; body: string }[];
   product: {
     eyebrow: string;
     title: string;
@@ -92,6 +94,12 @@ const COPY: Record<Locale, Copy> = {
       ],
       priceFoot: "BetterUp requiere sponsor corporativo. G-Struct es acceso individual directo.",
     },
+    thesis: [
+      { label: "Problema", title: "La ejecución se rompe antes de la tarea.", body: "El mercado ya compra productividad, coaching y bienestar, pero falta una capa cognitivo-conductual práctica para convertir fricción en acción." },
+      { label: "Método", title: "I-R-O™ es el motor propietario.", body: "Identificar, Reencuadrar y Optimizar traduce principios CBT a una secuencia repetible que puede vivir en software." },
+      { label: "Validación", title: "1:1 y Enterprise alimentan producto.", body: "Los canales de servicio no son el negocio final: generan revenue temprano, casos reales y datos cualitativos para G-Struct." },
+      { label: "Escala", title: "G-Struct convierte el método en plataforma.", body: "El lanzamiento Q3 2026 apunta a un producto freemium de bajo costo para profesionales y equipos en LATAM." },
+    ],
     product: {
       eyebrow: "QUÉ CONSTRUIMOS",
       title: "El producto.",
@@ -193,6 +201,12 @@ const COPY: Record<Locale, Copy> = {
       ],
       priceFoot: "BetterUp requires a corporate sponsor. G-Struct is direct individual access.",
     },
+    thesis: [
+      { label: "Problem", title: "Execution breaks before the task.", body: "The market already buys productivity, coaching, and wellness, but lacks a practical cognitive-behavioral layer for turning friction into action." },
+      { label: "Method", title: "I-R-O™ is the proprietary engine.", body: "Identify, Reframe, and Optimize turns CBT principles into a repeatable sequence that can live inside software." },
+      { label: "Validation", title: "1:1 and Enterprise feed the product.", body: "The service channels are not the end business: they create early revenue, real cases, and qualitative data for G-Struct." },
+      { label: "Scale", title: "G-Struct turns the method into a platform.", body: "The Q3 2026 launch targets a low-cost freemium product for professionals and teams across LATAM." },
+    ],
     product: {
       eyebrow: "WHAT WE BUILD",
       title: "The product.",
@@ -491,6 +505,19 @@ export function InvestorsPage({ locale, contactTo }: { locale: Locale; contactTo
       </section>
 
       {/* OPPORTUNITY */}
+      <Section className="!py-16 md:!py-24">
+        <div className="grid gap-px border border-border bg-border md:grid-cols-4">
+          {c.thesis.map((item) => (
+            <div key={item.label} className="bg-[color:var(--color-surface)] p-6 md:p-7">
+              <p className="font-display text-[10px] font-semibold tracking-[0.22em] uppercase text-[color:var(--color-brand)]">{item.label}</p>
+              <h2 className="mt-3 font-display text-lg md:text-xl leading-tight text-foreground">{item.title}</h2>
+              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{item.body}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* OPPORTUNITY */}
       <Section tone="muted" className="!py-20 md:!py-32">
         <Eyebrow>{c.opportunity.eyebrow}</Eyebrow>
         <h2 className="mt-4 max-w-3xl font-display text-3xl md:text-4xl leading-[1.08]">{c.opportunity.title}</h2>
@@ -579,10 +606,21 @@ export function InvestorsPage({ locale, contactTo }: { locale: Locale; contactTo
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.05]">{c.cta.title}</h2>
           <p className="mx-auto mt-6 max-w-2xl text-base md:text-lg text-[color:var(--color-background)]/80 leading-relaxed">{c.cta.body}</p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-            <CTAExternal href={`mailto:guillermo@g-structure.co?subject=${c.cta.mailSubject}`} variant="inverse">
+            <CTAExternal
+              href={`mailto:guillermo@g-structure.co?subject=${c.cta.mailSubject}`}
+              variant="inverse"
+              analyticsLabel="investor_deck_request"
+              onClick={() => trackConversion("investor_interest", { action: "deck_request", locale })}
+            >
               {c.cta.primary}
             </CTAExternal>
-            <CTALink to={contactTo} variant="ghost" className="text-[color:var(--color-background)] hover:bg-[color:var(--color-background)]/10">
+            <CTALink
+              to={contactTo}
+              variant="ghost"
+              analyticsLabel="investor_book_conversation"
+              className="text-[color:var(--color-background)] hover:bg-[color:var(--color-background)]/10"
+              onClick={() => trackConversion("investor_interest", { action: "book_conversation", locale })}
+            >
               {c.cta.secondary}
             </CTALink>
           </div>
