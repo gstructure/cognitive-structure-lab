@@ -1,6 +1,8 @@
 import { createFileRoute, Outlet } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { adminCheckCurrentUser } from "@/lib/admin-auth.functions";
 
 export const Route = createFileRoute("/_admin")({
   component: AdminLayout,
@@ -10,6 +12,7 @@ type State = "loading" | "unauthed" | "forbidden" | "ok";
 
 function AdminLayout() {
   const [state, setState] = useState<State>("loading");
+  const checkAdmin = useServerFn(adminCheckCurrentUser);
 
   useEffect(() => {
     let cancelled = false;
@@ -21,17 +24,15 @@ function AdminLayout() {
         if (!cancelled) setState("unauthed");
         return;
       }
-      const { data: roles, error } = await supabase
-        .from("user_roles")
-        .select("role")
-        .eq("user_id", session.user.id)
-        .eq("role", "admin")
-        .maybeSingle();
-      if (cancelled) return;
-      if (error || !roles) {
+
+      try {
+        const result = await checkAdmin({});
+        if (cancelled) return;
+        setState(result.ok && result.isAdmin ? "ok" : "forbidden");
+      } catch (error) {
+        console.error("[AdminLayout] admin check failed", error);
+        if (cancelled) return;
         setState("forbidden");
-      } else {
-        setState("ok");
       }
     };
 
@@ -44,6 +45,7 @@ function AdminLayout() {
       cancelled = true;
       sub.subscription.unsubscribe();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (state === "loading") {
