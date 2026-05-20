@@ -65,9 +65,10 @@ export const Route = createFileRoute("/api/public/newsletter-subscribe")({
         const email = parsed.data.email.toLowerCase();
         const locale = parsed.data.locale ?? "es";
         const source = parsed.data.source ?? "website";
+        const db = supabaseAdmin as any;
 
-        const { data: existing, error: readError } = await supabaseAdmin
-          .from("newsletter_subscribers" as any)
+        const { data: existing, error: readError } = await db
+          .from("newsletter_subscribers")
           .select("id, status")
           .eq("email", email)
           .maybeSingle();
@@ -83,8 +84,8 @@ export const Route = createFileRoute("/api/public/newsletter-subscribe")({
 
         const now = new Date().toISOString();
         const query = existing
-          ? supabaseAdmin
-              .from("newsletter_subscribers" as any)
+          ? db
+              .from("newsletter_subscribers")
               .update({
                 status: "subscribed",
                 locale,
@@ -95,8 +96,8 @@ export const Route = createFileRoute("/api/public/newsletter-subscribe")({
               .eq("id", existing.id)
               .select("id")
               .single()
-          : supabaseAdmin
-              .from("newsletter_subscribers" as any)
+          : db
+              .from("newsletter_subscribers")
               .insert({
                 email,
                 status: "subscribed",
@@ -113,8 +114,8 @@ export const Route = createFileRoute("/api/public/newsletter-subscribe")({
         }
 
         try {
-          await supabaseAdmin
-            .from("suppressed_emails" as any)
+          await db
+            .from("suppressed_emails")
             .delete()
             .eq("email", email)
             .eq("reason", "unsubscribe");
@@ -129,8 +130,8 @@ export const Route = createFileRoute("/api/public/newsletter-subscribe")({
             idempotencyKey: `newsletter-welcome-${subscriber.id}-${Date.now()}`,
           });
           if (emailResult.ok) {
-            await supabaseAdmin
-              .from("newsletter_subscribers" as any)
+            await db
+              .from("newsletter_subscribers")
               .update({ welcome_email_sent_at: new Date().toISOString() })
               .eq("id", subscriber.id);
           } else {

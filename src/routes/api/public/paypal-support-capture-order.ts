@@ -71,8 +71,9 @@ export const Route = createFileRoute("/api/public/paypal-support-capture-order")
             return Response.json({ error: "payment_mismatch" }, { status: 409 });
           }
 
-          const { error } = await supabaseAdmin
-            .from("support_payments" as any)
+          const db = supabaseAdmin as any;
+          const { error } = await db
+            .from("support_payments")
             .insert({
               support_tier: tier.id,
               amount_usd: tier.amount,

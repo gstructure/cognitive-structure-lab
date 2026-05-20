@@ -557,6 +557,54 @@ export type Database = {
         }
         Relationships: []
       }
+      support_payments: {
+        Row: {
+          amount_usd: number
+          captured_at: string
+          created_at: string
+          id: string
+          payment_status: string
+          paypal_capture_id: string | null
+          paypal_order_id: string
+          paypal_payer_email: string | null
+          support_tier: string
+          supporter_email: string
+          supporter_message: string | null
+          supporter_name: string | null
+          wants_public_recognition: boolean
+        }
+        Insert: {
+          amount_usd: number
+          captured_at?: string
+          created_at?: string
+          id?: string
+          payment_status?: string
+          paypal_capture_id?: string | null
+          paypal_order_id: string
+          paypal_payer_email?: string | null
+          support_tier: string
+          supporter_email: string
+          supporter_message?: string | null
+          supporter_name?: string | null
+          wants_public_recognition?: boolean
+        }
+        Update: {
+          amount_usd?: number
+          captured_at?: string
+          created_at?: string
+          id?: string
+          payment_status?: string
+          paypal_capture_id?: string | null
+          paypal_order_id?: string
+          paypal_payer_email?: string | null
+          support_tier?: string
+          supporter_email?: string
+          supporter_message?: string | null
+          supporter_name?: string | null
+          wants_public_recognition?: boolean
+        }
+        Relationships: []
+      }
       suppressed_emails: {
         Row: {
           created_at: string
