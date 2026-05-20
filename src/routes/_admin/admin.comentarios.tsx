@@ -63,7 +63,7 @@ function AdminArticleComments() {
     setError(null);
     const result = await list({ data: { status: nextStatus } });
     if (result.ok) {
-      setRows((result.rows as CommentRow[]) ?? []);
+      setRows(((result.rows ?? []) as unknown) as CommentRow[]);
     } else {
       setRows([]);
       setError(result.error ?? "No se pudieron cargar los comentarios.");

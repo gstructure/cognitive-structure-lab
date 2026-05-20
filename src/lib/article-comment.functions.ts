@@ -4,7 +4,8 @@ import { supabaseAdmin } from "@/integrations/supabase/client.server";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 
 async function assertAdmin(userId: string): Promise<boolean> {
-  const { data } = await supabaseAdmin
+  const db = supabaseAdmin as any;
+  const { data } = await db
     .from("user_roles")
     .select("id")
     .eq("user_id", userId)
@@ -24,9 +25,10 @@ export const adminListArticleComments = createServerFn({ method: "POST" })
   )
   .handler(async ({ context, data }) => {
     if (!(await assertAdmin(context.userId))) return { ok: false as const, rows: [] };
+    const db = supabaseAdmin as any;
 
-    let query = supabaseAdmin
-      .from("article_comments" as any)
+    let query = db
+      .from("article_comments")
       .select("id, article_slug, author_name, author_email, body, status, created_at, approved_at")
       .order("created_at", { ascending: false })
       .limit(500);
@@ -53,9 +55,10 @@ export const adminUpdateArticleCommentStatus = createServerFn({ method: "POST" }
   )
   .handler(async ({ context, data }) => {
     if (!(await assertAdmin(context.userId))) return { ok: false as const, error: "no_auth" };
+    const db = supabaseAdmin as any;
 
-    const { error } = await supabaseAdmin
-      .from("article_comments" as any)
+    const { error } = await db
+      .from("article_comments")
       .update({
         status: data.status,
         approved_at: data.status === "approved" ? new Date().toISOString() : null,
