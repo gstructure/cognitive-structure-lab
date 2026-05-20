@@ -55,19 +55,24 @@ export const Route = createFileRoute("/api/public/article-comments")({
           return Response.json({ error: "unknown_article" }, { status: 404 });
         }
 
-        const { data, error } = await supabaseAdmin
-          .from("article_comments" as any)
-          .select("id, author_name, body, created_at")
-          .eq("article_slug", slug)
-          .eq("status", "approved")
-          .order("created_at", { ascending: true });
+        try {
+          const { data, error } = await supabaseAdmin
+            .from("article_comments" as any)
+            .select("id, author_name, body, created_at")
+            .eq("article_slug", slug)
+            .eq("status", "approved")
+            .order("created_at", { ascending: true });
 
-        if (error) {
-          console.error("[api/public/article-comments] select failed", error);
+          if (error) {
+            console.error("[api/public/article-comments] select failed", error);
+            return Response.json({ comments: [] });
+          }
+
+          return Response.json({ comments: data ?? [] });
+        } catch (err) {
+          console.error("[api/public/article-comments] unavailable", err);
           return Response.json({ comments: [] });
         }
-
-        return Response.json({ comments: data ?? [] });
       },
       POST: async ({ request }) => {
         let body: unknown;
