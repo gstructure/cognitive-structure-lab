@@ -72,7 +72,7 @@ export const Route = createFileRoute("/api/public/paypal-support-capture-order")
           }
 
           const db = supabaseAdmin as any;
-          const { error } = await db
+          const { data: savedPayment, error } = await db
             .from("support_payments")
             .insert({
               support_tier: tier.id,
@@ -86,11 +86,31 @@ export const Route = createFileRoute("/api/public/paypal-support-capture-order")
               paypal_capture_id: paymentCapture.id ?? null,
               paypal_payer_email: capture.payer?.email_address?.toLowerCase() ?? null,
               captured_at: paymentCapture.create_time ?? new Date().toISOString(),
-            });
+            })
+            .select("id")
+            .single();
 
           if (error && (error as any).code !== "23505") {
             console.error("[paypal-support-capture-order] save failed", error);
             return Response.json({ error: "save_failed" }, { status: 502 });
+          }
+
+          if (!error && savedPayment?.id) {
+            try {
+              const { sendSupportThankYouEmail } = await import("@/lib/support-emails.server");
+              const result = await sendSupportThankYouEmail({
+                recipientEmail: parsed.data.supporterEmail,
+                name: parsed.data.supporterName,
+                tierLabel: tier.label,
+                amountUsd: tier.amount,
+                paymentId: savedPayment.id,
+              });
+              if (!result.ok) {
+                console.error("[paypal-support-capture-order] thank-you email failed", result.error);
+              }
+            } catch (emailError) {
+              console.error("[paypal-support-capture-order] thank-you email unavailable", emailError);
+            }
           }
 
           return Response.json({

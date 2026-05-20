@@ -9,6 +9,7 @@ import { template as diagnosticReport } from './diagnostic-report'
 import { template as waitlistConfirmation } from './waitlist-confirmation'
 import { template as waitlistAdminNotification } from './waitlist-admin-notification'
 import { template as newsletterWelcome } from './newsletter-welcome'
+import { template as supportThankYou } from './support-thank-you'
 
 export interface TemplateEntry {
   component: ComponentType<any>
@@ -30,4 +31,5 @@ export const TEMPLATES: Record<string, TemplateEntry> = {
   'waitlist-confirmation': waitlistConfirmation,
   'waitlist-admin-notification': waitlistAdminNotification,
   'newsletter-welcome': newsletterWelcome,
+  'support-thank-you': supportThankYou,
 }
