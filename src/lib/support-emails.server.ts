@@ -51,6 +51,7 @@ export async function sendSupportThankYouEmail(params: {
   tierLabel: string;
   amountUsd: number;
   paymentId: string;
+  locale: "es" | "en";
 }): Promise<{ ok: boolean; error?: string }> {
   const supabase = getSupabase();
   if (!supabase) return { ok: false, error: "server_misconfigured" };
@@ -74,6 +75,7 @@ export async function sendSupportThankYouEmail(params: {
     name: params.name ?? undefined,
     tierLabel: params.tierLabel,
     amountLabel: `$${params.amountUsd.toFixed(2)}`,
+    locale: params.locale,
   };
   const messageId = crypto.randomUUID();
   const element = React.createElement(tpl.component, templateData);

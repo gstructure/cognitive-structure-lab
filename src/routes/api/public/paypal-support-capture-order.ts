@@ -11,6 +11,7 @@ const Schema = z.object({
   wantsPublicRecognition: z.boolean().optional(),
   message: z.string().trim().max(800).optional(),
   acceptedTerms: z.literal(true),
+  locale: z.enum(["es", "en"]).default("es"),
 });
 
 type PayPalCaptureResponse = {
@@ -104,6 +105,7 @@ export const Route = createFileRoute("/api/public/paypal-support-capture-order")
                 tierLabel: tier.label,
                 amountUsd: tier.amount,
                 paymentId: savedPayment.id,
+                locale: parsed.data.locale,
               });
               if (!result.ok) {
                 console.error("[paypal-support-capture-order] thank-you email failed", result.error);

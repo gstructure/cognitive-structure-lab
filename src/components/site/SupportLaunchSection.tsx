@@ -150,6 +150,7 @@ export function SupportLaunchSection() {
         legal: "This contribution supports the early validation and development phase of G-Struct. It does not grant equity, company participation, financial return, or ownership rights over G-Structure or G-Struct.",
         recognitionNote: "G-Structure will only publicly recognize supporters if they authorize their name.",
         payHint: "Complete the form and accept the acknowledgement to enable PayPal.",
+        paypalConfiguring: "PayPal checkout is being configured. Please contact us directly to support the launch.",
         success: "Thank you for supporting the early construction of G-Struct. Your contribution helps validate and build a platform created from Ecuador to move professionals, founders, and teams from cognitive friction to structured execution.",
         cancelled: "Your payment was not completed. You can try again or contact us if you need help.",
         error: "We could not process the payment right now. Please try again or contact us.",
@@ -185,6 +186,7 @@ export function SupportLaunchSection() {
         legal: "Este aporte apoya la fase temprana de validación y desarrollo de G-Struct. No otorga equity, participación societaria, retorno financiero ni derechos de propiedad sobre G-Structure o G-Struct.",
         recognitionNote: "G-Structure se reserva el derecho de reconocer públicamente a los supporters únicamente si estos autorizan su nombre.",
         payHint: "Completa el formulario y acepta el reconocimiento legal para habilitar PayPal.",
+        paypalConfiguring: "El checkout de PayPal se está configurando. Contáctanos directamente si quieres apoyar el lanzamiento.",
         success: "Gracias por apoyar la construcción temprana de G-Struct. Tu aporte ayuda a validar y construir una plataforma creada desde Ecuador para llevar a profesionales, founders y equipos de la fricción cognitiva a la ejecución estructurada.",
         cancelled: "Tu pago no fue completado. Puedes intentarlo nuevamente o contactarnos si necesitas ayuda.",
         error: "No pudimos procesar el pago en este momento. Inténtalo otra vez o contáctanos.",
@@ -317,9 +319,10 @@ export function SupportLaunchSection() {
             ) : (
               <PayPalSupportButton
                 tier={selectedTier}
+                locale={locale}
                 form={form}
                 onStatus={handlePaymentStatus}
-                copy={{ success: copy.success, cancelled: copy.cancelled, error: copy.error }}
+                copy={{ success: copy.success, cancelled: copy.cancelled, error: copy.error, paypalConfiguring: copy.paypalConfiguring }}
               />
             )}
           </div>
@@ -334,7 +337,7 @@ export function SupportLaunchSection() {
               {message}
               {status === "success" ? (
                 <div className="mt-4 flex flex-wrap gap-2">
-                  <a href="/" className="inline-flex items-center gap-2 border border-border px-3 py-2 text-xs font-medium">{copy.returnSite}</a>
+                  <a href={locale === "en" ? "/en" : "/"} className="inline-flex items-center gap-2 border border-border px-3 py-2 text-xs font-medium">{copy.returnSite}</a>
                   <button
                     type="button"
                     onClick={() => navigator.share?.({ title: "G-Structure", url: "https://g-structure.co" })}
@@ -373,14 +376,16 @@ export function SupportLaunchSection() {
 
 function PayPalSupportButton({
   tier,
+  locale,
   form,
   onStatus,
   copy,
 }: {
   tier: SupportTierId;
+  locale: "es" | "en";
   form: FormState;
   onStatus: (status: PaymentStatus, message?: string) => void;
-  copy: { success: string; cancelled: string; error: string };
+  copy: { success: string; cancelled: string; error: string; paypalConfiguring: string };
 }) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const formRef = useRef(form);
@@ -445,6 +450,7 @@ function PayPalSupportButton({
                 wantsPublicRecognition: currentForm.publicRecognition,
                 message: currentForm.message,
                 acceptedTerms: currentForm.acceptedTerms,
+                locale,
               }),
             });
             if (!response.ok) throw new Error("capture_failed");
@@ -463,12 +469,12 @@ function PayPalSupportButton({
       cancelled = true;
       if (containerRef.current) containerRef.current.innerHTML = "";
     };
-  }, [clientId, configured, tier]);
+  }, [clientId, configured, locale, tier]);
 
   if (!configured) {
     return (
       <p className="border border-border bg-background px-4 py-3 text-sm text-muted-foreground">
-        PayPal checkout is being configured. Please contact us directly to support the launch.
+        {copy.paypalConfiguring}
       </p>
     );
   }
