@@ -15,6 +15,7 @@ export function Footer() {
     { to: gStructBase, label: "G-Struct" },
     { to: locale === "en" ? "/en/articles" : "/articulos", label: locale === "en" ? "Articles" : "Artículos" },
     { to: locale === "en" ? "/en/newsletter" : "/newsletter", label: "Newsletter" },
+    { to: (locale === "en" ? "/en" : "/") + "#support-launch", label: locale === "en" ? "Support G-Structure" : "Apoya G-Structure" },
     { to: gStructBase + "#waitlist", label: locale === "en" ? "Waitlist" : "Lista de espera" },
     { to: (locale === "en" ? "/en" : "/") + "#diagnostico", label: locale === "en" ? "Execution Diagnostic" : "Diagnóstico de Ejecución" },
   ];

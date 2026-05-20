@@ -600,6 +600,28 @@ export function InvestorsPage({ locale, contactTo }: { locale: Locale; contactTo
         </div>
       </Section>
 
+      <Section className="!py-16 md:!py-20">
+        <div className="border border-border bg-[color:var(--color-surface)] p-7 md:p-8">
+          <Eyebrow>{locale === "en" ? "EARLY SUPPORT" : "APOYO TEMPRANO"}</Eyebrow>
+          <h2 className="mt-3 max-w-3xl font-display text-2xl md:text-3xl leading-tight">
+            {locale === "en" ? "Support the launch before the formal investment round." : "Apoya el lanzamiento antes de una ronda formal de inversion."}
+          </h2>
+          <p className="mt-4 max-w-3xl text-sm md:text-base text-muted-foreground leading-relaxed">
+            {locale === "en"
+              ? "For early believers who want to help validate the workshop, strengthen the prototype, and move G-Struct toward MVP without receiving equity or financial return."
+              : "Para early believers que quieren ayudar a validar el workshop, fortalecer el prototipo y llevar G-Struct hacia MVP sin recibir equity ni retorno financiero."}
+          </p>
+          <CTALink
+            to={locale === "en" ? "/en" : "/"}
+            hash="support-launch"
+            variant="outline"
+            className="mt-6"
+          >
+            {locale === "en" ? "Support G-Structure" : "Apoya G-Structure"}
+          </CTALink>
+        </div>
+      </Section>
+
       {/* FINAL CTA */}
       <Section tone="deep" className="!py-24 md:!py-36">
         <div className="mx-auto max-w-3xl text-center">

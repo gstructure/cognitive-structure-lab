@@ -43,6 +43,9 @@ import { Route as EnArticlesIndexRouteImport } from './routes/en.articles.index'
 import { Route as AdminAdminIndexRouteImport } from './routes/_admin/admin.index'
 import { Route as LovableEmailSuppressionRouteImport } from './routes/lovable/email/suppression'
 import { Route as EnArticlesSlugRouteImport } from './routes/en.articles.$slug'
+import { Route as ApiPublicPaypalSupportCreateOrderRouteImport } from './routes/api/public/paypal-support-create-order'
+import { Route as ApiPublicPaypalSupportConfigRouteImport } from './routes/api/public/paypal-support-config'
+import { Route as ApiPublicPaypalSupportCaptureOrderRouteImport } from './routes/api/public/paypal-support-capture-order'
 import { Route as ApiPublicNewsletterSubscribeRouteImport } from './routes/api/public/newsletter-subscribe'
 import { Route as ApiPublicGstructWaitlistCountRouteImport } from './routes/api/public/gstruct-waitlist-count'
 import { Route as ApiPublicGstructWaitlistRouteImport } from './routes/api/public/gstruct-waitlist'
@@ -227,6 +230,24 @@ const EnArticlesSlugRoute = EnArticlesSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => EnArticlesRoute,
 } as any)
+const ApiPublicPaypalSupportCreateOrderRoute =
+  ApiPublicPaypalSupportCreateOrderRouteImport.update({
+    id: '/api/public/paypal-support-create-order',
+    path: '/api/public/paypal-support-create-order',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiPublicPaypalSupportConfigRoute =
+  ApiPublicPaypalSupportConfigRouteImport.update({
+    id: '/api/public/paypal-support-config',
+    path: '/api/public/paypal-support-config',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiPublicPaypalSupportCaptureOrderRoute =
+  ApiPublicPaypalSupportCaptureOrderRouteImport.update({
+    id: '/api/public/paypal-support-capture-order',
+    path: '/api/public/paypal-support-capture-order',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiPublicNewsletterSubscribeRoute =
   ApiPublicNewsletterSubscribeRouteImport.update({
     id: '/api/public/newsletter-subscribe',
@@ -341,6 +362,9 @@ export interface FileRoutesByFullPath {
   '/api/public/gstruct-waitlist': typeof ApiPublicGstructWaitlistRoute
   '/api/public/gstruct-waitlist-count': typeof ApiPublicGstructWaitlistCountRoute
   '/api/public/newsletter-subscribe': typeof ApiPublicNewsletterSubscribeRoute
+  '/api/public/paypal-support-capture-order': typeof ApiPublicPaypalSupportCaptureOrderRoute
+  '/api/public/paypal-support-config': typeof ApiPublicPaypalSupportConfigRoute
+  '/api/public/paypal-support-create-order': typeof ApiPublicPaypalSupportCreateOrderRoute
   '/en/articles/$slug': typeof EnArticlesSlugRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/admin/': typeof AdminAdminIndexRoute
@@ -387,6 +411,9 @@ export interface FileRoutesByTo {
   '/api/public/gstruct-waitlist': typeof ApiPublicGstructWaitlistRoute
   '/api/public/gstruct-waitlist-count': typeof ApiPublicGstructWaitlistCountRoute
   '/api/public/newsletter-subscribe': typeof ApiPublicNewsletterSubscribeRoute
+  '/api/public/paypal-support-capture-order': typeof ApiPublicPaypalSupportCaptureOrderRoute
+  '/api/public/paypal-support-config': typeof ApiPublicPaypalSupportConfigRoute
+  '/api/public/paypal-support-create-order': typeof ApiPublicPaypalSupportCreateOrderRoute
   '/en/articles/$slug': typeof EnArticlesSlugRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/admin': typeof AdminAdminIndexRoute
@@ -437,6 +464,9 @@ export interface FileRoutesById {
   '/api/public/gstruct-waitlist': typeof ApiPublicGstructWaitlistRoute
   '/api/public/gstruct-waitlist-count': typeof ApiPublicGstructWaitlistCountRoute
   '/api/public/newsletter-subscribe': typeof ApiPublicNewsletterSubscribeRoute
+  '/api/public/paypal-support-capture-order': typeof ApiPublicPaypalSupportCaptureOrderRoute
+  '/api/public/paypal-support-config': typeof ApiPublicPaypalSupportConfigRoute
+  '/api/public/paypal-support-create-order': typeof ApiPublicPaypalSupportCreateOrderRoute
   '/en/articles/$slug': typeof EnArticlesSlugRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/_admin/admin/': typeof AdminAdminIndexRoute
@@ -487,6 +517,9 @@ export interface FileRouteTypes {
     | '/api/public/gstruct-waitlist'
     | '/api/public/gstruct-waitlist-count'
     | '/api/public/newsletter-subscribe'
+    | '/api/public/paypal-support-capture-order'
+    | '/api/public/paypal-support-config'
+    | '/api/public/paypal-support-create-order'
     | '/en/articles/$slug'
     | '/lovable/email/suppression'
     | '/admin/'
@@ -533,6 +566,9 @@ export interface FileRouteTypes {
     | '/api/public/gstruct-waitlist'
     | '/api/public/gstruct-waitlist-count'
     | '/api/public/newsletter-subscribe'
+    | '/api/public/paypal-support-capture-order'
+    | '/api/public/paypal-support-config'
+    | '/api/public/paypal-support-create-order'
     | '/en/articles/$slug'
     | '/lovable/email/suppression'
     | '/admin'
@@ -582,6 +618,9 @@ export interface FileRouteTypes {
     | '/api/public/gstruct-waitlist'
     | '/api/public/gstruct-waitlist-count'
     | '/api/public/newsletter-subscribe'
+    | '/api/public/paypal-support-capture-order'
+    | '/api/public/paypal-support-config'
+    | '/api/public/paypal-support-create-order'
     | '/en/articles/$slug'
     | '/lovable/email/suppression'
     | '/_admin/admin/'
@@ -626,6 +665,9 @@ export interface RootRouteChildren {
   ApiPublicGstructWaitlistRoute: typeof ApiPublicGstructWaitlistRoute
   ApiPublicGstructWaitlistCountRoute: typeof ApiPublicGstructWaitlistCountRoute
   ApiPublicNewsletterSubscribeRoute: typeof ApiPublicNewsletterSubscribeRoute
+  ApiPublicPaypalSupportCaptureOrderRoute: typeof ApiPublicPaypalSupportCaptureOrderRoute
+  ApiPublicPaypalSupportConfigRoute: typeof ApiPublicPaypalSupportConfigRoute
+  ApiPublicPaypalSupportCreateOrderRoute: typeof ApiPublicPaypalSupportCreateOrderRoute
   LovableEmailSuppressionRoute: typeof LovableEmailSuppressionRoute
   LovableEmailQueueProcessRoute: typeof LovableEmailQueueProcessRoute
   LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
@@ -872,6 +914,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnArticlesSlugRouteImport
       parentRoute: typeof EnArticlesRoute
     }
+    '/api/public/paypal-support-create-order': {
+      id: '/api/public/paypal-support-create-order'
+      path: '/api/public/paypal-support-create-order'
+      fullPath: '/api/public/paypal-support-create-order'
+      preLoaderRoute: typeof ApiPublicPaypalSupportCreateOrderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/paypal-support-config': {
+      id: '/api/public/paypal-support-config'
+      path: '/api/public/paypal-support-config'
+      fullPath: '/api/public/paypal-support-config'
+      preLoaderRoute: typeof ApiPublicPaypalSupportConfigRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/paypal-support-capture-order': {
+      id: '/api/public/paypal-support-capture-order'
+      path: '/api/public/paypal-support-capture-order'
+      fullPath: '/api/public/paypal-support-capture-order'
+      preLoaderRoute: typeof ApiPublicPaypalSupportCaptureOrderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/newsletter-subscribe': {
       id: '/api/public/newsletter-subscribe'
       path: '/api/public/newsletter-subscribe'
@@ -1047,6 +1110,11 @@ const rootRouteChildren: RootRouteChildren = {
   ApiPublicGstructWaitlistRoute: ApiPublicGstructWaitlistRoute,
   ApiPublicGstructWaitlistCountRoute: ApiPublicGstructWaitlistCountRoute,
   ApiPublicNewsletterSubscribeRoute: ApiPublicNewsletterSubscribeRoute,
+  ApiPublicPaypalSupportCaptureOrderRoute:
+    ApiPublicPaypalSupportCaptureOrderRoute,
+  ApiPublicPaypalSupportConfigRoute: ApiPublicPaypalSupportConfigRoute,
+  ApiPublicPaypalSupportCreateOrderRoute:
+    ApiPublicPaypalSupportCreateOrderRoute,
   LovableEmailSuppressionRoute: LovableEmailSuppressionRoute,
   LovableEmailQueueProcessRoute: LovableEmailQueueProcessRoute,
   LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,

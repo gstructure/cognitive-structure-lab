@@ -10,6 +10,7 @@ import { BriefDownloadCard } from "@/components/site/BriefDownloadCard";
 import { FrictionQuiz } from "@/components/site/FrictionQuiz";
 import { WaitlistForm } from "@/components/site/WaitlistForm";
 import { SocialProofBar } from "@/components/site/SocialProofBar";
+import { SupportLaunchSection } from "@/components/site/SupportLaunchSection";
 import { ArticleCard } from "@/components/articles/ArticleCard";
 
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
@@ -1410,6 +1411,7 @@ export function Index() {
       <Problem />
       <FrictionQuiz />
       <WaitlistForm />
+      <SupportLaunchSection />
       <ValidationChannels />
       <FeaturedArticles />
       <StartupStage />
