@@ -82,6 +82,45 @@ export type Database = {
           },
         ]
       }
+      article_comments: {
+        Row: {
+          approved_at: string | null
+          article_slug: string
+          author_email: string
+          author_name: string
+          body: string
+          created_at: string
+          id: string
+          ip_hash: string | null
+          status: string
+          user_agent: string | null
+        }
+        Insert: {
+          approved_at?: string | null
+          article_slug: string
+          author_email: string
+          author_name: string
+          body: string
+          created_at?: string
+          id?: string
+          ip_hash?: string | null
+          status?: string
+          user_agent?: string | null
+        }
+        Update: {
+          approved_at?: string | null
+          article_slug?: string
+          author_email?: string
+          author_name?: string
+          body?: string
+          created_at?: string
+          id?: string
+          ip_hash?: string | null
+          status?: string
+          user_agent?: string | null
+        }
+        Relationships: []
+      }
       blocked_slots: {
         Row: {
           created_at: string
