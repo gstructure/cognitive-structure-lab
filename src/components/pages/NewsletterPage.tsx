@@ -7,7 +7,7 @@ export function NewsletterPage({ locale }: { locale: "es" | "en" }) {
         eyebrow: "G-STRUCTURE NOTES",
         title: "Essays, product updates, and the method behind G-Struct.",
         body:
-          "A quiet newsletter about cognitive-behavioral execution, the I-R-O(TM) Method, and what we are learning while building G-Struct for Q3.",
+          "A quiet newsletter about cognitive-behavioral execution, the I-R-O™ Method, and what we are learning while building G-Struct for Q3.",
         points: [
           "Founder notes on what we are building.",
           "Product updates from the G-Struct prototype.",
@@ -16,13 +16,13 @@ export function NewsletterPage({ locale }: { locale: "es" | "en" }) {
       }
     : {
         eyebrow: "NOTAS DE G-STRUCTURE",
-        title: "Articulos, updates del producto y el metodo detras de G-Struct.",
+        title: "Artículos, updates del producto y el método detrás de G-Struct.",
         body:
-          "Una newsletter sobria sobre ejecucion cognitivo-conductual, el Metodo I-R-O(TM) y lo que estamos aprendiendo mientras construimos G-Struct para Q3.",
+          "Una newsletter sobria sobre ejecución cognitivo-conductual, el Método I-R-O™ y lo que estamos aprendiendo mientras construimos G-Struct para Q3.",
         points: [
           "Founder notes sobre lo que estamos construyendo.",
           "Updates del prototipo de G-Struct.",
-          "Ensayos practicos sobre friccion, habitos y ejecucion.",
+          "Ensayos prácticos sobre fricción, hábitos y ejecución.",
         ],
       };
 

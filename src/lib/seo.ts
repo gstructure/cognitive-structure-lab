@@ -137,7 +137,7 @@ export function gStructSoftwareSchema(locale: "es" | "en" = "es") {
     url: `${SITE_URL}${isEs ? "/g-struct" : "/en/g-struct"}`,
     inLanguage: isEs ? "es" : "en",
     description: isEs
-      ? "Plataforma cognitivo-conductual de ejecucion profesional impulsada por el metodo I-R-O."
+      ? "Plataforma cognitivo-conductual de ejecución profesional impulsada por el método I-R-O."
       : "Cognitive-behavioral execution platform powered by the I-R-O Method.",
     brand: { "@type": "Brand", name: SITE_NAME },
     publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },

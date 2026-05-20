@@ -18,7 +18,7 @@ export const Route = createFileRoute("/enterprise")({
       path: "/enterprise",
       title: "Enterprise Pilot | Validacion B2B para G-Struct",
       description:
-        "Canal de validacion B2B de G-Structure: workshops y pilotos Enterprise para mapear patrones de ejecucion en equipos y alimentar el desarrollo de G-Struct.",
+        "Canal de validación B2B de G-Structure: workshops y pilotos Enterprise para mapear patrones de ejecución en equipos y alimentar el desarrollo de G-Struct.",
       image: etwBadge,
     }),
     links: canonicalLink("/enterprise"),

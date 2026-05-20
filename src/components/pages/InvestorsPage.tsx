@@ -604,7 +604,7 @@ export function InvestorsPage({ locale, contactTo }: { locale: Locale; contactTo
         <div className="border border-border bg-[color:var(--color-surface)] p-7 md:p-8">
           <Eyebrow>{locale === "en" ? "EARLY SUPPORT" : "APOYO TEMPRANO"}</Eyebrow>
           <h2 className="mt-3 max-w-3xl font-display text-2xl md:text-3xl leading-tight">
-            {locale === "en" ? "Support the launch before the formal investment round." : "Apoya el lanzamiento antes de una ronda formal de inversion."}
+            {locale === "en" ? "Support the launch before the formal investment round." : "Apoya el lanzamiento antes de una ronda formal de inversión."}
           </h2>
           <p className="mt-4 max-w-3xl text-sm md:text-base text-muted-foreground leading-relaxed">
             {locale === "en"

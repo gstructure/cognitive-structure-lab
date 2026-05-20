@@ -14,9 +14,9 @@ export const Route = createFileRoute("/reestructura-1-1")({
   head: () => ({
     meta: buildSeo({
       path: "/reestructura-1-1",
-      title: "REESTRUCTURA 1:1 | Validacion individual del metodo I-R-O",
+      title: "REESTRUCTURA 1:1 | Validación individual del método I-R-O",
       description:
-        "Canal individual de validacion de G-Structure para aplicar el metodo I-R-O con profesionales, lideres y emprendedores mientras alimenta el desarrollo de G-Struct.",
+        "Canal individual de validación de G-Structure para aplicar el método I-R-O con profesionales, líderes y emprendedores mientras alimenta el desarrollo de G-Struct.",
       image: reestructuraLogo,
     }),
     links: canonicalLink("/reestructura-1-1"),
