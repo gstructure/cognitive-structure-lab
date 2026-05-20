@@ -25,6 +25,11 @@ const sections = [
     title: "Comentarios",
     description: "Moderación de comentarios enviados en los artículos.",
   },
+  {
+    to: "/admin/supporters",
+    title: "Supporters",
+    description: "Aportes de apoyo temprano, emails y rendición de cuentas.",
+  },
 ];
 
 function AdminHome() {

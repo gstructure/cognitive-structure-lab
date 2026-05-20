@@ -53,6 +53,7 @@ import { Route as ApiPublicDiagnosticoSubmitRouteImport } from './routes/api/pub
 import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
 import { Route as ApiPublicArticleCommentsRouteImport } from './routes/api/public/article-comments'
 import { Route as AdminAdminWaitlistRouteImport } from './routes/_admin/admin.waitlist'
+import { Route as AdminAdminSupportersRouteImport } from './routes/_admin/admin.supporters'
 import { Route as AdminAdminReservasRouteImport } from './routes/_admin/admin.reservas'
 import { Route as AdminAdminDiagnosticosRouteImport } from './routes/_admin/admin.diagnosticos'
 import { Route as AdminAdminComentariosRouteImport } from './routes/_admin/admin.comentarios'
@@ -288,6 +289,11 @@ const AdminAdminWaitlistRoute = AdminAdminWaitlistRouteImport.update({
   path: '/admin/waitlist',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminAdminSupportersRoute = AdminAdminSupportersRouteImport.update({
+  id: '/admin/supporters',
+  path: '/admin/supporters',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminAdminReservasRoute = AdminAdminReservasRouteImport.update({
   id: '/admin/reservas',
   path: '/admin/reservas',
@@ -355,6 +361,7 @@ export interface FileRoutesByFullPath {
   '/admin/comentarios': typeof AdminAdminComentariosRoute
   '/admin/diagnosticos': typeof AdminAdminDiagnosticosRoute
   '/admin/reservas': typeof AdminAdminReservasRoute
+  '/admin/supporters': typeof AdminAdminSupportersRoute
   '/admin/waitlist': typeof AdminAdminWaitlistRoute
   '/api/public/article-comments': typeof ApiPublicArticleCommentsRoute
   '/api/public/contact': typeof ApiPublicContactRoute
@@ -404,6 +411,7 @@ export interface FileRoutesByTo {
   '/admin/comentarios': typeof AdminAdminComentariosRoute
   '/admin/diagnosticos': typeof AdminAdminDiagnosticosRoute
   '/admin/reservas': typeof AdminAdminReservasRoute
+  '/admin/supporters': typeof AdminAdminSupportersRoute
   '/admin/waitlist': typeof AdminAdminWaitlistRoute
   '/api/public/article-comments': typeof ApiPublicArticleCommentsRoute
   '/api/public/contact': typeof ApiPublicContactRoute
@@ -457,6 +465,7 @@ export interface FileRoutesById {
   '/_admin/admin/comentarios': typeof AdminAdminComentariosRoute
   '/_admin/admin/diagnosticos': typeof AdminAdminDiagnosticosRoute
   '/_admin/admin/reservas': typeof AdminAdminReservasRoute
+  '/_admin/admin/supporters': typeof AdminAdminSupportersRoute
   '/_admin/admin/waitlist': typeof AdminAdminWaitlistRoute
   '/api/public/article-comments': typeof ApiPublicArticleCommentsRoute
   '/api/public/contact': typeof ApiPublicContactRoute
@@ -510,6 +519,7 @@ export interface FileRouteTypes {
     | '/admin/comentarios'
     | '/admin/diagnosticos'
     | '/admin/reservas'
+    | '/admin/supporters'
     | '/admin/waitlist'
     | '/api/public/article-comments'
     | '/api/public/contact'
@@ -559,6 +569,7 @@ export interface FileRouteTypes {
     | '/admin/comentarios'
     | '/admin/diagnosticos'
     | '/admin/reservas'
+    | '/admin/supporters'
     | '/admin/waitlist'
     | '/api/public/article-comments'
     | '/api/public/contact'
@@ -611,6 +622,7 @@ export interface FileRouteTypes {
     | '/_admin/admin/comentarios'
     | '/_admin/admin/diagnosticos'
     | '/_admin/admin/reservas'
+    | '/_admin/admin/supporters'
     | '/_admin/admin/waitlist'
     | '/api/public/article-comments'
     | '/api/public/contact'
@@ -984,6 +996,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminAdminWaitlistRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/_admin/admin/supporters': {
+      id: '/_admin/admin/supporters'
+      path: '/admin/supporters'
+      fullPath: '/admin/supporters'
+      preLoaderRoute: typeof AdminAdminSupportersRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/_admin/admin/reservas': {
       id: '/_admin/admin/reservas'
       path: '/admin/reservas'
@@ -1033,6 +1052,7 @@ interface AdminRouteChildren {
   AdminAdminComentariosRoute: typeof AdminAdminComentariosRoute
   AdminAdminDiagnosticosRoute: typeof AdminAdminDiagnosticosRoute
   AdminAdminReservasRoute: typeof AdminAdminReservasRoute
+  AdminAdminSupportersRoute: typeof AdminAdminSupportersRoute
   AdminAdminWaitlistRoute: typeof AdminAdminWaitlistRoute
   AdminAdminIndexRoute: typeof AdminAdminIndexRoute
 }
@@ -1041,6 +1061,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminAdminComentariosRoute: AdminAdminComentariosRoute,
   AdminAdminDiagnosticosRoute: AdminAdminDiagnosticosRoute,
   AdminAdminReservasRoute: AdminAdminReservasRoute,
+  AdminAdminSupportersRoute: AdminAdminSupportersRoute,
   AdminAdminWaitlistRoute: AdminAdminWaitlistRoute,
   AdminAdminIndexRoute: AdminAdminIndexRoute,
 }

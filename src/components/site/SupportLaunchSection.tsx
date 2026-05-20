@@ -66,7 +66,7 @@ const TIER_COPY: Record<"es" | "en", Array<{
       title: "Strategic Supporter",
       price: "$250+",
       description: "Para personas que quieren apoyar de forma más estratégica el desarrollo temprano de G-Structure y tener una conversación directa con el founder sobre la visión, el producto y las próximas etapas.",
-      cta: "Apoyar estrategicamente",
+      cta: "Apoyar estratégicamente",
     },
   ],
   en: [
@@ -135,7 +135,7 @@ export function SupportLaunchSection() {
         levelsTitle: "Early support levels",
         levelsIntro: "If you believe in G-Structure and want to help us take G-Struct from prototype to MVP, you can join as an early supporter in this initial validation stage.",
         receivesTitle: "What does an early supporter receive?",
-        receivesBody: "All supporters receive recognition as early supporters of G-Structure, unless they prefer to remain anonymous; private updates on G-Struct, the workshop, and the transition toward MVP; priority to learn about the beta or first public tests of G-Struct when available; and early access to updates, materials, or invitations related to G-Structure.",
+        receivesBody: "All supporters receive recognition as early supporters of G-Structure, unless they prefer to remain anonymous; private accountability updates on how early support is being used, the progress of G-Struct, the workshop, and the transition toward MVP; priority to learn about the beta or first public tests of G-Struct when available; and early access to updates, materials, or invitations related to G-Structure.",
         strategicBody: "Strategic Supporters also receive a direct 30-minute conversation with Guillermo Suco, founder of G-Structure, to learn about the vision, product, and explore additional forms of support, connection, or collaboration.",
         transparencyTitle: "Transparency",
         transparencyBody: "G-Structure is not a nonprofit organization. This is not a donation campaign or an investment offering. Early support contributions do not grant equity, company participation, financial return, or rights over the company. They are voluntary contributions to support validation, launch, and early construction of G-Struct before a formal investment round. Funds will go toward product development, user validation, launch operations, technology tools, design, communications, and MVP preparation.",
@@ -170,7 +170,7 @@ export function SupportLaunchSection() {
         levelsTitle: "Niveles de apoyo temprano",
         levelsIntro: "Si crees en la visión de G-Structure y quieres ayudarnos a llevar G-Struct del prototipo al MVP, puedes sumarte como early supporter en esta etapa inicial de validación.",
         receivesTitle: "¿Qué recibe un early supporter?",
-        receivesBody: "Todos los supporters reciben reconocimiento como early supporter de G-Structure, salvo que prefieran mantenerse anónimos; actualizaciones privadas sobre el avance de G-Struct, el workshop y la transición hacia MVP; prioridad para conocer la beta o primeras pruebas públicas de G-Struct cuando estén disponibles; y acceso anticipado a novedades, materiales o invitaciones relacionadas con G-Structure.",
+        receivesBody: "Todos los supporters reciben reconocimiento como early supporter de G-Structure, salvo que prefieran mantenerse anónimos; actualizaciones privadas de rendición de cuentas sobre cómo se está usando el apoyo, el avance de G-Struct, el workshop y la transición hacia MVP; prioridad para conocer la beta o primeras pruebas públicas de G-Struct cuando estén disponibles; y acceso anticipado a novedades, materiales o invitaciones relacionadas con G-Structure.",
         strategicBody: "Los Strategic Supporters reciben además una conversación directa de 30 minutos con Guillermo Suco, founder de G-Structure, para conocer la visión, el producto y explorar formas adicionales de apoyo, conexión o colaboración.",
         transparencyTitle: "Transparencia",
         transparencyBody: "G-Structure no es una organización sin fines de lucro. Esta no es una campaña de donaciones ni una oferta de inversión. Los aportes de apoyo temprano no otorgan equity, participación societaria, retorno financiero ni derechos sobre la empresa. Son contribuciones voluntarias para apoyar la etapa de validación, lanzamiento y construcción inicial de G-Struct antes de una ronda formal de inversión. Los fondos serán destinados a desarrollo de producto, validación con usuarios, operación del lanzamiento, herramientas tecnológicas, diseño, comunicación y preparación del MVP.",
@@ -179,7 +179,7 @@ export function SupportLaunchSection() {
         formTitle: "Checkout de apoyo",
         name: "Nombre",
         email: "Email",
-        publicRecognition: "Autorizo aparecer publicamente como early supporter.",
+        publicRecognition: "Autorizo aparecer públicamente como early supporter.",
         note: "Mensaje opcional",
         terms: "Entiendo que este aporte no constituye inversión, donación a una organización sin fines de lucro, compra de acciones ni promesa de retorno financiero.",
         legal: "Este aporte apoya la fase temprana de validación y desarrollo de G-Struct. No otorga equity, participación societaria, retorno financiero ni derechos de propiedad sobre G-Structure o G-Struct.",
@@ -192,7 +192,7 @@ export function SupportLaunchSection() {
         share: "Compartir G-Structure",
         workshop: "Registrarme al workshop del 14 de julio",
         talk: "Hablar con el founder",
-        info: "Solicitar informacion",
+        info: "Solicitar información",
       };
 
   const canPay = Boolean(form.email && form.acceptedTerms);
