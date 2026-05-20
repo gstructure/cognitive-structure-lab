@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
-import { ARTICLES } from "@/lib/articles";
+import { ARTICLES, EN_ARTICLES } from "@/lib/articles";
 import { supabaseAdmin } from "@/integrations/supabase/client.server";
 
-const SLUGS = new Set(ARTICLES.map((article) => article.slug));
+const SLUGS = new Set([...ARTICLES, ...EN_ARTICLES].map((article) => article.slug));
 
 const PostSchema = z.object({
   slug: z.string().trim().max(120),

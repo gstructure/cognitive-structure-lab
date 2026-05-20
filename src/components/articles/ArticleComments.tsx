@@ -1,4 +1,5 @@
 import { FormEvent, useEffect, useState } from "react";
+import { useLocale } from "@/lib/i18n";
 
 type Comment = {
   id: string;
@@ -10,6 +11,7 @@ type Comment = {
 type Status = "idle" | "loading" | "success" | "error";
 
 export function ArticleComments({ slug }: { slug: string }) {
+  const { locale } = useLocale();
   const [comments, setComments] = useState<Comment[]>([]);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -52,13 +54,41 @@ export function ArticleComments({ slug }: { slug: string }) {
     }
   };
 
+  const copy = locale === "en"
+    ? {
+        eyebrow: "Comments",
+        title: "Moderated conversation",
+        intro: "Comments are reviewed before publication to keep the discussion useful and focused.",
+        empty: "There are no approved comments yet. You can open the conversation.",
+        name: "Name",
+        comment: "Comment",
+        privacy: "Your email is not published.",
+        sending: "Sending...",
+        submit: "Send comment",
+        success: "Received. We will review it before publishing.",
+        error: "We could not send the comment. Try again.",
+      }
+    : {
+        eyebrow: "Comentarios",
+        title: "Conversación moderada",
+        intro: "Los comentarios se revisan antes de publicarse para mantener la discusión útil y enfocada.",
+        empty: "Todavía no hay comentarios aprobados. Puedes abrir la conversación.",
+        name: "Nombre",
+        comment: "Comentario",
+        privacy: "Tu email no se publica.",
+        sending: "Enviando...",
+        submit: "Enviar comentario",
+        success: "Recibido. Lo revisaremos antes de publicarlo.",
+        error: "No pudimos enviar el comentario. Inténtalo otra vez.",
+      };
+
   return (
     <section id="comentarios" className="mt-16 border-t border-border pt-10">
       <div className="flex flex-col gap-2">
-        <p className="eyebrow text-[10px]">Comentarios</p>
-        <h2 className="font-display text-2xl leading-tight">Conversación moderada</h2>
+        <p className="eyebrow text-[10px]">{copy.eyebrow}</p>
+        <h2 className="font-display text-2xl leading-tight">{copy.title}</h2>
         <p className="text-sm leading-relaxed text-muted-foreground">
-          Los comentarios se revisan antes de publicarse para mantener la discusión útil y enfocada.
+          {copy.intro}
         </p>
       </div>
 
@@ -70,7 +100,7 @@ export function ArticleComments({ slug }: { slug: string }) {
                 <strong className="text-foreground">{comment.author_name}</strong>
                 <span aria-hidden>·</span>
                 <time dateTime={comment.created_at}>
-                  {new Intl.DateTimeFormat("es-EC", { day: "numeric", month: "short", year: "numeric" }).format(new Date(comment.created_at))}
+                  {new Intl.DateTimeFormat(locale === "en" ? "en-US" : "es-EC", { day: "numeric", month: "short", year: "numeric" }).format(new Date(comment.created_at))}
                 </time>
               </div>
               <p className="mt-3 whitespace-pre-wrap text-sm leading-relaxed text-foreground/80">{comment.body}</p>
@@ -78,7 +108,7 @@ export function ArticleComments({ slug }: { slug: string }) {
           ))
         ) : (
           <p className="border border-dashed border-border p-5 text-sm text-muted-foreground">
-            Todavía no hay comentarios aprobados. Puedes abrir la conversación.
+            {copy.empty}
           </p>
         )}
       </div>
@@ -86,7 +116,7 @@ export function ArticleComments({ slug }: { slug: string }) {
       <form onSubmit={onSubmit} className="mt-8 grid gap-4 border border-border bg-[color:var(--color-surface)] p-5">
         <div className="grid gap-4 sm:grid-cols-2">
           <label className="grid gap-2 text-sm font-medium">
-            Nombre
+            {copy.name}
             <input
               required
               value={name}
@@ -108,7 +138,7 @@ export function ArticleComments({ slug }: { slug: string }) {
           </label>
         </div>
         <label className="grid gap-2 text-sm font-medium">
-          Comentario
+            {copy.comment}
           <textarea
             required
             value={body}
@@ -129,17 +159,17 @@ export function ArticleComments({ slug }: { slug: string }) {
           aria-hidden="true"
         />
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-xs text-muted-foreground">Tu email no se publica.</p>
+          <p className="text-xs text-muted-foreground">{copy.privacy}</p>
           <button
             type="submit"
             disabled={status === "loading"}
             className="inline-flex items-center justify-center bg-foreground px-5 py-3 text-sm font-medium text-background transition-opacity hover:opacity-90 disabled:opacity-60"
           >
-            {status === "loading" ? "Enviando..." : "Enviar comentario"}
+            {status === "loading" ? copy.sending : copy.submit}
           </button>
         </div>
-        {status === "success" ? <p className="text-sm text-foreground">Recibido. Lo revisaremos antes de publicarlo.</p> : null}
-        {status === "error" ? <p className="text-sm text-destructive">No pudimos enviar el comentario. Inténtalo otra vez.</p> : null}
+        {status === "success" ? <p className="text-sm text-foreground">{copy.success}</p> : null}
+        {status === "error" ? <p className="text-sm text-destructive">{copy.error}</p> : null}
       </form>
     </section>
   );

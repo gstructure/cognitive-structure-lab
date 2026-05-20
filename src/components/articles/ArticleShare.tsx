@@ -1,12 +1,15 @@
 import { useMemo, useState } from "react";
 import { Check, Copy, Linkedin, Mail, MessageCircle } from "lucide-react";
 import { articleUrl, type Article } from "@/lib/articles";
+import { useLocale } from "@/lib/i18n";
 
 export function ArticleShare({ article }: { article: Article }) {
+  const { locale } = useLocale();
   const [copied, setCopied] = useState(false);
-  const url = articleUrl(article);
+  const url = articleUrl(article, locale);
   const encodedUrl = encodeURIComponent(url);
   const encodedTitle = encodeURIComponent(article.title);
+  const shareLabel = locale === "en" ? "Share" : "Compartir";
 
   const links = useMemo(
     () => [
@@ -41,7 +44,7 @@ export function ArticleShare({ article }: { article: Article }) {
 
   return (
     <div className="border border-border bg-[color:var(--color-surface)] p-5">
-      <p className="eyebrow mb-4 text-[10px]">Compartir</p>
+      <p className="eyebrow mb-4 text-[10px]">{shareLabel}</p>
       <div className="flex flex-wrap gap-2">
         {links.map(({ label, href, icon: Icon }) => (
           <a
@@ -49,7 +52,7 @@ export function ArticleShare({ article }: { article: Article }) {
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`Compartir en ${label}`}
+            aria-label={`${shareLabel} on ${label}`}
             className="inline-flex h-10 w-10 items-center justify-center border border-border bg-background text-foreground transition-colors hover:bg-foreground hover:text-background"
           >
             <Icon size={16} />
@@ -58,7 +61,7 @@ export function ArticleShare({ article }: { article: Article }) {
         <button
           type="button"
           onClick={onCopy}
-          aria-label="Copiar enlace"
+          aria-label={locale === "en" ? "Copy link" : "Copiar enlace"}
           className="inline-flex h-10 w-10 items-center justify-center border border-border bg-background text-foreground transition-colors hover:bg-foreground hover:text-background"
         >
           {copied ? <Check size={16} /> : <Copy size={16} />}

@@ -11,7 +11,7 @@ export type RouteEntry = {
 export const ROUTES: RouteEntry[] = [
   { es: "/", en: "/en", label: { es: "Inicio", en: "Home" } },
   { es: "/g-struct", en: "/en/g-struct", label: { es: "G-Struct", en: "G-Struct" } },
-  { es: "/articulos", en: "/articulos", label: { es: "Artículos", en: "Articles" } },
+  { es: "/articulos", en: "/en/articles", label: { es: "Artículos", en: "Articles" } },
   { es: "/enterprise", en: "/en/enterprise", label: { es: "Enterprise", en: "Enterprise" } },
   { es: "/reestructura-1-1", en: "/en/restructure-1-1", label: { es: "REESTRUCTURA 1:1", en: "RESTRUCTURE 1:1" } },
   { es: "/inversores", en: "/en/investors", label: { es: "Inversores", en: "Investors" } },
@@ -31,6 +31,23 @@ export function swapLocalePath(pathname: string, target: Locale): string {
   const current: Locale = localeFromPath(pathname);
   if (current === target) return pathname;
   const cleanPath = pathname.split(/[?#]/)[0];
+
+  const articleSlugPairs = [
+    { es: "g-struct-product-update-q3", en: "g-struct-product-update-q3" },
+    { es: "la-crisis-de-la-ejecucion", en: "the-execution-crisis" },
+    { es: "la-infraestructura-invisible-del-habito", en: "the-invisible-infrastructure-of-habit" },
+  ];
+  if (cleanPath.startsWith("/articulos/") && target === "en") {
+    const slug = cleanPath.replace("/articulos/", "");
+    const pair = articleSlugPairs.find((item) => item.es === slug);
+    if (pair) return `/en/articles/${pair.en}`;
+  }
+  if (cleanPath.startsWith("/en/articles/") && target === "es") {
+    const slug = cleanPath.replace("/en/articles/", "");
+    const pair = articleSlugPairs.find((item) => item.en === slug);
+    if (pair) return `/articulos/${pair.es}`;
+  }
+
   for (const r of ROUTES) {
     if (r[current] === cleanPath) return r[target];
   }
@@ -61,7 +78,7 @@ export function navForLocale(locale: Locale) {
       highlight: false,
     },
     {
-      to: "/articulos",
+      to: locale === "en" ? "/en/articles" : "/articulos",
       label: locale === "en" ? "Articles" : "Artículos",
       exact: false,
       highlight: false,

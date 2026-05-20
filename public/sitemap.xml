@@ -40,19 +40,64 @@
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/articulos"/>
     <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/articulos"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/articles"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/articulos"/>
+  </url>
+  <url>
+    <loc>https://g-structure.co/en/articles</loc>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/articulos"/>
+    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/articulos"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/articles"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/articulos"/>
   </url>
   <url>
     <loc>https://g-structure.co/articulos/g-struct-product-update-q3</loc>
     <priority>0.78</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/articulos/g-struct-product-update-q3"/>
+    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/articulos/g-struct-product-update-q3"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/articles/g-struct-product-update-q3"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/articulos/g-struct-product-update-q3"/>
+  </url>
+  <url>
+    <loc>https://g-structure.co/en/articles/g-struct-product-update-q3</loc>
+    <priority>0.78</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/articulos/g-struct-product-update-q3"/>
+    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/articulos/g-struct-product-update-q3"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/articles/g-struct-product-update-q3"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/articulos/g-struct-product-update-q3"/>
   </url>
   <url>
     <loc>https://g-structure.co/articulos/la-crisis-de-la-ejecucion</loc>
     <priority>0.78</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/articulos/la-crisis-de-la-ejecucion"/>
+    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/articulos/la-crisis-de-la-ejecucion"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/articles/the-execution-crisis"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/articulos/la-crisis-de-la-ejecucion"/>
+  </url>
+  <url>
+    <loc>https://g-structure.co/en/articles/the-execution-crisis</loc>
+    <priority>0.78</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/articulos/la-crisis-de-la-ejecucion"/>
+    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/articulos/la-crisis-de-la-ejecucion"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/articles/the-execution-crisis"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/articulos/la-crisis-de-la-ejecucion"/>
   </url>
   <url>
     <loc>https://g-structure.co/articulos/la-infraestructura-invisible-del-habito</loc>
     <priority>0.78</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/articulos/la-infraestructura-invisible-del-habito"/>
+    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/articulos/la-infraestructura-invisible-del-habito"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/articles/the-invisible-infrastructure-of-habit"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/articulos/la-infraestructura-invisible-del-habito"/>
+  </url>
+  <url>
+    <loc>https://g-structure.co/en/articles/the-invisible-infrastructure-of-habit</loc>
+    <priority>0.78</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/articulos/la-infraestructura-invisible-del-habito"/>
+    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/articulos/la-infraestructura-invisible-del-habito"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/articles/the-invisible-infrastructure-of-habit"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/articulos/la-infraestructura-invisible-del-habito"/>
   </url>
 
   <url>

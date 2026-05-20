@@ -1,9 +1,11 @@
 import { FormEvent, useState } from "react";
 import { ArrowRight } from "lucide-react";
+import { useLocale } from "@/lib/i18n";
 
 type Status = "idle" | "loading" | "success" | "duplicate" | "error";
 
 export function ArticleSubscribeForm() {
+  const { locale } = useLocale();
   const [email, setEmail] = useState("");
   const [website, setWebsite] = useState("");
   const [status, setStatus] = useState<Status>("idle");
@@ -20,7 +22,7 @@ export function ArticleSubscribeForm() {
           email,
           website,
           source: "articles_subscription",
-          locale: "es",
+          locale,
         }),
       });
 
@@ -36,12 +38,34 @@ export function ArticleSubscribeForm() {
     }
   };
 
+  const copy = locale === "en"
+    ? {
+        eyebrow: "Subscription",
+        title: "Get new essays and build notes.",
+        body: "Updates on G-Struct, the I-R-O™ method, and cognitive-behavioral execution.",
+        placeholder: "you@email.com",
+        aria: "Subscribe",
+        success: "Done. We will let you know when new notes are published.",
+        duplicate: "That email is already registered.",
+        error: "We could not register the email. Try again.",
+      }
+    : {
+        eyebrow: "Suscripción",
+        title: "Recibe nuevos artículos y notas de construcción.",
+        body: "Updates sobre G-Struct, el método I-R-O™ y la ejecución cognitivo-conductual.",
+        placeholder: "tu@email.com",
+        aria: "Suscribirme",
+        success: "Listo. Te avisaremos cuando publiquemos nuevas notas.",
+        duplicate: "Ese correo ya está registrado.",
+        error: "No pudimos registrar el correo. Inténtalo otra vez.",
+      };
+
   return (
     <form onSubmit={onSubmit} className="border border-border bg-[color:var(--color-surface)] p-5">
-      <p className="eyebrow mb-3 text-[10px]">Suscripción</p>
-      <h2 className="font-display text-xl leading-tight">Recibe nuevos artículos y notas de construcción.</h2>
+      <p className="eyebrow mb-3 text-[10px]">{copy.eyebrow}</p>
+      <h2 className="font-display text-xl leading-tight">{copy.title}</h2>
       <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-        Updates sobre G-Struct, el método I-R-O™ y la ejecución cognitivo-conductual.
+        {copy.body}
       </p>
       <div className="mt-5 flex gap-2">
         <label className="sr-only" htmlFor="article-subscribe-email">Email</label>
@@ -51,7 +75,7 @@ export function ArticleSubscribeForm() {
           required
           value={email}
           onChange={(event) => setEmail(event.target.value)}
-          placeholder="tu@email.com"
+          placeholder={copy.placeholder}
           className="min-w-0 flex-1 border border-border bg-background px-3 py-2.5 text-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-foreground"
         />
         <input
@@ -66,15 +90,15 @@ export function ArticleSubscribeForm() {
         <button
           type="submit"
           disabled={status === "loading"}
-          aria-label="Suscribirme"
+          aria-label={copy.aria}
           className="inline-flex h-11 w-11 shrink-0 items-center justify-center bg-foreground text-background transition-opacity hover:opacity-90 disabled:opacity-60"
         >
           <ArrowRight size={16} />
         </button>
       </div>
-      {status === "success" ? <p className="mt-3 text-xs text-foreground">Listo. Te avisaremos cuando publiquemos nuevas notas.</p> : null}
-      {status === "duplicate" ? <p className="mt-3 text-xs text-foreground">Ese correo ya está registrado.</p> : null}
-      {status === "error" ? <p className="mt-3 text-xs text-destructive">No pudimos registrar el correo. Inténtalo otra vez.</p> : null}
+      {status === "success" ? <p className="mt-3 text-xs text-foreground">{copy.success}</p> : null}
+      {status === "duplicate" ? <p className="mt-3 text-xs text-foreground">{copy.duplicate}</p> : null}
+      {status === "error" ? <p className="mt-3 text-xs text-destructive">{copy.error}</p> : null}
     </form>
   );
 }

@@ -33,11 +33,14 @@ import { Route as EnGStructRouteImport } from './routes/en.g-struct'
 import { Route as EnEtw2026PartnersRouteImport } from './routes/en.etw-2026-partners'
 import { Route as EnEnterpriseRouteImport } from './routes/en.enterprise'
 import { Route as EnContactRouteImport } from './routes/en.contact'
+import { Route as EnArticlesRouteImport } from './routes/en.articles'
 import { Route as EnAboutGuillermoRouteImport } from './routes/en.about-guillermo'
 import { Route as EmailUnsubscribeRouteImport } from './routes/email/unsubscribe'
 import { Route as ArticulosSlugRouteImport } from './routes/articulos.$slug'
+import { Route as EnArticlesIndexRouteImport } from './routes/en.articles.index'
 import { Route as AdminAdminIndexRouteImport } from './routes/_admin/admin.index'
 import { Route as LovableEmailSuppressionRouteImport } from './routes/lovable/email/suppression'
+import { Route as EnArticlesSlugRouteImport } from './routes/en.articles.$slug'
 import { Route as ApiPublicGstructWaitlistCountRouteImport } from './routes/api/public/gstruct-waitlist-count'
 import { Route as ApiPublicGstructWaitlistRouteImport } from './routes/api/public/gstruct-waitlist'
 import { Route as ApiPublicDiagnosticoSubmitRouteImport } from './routes/api/public/diagnostico-submit'
@@ -170,6 +173,11 @@ const EnContactRoute = EnContactRouteImport.update({
   path: '/en/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EnArticlesRoute = EnArticlesRouteImport.update({
+  id: '/en/articles',
+  path: '/en/articles',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EnAboutGuillermoRoute = EnAboutGuillermoRouteImport.update({
   id: '/en/about-guillermo',
   path: '/en/about-guillermo',
@@ -185,6 +193,11 @@ const ArticulosSlugRoute = ArticulosSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => ArticulosRoute,
 } as any)
+const EnArticlesIndexRoute = EnArticlesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => EnArticlesRoute,
+} as any)
 const AdminAdminIndexRoute = AdminAdminIndexRouteImport.update({
   id: '/admin/',
   path: '/admin/',
@@ -194,6 +207,11 @@ const LovableEmailSuppressionRoute = LovableEmailSuppressionRouteImport.update({
   id: '/lovable/email/suppression',
   path: '/lovable/email/suppression',
   getParentRoute: () => rootRouteImport,
+} as any)
+const EnArticlesSlugRoute = EnArticlesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => EnArticlesRoute,
 } as any)
 const ApiPublicGstructWaitlistCountRoute =
   ApiPublicGstructWaitlistCountRouteImport.update({
@@ -276,6 +294,7 @@ export interface FileRoutesByFullPath {
   '/articulos/$slug': typeof ArticulosSlugRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/en/about-guillermo': typeof EnAboutGuillermoRoute
+  '/en/articles': typeof EnArticlesRouteWithChildren
   '/en/contact': typeof EnContactRoute
   '/en/enterprise': typeof EnEnterpriseRoute
   '/en/etw-2026-partners': typeof EnEtw2026PartnersRoute
@@ -293,8 +312,10 @@ export interface FileRoutesByFullPath {
   '/api/public/diagnostico-submit': typeof ApiPublicDiagnosticoSubmitRoute
   '/api/public/gstruct-waitlist': typeof ApiPublicGstructWaitlistRoute
   '/api/public/gstruct-waitlist-count': typeof ApiPublicGstructWaitlistCountRoute
+  '/en/articles/$slug': typeof EnArticlesSlugRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/admin/': typeof AdminAdminIndexRoute
+  '/en/articles/': typeof EnArticlesIndexRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
   '/lovable/email/transactional/send': typeof LovableEmailTransactionalSendRoute
@@ -333,8 +354,10 @@ export interface FileRoutesByTo {
   '/api/public/diagnostico-submit': typeof ApiPublicDiagnosticoSubmitRoute
   '/api/public/gstruct-waitlist': typeof ApiPublicGstructWaitlistRoute
   '/api/public/gstruct-waitlist-count': typeof ApiPublicGstructWaitlistCountRoute
+  '/en/articles/$slug': typeof EnArticlesSlugRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/admin': typeof AdminAdminIndexRoute
+  '/en/articles': typeof EnArticlesIndexRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
   '/lovable/email/transactional/send': typeof LovableEmailTransactionalSendRoute
@@ -359,6 +382,7 @@ export interface FileRoutesById {
   '/articulos/$slug': typeof ArticulosSlugRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/en/about-guillermo': typeof EnAboutGuillermoRoute
+  '/en/articles': typeof EnArticlesRouteWithChildren
   '/en/contact': typeof EnContactRoute
   '/en/enterprise': typeof EnEnterpriseRoute
   '/en/etw-2026-partners': typeof EnEtw2026PartnersRoute
@@ -376,8 +400,10 @@ export interface FileRoutesById {
   '/api/public/diagnostico-submit': typeof ApiPublicDiagnosticoSubmitRoute
   '/api/public/gstruct-waitlist': typeof ApiPublicGstructWaitlistRoute
   '/api/public/gstruct-waitlist-count': typeof ApiPublicGstructWaitlistCountRoute
+  '/en/articles/$slug': typeof EnArticlesSlugRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/_admin/admin/': typeof AdminAdminIndexRoute
+  '/en/articles/': typeof EnArticlesIndexRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
   '/lovable/email/transactional/send': typeof LovableEmailTransactionalSendRoute
@@ -402,6 +428,7 @@ export interface FileRouteTypes {
     | '/articulos/$slug'
     | '/email/unsubscribe'
     | '/en/about-guillermo'
+    | '/en/articles'
     | '/en/contact'
     | '/en/enterprise'
     | '/en/etw-2026-partners'
@@ -419,8 +446,10 @@ export interface FileRouteTypes {
     | '/api/public/diagnostico-submit'
     | '/api/public/gstruct-waitlist'
     | '/api/public/gstruct-waitlist-count'
+    | '/en/articles/$slug'
     | '/lovable/email/suppression'
     | '/admin/'
+    | '/en/articles/'
     | '/lovable/email/queue/process'
     | '/lovable/email/transactional/preview'
     | '/lovable/email/transactional/send'
@@ -459,8 +488,10 @@ export interface FileRouteTypes {
     | '/api/public/diagnostico-submit'
     | '/api/public/gstruct-waitlist'
     | '/api/public/gstruct-waitlist-count'
+    | '/en/articles/$slug'
     | '/lovable/email/suppression'
     | '/admin'
+    | '/en/articles'
     | '/lovable/email/queue/process'
     | '/lovable/email/transactional/preview'
     | '/lovable/email/transactional/send'
@@ -484,6 +515,7 @@ export interface FileRouteTypes {
     | '/articulos/$slug'
     | '/email/unsubscribe'
     | '/en/about-guillermo'
+    | '/en/articles'
     | '/en/contact'
     | '/en/enterprise'
     | '/en/etw-2026-partners'
@@ -501,8 +533,10 @@ export interface FileRouteTypes {
     | '/api/public/diagnostico-submit'
     | '/api/public/gstruct-waitlist'
     | '/api/public/gstruct-waitlist-count'
+    | '/en/articles/$slug'
     | '/lovable/email/suppression'
     | '/_admin/admin/'
+    | '/en/articles/'
     | '/lovable/email/queue/process'
     | '/lovable/email/transactional/preview'
     | '/lovable/email/transactional/send'
@@ -526,6 +560,7 @@ export interface RootRouteChildren {
   UnsubscribeRoute: typeof UnsubscribeRoute
   EmailUnsubscribeRoute: typeof EmailUnsubscribeRoute
   EnAboutGuillermoRoute: typeof EnAboutGuillermoRoute
+  EnArticlesRoute: typeof EnArticlesRouteWithChildren
   EnContactRoute: typeof EnContactRoute
   EnEnterpriseRoute: typeof EnEnterpriseRoute
   EnEtw2026PartnersRoute: typeof EnEtw2026PartnersRoute
@@ -715,6 +750,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/en/articles': {
+      id: '/en/articles'
+      path: '/en/articles'
+      fullPath: '/en/articles'
+      preLoaderRoute: typeof EnArticlesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/en/about-guillermo': {
       id: '/en/about-guillermo'
       path: '/en/about-guillermo'
@@ -736,6 +778,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ArticulosSlugRouteImport
       parentRoute: typeof ArticulosRoute
     }
+    '/en/articles/': {
+      id: '/en/articles/'
+      path: '/'
+      fullPath: '/en/articles/'
+      preLoaderRoute: typeof EnArticlesIndexRouteImport
+      parentRoute: typeof EnArticlesRoute
+    }
     '/_admin/admin/': {
       id: '/_admin/admin/'
       path: '/admin'
@@ -749,6 +798,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/lovable/email/suppression'
       preLoaderRoute: typeof LovableEmailSuppressionRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/en/articles/$slug': {
+      id: '/en/articles/$slug'
+      path: '/$slug'
+      fullPath: '/en/articles/$slug'
+      preLoaderRoute: typeof EnArticlesSlugRouteImport
+      parentRoute: typeof EnArticlesRoute
     }
     '/api/public/gstruct-waitlist-count': {
       id: '/api/public/gstruct-waitlist-count'
@@ -860,6 +916,20 @@ const ArticulosRouteWithChildren = ArticulosRoute._addFileChildren(
   ArticulosRouteChildren,
 )
 
+interface EnArticlesRouteChildren {
+  EnArticlesSlugRoute: typeof EnArticlesSlugRoute
+  EnArticlesIndexRoute: typeof EnArticlesIndexRoute
+}
+
+const EnArticlesRouteChildren: EnArticlesRouteChildren = {
+  EnArticlesSlugRoute: EnArticlesSlugRoute,
+  EnArticlesIndexRoute: EnArticlesIndexRoute,
+}
+
+const EnArticlesRouteWithChildren = EnArticlesRoute._addFileChildren(
+  EnArticlesRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdminRoute: AdminRouteWithChildren,
@@ -878,6 +948,7 @@ const rootRouteChildren: RootRouteChildren = {
   UnsubscribeRoute: UnsubscribeRoute,
   EmailUnsubscribeRoute: EmailUnsubscribeRoute,
   EnAboutGuillermoRoute: EnAboutGuillermoRoute,
+  EnArticlesRoute: EnArticlesRouteWithChildren,
   EnContactRoute: EnContactRoute,
   EnEnterpriseRoute: EnEnterpriseRoute,
   EnEtw2026PartnersRoute: EnEtw2026PartnersRoute,
@@ -899,3 +970,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

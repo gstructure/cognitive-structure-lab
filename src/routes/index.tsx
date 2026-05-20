@@ -17,7 +17,7 @@ import { BrandMark } from "@/components/brand/Logo";
 import { GuillermoPortrait } from "@/components/site/GuillermoPortrait";
 import { useT, useLocale, type Locale } from "@/lib/i18n";
 import { ROUTES } from "@/lib/routeMap";
-import { featuredArticles } from "@/lib/articles";
+import { featuredArticlesForLocale } from "@/lib/articles";
 import logoCube from "@/assets/g-structure-cube.webp";
 import gStructHomePreview from "@/assets/g-struct-home-preview.webp";
 import etwBadge from "@/assets/etw-2026-badge.webp";
@@ -1357,20 +1357,38 @@ function FinalCTA() {
 }
 
 function FeaturedArticles() {
+  const { locale } = useLocale();
+  const articles = featuredArticlesForLocale(locale);
+  const copy = locale === "en"
+    ? {
+        eyebrow: "ARTICLES",
+        title: "The thinking behind G-Struct.",
+        subtitle: "Product notes, the I-R-O™ method, and essays on the cognitive-behavioral friction that blocks execution.",
+        cta: "View all articles",
+        to: "/en/articles",
+      }
+    : {
+        eyebrow: "ARTÍCULOS",
+        title: "El pensamiento detrás de G-Struct.",
+        subtitle: "Notas de producto, método I-R-O™ y ensayos sobre la fricción cognitivo-conductual que bloquea la ejecución.",
+        cta: "Ver todos los artículos",
+        to: "/articulos",
+      };
+
   return (
     <Section>
       <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
         <SectionHeader
-          eyebrow="ARTÍCULOS"
-          title="El pensamiento detrás de G-Struct."
-          subtitle="Notas de producto, método I-R-O™ y ensayos sobre la fricción cognitivo-conductual que bloquea la ejecución."
+          eyebrow={copy.eyebrow}
+          title={copy.title}
+          subtitle={copy.subtitle}
         />
-        <CTALink to="/articulos" variant="outline">
-          Ver todos los artículos
+        <CTALink to={copy.to as string} variant="outline">
+          {copy.cta}
         </CTALink>
       </div>
       <div className="mt-10 grid gap-5 md:grid-cols-3">
-        {featuredArticles.slice(0, 3).map((article) => (
+        {articles.slice(0, 3).map((article) => (
           <ArticleCard key={article.slug} article={article} />
         ))}
       </div>

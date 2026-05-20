@@ -125,25 +125,153 @@ export const ARTICLES: Article[] = [
   },
 ];
 
-export const featuredArticles = ARTICLES.filter((article) => article.featured);
+export type ArticleLocale = "es" | "en";
 
-export function getArticleBySlug(slug: string) {
-  return ARTICLES.find((article) => article.slug === slug);
+export const EN_ARTICLES: Article[] = [
+  {
+    slug: "g-struct-product-update-q3",
+    title: "G-Struct Product Update: what we are building for Q3",
+    category: "G-Struct Build Notes",
+    excerpt:
+      "A look at the G-Struct prototype, the I-R-O™ logic behind it, and what we are validating before the Q3 launch.",
+    author: "Guillermo Suco",
+    publishedAt: "2026-05-19",
+    readMinutes: 7,
+    featured: true,
+    tags: ["G-Struct", "Product Update", "Q3", "Execution"],
+    blocks: [
+      { type: "p", text: "One question has guided G-Struct from the beginning: what if an app did not only help people organize tasks, but helped them understand the mental pattern that keeps those tasks from being executed?" },
+      { type: "p", text: "That question still drives the product. We are not building another productivity app. We are not building a journaling app, a mood tracker, or a daily motivation tool. G-Struct starts from a different premise: many people do not get blocked because they do not know what to do, but because the mental cost of doing it becomes too high." },
+      { type: "p", text: "That cost is not always visible. Sometimes it looks like procrastination. Sometimes it looks like perfectionism, self-sabotage, cognitive overload, fear of exposure, or an excessive need for control. From the outside, all of that can look like poor discipline or weak organization. When you look more closely, there is often something deeper: a repeated way of interpreting action." },
+      { type: "p", text: "That is the central thesis behind G-Struct. Execution is not only time management. It is also interpretation, emotion, belief, and behavioral response. A person can have a clear calendar, a clean task list, and an important goal in front of them, but if their internal system reads action as threat, judgment, risk, or insufficiency, organization alone will not be enough." },
+      { type: "p", text: "G-Struct is being built as a cognitive-behavioral coaching system for execution. Its goal is not to tell the user to do more or organize better. The goal is to help the user identify what is happening internally, reframe it with method, and turn that new reading into a small, concrete, executable action." },
+      { type: "p", text: "The method behind the product is I-R-O™: Identify, Reframe, and Optimize. Identify means observing the thoughts, emotions, beliefs, triggers, and patterns that raise the cost of action. Reframe means working with those patterns through tools inspired by cognitive-behavioral methodology. Optimize means converting a more functional interpretation into concrete action, not into a pleasant reflection that stays in the air." },
+      { type: "p", text: "The product is taking shape around that logic. The Calibrator gives the user an initial reading of their execution pattern: procrastination, perfectionism, self-sabotage, impostor pattern, or cognitive overload. Quick Reframe is designed for moments of immediate friction, when the user needs to process an intrusive thought, a specific block, or an emotion that is cutting movement. Restructure Lab goes deeper, toward recurring patterns, beliefs that return, and responses that can no longer be explained by one isolated situation." },
+      { type: "p", text: "One of the most important prototype decisions has been understanding that these tools cannot feel like disconnected modules inside an app. They have to feel like a route. When someone is overloaded, blocked, or avoiding an important task, they do not need to open a platform and figure it out. They need to know where to start, what to do first, and why that step makes sense." },
+      { type: "p", text: "That has been one of the main learnings from the prototype. Clarity is not a design detail; it is part of the intervention. If the user arrives confused and the app adds more cognitive load, the product fails. That is why we are moving the experience toward less visual noise, more guided routes, a recommended first action, and a simpler explanation of the I-R-O™ method." },
+      { type: "p", text: "We also learned that the difference between Quick Reframe and Restructure Lab had to become much clearer. Quick Reframe is for the moment. Restructure Lab is for the pattern. That distinction changes the entire experience. Not every block requires deep exploration. Sometimes the user only needs to reduce emotional intensity, organize the thought, and take the next step. Other times, the block is not isolated: it is a repeated way of responding to demand, uncertainty, or the possibility of failure." },
+      { type: "p", text: "On top of that structure we are integrating an AI layer: Guillermo, the virtual coach inside G-Struct. This requires special care. AI cannot be decoration, and it cannot be a generic voice that gives correct but empty phrases. It has to understand the method, respect safety boundaries, use clear language, and help the user move from thought to action. It also cannot present itself as a therapist, diagnose, or replace professional support. G-Struct is not therapy. It is cognitive-behavioral coaching applied to execution, and that boundary has to be clear inside the product, not only in legal copy." },
+      { type: "p", text: "We are now preparing an initial test with a small group of users. We are not looking for superficial validation or a round of polite comments. We are looking for real friction. We want to see whether people understand what G-Struct is in the first few minutes, whether they know where to start, whether the Calibrator gives them a useful reading, whether Quick Reframe works in a real block, and whether Restructure Lab feels deep enough without becoming heavy." },
+      { type: "p", text: "For Q3, the focus is turning the prototype into a clearer, more complete, more reliable experience. That means improving user guidance, strengthening AI as a coach, reducing cognitive load, and preparing real infrastructure: database, authentication, session persistence, user history, and an architecture that can grow. But the main challenge is not only technical. The main challenge is making the experience feel coherent with the product thesis." },
+      { type: "quote", text: "G-Struct does not want to help people simply do more. It wants to help them understand what pattern is raising the cost of action." },
+      { type: "p", text: "Sometimes you are not procrastinating because you are disorganized. Sometimes you are not moving because part of your system interprets action as risk. Sometimes you do not finish because your internal standard turned quality into control. And if that pattern is not identified, any productivity tool ends up working only on the surface." },
+      { type: "p", text: "That is where we are building: a first version capable of helping people identify their blocks, reframe them, and convert mental clarity into concrete action." },
+    ],
+  },
+  {
+    slug: "the-execution-crisis",
+    title: "The execution crisis",
+    subtitle: "Why the I-R-O™ method?",
+    category: "I-R-O™ Method",
+    excerpt:
+      "Execution does not fail only because of time or discipline. It often fails because of the interpretation that makes action feel heavier than it is.",
+    author: "Guillermo Suco",
+    publishedAt: "2026-05-19",
+    readMinutes: 7,
+    featured: true,
+    tags: ["I-R-O™", "Execution", "Cognitive Behavioral Coaching"],
+    blocks: [
+      { type: "p", text: "We live in an era with more tools than ever for organizing, learning, automating, and producing. There are task managers, smart calendars, notes apps, artificial intelligence, methodologies, frameworks, courses, and content for almost every problem. And yet many professionals and founders remain stuck in the same place: they know what they have to do, but they cannot execute it with the consistency they need." },
+      { type: "p", text: "At G-Structure, we call this the execution crisis. It is not simply a lack of time, information, or ability. In many cases, the person already has vision, strategy, knowledge, and resources. The problem appears somewhere else: in the mental friction that activates before action. That friction can take the form of perfectionism, doubt, overanalysis, fear of error, overload, or a need for control. From the outside, it can look like disorganization or lack of discipline. But often the person is not avoiding the task itself; they are avoiding what the task means to them." },
+      { type: "p", text: "That is why traditional advice often falls short. Telling someone to get motivated, organize better, or just start can sound reasonable, but it does not touch the deeper problem. If a person interprets every delivery as a test of personal worth, a calendar is not enough. If every decision feels like an intolerable risk, prioritization advice is not enough. If starting a task activates fear of judgment, error, or exposure, the block is not solved only with productivity techniques." },
+      { type: "p", text: "G-Structure is built from that premise. We are not building a proposal that tells people to do more. There is already too much noise around productivity. We are building a system to intervene before action: the way a person interprets, processes, and responds to a task, decision, or moment of demand. Our method is called I-R-O: Identify, Reframe, and Optimize." },
+      { type: "h2", text: "Identify" },
+      { type: "p", text: "Identify comes first because no one can intervene precisely in a pattern they have not yet observed. Most people try to solve blocks at the surface. They change apps, reorganize their agenda, buy another course, start another routine, or blame themselves for procrastinating. But if the internal pattern remains intact, the block comes back with another face. Identifying means observing which thought appears before postponing, which emotion activates before avoiding, which interpretation turns a concrete task into a threat, and which response repeats when the person approaches something important." },
+      { type: "p", text: "This matters because “I cannot move forward” is still too vague. It can mean that the person does not feel ready, believes it must be perfect, anticipates criticism, does not know where to start, is overloaded, or has turned a normal decision into a test of identity. When the pattern is identified, the conversation changes. We are no longer talking about a cloud of discomfort. We are looking at a system that can be observed." },
+      { type: "h2", text: "Reframe" },
+      { type: "p", text: "The second step is to reframe. Reframing does not mean positive thinking or decorating reality. It does not mean saying that everything will be fine. It means reviewing whether the interpretation the person is using helps them act or blocks them from acting. Sometimes the problem is not the task, but the mental reading of the task. A delivery can be only a delivery, but for someone trapped in perfectionism it can become a test of personal worth. A call can be only a call, but for someone who fears exposure it can feel like a threat." },
+      { type: "p", text: "That is where cognitive-behavioral work enters. A person does not respond only to the event; they respond to the meaning they gave the event. If that meaning is loaded with threat, insufficiency, or control, action becomes heavier than it needs to be. Reframing means reviewing that logic, not to soften reality, but to see it more accurately. If the dominant thought is “if this is not perfect, I fail,” the work is not to replace it with a pretty phrase. The work is to question that structure and build a more functional reading: “I need a useful first version, not a perfect version.”" },
+      { type: "h2", text: "Optimize" },
+      { type: "p", text: "The third step is optimize, and for us this step is indispensable. G-Structure does not stop at reflection. Understanding a block can be useful, but it can also become another way to postpone. Some people analyze themselves too much and act too little. That is why I-R-O does not end in insight; it ends in action. Optimize means turning the reframe into a concrete output: opening the document, sending the message, defining the next step, making an imperfect first version, taking the pending decision, or reducing a task to an executable unit." },
+      { type: "p", text: "That is the center of the method: identify the pattern, reframe the interpretation, and optimize the output toward action. Not as decorative theory, but as a practical way to process the mental friction that blocks execution. G-Struct, our app, is being built around that logic. Quick Reframe exists to intervene in momentary blocks. Restructure Lab is designed for recurring patterns. The AI layer we are integrating is not meant to be a generic chatbot or motivational voice. It has to guide the user toward clearer thinking and close the cycle in concrete action." },
+      { type: "p", text: "This also defines what G-Structure is not. It is not therapy. It does not diagnose. It does not replace professional support. It is also not a wellness app in the traditional sense. It is cognitive-behavioral coaching applied to execution. Its real measure is not that the user spends more time inside the app, but that they leave with a clearer action than before." },
+      { type: "p", text: "We are building for people who operate in contexts where demand does not disappear: professionals, founders, and leaders who have to decide, create, prioritize, and sustain execution even when there is noise. For that profile, mental friction is not secondary. It can determine whether an idea advances or stays as intention, whether a decision is made or postponed, whether an opportunity is executed or lost in analysis." },
+      { type: "quote", text: "That is the I-R-O™ method: identify what is operating, reframe the interpretation that blocks, and optimize the output toward concrete action." },
+    ],
+  },
+  {
+    slug: "the-invisible-infrastructure-of-habit",
+    title: "The invisible infrastructure of habit",
+    subtitle: "Part 1",
+    category: "Founder Notes",
+    excerpt:
+      "We are not only creatures of habit. We are creatures of patterns, meanings, and cognitive routes repeated until they become automatic.",
+    author: "Guillermo Suco",
+    publishedAt: "2026-05-19",
+    readMinutes: 8,
+    featured: true,
+    tags: ["Founder Notes", "Habits", "Cognition", "Behavior"],
+    blocks: [
+      { type: "p", text: "“We are creatures of habit.” The phrase feels so obvious that we rarely question it. We repeat it in classrooms, productivity books, motivational talks, and everyday conversations as if it explained by itself why a person advances, stalls, improves, or fails. From Aristotelian ethics to contemporary psychology, the idea of habit has been used to explain character, discipline, and excellence." },
+      { type: "p", text: "But here a problem appears: what do we actually call a habit? The repeated action? The external routine? The observable behavior? Or the internal pattern that makes a person repeat certain actions even when they say they want to change them?" },
+      { type: "p", text: "In this essay I want to hold a different thesis: we are not simply creatures of habits; we are creatures of patterns. Habits are the visible part of the system, but not necessarily its cause. Before a repeated behavior, there is often a repeated way of interpreting, anticipating, justifying, avoiding, or deciding. A person does not procrastinate only because they have the habit of postponing; often they postpone because they have built a cognitive pattern in which starting is associated with threat, error, insufficiency, or loss of control." },
+      { type: "p", text: "That is why talking about habits without talking about cognition stays at the surface. Daily routines matter, of course, but routines do not appear in a vacuum. Behind every automated action there is a network of beliefs, emotions, expectations, and rewards that makes it likely. Habit is not only what we repeatedly do; it is also the consequence of what we repeatedly think, what we repeatedly fear, and what we repeatedly avoid." },
+      { type: "h2", text: "The invisible infrastructure" },
+      { type: "p", text: "If habit is the consequence of what we think, repeat, and avoid, then its definition cannot be limited to the simple accumulation of behaviors. In neuroscience and behavioral psychology, a habit is often understood as an automated pattern activated by specific cues that allows the brain to operate more efficiently. What appears on the surface as a simple routine is actually a cognitive-saving strategy: a behavioral route the nervous system learns, consolidates, and executes with less deliberative demand." },
+      { type: "p", text: "In this process, the basal ganglia play a central role. Studies have linked them to habit formation, especially when a behavior that was initially goal-directed becomes increasingly dependent on environmental cues and less sensitive to conscious evaluation of consequences. In simple terms: what first requires decision can, over time, become an almost automatic response." },
+      { type: "p", text: "This automation implies a form of cognitive decentralization. The prefrontal cortex, associated with planning, inhibitory control, and decision-making, no longer carries the full weight of the behavior. The brain does not need to deliberate every step of an action that has already been consolidated. The mind seeks efficiency, and to achieve it, it automates routes." },
+      { type: "p", text: "Behavioral psychology has described this process through the cue-routine-reward loop. The cue works as the trigger; the routine is the behavioral or mental response; and the reward is the benefit the system registers after the action. That benefit is not always pleasure. Sometimes it is relief. Sometimes it is control. Sometimes it is a brief reduction of anxiety. This distinction matters because many habits that sabotage execution are not sustained because they feel good, but because they relieve something the person does not want to feel." },
+      { type: "p", text: "Procrastination can function as a negative reward: it does not necessarily produce satisfaction, but it temporarily reduces the tension of facing a task. Avoiding a difficult conversation may not solve the problem, but it offers immediate relief. The brain learns: “When this discomfort appears, this response relieves me.” And what relieves, even when it damages in the long term, can be repeated." },
+      { type: "h2", text: "The base of interpretation" },
+      { type: "p", text: "For Aaron T. Beck, people do not react only to events, but to the meaning they attribute to them. His cognitive model proposes that situations activate automatic thoughts, intermediate beliefs, and deeper schemas that influence emotional and behavioral responses. In other words, between stimulus and action there is not an empty space: there is a mental reading of reality." },
+      { type: "p", text: "That reading is not always slow, conscious, or rational. Often it happens in milliseconds. The mind interprets before the person can explain what they interpreted. A pending task can be read as responsibility, opportunity, threat, judgment, burden, or evidence of insufficiency. The external situation can be the same, but the internal meaning completely changes the response." },
+      { type: "p", text: "When this interpretation system operates rigidly, cognitive distortions appear: systematic biases that deform the way a person processes information. Catastrophizing turns difficulty into anticipated disaster. Overgeneralization turns one error into a defective identity. Dichotomous thinking reduces experience to total success or absolute failure. From there, behavior stops being a free reaction to the environment and becomes an automated defense against the meaning the mind has built." },
+      { type: "p", text: "That is why habit cannot be understood only as repeated behavior. Before the visible routine, there is an invisible interpretation. Before behavioral autopilot, there is cognitive autopilot. And before changing what a person does, it is often necessary to identify what meaning they are defending, avoiding, or confirming through that behavior." },
+      { type: "quote", text: "Situation → interpretation → response → relief or reward → automation" },
+      { type: "p", text: "That is the key point. We are not only creatures of habit. We are creatures of meanings repeated until they become automatic." },
+      { type: "p", text: "This distinction changes the starting point. If habit were only repeated behavior, it would be enough to repeat another behavior until it replaced the old one. But if habit is also an automated interpretation, then change does not only mean doing something different; it means learning to read reality differently." },
+      { type: "p", text: "In the next article, we will continue this thesis from an uncomfortable question: how many of our habits are not failures of discipline, but cognitive defenses that once made sense?" },
+    ],
+  },
+];
+
+export function articlesForLocale(locale: ArticleLocale = "es") {
+  return locale === "en" ? EN_ARTICLES : ARTICLES;
 }
 
-export function formatArticleDate(date: string) {
-  return new Intl.DateTimeFormat("es-EC", {
+export const featuredArticles = ARTICLES.filter((article) => article.featured);
+
+export function featuredArticlesForLocale(locale: ArticleLocale = "es") {
+  return articlesForLocale(locale).filter((article) => article.featured);
+}
+
+export function getArticleBySlug(slug: string, locale?: ArticleLocale) {
+  const pool = locale ? articlesForLocale(locale) : [...ARTICLES, ...EN_ARTICLES];
+  return pool.find((article) => article.slug === slug);
+}
+
+export function formatArticleDate(date: string, locale: ArticleLocale = "es") {
+  return new Intl.DateTimeFormat(locale === "en" ? "en-US" : "es-EC", {
     day: "numeric",
     month: "long",
     year: "numeric",
   }).format(new Date(`${date}T12:00:00-05:00`));
 }
 
-export function articleUrl(article: Article) {
-  return `${SITE_URL}/articulos/${article.slug}`;
+export function articlePath(article: Article, locale: ArticleLocale = "es") {
+  return `${locale === "en" ? "/en/articles" : "/articulos"}/${article.slug}`;
 }
 
-export function articleSchema(article: Article) {
+export function articleUrl(article: Article, locale: ArticleLocale = "es") {
+  return `${SITE_URL}${articlePath(article, locale)}`;
+}
+
+export function articleCanonicalLinks(article: Article, locale: ArticleLocale) {
+  const esArticle = ARTICLES.find((item) => item.title === (locale === "es" ? article.title : undefined)) ?? ARTICLES.find((item) => item.tags[0] === article.tags[0]);
+  const enArticle = EN_ARTICLES.find((item) => item.title === (locale === "en" ? article.title : undefined)) ?? EN_ARTICLES.find((item) => item.tags[0] === article.tags[0]);
+  const esPath = esArticle ? articlePath(esArticle, "es") : "/articulos";
+  const enPath = enArticle ? articlePath(enArticle, "en") : "/en/articles";
+
+  return [
+    { rel: "canonical", href: `${SITE_URL}${locale === "en" ? enPath : esPath}` },
+    { rel: "alternate", hrefLang: "es", href: `${SITE_URL}${esPath}` },
+    { rel: "alternate", hrefLang: "es-EC", href: `${SITE_URL}${esPath}` },
+    { rel: "alternate", hrefLang: "en", href: `${SITE_URL}${enPath}` },
+    { rel: "alternate", hrefLang: "x-default", href: `${SITE_URL}${esPath}` },
+  ];
+}
+
+export function articleSchema(article: Article, locale: ArticleLocale = "es") {
   return {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -151,8 +279,8 @@ export function articleSchema(article: Article) {
     description: article.excerpt,
     datePublished: article.publishedAt,
     dateModified: article.publishedAt,
-    inLanguage: "es-EC",
-    mainEntityOfPage: articleUrl(article),
+    inLanguage: locale === "en" ? "en-US" : "es-EC",
+    mainEntityOfPage: articleUrl(article, locale),
     author: {
       "@type": "Person",
       name: article.author,

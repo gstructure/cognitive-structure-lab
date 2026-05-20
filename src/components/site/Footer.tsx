@@ -13,7 +13,7 @@ export function Footer() {
 
   const productoLinks: FooterLink[] = [
     { to: gStructBase, label: "G-Struct" },
-    { to: "/articulos", label: locale === "en" ? "Articles" : "Artículos" },
+    { to: locale === "en" ? "/en/articles" : "/articulos", label: locale === "en" ? "Articles" : "Artículos" },
     { to: gStructBase + "#waitlist", label: locale === "en" ? "Waitlist" : "Lista de espera" },
     { to: (locale === "en" ? "/en" : "/") + "#diagnostico", label: locale === "en" ? "Execution Diagnostic" : "Diagnóstico de Ejecución" },
   ];

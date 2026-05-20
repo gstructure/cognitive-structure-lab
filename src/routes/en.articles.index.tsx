@@ -5,30 +5,31 @@ import { ArticleSubscribeForm } from "@/components/articles/ArticleSubscribeForm
 import { Section } from "@/components/site/Section";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { articlesForLocale } from "@/lib/articles";
-import { buildSeo, jsonLdScript, breadcrumbSchema, SITE_URL } from "@/lib/seo";
+import { buildSeo, breadcrumbSchema, jsonLdScript, SITE_URL } from "@/lib/seo";
 
-export const Route = createFileRoute("/articulos/")({
+export const Route = createFileRoute("/en/articles/")({
   head: () => ({
     meta: buildSeo({
-      path: "/articulos",
-      title: "Artículos | G-Structure",
+      path: "/en/articles",
+      title: "Articles | G-Structure",
       description:
-        "Artículos, founder notes y updates sobre G-Struct, el método I-R-O™ y la ejecución cognitivo-conductual.",
+        "Articles, founder notes, and product updates about G-Struct, the I-R-O™ method, and cognitive-behavioral execution.",
+      locale: "en_US",
     }),
     links: [
-      { rel: "canonical", href: `${SITE_URL}/articulos` },
+      { rel: "canonical", href: `${SITE_URL}/en/articles` },
       { rel: "alternate", hrefLang: "es", href: `${SITE_URL}/articulos` },
       { rel: "alternate", hrefLang: "es-EC", href: `${SITE_URL}/articulos` },
       { rel: "alternate", hrefLang: "en", href: `${SITE_URL}/en/articles` },
       { rel: "alternate", hrefLang: "x-default", href: `${SITE_URL}/articulos` },
     ],
-    scripts: [jsonLdScript(breadcrumbSchema([{ name: "Artículos", path: "/articulos" }]))],
+    scripts: [jsonLdScript(breadcrumbSchema([{ name: "Articles", path: "/en/articles" }]))],
   }),
-  component: ArticlesIndex,
+  component: ArticlesIndexEn,
 });
 
-function ArticlesIndex() {
-  const articles = articlesForLocale("es");
+function ArticlesIndexEn() {
+  const articles = articlesForLocale("en");
   const [primary, ...rest] = articles;
 
   return (
@@ -38,10 +39,10 @@ function ArticlesIndex() {
           <div>
             <p className="eyebrow">G-STRUCTURE ARTICLES</p>
             <h1 className="mt-5 max-w-4xl font-display text-4xl leading-[1.05] md:text-6xl">
-              Ideas sobre ejecución, patrones cognitivos y el producto que estamos construyendo.
+              Ideas on execution, cognitive patterns, and the product we are building.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              Esta sección concentra el pensamiento detrás de G-Struct: notas de producto, ensayos del método I-R-O™ y aprendizajes de construcción.
+              This section gathers the thinking behind G-Struct: product notes, essays on the I-R-O™ method, and build-stage learnings.
             </p>
           </div>
           <ArticleSubscribeForm />
@@ -51,16 +52,16 @@ function ArticlesIndex() {
       <Section tone="muted">
         <div className="grid gap-8 lg:grid-cols-[1fr_0.95fr]">
           <article className="border border-border bg-background p-6 md:p-8">
-            <p className="eyebrow text-[10px]">Artículo destacado</p>
+            <p className="eyebrow text-[10px]">Featured article</p>
             <h2 className="mt-5 font-display text-3xl leading-tight md:text-4xl">{primary.title}</h2>
             {primary.subtitle ? <p className="mt-2 text-sm font-medium text-foreground/70">{primary.subtitle}</p> : null}
             <p className="mt-5 text-base leading-relaxed text-muted-foreground">{primary.excerpt}</p>
             <Link
-              to="/articulos/$slug"
+              to="/en/articles/$slug"
               params={{ slug: primary.slug }}
               className="mt-7 inline-flex items-center gap-2 bg-foreground px-5 py-3 text-sm font-medium text-background transition-opacity hover:opacity-90"
             >
-              Leer ahora <ArrowRight size={15} />
+              Read now <ArrowRight size={15} />
             </Link>
           </article>
           <div className="grid gap-4">
@@ -73,9 +74,9 @@ function ArticlesIndex() {
 
       <Section>
         <SectionHeader
-          eyebrow="ARCHIVO"
-          title="Todos los artículos"
-          subtitle="Una biblioteca inicial para que usuarios e inversionistas entiendan el corazón intelectual de G-Struct."
+          eyebrow="ARCHIVE"
+          title="All articles"
+          subtitle="An initial library for users and investors to understand the intellectual core of G-Struct."
         />
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           {articles.map((article) => (

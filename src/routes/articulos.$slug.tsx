@@ -4,12 +4,12 @@ import { ArticleComments } from "@/components/articles/ArticleComments";
 import { ArticleShare } from "@/components/articles/ArticleShare";
 import { ArticleSubscribeForm } from "@/components/articles/ArticleSubscribeForm";
 import { Section } from "@/components/site/Section";
-import { articleSchema, formatArticleDate, getArticleBySlug } from "@/lib/articles";
-import { buildSeo, breadcrumbSchema, jsonLdScript, SITE_URL } from "@/lib/seo";
+import { articleCanonicalLinks, articleSchema, formatArticleDate, getArticleBySlug } from "@/lib/articles";
+import { buildSeo, breadcrumbSchema, jsonLdScript } from "@/lib/seo";
 
 export const Route = createFileRoute("/articulos/$slug")({
   head: ({ params }) => {
-    const article = getArticleBySlug(params.slug);
+    const article = getArticleBySlug(params.slug, "es");
     if (!article) {
       return {
         meta: buildSeo({
@@ -27,9 +27,9 @@ export const Route = createFileRoute("/articulos/$slug")({
         description: article.excerpt,
         type: "article",
       }),
-      links: [{ rel: "canonical", href: `${SITE_URL}/articulos/${article.slug}` }],
+      links: articleCanonicalLinks(article, "es"),
       scripts: [
-        jsonLdScript(articleSchema(article)),
+        jsonLdScript(articleSchema(article, "es")),
         jsonLdScript(
           breadcrumbSchema([
             { name: "Artículos", path: "/articulos" },
@@ -44,7 +44,7 @@ export const Route = createFileRoute("/articulos/$slug")({
 
 function ArticleDetail() {
   const { slug } = Route.useParams();
-  const article = getArticleBySlug(slug);
+  const article = getArticleBySlug(slug, "es");
 
   if (!article) {
     return (
@@ -73,7 +73,7 @@ function ArticleDetail() {
               <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs text-muted-foreground">
                 <span className="eyebrow text-[10px]">{article.category}</span>
                 <span aria-hidden>·</span>
-                <time dateTime={article.publishedAt}>{formatArticleDate(article.publishedAt)}</time>
+                <time dateTime={article.publishedAt}>{formatArticleDate(article.publishedAt, "es")}</time>
                 <span aria-hidden>·</span>
                 <span>{article.readMinutes} min</span>
               </div>
