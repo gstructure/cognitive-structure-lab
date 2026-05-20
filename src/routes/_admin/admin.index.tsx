@@ -20,6 +20,11 @@ const sections = [
     title: "Reservas",
     description: "Reservas de Reestructura 1:1, Workshop y otros paquetes.",
   },
+  {
+    to: "/admin/comentarios",
+    title: "Comentarios",
+    description: "Moderación de comentarios enviados en los artículos.",
+  },
 ];
 
 function AdminHome() {

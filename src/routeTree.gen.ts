@@ -49,6 +49,7 @@ import { Route as ApiPublicArticleCommentsRouteImport } from './routes/api/publi
 import { Route as AdminAdminWaitlistRouteImport } from './routes/_admin/admin.waitlist'
 import { Route as AdminAdminReservasRouteImport } from './routes/_admin/admin.reservas'
 import { Route as AdminAdminDiagnosticosRouteImport } from './routes/_admin/admin.diagnosticos'
+import { Route as AdminAdminComentariosRouteImport } from './routes/_admin/admin.comentarios'
 import { Route as LovableEmailTransactionalSendRouteImport } from './routes/lovable/email/transactional/send'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
@@ -257,6 +258,11 @@ const AdminAdminDiagnosticosRoute = AdminAdminDiagnosticosRouteImport.update({
   path: '/admin/diagnosticos',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminAdminComentariosRoute = AdminAdminComentariosRouteImport.update({
+  id: '/admin/comentarios',
+  path: '/admin/comentarios',
+  getParentRoute: () => AdminRoute,
+} as any)
 const LovableEmailTransactionalSendRoute =
   LovableEmailTransactionalSendRouteImport.update({
     id: '/lovable/email/transactional/send',
@@ -304,6 +310,7 @@ export interface FileRoutesByFullPath {
   '/en/restructure-1-1': typeof EnRestructure11Route
   '/articulos/': typeof ArticulosIndexRoute
   '/en/': typeof EnIndexRoute
+  '/admin/comentarios': typeof AdminAdminComentariosRoute
   '/admin/diagnosticos': typeof AdminAdminDiagnosticosRoute
   '/admin/reservas': typeof AdminAdminReservasRoute
   '/admin/waitlist': typeof AdminAdminWaitlistRoute
@@ -346,6 +353,7 @@ export interface FileRoutesByTo {
   '/en/restructure-1-1': typeof EnRestructure11Route
   '/articulos': typeof ArticulosIndexRoute
   '/en': typeof EnIndexRoute
+  '/admin/comentarios': typeof AdminAdminComentariosRoute
   '/admin/diagnosticos': typeof AdminAdminDiagnosticosRoute
   '/admin/reservas': typeof AdminAdminReservasRoute
   '/admin/waitlist': typeof AdminAdminWaitlistRoute
@@ -392,6 +400,7 @@ export interface FileRoutesById {
   '/en/restructure-1-1': typeof EnRestructure11Route
   '/articulos/': typeof ArticulosIndexRoute
   '/en/': typeof EnIndexRoute
+  '/_admin/admin/comentarios': typeof AdminAdminComentariosRoute
   '/_admin/admin/diagnosticos': typeof AdminAdminDiagnosticosRoute
   '/_admin/admin/reservas': typeof AdminAdminReservasRoute
   '/_admin/admin/waitlist': typeof AdminAdminWaitlistRoute
@@ -438,6 +447,7 @@ export interface FileRouteTypes {
     | '/en/restructure-1-1'
     | '/articulos/'
     | '/en/'
+    | '/admin/comentarios'
     | '/admin/diagnosticos'
     | '/admin/reservas'
     | '/admin/waitlist'
@@ -480,6 +490,7 @@ export interface FileRouteTypes {
     | '/en/restructure-1-1'
     | '/articulos'
     | '/en'
+    | '/admin/comentarios'
     | '/admin/diagnosticos'
     | '/admin/reservas'
     | '/admin/waitlist'
@@ -525,6 +536,7 @@ export interface FileRouteTypes {
     | '/en/restructure-1-1'
     | '/articulos/'
     | '/en/'
+    | '/_admin/admin/comentarios'
     | '/_admin/admin/diagnosticos'
     | '/_admin/admin/reservas'
     | '/_admin/admin/waitlist'
@@ -862,6 +874,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminAdminDiagnosticosRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/_admin/admin/comentarios': {
+      id: '/_admin/admin/comentarios'
+      path: '/admin/comentarios'
+      fullPath: '/admin/comentarios'
+      preLoaderRoute: typeof AdminAdminComentariosRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/lovable/email/transactional/send': {
       id: '/lovable/email/transactional/send'
       path: '/lovable/email/transactional/send'
@@ -887,6 +906,7 @@ declare module '@tanstack/react-router' {
 }
 
 interface AdminRouteChildren {
+  AdminAdminComentariosRoute: typeof AdminAdminComentariosRoute
   AdminAdminDiagnosticosRoute: typeof AdminAdminDiagnosticosRoute
   AdminAdminReservasRoute: typeof AdminAdminReservasRoute
   AdminAdminWaitlistRoute: typeof AdminAdminWaitlistRoute
@@ -894,6 +914,7 @@ interface AdminRouteChildren {
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
+  AdminAdminComentariosRoute: AdminAdminComentariosRoute,
   AdminAdminDiagnosticosRoute: AdminAdminDiagnosticosRoute,
   AdminAdminReservasRoute: AdminAdminReservasRoute,
   AdminAdminWaitlistRoute: AdminAdminWaitlistRoute,
@@ -970,3 +991,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
