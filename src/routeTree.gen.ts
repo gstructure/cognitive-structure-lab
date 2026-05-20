@@ -14,6 +14,7 @@ import { Route as UneteAlEquipoRouteImport } from './routes/unete-al-equipo'
 import { Route as SobreGuillermoRouteImport } from './routes/sobre-guillermo'
 import { Route as Reestructura11RouteImport } from './routes/reestructura-1-1'
 import { Route as PoliticasLegalesRouteImport } from './routes/politicas-legales'
+import { Route as NewsletterRouteImport } from './routes/newsletter'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as InversoresRouteImport } from './routes/inversores'
 import { Route as GStructRouteImport } from './routes/g-struct'
@@ -27,6 +28,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as EnIndexRouteImport } from './routes/en.index'
 import { Route as ArticulosIndexRouteImport } from './routes/articulos.index'
 import { Route as EnRestructure11RouteImport } from './routes/en.restructure-1-1'
+import { Route as EnNewsletterRouteImport } from './routes/en.newsletter'
 import { Route as EnJoinTheTeamRouteImport } from './routes/en.join-the-team'
 import { Route as EnInvestorsRouteImport } from './routes/en.investors'
 import { Route as EnGStructRouteImport } from './routes/en.g-struct'
@@ -41,6 +43,7 @@ import { Route as EnArticlesIndexRouteImport } from './routes/en.articles.index'
 import { Route as AdminAdminIndexRouteImport } from './routes/_admin/admin.index'
 import { Route as LovableEmailSuppressionRouteImport } from './routes/lovable/email/suppression'
 import { Route as EnArticlesSlugRouteImport } from './routes/en.articles.$slug'
+import { Route as ApiPublicNewsletterSubscribeRouteImport } from './routes/api/public/newsletter-subscribe'
 import { Route as ApiPublicGstructWaitlistCountRouteImport } from './routes/api/public/gstruct-waitlist-count'
 import { Route as ApiPublicGstructWaitlistRouteImport } from './routes/api/public/gstruct-waitlist'
 import { Route as ApiPublicDiagnosticoSubmitRouteImport } from './routes/api/public/diagnostico-submit'
@@ -77,6 +80,11 @@ const Reestructura11Route = Reestructura11RouteImport.update({
 const PoliticasLegalesRoute = PoliticasLegalesRouteImport.update({
   id: '/politicas-legales',
   path: '/politicas-legales',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsletterRoute = NewsletterRouteImport.update({
+  id: '/newsletter',
+  path: '/newsletter',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoginRoute = LoginRouteImport.update({
@@ -142,6 +150,11 @@ const ArticulosIndexRoute = ArticulosIndexRouteImport.update({
 const EnRestructure11Route = EnRestructure11RouteImport.update({
   id: '/en/restructure-1-1',
   path: '/en/restructure-1-1',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnNewsletterRoute = EnNewsletterRouteImport.update({
+  id: '/en/newsletter',
+  path: '/en/newsletter',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EnJoinTheTeamRoute = EnJoinTheTeamRouteImport.update({
@@ -214,6 +227,12 @@ const EnArticlesSlugRoute = EnArticlesSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => EnArticlesRoute,
 } as any)
+const ApiPublicNewsletterSubscribeRoute =
+  ApiPublicNewsletterSubscribeRouteImport.update({
+    id: '/api/public/newsletter-subscribe',
+    path: '/api/public/newsletter-subscribe',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiPublicGstructWaitlistCountRoute =
   ApiPublicGstructWaitlistCountRouteImport.update({
     id: '/api/public/gstruct-waitlist-count',
@@ -292,6 +311,7 @@ export interface FileRoutesByFullPath {
   '/g-struct': typeof GStructRoute
   '/inversores': typeof InversoresRoute
   '/login': typeof LoginRoute
+  '/newsletter': typeof NewsletterRoute
   '/politicas-legales': typeof PoliticasLegalesRoute
   '/reestructura-1-1': typeof Reestructura11Route
   '/sobre-guillermo': typeof SobreGuillermoRoute
@@ -307,6 +327,7 @@ export interface FileRoutesByFullPath {
   '/en/g-struct': typeof EnGStructRoute
   '/en/investors': typeof EnInvestorsRoute
   '/en/join-the-team': typeof EnJoinTheTeamRoute
+  '/en/newsletter': typeof EnNewsletterRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
   '/articulos/': typeof ArticulosIndexRoute
   '/en/': typeof EnIndexRoute
@@ -319,6 +340,7 @@ export interface FileRoutesByFullPath {
   '/api/public/diagnostico-submit': typeof ApiPublicDiagnosticoSubmitRoute
   '/api/public/gstruct-waitlist': typeof ApiPublicGstructWaitlistRoute
   '/api/public/gstruct-waitlist-count': typeof ApiPublicGstructWaitlistCountRoute
+  '/api/public/newsletter-subscribe': typeof ApiPublicNewsletterSubscribeRoute
   '/en/articles/$slug': typeof EnArticlesSlugRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/admin/': typeof AdminAdminIndexRoute
@@ -336,6 +358,7 @@ export interface FileRoutesByTo {
   '/g-struct': typeof GStructRoute
   '/inversores': typeof InversoresRoute
   '/login': typeof LoginRoute
+  '/newsletter': typeof NewsletterRoute
   '/politicas-legales': typeof PoliticasLegalesRoute
   '/reestructura-1-1': typeof Reestructura11Route
   '/sobre-guillermo': typeof SobreGuillermoRoute
@@ -350,6 +373,7 @@ export interface FileRoutesByTo {
   '/en/g-struct': typeof EnGStructRoute
   '/en/investors': typeof EnInvestorsRoute
   '/en/join-the-team': typeof EnJoinTheTeamRoute
+  '/en/newsletter': typeof EnNewsletterRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
   '/articulos': typeof ArticulosIndexRoute
   '/en': typeof EnIndexRoute
@@ -362,6 +386,7 @@ export interface FileRoutesByTo {
   '/api/public/diagnostico-submit': typeof ApiPublicDiagnosticoSubmitRoute
   '/api/public/gstruct-waitlist': typeof ApiPublicGstructWaitlistRoute
   '/api/public/gstruct-waitlist-count': typeof ApiPublicGstructWaitlistCountRoute
+  '/api/public/newsletter-subscribe': typeof ApiPublicNewsletterSubscribeRoute
   '/en/articles/$slug': typeof EnArticlesSlugRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/admin': typeof AdminAdminIndexRoute
@@ -382,6 +407,7 @@ export interface FileRoutesById {
   '/g-struct': typeof GStructRoute
   '/inversores': typeof InversoresRoute
   '/login': typeof LoginRoute
+  '/newsletter': typeof NewsletterRoute
   '/politicas-legales': typeof PoliticasLegalesRoute
   '/reestructura-1-1': typeof Reestructura11Route
   '/sobre-guillermo': typeof SobreGuillermoRoute
@@ -397,6 +423,7 @@ export interface FileRoutesById {
   '/en/g-struct': typeof EnGStructRoute
   '/en/investors': typeof EnInvestorsRoute
   '/en/join-the-team': typeof EnJoinTheTeamRoute
+  '/en/newsletter': typeof EnNewsletterRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
   '/articulos/': typeof ArticulosIndexRoute
   '/en/': typeof EnIndexRoute
@@ -409,6 +436,7 @@ export interface FileRoutesById {
   '/api/public/diagnostico-submit': typeof ApiPublicDiagnosticoSubmitRoute
   '/api/public/gstruct-waitlist': typeof ApiPublicGstructWaitlistRoute
   '/api/public/gstruct-waitlist-count': typeof ApiPublicGstructWaitlistCountRoute
+  '/api/public/newsletter-subscribe': typeof ApiPublicNewsletterSubscribeRoute
   '/en/articles/$slug': typeof EnArticlesSlugRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/_admin/admin/': typeof AdminAdminIndexRoute
@@ -429,6 +457,7 @@ export interface FileRouteTypes {
     | '/g-struct'
     | '/inversores'
     | '/login'
+    | '/newsletter'
     | '/politicas-legales'
     | '/reestructura-1-1'
     | '/sobre-guillermo'
@@ -444,6 +473,7 @@ export interface FileRouteTypes {
     | '/en/g-struct'
     | '/en/investors'
     | '/en/join-the-team'
+    | '/en/newsletter'
     | '/en/restructure-1-1'
     | '/articulos/'
     | '/en/'
@@ -456,6 +486,7 @@ export interface FileRouteTypes {
     | '/api/public/diagnostico-submit'
     | '/api/public/gstruct-waitlist'
     | '/api/public/gstruct-waitlist-count'
+    | '/api/public/newsletter-subscribe'
     | '/en/articles/$slug'
     | '/lovable/email/suppression'
     | '/admin/'
@@ -473,6 +504,7 @@ export interface FileRouteTypes {
     | '/g-struct'
     | '/inversores'
     | '/login'
+    | '/newsletter'
     | '/politicas-legales'
     | '/reestructura-1-1'
     | '/sobre-guillermo'
@@ -487,6 +519,7 @@ export interface FileRouteTypes {
     | '/en/g-struct'
     | '/en/investors'
     | '/en/join-the-team'
+    | '/en/newsletter'
     | '/en/restructure-1-1'
     | '/articulos'
     | '/en'
@@ -499,6 +532,7 @@ export interface FileRouteTypes {
     | '/api/public/diagnostico-submit'
     | '/api/public/gstruct-waitlist'
     | '/api/public/gstruct-waitlist-count'
+    | '/api/public/newsletter-subscribe'
     | '/en/articles/$slug'
     | '/lovable/email/suppression'
     | '/admin'
@@ -518,6 +552,7 @@ export interface FileRouteTypes {
     | '/g-struct'
     | '/inversores'
     | '/login'
+    | '/newsletter'
     | '/politicas-legales'
     | '/reestructura-1-1'
     | '/sobre-guillermo'
@@ -533,6 +568,7 @@ export interface FileRouteTypes {
     | '/en/g-struct'
     | '/en/investors'
     | '/en/join-the-team'
+    | '/en/newsletter'
     | '/en/restructure-1-1'
     | '/articulos/'
     | '/en/'
@@ -545,6 +581,7 @@ export interface FileRouteTypes {
     | '/api/public/diagnostico-submit'
     | '/api/public/gstruct-waitlist'
     | '/api/public/gstruct-waitlist-count'
+    | '/api/public/newsletter-subscribe'
     | '/en/articles/$slug'
     | '/lovable/email/suppression'
     | '/_admin/admin/'
@@ -565,6 +602,7 @@ export interface RootRouteChildren {
   GStructRoute: typeof GStructRoute
   InversoresRoute: typeof InversoresRoute
   LoginRoute: typeof LoginRoute
+  NewsletterRoute: typeof NewsletterRoute
   PoliticasLegalesRoute: typeof PoliticasLegalesRoute
   Reestructura11Route: typeof Reestructura11Route
   SobreGuillermoRoute: typeof SobreGuillermoRoute
@@ -579,6 +617,7 @@ export interface RootRouteChildren {
   EnGStructRoute: typeof EnGStructRoute
   EnInvestorsRoute: typeof EnInvestorsRoute
   EnJoinTheTeamRoute: typeof EnJoinTheTeamRoute
+  EnNewsletterRoute: typeof EnNewsletterRoute
   EnRestructure11Route: typeof EnRestructure11Route
   EnIndexRoute: typeof EnIndexRoute
   ApiPublicArticleCommentsRoute: typeof ApiPublicArticleCommentsRoute
@@ -586,6 +625,7 @@ export interface RootRouteChildren {
   ApiPublicDiagnosticoSubmitRoute: typeof ApiPublicDiagnosticoSubmitRoute
   ApiPublicGstructWaitlistRoute: typeof ApiPublicGstructWaitlistRoute
   ApiPublicGstructWaitlistCountRoute: typeof ApiPublicGstructWaitlistCountRoute
+  ApiPublicNewsletterSubscribeRoute: typeof ApiPublicNewsletterSubscribeRoute
   LovableEmailSuppressionRoute: typeof LovableEmailSuppressionRoute
   LovableEmailQueueProcessRoute: typeof LovableEmailQueueProcessRoute
   LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
@@ -627,6 +667,13 @@ declare module '@tanstack/react-router' {
       path: '/politicas-legales'
       fullPath: '/politicas-legales'
       preLoaderRoute: typeof PoliticasLegalesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/newsletter': {
+      id: '/newsletter'
+      path: '/newsletter'
+      fullPath: '/newsletter'
+      preLoaderRoute: typeof NewsletterRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/login': {
@@ -718,6 +765,13 @@ declare module '@tanstack/react-router' {
       path: '/en/restructure-1-1'
       fullPath: '/en/restructure-1-1'
       preLoaderRoute: typeof EnRestructure11RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/newsletter': {
+      id: '/en/newsletter'
+      path: '/en/newsletter'
+      fullPath: '/en/newsletter'
+      preLoaderRoute: typeof EnNewsletterRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/en/join-the-team': {
@@ -817,6 +871,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/en/articles/$slug'
       preLoaderRoute: typeof EnArticlesSlugRouteImport
       parentRoute: typeof EnArticlesRoute
+    }
+    '/api/public/newsletter-subscribe': {
+      id: '/api/public/newsletter-subscribe'
+      path: '/api/public/newsletter-subscribe'
+      fullPath: '/api/public/newsletter-subscribe'
+      preLoaderRoute: typeof ApiPublicNewsletterSubscribeRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/api/public/gstruct-waitlist-count': {
       id: '/api/public/gstruct-waitlist-count'
@@ -962,6 +1023,7 @@ const rootRouteChildren: RootRouteChildren = {
   GStructRoute: GStructRoute,
   InversoresRoute: InversoresRoute,
   LoginRoute: LoginRoute,
+  NewsletterRoute: NewsletterRoute,
   PoliticasLegalesRoute: PoliticasLegalesRoute,
   Reestructura11Route: Reestructura11Route,
   SobreGuillermoRoute: SobreGuillermoRoute,
@@ -976,6 +1038,7 @@ const rootRouteChildren: RootRouteChildren = {
   EnGStructRoute: EnGStructRoute,
   EnInvestorsRoute: EnInvestorsRoute,
   EnJoinTheTeamRoute: EnJoinTheTeamRoute,
+  EnNewsletterRoute: EnNewsletterRoute,
   EnRestructure11Route: EnRestructure11Route,
   EnIndexRoute: EnIndexRoute,
   ApiPublicArticleCommentsRoute: ApiPublicArticleCommentsRoute,
@@ -983,6 +1046,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiPublicDiagnosticoSubmitRoute: ApiPublicDiagnosticoSubmitRoute,
   ApiPublicGstructWaitlistRoute: ApiPublicGstructWaitlistRoute,
   ApiPublicGstructWaitlistCountRoute: ApiPublicGstructWaitlistCountRoute,
+  ApiPublicNewsletterSubscribeRoute: ApiPublicNewsletterSubscribeRoute,
   LovableEmailSuppressionRoute: LovableEmailSuppressionRoute,
   LovableEmailQueueProcessRoute: LovableEmailQueueProcessRoute,
   LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,

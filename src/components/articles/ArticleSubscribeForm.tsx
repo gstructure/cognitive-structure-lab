@@ -15,7 +15,7 @@ export function ArticleSubscribeForm() {
     setStatus("loading");
 
     try {
-      const response = await fetch("/api/public/gstruct-waitlist", {
+      const response = await fetch("/api/public/newsletter-subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -42,22 +42,22 @@ export function ArticleSubscribeForm() {
     ? {
         eyebrow: "Subscription",
         title: "Get new essays and build notes.",
-        body: "Updates on G-Struct, the I-R-O™ method, and cognitive-behavioral execution.",
+        body: "Updates on G-Struct, the I-R-O(TM) method, and cognitive-behavioral execution.",
         placeholder: "you@email.com",
         aria: "Subscribe",
-        success: "Done. We will let you know when new notes are published.",
-        duplicate: "That email is already registered.",
+        success: "Done. Welcome email sent. We will let you know when new notes are published.",
+        duplicate: "That email is already subscribed to the notes.",
         error: "We could not register the email. Try again.",
       }
     : {
-        eyebrow: "Suscripción",
-        title: "Recibe nuevos artículos y notas de construcción.",
-        body: "Updates sobre G-Struct, el método I-R-O™ y la ejecución cognitivo-conductual.",
+        eyebrow: "Suscripcion",
+        title: "Recibe nuevos articulos y notas de construccion.",
+        body: "Updates sobre G-Struct, el metodo I-R-O(TM) y la ejecucion cognitivo-conductual.",
         placeholder: "tu@email.com",
         aria: "Suscribirme",
-        success: "Listo. Te avisaremos cuando publiquemos nuevas notas.",
-        duplicate: "Ese correo ya está registrado.",
-        error: "No pudimos registrar el correo. Inténtalo otra vez.",
+        success: "Listo. Te enviamos el correo de bienvenida y te avisaremos cuando publiquemos nuevas notas.",
+        duplicate: "Ese correo ya esta suscrito a las notas.",
+        error: "No pudimos registrar el correo. Intentalo otra vez.",
       };
 
   return (
