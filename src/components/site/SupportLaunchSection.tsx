@@ -383,8 +383,17 @@ function PayPalSupportButton({
   copy: { success: string; cancelled: string; error: string };
 }) {
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const formRef = useRef(form);
+  const statusRef = useRef(onStatus);
+  const copyRef = useRef(copy);
   const [clientId, setClientId] = useState("");
   const [configured, setConfigured] = useState(false);
+
+  useEffect(() => {
+    formRef.current = form;
+    statusRef.current = onStatus;
+    copyRef.current = copy;
+  }, [copy, form, onStatus]);
 
   useEffect(() => {
     let cancelled = false;
@@ -413,7 +422,7 @@ function PayPalSupportButton({
         window.paypal.Buttons({
           style: { layout: "vertical", shape: "rect", label: "paypal" },
           createOrder: async () => {
-            onStatus("loading");
+            statusRef.current("loading");
             const response = await fetch("/api/public/paypal-support-create-order", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
@@ -424,27 +433,28 @@ function PayPalSupportButton({
             return data.id;
           },
           onApprove: async (data: { orderID: string }) => {
-            onStatus("loading");
+            const currentForm = formRef.current;
+            statusRef.current("loading");
             const response = await fetch("/api/public/paypal-support-capture-order", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
                 orderId: data.orderID,
-                supporterName: form.name,
-                supporterEmail: form.email,
-                wantsPublicRecognition: form.publicRecognition,
-                message: form.message,
-                acceptedTerms: form.acceptedTerms,
+                supporterName: currentForm.name,
+                supporterEmail: currentForm.email,
+                wantsPublicRecognition: currentForm.publicRecognition,
+                message: currentForm.message,
+                acceptedTerms: currentForm.acceptedTerms,
               }),
             });
             if (!response.ok) throw new Error("capture_failed");
-            onStatus("success", copy.success);
+            statusRef.current("success", copyRef.current.success);
           },
-          onCancel: () => onStatus("cancelled", copy.cancelled),
-          onError: () => onStatus("error", copy.error),
+          onCancel: () => statusRef.current("cancelled", copyRef.current.cancelled),
+          onError: () => statusRef.current("error", copyRef.current.error),
         }).render(containerRef.current);
       } catch {
-        onStatus("error", copy.error);
+        statusRef.current("error", copyRef.current.error);
       }
     };
 
@@ -453,7 +463,7 @@ function PayPalSupportButton({
       cancelled = true;
       if (containerRef.current) containerRef.current.innerHTML = "";
     };
-  }, [clientId, configured, copy.cancelled, copy.error, copy.success, form, onStatus, tier]);
+  }, [clientId, configured, tier]);
 
   if (!configured) {
     return (
