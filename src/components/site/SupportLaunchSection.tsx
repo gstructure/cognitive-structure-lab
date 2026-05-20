@@ -107,11 +107,20 @@ export function SupportLaunchSection() {
   const [form, setForm] = useState<FormState>(initialForm);
   const [status, setStatus] = useState<PaymentStatus>("idle");
   const [message, setMessage] = useState("");
+  const checkoutRef = useRef<HTMLDivElement | null>(null);
   const selected = SUPPORT_TIERS[selectedTier];
   const tiers = TIER_COPY[locale];
   const handlePaymentStatus = useCallback((nextStatus: PaymentStatus, nextMessage?: string) => {
     setStatus(nextStatus);
     setMessage(nextMessage ?? "");
+  }, []);
+  const chooseTier = useCallback((tier: SupportTierId) => {
+    setSelectedTier(tier);
+    setStatus("idle");
+    setMessage("");
+    window.setTimeout(() => {
+      checkoutRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 80);
   }, []);
 
   const copy = locale === "en"
@@ -210,25 +219,23 @@ export function SupportLaunchSection() {
         <p className="mt-3 max-w-3xl text-sm text-muted-foreground leading-relaxed">{copy.levelsIntro}</p>
         <div className="mt-8 grid gap-px border border-border bg-border md:grid-cols-2 lg:grid-cols-4">
           {tiers.map((tier) => (
-            <article key={tier.id} className={`flex flex-col bg-[color:var(--color-surface)] p-6 ${selectedTier === tier.id ? "ring-1 ring-foreground" : ""}`}>
+            <button
+              key={tier.id}
+              type="button"
+              onClick={() => chooseTier(tier.id)}
+              aria-pressed={selectedTier === tier.id}
+              className={`group flex min-h-[300px] flex-col bg-[color:var(--color-surface)] p-6 text-left transition-all hover:-translate-y-1 hover:bg-background hover:shadow-[0_18px_42px_-24px_rgba(5,50,90,0.45)] focus:outline-none focus:ring-2 focus:ring-foreground ${selectedTier === tier.id ? "ring-1 ring-foreground" : ""}`}
+            >
               <div className="flex items-start justify-between gap-4">
                 <h4 className="font-display text-lg font-semibold">{tier.title}</h4>
                 <span className="font-display text-xl font-semibold">{tier.price}</span>
               </div>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{tier.description}</p>
-              <button
-                type="button"
-                onClick={() => {
-                  setSelectedTier(tier.id);
-                  setStatus("idle");
-                  setMessage("");
-                }}
-                className="mt-auto pt-6 inline-flex items-center gap-2 text-left text-sm font-medium text-foreground"
-              >
+              <span className={`mt-auto inline-flex items-center justify-center gap-2 border px-4 py-2.5 text-sm font-medium transition-colors ${selectedTier === tier.id ? "border-foreground bg-foreground text-background" : "border-border bg-background text-foreground group-hover:border-foreground"}`}>
                 {selectedTier === tier.id ? <Check size={15} /> : <ArrowRight size={15} />}
                 {tier.cta}
-              </button>
-            </article>
+              </span>
+            </button>
           ))}
         </div>
       </div>
@@ -240,7 +247,7 @@ export function SupportLaunchSection() {
           <p className="mt-4 text-sm leading-relaxed text-foreground/85">{copy.strategicBody}</p>
         </div>
 
-        <div className="lg:col-span-7 border border-border bg-[color:var(--color-surface)] p-6">
+        <div ref={checkoutRef} className="scroll-mt-24 lg:col-span-7 border border-border bg-[color:var(--color-surface)] p-6">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="eyebrow text-[10px]">{copy.formTitle}</p>
