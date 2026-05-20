@@ -10,12 +10,14 @@ import { BriefDownloadCard } from "@/components/site/BriefDownloadCard";
 import { FrictionQuiz } from "@/components/site/FrictionQuiz";
 import { WaitlistForm } from "@/components/site/WaitlistForm";
 import { SocialProofBar } from "@/components/site/SocialProofBar";
+import { ArticleCard } from "@/components/articles/ArticleCard";
 
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
 import { BrandMark } from "@/components/brand/Logo";
 import { GuillermoPortrait } from "@/components/site/GuillermoPortrait";
 import { useT, useLocale, type Locale } from "@/lib/i18n";
 import { ROUTES } from "@/lib/routeMap";
+import { featuredArticles } from "@/lib/articles";
 import logoCube from "@/assets/g-structure-cube.webp";
 import gStructHomePreview from "@/assets/g-struct-home-preview.webp";
 import etwBadge from "@/assets/etw-2026-badge.webp";
@@ -851,12 +853,6 @@ function ETWBanner() {
                 {c.ctaEvent}
                 <ExternalLink size={14} className="transition-transform group-hover:translate-x-0.5" />
               </a>
-              <Link
-                to={lp("/aliados-etw-2026", locale)}
-                className="inline-flex items-center gap-2 border border-white/40 px-5 py-3 text-[13px] font-medium text-white transition-colors hover:bg-white/10"
-              >
-                {c.ctaPartner} <ArrowRight size={14} />
-              </Link>
             </div>
             <p className="mt-4 text-[11px] tracking-wide text-white/60">
               {c.micro}
@@ -1360,6 +1356,28 @@ function FinalCTA() {
   );
 }
 
+function FeaturedArticles() {
+  return (
+    <Section>
+      <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <SectionHeader
+          eyebrow="ARTÍCULOS"
+          title="El pensamiento detrás de G-Struct."
+          subtitle="Notas de producto, método I-R-O™ y ensayos sobre la fricción cognitivo-conductual que bloquea la ejecución."
+        />
+        <CTALink to="/articulos" variant="outline">
+          Ver todos los artículos
+        </CTALink>
+      </div>
+      <div className="mt-10 grid gap-5 md:grid-cols-3">
+        {featuredArticles.slice(0, 3).map((article) => (
+          <ArticleCard key={article.slug} article={article} />
+        ))}
+      </div>
+    </Section>
+  );
+}
+
 export function Index() {
   // Keep MentalOS/Solutions/ForWhom available for layouts that want them later.
   void MentalOS;
@@ -1375,10 +1393,10 @@ export function Index() {
       <FrictionQuiz />
       <WaitlistForm />
       <ValidationChannels />
+      <FeaturedArticles />
       <StartupStage />
       <ETWBanner />
       <Founder />
-      <Announcements />
       <Section tone="muted">
         <BriefDownloadCard />
       </Section>

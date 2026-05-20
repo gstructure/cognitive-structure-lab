@@ -20,10 +20,12 @@ import { Route as GStructRouteImport } from './routes/g-struct'
 import { Route as EnterpriseRouteImport } from './routes/enterprise'
 import { Route as DiagnosticoFriccionEjecutivaRouteImport } from './routes/diagnostico-friccion-ejecutiva'
 import { Route as ContactoRouteImport } from './routes/contacto'
+import { Route as ArticulosRouteImport } from './routes/articulos'
 import { Route as AliadosEtw2026RouteImport } from './routes/aliados-etw-2026'
 import { Route as AdminRouteImport } from './routes/_admin'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as EnIndexRouteImport } from './routes/en.index'
+import { Route as ArticulosIndexRouteImport } from './routes/articulos.index'
 import { Route as EnRestructure11RouteImport } from './routes/en.restructure-1-1'
 import { Route as EnJoinTheTeamRouteImport } from './routes/en.join-the-team'
 import { Route as EnInvestorsRouteImport } from './routes/en.investors'
@@ -33,12 +35,14 @@ import { Route as EnEnterpriseRouteImport } from './routes/en.enterprise'
 import { Route as EnContactRouteImport } from './routes/en.contact'
 import { Route as EnAboutGuillermoRouteImport } from './routes/en.about-guillermo'
 import { Route as EmailUnsubscribeRouteImport } from './routes/email/unsubscribe'
+import { Route as ArticulosSlugRouteImport } from './routes/articulos.$slug'
 import { Route as AdminAdminIndexRouteImport } from './routes/_admin/admin.index'
 import { Route as LovableEmailSuppressionRouteImport } from './routes/lovable/email/suppression'
 import { Route as ApiPublicGstructWaitlistCountRouteImport } from './routes/api/public/gstruct-waitlist-count'
 import { Route as ApiPublicGstructWaitlistRouteImport } from './routes/api/public/gstruct-waitlist'
 import { Route as ApiPublicDiagnosticoSubmitRouteImport } from './routes/api/public/diagnostico-submit'
 import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
+import { Route as ApiPublicArticleCommentsRouteImport } from './routes/api/public/article-comments'
 import { Route as AdminAdminWaitlistRouteImport } from './routes/_admin/admin.waitlist'
 import { Route as AdminAdminReservasRouteImport } from './routes/_admin/admin.reservas'
 import { Route as AdminAdminDiagnosticosRouteImport } from './routes/_admin/admin.diagnosticos'
@@ -102,6 +106,11 @@ const ContactoRoute = ContactoRouteImport.update({
   path: '/contacto',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ArticulosRoute = ArticulosRouteImport.update({
+  id: '/articulos',
+  path: '/articulos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AliadosEtw2026Route = AliadosEtw2026RouteImport.update({
   id: '/aliados-etw-2026',
   path: '/aliados-etw-2026',
@@ -120,6 +129,11 @@ const EnIndexRoute = EnIndexRouteImport.update({
   id: '/en/',
   path: '/en/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const ArticulosIndexRoute = ArticulosIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ArticulosRoute,
 } as any)
 const EnRestructure11Route = EnRestructure11RouteImport.update({
   id: '/en/restructure-1-1',
@@ -166,6 +180,11 @@ const EmailUnsubscribeRoute = EmailUnsubscribeRouteImport.update({
   path: '/email/unsubscribe',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ArticulosSlugRoute = ArticulosSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ArticulosRoute,
+} as any)
 const AdminAdminIndexRoute = AdminAdminIndexRouteImport.update({
   id: '/admin/',
   path: '/admin/',
@@ -199,6 +218,12 @@ const ApiPublicContactRoute = ApiPublicContactRouteImport.update({
   path: '/api/public/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicArticleCommentsRoute =
+  ApiPublicArticleCommentsRouteImport.update({
+    id: '/api/public/article-comments',
+    path: '/api/public/article-comments',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const AdminAdminWaitlistRoute = AdminAdminWaitlistRouteImport.update({
   id: '/admin/waitlist',
   path: '/admin/waitlist',
@@ -236,6 +261,7 @@ const LovableEmailQueueProcessRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/aliados-etw-2026': typeof AliadosEtw2026Route
+  '/articulos': typeof ArticulosRouteWithChildren
   '/contacto': typeof ContactoRoute
   '/diagnostico-friccion-ejecutiva': typeof DiagnosticoFriccionEjecutivaRoute
   '/enterprise': typeof EnterpriseRoute
@@ -247,6 +273,7 @@ export interface FileRoutesByFullPath {
   '/sobre-guillermo': typeof SobreGuillermoRoute
   '/unete-al-equipo': typeof UneteAlEquipoRoute
   '/unsubscribe': typeof UnsubscribeRoute
+  '/articulos/$slug': typeof ArticulosSlugRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/en/about-guillermo': typeof EnAboutGuillermoRoute
   '/en/contact': typeof EnContactRoute
@@ -256,10 +283,12 @@ export interface FileRoutesByFullPath {
   '/en/investors': typeof EnInvestorsRoute
   '/en/join-the-team': typeof EnJoinTheTeamRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
+  '/articulos/': typeof ArticulosIndexRoute
   '/en/': typeof EnIndexRoute
   '/admin/diagnosticos': typeof AdminAdminDiagnosticosRoute
   '/admin/reservas': typeof AdminAdminReservasRoute
   '/admin/waitlist': typeof AdminAdminWaitlistRoute
+  '/api/public/article-comments': typeof ApiPublicArticleCommentsRoute
   '/api/public/contact': typeof ApiPublicContactRoute
   '/api/public/diagnostico-submit': typeof ApiPublicDiagnosticoSubmitRoute
   '/api/public/gstruct-waitlist': typeof ApiPublicGstructWaitlistRoute
@@ -284,6 +313,7 @@ export interface FileRoutesByTo {
   '/sobre-guillermo': typeof SobreGuillermoRoute
   '/unete-al-equipo': typeof UneteAlEquipoRoute
   '/unsubscribe': typeof UnsubscribeRoute
+  '/articulos/$slug': typeof ArticulosSlugRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/en/about-guillermo': typeof EnAboutGuillermoRoute
   '/en/contact': typeof EnContactRoute
@@ -293,10 +323,12 @@ export interface FileRoutesByTo {
   '/en/investors': typeof EnInvestorsRoute
   '/en/join-the-team': typeof EnJoinTheTeamRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
+  '/articulos': typeof ArticulosIndexRoute
   '/en': typeof EnIndexRoute
   '/admin/diagnosticos': typeof AdminAdminDiagnosticosRoute
   '/admin/reservas': typeof AdminAdminReservasRoute
   '/admin/waitlist': typeof AdminAdminWaitlistRoute
+  '/api/public/article-comments': typeof ApiPublicArticleCommentsRoute
   '/api/public/contact': typeof ApiPublicContactRoute
   '/api/public/diagnostico-submit': typeof ApiPublicDiagnosticoSubmitRoute
   '/api/public/gstruct-waitlist': typeof ApiPublicGstructWaitlistRoute
@@ -312,6 +344,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_admin': typeof AdminRouteWithChildren
   '/aliados-etw-2026': typeof AliadosEtw2026Route
+  '/articulos': typeof ArticulosRouteWithChildren
   '/contacto': typeof ContactoRoute
   '/diagnostico-friccion-ejecutiva': typeof DiagnosticoFriccionEjecutivaRoute
   '/enterprise': typeof EnterpriseRoute
@@ -323,6 +356,7 @@ export interface FileRoutesById {
   '/sobre-guillermo': typeof SobreGuillermoRoute
   '/unete-al-equipo': typeof UneteAlEquipoRoute
   '/unsubscribe': typeof UnsubscribeRoute
+  '/articulos/$slug': typeof ArticulosSlugRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/en/about-guillermo': typeof EnAboutGuillermoRoute
   '/en/contact': typeof EnContactRoute
@@ -332,10 +366,12 @@ export interface FileRoutesById {
   '/en/investors': typeof EnInvestorsRoute
   '/en/join-the-team': typeof EnJoinTheTeamRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
+  '/articulos/': typeof ArticulosIndexRoute
   '/en/': typeof EnIndexRoute
   '/_admin/admin/diagnosticos': typeof AdminAdminDiagnosticosRoute
   '/_admin/admin/reservas': typeof AdminAdminReservasRoute
   '/_admin/admin/waitlist': typeof AdminAdminWaitlistRoute
+  '/api/public/article-comments': typeof ApiPublicArticleCommentsRoute
   '/api/public/contact': typeof ApiPublicContactRoute
   '/api/public/diagnostico-submit': typeof ApiPublicDiagnosticoSubmitRoute
   '/api/public/gstruct-waitlist': typeof ApiPublicGstructWaitlistRoute
@@ -351,6 +387,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/aliados-etw-2026'
+    | '/articulos'
     | '/contacto'
     | '/diagnostico-friccion-ejecutiva'
     | '/enterprise'
@@ -362,6 +399,7 @@ export interface FileRouteTypes {
     | '/sobre-guillermo'
     | '/unete-al-equipo'
     | '/unsubscribe'
+    | '/articulos/$slug'
     | '/email/unsubscribe'
     | '/en/about-guillermo'
     | '/en/contact'
@@ -371,10 +409,12 @@ export interface FileRouteTypes {
     | '/en/investors'
     | '/en/join-the-team'
     | '/en/restructure-1-1'
+    | '/articulos/'
     | '/en/'
     | '/admin/diagnosticos'
     | '/admin/reservas'
     | '/admin/waitlist'
+    | '/api/public/article-comments'
     | '/api/public/contact'
     | '/api/public/diagnostico-submit'
     | '/api/public/gstruct-waitlist'
@@ -399,6 +439,7 @@ export interface FileRouteTypes {
     | '/sobre-guillermo'
     | '/unete-al-equipo'
     | '/unsubscribe'
+    | '/articulos/$slug'
     | '/email/unsubscribe'
     | '/en/about-guillermo'
     | '/en/contact'
@@ -408,10 +449,12 @@ export interface FileRouteTypes {
     | '/en/investors'
     | '/en/join-the-team'
     | '/en/restructure-1-1'
+    | '/articulos'
     | '/en'
     | '/admin/diagnosticos'
     | '/admin/reservas'
     | '/admin/waitlist'
+    | '/api/public/article-comments'
     | '/api/public/contact'
     | '/api/public/diagnostico-submit'
     | '/api/public/gstruct-waitlist'
@@ -426,6 +469,7 @@ export interface FileRouteTypes {
     | '/'
     | '/_admin'
     | '/aliados-etw-2026'
+    | '/articulos'
     | '/contacto'
     | '/diagnostico-friccion-ejecutiva'
     | '/enterprise'
@@ -437,6 +481,7 @@ export interface FileRouteTypes {
     | '/sobre-guillermo'
     | '/unete-al-equipo'
     | '/unsubscribe'
+    | '/articulos/$slug'
     | '/email/unsubscribe'
     | '/en/about-guillermo'
     | '/en/contact'
@@ -446,10 +491,12 @@ export interface FileRouteTypes {
     | '/en/investors'
     | '/en/join-the-team'
     | '/en/restructure-1-1'
+    | '/articulos/'
     | '/en/'
     | '/_admin/admin/diagnosticos'
     | '/_admin/admin/reservas'
     | '/_admin/admin/waitlist'
+    | '/api/public/article-comments'
     | '/api/public/contact'
     | '/api/public/diagnostico-submit'
     | '/api/public/gstruct-waitlist'
@@ -465,6 +512,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AdminRoute: typeof AdminRouteWithChildren
   AliadosEtw2026Route: typeof AliadosEtw2026Route
+  ArticulosRoute: typeof ArticulosRouteWithChildren
   ContactoRoute: typeof ContactoRoute
   DiagnosticoFriccionEjecutivaRoute: typeof DiagnosticoFriccionEjecutivaRoute
   EnterpriseRoute: typeof EnterpriseRoute
@@ -486,6 +534,7 @@ export interface RootRouteChildren {
   EnJoinTheTeamRoute: typeof EnJoinTheTeamRoute
   EnRestructure11Route: typeof EnRestructure11Route
   EnIndexRoute: typeof EnIndexRoute
+  ApiPublicArticleCommentsRoute: typeof ApiPublicArticleCommentsRoute
   ApiPublicContactRoute: typeof ApiPublicContactRoute
   ApiPublicDiagnosticoSubmitRoute: typeof ApiPublicDiagnosticoSubmitRoute
   ApiPublicGstructWaitlistRoute: typeof ApiPublicGstructWaitlistRoute
@@ -575,6 +624,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/articulos': {
+      id: '/articulos'
+      path: '/articulos'
+      fullPath: '/articulos'
+      preLoaderRoute: typeof ArticulosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/aliados-etw-2026': {
       id: '/aliados-etw-2026'
       path: '/aliados-etw-2026'
@@ -602,6 +658,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/en/'
       preLoaderRoute: typeof EnIndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/articulos/': {
+      id: '/articulos/'
+      path: '/'
+      fullPath: '/articulos/'
+      preLoaderRoute: typeof ArticulosIndexRouteImport
+      parentRoute: typeof ArticulosRoute
     }
     '/en/restructure-1-1': {
       id: '/en/restructure-1-1'
@@ -666,6 +729,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EmailUnsubscribeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/articulos/$slug': {
+      id: '/articulos/$slug'
+      path: '/$slug'
+      fullPath: '/articulos/$slug'
+      preLoaderRoute: typeof ArticulosSlugRouteImport
+      parentRoute: typeof ArticulosRoute
+    }
     '/_admin/admin/': {
       id: '/_admin/admin/'
       path: '/admin'
@@ -706,6 +776,13 @@ declare module '@tanstack/react-router' {
       path: '/api/public/contact'
       fullPath: '/api/public/contact'
       preLoaderRoute: typeof ApiPublicContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/article-comments': {
+      id: '/api/public/article-comments'
+      path: '/api/public/article-comments'
+      fullPath: '/api/public/article-comments'
+      preLoaderRoute: typeof ApiPublicArticleCommentsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_admin/admin/waitlist': {
@@ -769,10 +846,25 @@ const AdminRouteChildren: AdminRouteChildren = {
 
 const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
 
+interface ArticulosRouteChildren {
+  ArticulosSlugRoute: typeof ArticulosSlugRoute
+  ArticulosIndexRoute: typeof ArticulosIndexRoute
+}
+
+const ArticulosRouteChildren: ArticulosRouteChildren = {
+  ArticulosSlugRoute: ArticulosSlugRoute,
+  ArticulosIndexRoute: ArticulosIndexRoute,
+}
+
+const ArticulosRouteWithChildren = ArticulosRoute._addFileChildren(
+  ArticulosRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdminRoute: AdminRouteWithChildren,
   AliadosEtw2026Route: AliadosEtw2026Route,
+  ArticulosRoute: ArticulosRouteWithChildren,
   ContactoRoute: ContactoRoute,
   DiagnosticoFriccionEjecutivaRoute: DiagnosticoFriccionEjecutivaRoute,
   EnterpriseRoute: EnterpriseRoute,
@@ -794,6 +886,7 @@ const rootRouteChildren: RootRouteChildren = {
   EnJoinTheTeamRoute: EnJoinTheTeamRoute,
   EnRestructure11Route: EnRestructure11Route,
   EnIndexRoute: EnIndexRoute,
+  ApiPublicArticleCommentsRoute: ApiPublicArticleCommentsRoute,
   ApiPublicContactRoute: ApiPublicContactRoute,
   ApiPublicDiagnosticoSubmitRoute: ApiPublicDiagnosticoSubmitRoute,
   ApiPublicGstructWaitlistRoute: ApiPublicGstructWaitlistRoute,
