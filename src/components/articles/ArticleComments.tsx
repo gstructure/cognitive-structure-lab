@@ -42,7 +42,7 @@ export function ArticleComments({ slug }: { slug: string }) {
       const response = await fetch("/api/public/article-comments", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ slug, authorName: name, email, body, website }),
+        body: JSON.stringify({ slug, authorName: name, email, body, website, locale }),
       });
       if (!response.ok) throw new Error("comment_failed");
       setStatus("success");
