@@ -1,6 +1,6 @@
 type Item = { n?: string; t: string; d: string; status?: "done" | "active" | "next" };
 
-export function Timeline({ items, tone = "light" }: { items: Item[]; tone?: "light" | "dark" }) {
+export function Timeline({ items, tone = "light" }: { items: readonly Item[]; tone?: "light" | "dark" }) {
   const dark = tone === "dark";
   const lineColor = dark
     ? "bg-[color:var(--color-background)]/20"
