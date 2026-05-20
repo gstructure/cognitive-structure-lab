@@ -421,7 +421,7 @@ function PayPalSupportButton({
 
     const renderButtons = async () => {
       try {
-        await loadPayPalScript(clientId);
+        await loadPayPalScript(clientId, locale);
         if (cancelled || !containerRef.current || !window.paypal?.Buttons) return;
         containerRef.current.innerHTML = "";
         window.paypal.Buttons({
@@ -482,15 +482,23 @@ function PayPalSupportButton({
   return <div ref={containerRef} />;
 }
 
-function loadPayPalScript(clientId: string) {
+function getPayPalLocale(locale: "es" | "en") {
+  return locale === "en" ? "en_US" : "es_ES";
+}
+
+function loadPayPalScript(clientId: string, locale: "es" | "en") {
+  const paypalLocale = getPayPalLocale(locale);
   const existing = document.querySelector<HTMLScriptElement>("script[data-gstructure-paypal]");
-  if (existing) return Promise.resolve();
+  if (existing?.dataset.gstructurePaypalLocale === paypalLocale) return Promise.resolve();
+  existing?.remove();
+  delete window.paypal;
 
   return new Promise<void>((resolve, reject) => {
     const script = document.createElement("script");
-    script.src = `https://www.paypal.com/sdk/js?client-id=${encodeURIComponent(clientId)}&currency=USD&intent=capture`;
+    script.src = `https://www.paypal.com/sdk/js?client-id=${encodeURIComponent(clientId)}&currency=USD&intent=capture&locale=${paypalLocale}`;
     script.async = true;
     script.dataset.gstructurePaypal = "true";
+    script.dataset.gstructurePaypalLocale = paypalLocale;
     script.onload = () => resolve();
     script.onerror = () => reject(new Error("paypal_sdk_failed"));
     document.head.appendChild(script);
