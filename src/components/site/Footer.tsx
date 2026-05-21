@@ -15,9 +15,9 @@ export function Footer() {
     { to: gStructBase, label: "G-Struct" },
     { to: locale === "en" ? "/en/articles" : "/articulos", label: locale === "en" ? "Articles" : "Artículos" },
     { to: locale === "en" ? "/en/newsletter" : "/newsletter", label: "Newsletter" },
-    { to: (locale === "en" ? "/en" : "/") + "#support-launch", label: locale === "en" ? "Support G-Structure" : "Apoya G-Structure" },
+    { to: locale === "en" ? "/en/support-the-launch" : "/apoya-el-lanzamiento", label: locale === "en" ? "Support G-Structure" : "Apoya G-Structure" },
     { to: gStructBase + "#waitlist", label: locale === "en" ? "Waitlist" : "Lista de espera" },
-    { to: (locale === "en" ? "/en" : "/") + "#diagnostico", label: locale === "en" ? "Execution Diagnostic" : "Diagnóstico de Ejecución" },
+    { to: "/diagnostico-friccion-ejecutiva", label: locale === "en" ? "Execution Diagnostic" : "Diagnóstico de Ejecución" },
   ];
 
   const validationLinks: FooterLink[] = [
@@ -114,22 +114,21 @@ export function Footer() {
           {t("common.legal")}
         </p>
 
-        <div className="mt-6 pt-6 border-t border-border flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-          <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} G-Structure. {t("common.rightsReserved")} {t("common.initiativeOf")}
-          </p>
-          <nav aria-label="Legal" className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted-foreground">
-            <Link to="/politicas-legales" className="hover:text-foreground">Políticas Legales</Link>
-            <span aria-hidden>·</span>
-            <a href="/politicas-legales#privacidad" className="hover:text-foreground">Privacidad</a>
-            <span aria-hidden>·</span>
-            <a href="/politicas-legales#terminos" className="hover:text-foreground">Términos</a>
-            <span aria-hidden>·</span>
-            <a href="/politicas-legales#cookies" className="hover:text-foreground">Cookies</a>
-          </nav>
-          <p className="text-xs text-muted-foreground tracking-wide">
-            {t("footer.irO")}
-          </p>
+        <div className="mt-6 border-t border-border pt-6">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+            <p className="text-xs text-muted-foreground lg:shrink-0">
+              © {new Date().getFullYear()} G-Structure. {t("common.rightsReserved")} {t("common.initiativeOf")}
+            </p>
+            <nav aria-label="Legal" className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-muted-foreground lg:justify-center">
+              <Link to="/politicas-legales" className="hover:text-foreground">Políticas Legales</Link>
+              <a href="/politicas-legales#privacidad" className="hover:text-foreground">Privacidad</a>
+              <a href="/politicas-legales#terminos" className="hover:text-foreground">Términos</a>
+              <a href="/politicas-legales#cookies" className="hover:text-foreground">Cookies</a>
+            </nav>
+            <p className="text-xs text-muted-foreground tracking-wide lg:shrink-0 lg:text-right">
+              {t("footer.irO")}
+            </p>
+          </div>
         </div>
       </div>
     </footer>

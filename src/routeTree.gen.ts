@@ -22,11 +22,13 @@ import { Route as EnterpriseRouteImport } from './routes/enterprise'
 import { Route as DiagnosticoFriccionEjecutivaRouteImport } from './routes/diagnostico-friccion-ejecutiva'
 import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as ArticulosRouteImport } from './routes/articulos'
+import { Route as ApoyaElLanzamientoRouteImport } from './routes/apoya-el-lanzamiento'
 import { Route as AliadosEtw2026RouteImport } from './routes/aliados-etw-2026'
 import { Route as AdminRouteImport } from './routes/_admin'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as EnIndexRouteImport } from './routes/en.index'
 import { Route as ArticulosIndexRouteImport } from './routes/articulos.index'
+import { Route as EnSupportTheLaunchRouteImport } from './routes/en.support-the-launch'
 import { Route as EnRestructure11RouteImport } from './routes/en.restructure-1-1'
 import { Route as EnNewsletterRouteImport } from './routes/en.newsletter'
 import { Route as EnJoinTheTeamRouteImport } from './routes/en.join-the-team'
@@ -127,6 +129,11 @@ const ArticulosRoute = ArticulosRouteImport.update({
   path: '/articulos',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApoyaElLanzamientoRoute = ApoyaElLanzamientoRouteImport.update({
+  id: '/apoya-el-lanzamiento',
+  path: '/apoya-el-lanzamiento',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AliadosEtw2026Route = AliadosEtw2026RouteImport.update({
   id: '/aliados-etw-2026',
   path: '/aliados-etw-2026',
@@ -150,6 +157,11 @@ const ArticulosIndexRoute = ArticulosIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => ArticulosRoute,
+} as any)
+const EnSupportTheLaunchRoute = EnSupportTheLaunchRouteImport.update({
+  id: '/en/support-the-launch',
+  path: '/en/support-the-launch',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const EnRestructure11Route = EnRestructure11RouteImport.update({
   id: '/en/restructure-1-1',
@@ -331,6 +343,7 @@ const LovableEmailQueueProcessRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/aliados-etw-2026': typeof AliadosEtw2026Route
+  '/apoya-el-lanzamiento': typeof ApoyaElLanzamientoRoute
   '/articulos': typeof ArticulosRouteWithChildren
   '/contacto': typeof ContactoRoute
   '/diagnostico-friccion-ejecutiva': typeof DiagnosticoFriccionEjecutivaRoute
@@ -356,6 +369,7 @@ export interface FileRoutesByFullPath {
   '/en/join-the-team': typeof EnJoinTheTeamRoute
   '/en/newsletter': typeof EnNewsletterRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
+  '/en/support-the-launch': typeof EnSupportTheLaunchRoute
   '/articulos/': typeof ArticulosIndexRoute
   '/en/': typeof EnIndexRoute
   '/admin/comentarios': typeof AdminAdminComentariosRoute
@@ -383,6 +397,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/aliados-etw-2026': typeof AliadosEtw2026Route
+  '/apoya-el-lanzamiento': typeof ApoyaElLanzamientoRoute
   '/contacto': typeof ContactoRoute
   '/diagnostico-friccion-ejecutiva': typeof DiagnosticoFriccionEjecutivaRoute
   '/enterprise': typeof EnterpriseRoute
@@ -406,6 +421,7 @@ export interface FileRoutesByTo {
   '/en/join-the-team': typeof EnJoinTheTeamRoute
   '/en/newsletter': typeof EnNewsletterRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
+  '/en/support-the-launch': typeof EnSupportTheLaunchRoute
   '/articulos': typeof ArticulosIndexRoute
   '/en': typeof EnIndexRoute
   '/admin/comentarios': typeof AdminAdminComentariosRoute
@@ -435,6 +451,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_admin': typeof AdminRouteWithChildren
   '/aliados-etw-2026': typeof AliadosEtw2026Route
+  '/apoya-el-lanzamiento': typeof ApoyaElLanzamientoRoute
   '/articulos': typeof ArticulosRouteWithChildren
   '/contacto': typeof ContactoRoute
   '/diagnostico-friccion-ejecutiva': typeof DiagnosticoFriccionEjecutivaRoute
@@ -460,6 +477,7 @@ export interface FileRoutesById {
   '/en/join-the-team': typeof EnJoinTheTeamRoute
   '/en/newsletter': typeof EnNewsletterRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
+  '/en/support-the-launch': typeof EnSupportTheLaunchRoute
   '/articulos/': typeof ArticulosIndexRoute
   '/en/': typeof EnIndexRoute
   '/_admin/admin/comentarios': typeof AdminAdminComentariosRoute
@@ -489,6 +507,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/aliados-etw-2026'
+    | '/apoya-el-lanzamiento'
     | '/articulos'
     | '/contacto'
     | '/diagnostico-friccion-ejecutiva'
@@ -514,6 +533,7 @@ export interface FileRouteTypes {
     | '/en/join-the-team'
     | '/en/newsletter'
     | '/en/restructure-1-1'
+    | '/en/support-the-launch'
     | '/articulos/'
     | '/en/'
     | '/admin/comentarios'
@@ -541,6 +561,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/aliados-etw-2026'
+    | '/apoya-el-lanzamiento'
     | '/contacto'
     | '/diagnostico-friccion-ejecutiva'
     | '/enterprise'
@@ -564,6 +585,7 @@ export interface FileRouteTypes {
     | '/en/join-the-team'
     | '/en/newsletter'
     | '/en/restructure-1-1'
+    | '/en/support-the-launch'
     | '/articulos'
     | '/en'
     | '/admin/comentarios'
@@ -592,6 +614,7 @@ export interface FileRouteTypes {
     | '/'
     | '/_admin'
     | '/aliados-etw-2026'
+    | '/apoya-el-lanzamiento'
     | '/articulos'
     | '/contacto'
     | '/diagnostico-friccion-ejecutiva'
@@ -617,6 +640,7 @@ export interface FileRouteTypes {
     | '/en/join-the-team'
     | '/en/newsletter'
     | '/en/restructure-1-1'
+    | '/en/support-the-launch'
     | '/articulos/'
     | '/en/'
     | '/_admin/admin/comentarios'
@@ -646,6 +670,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AdminRoute: typeof AdminRouteWithChildren
   AliadosEtw2026Route: typeof AliadosEtw2026Route
+  ApoyaElLanzamientoRoute: typeof ApoyaElLanzamientoRoute
   ArticulosRoute: typeof ArticulosRouteWithChildren
   ContactoRoute: typeof ContactoRoute
   DiagnosticoFriccionEjecutivaRoute: typeof DiagnosticoFriccionEjecutivaRoute
@@ -670,6 +695,7 @@ export interface RootRouteChildren {
   EnJoinTheTeamRoute: typeof EnJoinTheTeamRoute
   EnNewsletterRoute: typeof EnNewsletterRoute
   EnRestructure11Route: typeof EnRestructure11Route
+  EnSupportTheLaunchRoute: typeof EnSupportTheLaunchRoute
   EnIndexRoute: typeof EnIndexRoute
   ApiPublicArticleCommentsRoute: typeof ApiPublicArticleCommentsRoute
   ApiPublicContactRoute: typeof ApiPublicContactRoute
@@ -779,6 +805,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ArticulosRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/apoya-el-lanzamiento': {
+      id: '/apoya-el-lanzamiento'
+      path: '/apoya-el-lanzamiento'
+      fullPath: '/apoya-el-lanzamiento'
+      preLoaderRoute: typeof ApoyaElLanzamientoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/aliados-etw-2026': {
       id: '/aliados-etw-2026'
       path: '/aliados-etw-2026'
@@ -813,6 +846,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/articulos/'
       preLoaderRoute: typeof ArticulosIndexRouteImport
       parentRoute: typeof ArticulosRoute
+    }
+    '/en/support-the-launch': {
+      id: '/en/support-the-launch'
+      path: '/en/support-the-launch'
+      fullPath: '/en/support-the-launch'
+      preLoaderRoute: typeof EnSupportTheLaunchRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/en/restructure-1-1': {
       id: '/en/restructure-1-1'
@@ -1100,6 +1140,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdminRoute: AdminRouteWithChildren,
   AliadosEtw2026Route: AliadosEtw2026Route,
+  ApoyaElLanzamientoRoute: ApoyaElLanzamientoRoute,
   ArticulosRoute: ArticulosRouteWithChildren,
   ContactoRoute: ContactoRoute,
   DiagnosticoFriccionEjecutivaRoute: DiagnosticoFriccionEjecutivaRoute,
@@ -1124,6 +1165,7 @@ const rootRouteChildren: RootRouteChildren = {
   EnJoinTheTeamRoute: EnJoinTheTeamRoute,
   EnNewsletterRoute: EnNewsletterRoute,
   EnRestructure11Route: EnRestructure11Route,
+  EnSupportTheLaunchRoute: EnSupportTheLaunchRoute,
   EnIndexRoute: EnIndexRoute,
   ApiPublicArticleCommentsRoute: ApiPublicArticleCommentsRoute,
   ApiPublicContactRoute: ApiPublicContactRoute,

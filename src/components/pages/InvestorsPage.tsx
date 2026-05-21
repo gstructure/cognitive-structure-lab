@@ -612,8 +612,7 @@ export function InvestorsPage({ locale, contactTo }: { locale: Locale; contactTo
               : "Para early believers que quieren ayudar a validar el workshop, fortalecer el prototipo y llevar G-Struct hacia MVP sin recibir equity ni retorno financiero."}
           </p>
           <CTALink
-            to={locale === "en" ? "/en" : "/"}
-            hash="support-launch"
+            to={locale === "en" ? "/en/support-the-launch" : "/apoya-el-lanzamiento"}
             variant="outline"
             className="mt-6"
           >

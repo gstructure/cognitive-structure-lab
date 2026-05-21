@@ -10,7 +10,7 @@ import { BriefDownloadCard } from "@/components/site/BriefDownloadCard";
 import { FrictionQuiz } from "@/components/site/FrictionQuiz";
 import { WaitlistForm } from "@/components/site/WaitlistForm";
 import { SocialProofBar } from "@/components/site/SocialProofBar";
-import { SupportLaunchSection } from "@/components/site/SupportLaunchSection";
+import { SupportLaunchTeaser } from "@/components/site/SupportLaunchTeaser";
 import { ArticleCard } from "@/components/articles/ArticleCard";
 
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
@@ -614,7 +614,7 @@ function Hero() {
             </p>
 
             <div className="mt-9 flex flex-wrap items-center gap-3">
-              <CTALink to={lp("/", locale)} hash="waitlist" variant="primary" analyticsLabel="home_hero_waitlist">
+              <CTALink to={lp("/g-struct", locale)} hash="waitlist" variant="primary" analyticsLabel="home_hero_waitlist">
                 {c.linkWaitlist}
               </CTALink>
               <CTALink to={lp("/g-struct", locale)} variant="outline" analyticsLabel="home_hero_gstruct">
@@ -627,13 +627,13 @@ function Hero() {
 
             <ul className="mt-8 grid gap-2 text-[13.5px] sm:grid-cols-2 max-w-xl">
               <li>
-                <Link to={lp("/", locale)} hash="quiz" className="group inline-flex items-center gap-2 text-foreground/85 hover:text-foreground">
+                <Link to="/diagnostico-friccion-ejecutiva" className="group inline-flex items-center gap-2 text-foreground/85 hover:text-foreground">
                   <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
                   {c.linkQuiz}
                 </Link>
               </li>
               <li>
-                <Link to={lp("/", locale)} hash="waitlist" className="group inline-flex items-center gap-2 text-foreground/85 hover:text-foreground">
+                <Link to={lp("/g-struct", locale)} hash="waitlist" className="group inline-flex items-center gap-2 text-foreground/85 hover:text-foreground">
                   <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
                   {c.linkWaitlist}
                 </Link>
@@ -1215,7 +1215,7 @@ function GStructBridge() {
       </div>
 
       <div className="mt-12 flex flex-col items-center text-center gap-3">
-        <CTALink to={lp("/", locale)} hash="waitlist" variant="primary" analyticsLabel="home_gstruct_section_waitlist">
+        <CTALink to={lp("/g-struct", locale)} hash="waitlist" variant="primary" analyticsLabel="home_gstruct_section_waitlist">
           {c.ctaWaitlist}
         </CTALink>
         <p className="text-sm text-muted-foreground">
@@ -1393,7 +1393,7 @@ function FinalCTA() {
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-3">
           <CTALink to={lp("/g-struct", locale)} variant="inverse">{c.ctaExplore}</CTALink>
-          <CTALink to={lp("/", locale)} hash="waitlist" variant="inverse" analyticsLabel="home_final_waitlist">
+          <CTALink to={lp("/g-struct", locale)} hash="waitlist" variant="inverse" analyticsLabel="home_final_waitlist">
             {c.ctaWaitlist}
           </CTALink>
           <CTALink to={lp("/contacto", locale)} variant="ghost" className="text-[color:var(--color-background)] hover:bg-[color:var(--color-background)]/10">
@@ -1445,31 +1445,129 @@ function FeaturedArticles() {
   );
 }
 
+function HomeNews() {
+  const { locale } = useLocale();
+  const copy = locale === "en"
+    ? {
+        eyebrow: "GOOD NEWS",
+        title: "Two signals from the next stage.",
+        subtitle:
+          "A quick look at what is moving: G-Structure is legally incorporated in Ecuador, and the launch will happen inside Ecuador Tech Week 2026.",
+        items: [
+          {
+            label: "Company update",
+            title: "G-Structure is now legally incorporated in Ecuador.",
+            body: "The public brand remains G-Structure. G-Struct remains the main product. SUCOSTRUCT S.A.S. B.I.C. is the legal structure behind the next stage.",
+            to: "/en/articles/g-structure-legally-incorporated-ecuador-sucostruct",
+            cta: "Read the update",
+            external: false,
+          },
+          {
+            label: "Launch milestone",
+            title: "G-Structure is part of Ecuador Tech Week 2026.",
+            body: "On July 14, G-Structure will present the Execution Diagnostic Workshop in Guayaquil as part of the first public validation of G-Struct.",
+            to: "https://luma.com/lm4njhiu",
+            cta: "See the event",
+            external: true,
+          },
+        ],
+      }
+    : {
+        eyebrow: "BUENAS NOTICIAS",
+        title: "Dos señales de la siguiente etapa.",
+        subtitle:
+          "Un vistazo rápido a lo que se está moviendo: G-Structure ya tiene estructura legal en Ecuador y el lanzamiento será dentro de Ecuador Tech Week 2026.",
+        items: [
+          {
+            label: "Actualización de compañía",
+            title: "G-Structure formaliza su estructura legal en Ecuador.",
+            body: "La marca comercial sigue siendo G-Structure. G-Struct sigue siendo el producto principal. SUCOSTRUCT S.A.S. B.I.C. es la razón social detrás de la siguiente etapa.",
+            to: "/articulos/g-structure-constituida-ecuador-sucostruct",
+            cta: "Leer actualización",
+            external: false,
+          },
+          {
+            label: "Hito de lanzamiento",
+            title: "G-Structure será parte de Ecuador Tech Week 2026.",
+            body: "El 14 de julio, G-Structure presentará el Workshop de Diagnóstico de Ejecución en Guayaquil como parte de la primera validación pública de G-Struct.",
+            to: "https://luma.com/lm4njhiu",
+            cta: "Ver evento",
+            external: true,
+          },
+        ],
+      };
+
+  return (
+    <Section>
+      <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <SectionHeader eyebrow={copy.eyebrow} title={copy.title} subtitle={copy.subtitle} />
+        <CTALink to={locale === "en" ? "/en/articles" : "/articulos"} variant="outline">
+          {locale === "en" ? "View articles" : "Ver artículos"}
+        </CTALink>
+      </div>
+      <div className="mt-10 grid gap-px border border-border bg-border md:grid-cols-2">
+        {copy.items.map((item) => {
+          const content = (
+            <>
+              <p className="eyebrow text-[10px]">{item.label}</p>
+              <h3 className="mt-4 font-display text-2xl leading-tight text-foreground">{item.title}</h3>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
+              <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground">
+                {item.cta}
+                {item.external ? <ExternalLink size={14} /> : <ArrowRight size={14} />}
+              </span>
+            </>
+          );
+
+          return item.external ? (
+            <a
+              key={item.title}
+              href={item.to}
+              target="_blank"
+              rel="noreferrer"
+              className="group block bg-[color:var(--color-surface)] p-6 transition-colors hover:bg-background md:p-8"
+            >
+              {content}
+            </a>
+          ) : (
+            <Link
+              key={item.title}
+              to={item.to}
+              className="group block bg-[color:var(--color-surface)] p-6 transition-colors hover:bg-background md:p-8"
+            >
+              {content}
+            </Link>
+          );
+        })}
+      </div>
+    </Section>
+  );
+}
+
 export function Index() {
   // Keep MentalOS/Solutions/ForWhom available for layouts that want them later.
   void MentalOS;
   void Solutions;
   void ForWhom;
+  void Problem;
+  void FrictionQuiz;
+  void WaitlistForm;
+  void ValidationChannels;
+  void ETWBanner;
+  void BriefDownloadCard;
+  void FAQSection;
+  void CompanyUpdate;
+  void FeaturedArticles;
   return (
     <>
       <Hero />
       <SocialProofBar />
-      <CompanyUpdate />
       <GStructBridge />
       <Method />
-      <Problem />
-      <FrictionQuiz />
-      <WaitlistForm />
-      <SupportLaunchSection />
-      <ValidationChannels />
-      <FeaturedArticles />
       <StartupStage />
-      <ETWBanner />
+      <HomeNews />
+      <SupportLaunchTeaser />
       <Founder />
-      <Section tone="muted">
-        <BriefDownloadCard />
-      </Section>
-      <FAQSection />
       <FinalCTA />
     </>
   );
