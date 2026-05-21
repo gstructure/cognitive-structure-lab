@@ -34,6 +34,7 @@ export function swapLocalePath(pathname: string, target: Locale): string {
   const cleanPath = pathname.split(/[?#]/)[0];
 
   const articleSlugPairs = [
+    { es: "g-structure-constituida-ecuador-sucostruct", en: "g-structure-legally-incorporated-ecuador-sucostruct" },
     { es: "g-struct-product-update-q3", en: "g-struct-product-update-q3" },
     { es: "la-crisis-de-la-ejecucion", en: "the-execution-crisis" },
     { es: "la-infraestructura-invisible-del-habito", en: "the-invisible-infrastructure-of-habit" },

@@ -1331,6 +1331,54 @@ function StartupStage() {
   );
 }
 
+function CompanyUpdate() {
+  const { locale } = useLocale();
+  const copy = locale === "en"
+    ? {
+        eyebrow: "COMPANY UPDATE",
+        title: "G-Structure is now legally incorporated in Ecuador.",
+        body: "Our public brand remains G-Structure. Our main product remains G-Struct. SUCOSTRUCT S.A.S. B.I.C. is the legal structure that allows us to operate, partner, validate, and scale with greater clarity.",
+        legal: "Commercial name: G-Structure · Legal name: SUCOSTRUCT S.A.S. B.I.C.",
+        cta: "Read the update",
+        to: "/en/articles/g-structure-legally-incorporated-ecuador-sucostruct",
+      }
+    : {
+        eyebrow: "ACTUALIZACIÓN DE COMPAÑÍA",
+        title: "G-Structure formaliza su estructura legal en Ecuador.",
+        body: "Nuestra marca comercial sigue siendo G-Structure. Nuestro producto principal sigue siendo G-Struct. SUCOSTRUCT S.A.S. B.I.C. es la razón social que nos permite operar, aliarnos, validar y escalar con mayor claridad.",
+        legal: "Nombre comercial: G-Structure · Razón social: SUCOSTRUCT S.A.S. B.I.C.",
+        cta: "Leer actualización",
+        to: "/articulos/g-structure-constituida-ecuador-sucostruct",
+      };
+
+  return (
+    <Section tone="white">
+      <div className="border-y border-border py-8 md:py-10">
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-8">
+            <Eyebrow>{copy.eyebrow}</Eyebrow>
+            <h2 className="mt-3 font-display text-2xl md:text-3xl leading-tight text-foreground">
+              {copy.title}
+            </h2>
+            <p className="mt-4 max-w-3xl text-sm md:text-base leading-relaxed text-muted-foreground">
+              {copy.body}
+            </p>
+            <p className="mt-3 text-xs text-muted-foreground">
+              {copy.legal}
+            </p>
+          </div>
+          <div className="lg:col-span-4 lg:text-right">
+            <Link to={copy.to as string} className="inline-flex items-center gap-2 border border-foreground px-5 py-3 text-sm font-medium text-foreground transition-colors hover:bg-foreground hover:text-background">
+              {copy.cta}
+              <ArrowRight size={15} />
+            </Link>
+          </div>
+        </div>
+      </div>
+    </Section>
+  );
+}
+
 function FinalCTA() {
   const { locale } = useLocale();
   const c = COPY[locale].finalCTA;
@@ -1406,6 +1454,7 @@ export function Index() {
     <>
       <Hero />
       <SocialProofBar />
+      <CompanyUpdate />
       <GStructBridge />
       <Method />
       <Problem />

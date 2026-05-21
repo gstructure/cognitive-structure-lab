@@ -1,6 +1,6 @@
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
 
-export type ArticleCategory = "Founder Notes" | "G-Struct Build Notes" | "I-R-O™ Method";
+export type ArticleCategory = "Founder Notes" | "G-Struct Build Notes" | "I-R-O™ Method" | "Company Updates";
 
 export type ArticleBlock = {
   type: "p" | "h2" | "quote";
@@ -22,6 +22,32 @@ export type Article = {
 };
 
 export const ARTICLES: Article[] = [
+  {
+    slug: "g-structure-constituida-ecuador-sucostruct",
+    title: "G-Structure formaliza su estructura legal en Ecuador",
+    subtitle: "Nuestra marca sigue siendo G-Structure. Nuestro producto principal sigue siendo G-Struct. SUCOSTRUCT S.A.S. B.I.C. es la razón social que sostiene la siguiente etapa.",
+    category: "Company Updates",
+    excerpt:
+      "G-Structure ahora cuenta con una estructura legal constituida en Ecuador como SUCOSTRUCT S.A.S. B.I.C., un paso para operar, validar y escalar G-Struct con mayor claridad.",
+    author: "Guillermo Suco",
+    publishedAt: "2026-05-21",
+    readMinutes: 4,
+    featured: true,
+    tags: ["G-Structure", "SUCOSTRUCT", "Company Update", "G-Struct"],
+    blocks: [
+      { type: "p", text: "Lo que empezó como una idea clara, aplicar principios cognitivo-conductuales a la ejecución, la productividad y el rendimiento profesional, hoy da un paso importante en su proceso de madurez." },
+      { type: "p", text: "G-Structure ahora cuenta con una estructura legal constituida en Ecuador: SUCOSTRUCT S.A.S. B.I.C. Esto no significa un cambio de marca. G-Structure sigue siendo nuestro nombre comercial, nuestra identidad pública y el espacio desde el cual seguimos construyendo nuestra metodología, nuestros programas de validación y nuestro producto principal: G-Struct." },
+      { type: "p", text: "SUCOSTRUCT S.A.S. B.I.C. es la razón social que nos permite operar con mayor claridad, ordenar lo que estamos construyendo y preparar la empresa para conversaciones comerciales, institucionales y estratégicas más sólidas." },
+      { type: "p", text: "La esencia sigue siendo la misma: ayudar a profesionales, emprendedores y equipos a identificar los patrones que bloquean la acción, reencuadrarlos con método y convertirlos en ejecución concreta. Lo que cambia es la base legal desde la cual operamos." },
+      { type: "p", text: "Esta estructura nos permite organizar mejor nuestras operaciones, abrir conversaciones corporativas con mayor solidez, preparar el desarrollo de G-Struct como plataforma digital y construir relaciones comerciales, institucionales y estratégicas desde una figura jurídica adecuada." },
+      { type: "p", text: "G-Struct sigue siendo una prioridad central. Esta constitución nos da una base más sólida para seguir trabajando en su desarrollo, validación y escalamiento. No estamos hablando solo de una app. Estamos construyendo una herramienta para ayudar a las personas a procesar su fricción mental, entender sus patrones de ejecución y convertir claridad en acción." },
+      { type: "p", text: "La denominación B.I.C., Beneficio e Interés Colectivo, también importa. No queremos construir una empresa que hable de rendimiento ignorando el impacto humano del trabajo. Nuestro enfoque busca mejorar la forma en que las personas y los equipos ejecutan, pero sin romantizar la presión, la sobreexigencia o el desgaste." },
+      { type: "quote", text: "La productividad que nos interesa no es hacer más por hacer más. Es ejecutar con mayor claridad, estructura y sostenibilidad." },
+      { type: "p", text: "Este paso confirma algo importante: estamos construyendo la estructura necesaria para sostener nuestra visión. Queremos consolidar a G-Structure como una startup líder en la región en optimización de la ejecución profesional, convirtiendo nuestro método propietario I-R-O™ en un estándar digital de desarrollo cognitivo-conductual a través del escalamiento de G-Struct." },
+      { type: "p", text: "G-Structure sigue siendo G-Structure. G-Struct sigue siendo el producto principal. Ahora operamos desde una estructura legal más clara: SUCOSTRUCT S.A.S. B.I.C." },
+      { type: "p", text: "Y seguimos avanzando." },
+    ],
+  },
   {
     slug: "g-struct-product-update-q3",
     title: "G-Struct Product Update: lo que estamos construyendo para Q3",
@@ -128,6 +154,32 @@ export const ARTICLES: Article[] = [
 export type ArticleLocale = "es" | "en";
 
 export const EN_ARTICLES: Article[] = [
+  {
+    slug: "g-structure-legally-incorporated-ecuador-sucostruct",
+    title: "G-Structure is now legally incorporated in Ecuador",
+    subtitle: "Our public brand remains G-Structure. Our main product remains G-Struct. SUCOSTRUCT S.A.S. B.I.C. is the legal structure behind the next stage.",
+    category: "Company Updates",
+    excerpt:
+      "G-Structure now has a formal legal structure in Ecuador as SUCOSTRUCT S.A.S. B.I.C., giving the startup a clearer base to operate, validate, and scale G-Struct.",
+    author: "Guillermo Suco",
+    publishedAt: "2026-05-21",
+    readMinutes: 4,
+    featured: true,
+    tags: ["G-Structure", "SUCOSTRUCT", "Company Update", "G-Struct"],
+    blocks: [
+      { type: "p", text: "What began as a clear idea, applying cognitive-behavioral principles to execution, productivity, and professional performance, is now taking an important step in its maturity process." },
+      { type: "p", text: "G-Structure now has a formal legal structure in Ecuador: SUCOSTRUCT S.A.S. B.I.C. This is not a brand change. G-Structure remains our commercial name, our public identity, and the space from which we continue building our methodology, our validation programs, and our main product: G-Struct." },
+      { type: "p", text: "SUCOSTRUCT S.A.S. B.I.C. is the legal name that allows us to operate with greater clarity, organize what we are building, and prepare the company for stronger commercial, institutional, and strategic conversations." },
+      { type: "p", text: "The essence remains the same: helping professionals, founders, and teams identify the patterns that block action, reframe them with method, and convert them into concrete execution. What changes is the legal base from which we operate." },
+      { type: "p", text: "This structure helps us organize operations, open corporate conversations with more solidity, prepare the development of G-Struct as a digital platform, and build commercial, institutional, and strategic relationships from an appropriate legal figure." },
+      { type: "p", text: "G-Struct remains a central priority. This incorporation gives us a stronger base to keep working on its development, validation, and scaling. We are not only talking about an app. We are building a tool to help people process mental friction, understand their execution patterns, and turn clarity into action." },
+      { type: "p", text: "The B.I.C. designation, Benefit and Collective Interest, matters too. We do not want to build a company that talks about performance while ignoring the human impact of work. Our approach seeks to improve how people and teams execute without romanticizing pressure, overextension, or burnout." },
+      { type: "quote", text: "The productivity we care about is not doing more for the sake of doing more. It is executing with more clarity, structure, and sustainability." },
+      { type: "p", text: "This step confirms something important: we are building the structure required to sustain our vision. We want to consolidate G-Structure as a leading startup in the region for professional execution optimization, turning our proprietary I-R-O™ method into a digital standard for cognitive-behavioral development through the scaling of G-Struct." },
+      { type: "p", text: "G-Structure remains G-Structure. G-Struct remains the main product. We now operate from a clearer legal structure: SUCOSTRUCT S.A.S. B.I.C." },
+      { type: "p", text: "And we keep moving forward." },
+    ],
+  },
   {
     slug: "g-struct-product-update-q3",
     title: "G-Struct Product Update: what we are building for Q3",
