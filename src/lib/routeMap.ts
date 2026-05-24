@@ -38,6 +38,7 @@ export function swapLocalePath(pathname: string, target: Locale): string {
     { es: "g-structure-constituida-ecuador-sucostruct", en: "g-structure-legally-incorporated-ecuador-sucostruct" },
     { es: "g-struct-product-update-q3", en: "g-struct-product-update-q3" },
     { es: "la-crisis-de-la-ejecucion", en: "the-execution-crisis" },
+    { es: "de-la-mediacion-cognitiva", en: "on-cognitive-mediation" },
     { es: "la-infraestructura-invisible-del-habito", en: "the-invisible-infrastructure-of-habit" },
   ];
   if (cleanPath.startsWith("/articulos/") && target === "en") {
