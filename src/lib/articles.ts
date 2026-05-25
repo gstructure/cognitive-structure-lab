@@ -21,6 +21,14 @@ export type Article = {
   blocks: ArticleBlock[];
 };
 
+const ARTICLE_TRANSLATIONS = [
+  { es: "g-structure-constituida-ecuador-sucostruct", en: "g-structure-legally-incorporated-ecuador-sucostruct" },
+  { es: "g-struct-product-update-q3", en: "g-struct-product-update-q3" },
+  { es: "la-crisis-de-la-ejecucion", en: "the-execution-crisis" },
+  { es: "de-la-mediacion-cognitiva", en: "on-cognitive-mediation" },
+  { es: "la-infraestructura-invisible-del-habito", en: "the-invisible-infrastructure-of-habit" },
+];
+
 export const ARTICLES: Article[] = [
   {
     slug: "g-structure-constituida-ecuador-sucostruct",
@@ -375,8 +383,9 @@ export function articleUrl(article: Article, locale: ArticleLocale = "es") {
 }
 
 export function articleCanonicalLinks(article: Article, locale: ArticleLocale) {
-  const esArticle = ARTICLES.find((item) => item.title === (locale === "es" ? article.title : undefined)) ?? ARTICLES.find((item) => item.tags[0] === article.tags[0]);
-  const enArticle = EN_ARTICLES.find((item) => item.title === (locale === "en" ? article.title : undefined)) ?? EN_ARTICLES.find((item) => item.tags[0] === article.tags[0]);
+  const pair = ARTICLE_TRANSLATIONS.find((item) => item[locale] === article.slug);
+  const esArticle = pair ? ARTICLES.find((item) => item.slug === pair.es) : undefined;
+  const enArticle = pair ? EN_ARTICLES.find((item) => item.slug === pair.en) : undefined;
   const esPath = esArticle ? articlePath(esArticle, "es") : "/articulos";
   const enPath = enArticle ? articlePath(enArticle, "en") : "/en/articles";
 
