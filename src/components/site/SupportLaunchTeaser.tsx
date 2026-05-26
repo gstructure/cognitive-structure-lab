@@ -9,9 +9,9 @@ export function SupportLaunchTeaser() {
   const copy = locale === "en"
     ? {
         eyebrow: "EARLY-STAGE STARTUP SUPPORT",
-        title: "Support the launch of G-Struct.",
+        title: "Support the launch of G-Frame.",
         subtitle:
-          "Help G-Structure move G-Struct from prototype to MVP through early validation, product development, and the July 14 launch inside Ecuador Tech Week.",
+          "Help G-Structure move G-Frame from prototype to MVP through early validation, product development, and the July 14 launch inside Ecuador Tech Week.",
         note:
           "This is early startup support, not a donation campaign, investment offering, equity sale, or promise of financial return.",
         primary: "Support the launch",
@@ -20,9 +20,9 @@ export function SupportLaunchTeaser() {
       }
     : {
         eyebrow: "APOYO TEMPRANO DE STARTUP",
-        title: "Apoya el lanzamiento de G-Struct.",
+        title: "Apoya el lanzamiento de G-Frame.",
         subtitle:
-          "Ayuda a G-Structure a llevar G-Struct del prototipo al MVP mediante validación temprana, desarrollo de producto y el lanzamiento del 14 de julio dentro de Ecuador Tech Week.",
+          "Ayuda a G-Structure a llevar G-Frame del prototipo al MVP mediante validación temprana, desarrollo de producto y el lanzamiento del 14 de julio dentro de Ecuador Tech Week.",
         note:
           "Esto es apoyo temprano de startup: no es una campaña de donaciones, oferta de inversión, venta de equity ni promesa de retorno financiero.",
         primary: "Apoyar el lanzamiento",

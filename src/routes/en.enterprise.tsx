@@ -9,9 +9,9 @@ export const Route = createFileRoute("/en/enterprise")({
   head: () => ({
     meta: buildSeo({
       path: "/en/enterprise",
-      title: "Enterprise Pilot | B2B validation for G-Struct",
+      title: "Enterprise Pilot | B2B validation for G-Frame",
       description:
-        "G-Structure's B2B validation channel: diagnostic workshops and Enterprise pilots to map team execution patterns and feed the development of G-Struct.",
+        "G-Structure's B2B validation channel: diagnostic workshops and Enterprise pilots to map team execution patterns and feed the development of G-Frame.",
       image: etwBadge,
       locale: "en_US",
     }),

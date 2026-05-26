@@ -4,12 +4,12 @@ import {
 } from "@react-email/components";
 import type { TemplateEntry } from "./registry";
 
-const SITE_NAME = "G-Struct";
+const SITE_NAME = "G-Frame";
 
 const Email = () => (
   <Html lang="es" dir="ltr">
     <Head />
-    <Preview>Estás en la lista — G-Struct te avisa cuando esté listo</Preview>
+    <Preview>Estás en la lista — G-Frame te avisa cuando esté listo</Preview>
     <Body style={main}>
       <Container style={container}>
         <Heading style={h1}>Hola,</Heading>
@@ -31,7 +31,7 @@ const Email = () => (
           Si tienes preguntas, responde este email o escríbenos por WhatsApp:{" "}
           <Link href="https://wa.me/593986875121" style={link}>+593 98 687 5121</Link>
         </Text>
-        <Text style={signature}>— Guillermo Suco<br />Fundador, G-Struct</Text>
+        <Text style={signature}>— Guillermo Suco<br />Fundador, G-Frame</Text>
         <Hr style={hr} />
         <Text style={footerSmall}>
           G-Structure · Guayaquil, Ecuador<br />
@@ -47,7 +47,7 @@ const Email = () => (
 
 export const template = {
   component: Email,
-  subject: "Estás en la lista — G-Struct te avisa cuando esté listo",
+  subject: "Estás en la lista — G-Frame te avisa cuando esté listo",
   displayName: "Waitlist confirmation",
   previewData: {},
 } satisfies TemplateEntry;

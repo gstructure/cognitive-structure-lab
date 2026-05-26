@@ -6,9 +6,9 @@ export const Route = createFileRoute("/en/investors")({
   head: () => ({
     meta: buildSeo({
       path: "/en/investors",
-      title: "Investors | G-Struct, CBT execution platform for LATAM",
+      title: "Investors | G-Frame, CBT execution platform for LATAM",
       description:
-        "G-Structure's pre-seed thesis: G-Struct turns the I-R-O Method into a scalable cognitive-behavioral execution platform for professionals and teams in LATAM.",
+        "G-Structure's pre-seed thesis: G-Frame turns the I-R-O Method into a scalable cognitive-behavioral execution platform for professionals and teams in LATAM.",
       locale: "en_US",
     }),
     links: canonicalLink("/en/investors"),

@@ -71,12 +71,12 @@ const RESULTS_ES: Record<Letter, { label: string; title: string; body: string }>
   A: {
     label: "PROCRASTINACIÓN",
     title: "Tu patrón principal es la procrastinación.",
-    body: "No es pereza. Es un mecanismo de protección cognitiva: posponer reduce la ansiedad a corto plazo — y bloquea la ejecución a largo plazo. El Motor de Reestructuración de G-Struct está diseñado específicamente para este patrón.",
+    body: "No es pereza. Es un mecanismo de protección cognitiva: posponer reduce la ansiedad a corto plazo — y bloquea la ejecución a largo plazo. El Motor de Reestructuración de G-Frame está diseñado específicamente para este patrón.",
   },
   B: {
     label: "PERFECCIONISMO IMPRODUCTIVO",
     title: "Tu patrón principal es el perfeccionismo improductivo.",
-    body: "El estándar elevado no es el problema — el problema es cuando ese estándar se convierte en una excusa elegante para no entregar. G-Struct te ayuda a distinguir entre criterio y evitación.",
+    body: "El estándar elevado no es el problema — el problema es cuando ese estándar se convierte en una excusa elegante para no entregar. G-Frame te ayuda a distinguir entre criterio y evitación.",
   },
   C: {
     label: "SOBREANÁLISIS",
@@ -86,7 +86,7 @@ const RESULTS_ES: Record<Letter, { label: string; title: string; body: string }>
   D: {
     label: "IMPOSTOR PATTERN",
     title: "Tu patrón principal es el impostor pattern.",
-    body: "No es falta de capacidad — es una lectura distorsionada de tu propia evidencia. El 75% de los high-performers en LATAM lo experimentan. G-Struct trabaja directamente sobre este patrón con metodología CBT coaching.",
+    body: "No es falta de capacidad — es una lectura distorsionada de tu propia evidencia. El 75% de los high-performers en LATAM lo experimentan. G-Frame trabaja directamente sobre este patrón con metodología CBT coaching.",
   },
 };
 
@@ -94,12 +94,12 @@ const RESULTS_EN: Record<Letter, { label: string; title: string; body: string }>
   A: {
     label: "PROCRASTINATION",
     title: "Your main pattern is procrastination.",
-    body: "It's not laziness. It's a cognitive protection mechanism: postponing reduces anxiety short-term — and blocks execution long-term. G-Struct's Restructuring Engine is designed specifically for this pattern.",
+    body: "It's not laziness. It's a cognitive protection mechanism: postponing reduces anxiety short-term — and blocks execution long-term. G-Frame's Restructuring Engine is designed specifically for this pattern.",
   },
   B: {
     label: "UNPRODUCTIVE PERFECTIONISM",
     title: "Your main pattern is unproductive perfectionism.",
-    body: "A high standard isn't the problem — the problem is when that standard becomes an elegant excuse not to ship. G-Struct helps you distinguish criterion from avoidance.",
+    body: "A high standard isn't the problem — the problem is when that standard becomes an elegant excuse not to ship. G-Frame helps you distinguish criterion from avoidance.",
   },
   C: {
     label: "OVERTHINKING",
@@ -109,7 +109,7 @@ const RESULTS_EN: Record<Letter, { label: string; title: string; body: string }>
   D: {
     label: "IMPOSTOR PATTERN",
     title: "Your main pattern is the impostor pattern.",
-    body: "It's not lack of capacity — it's a distorted reading of your own evidence. 75% of high-performers in LATAM experience it. G-Struct works directly on this pattern with CBT coaching methodology.",
+    body: "It's not lack of capacity — it's a distorted reading of your own evidence. 75% of high-performers in LATAM experience it. G-Frame works directly on this pattern with CBT coaching methodology.",
   },
 };
 
@@ -118,16 +118,16 @@ const UI_COPY = {
     eyebrow: "FASE 01 · IDENTIFICAR",
     title: "Empieza identificando tu patrón de ejecución.",
     lead: "Antes de optimizar tu ejecución, necesitas entender qué tipo de fricción está interfiriendo con tu acción.",
-    sub: "Este diagnóstico breve te ayuda a reconocer si tu bloqueo está más relacionado con procrastinación, perfeccionismo, sobreanálisis, evitación, saturación mental o autosabotaje. Al finalizar, podrás unirte a la lista de espera de G-Struct y recibir acceso temprano a la plataforma.",
+    sub: "Este diagnóstico breve te ayuda a reconocer si tu bloqueo está más relacionado con procrastinación, perfeccionismo, sobreanálisis, evitación, saturación mental o autosabotaje. Al finalizar, podrás unirte a la lista de espera de G-Frame y recibir acceso temprano a la plataforma.",
     disclaimer: "Este diagnóstico no es clínico y no sustituye atención psicológica. Es una herramienta de autoobservación orientada a patrones de ejecución.",
     questionOf: (i: number, n: number) => `PREGUNTA ${i} DE ${n}`,
     dominantPattern: "TU PATRÓN DOMINANTE",
     closingLine: (
       <>
-        Tu patrón de ejecución es el punto de partida. <strong className="text-[color:var(--color-background)]">G-Struct</strong> está siendo diseñado para ayudarte a trabajar ese patrón con herramientas de reencuadre, claridad y acción estructurada.
+        Tu patrón de ejecución es el punto de partida. <strong className="text-[color:var(--color-background)]">G-Frame</strong> está siendo diseñado para ayudarte a trabajar ese patrón con herramientas de reencuadre, claridad y acción estructurada.
       </>
     ),
-    ctaWaitlist: "Únete a la lista de espera de G-Struct",
+    ctaWaitlist: "Únete a la lista de espera de G-Frame",
     ctaRestructure: "Conocer REESTRUCTURA 1:1",
     restart: "Volver a empezar",
   },
@@ -135,16 +135,16 @@ const UI_COPY = {
     eyebrow: "PHASE 01 · IDENTIFY",
     title: "Start by identifying your execution pattern.",
     lead: "Before optimizing your execution, you need to understand what kind of friction is interfering with your action.",
-    sub: "This short diagnostic helps you recognize whether your block is more related to procrastination, perfectionism, overthinking, avoidance, mental saturation, or self-sabotage. When you finish, you can join the G-Struct waitlist and get early access to the platform.",
+    sub: "This short diagnostic helps you recognize whether your block is more related to procrastination, perfectionism, overthinking, avoidance, mental saturation, or self-sabotage. When you finish, you can join the G-Frame waitlist and get early access to the platform.",
     disclaimer: "This diagnostic is not clinical and does not replace psychological care. It's a self-observation tool focused on execution patterns.",
     questionOf: (i: number, n: number) => `QUESTION ${i} OF ${n}`,
     dominantPattern: "YOUR DOMINANT PATTERN",
     closingLine: (
       <>
-        Your execution pattern is the starting point. <strong className="text-[color:var(--color-background)]">G-Struct</strong> is being designed to help you work that pattern with reframing tools, clarity, and structured action.
+        Your execution pattern is the starting point. <strong className="text-[color:var(--color-background)]">G-Frame</strong> is being designed to help you work that pattern with reframing tools, clarity, and structured action.
       </>
     ),
-    ctaWaitlist: "Join the G-Struct waitlist",
+    ctaWaitlist: "Join the G-Frame waitlist",
     ctaRestructure: "Learn about RESTRUCTURE 1:1",
     restart: "Start over",
   },

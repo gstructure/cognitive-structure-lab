@@ -8,7 +8,7 @@ export const Route = createFileRoute("/en/support-the-launch")({
       path: "/en/support-the-launch",
       title: "Support the Launch | G-Structure",
       description:
-        "Support the early validation and development stage of G-Struct, G-Structure's main product, before launch and the path toward MVP.",
+        "Support the early validation and development stage of G-Frame, G-Structure's main product, before launch and the path toward MVP.",
       locale: "en_US",
     }),
     links: canonicalLink("/en/support-the-launch"),

@@ -75,42 +75,42 @@ const link = {
 };
 
 const SUBJECT = {
-  es: "Gracias por apoyar la construcción temprana de G-Struct",
-  en: "Thank you for supporting the early construction of G-Struct",
+  es: "Gracias por apoyar la construcción temprana de G-Frame",
+  en: "Thank you for supporting the early construction of G-Frame",
 };
 
 const COPY = {
   es: {
-    preview: "Gracias por apoyar la construcción temprana de G-Struct.",
-    title: "Gracias por apoyar la construcción temprana de G-Struct.",
+    preview: "Gracias por apoyar la construcción temprana de G-Frame.",
+    title: "Gracias por apoyar la construcción temprana de G-Frame.",
     greeting: (name?: string) => `${name ? `${name}, gracias` : "Gracias"} por convertirte en early supporter de G-Structure.`,
     intro:
-      "Tu aporte ayuda a validar y construir G-Struct, una plataforma creada desde Ecuador para llevar a profesionales, founders y equipos de la fricción cognitiva a la ejecución estructurada.",
+      "Tu aporte ayuda a validar y construir G-Frame, una plataforma creada desde Ecuador para llevar a profesionales, founders y equipos de la fricción cognitiva a la ejecución estructurada.",
     tier: "Nivel",
     amount: "Aporte",
     use:
       "Este apoyo no se toma como una donación informal ni como una inversión. Lo trataremos como parte de una etapa seria de validación: producto, workshop, herramientas, operación, aprendizajes con usuarios y preparación del MVP.",
     accountability:
-      "También recibirás updates privados de rendición de cuentas sobre cómo se está usando el apoyo y qué estamos aprendiendo mientras G-Struct avanza hacia su lanzamiento.",
+      "También recibirás updates privados de rendición de cuentas sobre cómo se está usando el apoyo y qué estamos aprendiendo mientras G-Frame avanza hacia su lanzamiento.",
     contactBefore: "Si tienes alguna pregunta o quieres conversar directamente, puedes responder este email o escribir a ",
     transparency:
-      "Nota de transparencia: este aporte no otorga equity, participación societaria, retorno financiero ni derechos de propiedad sobre G-Structure o G-Struct.",
+      "Nota de transparencia: este aporte no otorga equity, participación societaria, retorno financiero ni derechos de propiedad sobre G-Structure o G-Frame.",
   },
   en: {
-    preview: "Thank you for supporting the early construction of G-Struct.",
-    title: "Thank you for supporting the early construction of G-Struct.",
+    preview: "Thank you for supporting the early construction of G-Frame.",
+    title: "Thank you for supporting the early construction of G-Frame.",
     greeting: (name?: string) => `${name ? `${name}, thank you` : "Thank you"} for becoming an early supporter of G-Structure.`,
     intro:
-      "Your contribution helps validate and build G-Struct, a platform created from Ecuador to move professionals, founders, and teams from cognitive friction to structured execution.",
+      "Your contribution helps validate and build G-Frame, a platform created from Ecuador to move professionals, founders, and teams from cognitive friction to structured execution.",
     tier: "Tier",
     amount: "Contribution",
     use:
       "This support is not treated as an informal donation or as an investment. We will treat it as part of a serious validation stage: product, workshop, tools, operations, user learning, and MVP preparation.",
     accountability:
-      "You will also receive private accountability updates on how early support is being used and what we are learning as G-Struct moves toward launch.",
+      "You will also receive private accountability updates on how early support is being used and what we are learning as G-Frame moves toward launch.",
     contactBefore: "If you have any questions or want to speak directly, you can reply to this email or write to ",
     transparency:
-      "Transparency note: this contribution does not grant equity, company participation, financial return, or ownership rights over G-Structure or G-Struct.",
+      "Transparency note: this contribution does not grant equity, company participation, financial return, or ownership rights over G-Structure or G-Frame.",
   },
 };
 

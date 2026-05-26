@@ -9,7 +9,7 @@ export const Route = createFileRoute("/unete-al-equipo")({
   head: () => ({
     meta: buildSeo({
       path: "/unete-al-equipo",
-      title: "Únete al Equipo | G-Structure & G-Struct",
+      title: "Únete al Equipo | G-Structure & G-Frame",
       description:
         "G-Structure busca colaboradores voluntarios en UI/UX, desarrollo, ventas, marketing y negocios internacionales para construir su siguiente etapa rumbo a CodeLaunch 2026.",
     }),
@@ -25,10 +25,10 @@ export const Route = createFileRoute("/unete-al-equipo")({
 });
 
 const AREAS = [
-  { t: "Producto", d: "Diseño y definición de funcionalidades para G-Struct, investigación con usuarios y validación de hipótesis." },
-  { t: "Tecnología", d: "Desarrollo, prototipado y arquitectura de la app G-Struct, junto al equipo técnico de ÉPICO." },
+  { t: "Producto", d: "Diseño y definición de funcionalidades para G-Frame, investigación con usuarios y validación de hipótesis." },
+  { t: "Tecnología", d: "Desarrollo, prototipado y arquitectura de la app G-Frame, junto al equipo técnico de ÉPICO." },
   { t: "Ventas", d: "Conversaciones B2B con empresas, founders y equipos para presentar Workshop, REESTRUCTURA Enterprise y Continuidad." },
-  { t: "Marketing", d: "Estrategia de marca, contenido editorial, comunicación digital y posicionamiento de G-Structure y G-Struct." },
+  { t: "Marketing", d: "Estrategia de marca, contenido editorial, comunicación digital y posicionamiento de G-Structure y G-Frame." },
   { t: "Negocios internacionales", d: "Apertura de mercados, alianzas y oportunidades fuera de Ecuador para el ecosistema." },
 ];
 
@@ -40,7 +40,7 @@ function Page() {
         <div className="container-x relative py-20 md:py-28 lg:py-32">
           <Eyebrow>EQUIPO INICIAL</Eyebrow>
           <h1 className="mt-6 max-w-4xl font-display text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.05]">
-            Estamos formando el equipo que construirá G-Structure y G-Struct.
+            Estamos formando el equipo que construirá G-Structure y G-Frame.
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
             Buscamos colaboradores voluntarios en áreas clave para fortalecer la siguiente etapa del

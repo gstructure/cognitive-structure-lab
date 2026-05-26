@@ -2,7 +2,7 @@ import { Eyebrow } from "@/components/site/Eyebrow";
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
 import { Section } from "@/components/site/Section";
 import { Check } from "lucide-react";
-import gStructHomePreview from "@/assets/g-struct-home-preview.webp";
+import gFrameMark from "@/assets/g-frame-mark.png";
 import guillermoPhoto from "@/assets/guillermo-suco.webp";
 import type { Locale } from "@/lib/i18n";
 import { trackConversion } from "@/lib/analytics";
@@ -66,14 +66,14 @@ type Copy = {
 const COPY: Record<Locale, Copy> = {
   es: {
     hero: {
-      eyebrow: "INVERSORES · PRE-SEED 2026 · CORE ASSET: G-STRUCT",
-      h1: "G-Structure no es una firma de servicios. Es una tech startup construyendo G-Struct.",
+      eyebrow: "INVERSORES · PRE-SEED 2026 · CORE ASSET: G-FRAME",
+      h1: "G-Structure no es una firma de servicios. Es una tech startup construyendo G-Frame.",
       lead: {
-        a: "G-Struct convierte el método I-R-O™ en una plataforma cognitivo-conductual escalable para LATAM. Los servicios ",
+        a: "G-Frame convierte el método I-R-O™ en una plataforma cognitivo-conductual escalable para LATAM. Los servicios ",
         channels: "1:1, Enterprise y Workshop",
         b: " operan como canales de validación, datos cualitativos y revenue temprano para construir el producto principal.",
       },
-      phoneCaption: "G-Struct · Prototipo activo · v0.1",
+      phoneCaption: "G-Frame · Prototipo activo · v0.1",
       phoneAnnotTop: "Motor de\nReestructuración",
       phoneAnnotBottom: "Diagnóstico\nde Ejecución",
     },
@@ -90,24 +90,24 @@ const COPY: Record<Locale, Copy> = {
         { label: "BetterUp", value: "$279/mes" },
         { label: "Woebot (descontinuado)", value: "N/A — salió del mercado B2C" },
         { label: "Calm / Headspace", value: "$14/mes", note: "Bienestar — no coaching de ejecución" },
-        { label: "G-Struct", value: "$20/mes", note: "CBT coaching · LATAM · móvil" },
+        { label: "G-Frame", value: "$20/mes", note: "CBT coaching · LATAM · móvil" },
       ],
-      priceFoot: "BetterUp requiere sponsor corporativo. G-Struct es acceso individual directo.",
+      priceFoot: "BetterUp requiere sponsor corporativo. G-Frame es acceso individual directo.",
     },
     thesis: [
       { label: "Problema", title: "La ejecución se rompe antes de la tarea.", body: "El mercado ya compra productividad, coaching y bienestar, pero falta una capa cognitivo-conductual práctica para convertir fricción en acción." },
       { label: "Método", title: "I-R-O™ es el motor propietario.", body: "Identificar, Reencuadrar y Optimizar traduce principios CBT a una secuencia repetible que puede vivir en software." },
-      { label: "Validación", title: "1:1 y Enterprise alimentan producto.", body: "Los canales de servicio no son el negocio final: generan revenue temprano, casos reales y datos cualitativos para G-Struct." },
-      { label: "Escala", title: "G-Struct convierte el método en plataforma.", body: "El lanzamiento Q3 2026 apunta a un producto freemium de bajo costo para profesionales y equipos en LATAM." },
+      { label: "Validación", title: "1:1 y Enterprise alimentan producto.", body: "Los canales de servicio no son el negocio final: generan revenue temprano, casos reales y datos cualitativos para G-Frame." },
+      { label: "Escala", title: "G-Frame convierte el método en plataforma.", body: "El lanzamiento Q3 2026 apunta a un producto freemium de bajo costo para profesionales y equipos en LATAM." },
     ],
     product: {
       eyebrow: "QUÉ CONSTRUIMOS",
       title: "El producto.",
-      p1: "G-Struct es una app móvil freemium que aplica el método I-R-O™ — Identificar, Reencuadrar, Optimizar — para ayudar a emprendedores y high-performers a identificar los patrones cognitivos que bloquean su ejecución y convertirlos en acción.",
+      p1: "G-Frame es una app móvil freemium que aplica el método I-R-O™ — Identificar, Reencuadrar, Optimizar — para ayudar a emprendedores y high-performers a identificar los patrones cognitivos que bloquean su ejecución y convertirlos en acción.",
       p2: "No es una app de bienestar. No es terapia. Es infraestructura de rendimiento cognitivo para el profesional latinoamericano.",
       bullets: [
         { highlight: "Woebot", rest: " cerró su versión consumer en junio 2025 — dejando un vacío directo en el mercado CBT B2C." },
-        { highlight: "BetterUp", rest: " cobra desde $279/mes y requiere sponsor corporativo. G-Struct cuesta $20/mes." },
+        { highlight: "BetterUp", rest: " cobra desde $279/mes y requiere sponsor corporativo. G-Frame cuesta $20/mes." },
         { highlight: "Somos los únicos", rest: " construyendo esta categoría específicamente para LATAM, en español, desde Ecuador." },
       ],
     },
@@ -147,7 +147,7 @@ const COPY: Record<Locale, Copy> = {
           "Ex Project Manager, GBA Ships",
           "Investigador publicado — MLS Pedagogy, Culture & Innovation (2025) · Recimundo (2025)",
           "Docente y orientador escolar en Ecuador y Estados Unidos",
-          "Creador del prototipo G-Struct",
+          "Creador del prototipo G-Frame",
         ],
       },
       jericko: {
@@ -168,19 +168,19 @@ const COPY: Record<Locale, Copy> = {
       primary: "Solicitar deck de inversión",
       secondary: "Agendar conversación",
       disclaimer: "Esta página contiene información preliminar para inversores calificados. No constituye una oferta pública de valores.",
-      mailSubject: "Solicitud%20deck%20de%20inversi%C3%B3n%20G-Struct",
+      mailSubject: "Solicitud%20deck%20de%20inversi%C3%B3n%20G-Frame",
     },
   },
   en: {
     hero: {
-      eyebrow: "INVESTORS · PRE-SEED 2026 · CORE ASSET: G-STRUCT",
-      h1: "G-Structure is not a services firm. It is a tech startup building G-Struct.",
+      eyebrow: "INVESTORS · PRE-SEED 2026 · CORE ASSET: G-FRAME",
+      h1: "G-Structure is not a services firm. It is a tech startup building G-Frame.",
       lead: {
-        a: "G-Struct turns the I-R-O™ Method into a scalable cognitive-behavioral platform for LATAM. The ",
+        a: "G-Frame turns the I-R-O™ Method into a scalable cognitive-behavioral platform for LATAM. The ",
         channels: "1:1, Enterprise, and Workshop",
         b: " services operate as validation, qualitative data, and early revenue channels to build the main product.",
       },
-      phoneCaption: "G-Struct · Active prototype · v0.1",
+      phoneCaption: "G-Frame · Active prototype · v0.1",
       phoneAnnotTop: "Restructuring\nEngine",
       phoneAnnotBottom: "Execution\nDiagnostic",
     },
@@ -197,24 +197,24 @@ const COPY: Record<Locale, Copy> = {
         { label: "BetterUp", value: "$279/month" },
         { label: "Woebot (discontinued)", value: "N/A — exited B2C market" },
         { label: "Calm / Headspace", value: "$14/month", note: "Wellness — not execution coaching" },
-        { label: "G-Struct", value: "$20/month", note: "CBT coaching · LATAM · mobile" },
+        { label: "G-Frame", value: "$20/month", note: "CBT coaching · LATAM · mobile" },
       ],
-      priceFoot: "BetterUp requires a corporate sponsor. G-Struct is direct individual access.",
+      priceFoot: "BetterUp requires a corporate sponsor. G-Frame is direct individual access.",
     },
     thesis: [
       { label: "Problem", title: "Execution breaks before the task.", body: "The market already buys productivity, coaching, and wellness, but lacks a practical cognitive-behavioral layer for turning friction into action." },
       { label: "Method", title: "I-R-O™ is the proprietary engine.", body: "Identify, Reframe, and Optimize turns CBT principles into a repeatable sequence that can live inside software." },
-      { label: "Validation", title: "1:1 and Enterprise feed the product.", body: "The service channels are not the end business: they create early revenue, real cases, and qualitative data for G-Struct." },
-      { label: "Scale", title: "G-Struct turns the method into a platform.", body: "The Q3 2026 launch targets a low-cost freemium product for professionals and teams across LATAM." },
+      { label: "Validation", title: "1:1 and Enterprise feed the product.", body: "The service channels are not the end business: they create early revenue, real cases, and qualitative data for G-Frame." },
+      { label: "Scale", title: "G-Frame turns the method into a platform.", body: "The Q3 2026 launch targets a low-cost freemium product for professionals and teams across LATAM." },
     ],
     product: {
       eyebrow: "WHAT WE BUILD",
       title: "The product.",
-      p1: "G-Struct is a freemium mobile app that applies the I-R-O™ Method — Identify, Reframe, Optimize — to help entrepreneurs and high-performers spot the cognitive patterns blocking their execution and turn them into action.",
+      p1: "G-Frame is a freemium mobile app that applies the I-R-O™ Method — Identify, Reframe, Optimize — to help entrepreneurs and high-performers spot the cognitive patterns blocking their execution and turn them into action.",
       p2: "It is not a wellness app. It is not therapy. It is cognitive performance infrastructure for the Latin American professional.",
       bullets: [
         { highlight: "Woebot", rest: " shut down its consumer version in June 2025 — leaving a direct gap in the CBT B2C market." },
-        { highlight: "BetterUp", rest: " charges from $279/month and requires a corporate sponsor. G-Struct costs $20/month." },
+        { highlight: "BetterUp", rest: " charges from $279/month and requires a corporate sponsor. G-Frame costs $20/month." },
         { highlight: "We are the only ones", rest: " building this category specifically for LATAM, in Spanish, from Ecuador." },
       ],
     },
@@ -254,7 +254,7 @@ const COPY: Record<Locale, Copy> = {
           "Former Project Manager, GBA Ships",
           "Published researcher — MLS Pedagogy, Culture & Innovation (2025) · Recimundo (2025)",
           "Teacher and school counselor in Ecuador and the United States",
-          "Creator of the G-Struct prototype",
+          "Creator of the G-Frame prototype",
         ],
       },
       jericko: {
@@ -275,7 +275,7 @@ const COPY: Record<Locale, Copy> = {
       primary: "Request investor deck",
       secondary: "Book a conversation",
       disclaimer: "This page contains preliminary information for qualified investors. It does not constitute a public offering of securities.",
-      mailSubject: "G-Struct%20investor%20deck%20request",
+      mailSubject: "G-Frame%20investor%20deck%20request",
     },
   },
 };
@@ -306,8 +306,8 @@ function PhoneMockup({
       <div className={`${widthClass} mx-auto`}>
         <div className="relative aspect-[9/19] rounded-[34px] bg-[#1A1A1A] p-[10px] shadow-none">
           <div className="absolute left-1/2 top-[10px] -translate-x-1/2 h-[18px] w-[78px] rounded-full bg-[#0a0a0a] z-10" aria-hidden />
-          <div className="relative h-full w-full overflow-hidden rounded-[26px] bg-background">
-            <img src={gStructHomePreview} alt="G-Struct" className="h-full w-full object-cover object-top" loading="lazy" />
+          <div className="relative h-full w-full overflow-hidden rounded-[26px] bg-[color:var(--color-brand-deep)]">
+            <img src={gFrameMark} alt="G-Frame" className="h-full w-full object-cover object-center" loading="lazy" />
             <span className="pointer-events-none absolute inset-0 rounded-[26px] border border-white/10" aria-hidden />
           </div>
         </div>
@@ -608,8 +608,8 @@ export function InvestorsPage({ locale, contactTo }: { locale: Locale; contactTo
           </h2>
           <p className="mt-4 max-w-3xl text-sm md:text-base text-muted-foreground leading-relaxed">
             {locale === "en"
-              ? "For early believers who want to help validate the workshop, strengthen the prototype, and move G-Struct toward MVP without receiving equity or financial return."
-              : "Para early believers que quieren ayudar a validar el workshop, fortalecer el prototipo y llevar G-Struct hacia MVP sin recibir equity ni retorno financiero."}
+              ? "For early believers who want to help validate the workshop, strengthen the prototype, and move G-Frame toward MVP without receiving equity or financial return."
+              : "Para early believers que quieren ayudar a validar el workshop, fortalecer el prototipo y llevar G-Frame hacia MVP sin recibir equity ni retorno financiero."}
           </p>
           <CTALink
             to={locale === "en" ? "/en/support-the-launch" : "/apoya-el-lanzamiento"}

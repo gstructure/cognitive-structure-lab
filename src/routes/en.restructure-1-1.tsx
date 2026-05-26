@@ -10,7 +10,7 @@ export const Route = createFileRoute("/en/restructure-1-1")({
       path: "/en/restructure-1-1",
       title: "RESTRUCTURE 1:1 | Individual validation of the I-R-O Method",
       description:
-        "G-Structure's individual validation channel for applying the I-R-O Method with professionals, leaders, and entrepreneurs while feeding the development of G-Struct.",
+        "G-Structure's individual validation channel for applying the I-R-O Method with professionals, leaders, and entrepreneurs while feeding the development of G-Frame.",
       locale: "en_US",
     }),
     links: canonicalLink("/en/restructure-1-1"),

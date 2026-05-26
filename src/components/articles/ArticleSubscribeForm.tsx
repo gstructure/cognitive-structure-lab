@@ -42,7 +42,7 @@ export function ArticleSubscribeForm() {
     ? {
         eyebrow: "Subscription",
         title: "Get new essays and build notes.",
-        body: "Updates on G-Struct, the I-R-O™ Method, and cognitive-behavioral execution.",
+        body: "Updates on G-Frame, the I-R-O™ Method, and cognitive-behavioral execution.",
         placeholder: "you@email.com",
         aria: "Subscribe",
         success: "Done. Welcome email sent. We will let you know when new notes are published.",
@@ -52,7 +52,7 @@ export function ArticleSubscribeForm() {
     : {
         eyebrow: "Suscripción",
         title: "Recibe nuevos artículos y notas de construcción.",
-        body: "Updates sobre G-Struct, el Método I-R-O™ y la ejecución cognitivo-conductual.",
+        body: "Updates sobre G-Frame, el Método I-R-O™ y la ejecución cognitivo-conductual.",
         placeholder: "tu@email.com",
         aria: "Suscribirme",
         success: "Listo. Te enviamos el correo de bienvenida y te avisaremos cuando publiquemos nuevas notas.",

@@ -13,7 +13,7 @@ export const Route = createFileRoute("/articulos/")({
       path: "/articulos",
       title: "Artículos | G-Structure",
       description:
-        "Artículos, founder notes y updates sobre G-Struct, el método I-R-O™ y la ejecución cognitivo-conductual.",
+        "Artículos, founder notes y updates sobre G-Frame, el método I-R-O™ y la ejecución cognitivo-conductual.",
     }),
     links: [
       { rel: "canonical", href: `${SITE_URL}/articulos` },
@@ -41,7 +41,7 @@ function ArticlesIndex() {
               Ideas sobre ejecución, patrones cognitivos y el producto que estamos construyendo.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              Esta sección concentra el pensamiento detrás de G-Struct: notas de producto, ensayos del método I-R-O™ y aprendizajes de construcción.
+              Esta sección concentra el pensamiento detrás de G-Frame: notas de producto, ensayos del método I-R-O™ y aprendizajes de construcción.
             </p>
           </div>
           <ArticleSubscribeForm />
@@ -75,7 +75,7 @@ function ArticlesIndex() {
         <SectionHeader
           eyebrow="ARCHIVO"
           title="Todos los artículos"
-          subtitle="Una biblioteca inicial para que usuarios e inversionistas entiendan el corazón intelectual de G-Struct."
+          subtitle="Una biblioteca inicial para que usuarios e inversionistas entiendan el corazón intelectual de G-Frame."
         />
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           {articles.map((article) => (

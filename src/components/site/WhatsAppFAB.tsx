@@ -11,7 +11,7 @@ const messagesES: Record<string, string> = {
   enterprise:
     "Hola Guillermo, vi G-Structure y quiero información sobre Enterprise / Workshop de Diagnóstico.",
   reestructura: "Hola Guillermo, quiero información sobre REESTRUCTURA 1:1.",
-  gstruct: "Hola Guillermo, quiero información sobre G-Struct.",
+  gstruct: "Hola Guillermo, quiero información sobre G-Frame.",
   allies: "Hola Guillermo, quiero conversar sobre una posible alianza para ETW 2026.",
   team: "Hola Guillermo, quiero información sobre cómo unirme al equipo inicial de G-Structure.",
 };
@@ -19,7 +19,7 @@ const messagesEN: Record<string, string> = {
   enterprise:
     "Hi Guillermo, I saw G-Structure and would like info about Enterprise / Diagnostic Workshop.",
   reestructura: "Hi Guillermo, I'd like info about RESTRUCTURE 1:1.",
-  gstruct: "Hi Guillermo, I'd like info about G-Struct.",
+  gstruct: "Hi Guillermo, I'd like info about G-Frame.",
   allies: "Hi Guillermo, I'd like to discuss a possible partnership for ETW 2026.",
   team: "Hi Guillermo, I'd like info about joining the initial G-Structure team.",
 };

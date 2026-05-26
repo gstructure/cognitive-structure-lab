@@ -13,7 +13,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { toast } from "sonner";
-import gStructHomePreview from "@/assets/g-struct-home-preview.webp";
+import gFrameLogo from "@/assets/g-frame-logo.png";
 import { trackConversion, trackCtaClick } from "@/lib/analytics";
 import type { Locale } from "@/lib/i18n";
 
@@ -83,24 +83,24 @@ const COPY: Record<Locale, Copy> = {
   es: {
     hero: {
       eyebrow: "PRODUCTO PRINCIPAL DE G-STRUCTURE · MÉTODO I-R-O™ · LANZAMIENTO Q3 2026",
-      h1: "G-Struct convierte el método I-R-O™ en una plataforma de ejecución.",
+      h1: "G-Frame convierte el método I-R-O™ en una plataforma de ejecución.",
       leadA: "Identifica, reencuadra y optimiza tu ejecución",
       leadB: "con metodología CBT coaching aplicada.",
-      body: "G-Struct identifica la fricción cognitivo-conductual que bloquea tu ejecución, te ayuda a reencuadrarla con el método I-R-O™, y optimiza tu acción. No para que te sientas mejor — para que ejecutes mejor.",
-      disclaimer: "No somos terapia. No diagnóstico clínico. G-Struct es una herramienta de coaching, psicoeducación y optimización de ejecución basada en principios cognitivo-conductuales.",
+      body: "G-Frame identifica la fricción cognitivo-conductual que bloquea tu ejecución, te ayuda a reencuadrarla con el método I-R-O™, y optimiza tu acción. No para que te sientas mejor — para que ejecutes mejor.",
+      disclaimer: "No somos terapia. No diagnóstico clínico. G-Frame es una herramienta de coaching, psicoeducación y optimización de ejecución basada en principios cognitivo-conductuales.",
       cta: "Únete a la lista de espera",
       counter: (n) => `${n} personas ya están en la lista de espera.`,
       launchNote: "Primeros accesos disponibles para Ecuador. Lanzamiento Q3 2026.",
-      osLabel: "G-STRUCT · COGNITIVE OS",
+      osLabel: "G-FRAME · COGNITIVE OS",
       iro: "I-R-O™ · IDENTIFICAR · REENCUADRAR · OPTIMIZAR",
       version: "v0.1 · BETA",
-      imgAlt: "Vista previa de la app G-Struct mostrando el Motor de Reestructuración.",
+      imgAlt: "Vista previa de la app G-Frame mostrando el Motor de Reestructuración.",
       captions: ["Motor de Reestructuración", "Diagnóstico de Ejecución", "Activador Matutino"],
     },
     engine: {
       eyebrow: "EL MÉTODO I-R-O™ DENTRO DE LA APP",
       h2: "Si puedes identificarlo, puedes reencuadrarlo. Si puedes reencuadrarlo, puedes optimizarlo.",
-      body: "La mayoría de las apps de productividad organizan tus tareas. G-Struct trabaja una capa más profunda: los patrones cognitivos que generan la procrastinación, el perfeccionismo y el autosabotaje en primer lugar.",
+      body: "La mayoría de las apps de productividad organizan tus tareas. G-Frame trabaja una capa más profunda: los patrones cognitivos que generan la procrastinación, el perfeccionismo y el autosabotaje en primer lugar.",
       steps: [
         { n: "01", t: "Situación", d: "¿Qué desencadenó la fricción?", ai: false },
         { n: "02", t: "Emoción", d: "Nómbrala. Mide su intensidad del 1 al 10.", ai: false },
@@ -110,7 +110,7 @@ const COPY: Record<Locale, Copy> = {
       ],
     },
     features: {
-      eyebrow: "QUÉ INCLUYE G-STRUCT",
+      eyebrow: "QUÉ INCLUYE G-FRAME",
       h2: "Funcionalidades clave.",
       items: [
         { t: "Motor de Reestructuración", d: "Registra situaciones, mide emociones, llega a la creencia núcleo. Convierte lo subjetivo en medible.", ai: false },
@@ -167,7 +167,7 @@ const COPY: Record<Locale, Copy> = {
     },
     waitlist: {
       h2: "Sé parte del primer grupo.",
-      body: "G-Struct está en prototipo activo. Los primeros usuarios en Ecuador tendrán acceso anticipado, precio de fundadores y la oportunidad de dar forma al producto con su feedback.",
+      body: "G-Frame está en prototipo activo. Los primeros usuarios en Ecuador tendrán acceso anticipado, precio de fundadores y la oportunidad de dar forma al producto con su feedback.",
       emailLabel: "Correo electrónico",
       emailPlaceholder: "tu@correo.com",
       submitIdle: "Quiero acceso anticipado",
@@ -180,7 +180,7 @@ const COPY: Record<Locale, Copy> = {
     },
     note: {
       label: "Nota metodológica",
-      body: "G-Struct es una herramienta de coaching de ejecución, no una aplicación clínica. No diagnostica, no trata y no reemplaza la psicoterapia, la psicología clínica ni la psiquiatría. Aplica el método I-R-O™ con metodología CBT coaching para ayudarte a identificar, reencuadrar y optimizar los patrones cognitivos que bloquean tu ejecución.",
+      body: "G-Frame es una herramienta de coaching de ejecución, no una aplicación clínica. No diagnostica, no trata y no reemplaza la psicoterapia, la psicología clínica ni la psiquiatría. Aplica el método I-R-O™ con metodología CBT coaching para ayudarte a identificar, reencuadrar y optimizar los patrones cognitivos que bloquean tu ejecución.",
     },
     counterText: (n) => `${n} personas ya están en la lista de espera.`,
     aiBadge: "IA",
@@ -188,24 +188,24 @@ const COPY: Record<Locale, Copy> = {
   en: {
     hero: {
       eyebrow: "G-STRUCTURE'S MAIN PRODUCT · I-R-O™ METHOD · LAUNCH Q3 2026",
-      h1: "G-Struct turns the I-R-O™ Method into an execution platform.",
+      h1: "G-Frame turns the I-R-O™ Method into an execution platform.",
       leadA: "Identify, reframe, and optimize your execution",
       leadB: "with applied CBT coaching methodology.",
-      body: "G-Struct identifies the cognitive-behavioral friction blocking your execution, helps you reframe it with the I-R-O™ Method, and optimizes your action. Not to make you feel better — to make you execute better.",
-      disclaimer: "We are not therapy. Not clinical diagnosis. G-Struct is a coaching, psychoeducation and execution-optimization tool based on cognitive-behavioral principles.",
+      body: "G-Frame identifies the cognitive-behavioral friction blocking your execution, helps you reframe it with the I-R-O™ Method, and optimizes your action. Not to make you feel better — to make you execute better.",
+      disclaimer: "We are not therapy. Not clinical diagnosis. G-Frame is a coaching, psychoeducation and execution-optimization tool based on cognitive-behavioral principles.",
       cta: "Join the waitlist",
       counter: (n) => `${n} people are already on the waitlist.`,
       launchNote: "Early access available for Ecuador first. Launch Q3 2026.",
-      osLabel: "G-STRUCT · COGNITIVE OS",
+      osLabel: "G-FRAME · COGNITIVE OS",
       iro: "I-R-O™ · IDENTIFY · REFRAME · OPTIMIZE",
       version: "v0.1 · BETA",
-      imgAlt: "Preview of the G-Struct app showing the Restructuring Engine.",
+      imgAlt: "Preview of the G-Frame app showing the Restructuring Engine.",
       captions: ["Restructuring Engine", "Execution Diagnostic", "Morning Activator"],
     },
     engine: {
       eyebrow: "THE I-R-O™ METHOD INSIDE THE APP",
       h2: "If you can identify it, you can reframe it. If you can reframe it, you can optimize it.",
-      body: "Most productivity apps organize your tasks. G-Struct works one layer deeper: the cognitive patterns that generate procrastination, perfectionism and self-sabotage in the first place.",
+      body: "Most productivity apps organize your tasks. G-Frame works one layer deeper: the cognitive patterns that generate procrastination, perfectionism and self-sabotage in the first place.",
       steps: [
         { n: "01", t: "Situation", d: "What triggered the friction?", ai: false },
         { n: "02", t: "Emotion", d: "Name it. Rate its intensity from 1 to 10.", ai: false },
@@ -215,7 +215,7 @@ const COPY: Record<Locale, Copy> = {
       ],
     },
     features: {
-      eyebrow: "WHAT G-STRUCT INCLUDES",
+      eyebrow: "WHAT G-FRAME INCLUDES",
       h2: "Key features.",
       items: [
         { t: "Restructuring Engine", d: "Log situations, measure emotions, reach the core belief. Turn the subjective into the measurable.", ai: false },
@@ -272,7 +272,7 @@ const COPY: Record<Locale, Copy> = {
     },
     waitlist: {
       h2: "Be part of the first cohort.",
-      body: "G-Struct is in active prototype. Early users in Ecuador will get early access, founder pricing and the chance to shape the product with their feedback.",
+      body: "G-Frame is in active prototype. Early users in Ecuador will get early access, founder pricing and the chance to shape the product with their feedback.",
       emailLabel: "Email",
       emailPlaceholder: "you@email.com",
       submitIdle: "I want early access",
@@ -285,7 +285,7 @@ const COPY: Record<Locale, Copy> = {
     },
     note: {
       label: "Methodological note",
-      body: "G-Struct is an execution-coaching tool, not a clinical application. It does not diagnose, treat, or replace psychotherapy, clinical psychology, or psychiatry. It applies the I-R-O™ Method with CBT coaching methodology to help you identify, reframe, and optimize the cognitive patterns blocking your execution.",
+      body: "G-Frame is an execution-coaching tool, not a clinical application. It does not diagnose, treat, or replace psychotherapy, clinical psychology, or psychiatry. It applies the I-R-O™ Method with CBT coaching methodology to help you identify, reframe, and optimize the cognitive patterns blocking your execution.",
     },
     counterText: (n) => `${n} people are already on the waitlist.`,
     aiBadge: "AI",
@@ -398,23 +398,23 @@ function Hero({ locale, count }: { locale: Locale; count: number | null }) {
           <p className="mt-2 text-xs text-muted-foreground">{c.launchNote}</p>
         </div>
         <div className="lg:col-span-5">
-          <div className="relative border border-border bg-[color:var(--color-surface)] p-6 md:p-8">
+          <div className="relative border border-[color:var(--color-brand-deep)] bg-[color:var(--color-brand-deep)] p-6 md:p-8">
             <div className="absolute inset-0 grid-bg opacity-25" aria-hidden />
             <div className="relative flex items-center justify-between">
-              <span className="font-display text-[10px] font-semibold tracking-[0.22em] text-muted-foreground">
+              <span className="font-display text-[10px] font-semibold tracking-[0.22em] text-[color:var(--color-background)]/70">
                 {c.osLabel}
               </span>
               <BrandMark size={20} />
             </div>
             <img
-              src={gStructHomePreview}
+              src={gFrameLogo}
               alt={c.imgAlt}
               loading="lazy"
-              width={1024}
-              height={1024}
-              className="relative mt-4 w-full h-auto object-contain"
+              width={1600}
+              height={900}
+              className="relative mt-5 w-full h-auto object-contain"
             />
-            <div className="relative mt-3 flex items-center justify-between border-t border-border pt-3 text-[10px] tracking-[0.22em] text-muted-foreground">
+            <div className="relative mt-3 flex items-center justify-between border-t border-[color:var(--color-background)]/20 pt-3 text-[10px] tracking-[0.22em] text-[color:var(--color-background)]/70">
               <span>{c.iro}</span>
               <span>{c.version}</span>
             </div>

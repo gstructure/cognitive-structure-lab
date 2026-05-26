@@ -18,9 +18,9 @@ const Email = ({ locale = "es" }: { locale?: "es" | "en" }) => {
         preview: "You are subscribed to G-Structure notes.",
         title: "You are in.",
         intro:
-          "Thanks for subscribing to G-Structure notes. This is where we share essays, product updates, and the thinking behind G-Struct.",
+          "Thanks for subscribing to G-Structure notes. This is where we share essays, product updates, and the thinking behind G-Frame.",
         promise:
-          "Expect useful notes on the I-R-O™ Method, cognitive-behavioral execution, and what we are learning while building G-Struct for Q3.",
+          "Expect useful notes on the I-R-O™ Method, cognitive-behavioral execution, and what we are learning while building G-Frame for Q3.",
         cadence:
           "No noise. No generic productivity tips. Only updates when there is something worth reading.",
         signature: "Guillermo Suco\nFounder, G-Structure",
@@ -30,9 +30,9 @@ const Email = ({ locale = "es" }: { locale?: "es" | "en" }) => {
         preview: "Ya estás suscrito a las notas de G-Structure.",
         title: "Estás dentro.",
         intro:
-          "Gracias por suscribirte a las notas de G-Structure. Aquí compartimos artículos, updates del producto y el pensamiento detrás de G-Struct.",
+          "Gracias por suscribirte a las notas de G-Structure. Aquí compartimos artículos, updates del producto y el pensamiento detrás de G-Frame.",
         promise:
-          "Vas a recibir notas útiles sobre el Método I-R-O™, ejecución cognitivo-conductual y lo que estamos aprendiendo mientras construimos G-Struct para Q3.",
+          "Vas a recibir notas útiles sobre el Método I-R-O™, ejecución cognitivo-conductual y lo que estamos aprendiendo mientras construimos G-Frame para Q3.",
         cadence:
           "Sin ruido. Sin tips genéricos de productividad. Solo escribimos cuando hay algo que vale la pena leer.",
         signature: "Guillermo Suco\nFundador, G-Structure",

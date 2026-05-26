@@ -12,7 +12,7 @@ export function Footer() {
   const gStructBase = locale === "en" ? "/en/g-struct" : "/g-struct";
 
   const productoLinks: FooterLink[] = [
-    { to: gStructBase, label: "G-Struct" },
+    { to: gStructBase, label: "G-Frame" },
     { to: locale === "en" ? "/en/articles" : "/articulos", label: locale === "en" ? "Articles" : "Artículos" },
     { to: locale === "en" ? "/en/newsletter" : "/newsletter", label: "Newsletter" },
     { to: locale === "en" ? "/en/support-the-launch" : "/apoya-el-lanzamiento", label: locale === "en" ? "Support G-Structure" : "Apoya G-Structure" },

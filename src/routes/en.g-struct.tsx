@@ -1,23 +1,23 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo, canonicalLink, jsonLdScript, breadcrumbSchema, gStructSoftwareSchema } from "@/lib/seo";
-import gStructHomePreview from "@/assets/g-struct-home-preview.webp";
+import gFrameLogo from "@/assets/g-frame-logo.png";
 import { GStructPage } from "@/components/pages/GStructPage";
 
 export const Route = createFileRoute("/en/g-struct")({
   head: () => ({
     meta: buildSeo({
       path: "/en/g-struct",
-      title: "G-Struct | Execution platform powered by the I-R-O™ Method",
+      title: "G-Frame | Execution platform powered by the I-R-O™ Method",
       description:
-        "G-Struct is G-Structure's mobile app applying the I-R-O™ Method to identify the friction blocking your execution, reframe it, and optimize your action. Launching Q3 2026.",
-      image: gStructHomePreview,
+        "G-Frame is G-Structure's mobile app applying the I-R-O™ Method to identify the friction blocking your execution, reframe it, and optimize your action. Launching Q3 2026.",
+      image: gFrameLogo,
       locale: "en_US",
     }),
     links: canonicalLink("/en/g-struct"),
     scripts: [
       jsonLdScript(breadcrumbSchema([
         { name: "Home", path: "/en" },
-        { name: "G-Struct", path: "/en/g-struct" },
+        { name: "G-Frame", path: "/en/g-struct" },
       ])),
       jsonLdScript(gStructSoftwareSchema("en")),
     ],

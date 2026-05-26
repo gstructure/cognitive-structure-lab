@@ -8,7 +8,7 @@ const sections = [
   {
     to: "/admin/waitlist",
     title: "Lista de espera",
-    description: "Registros de G-Struct waitlist con exportación CSV.",
+    description: "Registros de G-Frame waitlist con exportación CSV.",
   },
   {
     to: "/admin/diagnosticos",

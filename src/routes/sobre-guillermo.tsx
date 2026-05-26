@@ -9,7 +9,7 @@ export const Route = createFileRoute("/sobre-guillermo")({
       path: "/sobre-guillermo",
       title: "Guillermo Suco | Fundador & CEO de G-Structure",
       description:
-        "Guillermo Suco, Fundador & CEO de G-Structure, creador de G-Struct y del método I-R-O™. CBT Coach Practitioner acreditado por CTAA.",
+        "Guillermo Suco, Fundador & CEO de G-Structure, creador de G-Frame y del método I-R-O™. CBT Coach Practitioner acreditado por CTAA.",
       image: portrait,
       type: "profile",
     }),

@@ -1,16 +1,16 @@
 # G-Structure
 
-> Coaching ejecutivo y reestructuración cognitiva para líderes y equipos. Programas 1:1, enterprise y la metodología G-Struct creada por Guillermo Estrella.
+> Coaching ejecutivo y reestructuración cognitiva para líderes y equipos. Programas 1:1, enterprise y el producto G-Frame creado por Guillermo Suco.
 
-G-Structure ayuda a ejecutivos, fundadores y equipos de alto desempeño a reducir la fricción ejecutiva (procrastinación, perfectismo, autosabotaje, síndrome del impostor) mediante un sistema estructurado de coaching basado en la metodología propietaria G-Struct y el inventario diagnóstico IGPE V1.1.
+G-Structure ayuda a ejecutivos, fundadores y equipos de alto desempeño a reducir la fricción ejecutiva (procrastinación, perfectismo, autosabotaje, síndrome del impostor) mediante un sistema estructurado de coaching basado en el método propietario I-R-O™, el producto G-Frame y el inventario diagnóstico IGPE V1.1.
 
 ## Pages
 
 - [Inicio](/): Visión general de G-Structure, metodología y programas.
 - [Enterprise](/enterprise): Programas para empresas y equipos directivos.
 - [Reestructura 1:1](/reestructura-1-1): Programa individual de coaching ejecutivo.
-- [G-Struct](/g-struct): Metodología propietaria de reestructuración cognitiva.
-- [Sobre Guillermo](/sobre-guillermo): Trayectoria y enfoque de Guillermo Estrella.
+- [G-Frame](/g-struct): Producto principal de G-Structure para ejecución cognitivo-conductual.
+- [Sobre Guillermo](/sobre-guillermo): Trayectoria y enfoque de Guillermo Suco.
 - [Aliados ETW 2026](/aliados-etw-2026): Programa de aliados Executive Transformation Week 2026.
 - [Únete al equipo](/unete-al-equipo): Oportunidades para sumarse a G-Structure.
 - [Contacto](/contacto): Formulario y canales para iniciar conversación.
@@ -21,7 +21,7 @@ G-Structure ayuda a ejecutivos, fundadores y equipos de alto desempeño a reduci
 - [Home](/en): G-Structure overview in English.
 - [Enterprise](/en/enterprise): Programs for companies and leadership teams.
 - [Restructure 1:1](/en/restructure-1-1): One-on-one executive coaching.
-- [G-Struct](/en/g-struct): Proprietary cognitive restructuring methodology.
+- [G-Frame](/en/g-struct): G-Structure's main product for cognitive-behavioral execution.
 - [About Guillermo](/en/about-guillermo): Founder background and approach.
 - [ETW 2026 Partners](/en/etw-2026-partners): Executive Transformation Week 2026 partners.
 - [Join the team](/en/join-the-team): Career and collaboration opportunities.

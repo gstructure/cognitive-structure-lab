@@ -8,7 +8,7 @@ export const Route = createFileRoute("/apoya-el-lanzamiento")({
       path: "/apoya-el-lanzamiento",
       title: "Apoya el lanzamiento | G-Structure",
       description:
-        "Apoya la etapa temprana de validación y desarrollo de G-Struct, el producto principal de G-Structure, antes de su lanzamiento y camino hacia MVP.",
+        "Apoya la etapa temprana de validación y desarrollo de G-Frame, el producto principal de G-Structure, antes de su lanzamiento y camino hacia MVP.",
     }),
     links: canonicalLink("/apoya-el-lanzamiento"),
     scripts: [

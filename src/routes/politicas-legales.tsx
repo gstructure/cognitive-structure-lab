@@ -12,7 +12,7 @@ export const Route = createFileRoute("/politicas-legales")({
       path: "/politicas-legales",
       title: "Políticas Legales | G-Structure",
       description:
-        "Política de Privacidad, Tratamiento de Datos Personales, Términos y Condiciones, Cookies y Disclaimers de G-Structure y G-Struct, bajo legislación ecuatoriana.",
+        "Política de Privacidad, Tratamiento de Datos Personales, Términos y Condiciones, Cookies y Disclaimers de G-Structure y G-Frame, bajo legislación ecuatoriana.",
     }),
     links: canonicalLink("/politicas-legales"),
     scripts: [
@@ -47,7 +47,7 @@ const TOC: { id: string; label: string }[] = [
   { id: "terminos", label: "17. Términos de uso del sitio" },
   { id: "propiedad", label: "18. Propiedad intelectual" },
   { id: "disclaimer", label: "19. Disclaimer: coaching, no terapia" },
-  { id: "g-struct", label: "20. Disclaimer G-Struct" },
+  { id: "g-struct", label: "20. Disclaimer G-Frame" },
   { id: "responsabilidad", label: "21. Limitación de responsabilidad" },
   { id: "testimonios", label: "22. Testimonios y resultados" },
   { id: "enlaces", label: "23. Enlaces externos" },
@@ -65,12 +65,12 @@ function Page() {
         <div className="container-x relative py-16 md:py-24">
           <Eyebrow>POLÍTICAS LEGALES</Eyebrow>
           <h1 className="mt-6 max-w-3xl font-display text-3xl md:text-5xl leading-[1.05]">
-            Políticas legales de G-Structure y G-Struct
+            Políticas legales de G-Structure y G-Frame
           </h1>
           <p className="mt-6 max-w-3xl text-base md:text-lg text-muted-foreground leading-relaxed">
             Esta página reúne la Política de Privacidad, Política de Tratamiento de Datos
             Personales, Términos y Condiciones, Disclaimer profesional, Política de Cookies y
-            condiciones de uso de los servicios digitales de G-Structure y G-Struct.
+            condiciones de uso de los servicios digitales de G-Structure y G-Frame.
           </p>
           <p className="mt-3 text-xs text-muted-foreground">
             Última actualización: {LAST_UPDATED}.
@@ -153,7 +153,7 @@ function Page() {
                 <li>Comprobantes de pago y referencias bancarias.</li>
                 <li>Preferencias de contacto.</li>
                 <li>Información técnica: navegador, dispositivo, dirección IP, cookies, páginas visitadas, métricas de analytics.</li>
-                <li>Datos ingresados al interactuar con G-Struct, cuando esté disponible.</li>
+                <li>Datos ingresados al interactuar con G-Frame, cuando esté disponible.</li>
               </ul>
             </Block>
 
@@ -179,7 +179,7 @@ function Page() {
                 <li>Emitir facturas y gestionar pagos por transferencia bancaria.</li>
                 <li>Validar comprobantes de pago.</li>
                 <li>Mejorar el sitio web y analizar tráfico y comportamiento de navegación.</li>
-                <li>Gestionar la lista de espera de G-Struct.</li>
+                <li>Gestionar la lista de espera de G-Frame.</li>
                 <li>Gestionar postulaciones de colaboradores voluntarios, alianzas y sponsors.</li>
                 <li>Cumplir obligaciones legales y proteger derechos e intereses legítimos.</li>
               </ul>
@@ -346,7 +346,7 @@ function Page() {
               <p>
                 Todos los contenidos del sitio —marca, logos, textos, metodología, nombres
                 comerciales, materiales, PDF, presentaciones, diseños, estructura del método I-R-O,
-                G-Structure, G-Struct y REESTRUCTURA— son propiedad de su titular o se usan con
+                G-Structure, G-Frame y REESTRUCTURA— son propiedad de su titular o se usan con
                 autorización.
               </p>
               <p>
@@ -376,10 +376,10 @@ function Page() {
               </div>
             </Block>
 
-            <Block id="g-struct" title="20. G-Struct no es una herramienta clínica">
+            <Block id="g-struct" title="20. G-Frame no es una herramienta clínica">
               <div className="border-l-4 border-amber-500 bg-amber-50/40 dark:bg-amber-950/10 p-4 space-y-3">
                 <p>
-                  G-Struct es una herramienta digital en desarrollo con fines educativos,
+                  G-Frame es una herramienta digital en desarrollo con fines educativos,
                   formativos y de coaching. Sus ejercicios, registros, métricas, indicadores o
                   sugerencias <strong>no constituyen diagnóstico, tratamiento ni evaluación
                   clínica</strong>.

@@ -8,7 +8,7 @@ export const Route = createFileRoute("/newsletter")({
       path: "/newsletter",
       title: "Newsletter | G-Structure",
       description:
-        "Suscríbete a las notas de G-Structure: artículos, updates de G-Struct y ensayos sobre el Método I-R-O.",
+        "Suscríbete a las notas de G-Structure: artículos, updates de G-Frame y ensayos sobre el Método I-R-O.",
     }),
     links: [
       { rel: "canonical", href: `${SITE_URL}/newsletter` },

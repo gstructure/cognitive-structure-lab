@@ -159,7 +159,7 @@ function AdminSupporters() {
             </p>
             <h1 className="mt-1 text-2xl font-semibold">Supporters de lanzamiento</h1>
             <p className="mt-1 max-w-2xl text-sm text-muted-foreground">
-              Personas que apoyaron económicamente la validación de G-Struct. Usa esta lista para
+              Personas que apoyaron económicamente la validación de G-Frame. Usa esta lista para
               enviar updates privados, reportes de avance y rendición de cuentas.
             </p>
           </div>
@@ -294,7 +294,7 @@ function AdminSupporters() {
           <h2 className="font-medium text-foreground">Cómo usar esta lista</h2>
           <p className="mt-2">
             Estos correos deben tratarse como una lista privada de rendición de cuentas para
-            supporters: avances de G-Struct, uso general de fondos, aprendizajes de validación,
+            supporters: avances de G-Frame, uso general de fondos, aprendizajes de validación,
             estado del workshop, preparación del MVP y próximos hitos. No los mezcles con marketing
             general a menos que la persona también se suscriba explícitamente al newsletter.
           </p>

@@ -5,10 +5,10 @@ import { CTALink, CTAExternal } from "@/components/site/CTAButton";
 import { buildSeo, canonicalLink, jsonLdScript, breadcrumbSchema } from "@/lib/seo";
 
 const AREAS = [
-  { t: "Product", d: "Design and definition of features for G-Struct, user research, and hypothesis validation." },
-  { t: "Technology", d: "Development, prototyping, and architecture of the G-Struct app, alongside the ÉPICO technical team." },
+  { t: "Product", d: "Design and definition of features for G-Frame, user research, and hypothesis validation." },
+  { t: "Technology", d: "Development, prototyping, and architecture of the G-Frame app, alongside the ÉPICO technical team." },
   { t: "Sales", d: "B2B conversations with companies, founders, and teams to present Workshop, RESTRUCTURE Enterprise, and Continuity." },
-  { t: "Marketing", d: "Brand strategy, editorial content, digital communication, and positioning of G-Structure and G-Struct." },
+  { t: "Marketing", d: "Brand strategy, editorial content, digital communication, and positioning of G-Structure and G-Frame." },
   { t: "International business", d: "Market opening, partnerships, and opportunities outside Ecuador for the ecosystem." },
 ];
 
@@ -16,7 +16,7 @@ export const Route = createFileRoute("/en/join-the-team")({
   head: () => ({
     meta: buildSeo({
       path: "/en/join-the-team",
-      title: "Join the Team | G-Structure & G-Struct",
+      title: "Join the Team | G-Structure & G-Frame",
       description:
         "G-Structure is looking for volunteer collaborators in UI/UX, development, sales, marketing, and international business to build its next stage toward CodeLaunch 2026.",
       locale: "en_US",

@@ -54,7 +54,7 @@ function WaitlistAdmin() {
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-2xl font-semibold">Lista de espera G-Struct</h1>
+            <h1 className="text-2xl font-semibold">Lista de espera G-Frame</h1>
             <p className="text-sm text-muted-foreground mt-1">
               Total en lista de espera: {rows.length}
             </p>

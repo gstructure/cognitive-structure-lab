@@ -27,11 +27,11 @@ const DEFAULT_ES: FAQItem[] = [
   },
   {
     q: "¿Estoy hablando con una startup o con una firma de coaching?",
-    a: "Con una tech startup. G-Struct es el producto principal. REESTRUCTURA 1:1, Enterprise y workshops son canales de validación, revenue temprano e insight para entrenar el método I-R-O™ antes del lanzamiento.",
+    a: "Con una tech startup. G-Frame es el producto principal. REESTRUCTURA 1:1, Enterprise y workshops son canales de validación, revenue temprano e insight para entrenar el método I-R-O™ antes del lanzamiento.",
   },
   {
-    q: "¿Qué es G-Struct y cuándo estará disponible?",
-    a: "G-Struct es la plataforma tecnológica impulsada por el método I-R-O™. Está en desarrollo junto a ÉPICO y su lanzamiento público está previsto para Q3 2026. Puedes sumarte a la lista de espera desde la página G-Struct.",
+    q: "¿Qué es G-Frame y cuándo estará disponible?",
+    a: "G-Frame es la plataforma tecnológica impulsada por el método I-R-O™. Está en desarrollo junto a ÉPICO y su lanzamiento público está previsto para Q3 2026. Puedes sumarte a la lista de espera desde la página G-Frame.",
   },
 ];
 
@@ -54,11 +54,11 @@ const DEFAULT_EN: FAQItem[] = [
   },
   {
     q: "Is this a startup or a coaching firm?",
-    a: "A tech startup. G-Struct is the main product. RESTRUCTURE 1:1, Enterprise, and workshops are validation, early revenue, and insight channels that help train the I-R-O™ Method before launch.",
+    a: "A tech startup. G-Frame is the main product. RESTRUCTURE 1:1, Enterprise, and workshops are validation, early revenue, and insight channels that help train the I-R-O™ Method before launch.",
   },
   {
-    q: "What is G-Struct and when will it be available?",
-    a: "G-Struct is the technology platform powered by the I-R-O™ Method. It is in development with ÉPICO and its public launch is planned for Q3 2026. You can join the waitlist from the G-Struct page.",
+    q: "What is G-Frame and when will it be available?",
+    a: "G-Frame is the technology platform powered by the I-R-O™ Method. It is in development with ÉPICO and its public launch is planned for Q3 2026. You can join the waitlist from the G-Frame page.",
   },
 ];
 

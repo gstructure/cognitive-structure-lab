@@ -50,7 +50,7 @@ export const es: Dict = {
     home: "Inicio",
     enterprise: "Enterprise",
     reestructura: "REESTRUCTURA 1:1",
-    gstruct: "G-Struct",
+    gstruct: "G-Frame",
     aboutGuillermo: "Sobre Guillermo",
     contact: "Contacto",
     allies: "Aliados ETW 2026",
@@ -70,20 +70,20 @@ export const es: Dict = {
   },
   home: {
     meta: {
-      title: "G-Structure | G-Struct e I-R-O™ para ejecución profesional",
+      title: "G-Structure | G-Frame e I-R-O™ para ejecución profesional",
       desc:
-        "G-Structure es una tech startup construyendo G-Struct, una plataforma cognitivo-conductual de ejecución profesional impulsada por el método I-R-O™.",
+        "G-Structure es una tech startup construyendo G-Frame, una plataforma cognitivo-conductual de ejecución profesional impulsada por el método I-R-O™.",
     },
     hero: {
       pillTitle: "TECH STARTUP · ETAPA TEMPRANA",
-      pillSub: "· G-Struct · Método I-R-O™ · Validación activa",
-      eyebrow: "G-STRUCTURE · STARTUP → G-STRUCT · PRODUCTO",
-      h1: "G-Structure está construyendo G-Struct.",
+      pillSub: "· G-Frame · Método I-R-O™ · Validación activa",
+      eyebrow: "G-STRUCTURE · STARTUP → G-FRAME · PRODUCTO",
+      h1: "G-Structure está construyendo G-Frame.",
       lead:
         "Una plataforma cognitivo-conductual de ejecución profesional, impulsada por el método I-R-O™: Identificar, Reencuadrar y Optimizar.",
       sub:
-        "G-Struct convierte el método I-R-O™ en una experiencia digital para diagnosticar fricción mental, reencuadrar patrones y convertir claridad en acción. REESTRUCTURA 1:1, Enterprise y workshops existen como canales de validación, revenue e insight para mejorar el producto antes de su lanzamiento en Q3 2026.",
-      ctaPrimary: "Explorar G-Struct",
+        "G-Frame convierte el método I-R-O™ en una experiencia digital para diagnosticar fricción mental, reencuadrar patrones y convertir claridad en acción. REESTRUCTURA 1:1, Enterprise y workshops existen como canales de validación, revenue e insight para mejorar el producto antes de su lanzamiento en Q3 2026.",
+      ctaPrimary: "Explorar G-Frame",
       ctaSecondary: "Ver tesis para inversores",
       step1: { t: "Identificar", d: "Patrones que bloquean la acción." },
       step2: { t: "Reencuadrar", d: "Lectura cognitivo-conductual aplicada." },
@@ -92,7 +92,7 @@ export const es: Dict = {
   },
   footer: {
     tagline:
-      "Tech startup construyendo G-Struct: una plataforma cognitivo-conductual de ejecución profesional impulsada por el método I-R-O™.",
+      "Tech startup construyendo G-Frame: una plataforma cognitivo-conductual de ejecución profesional impulsada por el método I-R-O™.",
     irO: "Método I-R-O™ · Identificar · Reencuadrar · Optimizar",
   },
   fab: {
@@ -102,7 +102,7 @@ export const es: Dict = {
     options: {
       enterprise: "Soy empresa o equipo",
       reestructura: "Quiero información sobre REESTRUCTURA 1:1",
-      gstruct: "Quiero conocer G-Struct",
+      gstruct: "Quiero conocer G-Frame",
       allies: "Quiero ser aliado ETW 2026",
       team: "Quiero unirme al equipo",
     },
@@ -120,22 +120,22 @@ export const es: Dict = {
     options: {
       enterprise: "Mejorar la ejecución en mi equipo",
       individual: "Trabajar mi procrastinación o perfeccionismo",
-      gstruct: "Conocer G-Struct",
+      gstruct: "Conocer G-Frame",
       allies: "Ser aliado ETW 2026",
       team: "Unirme al equipo",
       other: "Otro",
     },
     rec: {
       enterprise:
-        "Enterprise es un canal de validación B2B para G-Struct. Una conversación inicial permite definir si tu equipo encaja para diagnóstico, piloto o continuidad.",
+        "Enterprise es un canal de validación B2B para G-Frame. Una conversación inicial permite definir si tu equipo encaja para diagnóstico, piloto o continuidad.",
       individual:
         "REESTRUCTURA 1:1 permite validar el método I-R-O™ con casos reales de ejecución. Te conviene una conversación inicial para revisar contexto.",
       gstruct:
-        "G-Struct es el producto principal de G-Structure. Puedes sumarte a la lista de espera y seguir el lanzamiento previsto para Q3 2026.",
+        "G-Frame es el producto principal de G-Structure. Puedes sumarte a la lista de espera y seguir el lanzamiento previsto para Q3 2026.",
       allies:
         "Si tu marca, institución o empresa quiere vincularse al Workshop de Diagnóstico durante Ecuador Tech Week 2026, conversemos directamente.",
       team:
-        "Estamos formando el equipo inicial de G-Structure y G-Struct. Cuéntale tu perfil a Guillermo y revisamos si encaja.",
+        "Estamos formando el equipo inicial de G-Structure y G-Frame. Cuéntale tu perfil a Guillermo y revisamos si encaja.",
       other:
         "Te conviene conversar directamente con Guillermo para revisar tu contexto y proponer una ruta adecuada.",
     },
@@ -167,7 +167,7 @@ export const en: Dict = {
     home: "Home",
     enterprise: "Enterprise",
     reestructura: "RESTRUCTURE 1:1",
-    gstruct: "G-Struct",
+    gstruct: "G-Frame",
     aboutGuillermo: "About Guillermo",
     contact: "Contact",
     allies: "ETW 2026 Partners",
@@ -187,20 +187,20 @@ export const en: Dict = {
   },
   home: {
     meta: {
-      title: "G-Structure | G-Struct and the I-R-O™ Method for professional execution",
+      title: "G-Structure | G-Frame and the I-R-O™ Method for professional execution",
       desc:
-        "G-Structure is a tech startup building G-Struct, a cognitive-behavioral execution platform powered by the I-R-O™ Method.",
+        "G-Structure is a tech startup building G-Frame, a cognitive-behavioral execution platform powered by the I-R-O™ Method.",
     },
     hero: {
       pillTitle: "TECH STARTUP · EARLY STAGE",
-      pillSub: "· G-Struct · I-R-O™ Method · Active validation",
-      eyebrow: "G-STRUCTURE · STARTUP → G-STRUCT · PRODUCT",
-      h1: "G-Structure is building G-Struct.",
+      pillSub: "· G-Frame · I-R-O™ Method · Active validation",
+      eyebrow: "G-STRUCTURE · STARTUP → G-FRAME · PRODUCT",
+      h1: "G-Structure is building G-Frame.",
       lead:
         "A cognitive-behavioral execution platform powered by the I-R-O™ Method: Identify, Reframe, Optimize.",
       sub:
-        "G-Struct turns the I-R-O™ Method into a digital experience to diagnose mental friction, reframe patterns, and convert clarity into action. RESTRUCTURE 1:1, Enterprise, and workshops exist as validation, revenue, and insight channels to improve the product before its Q3 2026 launch.",
-      ctaPrimary: "Explore G-Struct",
+        "G-Frame turns the I-R-O™ Method into a digital experience to diagnose mental friction, reframe patterns, and convert clarity into action. RESTRUCTURE 1:1, Enterprise, and workshops exist as validation, revenue, and insight channels to improve the product before its Q3 2026 launch.",
+      ctaPrimary: "Explore G-Frame",
       ctaSecondary: "See the investor thesis",
       step1: { t: "Identify", d: "Patterns that block action." },
       step2: { t: "Reframe", d: "Applied cognitive-behavioral reading." },
@@ -209,7 +209,7 @@ export const en: Dict = {
   },
   footer: {
     tagline:
-      "Tech startup building G-Struct: a cognitive-behavioral execution platform powered by the I-R-O™ Method.",
+      "Tech startup building G-Frame: a cognitive-behavioral execution platform powered by the I-R-O™ Method.",
     irO: "I-R-O™ Method · Identify · Reframe · Optimize",
   },
   fab: {
@@ -219,7 +219,7 @@ export const en: Dict = {
     options: {
       enterprise: "I’m a company or team",
       reestructura: "I want info about RESTRUCTURE 1:1",
-      gstruct: "I want to learn about G-Struct",
+      gstruct: "I want to learn about G-Frame",
       allies: "I want to be an ETW 2026 partner",
       team: "I want to join the team",
     },
@@ -237,22 +237,22 @@ export const en: Dict = {
     options: {
       enterprise: "Improve execution in my team",
       individual: "Work on procrastination or perfectionism",
-      gstruct: "Learn about G-Struct",
+      gstruct: "Learn about G-Frame",
       allies: "Become an ETW 2026 partner",
       team: "Join the team",
       other: "Something else",
     },
     rec: {
       enterprise:
-        "Enterprise is a B2B validation channel for G-Struct. A first conversation defines whether your team fits a diagnostic, pilot, or continuity path.",
+        "Enterprise is a B2B validation channel for G-Frame. A first conversation defines whether your team fits a diagnostic, pilot, or continuity path.",
       individual:
         "RESTRUCTURE 1:1 validates the I-R-O™ Method through real execution cases. A first conversation will review your context.",
       gstruct:
-        "G-Struct is G-Structure’s main product. You can join the waitlist and follow the Q3 2026 launch.",
+        "G-Frame is G-Structure’s main product. You can join the waitlist and follow the Q3 2026 launch.",
       allies:
         "If your brand, institution, or company wants to join the Diagnostic Workshop during Ecuador Tech Week 2026, let’s talk directly.",
       team:
-        "We’re forming the initial team for G-Structure and G-Struct. Share your profile with Guillermo and we’ll see if it fits.",
+        "We’re forming the initial team for G-Structure and G-Frame. Share your profile with Guillermo and we’ll see if it fits.",
       other:
         "It’s best to talk to Guillermo directly so we can review your context and propose the right path.",
     },

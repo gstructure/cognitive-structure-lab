@@ -10,9 +10,9 @@ const COPY = {
   es: {
     eyebrow: "FUNDADOR & CEO",
     role: "Fundador & CEO · G-Structure",
-    creator: "Creador de G-Struct y del método I-R-O™",
+    creator: "Creador de G-Frame y del método I-R-O™",
     intro:
-      "Guillermo Suco es fundador y CEO de G-Structure, la tech startup que construye G-Struct: una plataforma cognitivo-conductual de ejecución profesional impulsada por el método I-R-O™.",
+      "Guillermo Suco es fundador y CEO de G-Structure, la tech startup que construye G-Frame: una plataforma cognitivo-conductual de ejecución profesional impulsada por el método I-R-O™.",
     intro2:
       "Su trabajo integra formación en Psicología, Intervención Psicológica en el Desarrollo y la Educación, experiencia docente nacional e internacional, validación con usuarios, gerencia de proyectos multiculturales y desarrollo de producto digital.",
     talk: "Conversar con Guillermo",
@@ -24,14 +24,14 @@ const COPY = {
         experiencia docente nacional e internacional, acompañamiento individual y gerencia de proyectos en contextos multiculturales.
       </>,
       <>
-        Como <strong className="text-foreground font-semibold">creador de G-Struct y del método I-R-O™</strong>,
+        Como <strong className="text-foreground font-semibold">creador de G-Frame y del método I-R-O™</strong>,
         ha desarrollado G-Structure como una compañía de producto que usa principios cognitivo-conductuales para identificar, reencuadrar y optimizar patrones que interfieren con la acción.
       </>,
       <>
         Su experiencia en gerencia de proyectos a bordo del MV Logos Hope le permitió trabajar con equipos diversos en escenarios de alta exigencia, lo que más tarde se convertiría en parte del ADN de G-Structure: leer fricciones, intervenir patrones y construir ejecución sostenible incluso bajo presión real.
       </>,
       <>
-        Junto a <strong className="text-foreground font-semibold">ÉPICO</strong> participó en el desarrollo y prototipado de G-Struct, el producto principal de G-Structure, como una extensión tecnológica del método I-R-O™.
+        Junto a <strong className="text-foreground font-semibold">ÉPICO</strong> participó en el desarrollo y prototipado de G-Frame, el producto principal de G-Structure, como una extensión tecnológica del método I-R-O™.
       </>,
     ],
     timelineTitle: "Trayectoria",
@@ -40,12 +40,12 @@ const COPY = {
       { n: "ACREDITACIÓN", t: "CBT Coach Practitioner", d: "Acreditado por la Complementary Therapists Accredited Association (CTAA).", status: "done" as const },
       { n: "EDUCACIÓN", t: "Docencia y consejería", d: "Experiencia en docencia, consejería estudiantil y formación nacional e internacional.", status: "done" as const },
       { n: "INTERNACIONAL", t: "MV Logos Hope", d: "Gerencia de proyectos a bordo, en contextos multiculturales y de alta exigencia.", status: "done" as const },
-      { n: "ACTUAL", t: "G-Structure & G-Struct", d: "Dirección metodológica del ecosistema. Desarrollo de G-Struct junto a ÉPICO.", status: "active" as const },
+      { n: "ACTUAL", t: "G-Structure & G-Frame", d: "Dirección metodológica del ecosistema. Desarrollo de G-Frame junto a ÉPICO.", status: "active" as const },
     ],
     connectEyebrow: "CONECTA CON GUILLERMO",
     connectTitle: "Sigue el desarrollo del ecosistema desde sus canales oficiales.",
     connectBody:
-      "Puedes seguir el desarrollo de G-Structure, G-Struct y las próximas iniciativas del ecosistema a través de los canales oficiales de Guillermo.",
+      "Puedes seguir el desarrollo de G-Structure, G-Frame y las próximas iniciativas del ecosistema a través de los canales oficiales de Guillermo.",
     channels: "Canales",
     finalTitle: "¿Quieres conversar directamente con Guillermo?",
     finalBody:
@@ -57,9 +57,9 @@ const COPY = {
   en: {
     eyebrow: "FOUNDER & CEO",
     role: "Founder & CEO · G-Structure",
-    creator: "Creator of G-Struct and the I-R-O™ Method",
+    creator: "Creator of G-Frame and the I-R-O™ Method",
     intro:
-      "Guillermo Suco is the founder and CEO of G-Structure, the tech startup building G-Struct: a cognitive-behavioral execution platform powered by the I-R-O™ Method.",
+      "Guillermo Suco is the founder and CEO of G-Structure, the tech startup building G-Frame: a cognitive-behavioral execution platform powered by the I-R-O™ Method.",
     intro2:
       "His work combines training in Psychology, Psychological Intervention in Development and Education, national and international teaching experience, user validation, multicultural project management, and digital product development.",
     talk: "Talk to Guillermo",
@@ -71,14 +71,14 @@ const COPY = {
         national and international teaching experience, individual support, and project management in multicultural contexts.
       </>,
       <>
-        As the <strong className="text-foreground font-semibold">creator of G-Struct and the I-R-O™ Method</strong>,
+        As the <strong className="text-foreground font-semibold">creator of G-Frame and the I-R-O™ Method</strong>,
         he is building G-Structure as a product company that uses cognitive-behavioral principles to identify, reframe, and optimize patterns that interfere with action.
       </>,
       <>
         His project-management experience aboard the MV Logos Hope exposed him to diverse teams in high-pressure environments. That later became part of G-Structure’s DNA: reading friction, intervening patterns, and building sustainable execution under real pressure.
       </>,
       <>
-        Together with <strong className="text-foreground font-semibold">ÉPICO</strong>, he worked on the development and prototyping of G-Struct, G-Structure’s main product, as a technological extension of the I-R-O™ Method.
+        Together with <strong className="text-foreground font-semibold">ÉPICO</strong>, he worked on the development and prototyping of G-Frame, G-Structure’s main product, as a technological extension of the I-R-O™ Method.
       </>,
     ],
     timelineTitle: "Background",
@@ -87,12 +87,12 @@ const COPY = {
       { n: "ACCREDITATION", t: "CBT Coach Practitioner", d: "Accredited by the Complementary Therapists Accredited Association (CTAA).", status: "done" as const },
       { n: "EDUCATION", t: "Teaching and counseling", d: "Experience in teaching, student counseling, and national and international education.", status: "done" as const },
       { n: "INTERNATIONAL", t: "MV Logos Hope", d: "Project management aboard ship in multicultural, high-demand environments.", status: "done" as const },
-      { n: "CURRENT", t: "G-Structure & G-Struct", d: "Methodological direction of the ecosystem. Development of G-Struct alongside ÉPICO.", status: "active" as const },
+      { n: "CURRENT", t: "G-Structure & G-Frame", d: "Methodological direction of the ecosystem. Development of G-Frame alongside ÉPICO.", status: "active" as const },
     ],
     connectEyebrow: "CONNECT WITH GUILLERMO",
     connectTitle: "Follow the ecosystem’s development through his official channels.",
     connectBody:
-      "You can follow the development of G-Structure, G-Struct, and upcoming ecosystem initiatives through Guillermo’s official channels.",
+      "You can follow the development of G-Structure, G-Frame, and upcoming ecosystem initiatives through Guillermo’s official channels.",
     channels: "Channels",
     finalTitle: "Want to talk directly with Guillermo?",
     finalBody:
@@ -131,7 +131,7 @@ export function AboutGuillermoPage({ locale }: { locale: Locale }) {
             </div>
           </div>
           <aside className="lg:col-span-5 flex justify-center lg:justify-end">
-            <GuillermoPortrait size="lg" subcaption={locale === "en" ? "Founder & CEO · G-Struct" : "Fundador & CEO · G-Struct"} />
+            <GuillermoPortrait size="lg" subcaption={locale === "en" ? "Founder & CEO · G-Frame" : "Fundador & CEO · G-Frame"} />
           </aside>
         </div>
       </section>

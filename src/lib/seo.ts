@@ -120,7 +120,7 @@ export const personGuillermoSchema = {
   "@type": "Person",
   name: "Guillermo Suco",
   jobTitle: "Founder & CEO",
-  description: "Creator of G-Struct and the I-R-O™ Method.",
+  description: "Creator of G-Frame and the I-R-O™ Method.",
   worksFor: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
   url: `${SITE_URL}/sobre-guillermo`,
   sameAs: ["https://www.linkedin.com/in/guillermosuco"],
@@ -131,7 +131,7 @@ export function gStructSoftwareSchema(locale: "es" | "en" = "es") {
   return {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    name: "G-Struct",
+    name: "G-Frame",
     applicationCategory: "ProductivityApplication",
     operatingSystem: "iOS, Android, Web",
     url: `${SITE_URL}${isEs ? "/g-struct" : "/en/g-struct"}`,

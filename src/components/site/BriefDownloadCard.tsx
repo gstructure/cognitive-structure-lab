@@ -28,7 +28,7 @@ const COPY = {
     ),
     eyebrow: "RECURSO DESCARGABLE",
     title: "Descarga el brief comercial de G-Structure.",
-    body: "Un documento breve, sobrio y directo para conocer G-Struct, el método I-R-O™ y los canales de validación que alimentan el producto. Pensado para empresas, aliados, sponsors y potenciales colaboradores.",
+    body: "Un documento breve, sobrio y directo para conocer G-Frame, el método I-R-O™ y los canales de validación que alimentan el producto. Pensado para empresas, aliados, sponsors y potenciales colaboradores.",
     bullets: [
       "· 8 páginas · A4 vertical",
       "· Producto, método y founder",
@@ -48,7 +48,7 @@ const COPY = {
     ),
     eyebrow: "DOWNLOADABLE RESOURCE",
     title: "Download the G-Structure commercial brief.",
-    body: "A short, sober, and direct document covering G-Struct, the I-R-O™ Method, and the validation channels that feed the product. Designed for companies, partners, sponsors, and potential collaborators.",
+    body: "A short, sober, and direct document covering G-Frame, the I-R-O™ Method, and the validation channels that feed the product. Designed for companies, partners, sponsors, and potential collaborators.",
     bullets: [
       "· 8 pages · A4 vertical",
       "· Product, method, and founder",

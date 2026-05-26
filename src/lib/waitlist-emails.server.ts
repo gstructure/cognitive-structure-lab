@@ -4,7 +4,7 @@ import { render } from "@react-email/components";
 import { createClient } from "@supabase/supabase-js";
 import { TEMPLATES } from "./email-templates/registry";
 
-const SITE_NAME = "G-Struct";
+const SITE_NAME = "G-Frame";
 const SENDER_DOMAIN = "notify.g-structure.co";
 const FROM_DOMAIN = "g-structure.co";
 const FROM_LOCAL = "hola";
