@@ -13,7 +13,12 @@ import {
   Sparkles,
 } from "lucide-react";
 import { toast } from "sonner";
-import gFrameLogo from "@/assets/g-frame-logo.png";
+import mockupInicio from "@/assets/g-frame-mockups/01-inicio.webp";
+import mockupRutaIro from "@/assets/g-frame-mockups/02-ruta-iro.webp";
+import mockupMotor from "@/assets/g-frame-mockups/03-motor-reestructuracion.webp";
+import mockupQuickReframe from "@/assets/g-frame-mockups/04-quick-reframe.webp";
+import mockupRestructureLab from "@/assets/g-frame-mockups/05-restructure-lab.webp";
+import mockupActivador from "@/assets/g-frame-mockups/06-activador-matutino.webp";
 import { trackConversion, trackCtaClick } from "@/lib/analytics";
 import type { Locale } from "@/lib/i18n";
 
@@ -44,6 +49,12 @@ type Copy = {
     eyebrow: string;
     h2: string;
     items: { t: string; d: string; ai: boolean }[];
+  };
+  prototype: {
+    eyebrow: string;
+    h2: string;
+    body: string;
+    items: { title: string; description: string; alt: string }[];
   };
   plans: {
     eyebrow: string;
@@ -94,7 +105,7 @@ const COPY: Record<Locale, Copy> = {
       osLabel: "G-FRAME · COGNITIVE OS",
       iro: "I-R-O™ · IDENTIFICAR · REENCUADRAR · OPTIMIZAR",
       version: "v0.1 · BETA",
-      imgAlt: "Vista previa de la app G-Frame mostrando el Motor de Reestructuración.",
+      imgAlt: "Mock-up de la pantalla de inicio de G-Frame.",
       captions: ["Motor de Reestructuración", "Diagnóstico de Ejecución", "Activador Matutino"],
     },
     engine: {
@@ -117,6 +128,19 @@ const COPY: Record<Locale, Copy> = {
         { t: "Laboratorio de Pensamientos con IA", d: "Asistencia inteligente para reencuadrar pensamientos automáticos con metodología CBT coaching. Aprende mientras lo haces.", ai: true },
         { t: "Activador Matutino", d: "Rutina diaria de activación cognitiva para preparar la ejecución antes de que empiece la fricción.", ai: false },
         { t: "Diagnóstico de Ejecución", d: "Identifica tus patrones recurrentes. Entiende si tu fricción principal es procrastinación, perfeccionismo, autosabotaje o impostor pattern. Trabaja directamente sobre el patrón.", ai: false },
+      ],
+    },
+    prototype: {
+      eyebrow: "PROTOTIPO EN PANTALLA",
+      h2: "Una ruta corta para entender qué te bloquea y convertirlo en acción.",
+      body: "Estos mock-ups muestran la experiencia actual de G-Frame: una pantalla de inicio orientada a la acción, una ruta I-R-O clara y módulos específicos para reencuadrar, profundizar o activar el día.",
+      items: [
+        { title: "Inicio", description: "La puerta de entrada: rutas cortas, estado de sesión y próximos pasos.", alt: "Mock-up de Inicio de G-Frame." },
+        { title: "Ruta I-R-O", description: "El usuario no revisa todo: sigue una secuencia guiada para identificar, reencuadrar y optimizar.", alt: "Mock-up de la Ruta I-R-O de G-Frame." },
+        { title: "Motor de Reestructuración", description: "Dos rutas para trabajar un pensamiento: rápido cuando hay bloqueo, profundo cuando el patrón se repite.", alt: "Mock-up del Motor de Reestructuración de G-Frame." },
+        { title: "Quick Reframe", description: "Una intervención breve para ordenar un pensamiento bloqueante y convertirlo en una acción concreta.", alt: "Mock-up de Quick Reframe de G-Frame." },
+        { title: "Restructure Lab", description: "Un flujo más profundo para formular, examinar y reencuadrar patrones recurrentes.", alt: "Mock-up de Restructure Lab de G-Frame." },
+        { title: "Activador matutino", description: "Una decisión de ejecución diaria para preparar el sistema antes de que aparezca la fricción.", alt: "Mock-up del Activador matutino de G-Frame." },
       ],
     },
     plans: {
@@ -199,7 +223,7 @@ const COPY: Record<Locale, Copy> = {
       osLabel: "G-FRAME · COGNITIVE OS",
       iro: "I-R-O™ · IDENTIFY · REFRAME · OPTIMIZE",
       version: "v0.1 · BETA",
-      imgAlt: "Preview of the G-Frame app showing the Restructuring Engine.",
+      imgAlt: "Mock-up of the G-Frame home screen.",
       captions: ["Restructuring Engine", "Execution Diagnostic", "Morning Activator"],
     },
     engine: {
@@ -222,6 +246,19 @@ const COPY: Record<Locale, Copy> = {
         { t: "AI Thought Lab", d: "Intelligent assistance to reframe automatic thoughts with CBT coaching methodology. Learn while you do it.", ai: true },
         { t: "Morning Activator", d: "Daily cognitive-activation routine to prepare execution before friction begins.", ai: false },
         { t: "Execution Diagnostic", d: "Identify your recurring patterns. Understand whether your main friction is procrastination, perfectionism, self-sabotage or the impostor pattern. Work directly on the pattern.", ai: false },
+      ],
+    },
+    prototype: {
+      eyebrow: "PROTOTYPE SCREENS",
+      h2: "A short route to understand what blocks you and turn it into action.",
+      body: "These mock-ups show the current G-Frame experience: an action-oriented home screen, a clear I-R-O route, and specific modules to reframe, go deeper, or activate the day.",
+      items: [
+        { title: "Home", description: "The entry point: short routes, active session state, and next steps.", alt: "G-Frame Home mock-up." },
+        { title: "I-R-O Route", description: "The user does not review everything: they follow a guided sequence to identify, reframe, and optimize.", alt: "G-Frame I-R-O Route mock-up." },
+        { title: "Restructuring Engine", description: "Two paths for working with a thought: quick when blocked, deeper when the pattern repeats.", alt: "G-Frame Restructuring Engine mock-up." },
+        { title: "Quick Reframe", description: "A brief intervention to organize a blocking thought and turn it into a concrete action.", alt: "G-Frame Quick Reframe mock-up." },
+        { title: "Restructure Lab", description: "A deeper flow to formulate, examine, and reframe recurring patterns.", alt: "G-Frame Restructure Lab mock-up." },
+        { title: "Morning Activator", description: "A daily execution decision to prepare the system before friction appears.", alt: "G-Frame Morning Activator mock-up." },
       ],
     },
     plans: {
@@ -359,6 +396,7 @@ export function GStructPage({ locale }: { locale: Locale }) {
       <Hero locale={locale} count={waitlist.count} />
       <Engine locale={locale} />
       <Features locale={locale} />
+      <PrototypeGallery locale={locale} />
       <Plans locale={locale} />
       <Waitlist locale={locale} count={waitlist.count} refetchCount={waitlist.refetch} />
       <Note locale={locale} />
@@ -407,11 +445,11 @@ function Hero({ locale, count }: { locale: Locale; count: number | null }) {
               <BrandMark size={20} />
             </div>
             <img
-              src={gFrameLogo}
+              src={mockupInicio}
               alt={c.imgAlt}
               loading="lazy"
-              width={1600}
-              height={900}
+              width={900}
+              height={1125}
               className="relative mt-5 w-full h-auto object-contain"
             />
             <div className="relative mt-3 flex items-center justify-between border-t border-[color:var(--color-background)]/20 pt-3 text-[10px] tracking-[0.22em] text-[color:var(--color-background)]/70">
@@ -429,6 +467,61 @@ function Hero({ locale, count }: { locale: Locale; count: number | null }) {
         </div>
       </div>
     </section>
+  );
+}
+
+const PROTOTYPE_IMAGES = [
+  mockupInicio,
+  mockupRutaIro,
+  mockupMotor,
+  mockupQuickReframe,
+  mockupRestructureLab,
+  mockupActivador,
+];
+
+function PrototypeGallery({ locale }: { locale: Locale }) {
+  const c = COPY[locale].prototype;
+  return (
+    <Section tone="white">
+      <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
+        <div className="lg:col-span-7">
+          <Eyebrow>{c.eyebrow}</Eyebrow>
+          <h2 className="mt-4 max-w-3xl font-display text-3xl md:text-4xl leading-[1.08]">{c.h2}</h2>
+          <p className="mt-5 max-w-3xl text-base md:text-lg text-muted-foreground leading-relaxed">{c.body}</p>
+        </div>
+        <div className="lg:col-span-5 border-l-2 border-[color:var(--color-brand)] pl-5">
+          <p className="text-sm md:text-[15px] text-foreground/80 leading-relaxed">
+            {locale === "en"
+              ? "The product is still in prototype, but the interaction model is already visible: diagnose, reframe, then leave with a concrete next action."
+              : "El producto sigue en prototipo, pero el modelo de interacción ya es visible: diagnosticar, reencuadrar y salir con una siguiente acción concreta."}
+          </p>
+        </div>
+      </div>
+
+      <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {c.items.map((item, index) => (
+          <figure key={item.title} className="group border border-border bg-[color:var(--color-surface)] overflow-hidden">
+            <div className="bg-[color:var(--color-brand-deep)]">
+              <img
+                src={PROTOTYPE_IMAGES[index]}
+                alt={item.alt}
+                loading="lazy"
+                width={900}
+                height={1125}
+                className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.015]"
+              />
+            </div>
+            <figcaption className="p-5 md:p-6">
+              <p className="font-display text-[10px] font-semibold tracking-[0.22em] text-[color:var(--color-brand)]">
+                {String(index + 1).padStart(2, "0")}
+              </p>
+              <h3 className="mt-2 font-display text-base md:text-lg font-semibold">{item.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </Section>
   );
 }
 

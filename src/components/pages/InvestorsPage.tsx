@@ -2,7 +2,9 @@ import { Eyebrow } from "@/components/site/Eyebrow";
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
 import { Section } from "@/components/site/Section";
 import { Check } from "lucide-react";
-import gFrameMark from "@/assets/g-frame-mark.png";
+import mockupInicio from "@/assets/g-frame-mockups/01-inicio.webp";
+import mockupMotor from "@/assets/g-frame-mockups/03-motor-reestructuracion.webp";
+import mockupQuickReframe from "@/assets/g-frame-mockups/04-quick-reframe.webp";
 import guillermoPhoto from "@/assets/guillermo-suco.webp";
 import type { Locale } from "@/lib/i18n";
 import { trackConversion } from "@/lib/analytics";
@@ -304,12 +306,8 @@ function PhoneMockup({
         </span>
       </div>
       <div className={`${widthClass} mx-auto`}>
-        <div className="relative aspect-[9/19] rounded-[34px] bg-[#1A1A1A] p-[10px] shadow-none">
-          <div className="absolute left-1/2 top-[10px] -translate-x-1/2 h-[18px] w-[78px] rounded-full bg-[#0a0a0a] z-10" aria-hidden />
-          <div className="relative h-full w-full overflow-hidden rounded-[26px] bg-[color:var(--color-brand-deep)]">
-            <img src={gFrameMark} alt="G-Frame" className="h-full w-full object-cover object-center" loading="lazy" />
-            <span className="pointer-events-none absolute inset-0 rounded-[26px] border border-white/10" aria-hidden />
-          </div>
+        <div className="relative overflow-hidden border border-[color:var(--color-brand-deep)] bg-[color:var(--color-brand-deep)] p-3 shadow-none">
+          <img src={mockupInicio} alt="G-Frame prototype home screen" className="h-auto w-full object-cover" loading="lazy" width={900} height={1125} />
         </div>
         <p className="mt-4 text-center text-[11px] tracking-wide text-muted-foreground">{copy.phoneCaption}</p>
       </div>
@@ -553,6 +551,24 @@ export function InvestorsPage({ locale, contactTo }: { locale: Locale; contactTo
               ))}
             </ul>
           </div>
+        </div>
+        <div className="mt-12 grid gap-4 md:grid-cols-3">
+          {[mockupInicio, mockupMotor, mockupQuickReframe].map((src, index) => (
+            <div key={src} className="overflow-hidden border border-border bg-[color:var(--color-surface)]">
+              <img
+                src={src}
+                alt={
+                  locale === "en"
+                    ? ["G-Frame home prototype screen", "G-Frame restructuring engine prototype screen", "G-Frame Quick Reframe prototype screen"][index]
+                    : ["Pantalla de inicio del prototipo G-Frame", "Pantalla del Motor de Reestructuración de G-Frame", "Pantalla de Quick Reframe de G-Frame"][index]
+                }
+                loading="lazy"
+                width={900}
+                height={1125}
+                className="w-full h-auto object-cover"
+              />
+            </div>
+          ))}
         </div>
       </Section>
 

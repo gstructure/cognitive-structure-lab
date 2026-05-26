@@ -21,6 +21,9 @@ import { ROUTES } from "@/lib/routeMap";
 import { featuredArticlesForLocale } from "@/lib/articles";
 import logoCube from "@/assets/g-structure-cube.webp";
 import gFrameLogo from "@/assets/g-frame-logo.png";
+import mockupInicio from "@/assets/g-frame-mockups/01-inicio.webp";
+import mockupMotor from "@/assets/g-frame-mockups/03-motor-reestructuracion.webp";
+import mockupQuickReframe from "@/assets/g-frame-mockups/04-quick-reframe.webp";
 import etwBadge from "@/assets/etw-2026-badge.webp";
 import { buildSeo, canonicalLink, jsonLdScript, faqSchema, breadcrumbSchema } from "@/lib/seo";
 
@@ -1164,15 +1167,39 @@ function GStructBridge() {
           <p className="text-foreground/85">{c.p2}</p>
         </div>
         <div className="lg:col-span-5">
-          <div className="relative border border-[color:var(--color-brand-deep)] bg-[color:var(--color-brand-deep)] p-6">
-            <img
-              src={gFrameLogo}
-              alt={c.previewAlt}
-              loading="lazy"
-              width={1600}
-              height={900}
-              className="w-full h-auto object-contain"
-            />
+          <div className="relative overflow-hidden border border-[color:var(--color-brand-deep)] bg-[color:var(--color-brand-deep)] p-4 md:p-5">
+            <div className="grid grid-cols-12 gap-3 items-end">
+              <img
+                src={mockupInicio}
+                alt={c.previewAlt}
+                loading="lazy"
+                width={900}
+                height={1125}
+                className="col-span-7 w-full h-auto object-cover"
+              />
+              <div className="col-span-5 grid gap-3">
+                <img
+                  src={mockupMotor}
+                  alt={locale === "en" ? "G-Frame Restructuring Engine mock-up." : "Mock-up del Motor de Reestructuración de G-Frame."}
+                  loading="lazy"
+                  width={900}
+                  height={1125}
+                  className="w-full h-auto object-cover"
+                />
+                <img
+                  src={mockupQuickReframe}
+                  alt={locale === "en" ? "G-Frame Quick Reframe mock-up." : "Mock-up de Quick Reframe de G-Frame."}
+                  loading="lazy"
+                  width={900}
+                  height={1125}
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+            </div>
+            <div className="mt-4 flex items-center justify-between border-t border-[color:var(--color-background)]/20 pt-3 text-[10px] font-semibold tracking-[0.2em] text-[color:var(--color-background)]/70">
+              <span>{locale === "en" ? "PROTOTYPE SCREENS" : "PANTALLAS DEL PROTOTIPO"}</span>
+              <span>Q3 2026</span>
+            </div>
           </div>
         </div>
       </div>

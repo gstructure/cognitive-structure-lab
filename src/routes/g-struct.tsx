@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo, canonicalLink, jsonLdScript, breadcrumbSchema, gStructSoftwareSchema } from "@/lib/seo";
-import gFrameLogo from "@/assets/g-frame-logo.png";
+import mockupInicio from "@/assets/g-frame-mockups/01-inicio.webp";
 import { GStructPage } from "@/components/pages/GStructPage";
 
 export const Route = createFileRoute("/g-struct")({
@@ -10,7 +10,7 @@ export const Route = createFileRoute("/g-struct")({
       title: "G-Frame | Plataforma de ejecución impulsada por el método I-R-O™",
       description:
         "G-Frame es la app móvil de G-Structure que aplica el método I-R-O™ para identificar la fricción que bloquea tu ejecución, reencuadrarla y optimizar tu acción. Lanzamiento Q3 2026.",
-      image: gFrameLogo,
+      image: mockupInicio,
     }),
     links: canonicalLink("/g-struct"),
     scripts: [
