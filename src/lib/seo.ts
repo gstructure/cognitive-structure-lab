@@ -134,7 +134,7 @@ export function gStructSoftwareSchema(locale: "es" | "en" = "es") {
     name: "G-Frame",
     applicationCategory: "ProductivityApplication",
     operatingSystem: "iOS, Android, Web",
-    url: `${SITE_URL}${isEs ? "/g-struct" : "/en/g-struct"}`,
+    url: `${SITE_URL}${isEs ? "/g-frame" : "/en/g-frame"}`,
     inLanguage: isEs ? "es" : "en",
     description: isEs
       ? "Plataforma cognitivo-conductual de ejecución profesional impulsada por el método I-R-O."

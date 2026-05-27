@@ -18,6 +18,7 @@ import { Route as NewsletterRouteImport } from './routes/newsletter'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as InversoresRouteImport } from './routes/inversores'
 import { Route as GStructRouteImport } from './routes/g-struct'
+import { Route as GFrameRouteImport } from './routes/g-frame'
 import { Route as EnterpriseRouteImport } from './routes/enterprise'
 import { Route as DiagnosticoFriccionEjecutivaRouteImport } from './routes/diagnostico-friccion-ejecutiva'
 import { Route as ContactoRouteImport } from './routes/contacto'
@@ -34,6 +35,7 @@ import { Route as EnNewsletterRouteImport } from './routes/en.newsletter'
 import { Route as EnJoinTheTeamRouteImport } from './routes/en.join-the-team'
 import { Route as EnInvestorsRouteImport } from './routes/en.investors'
 import { Route as EnGStructRouteImport } from './routes/en.g-struct'
+import { Route as EnGFrameRouteImport } from './routes/en.g-frame'
 import { Route as EnEtw2026PartnersRouteImport } from './routes/en.etw-2026-partners'
 import { Route as EnEnterpriseRouteImport } from './routes/en.enterprise'
 import { Route as EnContactRouteImport } from './routes/en.contact'
@@ -106,6 +108,11 @@ const InversoresRoute = InversoresRouteImport.update({
 const GStructRoute = GStructRouteImport.update({
   id: '/g-struct',
   path: '/g-struct',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GFrameRoute = GFrameRouteImport.update({
+  id: '/g-frame',
+  path: '/g-frame',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EnterpriseRoute = EnterpriseRouteImport.update({
@@ -186,6 +193,11 @@ const EnInvestorsRoute = EnInvestorsRouteImport.update({
 const EnGStructRoute = EnGStructRouteImport.update({
   id: '/en/g-struct',
   path: '/en/g-struct',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnGFrameRoute = EnGFrameRouteImport.update({
+  id: '/en/g-frame',
+  path: '/en/g-frame',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EnEtw2026PartnersRoute = EnEtw2026PartnersRouteImport.update({
@@ -348,6 +360,7 @@ export interface FileRoutesByFullPath {
   '/contacto': typeof ContactoRoute
   '/diagnostico-friccion-ejecutiva': typeof DiagnosticoFriccionEjecutivaRoute
   '/enterprise': typeof EnterpriseRoute
+  '/g-frame': typeof GFrameRoute
   '/g-struct': typeof GStructRoute
   '/inversores': typeof InversoresRoute
   '/login': typeof LoginRoute
@@ -364,6 +377,7 @@ export interface FileRoutesByFullPath {
   '/en/contact': typeof EnContactRoute
   '/en/enterprise': typeof EnEnterpriseRoute
   '/en/etw-2026-partners': typeof EnEtw2026PartnersRoute
+  '/en/g-frame': typeof EnGFrameRoute
   '/en/g-struct': typeof EnGStructRoute
   '/en/investors': typeof EnInvestorsRoute
   '/en/join-the-team': typeof EnJoinTheTeamRoute
@@ -401,6 +415,7 @@ export interface FileRoutesByTo {
   '/contacto': typeof ContactoRoute
   '/diagnostico-friccion-ejecutiva': typeof DiagnosticoFriccionEjecutivaRoute
   '/enterprise': typeof EnterpriseRoute
+  '/g-frame': typeof GFrameRoute
   '/g-struct': typeof GStructRoute
   '/inversores': typeof InversoresRoute
   '/login': typeof LoginRoute
@@ -416,6 +431,7 @@ export interface FileRoutesByTo {
   '/en/contact': typeof EnContactRoute
   '/en/enterprise': typeof EnEnterpriseRoute
   '/en/etw-2026-partners': typeof EnEtw2026PartnersRoute
+  '/en/g-frame': typeof EnGFrameRoute
   '/en/g-struct': typeof EnGStructRoute
   '/en/investors': typeof EnInvestorsRoute
   '/en/join-the-team': typeof EnJoinTheTeamRoute
@@ -456,6 +472,7 @@ export interface FileRoutesById {
   '/contacto': typeof ContactoRoute
   '/diagnostico-friccion-ejecutiva': typeof DiagnosticoFriccionEjecutivaRoute
   '/enterprise': typeof EnterpriseRoute
+  '/g-frame': typeof GFrameRoute
   '/g-struct': typeof GStructRoute
   '/inversores': typeof InversoresRoute
   '/login': typeof LoginRoute
@@ -472,6 +489,7 @@ export interface FileRoutesById {
   '/en/contact': typeof EnContactRoute
   '/en/enterprise': typeof EnEnterpriseRoute
   '/en/etw-2026-partners': typeof EnEtw2026PartnersRoute
+  '/en/g-frame': typeof EnGFrameRoute
   '/en/g-struct': typeof EnGStructRoute
   '/en/investors': typeof EnInvestorsRoute
   '/en/join-the-team': typeof EnJoinTheTeamRoute
@@ -512,6 +530,7 @@ export interface FileRouteTypes {
     | '/contacto'
     | '/diagnostico-friccion-ejecutiva'
     | '/enterprise'
+    | '/g-frame'
     | '/g-struct'
     | '/inversores'
     | '/login'
@@ -528,6 +547,7 @@ export interface FileRouteTypes {
     | '/en/contact'
     | '/en/enterprise'
     | '/en/etw-2026-partners'
+    | '/en/g-frame'
     | '/en/g-struct'
     | '/en/investors'
     | '/en/join-the-team'
@@ -565,6 +585,7 @@ export interface FileRouteTypes {
     | '/contacto'
     | '/diagnostico-friccion-ejecutiva'
     | '/enterprise'
+    | '/g-frame'
     | '/g-struct'
     | '/inversores'
     | '/login'
@@ -580,6 +601,7 @@ export interface FileRouteTypes {
     | '/en/contact'
     | '/en/enterprise'
     | '/en/etw-2026-partners'
+    | '/en/g-frame'
     | '/en/g-struct'
     | '/en/investors'
     | '/en/join-the-team'
@@ -619,6 +641,7 @@ export interface FileRouteTypes {
     | '/contacto'
     | '/diagnostico-friccion-ejecutiva'
     | '/enterprise'
+    | '/g-frame'
     | '/g-struct'
     | '/inversores'
     | '/login'
@@ -635,6 +658,7 @@ export interface FileRouteTypes {
     | '/en/contact'
     | '/en/enterprise'
     | '/en/etw-2026-partners'
+    | '/en/g-frame'
     | '/en/g-struct'
     | '/en/investors'
     | '/en/join-the-team'
@@ -675,6 +699,7 @@ export interface RootRouteChildren {
   ContactoRoute: typeof ContactoRoute
   DiagnosticoFriccionEjecutivaRoute: typeof DiagnosticoFriccionEjecutivaRoute
   EnterpriseRoute: typeof EnterpriseRoute
+  GFrameRoute: typeof GFrameRoute
   GStructRoute: typeof GStructRoute
   InversoresRoute: typeof InversoresRoute
   LoginRoute: typeof LoginRoute
@@ -690,6 +715,7 @@ export interface RootRouteChildren {
   EnContactRoute: typeof EnContactRoute
   EnEnterpriseRoute: typeof EnEnterpriseRoute
   EnEtw2026PartnersRoute: typeof EnEtw2026PartnersRoute
+  EnGFrameRoute: typeof EnGFrameRoute
   EnGStructRoute: typeof EnGStructRoute
   EnInvestorsRoute: typeof EnInvestorsRoute
   EnJoinTheTeamRoute: typeof EnJoinTheTeamRoute
@@ -775,6 +801,13 @@ declare module '@tanstack/react-router' {
       path: '/g-struct'
       fullPath: '/g-struct'
       preLoaderRoute: typeof GStructRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/g-frame': {
+      id: '/g-frame'
+      path: '/g-frame'
+      fullPath: '/g-frame'
+      preLoaderRoute: typeof GFrameRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/enterprise': {
@@ -887,6 +920,13 @@ declare module '@tanstack/react-router' {
       path: '/en/g-struct'
       fullPath: '/en/g-struct'
       preLoaderRoute: typeof EnGStructRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/g-frame': {
+      id: '/en/g-frame'
+      path: '/en/g-frame'
+      fullPath: '/en/g-frame'
+      preLoaderRoute: typeof EnGFrameRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/en/etw-2026-partners': {
@@ -1145,6 +1185,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactoRoute: ContactoRoute,
   DiagnosticoFriccionEjecutivaRoute: DiagnosticoFriccionEjecutivaRoute,
   EnterpriseRoute: EnterpriseRoute,
+  GFrameRoute: GFrameRoute,
   GStructRoute: GStructRoute,
   InversoresRoute: InversoresRoute,
   LoginRoute: LoginRoute,
@@ -1160,6 +1201,7 @@ const rootRouteChildren: RootRouteChildren = {
   EnContactRoute: EnContactRoute,
   EnEnterpriseRoute: EnEnterpriseRoute,
   EnEtw2026PartnersRoute: EnEtw2026PartnersRoute,
+  EnGFrameRoute: EnGFrameRoute,
   EnGStructRoute: EnGStructRoute,
   EnInvestorsRoute: EnInvestorsRoute,
   EnJoinTheTeamRoute: EnJoinTheTeamRoute,

@@ -23,11 +23,15 @@ export type Article = {
 
 const ARTICLE_TRANSLATIONS = [
   { es: "g-structure-constituida-ecuador-sucostruct", en: "g-structure-legally-incorporated-ecuador-sucostruct" },
-  { es: "g-struct-product-update-q3", en: "g-struct-product-update-q3" },
+  { es: "g-frame-product-update-q3", en: "g-frame-product-update-q3" },
   { es: "la-crisis-de-la-ejecucion", en: "the-execution-crisis" },
   { es: "de-la-mediacion-cognitiva", en: "on-cognitive-mediation" },
   { es: "la-infraestructura-invisible-del-habito", en: "the-invisible-infrastructure-of-habit" },
 ];
+
+const LEGACY_ARTICLE_SLUGS: Record<string, string> = {
+  "g-struct-product-update-q3": "g-frame-product-update-q3",
+};
 
 export const ARTICLES: Article[] = [
   {
@@ -57,7 +61,7 @@ export const ARTICLES: Article[] = [
     ],
   },
   {
-    slug: "g-struct-product-update-q3",
+    slug: "g-frame-product-update-q3",
     title: "G-Frame Product Update: lo que estamos construyendo para Q3",
     category: "G-Frame Build Notes",
     excerpt:
@@ -222,7 +226,7 @@ export const EN_ARTICLES: Article[] = [
     ],
   },
   {
-    slug: "g-struct-product-update-q3",
+    slug: "g-frame-product-update-q3",
     title: "G-Frame Product Update: what we are building for Q3",
     category: "G-Frame Build Notes",
     excerpt:
@@ -362,8 +366,9 @@ export function featuredArticlesForLocale(locale: ArticleLocale = "es") {
 }
 
 export function getArticleBySlug(slug: string, locale?: ArticleLocale) {
+  const canonicalSlug = LEGACY_ARTICLE_SLUGS[slug] ?? slug;
   const pool = locale ? articlesForLocale(locale) : [...ARTICLES, ...EN_ARTICLES];
-  return pool.find((article) => article.slug === slug);
+  return pool.find((article) => article.slug === canonicalSlug);
 }
 
 export function formatArticleDate(date: string, locale: ArticleLocale = "es") {

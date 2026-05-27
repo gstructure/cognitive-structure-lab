@@ -208,7 +208,7 @@ const COPY = {
         { tag: "01 · CANAL INDIVIDUAL", t: "REESTRUCTURA 1:1", d: "Sesiones individuales que validan el método I-R-O™ con profesionales, líderes y emprendedores que enfrentan fricción de ejecución.", esTo: "/reestructura-1-1", cta: "Conocer 1:1" },
         { tag: "02 · CANAL B2B", t: "REESTRUCTURA Enterprise", d: "Programa B2B para mapear patrones de ejecución en equipos, founders y organizaciones — y generar revenue temprano para la startup.", esTo: "/enterprise", cta: "Conocer Enterprise" },
         { tag: "03 · CANAL DE ACTIVACIÓN", t: "Workshop de Diagnóstico de Ejecución", d: "Experiencia grupal diseñada para educar, diagnosticar patrones de ejecución y activar usuarios tempranos para G-Frame.", esTo: "/aliados-etw-2026", cta: "Workshop · ETW 2026" },
-        { tag: "04 · PRODUCTO ESCALABLE", t: "G-Frame App", d: "El producto digital que escala la metodología. Lo que aprendemos en los canales anteriores alimenta directamente su construcción.", esTo: "/g-struct", cta: "Explorar G-Frame" },
+        { tag: "04 · PRODUCTO ESCALABLE", t: "G-Frame App", d: "El producto digital que escala la metodología. Lo que aprendemos en los canales anteriores alimenta directamente su construcción.", esTo: "/g-frame", cta: "Explorar G-Frame" },
       ],
       footer: (
         <>
@@ -256,7 +256,7 @@ const COPY = {
         </>
       ),
       routes: [
-        { tag: "USUARIOS", t: "Probar o conocer G-Frame", esTo: "/g-struct" },
+        { tag: "USUARIOS", t: "Probar o conocer G-Frame", esTo: "/g-frame" },
         { tag: "EMPRESAS", t: "Llevar Enterprise a tu equipo", esTo: "/enterprise" },
         { tag: "INVERSIONISTAS", t: "Revisar la oportunidad de inversión", esTo: "/inversores" },
         { tag: "ALIADOS", t: "Sumarse al ecosistema · ETW 2026", esTo: "/aliados-etw-2026" },
@@ -451,7 +451,7 @@ const COPY = {
         { tag: "01 · INDIVIDUAL CHANNEL", t: "RESTRUCTURE 1:1", d: "Individual sessions that validate the I-R-O™ Method with professionals, leaders, and entrepreneurs facing execution friction.", esTo: "/reestructura-1-1", cta: "Learn about 1:1" },
         { tag: "02 · B2B CHANNEL", t: "RESTRUCTURE Enterprise", d: "B2B program to map execution patterns in teams, founders, and organizations — and generate early revenue for the startup.", esTo: "/enterprise", cta: "Learn about Enterprise" },
         { tag: "03 · ACTIVATION CHANNEL", t: "Execution Diagnostic Workshop", d: "Group experience designed to educate, diagnose execution patterns, and activate early users for G-Frame.", esTo: "/aliados-etw-2026", cta: "Workshop · ETW 2026" },
-        { tag: "04 · SCALABLE PRODUCT", t: "G-Frame App", d: "The digital product that scales the methodology. What we learn in the previous channels feeds directly into its construction.", esTo: "/g-struct", cta: "Explore G-Frame" },
+        { tag: "04 · SCALABLE PRODUCT", t: "G-Frame App", d: "The digital product that scales the methodology. What we learn in the previous channels feeds directly into its construction.", esTo: "/g-frame", cta: "Explore G-Frame" },
       ],
       footer: (
         <>
@@ -499,7 +499,7 @@ const COPY = {
         </>
       ),
       routes: [
-        { tag: "USERS", t: "Try or learn about G-Frame", esTo: "/g-struct" },
+        { tag: "USERS", t: "Try or learn about G-Frame", esTo: "/g-frame" },
         { tag: "COMPANIES", t: "Bring Enterprise to your team", esTo: "/enterprise" },
         { tag: "INVESTORS", t: "Review the investment opportunity", esTo: "/inversores" },
         { tag: "PARTNERS", t: "Join the ecosystem · ETW 2026", esTo: "/aliados-etw-2026" },
@@ -617,10 +617,10 @@ function Hero() {
             </p>
 
             <div className="mt-9 flex flex-wrap items-center gap-3">
-              <CTALink to={lp("/g-struct", locale)} hash="waitlist" variant="primary" analyticsLabel="home_hero_waitlist">
+              <CTALink to={lp("/g-frame", locale)} hash="waitlist" variant="primary" analyticsLabel="home_hero_waitlist">
                 {c.linkWaitlist}
               </CTALink>
-              <CTALink to={lp("/g-struct", locale)} variant="outline" analyticsLabel="home_hero_gstruct">
+              <CTALink to={lp("/g-frame", locale)} variant="outline" analyticsLabel="home_hero_gstruct">
                 {t("home.hero.ctaPrimary")}
               </CTALink>
               <CTALink to={lp("/inversores", locale)} variant="ghost" analyticsLabel="home_hero_investors">
@@ -636,7 +636,7 @@ function Hero() {
                 </Link>
               </li>
               <li>
-                <Link to={lp("/g-struct", locale)} hash="waitlist" className="group inline-flex items-center gap-2 text-foreground/85 hover:text-foreground">
+                <Link to={lp("/g-frame", locale)} hash="waitlist" className="group inline-flex items-center gap-2 text-foreground/85 hover:text-foreground">
                   <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
                   {c.linkWaitlist}
                 </Link>
@@ -1242,7 +1242,7 @@ function GStructBridge() {
       </div>
 
       <div className="mt-12 flex flex-col items-center text-center gap-3">
-        <CTALink to={lp("/g-struct", locale)} hash="waitlist" variant="primary" analyticsLabel="home_gstruct_section_waitlist">
+        <CTALink to={lp("/g-frame", locale)} hash="waitlist" variant="primary" analyticsLabel="home_gstruct_section_waitlist">
           {c.ctaWaitlist}
         </CTALink>
         <p className="text-sm text-muted-foreground">
@@ -1419,8 +1419,8 @@ function FinalCTA() {
           {c.body}
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-3">
-          <CTALink to={lp("/g-struct", locale)} variant="inverse">{c.ctaExplore}</CTALink>
-          <CTALink to={lp("/g-struct", locale)} hash="waitlist" variant="inverse" analyticsLabel="home_final_waitlist">
+          <CTALink to={lp("/g-frame", locale)} variant="inverse">{c.ctaExplore}</CTALink>
+          <CTALink to={lp("/g-frame", locale)} hash="waitlist" variant="inverse" analyticsLabel="home_final_waitlist">
             {c.ctaWaitlist}
           </CTALink>
           <CTALink to={lp("/contacto", locale)} variant="ghost" className="text-[color:var(--color-background)] hover:bg-[color:var(--color-background)]/10">

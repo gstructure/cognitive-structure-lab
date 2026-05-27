@@ -10,7 +10,7 @@ export type RouteEntry = {
 
 export const ROUTES: RouteEntry[] = [
   { es: "/", en: "/en", label: { es: "Inicio", en: "Home" } },
-  { es: "/g-struct", en: "/en/g-struct", label: { es: "G-Frame", en: "G-Frame" } },
+  { es: "/g-frame", en: "/en/g-frame", label: { es: "G-Frame", en: "G-Frame" } },
   { es: "/articulos", en: "/en/articles", label: { es: "Artículos", en: "Articles" } },
   { es: "/newsletter", en: "/en/newsletter", label: { es: "Newsletter", en: "Newsletter" } },
   { es: "/apoya-el-lanzamiento", en: "/en/support-the-launch", label: { es: "Apoya el lanzamiento", en: "Support the Launch" } },
@@ -36,7 +36,7 @@ export function swapLocalePath(pathname: string, target: Locale): string {
 
   const articleSlugPairs = [
     { es: "g-structure-constituida-ecuador-sucostruct", en: "g-structure-legally-incorporated-ecuador-sucostruct" },
-    { es: "g-struct-product-update-q3", en: "g-struct-product-update-q3" },
+    { es: "g-frame-product-update-q3", en: "g-frame-product-update-q3" },
     { es: "la-crisis-de-la-ejecucion", en: "the-execution-crisis" },
     { es: "de-la-mediacion-cognitiva", en: "on-cognitive-mediation" },
     { es: "la-infraestructura-invisible-del-habito", en: "the-invisible-infrastructure-of-habit" },
@@ -69,7 +69,7 @@ export function navForLocale(locale: Locale) {
   const home = locale === "en" ? "/en" : "/";
   const items = [
     {
-      to: locale === "en" ? "/en/g-struct" : "/g-struct",
+      to: locale === "en" ? "/en/g-frame" : "/g-frame",
       label: "G-Frame",
       exact: false,
       highlight: true,
@@ -110,7 +110,7 @@ export function navForLocale(locale: Locale) {
 }
 
 export function opportunitiesForLocale(locale: Locale) {
-  const keys = ["/aliados-etw-2026", "/unete-al-equipo", "/g-struct"];
+  const keys = ["/aliados-etw-2026", "/unete-al-equipo", "/g-frame"];
   return ROUTES.filter((r) => keys.includes(r.es)).map((r) => ({
     to: r[locale],
     label: r.label[locale],

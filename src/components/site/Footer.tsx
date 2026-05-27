@@ -9,7 +9,7 @@ export function Footer() {
   const { locale } = useLocale();
   const t = useT();
 
-  const gStructBase = locale === "en" ? "/en/g-struct" : "/g-struct";
+  const gStructBase = locale === "en" ? "/en/g-frame" : "/g-frame";
 
   const productoLinks: FooterLink[] = [
     { to: gStructBase, label: "G-Frame" },
