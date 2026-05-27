@@ -21,7 +21,7 @@ export function Footer() {
   ];
 
   const validationLinks: FooterLink[] = [
-    { to: (locale === "en" ? "/en" : "/") + "#metodo", label: locale === "en" ? "I-R-O™ Method" : "Método I-R-O™" },
+    { to: locale === "en" ? "/en/iro-method" : "/metodo-iro", label: locale === "en" ? "I-R-O™ Method" : "Método I-R-O™" },
     { to: locale === "en" ? "/en/enterprise" : "/enterprise", label: "Enterprise pilot" },
     { to: locale === "en" ? "/en/restructure-1-1" : "/reestructura-1-1", label: locale === "en" ? "RESTRUCTURE 1:1" : "REESTRUCTURA 1:1" },
     { to: locale === "en" ? "/en/etw-2026-partners" : "/aliados-etw-2026", label: "Workshop ETW 2026" },
@@ -117,7 +117,7 @@ export function Footer() {
         <div className="mt-6 border-t border-border pt-6">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <p className="text-xs text-muted-foreground lg:shrink-0">
-              © {new Date().getFullYear()} G-Structure. {t("common.rightsReserved")} {t("common.initiativeOf")}
+              © {new Date().getFullYear()} G-Structure. {t("common.rightsReserved")}
             </p>
             <nav aria-label="Legal" className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-muted-foreground lg:justify-center">
               <Link to="/politicas-legales" className="hover:text-foreground">Políticas Legales</Link>
@@ -134,3 +134,4 @@ export function Footer() {
     </footer>
   );
 }
+

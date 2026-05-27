@@ -11,6 +11,7 @@ export type RouteEntry = {
 export const ROUTES: RouteEntry[] = [
   { es: "/", en: "/en", label: { es: "Inicio", en: "Home" } },
   { es: "/g-frame", en: "/en/g-frame", label: { es: "G-Frame", en: "G-Frame" } },
+  { es: "/metodo-iro", en: "/en/iro-method", label: { es: "Método I-R-O™", en: "I-R-O™ Method" } },
   { es: "/articulos", en: "/en/articles", label: { es: "Artículos", en: "Articles" } },
   { es: "/newsletter", en: "/en/newsletter", label: { es: "Newsletter", en: "Newsletter" } },
   { es: "/apoya-el-lanzamiento", en: "/en/support-the-launch", label: { es: "Apoya el lanzamiento", en: "Support the Launch" } },
@@ -36,6 +37,7 @@ export function swapLocalePath(pathname: string, target: Locale): string {
 
   const articleSlugPairs = [
     { es: "g-structure-constituida-ecuador-sucostruct", en: "g-structure-legally-incorporated-ecuador-sucostruct" },
+    { es: "g-structure-seleccionada-codelaunch-latam-2026", en: "g-structure-selected-codelaunch-latam-2026" },
     { es: "g-frame-product-update-q3", en: "g-frame-product-update-q3" },
     { es: "la-crisis-de-la-ejecucion", en: "the-execution-crisis" },
     { es: "de-la-mediacion-cognitiva", en: "on-cognitive-mediation" },
@@ -75,8 +77,7 @@ export function navForLocale(locale: Locale) {
       highlight: true,
     },
     {
-      to: home,
-      hash: "metodo",
+      to: locale === "en" ? "/en/iro-method" : "/metodo-iro",
       label: locale === "en" ? "I-R-O™ Method" : "Método I-R-O™",
       exact: false,
       highlight: false,

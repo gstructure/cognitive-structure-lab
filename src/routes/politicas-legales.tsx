@@ -46,7 +46,7 @@ const TOC: { id: string; label: string }[] = [
   { id: "cancelaciones", label: "16. Cancelaciones y reprogramaciones" },
   { id: "terminos", label: "17. Términos de uso del sitio" },
   { id: "propiedad", label: "18. Propiedad intelectual" },
-  { id: "disclaimer", label: "19. Disclaimer: coaching, no terapia" },
+  { id: "disclaimer", label: "19. Disclaimer: no es atención clínica" },
   { id: "g-struct", label: "20. Disclaimer G-Frame" },
   { id: "responsabilidad", label: "21. Limitación de responsabilidad" },
   { id: "testimonios", label: "22. Testimonios y resultados" },
@@ -355,11 +355,11 @@ function Page() {
               </p>
             </Block>
 
-            <Block id="disclaimer" title="19. G-Structure ofrece coaching, no terapia">
+            <Block id="disclaimer" title="19. G-Structure no sustituye atención clínica">
               <div className="border-l-4 border-amber-500 bg-amber-50/40 dark:bg-amber-950/10 p-4 space-y-3">
                 <p>
-                  G-Structure ofrece servicios de coaching, formación y acompañamiento
-                  cognitivo-conductual aplicado a la ejecución. Los servicios{" "}
+                  G-Structure desarrolla herramientas, contenidos y experiencias de ejecución
+                  cognitivo-conductual. Estos recursos{" "}
                   <strong>no constituyen psicoterapia, diagnóstico psicológico, tratamiento
                   médico, tratamiento psiquiátrico ni atención de emergencia</strong>.
                 </p>
@@ -380,7 +380,7 @@ function Page() {
               <div className="border-l-4 border-amber-500 bg-amber-50/40 dark:bg-amber-950/10 p-4 space-y-3">
                 <p>
                   G-Frame es una herramienta digital en desarrollo con fines educativos,
-                  formativos y de coaching. Sus ejercicios, registros, métricas, indicadores o
+                  formativos y de ejecución personal/profesional. Sus ejercicios, registros, métricas, indicadores o
                   sugerencias <strong>no constituyen diagnóstico, tratamiento ni evaluación
                   clínica</strong>.
                 </p>

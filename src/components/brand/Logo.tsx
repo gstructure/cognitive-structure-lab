@@ -1,12 +1,24 @@
 import logoCube from "@/assets/g-structure-cube.webp";
+import logoBanner from "@/assets/g-structure-banner.png";
 
 type LogoProps = {
   variant?: "default" | "inverse";
+  lockup?: "banner" | "compact";
   className?: string;
 };
 
-export function Logo({ variant = "default", className }: LogoProps) {
+export function Logo({ variant = "default", lockup = "banner", className }: LogoProps) {
   const color = variant === "inverse" ? "var(--color-background)" : "var(--color-brand)";
+  if (lockup === "banner" && variant === "default") {
+    return (
+      <img
+        src={logoBanner}
+        alt="G-Structure"
+        className={`h-8 w-auto object-contain md:h-10 ${className ?? ""}`}
+      />
+    );
+  }
+
   return (
     <div className={`flex items-center gap-2.5 ${className ?? ""}`}>
       <img

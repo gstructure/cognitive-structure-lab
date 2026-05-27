@@ -42,9 +42,9 @@ export const es: Dict = {
     requestInfo: "Solicitar información",
     skipToContent: "Saltar al contenido",
     legal:
-      "G-Structure ofrece coaching y formación cognitivo-conductual aplicada a la ejecución. No sustituye atención psicológica, médica o psiquiátrica.",
+      "G-Structure construye herramientas de ejecución cognitivo-conductual. Sus contenidos no sustituyen atención psicológica, médica o psiquiátrica.",
     rightsReserved: "Todos los derechos reservados.",
-    initiativeOf: "Una iniciativa de Guillermo Suco.",
+    initiativeOf: "",
   },
   nav: {
     home: "Inicio",
@@ -78,11 +78,11 @@ export const es: Dict = {
       pillTitle: "TECH STARTUP · ETAPA TEMPRANA",
       pillSub: "· G-Frame · Método I-R-O™ · Validación activa",
       eyebrow: "G-STRUCTURE · STARTUP → G-FRAME · PRODUCTO",
-      h1: "G-Structure está construyendo G-Frame.",
+      h1: "¿Sabes qué hacer, pero no logras ejecutarlo?",
       lead:
         "Una plataforma cognitivo-conductual de ejecución profesional, impulsada por el método I-R-O™: Identificar, Reencuadrar y Optimizar.",
       sub:
-        "G-Frame convierte el método I-R-O™ en una experiencia digital para diagnosticar fricción mental, reencuadrar patrones y convertir claridad en acción. REESTRUCTURA 1:1, Enterprise y workshops existen como canales de validación, revenue e insight para mejorar el producto antes de su lanzamiento en Q3 2026.",
+        "G-Frame convierte el método I-R-O™ en una experiencia digital para identificar fricción mental, reencuadrar patrones y transformar claridad en acción. G-Structure es la startup que lo está construyendo desde Ecuador.",
       ctaPrimary: "Explorar G-Frame",
       ctaSecondary: "Ver tesis para inversores",
       step1: { t: "Identificar", d: "Patrones que bloquean la acción." },
@@ -115,7 +115,7 @@ export const es: Dict = {
     subtitle:
       "Te ayudo a entender qué ruta de G-Structure tiene más sentido para tu contexto.",
     disclaimer:
-      "G-Structure ofrece coaching y formación cognitivo-conductual aplicada a la ejecución. No sustituye atención psicológica, médica o psiquiátrica.",
+      "G-Structure construye herramientas de ejecución cognitivo-conductual. Sus contenidos no sustituyen atención psicológica, médica o psiquiátrica.",
     q1: "¿Qué estás buscando?",
     options: {
       enterprise: "Mejorar la ejecución en mi equipo",
@@ -159,9 +159,9 @@ export const en: Dict = {
     requestInfo: "Request information",
     skipToContent: "Skip to content",
     legal:
-      "G-Structure offers cognitive-behavioral coaching and training applied to execution. It does not replace psychological, medical, or psychiatric care.",
+      "G-Structure builds cognitive-behavioral execution tools. Its content does not replace psychological, medical, or psychiatric care.",
     rightsReserved: "All rights reserved.",
-    initiativeOf: "An initiative of Guillermo Suco.",
+    initiativeOf: "",
   },
   nav: {
     home: "Home",
@@ -195,11 +195,11 @@ export const en: Dict = {
       pillTitle: "TECH STARTUP · EARLY STAGE",
       pillSub: "· G-Frame · I-R-O™ Method · Active validation",
       eyebrow: "G-STRUCTURE · STARTUP → G-FRAME · PRODUCT",
-      h1: "G-Structure is building G-Frame.",
+      h1: "Do you know what to do, but still cannot execute?",
       lead:
         "A cognitive-behavioral execution platform powered by the I-R-O™ Method: Identify, Reframe, Optimize.",
       sub:
-        "G-Frame turns the I-R-O™ Method into a digital experience to diagnose mental friction, reframe patterns, and convert clarity into action. RESTRUCTURE 1:1, Enterprise, and workshops exist as validation, revenue, and insight channels to improve the product before its Q3 2026 launch.",
+        "G-Frame turns the I-R-O™ Method into a digital experience to identify mental friction, reframe patterns, and turn clarity into action. G-Structure is the startup building it from Ecuador.",
       ctaPrimary: "Explore G-Frame",
       ctaSecondary: "See the investor thesis",
       step1: { t: "Identify", d: "Patterns that block action." },
@@ -232,7 +232,7 @@ export const en: Dict = {
     subtitle:
       "I’ll help you find the right path within G-Structure for your context.",
     disclaimer:
-      "G-Structure offers cognitive-behavioral coaching and training applied to execution. It does not replace psychological, medical, or psychiatric care.",
+      "G-Structure builds cognitive-behavioral execution tools. Its content does not replace psychological, medical, or psychiatric care.",
     q1: "What are you looking for?",
     options: {
       enterprise: "Improve execution in my team",

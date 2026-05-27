@@ -15,6 +15,7 @@ import { Route as SobreGuillermoRouteImport } from './routes/sobre-guillermo'
 import { Route as Reestructura11RouteImport } from './routes/reestructura-1-1'
 import { Route as PoliticasLegalesRouteImport } from './routes/politicas-legales'
 import { Route as NewsletterRouteImport } from './routes/newsletter'
+import { Route as MetodoIroRouteImport } from './routes/metodo-iro'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as InversoresRouteImport } from './routes/inversores'
 import { Route as GStructRouteImport } from './routes/g-struct'
@@ -33,6 +34,7 @@ import { Route as EnSupportTheLaunchRouteImport } from './routes/en.support-the-
 import { Route as EnRestructure11RouteImport } from './routes/en.restructure-1-1'
 import { Route as EnNewsletterRouteImport } from './routes/en.newsletter'
 import { Route as EnJoinTheTeamRouteImport } from './routes/en.join-the-team'
+import { Route as EnIroMethodRouteImport } from './routes/en.iro-method'
 import { Route as EnInvestorsRouteImport } from './routes/en.investors'
 import { Route as EnGStructRouteImport } from './routes/en.g-struct'
 import { Route as EnGFrameRouteImport } from './routes/en.g-frame'
@@ -93,6 +95,11 @@ const PoliticasLegalesRoute = PoliticasLegalesRouteImport.update({
 const NewsletterRoute = NewsletterRouteImport.update({
   id: '/newsletter',
   path: '/newsletter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MetodoIroRoute = MetodoIroRouteImport.update({
+  id: '/metodo-iro',
+  path: '/metodo-iro',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoginRoute = LoginRouteImport.update({
@@ -183,6 +190,11 @@ const EnNewsletterRoute = EnNewsletterRouteImport.update({
 const EnJoinTheTeamRoute = EnJoinTheTeamRouteImport.update({
   id: '/en/join-the-team',
   path: '/en/join-the-team',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnIroMethodRoute = EnIroMethodRouteImport.update({
+  id: '/en/iro-method',
+  path: '/en/iro-method',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EnInvestorsRoute = EnInvestorsRouteImport.update({
@@ -364,6 +376,7 @@ export interface FileRoutesByFullPath {
   '/g-struct': typeof GStructRoute
   '/inversores': typeof InversoresRoute
   '/login': typeof LoginRoute
+  '/metodo-iro': typeof MetodoIroRoute
   '/newsletter': typeof NewsletterRoute
   '/politicas-legales': typeof PoliticasLegalesRoute
   '/reestructura-1-1': typeof Reestructura11Route
@@ -380,6 +393,7 @@ export interface FileRoutesByFullPath {
   '/en/g-frame': typeof EnGFrameRoute
   '/en/g-struct': typeof EnGStructRoute
   '/en/investors': typeof EnInvestorsRoute
+  '/en/iro-method': typeof EnIroMethodRoute
   '/en/join-the-team': typeof EnJoinTheTeamRoute
   '/en/newsletter': typeof EnNewsletterRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
@@ -419,6 +433,7 @@ export interface FileRoutesByTo {
   '/g-struct': typeof GStructRoute
   '/inversores': typeof InversoresRoute
   '/login': typeof LoginRoute
+  '/metodo-iro': typeof MetodoIroRoute
   '/newsletter': typeof NewsletterRoute
   '/politicas-legales': typeof PoliticasLegalesRoute
   '/reestructura-1-1': typeof Reestructura11Route
@@ -434,6 +449,7 @@ export interface FileRoutesByTo {
   '/en/g-frame': typeof EnGFrameRoute
   '/en/g-struct': typeof EnGStructRoute
   '/en/investors': typeof EnInvestorsRoute
+  '/en/iro-method': typeof EnIroMethodRoute
   '/en/join-the-team': typeof EnJoinTheTeamRoute
   '/en/newsletter': typeof EnNewsletterRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
@@ -476,6 +492,7 @@ export interface FileRoutesById {
   '/g-struct': typeof GStructRoute
   '/inversores': typeof InversoresRoute
   '/login': typeof LoginRoute
+  '/metodo-iro': typeof MetodoIroRoute
   '/newsletter': typeof NewsletterRoute
   '/politicas-legales': typeof PoliticasLegalesRoute
   '/reestructura-1-1': typeof Reestructura11Route
@@ -492,6 +509,7 @@ export interface FileRoutesById {
   '/en/g-frame': typeof EnGFrameRoute
   '/en/g-struct': typeof EnGStructRoute
   '/en/investors': typeof EnInvestorsRoute
+  '/en/iro-method': typeof EnIroMethodRoute
   '/en/join-the-team': typeof EnJoinTheTeamRoute
   '/en/newsletter': typeof EnNewsletterRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
@@ -534,6 +552,7 @@ export interface FileRouteTypes {
     | '/g-struct'
     | '/inversores'
     | '/login'
+    | '/metodo-iro'
     | '/newsletter'
     | '/politicas-legales'
     | '/reestructura-1-1'
@@ -550,6 +569,7 @@ export interface FileRouteTypes {
     | '/en/g-frame'
     | '/en/g-struct'
     | '/en/investors'
+    | '/en/iro-method'
     | '/en/join-the-team'
     | '/en/newsletter'
     | '/en/restructure-1-1'
@@ -589,6 +609,7 @@ export interface FileRouteTypes {
     | '/g-struct'
     | '/inversores'
     | '/login'
+    | '/metodo-iro'
     | '/newsletter'
     | '/politicas-legales'
     | '/reestructura-1-1'
@@ -604,6 +625,7 @@ export interface FileRouteTypes {
     | '/en/g-frame'
     | '/en/g-struct'
     | '/en/investors'
+    | '/en/iro-method'
     | '/en/join-the-team'
     | '/en/newsletter'
     | '/en/restructure-1-1'
@@ -645,6 +667,7 @@ export interface FileRouteTypes {
     | '/g-struct'
     | '/inversores'
     | '/login'
+    | '/metodo-iro'
     | '/newsletter'
     | '/politicas-legales'
     | '/reestructura-1-1'
@@ -661,6 +684,7 @@ export interface FileRouteTypes {
     | '/en/g-frame'
     | '/en/g-struct'
     | '/en/investors'
+    | '/en/iro-method'
     | '/en/join-the-team'
     | '/en/newsletter'
     | '/en/restructure-1-1'
@@ -703,6 +727,7 @@ export interface RootRouteChildren {
   GStructRoute: typeof GStructRoute
   InversoresRoute: typeof InversoresRoute
   LoginRoute: typeof LoginRoute
+  MetodoIroRoute: typeof MetodoIroRoute
   NewsletterRoute: typeof NewsletterRoute
   PoliticasLegalesRoute: typeof PoliticasLegalesRoute
   Reestructura11Route: typeof Reestructura11Route
@@ -718,6 +743,7 @@ export interface RootRouteChildren {
   EnGFrameRoute: typeof EnGFrameRoute
   EnGStructRoute: typeof EnGStructRoute
   EnInvestorsRoute: typeof EnInvestorsRoute
+  EnIroMethodRoute: typeof EnIroMethodRoute
   EnJoinTheTeamRoute: typeof EnJoinTheTeamRoute
   EnNewsletterRoute: typeof EnNewsletterRoute
   EnRestructure11Route: typeof EnRestructure11Route
@@ -780,6 +806,13 @@ declare module '@tanstack/react-router' {
       path: '/newsletter'
       fullPath: '/newsletter'
       preLoaderRoute: typeof NewsletterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/metodo-iro': {
+      id: '/metodo-iro'
+      path: '/metodo-iro'
+      fullPath: '/metodo-iro'
+      preLoaderRoute: typeof MetodoIroRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/login': {
@@ -906,6 +939,13 @@ declare module '@tanstack/react-router' {
       path: '/en/join-the-team'
       fullPath: '/en/join-the-team'
       preLoaderRoute: typeof EnJoinTheTeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/iro-method': {
+      id: '/en/iro-method'
+      path: '/en/iro-method'
+      fullPath: '/en/iro-method'
+      preLoaderRoute: typeof EnIroMethodRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/en/investors': {
@@ -1189,6 +1229,7 @@ const rootRouteChildren: RootRouteChildren = {
   GStructRoute: GStructRoute,
   InversoresRoute: InversoresRoute,
   LoginRoute: LoginRoute,
+  MetodoIroRoute: MetodoIroRoute,
   NewsletterRoute: NewsletterRoute,
   PoliticasLegalesRoute: PoliticasLegalesRoute,
   Reestructura11Route: Reestructura11Route,
@@ -1204,6 +1245,7 @@ const rootRouteChildren: RootRouteChildren = {
   EnGFrameRoute: EnGFrameRoute,
   EnGStructRoute: EnGStructRoute,
   EnInvestorsRoute: EnInvestorsRoute,
+  EnIroMethodRoute: EnIroMethodRoute,
   EnJoinTheTeamRoute: EnJoinTheTeamRoute,
   EnNewsletterRoute: EnNewsletterRoute,
   EnRestructure11Route: EnRestructure11Route,

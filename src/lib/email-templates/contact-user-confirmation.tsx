@@ -54,8 +54,8 @@ const ContactUserConfirmationEmail = ({ name, requestType, message }: Props) => 
             <Link href="https://g-structure.co" style={link}>g-structure.co</Link>
           </Text>
           <Text style={footerNote}>
-            G-Structure ofrece servicios de coaching y formación cognitivo-conductual aplicada
-            a la ejecución. No sustituye atención psicológica, médica o psiquiátrica.
+            G-Structure construye herramientas de ejecución cognitivo-conductual. Sus contenidos
+            no sustituyen atención psicológica, médica o psiquiátrica.
           </Text>
         </Section>
       </Container>

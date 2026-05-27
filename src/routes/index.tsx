@@ -1254,6 +1254,62 @@ function GStructBridge() {
   );
 }
 
+function ProductTeaser() {
+  const { locale } = useLocale();
+  const copy = locale === "en"
+    ? {
+        eyebrow: "THE PRODUCT",
+        title: "G-Frame turns friction into a next action.",
+        body: "A mobile execution platform that helps professionals identify the pattern behind a block, reframe it, and leave with one concrete action.",
+        cta: "Explore G-Frame",
+        waitlist: "Join the waitlist",
+        alt: "G-Frame prototype preview.",
+        points: ["Quick Reframe for immediate blocks", "Restructure Lab for repeated patterns", "Guided I-R-O™ routes before action"],
+      }
+    : {
+        eyebrow: "EL PRODUCTO",
+        title: "G-Frame convierte fricción en una siguiente acción.",
+        body: "Una plataforma móvil de ejecución que ayuda a profesionales a identificar el patrón detrás de un bloqueo, reencuadrarlo y salir con una acción concreta.",
+        cta: "Explorar G-Frame",
+        waitlist: "Unirme a la waitlist",
+        alt: "Vista previa del prototipo de G-Frame.",
+        points: ["Quick Reframe para bloqueos inmediatos", "Restructure Lab para patrones repetidos", "Rutas guiadas I-R-O™ antes de actuar"],
+      };
+
+  return (
+    <Section tone="white">
+      <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
+        <div className="lg:col-span-5">
+          <SectionHeader eyebrow={copy.eyebrow} title={copy.title} subtitle={copy.body} />
+          <ul className="mt-7 space-y-3">
+            {copy.points.map((point) => (
+              <li key={point} className="flex gap-3 text-sm text-foreground/85">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-foreground" />
+                {point}
+              </li>
+            ))}
+          </ul>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <CTALink to={lp("/g-frame", locale)} variant="primary">{copy.cta}</CTALink>
+            <CTALink to={lp("/g-frame", locale)} hash="waitlist" variant="outline">{copy.waitlist}</CTALink>
+          </div>
+        </div>
+        <div className="lg:col-span-7">
+          <div className="border border-[color:var(--color-brand-deep)] bg-[color:var(--color-brand-deep)] p-4">
+            <div className="grid grid-cols-12 gap-3 items-end">
+              <img src={mockupInicio} alt={copy.alt} loading="lazy" className="col-span-7 w-full object-cover" />
+              <div className="col-span-5 grid gap-3">
+                <img src={mockupMotor} alt="" loading="lazy" className="w-full object-cover" />
+                <img src={mockupQuickReframe} alt="" loading="lazy" className="w-full object-cover" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Section>
+  );
+}
+
 function Founder() {
   const { locale } = useLocale();
   const c = COPY[locale].founder;
@@ -1709,12 +1765,10 @@ export function Index() {
     <>
       <Hero />
       <SocialProofBar />
-      <GStructBridge />
-      <Method />
+      <ProductTeaser />
       <StartupStage />
       <HomeMomentum />
       <SupportLaunchTeaser />
-      <Founder />
       <FinalCTA />
     </>
   );
