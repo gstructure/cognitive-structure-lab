@@ -22,6 +22,7 @@ export type Article = {
 };
 
 const ARTICLE_TRANSLATIONS = [
+  { es: "g-structure-seleccionada-codelaunch-latam-2026", en: "g-structure-selected-codelaunch-latam-2026" },
   { es: "g-structure-constituida-ecuador-sucostruct", en: "g-structure-legally-incorporated-ecuador-sucostruct" },
   { es: "g-frame-product-update-q3", en: "g-frame-product-update-q3" },
   { es: "la-crisis-de-la-ejecucion", en: "the-execution-crisis" },
@@ -34,6 +35,29 @@ const LEGACY_ARTICLE_SLUGS: Record<string, string> = {
 };
 
 export const ARTICLES: Article[] = [
+  {
+    slug: "g-structure-seleccionada-codelaunch-latam-2026",
+    title: "G-Structure entra al cohort de CodeLaunch LATAM 2026",
+    subtitle: "Una nueva señal de tracción para G-Structure y G-Frame desde Ecuador.",
+    category: "Company Updates",
+    excerpt:
+      "G-Structure fue seleccionada para CodeLaunch LATAM 2026 y avanza hacia la competencia regional en Guadalajara y el World Championship en Dallas.",
+    author: "Guillermo Suco",
+    publishedAt: "2026-05-27",
+    readMinutes: 4,
+    featured: true,
+    tags: ["G-Structure", "CodeLaunch LATAM 2026", "G-Frame", "Startup"],
+    blocks: [
+      { type: "p", text: "Hoy recibimos una noticia enorme para G-Structure: fuimos seleccionados para el cohort de CodeLaunch LATAM 2026." },
+      { type: "p", text: "Para una startup en etapa temprana, estas señales importan. No porque validen todo por sí solas, sino porque abren una nueva capa de exigencia, exposición y acompañamiento. G-Structure nació en Ecuador con una tesis muy concreta: convertir principios cognitivo-conductuales en una plataforma capaz de ayudar a profesionales, founders y equipos a ejecutar con más claridad, estructura y consistencia." },
+      { type: "p", text: "Ese producto es G-Frame. Los programas 1:1, Enterprise, el Workshop de Diagnóstico de Ejecución y el apoyo temprano no son negocios separados; son canales para validar el método I-R-O™, aprender con usuarios reales, generar revenue temprano y preparar el camino hacia un producto digital escalable." },
+      { type: "p", text: "Entrar a CodeLaunch LATAM nos obliga a seguir ordenando la casa: producto, narrativa, validación, equipo, evidencia y tracción. La competencia regional será en Guadalajara, México, el 14 de octubre de 2026. El World Championship será en Dallas, Texas, el 12 de noviembre de 2026." },
+      { type: "quote", text: "G-Structure está construyendo G-Frame desde Ecuador, con una ambición regional y una tesis clara sobre la ejecución humana." },
+      { type: "p", text: "Antes de llegar allá, tenemos trabajo por hacer. Seguir desarrollando el prototipo, fortalecer la validación con usuarios, preparar el lanzamiento dentro de Ecuador Tech Week 2026 y demostrar que G-Frame puede intervenir una brecha real: la distancia entre saber qué hacer y lograr ejecutarlo." },
+      { type: "p", text: "Esta noticia no cambia la dirección. La confirma. G-Structure sigue siendo la startup. G-Frame sigue siendo el producto principal. I-R-O™ sigue siendo el método que sostiene la construcción. Y ahora tenemos una nueva plataforma para llevar esa visión más lejos." },
+      { type: "p", text: "Seguimos avanzando." },
+    ],
+  },
   {
     slug: "g-structure-constituida-ecuador-sucostruct",
     title: "G-Structure formaliza su estructura legal en Ecuador",
@@ -199,6 +223,29 @@ export const ARTICLES: Article[] = [
 export type ArticleLocale = "es" | "en";
 
 export const EN_ARTICLES: Article[] = [
+  {
+    slug: "g-structure-selected-codelaunch-latam-2026",
+    title: "G-Structure selected for CodeLaunch LATAM 2026",
+    subtitle: "A new traction signal for G-Structure and G-Frame from Ecuador.",
+    category: "Company Updates",
+    excerpt:
+      "G-Structure has been selected for CodeLaunch LATAM 2026 and is moving toward the regional competition in Guadalajara and the World Championship in Dallas.",
+    author: "Guillermo Suco",
+    publishedAt: "2026-05-27",
+    readMinutes: 4,
+    featured: true,
+    tags: ["G-Structure", "CodeLaunch LATAM 2026", "G-Frame", "Startup"],
+    blocks: [
+      { type: "p", text: "Today we received a major piece of news for G-Structure: we were selected for the CodeLaunch LATAM 2026 cohort." },
+      { type: "p", text: "For an early-stage startup, signals like this matter. Not because they validate everything on their own, but because they open a new layer of pressure, exposure, and support. G-Structure was born in Ecuador with a clear thesis: turning cognitive-behavioral principles into a platform that helps professionals, founders, and teams execute with more clarity, structure, and consistency." },
+      { type: "p", text: "That product is G-Frame. The 1:1 programs, Enterprise channel, Execution Diagnostic Workshop, and early support are not separate businesses; they are validation channels for the I-R-O™ Method, a way to learn with real users, generate early revenue, and prepare the path toward a scalable digital product." },
+      { type: "p", text: "Joining CodeLaunch LATAM pushes us to keep tightening the fundamentals: product, narrative, validation, team, evidence, and traction. The regional competition will take place in Guadalajara, Mexico, on October 14, 2026. The World Championship will take place in Dallas, Texas, on November 12, 2026." },
+      { type: "quote", text: "G-Structure is building G-Frame from Ecuador, with regional ambition and a clear thesis about human execution." },
+      { type: "p", text: "Before we get there, there is work to do: continue developing the prototype, strengthen user validation, prepare the launch inside Ecuador Tech Week 2026, and show that G-Frame can address a real gap: the distance between knowing what to do and being able to execute it." },
+      { type: "p", text: "This news does not change the direction. It confirms it. G-Structure remains the startup. G-Frame remains the main product. I-R-O™ remains the method behind the build. And now we have a new platform to take that vision further." },
+      { type: "p", text: "We keep moving." },
+    ],
+  },
   {
     slug: "g-structure-legally-incorporated-ecuador-sucostruct",
     title: "G-Structure is now legally incorporated in Ecuador",

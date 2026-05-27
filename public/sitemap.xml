@@ -52,6 +52,22 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/articulos"/>
   </url>
   <url>
+    <loc>https://g-structure.co/articulos/g-structure-seleccionada-codelaunch-latam-2026</loc>
+    <priority>0.82</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/articulos/g-structure-seleccionada-codelaunch-latam-2026"/>
+    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/articulos/g-structure-seleccionada-codelaunch-latam-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/articles/g-structure-selected-codelaunch-latam-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/articulos/g-structure-seleccionada-codelaunch-latam-2026"/>
+  </url>
+  <url>
+    <loc>https://g-structure.co/en/articles/g-structure-selected-codelaunch-latam-2026</loc>
+    <priority>0.82</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/articulos/g-structure-seleccionada-codelaunch-latam-2026"/>
+    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/articulos/g-structure-seleccionada-codelaunch-latam-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/articles/g-structure-selected-codelaunch-latam-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/articulos/g-structure-seleccionada-codelaunch-latam-2026"/>
+  </url>
+  <url>
     <loc>https://g-structure.co/articulos/g-frame-product-update-q3</loc>
     <priority>0.78</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/articulos/g-frame-product-update-q3"/>

@@ -25,6 +25,7 @@ import mockupInicio from "@/assets/g-frame-mockups/01-inicio.webp";
 import mockupMotor from "@/assets/g-frame-mockups/03-motor-reestructuracion.webp";
 import mockupQuickReframe from "@/assets/g-frame-mockups/04-quick-reframe.webp";
 import etwBadge from "@/assets/etw-2026-badge.webp";
+import codeLaunchAnnouncement from "@/assets/codelaunch-latam-2026.svg";
 import { buildSeo, canonicalLink, jsonLdScript, faqSchema, breadcrumbSchema } from "@/lib/seo";
 
 const ETW_URL = "https://luma.com/lm4njhiu";
@@ -1571,6 +1572,125 @@ function HomeNews() {
   );
 }
 
+function HomeMomentum() {
+  const { locale } = useLocale();
+  const copy = locale === "en"
+    ? {
+        eyebrow: "MOMENTUM",
+        title: "Two signals from the next stage.",
+        subtitle:
+          "G-Structure is moving from local validation into a regional startup stage: CodeLaunch LATAM 2026 and Ecuador Tech Week 2026.",
+        articlesCta: "View articles",
+        items: [
+          {
+            label: "Startup milestone",
+            title: "Selected for CodeLaunch LATAM 2026.",
+            body: "G-Structure entered the cohort and is moving toward the regional competition in Guadalajara on October 14 and the World Championship in Dallas on November 12.",
+            to: "/en/articles/g-structure-selected-codelaunch-latam-2026",
+            cta: "Read the news",
+            external: false,
+            image: codeLaunchAnnouncement,
+            imageAlt: "G-Structure selected for CodeLaunch LATAM 2026",
+          },
+          {
+            label: "Launch milestone",
+            title: "G-Structure is part of Ecuador Tech Week 2026.",
+            body: "On July 14, G-Structure will present the Execution Diagnostic Workshop in Guayaquil as part of the first public validation of G-Frame.",
+            to: ETW_URL,
+            cta: "Register on Luma",
+            external: true,
+            image: etwBadge,
+            imageAlt: "Official Host badge for Ecuador Tech Week 2026",
+          },
+        ],
+      }
+    : {
+        eyebrow: "MOMENTUM",
+        title: "Dos señales de la siguiente etapa.",
+        subtitle:
+          "G-Structure está pasando de validación local a una etapa regional de startup: CodeLaunch LATAM 2026 y Ecuador Tech Week 2026.",
+        articlesCta: "Ver artículos",
+        items: [
+          {
+            label: "Hito startup",
+            title: "Entramos a CodeLaunch LATAM 2026.",
+            body: "G-Structure fue seleccionada para el cohort y avanza hacia la competencia regional en Guadalajara el 14 de octubre y el World Championship en Dallas el 12 de noviembre.",
+            to: "/articulos/g-structure-seleccionada-codelaunch-latam-2026",
+            cta: "Leer noticia",
+            external: false,
+            image: codeLaunchAnnouncement,
+            imageAlt: "G-Structure seleccionada para CodeLaunch LATAM 2026",
+          },
+          {
+            label: "Hito de lanzamiento",
+            title: "G-Structure será parte de Ecuador Tech Week 2026.",
+            body: "El 14 de julio, G-Structure presentará el Workshop de Diagnóstico de Ejecución en Guayaquil como parte de la primera validación pública de G-Frame.",
+            to: ETW_URL,
+            cta: "Registrarme en Luma",
+            external: true,
+            image: etwBadge,
+            imageAlt: "Badge oficial Host Ecuador Tech Week 2026",
+          },
+        ],
+      };
+
+  return (
+    <Section>
+      <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <SectionHeader eyebrow={copy.eyebrow} title={copy.title} subtitle={copy.subtitle} />
+        <CTALink to={locale === "en" ? "/en/articles" : "/articulos"} variant="outline">
+          {copy.articlesCta}
+        </CTALink>
+      </div>
+      <div className="mt-10 grid gap-px border border-border bg-border md:grid-cols-2">
+        {copy.items.map((item) => {
+          const content = (
+            <>
+              <div className="aspect-[16/10] overflow-hidden bg-[color:var(--color-brand)]">
+                <img
+                  src={item.image}
+                  alt={item.imageAlt}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                  loading="lazy"
+                />
+              </div>
+              <div className="p-6 md:p-8">
+                <p className="eyebrow text-[10px]">{item.label}</p>
+                <h3 className="mt-4 font-display text-2xl leading-tight text-foreground">{item.title}</h3>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
+                <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground">
+                  {item.cta}
+                  {item.external ? <ExternalLink size={14} /> : <ArrowRight size={14} />}
+                </span>
+              </div>
+            </>
+          );
+
+          return item.external ? (
+            <a
+              key={item.title}
+              href={item.to}
+              target="_blank"
+              rel="noreferrer"
+              className="group block bg-[color:var(--color-surface)] transition-colors hover:bg-background"
+            >
+              {content}
+            </a>
+          ) : (
+            <Link
+              key={item.title}
+              to={item.to}
+              className="group block bg-[color:var(--color-surface)] transition-colors hover:bg-background"
+            >
+              {content}
+            </Link>
+          );
+        })}
+      </div>
+    </Section>
+  );
+}
+
 export function Index() {
   // Keep MentalOS/Solutions/ForWhom available for layouts that want them later.
   void MentalOS;
@@ -1592,7 +1712,7 @@ export function Index() {
       <GStructBridge />
       <Method />
       <StartupStage />
-      <HomeNews />
+      <HomeMomentum />
       <SupportLaunchTeaser />
       <Founder />
       <FinalCTA />

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">G-Structure selected for CodeLaunch LATAM 2026</title>
+  <desc id="desc">Premium announcement image for G-Structure's selection into CodeLaunch LATAM 2026, showing the path from Ecuador to Guadalajara and Dallas.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#031d36"/>
+      <stop offset="0.55" stop-color="#05325a"/>
+      <stop offset="1" stop-color="#021326"/>
+    </linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#38f4ee"/>
+      <stop offset="1" stop-color="#0fb8c8"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#001225" flood-opacity="0.36"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <g opacity="0.14" stroke="#f8f8f4" stroke-width="1">
+    <path d="M0 130h1600M0 260h1600M0 390h1600M0 520h1600M0 650h1600M0 780h1600"/>
+    <path d="M120 0v900M260 0v900M400 0v900M540 0v900M680 0v900M820 0v900M960 0v900M1100 0v900M1240 0v900M1380 0v900"/>
+  </g>
+  <g opacity="0.2" fill="none" stroke="#38f4ee" stroke-width="3">
+    <path d="M1060 150h220v220"/>
+    <path d="M1280 150 1025 405"/>
+  </g>
+  <g filter="url(#softShadow)">
+    <rect x="92" y="92" width="1416" height="716" rx="28" fill="#f8f8f4"/>
+    <rect x="112" y="112" width="1376" height="676" rx="20" fill="#052b4d"/>
+    <rect x="112" y="112" width="1376" height="676" rx="20" fill="url(#bg)" opacity="0.96"/>
+  </g>
+  <g transform="translate(180 170)">
+    <rect width="118" height="118" rx="28" fill="#f8f8f4" opacity="0.96"/>
+    <path d="M37 35h45L61 56h28v27L39 104l12-34H26V46c0-6 5-11 11-11Z" fill="url(#cyan)"/>
+    <path d="M31 33h37L49 53h24v22H43v24H25V39c0-3 3-6 6-6Z" fill="#05325a" opacity="0.92"/>
+  </g>
+  <text x="180" y="350" fill="#f8f8f4" font-family="Montserrat, Arial, sans-serif" font-size="30" font-weight="700" letter-spacing="7">G-STRUCTURE MOMENTUM</text>
+  <text x="180" y="425" fill="#f8f8f4" font-family="Montserrat, Arial, sans-serif" font-size="68" font-weight="800">Selected for</text>
+  <text x="180" y="505" fill="#29d7dc" font-family="Montserrat, Arial, sans-serif" font-size="76" font-weight="900">CodeLaunch LATAM 2026</text>
+  <text x="180" y="570" fill="#f8f8f4" opacity="0.86" font-family="Montserrat, Arial, sans-serif" font-size="31" font-weight="500">Building G-Frame from Ecuador toward Guadalajara and Dallas.</text>
+  <g transform="translate(180 665)" font-family="Montserrat, Arial, sans-serif">
+    <text x="0" y="0" fill="#f8f8f4" font-size="24" font-weight="800">Guadalajara, Mexico</text>
+    <text x="0" y="38" fill="#f8f8f4" opacity="0.72" font-size="22">LATAM Competition · Oct 14, 2026</text>
+    <text x="510" y="0" fill="#f8f8f4" font-size="24" font-weight="800">Dallas, Texas</text>
+    <text x="510" y="38" fill="#f8f8f4" opacity="0.72" font-size="22">World Championship · Nov 12, 2026</text>
+  </g>
+  <g transform="translate(1005 442)">
+    <path d="M0 130 C105 0 240 0 360 90" fill="none" stroke="#29d7dc" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="0" cy="130" r="17" fill="#f8f8f4"/>
+    <circle cx="178" cy="36" r="17" fill="#29d7dc"/>
+    <circle cx="360" cy="90" r="17" fill="#f8f8f4"/>
+    <text x="-48" y="178" fill="#f8f8f4" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="700">ECUADOR</text>
+    <text x="112" y="-6" fill="#f8f8f4" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="700">GDL</text>
+    <text x="326" y="138" fill="#f8f8f4" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="700">DAL</text>
+  </g>
+  <text x="1180" y="735" fill="#f8f8f4" opacity="0.7" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="600">G-Frame · I-R-O™ Method</text>
+</svg>
