@@ -131,11 +131,11 @@ const COPY: Record<Locale, Copy> = {
       eyebrow: "LA RONDA",
       title: "Los términos.",
       terms: [
-        { value: "$75,000", label: "Monto a levantar. Pre-seed." },
-        { value: "$750,000", label: "Valoración pre-money." },
+        { value: "$110,000", label: "Monto a levantar. Pre-seed." },
+        { value: "$990,000", label: "Valoración pre-money." },
         { value: "10%", label: "Equity ofrecido." },
       ],
-      milestone: "Milestone a 18 meses: 500 suscriptores de pago · $11,000 MRR · Modelo validado para expansión a Colombia y México.",
+      milestone: "Milestone a 12 meses: MVP lanzado · 500 suscriptores de pago · $10,000 MRR · 3 pilotos Enterprise · Modelo validado para expansión a Colombia y México.",
     },
     team: {
       eyebrow: "QUIÉNES SOMOS",
@@ -238,11 +238,11 @@ const COPY: Record<Locale, Copy> = {
       eyebrow: "THE ROUND",
       title: "The terms.",
       terms: [
-        { value: "$75,000", label: "Amount to raise. Pre-seed." },
-        { value: "$750,000", label: "Pre-money valuation." },
+        { value: "$110,000", label: "Amount to raise. Pre-seed." },
+        { value: "$990,000", label: "Pre-money valuation." },
         { value: "10%", label: "Equity offered." },
       ],
-      milestone: "18-month milestone: 500 paying subscribers · $11,000 MRR · Model validated for expansion to Colombia and Mexico.",
+      milestone: "12-month milestone: MVP launched · 500 paying subscribers · $10,000 MRR · 3 Enterprise pilots · Model validated for expansion to Colombia and Mexico.",
     },
     team: {
       eyebrow: "WHO WE ARE",
