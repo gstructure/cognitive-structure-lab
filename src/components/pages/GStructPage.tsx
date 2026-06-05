@@ -16,9 +16,8 @@ import {
   NotebookTabs,
 } from "lucide-react";
 import { toast } from "sonner";
-import kaironLogo from "@/assets/kairon-logo.webp";
-import kaironMark from "@/assets/kairon-mark.webp";
-import kaiMascot from "@/assets/kai-mascot.webp";
+import kaiProductHero from "@/assets/kai-product-hero.png";
+import kaiSectionUpgrade from "@/assets/kai-section-upgrade.png";
 import kaironMockupHome from "@/assets/kairon-mockup-home.webp";
 import kaironMockupScanner from "@/assets/kairon-mockup-scanner.webp";
 import kaironMockupFilter from "@/assets/kairon-mockup-filter.webp";
@@ -32,8 +31,6 @@ type Copy = {
   hero: {
     eyebrow: string;
     h1: string;
-    leadA: string;
-    leadB: string;
     body: string;
     disclaimer: string;
     cta: string;
@@ -100,9 +97,7 @@ const COPY: Record<Locale, Copy> = {
   es: {
     hero: {
       eyebrow: "PRODUCTO PRINCIPAL DE G-STRUCTURE · COGNITIVE OS · LANZAMIENTO Q3 2026",
-      h1: "KAIRON convierte fricción mental en ejecución.",
-      leadA: "Guiado por Kai, tu coach de ejecución con IA",
-      leadB: "para identificar el bloqueo, reencuadrarlo y moverte en 5 minutos.",
+      h1: "Kai convierte fricción mental en ejecución.",
       body: "KAIRON no es un gestor de tareas, una app de journaling ni un chatbot genérico. Es un Cognitive Operating System para ejecución: detecta los pensamientos, reglas y patrones que bloquean la acción, los trabaja con el método I-R-O™ y los convierte en un Puente de Acción validado.",
       disclaimer: "KAIRON es un sistema de coaching de ejecución, no un servicio clínico. No diagnostica, no trata y no reemplaza atención psicológica, médica o psiquiátrica.",
       cta: "Únete a la lista de espera",
@@ -111,7 +106,7 @@ const COPY: Record<Locale, Copy> = {
       osLabel: "KAIRON · COGNITIVE OS",
       iro: "I-R-O™ · IDENTIFICAR · REENCUADRAR · OPTIMIZAR",
       version: "KAI · AI EXECUTION COACH",
-      imgAlt: "Mockup de inicio de KAIRON con Kai y módulos de ejecución.",
+      imgAlt: "Kai, coach de ejecución con IA de KAIRON.",
       captions: ["Escáner", "Filtro", "Taller", "Protocolo"],
     },
     engine: {
@@ -218,9 +213,7 @@ const COPY: Record<Locale, Copy> = {
   en: {
     hero: {
       eyebrow: "G-STRUCTURE'S MAIN PRODUCT · COGNITIVE OS · LAUNCH Q3 2026",
-      h1: "KAIRON turns mental friction into execution.",
-      leadA: "Guided by Kai, your AI execution coach",
-      leadB: "to identify the block, reframe it, and move in 5 minutes.",
+      h1: "Kai turns mental friction into execution.",
       body: "KAIRON is not a task manager, a journaling app, or a generic chatbot. It is a Cognitive Operating System for execution: it detects the thoughts, rules, and patterns that block action, works them through the I-R-O™ Method, and turns them into a validated Action Bridge.",
       disclaimer: "KAIRON is an execution-coaching system, not a clinical service. It does not diagnose, treat, or replace psychological, medical, or psychiatric care.",
       cta: "Join the waitlist",
@@ -229,7 +222,7 @@ const COPY: Record<Locale, Copy> = {
       osLabel: "KAIRON · COGNITIVE OS",
       iro: "I-R-O™ · IDENTIFY · REFRAME · OPTIMIZE",
       version: "KAI · AI EXECUTION COACH",
-      imgAlt: "KAIRON home mockup with Kai and execution modules.",
+      imgAlt: "Kai, KAIRON's AI execution coach.",
       captions: ["Scanner", "Filter", "Workshop", "Protocol"],
     },
     engine: {
@@ -422,11 +415,6 @@ function Hero({ locale, count }: { locale: Locale; count: number | null }) {
           <h1 className="mt-6 font-display text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.04] text-foreground">
             {c.h1}
           </h1>
-          <p className="mt-5 max-w-xl font-display text-lg md:text-xl italic text-foreground/70 leading-snug">
-            {c.leadA}
-            <br className="hidden sm:block" />
-            {c.leadB}
-          </p>
           <p className="mt-6 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">{c.body}</p>
           <p className="mt-3 max-w-xl text-xs text-muted-foreground leading-relaxed">{c.disclaimer}</p>
           <div className="mt-9 flex flex-wrap items-center gap-3">
@@ -443,35 +431,29 @@ function Hero({ locale, count }: { locale: Locale; count: number | null }) {
           <p className="mt-2 text-xs text-muted-foreground">{c.launchNote}</p>
         </div>
         <div className="lg:col-span-5">
-          <div className="relative overflow-hidden border border-[color:var(--color-brand-deep)] bg-[color:var(--color-brand-deep)] p-6 md:p-8">
-            <div className="absolute inset-0 grid-bg opacity-25" aria-hidden />
-            <div className="absolute -right-24 -top-24 h-56 w-56 rounded-full bg-[#00e5ff]/20 blur-3xl" aria-hidden />
-            <div className="relative flex items-center justify-between">
-              <span className="font-display text-[10px] font-semibold tracking-[0.22em] text-[color:var(--color-background)]/70">
-                {c.osLabel}
-              </span>
-              <img src={kaironMark} alt="" className="h-10 w-10 object-contain" aria-hidden />
-            </div>
+          <div className="relative min-h-[420px] overflow-hidden">
+            <style>
+              {`
+                @keyframes kaiProductFloat {
+                  0%, 100% { transform: translate3d(0, 0, 0) rotate(-1deg); }
+                  50% { transform: translate3d(0, -14px, 0) rotate(1deg); }
+                }
+                @keyframes kaiProductGlow {
+                  0%, 100% { opacity: 0.62; transform: scale(0.96); }
+                  50% { opacity: 0.92; transform: scale(1.05); }
+                }
+              `}
+            </style>
+            <div className="absolute inset-x-8 bottom-10 h-40 rounded-[100%] bg-cyan-300/25 blur-3xl motion-safe:animate-[kaiProductGlow_5.5s_ease-in-out_infinite]" aria-hidden />
+            <div className="absolute left-1/2 top-10 h-64 w-64 -translate-x-1/2 rounded-full bg-[color:var(--color-brand)]/10 blur-3xl" aria-hidden />
             <img
-              src={kaironMockupHome}
+              src={kaiProductHero}
               alt={c.imgAlt}
-              loading="lazy"
-              width={1672}
-              height={941}
-              className="relative mx-auto mt-6 w-full object-contain shadow-[0_24px_60px_rgba(0,0,0,0.28)]"
+              loading="eager"
+              width={1254}
+              height={1254}
+              className="relative z-10 mx-auto w-full max-w-[520px] object-contain drop-shadow-[0_36px_52px_rgba(5,50,90,0.26)] motion-safe:animate-[kaiProductFloat_6s_ease-in-out_infinite]"
             />
-            <div className="relative mt-4 border border-[color:var(--color-background)]/15 bg-[color:var(--color-background)]/8 p-4 backdrop-blur-sm">
-              <img src={kaironLogo} alt="KAIRON" className="h-auto w-44 max-w-full" loading="lazy" />
-              <p className="mt-3 text-xs leading-relaxed text-[color:var(--color-background)]/78">
-                {locale === "en"
-                  ? "Kai guides the system: he explains the step, interprets messy input, routes the user, and pushes toward evidence."
-                  : "Kai guía el sistema: explica el paso, ordena entradas confusas, enruta al usuario y empuja hacia evidencia."}
-              </p>
-            </div>
-            <div className="relative mt-3 flex items-center justify-between border-t border-[color:var(--color-background)]/20 pt-3 text-[10px] tracking-[0.22em] text-[color:var(--color-background)]/70">
-              <span>{c.iro}</span>
-              <span>{c.version}</span>
-            </div>
           </div>
           <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 divide-x divide-border border border-border bg-[color:var(--color-surface)] text-center">
             {c.captions.map((t) => (
@@ -518,7 +500,7 @@ function KaiSection({ locale }: { locale: Locale }) {
           <div className="relative overflow-hidden border border-border bg-[#f5f7fa] p-6">
             <div className="absolute inset-x-0 top-0 h-1 bg-[#00b4d8]" aria-hidden />
             <img
-              src={kaiMascot}
+              src={kaiSectionUpgrade}
               alt={locale === "en" ? "Kai, KAIRON's AI execution coach." : "Kai, coach de ejecución con IA de KAIRON."}
               loading="lazy"
               width={1024}
