@@ -11,6 +11,7 @@ import mockupWorkshop from "@/assets/kairon-mockup-workshop.webp";
 import mockupOperations from "@/assets/kairon-mockup-operations.webp";
 import mockupOperationsDetail from "@/assets/kairon-mockup-operations-detail.webp";
 import guillermoPhoto from "@/assets/guillermo-suco.webp";
+import nathanaelPhoto from "@/assets/nathanael-guy.webp";
 import type { Locale } from "@/lib/i18n";
 import { trackConversion } from "@/lib/analytics";
 
@@ -60,7 +61,7 @@ type Copy = {
     eyebrow: string;
     title: string;
     guillermo: { role: string; name: string; items: string[] };
-    jericko: { role: string; name: string; items: string[] };
+    nathanael: { role: string; name: string; items: string[] };
   };
   support: {
     eyebrow: string;
@@ -160,22 +161,22 @@ const COPY: Record<Locale, Copy> = {
         name: "Guillermo Suco",
         items: [
           "CBT Coach Practitioner · CTAA",
-          "Estudios en Psicología e Intervención Educativa",
+          "Estudios en Psicología · Máster en Intervención Psicológica en Desarrollo y Educación",
           "Ex Project Manager, GBA Ships",
           "Investigador publicado: MLS Pedagogy, Culture & Innovation (2025) · Recimundo (2025)",
           "Docente y orientador escolar en Ecuador y Estados Unidos",
           "Creador del método I-R-O™ y del concepto de KAIRON",
         ],
       },
-      jericko: {
-        role: "Developer",
-        name: "Jericko Solórzano",
+      nathanael: {
+        role: "Co-Founder & Head of Customer Discovery",
+        name: "Nathanael Guy",
         items: [
-          "Python developer con portfolio activo en GitHub",
-          "Formación en JavaScript, Java y C#",
-          "SQL y arquitectura de datos en desarrollo activo",
-          "Git, Figma y flujo de trabajo colaborativo",
-          "Universidad de Guayaquil · etapa de fundación por equity",
+          "Temple University graduate in Secondary Education",
+          "Experience in teaching, customer service, and project leadership",
+          "Leads customer discovery, user conversations, and qualitative validation",
+          "Brings firsthand insight into procrastination and impostor patterns",
+          "Helps keep KAIRON grounded in real users, real friction, and execution problems worth solving",
         ],
       },
     },
@@ -275,22 +276,22 @@ const COPY: Record<Locale, Copy> = {
         name: "Guillermo Suco",
         items: [
           "CBT Coach Practitioner · CTAA",
-          "Studies in Psychology and Educational Intervention",
+          "Studies in Psychology · Master's in Psychological Intervention in Development and Education",
           "Former Project Manager, GBA Ships",
           "Published researcher: MLS Pedagogy, Culture & Innovation (2025) · Recimundo (2025)",
           "Teacher and school counselor in Ecuador and the United States",
           "Creator of the I-R-O™ Method and the KAIRON concept",
         ],
       },
-      jericko: {
-        role: "Developer",
-        name: "Jericko Solórzano",
+      nathanael: {
+        role: "Co-Founder & Head of Customer Discovery",
+        name: "Nathanael Guy",
         items: [
-          "Python developer with an active GitHub portfolio",
-          "Background in JavaScript, Java, and C#",
-          "SQL and data architecture in active development",
-          "Git, Figma, and collaborative workflow",
-          "Universidad de Guayaquil · founding-stage equity collaborator",
+          "Temple University graduate in Secondary Education",
+          "Experience in teaching, customer service, and project leadership",
+          "Leads customer discovery, user conversations, and qualitative validation",
+          "Brings firsthand insight into procrastination and impostor patterns",
+          "Helps keep KAIRON grounded in real users, real friction, and execution problems worth solving",
         ],
       },
     },
@@ -674,7 +675,7 @@ export function InvestorsPage({ locale, contactTo }: { locale: Locale; contactTo
         <h2 className="mt-4 max-w-3xl font-display text-3xl md:text-4xl leading-[1.08]">{c.team.title}</h2>
         <div className="mt-14 grid gap-6 md:grid-cols-2">
           <TeamCard role={c.team.guillermo.role} name={c.team.guillermo.name} items={c.team.guillermo.items} photo={guillermoPhoto} />
-          <TeamCard role={c.team.jericko.role} name={c.team.jericko.name} items={c.team.jericko.items} />
+          <TeamCard role={c.team.nathanael.role} name={c.team.nathanael.name} items={c.team.nathanael.items} photo={nathanaelPhoto} />
         </div>
       </Section>
 
