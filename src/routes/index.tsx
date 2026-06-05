@@ -22,7 +22,7 @@ import { featuredArticlesForLocale } from "@/lib/articles";
 import logoCube from "@/assets/g-structure-cube.webp";
 import gFrameLogo from "@/assets/kairon-logo.webp";
 import kaiMascot from "@/assets/kai-mascot.webp";
-import kaironMockupHome from "@/assets/kairon-mockup-home.webp";
+import kaiMini from "@/assets/kai-hero-transparent.png";
 
 
 import etwBadge from "@/assets/etw-2026-badge.webp";
@@ -586,36 +586,34 @@ function Hero() {
         aria-hidden="true"
       />
 
-      <div className="container-x relative py-14 md:py-20 lg:min-h-[calc(100vh-86px)] lg:py-10">
-        <div className="grid min-h-[620px] gap-10 lg:grid-cols-12 lg:items-center">
-          <div className="lg:col-span-5">
-            <Eyebrow>{t("home.hero.eyebrow")}</Eyebrow>
-            <h1 className="mt-5 max-w-2xl text-4xl md:text-5xl lg:text-[4rem] leading-[1.02] text-foreground">
-              {t("home.hero.h1")}
-            </h1>
-            <p className="mt-5 max-w-xl text-base md:text-lg text-foreground/82 leading-relaxed">
-              {t("home.hero.lead")}
-            </p>
+      <div className="container-x relative py-14 md:py-20 lg:min-h-[calc(100vh-86px)] lg:py-12">
+        <div className="mx-auto flex min-h-[620px] max-w-6xl flex-col items-center justify-center text-center">
+          <Eyebrow>{t("home.hero.eyebrow")}</Eyebrow>
+          <h1 className="mt-5 max-w-4xl text-4xl md:text-6xl lg:text-[4.65rem] leading-[1.01] text-foreground">
+            {t("home.hero.h1")}
+          </h1>
+          <p className="mt-5 max-w-3xl text-base md:text-lg text-foreground/82 leading-relaxed">
+            {t("home.hero.lead")}
+          </p>
 
-            <div className="mt-9 flex flex-wrap items-center gap-3">
-              <CTALink to={lp("/g-frame", locale)} hash="waitlist" variant="primary" analyticsLabel="home_hero_waitlist">
-                {c.linkWaitlist}
-              </CTALink>
-              <CTALink to={lp("/g-frame", locale)} hash="waitlist" variant="outline" analyticsLabel="home_hero_tester">
-                {t("home.hero.ctaTester")}
-              </CTALink>
-            </div>
-
-            <div className="mt-10 grid gap-3 text-[12.5px] text-foreground/75 sm:max-w-2xl sm:grid-cols-3">
-              {trustItems.map((item) => (
-                <div key={item} className="border-l border-foreground/15 pl-3 leading-relaxed">
-                  {item}
-                </div>
-              ))}
-            </div>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <CTALink to={lp("/g-frame", locale)} hash="waitlist" variant="primary" analyticsLabel="home_hero_waitlist">
+              {c.linkWaitlist}
+            </CTALink>
+            <CTALink to={lp("/g-frame", locale)} hash="waitlist" variant="outline" analyticsLabel="home_hero_tester">
+              {t("home.hero.ctaTester")}
+            </CTALink>
           </div>
 
-          <div className="relative lg:col-span-7">
+          <div className="mt-9 grid w-full max-w-4xl gap-3 text-[12.5px] text-foreground/72 sm:grid-cols-3">
+            {trustItems.map((item) => (
+              <div key={item} className="border-t border-foreground/15 px-3 pt-3 leading-relaxed">
+                {item}
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-5 w-full">
             <HeroVisual />
           </div>
         </div>
@@ -631,18 +629,21 @@ function HeroVisual() {
     : "KAIRON interface with Kai as execution coach";
 
   return (
-    <div className="relative mx-auto w-full max-w-[860px]">
+    <div className="relative mx-auto h-[360px] w-full max-w-5xl overflow-hidden sm:h-[440px] lg:h-[500px]">
       <div
-        className="absolute -inset-5 rounded-[2rem] border border-border bg-[color:var(--color-surface)]/70 shadow-[0_40px_90px_-52px_rgba(5,50,90,0.5)]"
+        className="absolute left-1/2 top-[54%] h-[68%] w-[72%] -translate-x-1/2 -translate-y-1/2 rounded-[100%] blur-3xl"
+        style={{ background: "radial-gradient(closest-side, rgba(14,203,214,0.16), rgba(5,50,90,0.06) 54%, transparent 74%)" }}
         aria-hidden
       />
-      <div className="absolute inset-x-8 bottom-0 h-[28%] rounded-[100%] bg-[color:var(--color-brand)]/10 blur-3xl" aria-hidden />
+      <div className="absolute left-1/2 bottom-6 h-20 w-80 -translate-x-1/2 rounded-[100%] bg-cyan-400/18 blur-2xl" aria-hidden />
+      <div className="absolute left-1/2 top-[53%] h-[280px] w-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-400/15 sm:h-[360px] sm:w-[360px] lg:h-[430px] lg:w-[430px]" aria-hidden />
+      <div className="absolute left-1/2 top-[53%] h-[220px] w-[220px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[color:var(--color-brand)]/10 sm:h-[290px] sm:w-[290px] lg:h-[360px] lg:w-[360px]" aria-hidden />
       <img
-        src={kaironMockupHome}
+        src={kaiMini}
         alt={alt}
-        width={1680}
-        height={945}
-        className="relative w-full rounded-[1.5rem] border border-white/70 bg-white shadow-[0_36px_80px_-34px_rgba(5,50,90,0.62)]"
+        width={1262}
+        height={1262}
+        className="kai-float relative z-10 mx-auto h-full w-auto object-contain drop-shadow-[0_34px_38px_rgba(5,50,90,0.22)]"
         loading="eager"
         decoding="async"
       />
