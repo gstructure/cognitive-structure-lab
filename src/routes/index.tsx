@@ -9,7 +9,6 @@ import { FAQ } from "@/components/site/FAQ";
 import { BriefDownloadCard } from "@/components/site/BriefDownloadCard";
 import { FrictionQuiz } from "@/components/site/FrictionQuiz";
 import { WaitlistForm } from "@/components/site/WaitlistForm";
-import { SocialProofBar } from "@/components/site/SocialProofBar";
 import { SupportLaunchTeaser } from "@/components/site/SupportLaunchTeaser";
 import { ArticleCard } from "@/components/articles/ArticleCard";
 
@@ -23,6 +22,7 @@ import logoCube from "@/assets/g-structure-cube.webp";
 import gFrameLogo from "@/assets/kairon-logo.webp";
 import kaiMascot from "@/assets/kai-mascot.webp";
 import kaiMini from "@/assets/kai-hero-transparent.png";
+import kaironProductCollage from "@/assets/kairon-product-collage.png";
 
 
 import etwBadge from "@/assets/etw-2026-badge.webp";
@@ -1127,7 +1127,7 @@ function ProductTeaser() {
         cta: "Explore KAIRON",
         waitlist: "Join the waitlist",
         alt: "KAIRON prototype preview.",
-        points: ["Quick Reframe for immediate blocks", "Restructure Lab for repeated patterns", "Guided I-R-O™ routes before action"],
+        points: ["Use the Filter for immediate blocks", "Use the Workshop for repeated frictions", "Use the Restructuring Protocol to work on your pattern"],
       }
     : {
         eyebrow: "EL PRODUCTO",
@@ -1136,7 +1136,7 @@ function ProductTeaser() {
         cta: "Explorar KAIRON",
         waitlist: "Unirme a la waitlist",
         alt: "Vista previa del prototipo de KAIRON.",
-        points: ["Quick Reframe para bloqueos inmediatos", "Restructure Lab para patrones repetidos", "Rutas guiadas I-R-O™ antes de actuar"],
+        points: ["Usa el Filtro para bloqueos inmediatos", "El Taller para fricciones repetidas", "Protocolo de Reestructuración para trabajar tu patrón"],
       };
 
   return (
@@ -1158,14 +1158,19 @@ function ProductTeaser() {
           </div>
         </div>
         <div className="lg:col-span-7">
-          <div className="border border-[color:var(--color-brand-deep)] bg-[color:var(--color-brand-deep)] p-4">
-            <div className="grid grid-cols-12 gap-3 items-end">
-              <img src={kaiMascot} alt={copy.alt} loading="lazy" className="col-span-7 w-full object-cover" />
-              <div className="col-span-5 grid gap-3">
-                <img src={gFrameLogo} alt="" loading="lazy" className="w-full object-cover" />
-                <img src={kaiMascot} alt="" loading="lazy" className="w-full object-cover" />
-              </div>
-            </div>
+          <div className="relative overflow-hidden border border-border bg-[color:var(--color-background)] p-4 md:p-6">
+            <div
+              className="absolute inset-x-10 bottom-8 h-24 rounded-[100%] bg-cyan-400/14 blur-3xl"
+              aria-hidden
+            />
+            <img
+              src={kaironProductCollage}
+              alt={copy.alt}
+              loading="lazy"
+              width={1254}
+              height={1254}
+              className="relative mx-auto w-full max-w-[640px] object-contain drop-shadow-[0_34px_44px_rgba(5,50,90,0.22)]"
+            />
           </div>
         </div>
       </div>
@@ -1627,7 +1632,6 @@ export function Index() {
   return (
     <>
       <Hero />
-      <SocialProofBar />
       <ProductTeaser />
       <StartupStage />
       <HomeMomentum />
