@@ -10,7 +10,7 @@ export type RouteEntry = {
 
 export const ROUTES: RouteEntry[] = [
   { es: "/", en: "/en", label: { es: "Inicio", en: "Home" } },
-  { es: "/g-frame", en: "/en/g-frame", label: { es: "G-Frame", en: "G-Frame" } },
+  { es: "/g-frame", en: "/en/g-frame", label: { es: "KAIRON", en: "KAIRON" } },
   { es: "/metodo-iro", en: "/en/iro-method", label: { es: "Método I-R-O™", en: "I-R-O™ Method" } },
   { es: "/articulos", en: "/en/articles", label: { es: "Artículos", en: "Articles" } },
   { es: "/newsletter", en: "/en/newsletter", label: { es: "Newsletter", en: "Newsletter" } },
@@ -72,7 +72,7 @@ export function navForLocale(locale: Locale) {
   const items = [
     {
       to: locale === "en" ? "/en/g-frame" : "/g-frame",
-      label: "G-Frame",
+      label: "KAIRON",
       exact: false,
       highlight: true,
     },

@@ -1,7 +1,6 @@
-import { useEffect, useState, useCallback } from "react";
+﻿import { useEffect, useState, useCallback } from "react";
 import { Eyebrow } from "@/components/site/Eyebrow";
 import { Section } from "@/components/site/Section";
-import { BrandMark } from "@/components/brand/Logo";
 import {
   Check,
   ArrowRight,
@@ -11,14 +10,21 @@ import {
   Sun,
   BarChart3,
   Sparkles,
+  Bot,
+  ScanLine,
+  FlaskConical,
+  NotebookTabs,
 } from "lucide-react";
 import { toast } from "sonner";
-import mockupInicio from "@/assets/g-frame-mockups/01-inicio.webp";
-import mockupRutaIro from "@/assets/g-frame-mockups/02-ruta-iro.webp";
-import mockupMotor from "@/assets/g-frame-mockups/03-motor-reestructuracion.webp";
-import mockupQuickReframe from "@/assets/g-frame-mockups/04-quick-reframe.webp";
-import mockupRestructureLab from "@/assets/g-frame-mockups/05-restructure-lab.webp";
-import mockupActivador from "@/assets/g-frame-mockups/06-activador-matutino.webp";
+import kaironLogo from "@/assets/kairon-logo.webp";
+import kaironMark from "@/assets/kairon-mark.webp";
+import kaiMascot from "@/assets/kai-mascot.webp";
+import kaironMockupHome from "@/assets/kairon-mockup-home.webp";
+import kaironMockupScanner from "@/assets/kairon-mockup-scanner.webp";
+import kaironMockupFilter from "@/assets/kairon-mockup-filter.webp";
+import kaironMockupWorkshop from "@/assets/kairon-mockup-workshop.webp";
+import kaironMockupOperations from "@/assets/kairon-mockup-operations.webp";
+import kaironMockupOperationsDetail from "@/assets/kairon-mockup-operations-detail.webp";
 import { trackConversion, trackCtaClick } from "@/lib/analytics";
 import type { Locale } from "@/lib/i18n";
 
@@ -93,69 +99,69 @@ type Copy = {
 const COPY: Record<Locale, Copy> = {
   es: {
     hero: {
-      eyebrow: "PRODUCTO PRINCIPAL DE G-STRUCTURE · MÉTODO I-R-O™ · LANZAMIENTO Q3 2026",
-      h1: "G-Frame convierte el método I-R-O™ en una plataforma de ejecución.",
-      leadA: "Identifica, reencuadra y optimiza tu ejecución",
-      leadB: "con metodología CBT coaching aplicada.",
-      body: "G-Frame identifica la fricción cognitivo-conductual que bloquea tu ejecución, te ayuda a reencuadrarla con el método I-R-O™, y optimiza tu acción. No para que te sientas mejor — para que ejecutes mejor.",
-      disclaimer: "No somos terapia. No diagnóstico clínico. G-Frame es una herramienta de coaching, psicoeducación y optimización de ejecución basada en principios cognitivo-conductuales.",
+      eyebrow: "PRODUCTO PRINCIPAL DE G-STRUCTURE · COGNITIVE OS · LANZAMIENTO Q3 2026",
+      h1: "KAIRON convierte fricción mental en ejecución.",
+      leadA: "Guiado por Kai, tu coach de ejecución con IA",
+      leadB: "para identificar el bloqueo, reencuadrarlo y moverte en 5 minutos.",
+      body: "KAIRON no es un gestor de tareas, una app de journaling ni un chatbot genérico. Es un Cognitive Operating System para ejecución: detecta los pensamientos, reglas y patrones que bloquean la acción, los trabaja con el método I-R-O™ y los convierte en un Puente de Acción validado.",
+      disclaimer: "KAIRON es un sistema de coaching de ejecución, no un servicio clínico. No diagnostica, no trata y no reemplaza atención psicológica, médica o psiquiátrica.",
       cta: "Únete a la lista de espera",
       counter: (n) => `${n} personas ya están en la lista de espera.`,
-      launchNote: "Primeros accesos disponibles para Ecuador. Lanzamiento Q3 2026.",
-      osLabel: "G-FRAME · COGNITIVE OS",
+      launchNote: "Early access para Ecuador. Los primeros usuarios ayudarán a moldear cómo Kai guía la ejecución.",
+      osLabel: "KAIRON · COGNITIVE OS",
       iro: "I-R-O™ · IDENTIFICAR · REENCUADRAR · OPTIMIZAR",
-      version: "v0.1 · BETA",
-      imgAlt: "Mock-up de la pantalla de inicio de G-Frame.",
-      captions: ["Motor de Reestructuración", "Diagnóstico de Ejecución", "Activador Matutino"],
+      version: "KAI · AI EXECUTION COACH",
+      imgAlt: "Mockup de inicio de KAIRON con Kai y módulos de ejecución.",
+      captions: ["Escáner", "Filtro", "Taller", "Protocolo"],
     },
     engine: {
-      eyebrow: "EL MÉTODO I-R-O™ DENTRO DE LA APP",
-      h2: "Si puedes identificarlo, puedes reencuadrarlo. Si puedes reencuadrarlo, puedes optimizarlo.",
-      body: "La mayoría de las apps de productividad organizan tus tareas. G-Frame trabaja una capa más profunda: los patrones cognitivos que generan la procrastinación, el perfeccionismo y el autosabotaje en primer lugar.",
+      eyebrow: "CÓMO FUNCIONA",
+      h2: "KAIRON empieza antes que una lista de tareas: en el momento en que te bloqueas.",
+      body: "La mayoría de herramientas asume que ya tienes claridad emocional y cognitiva. KAIRON trabaja la capa anterior: identifica la fricción, la reencuadra con Kai y la convierte en una acción pequeña que puedes validar hoy.",
       steps: [
-        { n: "01", t: "Situación", d: "¿Qué desencadenó la fricción?", ai: false },
-        { n: "02", t: "Emoción", d: "Nómbrala. Mide su intensidad del 1 al 10.", ai: false },
-        { n: "03", t: "Creencia núcleo", d: "¿Qué dice este pensamiento sobre ti?", ai: false },
-        { n: "04", t: "Laboratorio de pensamientos", d: "Con IA, reencuadra el pensamiento automático en uno funcional.", ai: true },
-        { n: "05", t: "Optimizar", d: "Traduce el pensamiento reencuadrado en acción concreta.", ai: false },
+        { n: "I", t: "Identificar", d: "Define tu misión, detecta el patrón dominante y nombra la fricción real.", ai: false },
+        { n: "R", t: "Reencuadrar", d: "Kai distingue hechos de interpretaciones y cuestiona reglas internas que bloquean la acción.", ai: true },
+        { n: "O", t: "Optimizar", d: "Convierte el reencuadre en un Puente de Acción de 5 minutos y registra evidencia.", ai: false },
       ],
     },
     features: {
-      eyebrow: "QUÉ INCLUYE G-FRAME",
-      h2: "Funcionalidades clave.",
+      eyebrow: "EL SISTEMA OPERATIVO",
+      h2: "Una arquitectura guiada por Kai.",
       items: [
-        { t: "Motor de Reestructuración", d: "Registra situaciones, mide emociones, llega a la creencia núcleo. Convierte lo subjetivo en medible.", ai: false },
-        { t: "Laboratorio de Pensamientos con IA", d: "Asistencia inteligente para reencuadrar pensamientos automáticos con metodología CBT coaching. Aprende mientras lo haces.", ai: true },
-        { t: "Activador Matutino", d: "Rutina diaria de activación cognitiva para preparar la ejecución antes de que empiece la fricción.", ai: false },
-        { t: "Diagnóstico de Ejecución", d: "Identifica tus patrones recurrentes. Entiende si tu fricción principal es procrastinación, perfeccionismo, autosabotaje o impostor pattern. Trabaja directamente sobre el patrón.", ai: false },
+        { t: "Escáner", d: "Mapea tu patrón de ejecución dominante y activa la ruta de protocolo adecuada.", ai: false },
+        { t: "Filtro", d: "Un reset cognitivo de 2 a 5 minutos para pensamientos urgentes, bloqueo o sobreanálisis.", ai: true },
+        { t: "Taller", d: "Espacio profundo para trabajar patrones repetidos, creencias y herramientas tácticas.", ai: true },
+        { t: "Protocolo", d: "Programa de 8 semanas alrededor de tu proyecto para convertir claridad en evidencia repetida.", ai: false },
+        { t: "Bitácora de Ejecución", d: "Registro vivo de pensamientos, acciones y pruebas para medir progreso real.", ai: false },
+        { t: "Biblioteca", d: "Lecturas, principios y recursos que sostienen el flujo de coaching sin saturarte.", ai: false },
       ],
     },
     prototype: {
       eyebrow: "PROTOTIPO EN PANTALLA",
       h2: "Una ruta corta para entender qué te bloquea y convertirlo en acción.",
-      body: "Estos mock-ups muestran la experiencia actual de G-Frame: una pantalla de inicio orientada a la acción, una ruta I-R-O clara y módulos específicos para reencuadrar, profundizar o activar el día.",
+      body: "Estos mock-ups muestran la experiencia actual de KAIRON: una pantalla de inicio orientada a la acción, una ruta I-R-O clara y módulos específicos para reencuadrar, profundizar o activar el día.",
       items: [
-        { title: "Inicio", description: "La puerta de entrada: rutas cortas, estado de sesión y próximos pasos.", alt: "Mock-up de Inicio de G-Frame." },
-        { title: "Ruta I-R-O", description: "El usuario no revisa todo: sigue una secuencia guiada para identificar, reencuadrar y optimizar.", alt: "Mock-up de la Ruta I-R-O de G-Frame." },
-        { title: "Motor de Reestructuración", description: "Dos rutas para trabajar un pensamiento: rápido cuando hay bloqueo, profundo cuando el patrón se repite.", alt: "Mock-up del Motor de Reestructuración de G-Frame." },
-        { title: "Quick Reframe", description: "Una intervención breve para ordenar un pensamiento bloqueante y convertirlo en una acción concreta.", alt: "Mock-up de Quick Reframe de G-Frame." },
-        { title: "Restructure Lab", description: "Un flujo más profundo para formular, examinar y reencuadrar patrones recurrentes.", alt: "Mock-up de Restructure Lab de G-Frame." },
-        { title: "Activador matutino", description: "Una decisión de ejecución diaria para preparar el sistema antes de que aparezca la fricción.", alt: "Mock-up del Activador matutino de G-Frame." },
+        { title: "Inicio", description: "La puerta de entrada: rutas cortas, estado de sesión y próximos pasos.", alt: "Mock-up de Inicio de KAIRON." },
+        { title: "Ruta I-R-O", description: "El usuario no revisa todo: sigue una secuencia guiada para identificar, reencuadrar y optimizar.", alt: "Mock-up de la Ruta I-R-O de KAIRON." },
+        { title: "Motor de Reestructuración", description: "Dos rutas para trabajar un pensamiento: rápido cuando hay bloqueo, profundo cuando el patrón se repite.", alt: "Mock-up del Motor de Reestructuración de KAIRON." },
+        { title: "Quick Reframe", description: "Una intervención breve para ordenar un pensamiento bloqueante y convertirlo en una acción concreta.", alt: "Mock-up de Quick Reframe de KAIRON." },
+        { title: "Restructure Lab", description: "Un flujo más profundo para formular, examinar y reencuadrar patrones recurrentes.", alt: "Mock-up de Restructure Lab de KAIRON." },
+        { title: "Activador matutino", description: "Una decisión de ejecución diaria para preparar el sistema antes de que aparezca la fricción.", alt: "Mock-up del Activador matutino de KAIRON." },
       ],
     },
     plans: {
-      eyebrow: "ELIGE TU ACCESO",
-      h2: "Planes.",
+      eyebrow: "POR QUÉ ENTRAR A LA WAITLIST",
+      h2: "Los primeros usuarios van a moldear cómo Kai coachéa.",
       featuredBadge: "DESTACADO",
       cards: [
         {
           name: "FREE",
           price: "Gratis",
           items: [
-            "3 registros en el Motor de Reestructuración",
-            "5 Activadores Matutinos por mes",
-            "Fase 1 de la Guía CBT coaching",
-            "Recursos base",
+            "Acceso inicial a flujos guiados por Kai",
+            "Primeras pruebas del Scanner y Filter",
+            "Updates de producto durante la validación",
+            "Oportunidad de influir en el producto",
           ],
           ctaLabel: "Acceso gratuito al lanzar",
           variant: "outline",
@@ -165,11 +171,11 @@ const COPY: Record<Locale, Copy> = {
           price: "$20/mes",
           featured: true,
           items: [
-            "Motor de Reestructuración ilimitado",
-            "Activadores Matutinos ilimitados",
-            "Guía CBT coaching completa — todas las fases",
-            "Laboratorio de Pensamientos con IA — acceso completo",
-            "Plataforma de Diagnóstico de Ejecución",
+            "Acceso prioritario al Cognitive OS",
+            "Filtro y Taller guiados por Kai",
+            "Protocolo de 8 semanas cuando esté disponible",
+            "Bitácora de Ejecución para registrar evidencia",
+            "Founder pricing para early users",
           ],
           ctaLabel: "Unirme con Plus",
           variant: "primary",
@@ -179,10 +185,10 @@ const COPY: Record<Locale, Copy> = {
           price: "$50/mes",
           items: [
             "Todo lo de Plus",
-            "Sesión mensual con coach humano",
-            "Auditoría mensual de tus patrones cognitivos",
-            "Foro privado de comunidad VIP",
-            "Masterclasses premium de ejecución",
+            "Sesión mensual de calibración con coach humano",
+            "Auditoría mensual de patrones de ejecución",
+            "Feedback directo para mejorar Kai",
+            "Comunidad privada de builders y high-performers",
           ],
           ctaLabel: "Unirme con VIP",
           variant: "outline",
@@ -191,89 +197,89 @@ const COPY: Record<Locale, Copy> = {
     },
     waitlist: {
       h2: "Sé parte del primer grupo.",
-      body: "G-Frame está en prototipo activo. Los primeros usuarios en Ecuador tendrán acceso anticipado, precio de fundadores y la oportunidad de dar forma al producto con su feedback.",
+      body: "KAIRON está en construcción activa. Los primeros usuarios tendrán acceso anticipado, precio de fundadores y la oportunidad de ayudar a entrenar una nueva categoría: ejecución guiada por control cognitivo, no por más tareas.",
       emailLabel: "Correo electrónico",
       emailPlaceholder: "tu@correo.com",
       submitIdle: "Quiero acceso anticipado",
       submitDone: "Gracias ✓",
       submitLoading: "Enviando…",
-      foot: "Lanzamiento Q3 2026 · Solo en Ecuador en primera fase · Sin spam, solo actualizaciones del producto.",
+      foot: "Lanzamiento Q3 2026 · Ecuador en primera fase · Sin spam, solo updates reales de producto.",
       successToast: "Listo. Te avisaremos del lanzamiento.",
       errorToast: "No pudimos guardar tu correo. Intenta de nuevo.",
       invalidToast: "Correo inválido. Revisa el formato.",
     },
     note: {
       label: "Nota metodológica",
-      body: "G-Frame es una herramienta de coaching de ejecución, no una aplicación clínica. No diagnostica, no trata y no reemplaza la psicoterapia, la psicología clínica ni la psiquiatría. Aplica el método I-R-O™ con metodología CBT coaching para ayudarte a identificar, reencuadrar y optimizar los patrones cognitivos que bloquean tu ejecución.",
+      body: "KAIRON traduce estructuras cognitivo-conductuales y REBT a lenguaje no clínico enfocado en trabajo, proyectos, ejecución y toma de decisiones. Es coaching de ejecución: no diagnostica, no trata y no reemplaza atención profesional especializada.",
     },
     counterText: (n) => `${n} personas ya están en la lista de espera.`,
     aiBadge: "IA",
   },
   en: {
     hero: {
-      eyebrow: "G-STRUCTURE'S MAIN PRODUCT · I-R-O™ METHOD · LAUNCH Q3 2026",
-      h1: "G-Frame turns the I-R-O™ Method into an execution platform.",
-      leadA: "Identify, reframe, and optimize your execution",
-      leadB: "with applied CBT coaching methodology.",
-      body: "G-Frame identifies the cognitive-behavioral friction blocking your execution, helps you reframe it with the I-R-O™ Method, and optimizes your action. Not to make you feel better — to make you execute better.",
-      disclaimer: "We are not therapy. Not clinical diagnosis. G-Frame is a coaching, psychoeducation and execution-optimization tool based on cognitive-behavioral principles.",
+      eyebrow: "G-STRUCTURE'S MAIN PRODUCT · COGNITIVE OS · LAUNCH Q3 2026",
+      h1: "KAIRON turns mental friction into execution.",
+      leadA: "Guided by Kai, your AI execution coach",
+      leadB: "to identify the block, reframe it, and move in 5 minutes.",
+      body: "KAIRON is not a task manager, a journaling app, or a generic chatbot. It is a Cognitive Operating System for execution: it detects the thoughts, rules, and patterns that block action, works them through the I-R-O™ Method, and turns them into a validated Action Bridge.",
+      disclaimer: "KAIRON is an execution-coaching system, not a clinical service. It does not diagnose, treat, or replace psychological, medical, or psychiatric care.",
       cta: "Join the waitlist",
       counter: (n) => `${n} people are already on the waitlist.`,
-      launchNote: "Early access available for Ecuador first. Launch Q3 2026.",
-      osLabel: "G-FRAME · COGNITIVE OS",
+      launchNote: "Early access for Ecuador first. The first users will help shape how Kai guides execution.",
+      osLabel: "KAIRON · COGNITIVE OS",
       iro: "I-R-O™ · IDENTIFY · REFRAME · OPTIMIZE",
-      version: "v0.1 · BETA",
-      imgAlt: "Mock-up of the G-Frame home screen.",
-      captions: ["Restructuring Engine", "Execution Diagnostic", "Morning Activator"],
+      version: "KAI · AI EXECUTION COACH",
+      imgAlt: "KAIRON home mockup with Kai and execution modules.",
+      captions: ["Scanner", "Filter", "Workshop", "Protocol"],
     },
     engine: {
-      eyebrow: "THE I-R-O™ METHOD INSIDE THE APP",
-      h2: "If you can identify it, you can reframe it. If you can reframe it, you can optimize it.",
-      body: "Most productivity apps organize your tasks. G-Frame works one layer deeper: the cognitive patterns that generate procrastination, perfectionism and self-sabotage in the first place.",
+      eyebrow: "HOW IT WORKS",
+      h2: "KAIRON starts before the task list: at the moment you get blocked.",
+      body: "Most tools assume you already have cognitive and emotional clarity. KAIRON works one layer earlier: it identifies the friction, reframes it with Kai, and turns it into a small action you can validate today.",
       steps: [
-        { n: "01", t: "Situation", d: "What triggered the friction?", ai: false },
-        { n: "02", t: "Emotion", d: "Name it. Rate its intensity from 1 to 10.", ai: false },
-        { n: "03", t: "Core belief", d: "What does this thought say about you?", ai: false },
-        { n: "04", t: "Thought Lab", d: "With AI, reframe the automatic thought into a functional one.", ai: true },
-        { n: "05", t: "Optimize", d: "Translate the reframed thought into concrete action.", ai: false },
+        { n: "I", t: "Identify", d: "Define your mission, detect the dominant pattern, and name the real friction.", ai: false },
+        { n: "R", t: "Reframe", d: "Kai separates facts from interpretations and challenges internal rules that block action.", ai: true },
+        { n: "O", t: "Optimize", d: "Turn the reframe into a 5-minute Action Bridge and register evidence.", ai: false },
       ],
     },
     features: {
-      eyebrow: "WHAT G-FRAME INCLUDES",
-      h2: "Key features.",
+      eyebrow: "THE OPERATING SYSTEM",
+      h2: "An architecture guided by Kai.",
       items: [
-        { t: "Restructuring Engine", d: "Log situations, measure emotions, reach the core belief. Turn the subjective into the measurable.", ai: false },
-        { t: "AI Thought Lab", d: "Intelligent assistance to reframe automatic thoughts with CBT coaching methodology. Learn while you do it.", ai: true },
-        { t: "Morning Activator", d: "Daily cognitive-activation routine to prepare execution before friction begins.", ai: false },
-        { t: "Execution Diagnostic", d: "Identify your recurring patterns. Understand whether your main friction is procrastination, perfectionism, self-sabotage or the impostor pattern. Work directly on the pattern.", ai: false },
+        { t: "Scanner", d: "Maps your dominant execution pattern and activates the right protocol route.", ai: false },
+        { t: "Filter", d: "A 2-5 minute cognitive reset for urgent thoughts, blocks, or overthinking.", ai: true },
+        { t: "Workshop", d: "A deeper space for recurring patterns, beliefs, and tactical cognitive tools.", ai: true },
+        { t: "Protocol", d: "An 8-week program around your project to turn clarity into repeated evidence.", ai: false },
+        { t: "Execution Diary", d: "A live log of thoughts, actions, and proof to measure real progress.", ai: false },
+        { t: "Biblioteca", d: "Readings, principles, and resources that support the coaching flow without overwhelming you.", ai: false },
       ],
     },
     prototype: {
       eyebrow: "PROTOTYPE SCREENS",
       h2: "A short route to understand what blocks you and turn it into action.",
-      body: "These mock-ups show the current G-Frame experience: an action-oriented home screen, a clear I-R-O route, and specific modules to reframe, go deeper, or activate the day.",
+      body: "These mock-ups show the current KAIRON experience: an action-oriented home screen, a clear I-R-O route, and specific modules to reframe, go deeper, or activate the day.",
       items: [
-        { title: "Home", description: "The entry point: short routes, active session state, and next steps.", alt: "G-Frame Home mock-up." },
-        { title: "I-R-O Route", description: "The user does not review everything: they follow a guided sequence to identify, reframe, and optimize.", alt: "G-Frame I-R-O Route mock-up." },
-        { title: "Restructuring Engine", description: "Two paths for working with a thought: quick when blocked, deeper when the pattern repeats.", alt: "G-Frame Restructuring Engine mock-up." },
-        { title: "Quick Reframe", description: "A brief intervention to organize a blocking thought and turn it into a concrete action.", alt: "G-Frame Quick Reframe mock-up." },
-        { title: "Restructure Lab", description: "A deeper flow to formulate, examine, and reframe recurring patterns.", alt: "G-Frame Restructure Lab mock-up." },
-        { title: "Morning Activator", description: "A daily execution decision to prepare the system before friction appears.", alt: "G-Frame Morning Activator mock-up." },
+        { title: "Home", description: "The entry point: short routes, active session state, and next steps.", alt: "KAIRON Home mock-up." },
+        { title: "I-R-O Route", description: "The user does not review everything: they follow a guided sequence to identify, reframe, and optimize.", alt: "KAIRON I-R-O Route mock-up." },
+        { title: "Restructuring Engine", description: "Two paths for working with a thought: quick when blocked, deeper when the pattern repeats.", alt: "KAIRON Restructuring Engine mock-up." },
+        { title: "Quick Reframe", description: "A brief intervention to organize a blocking thought and turn it into a concrete action.", alt: "KAIRON Quick Reframe mock-up." },
+        { title: "Restructure Lab", description: "A deeper flow to formulate, examine, and reframe recurring patterns.", alt: "KAIRON Restructure Lab mock-up." },
+        { title: "Morning Activator", description: "A daily execution decision to prepare the system before friction appears.", alt: "KAIRON Morning Activator mock-up." },
       ],
     },
     plans: {
-      eyebrow: "CHOOSE YOUR ACCESS",
-      h2: "Plans.",
+      eyebrow: "WHY JOIN THE WAITLIST",
+      h2: "Early users will shape how Kai coaches.",
       featuredBadge: "FEATURED",
       cards: [
         {
           name: "FREE",
           price: "Free",
           items: [
-            "3 entries in the Restructuring Engine",
-            "5 Morning Activators per month",
-            "Phase 1 of the CBT coaching guide",
-            "Base resources",
+            "Initial access to Kai-guided flows",
+            "First tests of Scanner and Filter",
+            "Product updates during validation",
+            "Opportunity to influence the product",
           ],
           ctaLabel: "Free access at launch",
           variant: "outline",
@@ -283,11 +289,11 @@ const COPY: Record<Locale, Copy> = {
           price: "$20/mo",
           featured: true,
           items: [
-            "Unlimited Restructuring Engine",
-            "Unlimited Morning Activators",
-            "Full CBT coaching guide — all phases",
-            "AI Thought Lab — full access",
-            "Execution Diagnostic platform",
+            "Priority access to the Cognitive OS",
+            "Kai-guided Filter and Workshop",
+            "8-week Protocol when available",
+            "Execution Diary for evidence logging",
+            "Founder pricing for early users",
           ],
           ctaLabel: "Join with Plus",
           variant: "primary",
@@ -297,10 +303,10 @@ const COPY: Record<Locale, Copy> = {
           price: "$50/mo",
           items: [
             "Everything in Plus",
-            "Monthly session with a human coach",
-            "Monthly audit of your cognitive patterns",
-            "Private VIP community forum",
-            "Premium execution masterclasses",
+            "Monthly calibration session with a human coach",
+            "Monthly audit of execution patterns",
+            "Direct feedback loop to improve Kai",
+            "Private community of builders and high-performers",
           ],
           ctaLabel: "Join with VIP",
           variant: "outline",
@@ -309,20 +315,20 @@ const COPY: Record<Locale, Copy> = {
     },
     waitlist: {
       h2: "Be part of the first cohort.",
-      body: "G-Frame is in active prototype. Early users in Ecuador will get early access, founder pricing and the chance to shape the product with their feedback.",
+      body: "KAIRON is in active construction. Early users will get early access, founder pricing, and the chance to help shape a new category: execution guided by cognitive control, not more tasks.",
       emailLabel: "Email",
       emailPlaceholder: "you@email.com",
       submitIdle: "I want early access",
       submitDone: "Thanks ✓",
       submitLoading: "Sending…",
-      foot: "Launch Q3 2026 · Ecuador-only in the first phase · No spam, only product updates.",
+      foot: "Launch Q3 2026 · Ecuador in the first phase · No spam, only real product updates.",
       successToast: "Done. We'll let you know at launch.",
       errorToast: "We couldn't save your email. Please try again.",
       invalidToast: "Invalid email. Check the format.",
     },
     note: {
       label: "Methodological note",
-      body: "G-Frame is an execution-coaching tool, not a clinical application. It does not diagnose, treat, or replace psychotherapy, clinical psychology, or psychiatry. It applies the I-R-O™ Method with CBT coaching methodology to help you identify, reframe, and optimize the cognitive patterns blocking your execution.",
+      body: "KAIRON translates cognitive-behavioral and REBT structures into non-clinical language focused on work, projects, execution, and decision-making. It is execution coaching: it does not diagnose, treat, or replace specialized professional care.",
     },
     counterText: (n) => `${n} people are already on the waitlist.`,
     aiBadge: "AI",
@@ -394,9 +400,10 @@ export function GStructPage({ locale }: { locale: Locale }) {
   return (
     <>
       <Hero locale={locale} count={waitlist.count} />
+      <KaiSection locale={locale} />
+      <ProductScreens locale={locale} />
       <Engine locale={locale} />
       <Features locale={locale} />
-      <PrototypeGallery locale={locale} />
       <Plans locale={locale} />
       <Waitlist locale={locale} count={waitlist.count} refetchCount={waitlist.refetch} />
       <Note locale={locale} />
@@ -425,7 +432,7 @@ function Hero({ locale, count }: { locale: Locale; count: number | null }) {
           <div className="mt-9 flex flex-wrap items-center gap-3">
             <a
               href="#waitlist"
-              onClick={() => trackCtaClick("gstruct_hero_waitlist", { source: "gstruct_page" })}
+              onClick={() => trackCtaClick("kairon_hero_waitlist", { source: "kairon_page" })}
               className="group inline-flex items-center justify-center gap-2 bg-foreground px-5 min-h-11 py-3 text-[13px] font-medium tracking-wide text-background transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:ring-[color:var(--color-brand)]"
             >
               {c.cta}
@@ -436,28 +443,37 @@ function Hero({ locale, count }: { locale: Locale; count: number | null }) {
           <p className="mt-2 text-xs text-muted-foreground">{c.launchNote}</p>
         </div>
         <div className="lg:col-span-5">
-          <div className="relative border border-[color:var(--color-brand-deep)] bg-[color:var(--color-brand-deep)] p-6 md:p-8">
+          <div className="relative overflow-hidden border border-[color:var(--color-brand-deep)] bg-[color:var(--color-brand-deep)] p-6 md:p-8">
             <div className="absolute inset-0 grid-bg opacity-25" aria-hidden />
+            <div className="absolute -right-24 -top-24 h-56 w-56 rounded-full bg-[#00e5ff]/20 blur-3xl" aria-hidden />
             <div className="relative flex items-center justify-between">
               <span className="font-display text-[10px] font-semibold tracking-[0.22em] text-[color:var(--color-background)]/70">
                 {c.osLabel}
               </span>
-              <BrandMark size={20} />
+              <img src={kaironMark} alt="" className="h-10 w-10 object-contain" aria-hidden />
             </div>
             <img
-              src={mockupInicio}
+              src={kaironMockupHome}
               alt={c.imgAlt}
               loading="lazy"
-              width={900}
-              height={1125}
-              className="relative mt-5 w-full h-auto object-contain"
+              width={1672}
+              height={941}
+              className="relative mx-auto mt-6 w-full object-contain shadow-[0_24px_60px_rgba(0,0,0,0.28)]"
             />
+            <div className="relative mt-4 border border-[color:var(--color-background)]/15 bg-[color:var(--color-background)]/8 p-4 backdrop-blur-sm">
+              <img src={kaironLogo} alt="KAIRON" className="h-auto w-44 max-w-full" loading="lazy" />
+              <p className="mt-3 text-xs leading-relaxed text-[color:var(--color-background)]/78">
+                {locale === "en"
+                  ? "Kai guides the system: he explains the step, interprets messy input, routes the user, and pushes toward evidence."
+                  : "Kai guía el sistema: explica el paso, ordena entradas confusas, enruta al usuario y empuja hacia evidencia."}
+              </p>
+            </div>
             <div className="relative mt-3 flex items-center justify-between border-t border-[color:var(--color-background)]/20 pt-3 text-[10px] tracking-[0.22em] text-[color:var(--color-background)]/70">
               <span>{c.iro}</span>
               <span>{c.version}</span>
             </div>
           </div>
-          <div className="mt-4 grid grid-cols-3 divide-x divide-border border border-border bg-[color:var(--color-surface)] text-center">
+          <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 divide-x divide-border border border-border bg-[color:var(--color-surface)] text-center">
             {c.captions.map((t) => (
               <p key={t} className="px-2 py-3 text-[10.5px] font-display font-semibold tracking-[0.14em] uppercase text-foreground/75">
                 {t}
@@ -470,53 +486,138 @@ function Hero({ locale, count }: { locale: Locale; count: number | null }) {
   );
 }
 
-const PROTOTYPE_IMAGES = [
-  mockupInicio,
-  mockupRutaIro,
-  mockupMotor,
-  mockupQuickReframe,
-  mockupRestructureLab,
-  mockupActivador,
-];
+function KaiSection({ locale }: { locale: Locale }) {
+  const copy = locale === "en"
+    ? {
+        eyebrow: "MEET KAI",
+        title: "Kai is not a chatbot. Kai is the operating layer.",
+        body: "Most AI apps make the user start from a blank prompt. KAIRON does the opposite: Kai already knows the product structure, the active project, the protocol route, and the next logical action.",
+        items: [
+          "Explains each step before asking the user to act.",
+          "Turns messy input into a usable thought, emotion, rule, or action.",
+          "Routes the user to Filter, Workshop, Protocol, or the Execution Diary.",
+          "Keeps the user anchored to the project and pushes toward evidence.",
+        ],
+      }
+    : {
+        eyebrow: "CONOCE A KAI",
+        title: "Kai no es un chatbot. Kai es la capa operativa.",
+        body: "La mayoría de apps con IA te dejan frente a una caja vacía. KAIRON hace lo contrario: Kai conoce la estructura del producto, el proyecto activo, la ruta de protocolo y la siguiente acción lógica.",
+        items: [
+          "Explica cada paso antes de pedirle actuar al usuario.",
+          "Convierte entradas confusas en pensamiento, emoción, regla o acción usable.",
+          "Enruta al usuario hacia Filtro, Taller, Protocolo o Bitácora de Ejecución.",
+          "Mantiene el foco en el proyecto y empuja hacia evidencia.",
+        ],
+      };
 
-function PrototypeGallery({ locale }: { locale: Locale }) {
-  const c = COPY[locale].prototype;
   return (
     <Section tone="white">
-      <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
-        <div className="lg:col-span-7">
-          <Eyebrow>{c.eyebrow}</Eyebrow>
-          <h2 className="mt-4 max-w-3xl font-display text-3xl md:text-4xl leading-[1.08]">{c.h2}</h2>
-          <p className="mt-5 max-w-3xl text-base md:text-lg text-muted-foreground leading-relaxed">{c.body}</p>
+      <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
+        <div className="lg:col-span-5">
+          <div className="relative overflow-hidden border border-border bg-[#f5f7fa] p-6">
+            <div className="absolute inset-x-0 top-0 h-1 bg-[#00b4d8]" aria-hidden />
+            <img
+              src={kaiMascot}
+              alt={locale === "en" ? "Kai, KAIRON's AI execution coach." : "Kai, coach de ejecución con IA de KAIRON."}
+              loading="lazy"
+              width={1024}
+              height={1365}
+              className="mx-auto max-h-[520px] w-full object-contain"
+            />
+          </div>
         </div>
-        <div className="lg:col-span-5 border-l-2 border-[color:var(--color-brand)] pl-5">
+        <div className="lg:col-span-7">
+          <Eyebrow>{copy.eyebrow}</Eyebrow>
+          <h2 className="mt-4 max-w-3xl font-display text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.08]">
+            {copy.title}
+          </h2>
+          <p className="mt-6 max-w-3xl text-base md:text-lg text-muted-foreground leading-relaxed">
+            {copy.body}
+          </p>
+          <div className="mt-8 grid gap-3 sm:grid-cols-2">
+            {copy.items.map((item) => (
+              <div key={item} className="border border-border bg-[color:var(--color-surface)] p-4">
+                <Check size={16} className="mb-3 text-[color:var(--color-brand)]" aria-hidden />
+                <p className="text-sm text-foreground/85 leading-relaxed">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </Section>
+  );
+}
+
+function ProductScreens({ locale }: { locale: Locale }) {
+  const copy = locale === "en"
+    ? {
+        eyebrow: "PRODUCT IN MOTION",
+        title: "From Kai's guidance to a concrete execution route.",
+        body: "These screens show the current KAIRON direction: Home anchors the project, Operations chooses the route, Scanner detects the pattern, Filter unlocks urgent friction, and Workshop goes deeper when the pattern repeats.",
+        screens: [
+          { title: "Home", body: "Daily focus, active project, and the fastest path when the user is blocked.", image: kaironMockupHome, alt: "KAIRON Home screen mockup." },
+          { title: "Operations", body: "Kai routes the user between protocol, emergency unblocking, and deeper work.", image: kaironMockupOperations, alt: "KAIRON Operations screen mockup." },
+          { title: "Scanner", body: "A guided execution scanner to map the user's dominant pattern.", image: kaironMockupScanner, alt: "KAIRON Scanner screen mockup." },
+          { title: "Filter", body: "A fast reframe flow for urgent thoughts that are blocking action now.", image: kaironMockupFilter, alt: "KAIRON Filter screen mockup." },
+          { title: "Workshop", body: "A deeper coaching flow for recurring beliefs, interpretations, and patterns.", image: kaironMockupWorkshop, alt: "KAIRON Workshop screen mockup." },
+          { title: "Execution Diary", body: "Actionable proof and progress evidence connected to the active protocol.", image: kaironMockupOperationsDetail, alt: "KAIRON Execution Diary and Operations detail mockup." },
+        ],
+      }
+    : {
+        eyebrow: "PRODUCTO EN MOVIMIENTO",
+        title: "De la guía de Kai a una ruta concreta de ejecución.",
+        body: "Estas pantallas muestran la dirección actual de KAIRON: Inicio ancla el proyecto, Operaciones escoge la ruta, Escáner detecta el patrón, Filtro desbloquea fricción urgente y Taller profundiza cuando el patrón se repite.",
+        screens: [
+          { title: "Inicio", body: "Enfoque diario, proyecto activo y la ruta más corta cuando el usuario está bloqueado.", image: kaironMockupHome, alt: "Mockup de Inicio de KAIRON." },
+          { title: "Operaciones", body: "Kai enruta al usuario entre protocolo, desbloqueo de emergencia y trabajo profundo.", image: kaironMockupOperations, alt: "Mockup de Operaciones de KAIRON." },
+          { title: "Escáner", body: "Un escáner guiado de ejecución para mapear el patrón dominante del usuario.", image: kaironMockupScanner, alt: "Mockup del Escáner de KAIRON." },
+          { title: "Filtro", body: "Un flujo rápido de reencuadre para pensamientos urgentes que bloquean la acción.", image: kaironMockupFilter, alt: "Mockup del Filtro de KAIRON." },
+          { title: "Taller", body: "Un flujo de coaching más profundo para creencias, interpretaciones y patrones repetidos.", image: kaironMockupWorkshop, alt: "Mockup del Taller de KAIRON." },
+          { title: "Bitácora de Ejecución", body: "Evidencia de avance conectada al protocolo activo y a acciones validadas.", image: kaironMockupOperationsDetail, alt: "Mockup de bitácora y operaciones de KAIRON." },
+        ],
+      };
+
+  return (
+    <Section tone="muted">
+      <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
+        <div className="lg:col-span-8">
+          <Eyebrow>{copy.eyebrow}</Eyebrow>
+          <h2 className="mt-4 max-w-4xl font-display text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.08]">
+            {copy.title}
+          </h2>
+          <p className="mt-5 max-w-3xl text-base md:text-lg text-muted-foreground leading-relaxed">
+            {copy.body}
+          </p>
+        </div>
+        <div className="lg:col-span-4 border-l-2 border-[color:var(--color-brand)] pl-5">
           <p className="text-sm md:text-[15px] text-foreground/80 leading-relaxed">
             {locale === "en"
-              ? "The product is still in prototype, but the interaction model is already visible: diagnose, reframe, then leave with a concrete next action."
-              : "El producto sigue en prototipo, pero el modelo de interacción ya es visible: diagnosticar, reencuadrar y salir con una siguiente acción concreta."}
+              ? "The product should feel less like a menu and more like a guided route from friction to evidence."
+              : "El producto debe sentirse menos como un menú y más como una ruta guiada desde fricción hacia evidencia."}
           </p>
         </div>
       </div>
 
-      <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {c.items.map((item, index) => (
-          <figure key={item.title} className="group border border-border bg-[color:var(--color-surface)] overflow-hidden">
-            <div className="bg-[color:var(--color-brand-deep)]">
+      <div className="mt-12 grid gap-5 md:grid-cols-2">
+        {copy.screens.map((screen, index) => (
+          <figure key={screen.title} className={index === 0 ? "md:col-span-2" : undefined}>
+            <div className="overflow-hidden border border-border bg-white">
               <img
-                src={PROTOTYPE_IMAGES[index]}
-                alt={item.alt}
+                src={screen.image}
+                alt={screen.alt}
                 loading="lazy"
-                width={900}
-                height={1125}
-                className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.015]"
+                width={1672}
+                height={941}
+                className="w-full object-cover"
               />
             </div>
-            <figcaption className="p-5 md:p-6">
+            <figcaption className="border-x border-b border-border bg-[color:var(--color-surface)] p-5">
               <p className="font-display text-[10px] font-semibold tracking-[0.22em] text-[color:var(--color-brand)]">
                 {String(index + 1).padStart(2, "0")}
               </p>
-              <h3 className="mt-2 font-display text-base md:text-lg font-semibold">{item.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+              <h3 className="mt-2 font-display text-lg font-semibold">{screen.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{screen.body}</p>
             </figcaption>
           </figure>
         ))}
@@ -595,7 +696,7 @@ function Engine({ locale }: { locale: Locale }) {
 function Features({ locale }: { locale: Locale }) {
   const c = COPY[locale].features;
   const ai = COPY[locale].aiBadge;
-  const icons = [Activity, Brain, Sun, BarChart3];
+  const icons = [ScanLine, Brain, FlaskConical, Activity, NotebookTabs, BarChart3];
   return (
     <Section>
       <Eyebrow>{c.eyebrow}</Eyebrow>
@@ -644,7 +745,7 @@ function PlanCTA({
   return (
     <a
       href="#waitlist"
-      onClick={() => trackCtaClick("gstruct_plan_waitlist", { plan: String(children) })}
+      onClick={() => trackCtaClick("kairon_plan_waitlist", { plan: String(children) })}
       className={`group mt-7 inline-flex w-full items-center justify-center gap-2 px-5 min-h-11 py-3 text-[13px] font-medium tracking-wide transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[color:var(--color-brand)] ${
         variant === "ghost-light" ? "focus-visible:ring-offset-[color:var(--color-brand-deep)]" : "focus-visible:ring-offset-background"
       } ${styles}`}
@@ -724,20 +825,20 @@ function Waitlist({
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (submitting || done) return;
-    trackCtaClick("gstruct_waitlist_submit_attempt", { source: "gstruct_page" });
+    trackCtaClick("kairon_waitlist_submit_attempt", { source: "kairon_page" });
     setSubmitting(true);
     try {
       const res = await fetch("/api/public/gstruct-waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, website, source: "gstruct_page", locale }),
+        body: JSON.stringify({ email, website, source: "kairon_page", locale }),
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) {
         toast.error(data?.error === "validation_failed" ? c.invalidToast : c.errorToast);
         return;
       }
-      trackConversion("gstruct_waitlist_signup", { source: "gstruct_page" });
+      trackConversion("kairon_waitlist_signup", { source: "kairon_page" });
       setDone(true);
       toast.success(c.successToast);
       refetchCount();

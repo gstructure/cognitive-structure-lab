@@ -1,22 +1,22 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo, canonicalLink, jsonLdScript, breadcrumbSchema, gStructSoftwareSchema } from "@/lib/seo";
-import mockupInicio from "@/assets/g-frame-mockups/01-inicio.webp";
+import kaironLogo from "@/assets/kairon-logo.webp";
 import { GStructPage } from "@/components/pages/GStructPage";
 
 export const Route = createFileRoute("/g-frame")({
   head: () => ({
     meta: buildSeo({
       path: "/g-frame",
-      title: "G-Frame | Plataforma de ejecución impulsada por el método I-R-O™",
+      title: "KAIRON | Cognitive OS para convertir fricción mental en ejecución",
       description:
-        "G-Frame es la app móvil de G-Structure que aplica el método I-R-O™ para identificar la fricción que bloquea tu ejecución, reencuadrarla y optimizar tu acción. Lanzamiento Q3 2026.",
-      image: mockupInicio,
+        "KAIRON es el Cognitive OS de G-Structure: una plataforma guiada por Kai para identificar patrones que bloquean la acción, reencuadrarlos y convertirlos en acciones validadas de 5 minutos.",
+      image: kaironLogo,
     }),
     links: canonicalLink("/g-frame"),
     scripts: [
       jsonLdScript(breadcrumbSchema([
         { name: "Inicio", path: "/" },
-        { name: "G-Frame", path: "/g-frame" },
+        { name: "KAIRON", path: "/g-frame" },
       ])),
       jsonLdScript(gStructSoftwareSchema("es")),
     ],

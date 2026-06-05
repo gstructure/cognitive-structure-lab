@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, Handshake, Users, Calendar, MapPin, ExternalLink, Sparkles } from "lucide-react";
 import { Section } from "@/components/site/Section";
 import { SectionHeader } from "@/components/site/SectionHeader";
@@ -20,10 +20,10 @@ import { useT, useLocale, type Locale } from "@/lib/i18n";
 import { ROUTES } from "@/lib/routeMap";
 import { featuredArticlesForLocale } from "@/lib/articles";
 import logoCube from "@/assets/g-structure-cube.webp";
-import gFrameLogo from "@/assets/g-frame-logo.png";
-import mockupInicio from "@/assets/g-frame-mockups/01-inicio.webp";
-import mockupMotor from "@/assets/g-frame-mockups/03-motor-reestructuracion.webp";
-import mockupQuickReframe from "@/assets/g-frame-mockups/04-quick-reframe.webp";
+import gFrameLogo from "@/assets/kairon-logo.webp";
+import kaiMascot from "@/assets/kai-mascot.webp";
+
+
 import etwBadge from "@/assets/etw-2026-badge.webp";
 import codeLaunchAnnouncement from "@/assets/codelaunch-latam-2026.svg";
 import { buildSeo, canonicalLink, jsonLdScript, faqSchema, breadcrumbSchema } from "@/lib/seo";
@@ -38,19 +38,19 @@ function lp(esPath: string, locale: Locale): string {
 }
 
 const HOME_FAQ = [
-  { q: "¿Qué es G-Structure?", a: "Una tech startup construyendo G-Frame: una plataforma cognitivo-conductual de ejecución profesional impulsada por el método I-R-O™." },
+  { q: "¿Qué es G-Structure?", a: "Una tech startup construyendo KAIRON: una plataforma cognitivo-conductual de ejecución profesional impulsada por el método I-R-O™." },
   { q: "¿G-Structure ofrece terapia?", a: "No. G-Structure es coaching cognitivo-conductual aplicado a contextos de ejecución profesional. No sustituye atención clínica ni psicoterapia." },
-  { q: "¿Qué es el método I-R-O™?", a: "Identificar, Reencuadrar y Optimizar: el framework propietario que impulsa G-Frame y convierte fricción cognitivo-conductual en acción funcional." },
-  { q: "¿Qué es G-Frame?", a: "El producto principal de G-Structure: una app en desarrollo para diagnosticar patrones de ejecución, reencuadrarlos y sostener acciones concretas antes del lanzamiento Q3 2026." },
+  { q: "¿Qué es el método I-R-O™?", a: "Identificar, Reencuadrar y Optimizar: el framework propietario que impulsa KAIRON y convierte fricción cognitivo-conductual en acción funcional." },
+  { q: "¿Qué es KAIRON?", a: "El producto principal de G-Structure: una app en desarrollo para diagnosticar patrones de ejecución, reencuadrarlos y sostener acciones concretas antes del lanzamiento Q3 2026." },
 ];
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: buildSeo({
       path: "/",
-      title: "G-Structure | G-Frame · Método I-R-O™ · Startup de ejecución profesional",
+      title: "G-Structure | KAIRON · Método I-R-O™ · Startup de ejecución profesional",
       description:
-        "G-Structure es una tech startup construyendo G-Frame, una plataforma cognitivo-conductual de ejecución profesional impulsada por el método I-R-O™. 1:1, Enterprise y workshops son canales de validación.",
+        "G-Structure es una tech startup construyendo KAIRON, una plataforma cognitivo-conductual de ejecución profesional impulsada por el método I-R-O™. 1:1, Enterprise y workshops son canales de validación.",
       image: gFrameLogo,
     }),
     links: canonicalLink("/"),
@@ -69,7 +69,7 @@ const COPY = {
   es: {
     hero: {
       linkQuiz: "Identifica tu patrón de ejecución",
-      linkWaitlist: "Únete a la waitlist de G-Frame",
+      linkWaitlist: "Únete a la waitlist de KAIRON",
       linkEnterprise: "Canal de validación · Enterprise",
       linkInvestors: "Oportunidad de inversión · Pre-seed",
     },
@@ -105,7 +105,7 @@ const COPY = {
       },
       team: {
         tag: "EQUIPO INICIAL",
-        title: "Estamos formando el equipo que construirá G-Structure y G-Frame",
+        title: "Estamos formando el equipo que construirá G-Structure y KAIRON",
         body: "Buscamos colaboradores voluntarios en áreas clave para fortalecer la siguiente etapa del proyecto: producto, tecnología, ventas, marketing y negocios internacionales.",
         short: "No buscamos espectadores. Buscamos personas con criterio, iniciativa y ganas de construir desde una etapa temprana.",
         cta: "Quiero unirme al equipo",
@@ -119,17 +119,17 @@ const COPY = {
       lead: "G-Structure trabaja precisamente en esa zona: donde la cognición, la emoción y la conducta empiezan a bloquear la ejecución.",
       diagnose: "Haz el diagnóstico",
       cards: [
-        { t: "Procrastinación", d: "Cuando la acción se posterga aunque la tarea sea importante.", reveal: "¿Lo pospones aunque sabes que es importante? G-Frame trabaja este patrón." },
+        { t: "Procrastinación", d: "Cuando la acción se posterga aunque la tarea sea importante.", reveal: "¿Lo pospones aunque sabes que es importante? KAIRON trabaja este patrón." },
         { t: "Perfeccionismo improductivo", d: "Cuando el estándar se vuelve una excusa elegante para no avanzar.", reveal: "¿El estándar se volvió una excusa elegante? Hay un patrón detrás de eso." },
         { t: "Sobreanálisis", d: "Cuando pensar más deja de aclarar y empieza a paralizar.", reveal: "¿Pensar más dejó de ayudar? Eso tiene una estructura cognitiva específica." },
         { t: "Autosabotaje", d: "Cuando la conducta contradice el objetivo que la persona dice querer.", reveal: "¿Tu conducta contradice tu objetivo? El Motor de Reestructuración mapea por qué." },
-        { t: "Bloqueo de ejecución", d: "Cuando hay intención, pero no hay salida funcional a la acción.", reveal: "¿Hay intención pero no hay salida? G-Frame convierte eso en acción." },
+        { t: "Bloqueo de ejecución", d: "Cuando hay intención, pero no hay salida funcional a la acción.", reveal: "¿Hay intención pero no hay salida? KAIRON convierte eso en acción." },
       ],
     },
     method: {
       eyebrow: "EL MÉTODO PROPIETARIO",
       title: "I-R-O™: Identificar. Reencuadrar. Optimizar.",
-      lead: "El framework que impulsa G-Frame: una secuencia estructurada para convertir fricción cognitivo-conductual en acción funcional. Selecciona cada fase para ver el detalle.",
+      lead: "El framework que impulsa KAIRON: una secuencia estructurada para convertir fricción cognitivo-conductual en acción funcional. Selecciona cada fase para ver el detalle.",
       footnote: "El método I-R-O™ está basado en principios de la Terapia Cognitivo-Conductual (CBT), adaptados a contextos de ejecución profesional. No constituye terapia ni sustituye atención clínica. I-R-O™ Method es un framework propietario desarrollado por G-Structure.",
     },
     faq: {
@@ -146,19 +146,19 @@ const COPY = {
       quote: "El orden mental no es un lujo. Es la base de una acción clara, funcional y sostenible.",
     },
     gstruct: {
-      tag: "EL PRODUCTO · G-FRAME",
+      tag: "EL PRODUCTO · KAIRON",
       pill: "PROTOTIPO ACTIVO · LANZAMIENTO Q3 2026",
-      h2: "G-Frame es el producto principal de G-Structure.",
+      h2: "KAIRON es el producto principal de G-Structure.",
       lead: (
         <>
           Una app diseñada para convertir el método <strong className="text-foreground">I-R-O™: Identificar → Reencuadrar → Optimizar</strong> en
           una herramienta diaria de ejecución para profesionales, founders y equipos.
         </>
       ),
-      disclaimer: "No somos una app de terapia. No hacemos diagnóstico clínico. G-Frame es una herramienta de coaching, psicoeducación y optimización de ejecución basada en principios cognitivo-conductuales.",
-      p1: "G-Frame lleva el método I-R-O™ a tu bolsillo. Una app móvil diseñada para identificar la fricción que bloquea tu ejecución, reencuadrarla con metodología CBT coaching, y optimizar tu acción — disponible 24/7.",
+      disclaimer: "No somos una app de terapia. No hacemos diagnóstico clínico. KAIRON es una herramienta de coaching, psicoeducación y optimización de ejecución basada en principios cognitivo-conductuales.",
+      p1: "KAIRON lleva el método I-R-O™ a tu bolsillo. Una app móvil diseñada para identificar la fricción que bloquea tu ejecución, reencuadrarla con metodología CBT coaching, y optimizar tu acción — disponible 24/7.",
       p2: "No es una app de bienestar. No es un diario de pensamientos. No es otra lista de tareas. Es la herramienta que separa a quienes saben lo que hay que hacer de quienes realmente lo hacen.",
-      previewAlt: "Vista previa de la app G-Frame.",
+      previewAlt: "Vista previa de la app KAIRON.",
       features: [
         { t: "Motor de Reestructuración", d: "Identifica la situación, nombra la emoción, mide su intensidad, llega a la creencia núcleo. Si puedes medirlo, puedes optimizarlo." },
         { t: "Laboratorio de Pensamientos con IA", d: "Con asistencia de inteligencia artificial, aprende a reencuadrar el pensamiento automático en uno funcional que habilite la acción." },
@@ -178,7 +178,7 @@ const COPY = {
         vipItems: ["· Sesión mensual con coach humano", "· Auditoría mensual de patrones", "· Foro privado de comunidad", "· Masterclasses premium"],
       },
       ctaWaitlist: "Únete a la lista de espera",
-      ctaSub: "Sé parte del primer grupo que accede a G-Frame en Ecuador.",
+      ctaSub: "Sé parte del primer grupo que accede a KAIRON en Ecuador.",
     },
     founder: {
       eyebrow: "QUIÉN ESTÁ DETRÁS",
@@ -186,7 +186,7 @@ const COPY = {
       body: (
         <>
           <strong className="text-foreground font-semibold">Guillermo Suco</strong> es fundador
-          y CEO de G-Structure, creador de G-Frame y del método I-R-O™. Su trabajo integra
+          y CEO de G-Structure, creador de KAIRON y del método I-R-O™. Su trabajo integra
           Psicología, intervención educativa, validación con usuarios, gerencia de proyectos
           multiculturales y desarrollo de producto digital.
         </>
@@ -196,24 +196,24 @@ const COPY = {
         "Psicología & Intervención Educativa",
         "Docencia internacional",
         "MV Logos Hope · gerencia de proyectos",
-        "G-Frame con ÉPICO",
+        "KAIRON con ÉPICO",
       ],
       ctaTalk: "Conversar con Guillermo",
       ctaProfile: "Ver perfil",
     },
     channels: {
-      eyebrow: "CÓMO ESTAMOS VALIDANDO G-FRAME",
+      eyebrow: "CÓMO ESTAMOS VALIDANDO KAIRON",
       title: "No son negocios separados. Son capas de una misma estrategia.",
-      subtitle: "G-Structure no opera tres negocios separados: usa 1:1, Enterprise y workshops como canales de validación, datos cualitativos y revenue temprano para construir G-Frame como producto digital escalable.",
+      subtitle: "G-Structure no opera tres negocios separados: usa 1:1, Enterprise y workshops como canales de validación, datos cualitativos y revenue temprano para construir KAIRON como producto digital escalable.",
       items: [
         { tag: "01 · CANAL INDIVIDUAL", t: "REESTRUCTURA 1:1", d: "Sesiones individuales que validan el método I-R-O™ con profesionales, líderes y emprendedores que enfrentan fricción de ejecución.", esTo: "/reestructura-1-1", cta: "Conocer 1:1" },
         { tag: "02 · CANAL B2B", t: "REESTRUCTURA Enterprise", d: "Programa B2B para mapear patrones de ejecución en equipos, founders y organizaciones — y generar revenue temprano para la startup.", esTo: "/enterprise", cta: "Conocer Enterprise" },
-        { tag: "03 · CANAL DE ACTIVACIÓN", t: "Workshop de Diagnóstico de Ejecución", d: "Experiencia grupal diseñada para educar, diagnosticar patrones de ejecución y activar usuarios tempranos para G-Frame.", esTo: "/aliados-etw-2026", cta: "Workshop · ETW 2026" },
-        { tag: "04 · PRODUCTO ESCALABLE", t: "G-Frame App", d: "El producto digital que escala la metodología. Lo que aprendemos en los canales anteriores alimenta directamente su construcción.", esTo: "/g-frame", cta: "Explorar G-Frame" },
+        { tag: "03 · CANAL DE ACTIVACIÓN", t: "Workshop de Diagnóstico de Ejecución", d: "Experiencia grupal diseñada para educar, diagnosticar patrones de ejecución y activar usuarios tempranos para KAIRON.", esTo: "/aliados-etw-2026", cta: "Workshop · ETW 2026" },
+        { tag: "04 · PRODUCTO ESCALABLE", t: "KAIRON App", d: "El producto digital que escala la metodología. Lo que aprendemos en los canales anteriores alimenta directamente su construcción.", esTo: "/g-frame", cta: "Explorar KAIRON" },
       ],
       footer: (
         <>
-          Compañía: <strong className="text-foreground">G-Structure</strong> · Producto principal: <strong className="text-foreground">G-Frame</strong> ·
+          Compañía: <strong className="text-foreground">G-Structure</strong> · Producto principal: <strong className="text-foreground">KAIRON</strong> ·
           Canales de validación: <strong className="text-foreground">1:1, Enterprise, Workshop</strong> · Crecimiento: aliados, inversores y equipo.
         </>
       ),
@@ -252,12 +252,12 @@ const COPY = {
       lead: (
         <>
           G-Structure se encuentra en etapa de validación, construyendo el camino de prototipo a MVP.
-          El objetivo es convertir <strong className="text-foreground">G-Frame</strong>, impulsado por el método I-R-O™,
+          El objetivo es convertir <strong className="text-foreground">KAIRON</strong>, impulsado por el método I-R-O™,
           en una plataforma escalable para profesionales, founders y equipos que necesitan ejecutar mejor bajo presión.
         </>
       ),
       routes: [
-        { tag: "USUARIOS", t: "Probar o conocer G-Frame", esTo: "/g-frame" },
+        { tag: "USUARIOS", t: "Probar o conocer KAIRON", esTo: "/g-frame" },
         { tag: "EMPRESAS", t: "Llevar Enterprise a tu equipo", esTo: "/enterprise" },
         { tag: "INVERSIONISTAS", t: "Revisar la oportunidad de inversión", esTo: "/inversores" },
         { tag: "ALIADOS", t: "Sumarse al ecosistema · ETW 2026", esTo: "/aliados-etw-2026" },
@@ -265,9 +265,9 @@ const COPY = {
       ],
     },
     finalCTA: {
-      title: "G-Structure está construyendo G-Frame. Decide cómo quieres ser parte.",
+      title: "G-Structure está construyendo KAIRON. Decide cómo quieres ser parte.",
       body: "Únete a la waitlist del producto, lleva la metodología a tu equipo, conoce la oportunidad de inversión, o conversa con nosotros directamente.",
-      ctaExplore: "Explorar G-Frame",
+      ctaExplore: "Explorar KAIRON",
       ctaWaitlist: "Unirme a la waitlist",
       ctaContact: "Contactar",
     },
@@ -312,7 +312,7 @@ const COPY = {
   en: {
     hero: {
       linkQuiz: "Identify your execution pattern",
-      linkWaitlist: "Join the G-Frame waitlist",
+      linkWaitlist: "Join the KAIRON waitlist",
       linkEnterprise: "Validation channel · Enterprise",
       linkInvestors: "Investment opportunity · Pre-seed",
     },
@@ -348,7 +348,7 @@ const COPY = {
       },
       team: {
         tag: "FOUNDING TEAM",
-        title: "We're forming the team that will build G-Structure and G-Frame",
+        title: "We're forming the team that will build G-Structure and KAIRON",
         body: "We're looking for volunteer collaborators in key areas to strengthen the next stage of the project: product, technology, sales, marketing, and international business.",
         short: "We're not looking for spectators. We're looking for people with judgment, initiative, and the drive to build from an early stage.",
         cta: "I want to join the team",
@@ -362,17 +362,17 @@ const COPY = {
       lead: "G-Structure works precisely in that zone: where cognition, emotion, and behavior start to block execution.",
       diagnose: "Take the diagnostic",
       cards: [
-        { t: "Procrastination", d: "When action is postponed even when the task is important.", reveal: "Postponing it even though you know it's important? G-Frame works this pattern." },
+        { t: "Procrastination", d: "When action is postponed even when the task is important.", reveal: "Postponing it even though you know it's important? KAIRON works this pattern." },
         { t: "Unproductive perfectionism", d: "When the standard becomes an elegant excuse not to move forward.", reveal: "Has the standard become an elegant excuse? There's a pattern behind that." },
         { t: "Overthinking", d: "When thinking more stops clarifying and starts to paralyze.", reveal: "Thinking more stopped helping? That has a specific cognitive structure." },
         { t: "Self-sabotage", d: "When behavior contradicts the goal the person says they want.", reveal: "Behavior contradicting your goal? The Restructuring Engine maps why." },
-        { t: "Execution block", d: "When there's intent, but no functional exit toward action.", reveal: "Intent but no exit? G-Frame turns that into action." },
+        { t: "Execution block", d: "When there's intent, but no functional exit toward action.", reveal: "Intent but no exit? KAIRON turns that into action." },
       ],
     },
     method: {
       eyebrow: "THE PROPRIETARY METHOD",
       title: "I-R-O™: Identify. Reframe. Optimize.",
-      lead: "The framework that powers G-Frame: a structured sequence to turn cognitive-behavioral friction into functional action. Select each phase to see the detail.",
+      lead: "The framework that powers KAIRON: a structured sequence to turn cognitive-behavioral friction into functional action. Select each phase to see the detail.",
       footnote: "The I-R-O™ Method is based on Cognitive-Behavioral Therapy (CBT) principles, adapted to professional execution contexts. It is not therapy and does not replace clinical care. I-R-O™ Method is a proprietary framework developed by G-Structure.",
     },
     faq: {
@@ -389,19 +389,19 @@ const COPY = {
       quote: "Mental order isn't a luxury. It's the foundation of clear, functional, sustainable action.",
     },
     gstruct: {
-      tag: "THE PRODUCT · G-FRAME",
+      tag: "THE PRODUCT · KAIRON",
       pill: "ACTIVE PROTOTYPE · LAUNCH Q3 2026",
-      h2: "G-Frame is the main product of G-Structure.",
+      h2: "KAIRON is the main product of G-Structure.",
       lead: (
         <>
           An app designed to turn the <strong className="text-foreground">I-R-O™: Identify → Reframe → Optimize</strong> method
           into a daily execution tool for professionals, founders, and teams.
         </>
       ),
-      disclaimer: "We're not a therapy app. We don't make clinical diagnoses. G-Frame is a coaching, psychoeducation, and execution-optimization tool based on cognitive-behavioral principles.",
-      p1: "G-Frame brings the I-R-O™ Method to your pocket. A mobile app designed to identify the friction blocking your execution, reframe it with CBT coaching methodology, and optimize your action — available 24/7.",
+      disclaimer: "We're not a therapy app. We don't make clinical diagnoses. KAIRON is a coaching, psychoeducation, and execution-optimization tool based on cognitive-behavioral principles.",
+      p1: "KAIRON brings the I-R-O™ Method to your pocket. A mobile app designed to identify the friction blocking your execution, reframe it with CBT coaching methodology, and optimize your action — available 24/7.",
       p2: "It's not a wellness app. It's not a thought journal. It's not another to-do list. It's the tool that separates those who know what to do from those who actually do it.",
-      previewAlt: "Preview of the G-Frame app.",
+      previewAlt: "Preview of the KAIRON app.",
       features: [
         { t: "Restructuring Engine", d: "Identify the situation, name the emotion, measure its intensity, reach the core belief. If you can measure it, you can optimize it." },
         { t: "AI Thought Lab", d: "With AI assistance, learn to reframe the automatic thought into a functional one that enables action." },
@@ -421,7 +421,7 @@ const COPY = {
         vipItems: ["· Monthly session with human coach", "· Monthly pattern audit", "· Private community forum", "· Premium masterclasses"],
       },
       ctaWaitlist: "Join the waitlist",
-      ctaSub: "Be part of the first group with access to G-Frame in Ecuador.",
+      ctaSub: "Be part of the first group with access to KAIRON in Ecuador.",
     },
     founder: {
       eyebrow: "WHO'S BEHIND THIS",
@@ -429,7 +429,7 @@ const COPY = {
       body: (
         <>
           <strong className="text-foreground font-semibold">Guillermo Suco</strong> is the founder
-          and CEO of G-Structure, creator of G-Frame and the I-R-O™ Method. His work integrates
+          and CEO of G-Structure, creator of KAIRON and the I-R-O™ Method. His work integrates
           Psychology, educational intervention, user validation, multicultural project management,
           and digital product development.
         </>
@@ -439,24 +439,24 @@ const COPY = {
         "Psychology & Educational Intervention",
         "International teaching",
         "MV Logos Hope · project management",
-        "G-Frame with ÉPICO",
+        "KAIRON with ÉPICO",
       ],
       ctaTalk: "Talk to Guillermo",
       ctaProfile: "View profile",
     },
     channels: {
-      eyebrow: "HOW WE'RE VALIDATING G-FRAME",
+      eyebrow: "HOW WE'RE VALIDATING KAIRON",
       title: "They're not separate businesses. They're layers of one strategy.",
-      subtitle: "G-Structure is not operating three separate businesses: it uses 1:1, Enterprise, and workshops as validation, qualitative data, and early revenue channels to build G-Frame as the scalable digital product.",
+      subtitle: "G-Structure is not operating three separate businesses: it uses 1:1, Enterprise, and workshops as validation, qualitative data, and early revenue channels to build KAIRON as the scalable digital product.",
       items: [
         { tag: "01 · INDIVIDUAL CHANNEL", t: "RESTRUCTURE 1:1", d: "Individual sessions that validate the I-R-O™ Method with professionals, leaders, and entrepreneurs facing execution friction.", esTo: "/reestructura-1-1", cta: "Learn about 1:1" },
         { tag: "02 · B2B CHANNEL", t: "RESTRUCTURE Enterprise", d: "B2B program to map execution patterns in teams, founders, and organizations — and generate early revenue for the startup.", esTo: "/enterprise", cta: "Learn about Enterprise" },
-        { tag: "03 · ACTIVATION CHANNEL", t: "Execution Diagnostic Workshop", d: "Group experience designed to educate, diagnose execution patterns, and activate early users for G-Frame.", esTo: "/aliados-etw-2026", cta: "Workshop · ETW 2026" },
-        { tag: "04 · SCALABLE PRODUCT", t: "G-Frame App", d: "The digital product that scales the methodology. What we learn in the previous channels feeds directly into its construction.", esTo: "/g-frame", cta: "Explore G-Frame" },
+        { tag: "03 · ACTIVATION CHANNEL", t: "Execution Diagnostic Workshop", d: "Group experience designed to educate, diagnose execution patterns, and activate early users for KAIRON.", esTo: "/aliados-etw-2026", cta: "Workshop · ETW 2026" },
+        { tag: "04 · SCALABLE PRODUCT", t: "KAIRON App", d: "The digital product that scales the methodology. What we learn in the previous channels feeds directly into its construction.", esTo: "/g-frame", cta: "Explore KAIRON" },
       ],
       footer: (
         <>
-          Company: <strong className="text-foreground">G-Structure</strong> · Main product: <strong className="text-foreground">G-Frame</strong> ·
+          Company: <strong className="text-foreground">G-Structure</strong> · Main product: <strong className="text-foreground">KAIRON</strong> ·
           Validation channels: <strong className="text-foreground">1:1, Enterprise, Workshop</strong> · Growth: partners, investors, and team.
         </>
       ),
@@ -495,12 +495,12 @@ const COPY = {
       lead: (
         <>
           G-Structure is in a validation stage, building the path from prototype to MVP.
-          The goal is to turn <strong className="text-foreground">G-Frame</strong>, powered by the I-R-O™ Method,
+          The goal is to turn <strong className="text-foreground">KAIRON</strong>, powered by the I-R-O™ Method,
           into a scalable platform for professionals, founders, and teams who need to execute better under pressure.
         </>
       ),
       routes: [
-        { tag: "USERS", t: "Try or learn about G-Frame", esTo: "/g-frame" },
+        { tag: "USERS", t: "Try or learn about KAIRON", esTo: "/g-frame" },
         { tag: "COMPANIES", t: "Bring Enterprise to your team", esTo: "/enterprise" },
         { tag: "INVESTORS", t: "Review the investment opportunity", esTo: "/inversores" },
         { tag: "PARTNERS", t: "Join the ecosystem · ETW 2026", esTo: "/aliados-etw-2026" },
@@ -508,9 +508,9 @@ const COPY = {
       ],
     },
     finalCTA: {
-      title: "G-Structure is building G-Frame. Decide how you want to be part of it.",
+      title: "G-Structure is building KAIRON. Decide how you want to be part of it.",
       body: "Join the product waitlist, bring the methodology to your team, learn about the investment opportunity, or talk to us directly.",
-      ctaExplore: "Explore G-Frame",
+      ctaExplore: "Explore KAIRON",
       ctaWaitlist: "Join the waitlist",
       ctaContact: "Contact",
     },
@@ -1171,7 +1171,7 @@ function GStructBridge() {
           <div className="relative overflow-hidden border border-[color:var(--color-brand-deep)] bg-[color:var(--color-brand-deep)] p-4 md:p-5">
             <div className="grid grid-cols-12 gap-3 items-end">
               <img
-                src={mockupInicio}
+                src={kaiMascot}
                 alt={c.previewAlt}
                 loading="lazy"
                 width={900}
@@ -1180,16 +1180,16 @@ function GStructBridge() {
               />
               <div className="col-span-5 grid gap-3">
                 <img
-                  src={mockupMotor}
-                  alt={locale === "en" ? "G-Frame Restructuring Engine mock-up." : "Mock-up del Motor de Reestructuración de G-Frame."}
+                  src={gFrameLogo}
+                  alt={locale === "en" ? "KAIRON Restructuring Engine mock-up." : "Mock-up del Motor de Reestructuración de KAIRON."}
                   loading="lazy"
                   width={900}
                   height={1125}
                   className="w-full h-auto object-cover"
                 />
                 <img
-                  src={mockupQuickReframe}
-                  alt={locale === "en" ? "G-Frame Quick Reframe mock-up." : "Mock-up de Quick Reframe de G-Frame."}
+                  src={kaiMascot}
+                  alt={locale === "en" ? "KAIRON Quick Reframe mock-up." : "Mock-up de Quick Reframe de KAIRON."}
                   loading="lazy"
                   width={900}
                   height={1125}
@@ -1259,20 +1259,20 @@ function ProductTeaser() {
   const copy = locale === "en"
     ? {
         eyebrow: "THE PRODUCT",
-        title: "G-Frame turns friction into a next action.",
+        title: "KAIRON turns friction into a next action.",
         body: "A mobile execution platform that helps professionals identify the pattern behind a block, reframe it, and leave with one concrete action.",
-        cta: "Explore G-Frame",
+        cta: "Explore KAIRON",
         waitlist: "Join the waitlist",
-        alt: "G-Frame prototype preview.",
+        alt: "KAIRON prototype preview.",
         points: ["Quick Reframe for immediate blocks", "Restructure Lab for repeated patterns", "Guided I-R-O™ routes before action"],
       }
     : {
         eyebrow: "EL PRODUCTO",
-        title: "G-Frame convierte fricción en una siguiente acción.",
+        title: "KAIRON convierte fricción en una siguiente acción.",
         body: "Una plataforma móvil de ejecución que ayuda a profesionales a identificar el patrón detrás de un bloqueo, reencuadrarlo y salir con una acción concreta.",
-        cta: "Explorar G-Frame",
+        cta: "Explorar KAIRON",
         waitlist: "Unirme a la waitlist",
-        alt: "Vista previa del prototipo de G-Frame.",
+        alt: "Vista previa del prototipo de KAIRON.",
         points: ["Quick Reframe para bloqueos inmediatos", "Restructure Lab para patrones repetidos", "Rutas guiadas I-R-O™ antes de actuar"],
       };
 
@@ -1297,10 +1297,10 @@ function ProductTeaser() {
         <div className="lg:col-span-7">
           <div className="border border-[color:var(--color-brand-deep)] bg-[color:var(--color-brand-deep)] p-4">
             <div className="grid grid-cols-12 gap-3 items-end">
-              <img src={mockupInicio} alt={copy.alt} loading="lazy" className="col-span-7 w-full object-cover" />
+              <img src={kaiMascot} alt={copy.alt} loading="lazy" className="col-span-7 w-full object-cover" />
               <div className="col-span-5 grid gap-3">
-                <img src={mockupMotor} alt="" loading="lazy" className="w-full object-cover" />
-                <img src={mockupQuickReframe} alt="" loading="lazy" className="w-full object-cover" />
+                <img src={gFrameLogo} alt="" loading="lazy" className="w-full object-cover" />
+                <img src={kaiMascot} alt="" loading="lazy" className="w-full object-cover" />
               </div>
             </div>
           </div>
@@ -1421,7 +1421,7 @@ function CompanyUpdate() {
     ? {
         eyebrow: "COMPANY UPDATE",
         title: "G-Structure is now legally incorporated in Ecuador.",
-        body: "Our public brand remains G-Structure. Our main product remains G-Frame. SUCOSTRUCT S.A.S. B.I.C. is the legal structure that allows us to operate, partner, validate, and scale with greater clarity.",
+        body: "Our public brand remains G-Structure. Our main product remains KAIRON. SUCOSTRUCT S.A.S. B.I.C. is the legal structure that allows us to operate, partner, validate, and scale with greater clarity.",
         legal: "Commercial name: G-Structure · Legal name: SUCOSTRUCT S.A.S. B.I.C.",
         cta: "Read the update",
         to: "/en/articles/g-structure-legally-incorporated-ecuador-sucostruct",
@@ -1429,7 +1429,7 @@ function CompanyUpdate() {
     : {
         eyebrow: "ACTUALIZACIÓN DE COMPAÑÍA",
         title: "G-Structure formaliza su estructura legal en Ecuador.",
-        body: "Nuestra marca comercial sigue siendo G-Structure. Nuestro producto principal sigue siendo G-Frame. SUCOSTRUCT S.A.S. B.I.C. es la razón social que nos permite operar, aliarnos, validar y escalar con mayor claridad.",
+        body: "Nuestra marca comercial sigue siendo G-Structure. Nuestro producto principal sigue siendo KAIRON. SUCOSTRUCT S.A.S. B.I.C. es la razón social que nos permite operar, aliarnos, validar y escalar con mayor claridad.",
         legal: "Nombre comercial: G-Structure · Razón social: SUCOSTRUCT S.A.S. B.I.C.",
         cta: "Leer actualización",
         to: "/articulos/g-structure-constituida-ecuador-sucostruct",
@@ -1495,14 +1495,14 @@ function FeaturedArticles() {
   const copy = locale === "en"
     ? {
         eyebrow: "ARTICLES",
-        title: "The thinking behind G-Frame.",
+        title: "The thinking behind KAIRON.",
         subtitle: "Product notes, the I-R-O™ method, and essays on the cognitive-behavioral friction that blocks execution.",
         cta: "View all articles",
         to: "/en/articles",
       }
     : {
         eyebrow: "ARTÍCULOS",
-        title: "El pensamiento detrás de G-Frame.",
+        title: "El pensamiento detrás de KAIRON.",
         subtitle: "Notas de producto, método I-R-O™ y ensayos sobre la fricción cognitivo-conductual que bloquea la ejecución.",
         cta: "Ver todos los artículos",
         to: "/articulos",
@@ -1541,7 +1541,7 @@ function HomeNews() {
           {
             label: "Company update",
             title: "G-Structure is now legally incorporated in Ecuador.",
-            body: "The public brand remains G-Structure. G-Frame remains the main product. SUCOSTRUCT S.A.S. B.I.C. is the legal structure behind the next stage.",
+            body: "The public brand remains G-Structure. KAIRON remains the main product. SUCOSTRUCT S.A.S. B.I.C. is the legal structure behind the next stage.",
             to: "/en/articles/g-structure-legally-incorporated-ecuador-sucostruct",
             cta: "Read the update",
             external: false,
@@ -1549,7 +1549,7 @@ function HomeNews() {
           {
             label: "Launch milestone",
             title: "G-Structure is part of Ecuador Tech Week 2026.",
-            body: "On July 14, G-Structure will present the Execution Diagnostic Workshop in Guayaquil as part of the first public validation of G-Frame.",
+            body: "On July 14, G-Structure will present the Execution Diagnostic Workshop in Guayaquil as part of the first public validation of KAIRON.",
             to: "https://luma.com/lm4njhiu",
             cta: "See the event",
             external: true,
@@ -1565,7 +1565,7 @@ function HomeNews() {
           {
             label: "Actualización de compañía",
             title: "G-Structure formaliza su estructura legal en Ecuador.",
-            body: "La marca comercial sigue siendo G-Structure. G-Frame sigue siendo el producto principal. SUCOSTRUCT S.A.S. B.I.C. es la razón social detrás de la siguiente etapa.",
+            body: "La marca comercial sigue siendo G-Structure. KAIRON sigue siendo el producto principal. SUCOSTRUCT S.A.S. B.I.C. es la razón social detrás de la siguiente etapa.",
             to: "/articulos/g-structure-constituida-ecuador-sucostruct",
             cta: "Leer actualización",
             external: false,
@@ -1573,7 +1573,7 @@ function HomeNews() {
           {
             label: "Hito de lanzamiento",
             title: "G-Structure será parte de Ecuador Tech Week 2026.",
-            body: "El 14 de julio, G-Structure presentará el Workshop de Diagnóstico de Ejecución en Guayaquil como parte de la primera validación pública de G-Frame.",
+            body: "El 14 de julio, G-Structure presentará el Workshop de Diagnóstico de Ejecución en Guayaquil como parte de la primera validación pública de KAIRON.",
             to: "https://luma.com/lm4njhiu",
             cta: "Ver evento",
             external: true,
@@ -1651,7 +1651,7 @@ function HomeMomentum() {
           {
             label: "Launch milestone",
             title: "G-Structure is part of Ecuador Tech Week 2026.",
-            body: "On July 14, G-Structure will present the Execution Diagnostic Workshop in Guayaquil as part of the first public validation of G-Frame.",
+            body: "On July 14, G-Structure will present the Execution Diagnostic Workshop in Guayaquil as part of the first public validation of KAIRON.",
             to: ETW_URL,
             cta: "Register on Luma",
             external: true,
@@ -1680,7 +1680,7 @@ function HomeMomentum() {
           {
             label: "Hito de lanzamiento",
             title: "G-Structure será parte de Ecuador Tech Week 2026.",
-            body: "El 14 de julio, G-Structure presentará el Workshop de Diagnóstico de Ejecución en Guayaquil como parte de la primera validación pública de G-Frame.",
+            body: "El 14 de julio, G-Structure presentará el Workshop de Diagnóstico de Ejecución en Guayaquil como parte de la primera validación pública de KAIRON.",
             to: ETW_URL,
             cta: "Registrarme en Luma",
             external: true,

@@ -120,7 +120,7 @@ export const personGuillermoSchema = {
   "@type": "Person",
   name: "Guillermo Suco",
   jobTitle: "Founder & CEO",
-  description: "Creator of G-Frame and the I-R-O™ Method.",
+  description: "Creator of KAIRON and the I-R-O™ Method.",
   worksFor: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
   url: `${SITE_URL}/sobre-guillermo`,
   sameAs: ["https://www.linkedin.com/in/guillermosuco"],
@@ -131,14 +131,14 @@ export function gStructSoftwareSchema(locale: "es" | "en" = "es") {
   return {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    name: "G-Frame",
+    name: "KAIRON",
     applicationCategory: "ProductivityApplication",
     operatingSystem: "iOS, Android, Web",
     url: `${SITE_URL}${isEs ? "/g-frame" : "/en/g-frame"}`,
     inLanguage: isEs ? "es" : "en",
     description: isEs
-      ? "Plataforma cognitivo-conductual de ejecución profesional impulsada por el método I-R-O."
-      : "Cognitive-behavioral execution platform powered by the I-R-O Method.",
+      ? "Cognitive OS para ejecución guiado por Kai e impulsado por el método I-R-O."
+      : "Cognitive OS for execution guided by Kai and powered by the I-R-O Method.",
     brand: { "@type": "Brand", name: SITE_NAME },
     publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
     creator: { "@type": "Person", name: "Guillermo Suco" },

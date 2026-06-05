@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+﻿import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Section } from "@/components/site/Section";
 import { SectionHeader } from "@/components/site/SectionHeader";
@@ -25,7 +25,7 @@ const COPY = {
     routes: [
       { to: "/enterprise", icon: Building2, t: "Enterprise", d: "Workshop, REESTRUCTURA Enterprise y continuidad." },
       { to: "/reestructura-1-1", icon: User, t: "REESTRUCTURA 1:1", d: "Proceso individual de coaching cognitivo-conductual." },
-      { to: "/g-frame", icon: Cpu, t: "G-Frame", d: "Lista de espera de la app del método." },
+      { to: "/g-frame", icon: Cpu, t: "KAIRON", d: "Lista de espera de la app del método." },
       { to: "/aliados-etw-2026", icon: Handshake, t: "Aliados ETW 2026", d: "Sumarse al Workshop en Ecuador Tech Week 2026." },
       { to: "/unete-al-equipo", icon: Users, t: "Únete al equipo", d: "Construir desde una etapa temprana." },
     ],
@@ -33,7 +33,7 @@ const COPY = {
       enterprise: "Enterprise / equipo",
       reestructura: "REESTRUCTURA 1:1",
       diagnostico: "Workshop de Diagnóstico",
-      "g-struct": "G-Frame",
+      "g-struct": "KAIRON",
       aliados: "Alianza / sponsorship ETW 2026",
       equipo: "Unirme al equipo",
       otro: "Otro",
@@ -87,7 +87,7 @@ const COPY = {
     routes: [
       { to: "/en/enterprise", icon: Building2, t: "Enterprise", d: "Workshop, RESTRUCTURE Enterprise, and continuity for teams." },
       { to: "/en/restructure-1-1", icon: User, t: "RESTRUCTURE 1:1", d: "Individual cognitive-behavioral process." },
-      { to: "/en/g-frame", icon: Cpu, t: "G-Frame", d: "Product waitlist, early access, or collaboration." },
+      { to: "/en/g-frame", icon: Cpu, t: "KAIRON", d: "Product waitlist, early access, or collaboration." },
       { to: "/en/etw-2026-partners", icon: Handshake, t: "ETW 2026 Partners", d: "Partnerships for the Diagnostic Workshop." },
       { to: "/en/join-the-team", icon: Users, t: "Join the team", d: "Build with us from an early stage." },
     ],
@@ -95,7 +95,7 @@ const COPY = {
       enterprise: "Enterprise / team",
       reestructura: "RESTRUCTURE 1:1",
       diagnostico: "Diagnostic Workshop",
-      "g-struct": "G-Frame",
+      "g-struct": "KAIRON",
       aliados: "Partnership / ETW 2026 sponsorship",
       equipo: "Join the team",
       otro: "Other",
