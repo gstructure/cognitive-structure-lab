@@ -11,7 +11,8 @@ export type Dict = DeepReadonly<{
     meta: { title: string; desc: string };
     hero: {
       pillTitle: string; pillSub: string; eyebrow: string; h1: string; lead: string; sub: string;
-      ctaPrimary: string; ctaSecondary: string;
+      ctaPrimary: string; ctaSecondary: string; ctaTester: string;
+      trust1: string; trust2: string; trust3: string;
       step1: { t: string; d: string }; step2: { t: string; d: string }; step3: { t: string; d: string };
     };
   };
@@ -77,14 +78,18 @@ export const es: Dict = {
     hero: {
       pillTitle: "TECH STARTUP · ETAPA TEMPRANA",
       pillSub: "· KAIRON · Método I-R-O™ · Validación activa",
-      eyebrow: "G-STRUCTURE · STARTUP → KAIRON · PRODUCTO",
-      h1: "¿Sabes qué hacer, pero no logras ejecutarlo?",
+      eyebrow: "AI Cognitive Execution Coach",
+      h1: "Convierte fricción mental en acción. En 5 minutos.",
       lead:
-        "Una plataforma cognitivo-conductual de ejecución profesional, impulsada por el método I-R-O™: Identificar, Reencuadrar y Optimizar.",
+        "KAIRON ayuda a founders, creators y profesionales a detectar los pensamientos que bloquean la ejecución, reencuadrarlos con Kai y convertirlos en acciones validadas de 5 minutos.",
       sub:
         "KAIRON convierte el método I-R-O™ en una experiencia digital para identificar fricción mental, reencuadrar patrones y transformar claridad en acción. G-Structure es la startup que lo está construyendo desde Ecuador.",
       ctaPrimary: "Explorar KAIRON",
       ctaSecondary: "Ver tesis para inversores",
+      ctaTester: "Ser tester del prototipo",
+      trust1: "Basado en principios de coaching cognitivo-conductual.",
+      trust2: "Guiado por Kai, tu AI execution coach.",
+      trust3: "Diseñado para procrastinación, perfeccionismo, pensamientos de impostor y autosabotaje.",
       step1: { t: "Identificar", d: "Patrones que bloquean la acción." },
       step2: { t: "Reencuadrar", d: "Lectura cognitivo-conductual aplicada." },
       step3: { t: "Optimizar", d: "Decisiones traducidas en conducta." },
@@ -194,14 +199,18 @@ export const en: Dict = {
     hero: {
       pillTitle: "TECH STARTUP · EARLY STAGE",
       pillSub: "· KAIRON · I-R-O™ Method · Active validation",
-      eyebrow: "G-STRUCTURE · STARTUP → KAIRON · PRODUCT",
-      h1: "Do you know what to do, but still cannot execute?",
+      eyebrow: "AI Cognitive Execution Coach",
+      h1: "Turn mental friction into action. In 5 minutes.",
       lead:
-        "A cognitive-behavioral execution platform powered by the I-R-O™ Method: Identify, Reframe, Optimize.",
+        "KAIRON helps founders, creators, and professionals catch the thoughts that block execution, reframe them with Kai, and convert them into validated 5-minute actions.",
       sub:
         "KAIRON turns the I-R-O™ Method into a digital experience to identify mental friction, reframe patterns, and turn clarity into action. G-Structure is the startup building it from Ecuador.",
       ctaPrimary: "Explore KAIRON",
       ctaSecondary: "See the investor thesis",
+      ctaTester: "Become a Prototype Tester",
+      trust1: "Built on cognitive-behavioral coaching principles.",
+      trust2: "Guided by Kai, your AI execution coach.",
+      trust3: "Designed for procrastination, perfectionism, impostor thoughts, and self-sabotage.",
       step1: { t: "Identify", d: "Patterns that block action." },
       step2: { t: "Reframe", d: "Applied cognitive-behavioral reading." },
       step3: { t: "Optimize", d: "Decisions translated into behavior." },

@@ -22,6 +22,7 @@ import { featuredArticlesForLocale } from "@/lib/articles";
 import logoCube from "@/assets/g-structure-cube.webp";
 import gFrameLogo from "@/assets/kairon-logo.webp";
 import kaiMascot from "@/assets/kai-mascot.webp";
+import kaironMockupHome from "@/assets/kairon-mockup-home.webp";
 
 
 import etwBadge from "@/assets/etw-2026-badge.webp";
@@ -562,20 +563,21 @@ function Hero() {
   const t = useT();
   const { locale } = useLocale();
   const c = COPY[locale].hero;
-  const steps = [
-    { n: "01", t: t("home.hero.step1.t"), d: t("home.hero.step1.d") },
-    { n: "02", t: t("home.hero.step2.t"), d: t("home.hero.step2.d") },
-    { n: "03", t: t("home.hero.step3.t"), d: t("home.hero.step3.d") },
+  const trustItems = [
+    t("home.hero.trust1"),
+    t("home.hero.trust2"),
+    t("home.hero.trust3"),
   ];
+
   return (
-    <section className="relative overflow-hidden border-b border-border">
+    <section className="relative overflow-hidden border-b border-border bg-[color:var(--color-background)]">
       <div className="absolute inset-0 grid-bg opacity-40" aria-hidden="true" />
       <div
         className="absolute inset-0 pointer-events-none"
         aria-hidden="true"
         style={{
           background:
-            "radial-gradient(1200px 600px at 85% 10%, color-mix(in oklch, var(--color-brand) 10%, transparent), transparent 60%), radial-gradient(900px 500px at 0% 100%, color-mix(in oklch, var(--color-brand-deep) 8%, transparent), transparent 55%)",
+            "radial-gradient(900px 520px at 78% 12%, color-mix(in oklch, var(--color-brand) 12%, transparent), transparent 62%), radial-gradient(720px 460px at 12% 92%, color-mix(in oklch, var(--color-brand-deep) 9%, transparent), transparent 58%)",
         }}
       />
       <div
@@ -584,206 +586,66 @@ function Hero() {
         aria-hidden="true"
       />
 
-      <div className="container-x relative py-16 md:py-24 lg:py-28">
-        <div className="grid gap-14 lg:grid-cols-12 lg:gap-10 lg:items-center">
-          <div className="lg:col-span-7">
-            <a
-              href={ETW_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="group inline-flex items-center gap-3 border border-foreground/15 bg-[color:var(--color-surface)]/85 backdrop-blur px-3.5 py-2.5 shadow-[0_1px_0_0_rgba(5,50,90,0.04),0_8px_24px_-12px_rgba(5,50,90,0.18)] transition-all hover:border-foreground/35 hover:-translate-y-0.5"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[color:var(--color-brand)] opacity-60" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-[color:var(--color-brand)]" />
-              </span>
-              <span className="text-[10px] font-semibold tracking-[0.22em] text-foreground">
-                {t("home.hero.pillTitle")}
-              </span>
-              <span className="hidden sm:inline text-[11px] tracking-wide text-muted-foreground">
-                {t("home.hero.pillSub")}
-              </span>
-              <ArrowUpRight size={14} className="text-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
-
-            <Eyebrow className="mt-8">{t("home.hero.eyebrow")}</Eyebrow>
-            <h1 className="mt-5 max-w-2xl text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.04] text-foreground">
+      <div className="container-x relative py-14 md:py-20 lg:min-h-[calc(100vh-86px)] lg:py-10">
+        <div className="grid min-h-[620px] gap-10 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-5">
+            <Eyebrow>{t("home.hero.eyebrow")}</Eyebrow>
+            <h1 className="mt-5 max-w-2xl text-4xl md:text-5xl lg:text-[4rem] leading-[1.02] text-foreground">
               {t("home.hero.h1")}
             </h1>
-            <p className="mt-5 max-w-xl text-base md:text-lg text-foreground/85 leading-relaxed">
+            <p className="mt-5 max-w-xl text-base md:text-lg text-foreground/82 leading-relaxed">
               {t("home.hero.lead")}
-            </p>
-            <p className="mt-5 max-w-xl text-[15px] md:text-base text-muted-foreground leading-relaxed">
-              {t("home.hero.sub")}
             </p>
 
             <div className="mt-9 flex flex-wrap items-center gap-3">
               <CTALink to={lp("/g-frame", locale)} hash="waitlist" variant="primary" analyticsLabel="home_hero_waitlist">
                 {c.linkWaitlist}
               </CTALink>
-              <CTALink to={lp("/g-frame", locale)} variant="outline" analyticsLabel="home_hero_gstruct">
-                {t("home.hero.ctaPrimary")}
-              </CTALink>
-              <CTALink to={lp("/inversores", locale)} variant="ghost" analyticsLabel="home_hero_investors">
-                {t("home.hero.ctaSecondary")}
+              <CTALink to={lp("/g-frame", locale)} hash="waitlist" variant="outline" analyticsLabel="home_hero_tester">
+                {t("home.hero.ctaTester")}
               </CTALink>
             </div>
 
-            <ul className="mt-8 grid gap-2 text-[13.5px] sm:grid-cols-2 max-w-xl">
-              <li>
-                <Link to="/diagnostico-friccion-ejecutiva" className="group inline-flex items-center gap-2 text-foreground/85 hover:text-foreground">
-                  <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
-                  {c.linkQuiz}
-                </Link>
-              </li>
-              <li>
-                <Link to={lp("/g-frame", locale)} hash="waitlist" className="group inline-flex items-center gap-2 text-foreground/85 hover:text-foreground">
-                  <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
-                  {c.linkWaitlist}
-                </Link>
-              </li>
-              <li>
-                <Link to={lp("/enterprise", locale)} className="group inline-flex items-center gap-2 text-foreground/85 hover:text-foreground">
-                  <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
-                  {c.linkEnterprise}
-                </Link>
-              </li>
-              <li>
-                <Link to={lp("/inversores", locale)} className="group inline-flex items-center gap-2 text-foreground/85 hover:text-foreground">
-                  <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
-                  {c.linkInvestors}
-                </Link>
-              </li>
-            </ul>
-
-            <div className="mt-12 grid gap-3 sm:grid-cols-3">
-              {steps.map((s) => (
-                <div
-                  key={s.n}
-                  className="group relative border border-border bg-[color:var(--color-surface)] p-4 transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_32px_-18px_rgba(5,50,90,0.35)]"
-                >
-                  <div
-                    className="absolute left-0 top-0 h-px w-8"
-                    style={{ background: "var(--color-brand)" }}
-                    aria-hidden="true"
-                  />
-                  <div className="flex items-baseline gap-2">
-                    <span className="font-display text-[11px] font-semibold tracking-[0.22em] text-muted-foreground">
-                      {s.n}
-                    </span>
-                    <span className="font-display text-sm font-semibold text-foreground">
-                      {s.t}
-                    </span>
-                  </div>
-                  <p className="mt-2 text-[12.5px] leading-relaxed text-muted-foreground">{s.d}</p>
+            <div className="mt-10 grid gap-3 text-[12.5px] text-foreground/75 sm:max-w-2xl sm:grid-cols-3">
+              {trustItems.map((item) => (
+                <div key={item} className="border-l border-foreground/15 pl-3 leading-relaxed">
+                  {item}
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="relative lg:col-span-5 hidden lg:block">
+          <div className="relative lg:col-span-7">
             <HeroVisual />
           </div>
-        </div>
-
-        <div className="mt-14 lg:hidden">
-          <HeroVisual compact />
         </div>
       </div>
     </section>
   );
 }
 
-function HeroVisual({ compact = false }: { compact?: boolean }) {
+function HeroVisual() {
   const { locale } = useLocale();
-  const v = COPY[locale].visualPanels;
+  const alt = locale === "es"
+    ? "Vista de KAIRON con Kai como coach de ejecución"
+    : "KAIRON interface with Kai as execution coach";
+
   return (
-    <div className={`relative ${compact ? "h-[460px]" : "h-[600px]"} w-full`}>
+    <div className="relative mx-auto w-full max-w-[860px]">
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute -inset-5 rounded-[2rem] border border-border bg-[color:var(--color-surface)]/70 shadow-[0_40px_90px_-52px_rgba(5,50,90,0.5)]"
         aria-hidden
-        style={{
-          background:
-            "radial-gradient(420px 280px at 75% 12%, color-mix(in oklch, var(--color-brand) 16%, transparent), transparent 70%), radial-gradient(360px 260px at 10% 95%, color-mix(in oklch, var(--color-brand-deep) 14%, transparent), transparent 70%)",
-        }}
       />
-      <div className="absolute inset-0 grid-bg opacity-30" aria-hidden />
-
-      <div className="absolute left-0 right-0 top-0 flex items-center justify-between text-[10px] tracking-[0.22em] text-muted-foreground">
-        <span className="inline-flex items-center gap-2">
-          <span className="h-1.5 w-1.5 bg-[color:var(--color-brand)]" />
-          {v.systemLabel}
-        </span>
-        <span>{v.version}</span>
-      </div>
-
-      <div className="absolute right-0 top-10 w-[78%] border border-border bg-[color:var(--color-surface)]/95 backdrop-blur shadow-elev-2 p-5 rotate-[1.5deg]">
-        <div className="flex items-center justify-between">
-          <span className="font-display text-[10px] font-semibold tracking-[0.22em] text-muted-foreground">{v.p3Label}</span>
-          <span className="text-[10px] tracking-wide text-muted-foreground">{v.p3Subtitle}</span>
-        </div>
-        <div className="mt-4 grid grid-cols-3 gap-2">
-          {v.p3Buttons.map((b) => (
-            <div key={b} className="border border-border bg-background px-2 py-2 text-[11px] text-foreground/80">{b}</div>
-          ))}
-        </div>
-        <div className="mt-3 h-1.5 w-full bg-border overflow-hidden">
-          <div className="h-full w-[72%] bg-[color:var(--color-brand)]" />
-        </div>
-        <div className="mt-2 flex justify-between text-[10px] text-muted-foreground">
-          <span>{v.p3Continuity}</span><span className="text-foreground font-semibold">72%</span>
-        </div>
-      </div>
-
-      <div className="absolute right-6 top-32 w-[82%] border border-border bg-[color:var(--color-surface)] shadow-elev-3 p-5 -rotate-[1deg]">
-        <div className="flex items-center justify-between">
-          <span className="font-display text-[10px] font-semibold tracking-[0.22em] text-[color:var(--color-brand)]">{v.p2Label}</span>
-          <span className="text-[10px] text-muted-foreground">{v.p2Subtitle}</span>
-        </div>
-        <p className="mt-3 text-[13px] leading-snug text-foreground">
-          {v.p2Quote}
-        </p>
-        <div className="mt-4 flex items-center gap-2 text-[10px] tracking-[0.18em] text-muted-foreground">
-          {v.p2Tags.map((tag) => (
-            <span key={tag} className="border border-border px-2 py-1">{tag}</span>
-          ))}
-        </div>
-      </div>
-
-      <div className="absolute left-0 bottom-4 w-[88%] border border-foreground/15 bg-[color:var(--color-brand-deep)] text-[color:var(--color-background)] shadow-[0_30px_60px_-22px_rgba(5,50,90,0.45)] p-5">
-        <div className="flex items-center justify-between">
-          <span className="font-display text-[10px] font-semibold tracking-[0.22em] text-[color:var(--color-background)]/70">{v.p1Label}</span>
-          <span className="text-[10px] text-[color:var(--color-background)]/60">{v.p1Subtitle}</span>
-        </div>
-        <p className="mt-3 text-[14px] leading-snug">
-          {v.p1Quote}
-        </p>
-        <div className="mt-4 grid grid-cols-3 gap-3 text-[10px] tracking-wide text-[color:var(--color-background)]/75">
-          <div>
-            <p className="text-[color:var(--color-background)]/55">{v.p1Friction}</p>
-            <p className="mt-1 text-[color:var(--color-background)] font-display text-base font-semibold">{v.p1FrictionVal}</p>
-          </div>
-          <div>
-            <p className="text-[color:var(--color-background)]/55">{v.p1Recurrence}</p>
-            <p className="mt-1 text-[color:var(--color-background)] font-display text-base font-semibold">{v.p1RecurrenceVal}</p>
-          </div>
-          <div>
-            <p className="text-[color:var(--color-background)]/55">{v.p1Output}</p>
-            <p className="mt-1 text-[color:var(--color-background)] font-display text-base font-semibold">{v.p1OutputVal}</p>
-          </div>
-        </div>
-        <div className="mt-4 flex items-center justify-between border-t border-[color:var(--color-background)]/15 pt-3">
-          <span className="text-[10px] tracking-[0.22em] text-[color:var(--color-background)]/60">I → R → O</span>
-          <span className="inline-flex items-center gap-1 text-[11px] font-semibold">
-            {v.p1Next} <ArrowRight size={12} />
-          </span>
-        </div>
-      </div>
-
-      <div className="absolute right-2 bottom-2 inline-flex items-center gap-2 border border-border bg-[color:var(--color-surface)] px-2.5 py-1.5 shadow-elev-1">
-        <img src={logoCube} alt="" aria-hidden className="h-4 w-4 object-contain" />
-        <span className="font-display text-[10px] font-semibold tracking-[0.22em] text-foreground">{v.mark}</span>
-      </div>
+      <div className="absolute inset-x-8 bottom-0 h-[28%] rounded-[100%] bg-[color:var(--color-brand)]/10 blur-3xl" aria-hidden />
+      <img
+        src={kaironMockupHome}
+        alt={alt}
+        width={1680}
+        height={945}
+        className="relative w-full rounded-[1.5rem] border border-white/70 bg-white shadow-[0_36px_80px_-34px_rgba(5,50,90,0.62)]"
+        loading="eager"
+        decoding="async"
+      />
     </div>
   );
 }
