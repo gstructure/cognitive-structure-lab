@@ -6,9 +6,9 @@ export const Route = createFileRoute("/inversores")({
   head: () => ({
     meta: buildSeo({
       path: "/inversores",
-      title: "Inversores | G-Frame, plataforma CBT para ejecución en LATAM",
+      title: "Inversores | KAIRON, Cognitive OS para ejecución en LATAM",
       description:
-        "Tesis pre-seed de G-Structure: G-Frame convierte el método I-R-O en una plataforma cognitivo-conductual escalable para profesionales y equipos en LATAM.",
+        "Tesis pre-seed de G-Structure: KAIRON convierte el método I-R-O en un Cognitive OS guiado por Kai para profesionales, founders y equipos en LATAM.",
     }),
     links: canonicalLink("/inversores"),
     scripts: [

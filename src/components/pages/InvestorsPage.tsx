@@ -2,9 +2,14 @@ import { Eyebrow } from "@/components/site/Eyebrow";
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
 import { Section } from "@/components/site/Section";
 import { Check } from "lucide-react";
-import mockupInicio from "@/assets/g-frame-mockups/01-inicio.webp";
-import mockupMotor from "@/assets/g-frame-mockups/03-motor-reestructuracion.webp";
-import mockupQuickReframe from "@/assets/g-frame-mockups/04-quick-reframe.webp";
+import kaironLogo from "@/assets/kairon-logo.webp";
+import kaiMascot from "@/assets/kai-mascot.webp";
+import mockupHome from "@/assets/kairon-mockup-home.webp";
+import mockupScanner from "@/assets/kairon-mockup-scanner.webp";
+import mockupFilter from "@/assets/kairon-mockup-filter.webp";
+import mockupWorkshop from "@/assets/kairon-mockup-workshop.webp";
+import mockupOperations from "@/assets/kairon-mockup-operations.webp";
+import mockupOperationsDetail from "@/assets/kairon-mockup-operations-detail.webp";
 import guillermoPhoto from "@/assets/guillermo-suco.webp";
 import type { Locale } from "@/lib/i18n";
 import { trackConversion } from "@/lib/analytics";
@@ -33,6 +38,8 @@ type Copy = {
     p1: string;
     p2: string;
     bullets: { highlight: string; rest: string }[];
+    kaiTitle: string;
+    kaiBody: string;
   };
   traction: {
     eyebrow: string;
@@ -55,6 +62,12 @@ type Copy = {
     guillermo: { role: string; name: string; items: string[] };
     jericko: { role: string; name: string; items: string[] };
   };
+  support: {
+    eyebrow: string;
+    title: string;
+    body: string;
+    cta: string;
+  };
   cta: {
     title: string;
     body: string;
@@ -68,50 +81,52 @@ type Copy = {
 const COPY: Record<Locale, Copy> = {
   es: {
     hero: {
-      eyebrow: "INVERSORES · PRE-SEED 2026 · CORE ASSET: G-FRAME",
-      h1: "G-Structure no es una firma de servicios. Es una tech startup construyendo G-Frame.",
+      eyebrow: "INVERSORES · PRE-SEED 2026 · CORE ASSET: KAIRON",
+      h1: "G-Structure está construyendo KAIRON: un Cognitive OS para convertir fricción mental en ejecución.",
       lead: {
-        a: "G-Frame convierte el método I-R-O™ en una plataforma cognitivo-conductual escalable para LATAM. Los servicios ",
-        channels: "1:1, Enterprise y Workshop",
-        b: " operan como canales de validación, datos cualitativos y revenue temprano para construir el producto principal.",
+        a: "KAIRON convierte el método I-R-O™ en un sistema operativo cognitivo-conductual guiado por Kai. Los canales ",
+        channels: "1:1, Enterprise, Workshop y apoyo temprano",
+        b: " existen para validar casos reales, generar revenue temprano y alimentar el producto principal antes del MVP.",
       },
-      phoneCaption: "G-Frame · Prototipo activo · v0.1",
-      phoneAnnotTop: "Motor de\nReestructuración",
-      phoneAnnotBottom: "Diagnóstico\nde Ejecución",
+      phoneCaption: "KAIRON · Prototipo activo · Kai como capa operativa",
+      phoneAnnotTop: "Escáner de\nEjecución",
+      phoneAnnotBottom: "Kai guía el\nsiguiente movimiento",
     },
     opportunity: {
       eyebrow: "POR QUÉ AHORA",
       title: "La oportunidad.",
       stats: [
-        { stat: "$67.94B", title: "Mercado global de software de productividad en 2024.", body: "Proyectado a $149.74B para 2030 — creciendo al 14.1% anual.", source: "Grand View Research, 2024" },
-        { stat: "75%", title: "De mujeres high-performers en LATAM reportan impostor pattern.", body: "70% con ansiedad asociada. 50% con insomnio.", source: "Martínez Moreno, PUCP, 2026" },
-        { stat: "33.37%", title: "Tasa de actividad emprendedora en Ecuador — #1 en LATAM.", body: "3.3 millones de ecuatorianos activamente emprendiendo.", source: "GEM Ecuador, 2024–2025" },
+        { stat: "$67.94B", title: "Mercado global de software de productividad en 2024.", body: "Proyectado a $149.74B para 2030, con crecimiento anual estimado de 14.1%.", source: "Grand View Research, 2024" },
+        { stat: "33.37%", title: "Tasa de actividad emprendedora en Ecuador, #1 en LATAM.", body: "3.3 millones de ecuatorianos emprendiendo activamente: un mercado natural para herramientas de ejecución.", source: "GEM Ecuador, 2024-2025" },
+        { stat: "Q3 2026", title: "Ventana de lanzamiento y validación.", body: "Workshop en Ecuador Tech Week, cohort de testers y preparación para CodeLaunch LATAM 2026.", source: "Roadmap G-Structure" },
       ],
-      priceCompareTitle: "Comparación de precio · Coaching CBT para individuos",
+      priceCompareTitle: "Comparación de acceso · ejecución guiada por IA",
       priceBars: [
         { label: "BetterUp", value: "$279/mes" },
-        { label: "Woebot (descontinuado)", value: "N/A — salió del mercado B2C" },
-        { label: "Calm / Headspace", value: "$14/mes", note: "Bienestar — no coaching de ejecución" },
-        { label: "G-Frame", value: "$20/mes", note: "CBT coaching · LATAM · móvil" },
+        { label: "Woebot (B2C cerrado)", value: "N/A" },
+        { label: "Calm / Headspace", value: "$14/mes", note: "Bienestar, no ejecución guiada." },
+        { label: "KAIRON", value: "$20/mes", note: "Cognitive OS · LATAM · móvil · guiado por Kai." },
       ],
-      priceFoot: "BetterUp requiere sponsor corporativo. G-Frame es acceso individual directo.",
+      priceFoot: "BetterUp requiere sponsor corporativo. KAIRON apunta a acceso individual directo y a pilotos de equipo.",
     },
     thesis: [
-      { label: "Problema", title: "La ejecución se rompe antes de la tarea.", body: "El mercado ya compra productividad, coaching y bienestar, pero falta una capa cognitivo-conductual práctica para convertir fricción en acción." },
-      { label: "Método", title: "I-R-O™ es el motor propietario.", body: "Identificar, Reencuadrar y Optimizar traduce principios CBT a una secuencia repetible que puede vivir en software." },
-      { label: "Validación", title: "1:1 y Enterprise alimentan producto.", body: "Los canales de servicio no son el negocio final: generan revenue temprano, casos reales y datos cualitativos para G-Frame." },
-      { label: "Escala", title: "G-Frame convierte el método en plataforma.", body: "El lanzamiento Q3 2026 apunta a un producto freemium de bajo costo para profesionales y equipos en LATAM." },
+      { label: "Problema", title: "La ejecución se rompe antes de la tarea.", body: "La mayoría de herramientas organiza lo externo. KAIRON interviene la fricción interna: pensamientos, reglas, bloqueos y costo mental antes de actuar." },
+      { label: "Método", title: "I-R-O™ es el motor propietario.", body: "Identificar, Reencuadrar y Optimizar traduce metodología cognitivo-conductual en una secuencia repetible para software." },
+      { label: "Producto", title: "Kai convierte método en experiencia.", body: "Kai no es un chatbot decorativo. Es la capa operativa que interpreta, guía, ordena y convierte insight en siguiente movimiento." },
+      { label: "Escala", title: "KAIRON nace desde Ecuador para LATAM.", body: "Servicios, workshops y Enterprise validan la categoría; el negocio escalable es el Cognitive OS de ejecución." },
     ],
     product: {
       eyebrow: "QUÉ CONSTRUIMOS",
-      title: "El producto.",
-      p1: "G-Frame es una app móvil freemium que aplica el método I-R-O™ — Identificar, Reencuadrar, Optimizar — para ayudar a emprendedores y high-performers a identificar los patrones cognitivos que bloquean su ejecución y convertirlos en acción.",
-      p2: "No es una app de bienestar. No es terapia. Es infraestructura de rendimiento cognitivo para el profesional latinoamericano.",
+      title: "KAIRON es el producto.",
+      p1: "KAIRON es un Cognitive Operating System para ejecución. Ayuda a founders, profesionales y equipos a escanear su fricción mental, filtrar pensamientos bloqueantes, trabajar patrones repetidos y cerrar cada sesión con un Puente de Acción de 5 minutos.",
+      p2: "No es un task manager, no es journaling genérico y no es terapia. Es infraestructura cognitivo-conductual aplicada a productividad, claridad y ejecución profesional.",
       bullets: [
-        { highlight: "Woebot", rest: " cerró su versión consumer en junio 2025 — dejando un vacío directo en el mercado CBT B2C." },
-        { highlight: "BetterUp", rest: " cobra desde $279/mes y requiere sponsor corporativo. G-Frame cuesta $20/mes." },
-        { highlight: "Somos los únicos", rest: " construyendo esta categoría específicamente para LATAM, en español, desde Ecuador." },
+        { highlight: "Kai", rest: " funciona como coach de ejecución dentro del producto: pregunta, interpreta, ordena y guía sin convertirse en terapeuta." },
+        { highlight: "El loop I-R-O™", rest: " convierte fricción en acción: Identificar el patrón, Reencuadrar la lectura y Optimizar la salida conductual." },
+        { highlight: "La ventaja regional", rest: " es construir esta categoría en español, desde Ecuador, para un mercado LATAM que ya compra productividad, coaching y bienestar." },
       ],
+      kaiTitle: "Kai es la interfaz de confianza.",
+      kaiBody: "El usuario no entra a KAIRON para llenar otra lista. Entra para que Kai le ayude a leer la fricción, escoger la herramienta correcta y salir con un movimiento accionable.",
     },
     traction: {
       eyebrow: "ESTADO ACTUAL",
@@ -119,10 +134,10 @@ const COPY: Record<Locale, Copy> = {
       progressLabel: "Progreso de validación",
       progressCount: (d, t) => `${d} de ${t} hitos completados`,
       milestones: [
-        { tag: "✓ Completado", body: "Método I-R-O™ validado a través de sesiones de coaching reales con emprendedores y profesionales en Ecuador.", done: true },
-        { tag: "✓ Activo", body: "Prototipo funcional construido. Primera cohorte de 8–10 testers en curso.", done: true },
-        { tag: "Julio 14, 2026", body: "Evento de validación con 30 emprendedores, founders y estudiantes. Primera data estructurada de NPS, disposición a pagar y fit de categoría.", done: false },
-        { tag: "Q3 2026", body: "Lanzamiento público en Ecuador. Primeros 1,000 usuarios en plataforma freemium.", done: false },
+        { tag: "✓ Completado", body: "Método I-R-O™ validado en sesiones reales con emprendedores, profesionales y perfiles de alta exigencia en Ecuador.", done: true },
+        { tag: "✓ Activo", body: "Prototipo KAIRON construido con arquitectura visual, flujos de Escáner, Filtro, Taller, Operaciones y presencia de Kai.", done: true },
+        { tag: "Julio 14, 2026", body: "Workshop de Diagnóstico de Ejecución dentro de Ecuador Tech Week: validación pública de categoría, lenguaje y disposición a pagar.", done: false },
+        { tag: "Q3 2026", body: "Lanzamiento inicial de KAIRON en Ecuador con primeros testers, lista de espera y medición de activación, retención y conversión.", done: false },
       ],
       badgeDone: "Completado",
       badgeNext: "Próximo",
@@ -131,94 +146,102 @@ const COPY: Record<Locale, Copy> = {
       eyebrow: "LA RONDA",
       title: "Los términos.",
       terms: [
-        { value: "$110,000", label: "Monto a levantar. Pre-seed." },
+        { value: "$110,000", label: "Monto a levantar. Pre-seed para 12 meses." },
         { value: "$990,000", label: "Valoración pre-money." },
         { value: "10%", label: "Equity ofrecido." },
       ],
-      milestone: "Milestone a 12 meses: MVP lanzado · 500 suscriptores de pago · $10,000 MRR · 3 pilotos Enterprise · Modelo validado para expansión a Colombia y México.",
+      milestone: "Milestone a 12 meses: MVP lanzado · 500 suscriptores de pago · $10,000 MRR · 3 pilotos Enterprise · modelo validado para expansión a Colombia y México.",
     },
     team: {
       eyebrow: "QUIÉNES SOMOS",
       title: "El equipo.",
       guillermo: {
-        role: "Fundador & CEO",
+        role: "Founder & CEO",
         name: "Guillermo Suco",
         items: [
           "CBT Coach Practitioner · CTAA",
           "Estudios en Psicología e Intervención Educativa",
           "Ex Project Manager, GBA Ships",
-          "Investigador publicado — MLS Pedagogy, Culture & Innovation (2025) · Recimundo (2025)",
+          "Investigador publicado: MLS Pedagogy, Culture & Innovation (2025) · Recimundo (2025)",
           "Docente y orientador escolar en Ecuador y Estados Unidos",
-          "Creador del prototipo G-Frame",
+          "Creador del método I-R-O™ y del concepto de KAIRON",
         ],
       },
       jericko: {
-        role: "Desarrollador",
+        role: "Developer",
         name: "Jericko Solórzano",
         items: [
           "Python developer con portfolio activo en GitHub",
-          "Formación en JavaScript, Java, C#",
+          "Formación en JavaScript, Java y C#",
           "SQL y arquitectura de datos en desarrollo activo",
-          "Git, Figma — flujo de trabajo colaborativo",
-          "Universidad de Guayaquil — etapa de fundación por equity",
+          "Git, Figma y flujo de trabajo colaborativo",
+          "Universidad de Guayaquil · etapa de fundación por equity",
         ],
       },
     },
+    support: {
+      eyebrow: "APOYO TEMPRANO",
+      title: "Apoya el lanzamiento antes de una ronda formal de inversión.",
+      body: "Para early believers que quieren ayudar a validar el workshop, fortalecer el prototipo y llevar KAIRON hacia MVP sin recibir equity ni retorno financiero.",
+      cta: "Apoya G-Structure",
+    },
     cta: {
       title: "¿Quieres conocer más?",
-      body: "Si estás interesado en conocer el deck completo, los estados financieros proyectados o agendar una conversación con el equipo, escríbenos directamente.",
+      body: "Si quieres revisar el deck completo, las proyecciones financieras o conversar sobre la ronda pre-seed, escríbenos directamente.",
       primary: "Solicitar deck de inversión",
       secondary: "Agendar conversación",
       disclaimer: "Esta página contiene información preliminar para inversores calificados. No constituye una oferta pública de valores.",
-      mailSubject: "Solicitud%20deck%20de%20inversi%C3%B3n%20G-Frame",
+      mailSubject: "Solicitud%20deck%20de%20inversi%C3%B3n%20KAIRON",
     },
   },
   en: {
     hero: {
-      eyebrow: "INVESTORS · PRE-SEED 2026 · CORE ASSET: G-FRAME",
-      h1: "G-Structure is not a services firm. It is a tech startup building G-Frame.",
+      eyebrow: "INVESTORS · PRE-SEED 2026 · CORE ASSET: KAIRON",
+      h1: "G-Structure is building KAIRON: a Cognitive OS for turning mental friction into execution.",
       lead: {
-        a: "G-Frame turns the I-R-O™ Method into a scalable cognitive-behavioral platform for LATAM. The ",
-        channels: "1:1, Enterprise, and Workshop",
-        b: " services operate as validation, qualitative data, and early revenue channels to build the main product.",
+        a: "KAIRON turns the I-R-O™ Method into an AI-guided cognitive-behavioral operating system. The ",
+        channels: "1:1, Enterprise, Workshop, and early support",
+        b: " channels validate real cases, generate early revenue, and feed the main product before MVP.",
       },
-      phoneCaption: "G-Frame · Active prototype · v0.1",
-      phoneAnnotTop: "Restructuring\nEngine",
-      phoneAnnotBottom: "Execution\nDiagnostic",
+      phoneCaption: "KAIRON · Active prototype · Kai as the operating layer",
+      phoneAnnotTop: "Execution\nScanner",
+      phoneAnnotBottom: "Kai guides the\nnext movement",
     },
     opportunity: {
       eyebrow: "WHY NOW",
       title: "The opportunity.",
       stats: [
-        { stat: "$67.94B", title: "Global productivity software market in 2024.", body: "Projected at $149.74B by 2030 — growing 14.1% annually.", source: "Grand View Research, 2024" },
-        { stat: "75%", title: "Of LATAM women high-performers report impostor pattern.", body: "70% with associated anxiety. 50% with insomnia.", source: "Martínez Moreno, PUCP, 2026" },
-        { stat: "33.37%", title: "Entrepreneurial activity rate in Ecuador — #1 in LATAM.", body: "3.3 million Ecuadorians actively building businesses.", source: "GEM Ecuador, 2024–2025" },
+        { stat: "$67.94B", title: "Global productivity software market in 2024.", body: "Projected at $149.74B by 2030, with estimated 14.1% annual growth.", source: "Grand View Research, 2024" },
+        { stat: "33.37%", title: "Entrepreneurial activity rate in Ecuador, #1 in LATAM.", body: "3.3 million Ecuadorians actively building businesses: a natural market for execution tools.", source: "GEM Ecuador, 2024-2025" },
+        { stat: "Q3 2026", title: "Launch and validation window.", body: "Ecuador Tech Week workshop, tester cohort, and preparation for CodeLaunch LATAM 2026.", source: "G-Structure roadmap" },
       ],
-      priceCompareTitle: "Price comparison · CBT coaching for individuals",
+      priceCompareTitle: "Access comparison · AI-guided execution",
       priceBars: [
         { label: "BetterUp", value: "$279/month" },
-        { label: "Woebot (discontinued)", value: "N/A — exited B2C market" },
-        { label: "Calm / Headspace", value: "$14/month", note: "Wellness — not execution coaching" },
-        { label: "G-Frame", value: "$20/month", note: "CBT coaching · LATAM · mobile" },
+        { label: "Woebot (B2C closed)", value: "N/A" },
+        { label: "Calm / Headspace", value: "$14/month", note: "Wellness, not guided execution." },
+        { label: "KAIRON", value: "$20/month", note: "Cognitive OS · LATAM · mobile · guided by Kai." },
       ],
-      priceFoot: "BetterUp requires a corporate sponsor. G-Frame is direct individual access.",
+      priceFoot: "BetterUp requires a corporate sponsor. KAIRON targets direct individual access and team pilots.",
     },
     thesis: [
-      { label: "Problem", title: "Execution breaks before the task.", body: "The market already buys productivity, coaching, and wellness, but lacks a practical cognitive-behavioral layer for turning friction into action." },
-      { label: "Method", title: "I-R-O™ is the proprietary engine.", body: "Identify, Reframe, and Optimize turns CBT principles into a repeatable sequence that can live inside software." },
-      { label: "Validation", title: "1:1 and Enterprise feed the product.", body: "The service channels are not the end business: they create early revenue, real cases, and qualitative data for G-Frame." },
-      { label: "Scale", title: "G-Frame turns the method into a platform.", body: "The Q3 2026 launch targets a low-cost freemium product for professionals and teams across LATAM." },
+      { label: "Problem", title: "Execution breaks before the task.", body: "Most tools organize the outside. KAIRON intervenes the inside: thoughts, rules, blocks, and mental cost before action." },
+      { label: "Method", title: "I-R-O™ is the proprietary engine.", body: "Identify, Reframe, and Optimize turns cognitive-behavioral methodology into a repeatable software sequence." },
+      { label: "Product", title: "Kai turns method into experience.", body: "Kai is not a decorative chatbot. It is the operating layer that interprets, guides, orders, and converts insight into the next movement." },
+      { label: "Scale", title: "KAIRON is built from Ecuador for LATAM.", body: "Services, workshops, and Enterprise validate the category; the scalable business is the Cognitive OS for execution." },
     ],
     product: {
       eyebrow: "WHAT WE BUILD",
-      title: "The product.",
-      p1: "G-Frame is a freemium mobile app that applies the I-R-O™ Method — Identify, Reframe, Optimize — to help entrepreneurs and high-performers spot the cognitive patterns blocking their execution and turn them into action.",
-      p2: "It is not a wellness app. It is not therapy. It is cognitive performance infrastructure for the Latin American professional.",
+      title: "KAIRON is the product.",
+      p1: "KAIRON is a Cognitive Operating System for execution. It helps founders, professionals, and teams scan mental friction, filter blocking thoughts, work repeated patterns, and close each session with a 5-minute Action Bridge.",
+      p2: "It is not a task manager, generic journaling, or therapy. It is cognitive-behavioral infrastructure applied to productivity, clarity, and professional execution.",
       bullets: [
-        { highlight: "Woebot", rest: " shut down its consumer version in June 2025 — leaving a direct gap in the CBT B2C market." },
-        { highlight: "BetterUp", rest: " charges from $279/month and requires a corporate sponsor. G-Frame costs $20/month." },
-        { highlight: "We are the only ones", rest: " building this category specifically for LATAM, in Spanish, from Ecuador." },
+        { highlight: "Kai", rest: " works as an execution coach inside the product: asking, interpreting, ordering, and guiding without becoming a therapist." },
+        { highlight: "The I-R-O™ loop", rest: " turns friction into action: Identify the pattern, Reframe the reading, and Optimize the behavioral output." },
+        { highlight: "The regional edge", rest: " is building this category in Spanish, from Ecuador, for a LATAM market already buying productivity, coaching, and wellness." },
       ],
+      kaiTitle: "Kai is the trust interface.",
+      kaiBody: "The user does not open KAIRON to fill another list. They open it so Kai can read the friction, choose the right tool, and help them leave with an actionable movement.",
     },
     traction: {
       eyebrow: "CURRENT STATE",
@@ -226,10 +249,10 @@ const COPY: Record<Locale, Copy> = {
       progressLabel: "Validation progress",
       progressCount: (d, t) => `${d} of ${t} milestones completed`,
       milestones: [
-        { tag: "✓ Completed", body: "I-R-O™ Method validated through real coaching sessions with entrepreneurs and professionals in Ecuador.", done: true },
-        { tag: "✓ Active", body: "Functional prototype built. First cohort of 8–10 testers in progress.", done: true },
-        { tag: "July 14, 2026", body: "Validation event with 30 entrepreneurs, founders, and students. First structured data on NPS, willingness to pay, and category fit.", done: false },
-        { tag: "Q3 2026", body: "Public launch in Ecuador. First 1,000 users on the freemium platform.", done: false },
+        { tag: "✓ Completed", body: "I-R-O™ Method validated through real sessions with entrepreneurs, professionals, and high-demand profiles in Ecuador.", done: true },
+        { tag: "✓ Active", body: "KAIRON prototype built with visual architecture, Scanner, Filter, Workshop, Operations flows, and Kai presence.", done: true },
+        { tag: "July 14, 2026", body: "Execution Diagnostic Workshop inside Ecuador Tech Week: public validation of category, language, and willingness to pay.", done: false },
+        { tag: "Q3 2026", body: "Initial KAIRON launch in Ecuador with first testers, waitlist, and measurement of activation, retention, and conversion.", done: false },
       ],
       badgeDone: "Completed",
       badgeNext: "Next",
@@ -238,11 +261,11 @@ const COPY: Record<Locale, Copy> = {
       eyebrow: "THE ROUND",
       title: "The terms.",
       terms: [
-        { value: "$110,000", label: "Amount to raise. Pre-seed." },
+        { value: "$110,000", label: "Amount to raise. 12-month pre-seed." },
         { value: "$990,000", label: "Pre-money valuation." },
         { value: "10%", label: "Equity offered." },
       ],
-      milestone: "12-month milestone: MVP launched · 500 paying subscribers · $10,000 MRR · 3 Enterprise pilots · Model validated for expansion to Colombia and Mexico.",
+      milestone: "12-month milestone: MVP launched · 500 paying subscribers · $10,000 MRR · 3 Enterprise pilots · model validated for expansion to Colombia and Mexico.",
     },
     team: {
       eyebrow: "WHO WE ARE",
@@ -254,9 +277,9 @@ const COPY: Record<Locale, Copy> = {
           "CBT Coach Practitioner · CTAA",
           "Studies in Psychology and Educational Intervention",
           "Former Project Manager, GBA Ships",
-          "Published researcher — MLS Pedagogy, Culture & Innovation (2025) · Recimundo (2025)",
+          "Published researcher: MLS Pedagogy, Culture & Innovation (2025) · Recimundo (2025)",
           "Teacher and school counselor in Ecuador and the United States",
-          "Creator of the G-Frame prototype",
+          "Creator of the I-R-O™ Method and the KAIRON concept",
         ],
       },
       jericko: {
@@ -264,28 +287,53 @@ const COPY: Record<Locale, Copy> = {
         name: "Jericko Solórzano",
         items: [
           "Python developer with an active GitHub portfolio",
-          "Background in JavaScript, Java, C#",
+          "Background in JavaScript, Java, and C#",
           "SQL and data architecture in active development",
-          "Git, Figma — collaborative workflow",
-          "Universidad de Guayaquil — founding-stage equity collaborator",
+          "Git, Figma, and collaborative workflow",
+          "Universidad de Guayaquil · founding-stage equity collaborator",
         ],
       },
     },
+    support: {
+      eyebrow: "EARLY SUPPORT",
+      title: "Support the launch before the formal investment round.",
+      body: "For early believers who want to help validate the workshop, strengthen the prototype, and move KAIRON toward MVP without receiving equity or financial return.",
+      cta: "Support G-Structure",
+    },
     cta: {
       title: "Want to learn more?",
-      body: "If you’re interested in the full deck, projected financials, or scheduling a conversation with the team, write to us directly.",
+      body: "If you want to review the full deck, projected financials, or discuss the pre-seed round, write to us directly.",
       primary: "Request investor deck",
       secondary: "Book a conversation",
       disclaimer: "This page contains preliminary information for qualified investors. It does not constitute a public offering of securities.",
-      mailSubject: "G-Frame%20investor%20deck%20request",
+      mailSubject: "KAIRON%20investor%20deck%20request",
     },
   },
+};
+
+const productScreens: Record<Locale, { src: string; title: string; body: string }[]> = {
+  es: [
+    { src: mockupHome, title: "Inicio", body: "La entrada al ecosistema KAIRON y al acompañamiento de Kai." },
+    { src: mockupScanner, title: "Escáner", body: "Detecta lo que mueve al usuario y lo que está frenando la ejecución." },
+    { src: mockupFilter, title: "Filtro", body: "Atrapa un pensamiento bloqueante y lo procesa con una ruta corta." },
+    { src: mockupWorkshop, title: "Taller", body: "Trabajo profundo para patrones repetidos y bloqueos más complejos." },
+    { src: mockupOperations, title: "Operaciones", body: "Kai prioriza el siguiente movimiento según el estado real del usuario." },
+    { src: mockupOperationsDetail, title: "Bitácora", body: "Convierte avance, protocolo y desbloqueo en seguimiento accionable." },
+  ],
+  en: [
+    { src: mockupHome, title: "Home", body: "The entry point into the KAIRON ecosystem and Kai's guidance." },
+    { src: mockupScanner, title: "Scanner", body: "Detects what moves the user and what is blocking execution." },
+    { src: mockupFilter, title: "Filter", body: "Captures a blocking thought and processes it through a short route." },
+    { src: mockupWorkshop, title: "Workshop", body: "Deep work for repeated patterns and more complex blocks." },
+    { src: mockupOperations, title: "Operations", body: "Kai prioritizes the next movement based on the user's real state." },
+    { src: mockupOperationsDetail, title: "Execution log", body: "Turns progress, protocol, and unblocking into actionable follow-up." },
+  ],
 };
 
 function PhoneMockup({
   copy,
   className = "",
-  widthClass = "w-[220px]",
+  widthClass = "w-[240px]",
 }: {
   copy: Copy["hero"];
   className?: string;
@@ -293,21 +341,21 @@ function PhoneMockup({
 }) {
   return (
     <div className={`relative ${className}`}>
-      <div className="hidden lg:flex absolute -left-[140px] top-[18%] items-center gap-2 w-[200px] justify-end">
+      <div className="hidden lg:flex absolute -left-[150px] top-[18%] items-center gap-2 w-[210px] justify-end">
         <span className="text-[11px] tracking-wide text-muted-foreground text-right leading-tight whitespace-pre-line">
           {copy.phoneAnnotTop}
         </span>
         <span className="block h-px w-10 bg-border" aria-hidden />
       </div>
-      <div className="hidden lg:flex absolute -right-[140px] bottom-[22%] items-center gap-2 w-[200px]">
+      <div className="hidden lg:flex absolute -right-[150px] bottom-[22%] items-center gap-2 w-[210px]">
         <span className="block h-px w-10 bg-border" aria-hidden />
         <span className="text-[11px] tracking-wide text-muted-foreground leading-tight whitespace-pre-line">
           {copy.phoneAnnotBottom}
         </span>
       </div>
       <div className={`${widthClass} mx-auto`}>
-        <div className="relative overflow-hidden border border-[color:var(--color-brand-deep)] bg-[color:var(--color-brand-deep)] p-3 shadow-none">
-          <img src={mockupInicio} alt="G-Frame prototype home screen" className="h-auto w-full object-cover" loading="lazy" width={900} height={1125} />
+        <div className="relative overflow-hidden border border-[color:var(--color-brand-deep)] bg-[color:var(--color-brand-deep)] shadow-none">
+          <img src={mockupHome} alt="KAIRON prototype home screen" className="h-auto w-full object-cover" loading="eager" width={1600} height={900} />
         </div>
         <p className="mt-4 text-center text-[11px] tracking-wide text-muted-foreground">{copy.phoneCaption}</p>
       </div>
@@ -339,7 +387,6 @@ function PriceBar({
 
 function PriceComparison({ copy }: { copy: Copy["opportunity"] }) {
   const max = 279;
-  // value->numeric for bar width
   const widths = [279, 0, 14, 20];
   const variants: ("muted" | "brand")[] = ["muted", "muted", "muted", "brand"];
   const dashed = [false, true, false, false];
@@ -469,6 +516,29 @@ function TeamCard({ role, name, items, photo }: { role: string; name: string; it
   );
 }
 
+function ProductGallery({ locale }: { locale: Locale }) {
+  return (
+    <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+      {productScreens[locale].map((screen) => (
+        <figure key={screen.title} className="overflow-hidden border border-border bg-[color:var(--color-surface)]">
+          <img
+            src={screen.src}
+            alt={`${screen.title} KAIRON prototype screen`}
+            loading="lazy"
+            width={1600}
+            height={900}
+            className="aspect-video w-full object-cover"
+          />
+          <figcaption className="border-t border-border/70 p-5">
+            <p className="font-display text-sm font-semibold tracking-wide text-foreground">{screen.title}</p>
+            <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{screen.body}</p>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  );
+}
+
 export function InvestorsPage({ locale, contactTo }: { locale: Locale; contactTo: string }) {
   const c = COPY[locale];
   const doneCount = c.traction.milestones.filter((m) => m.done).length;
@@ -476,16 +546,22 @@ export function InvestorsPage({ locale, contactTo }: { locale: Locale; contactTo
 
   return (
     <>
-      {/* HERO */}
       <section className="relative overflow-hidden border-b border-border bg-background">
         <div className="absolute inset-0 grid-bg opacity-30" aria-hidden />
         <div className="container-x relative py-24 md:py-32">
           <div className="grid gap-14 lg:grid-cols-12 lg:gap-12 items-center">
-            <div className="lg:col-span-8">
+            <div className="lg:col-span-7">
+              <div className="mb-8 flex items-center gap-4">
+                <img src={kaironLogo} alt="KAIRON" className="h-14 w-auto object-contain" width={500} height={500} />
+                <div className="h-10 w-px bg-border" aria-hidden />
+                <p className="max-w-[180px] text-[11px] uppercase tracking-[0.18em] text-muted-foreground leading-relaxed">
+                  Cognitive OS for execution
+                </p>
+              </div>
               <div className="border-l-2 border-[color:var(--color-brand)] pl-4">
                 <Eyebrow className="!mt-0">{c.hero.eyebrow}</Eyebrow>
               </div>
-              <h1 className="mt-8 max-w-3xl font-display text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.05] text-foreground">
+              <h1 className="mt-8 max-w-4xl font-display text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.05] text-foreground">
                 {c.hero.h1}
               </h1>
               <div className="mt-10 h-px w-24 bg-[color:var(--color-brand)]" aria-hidden />
@@ -495,14 +571,13 @@ export function InvestorsPage({ locale, contactTo }: { locale: Locale; contactTo
                 {c.hero.lead.b}
               </p>
             </div>
-            <div className="lg:col-span-4 flex justify-center lg:justify-end">
-              <PhoneMockup copy={c.hero} className="md:px-[140px] lg:px-0" widthClass="w-[160px] md:w-[220px]" />
+            <div className="lg:col-span-5 flex justify-center lg:justify-end">
+              <PhoneMockup copy={c.hero} className="md:px-[150px] lg:px-0" widthClass="w-[280px] md:w-[360px]" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* OPPORTUNITY */}
       <Section className="!py-16 md:!py-24">
         <div className="grid gap-px border border-border bg-border md:grid-cols-4">
           {c.thesis.map((item) => (
@@ -515,7 +590,6 @@ export function InvestorsPage({ locale, contactTo }: { locale: Locale; contactTo
         </div>
       </Section>
 
-      {/* OPPORTUNITY */}
       <Section tone="muted" className="!py-20 md:!py-32">
         <Eyebrow>{c.opportunity.eyebrow}</Eyebrow>
         <h2 className="mt-4 max-w-3xl font-display text-3xl md:text-4xl leading-[1.08]">{c.opportunity.title}</h2>
@@ -527,7 +601,6 @@ export function InvestorsPage({ locale, contactTo }: { locale: Locale; contactTo
         <PriceComparison copy={c.opportunity} />
       </Section>
 
-      {/* PRODUCT */}
       <Section className="!py-20 md:!py-32">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-7">
@@ -539,7 +612,16 @@ export function InvestorsPage({ locale, contactTo }: { locale: Locale; contactTo
             </div>
           </div>
           <div className="lg:col-span-5">
-            <ul className="space-y-3">
+            <div className="border border-border bg-[color:var(--color-surface)] p-6">
+              <div className="grid grid-cols-[92px_1fr] items-center gap-5">
+                <img src={kaiMascot} alt="Kai, KAIRON execution coach" className="h-auto w-full object-contain" loading="lazy" width={768} height={1024} />
+                <div>
+                  <h3 className="font-display text-xl leading-tight text-foreground">{c.product.kaiTitle}</h3>
+                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{c.product.kaiBody}</p>
+                </div>
+              </div>
+            </div>
+            <ul className="mt-4 space-y-3">
               {c.product.bullets.map((d) => (
                 <li key={d.highlight} className="flex gap-3 border border-border bg-[color:var(--color-surface)] px-5 py-4">
                   <Check className="mt-1 h-4 w-4 flex-none text-[color:var(--color-brand)]" aria-hidden />
@@ -552,27 +634,9 @@ export function InvestorsPage({ locale, contactTo }: { locale: Locale; contactTo
             </ul>
           </div>
         </div>
-        <div className="mt-12 grid gap-4 md:grid-cols-3">
-          {[mockupInicio, mockupMotor, mockupQuickReframe].map((src, index) => (
-            <div key={src} className="overflow-hidden border border-border bg-[color:var(--color-surface)]">
-              <img
-                src={src}
-                alt={
-                  locale === "en"
-                    ? ["G-Frame home prototype screen", "G-Frame restructuring engine prototype screen", "G-Frame Quick Reframe prototype screen"][index]
-                    : ["Pantalla de inicio del prototipo G-Frame", "Pantalla del Motor de Reestructuración de G-Frame", "Pantalla de Quick Reframe de G-Frame"][index]
-                }
-                loading="lazy"
-                width={900}
-                height={1125}
-                className="w-full h-auto object-cover"
-              />
-            </div>
-          ))}
-        </div>
+        <ProductGallery locale={locale} />
       </Section>
 
-      {/* TRACTION */}
       <Section tone="muted" className="!py-20 md:!py-32">
         <Eyebrow>{c.traction.eyebrow}</Eyebrow>
         <h2 className="mt-4 max-w-3xl font-display text-3xl md:text-4xl leading-[1.08]">{c.traction.title}</h2>
@@ -592,7 +656,6 @@ export function InvestorsPage({ locale, contactTo }: { locale: Locale; contactTo
         </ol>
       </Section>
 
-      {/* ROUND */}
       <Section className="!py-20 md:!py-32">
         <Eyebrow>{c.round.eyebrow}</Eyebrow>
         <h2 className="mt-4 max-w-3xl font-display text-3xl md:text-4xl leading-[1.08]">{c.round.title}</h2>
@@ -606,7 +669,6 @@ export function InvestorsPage({ locale, contactTo }: { locale: Locale; contactTo
         </div>
       </Section>
 
-      {/* TEAM */}
       <Section tone="muted" className="!py-20 md:!py-32">
         <Eyebrow>{c.team.eyebrow}</Eyebrow>
         <h2 className="mt-4 max-w-3xl font-display text-3xl md:text-4xl leading-[1.08]">{c.team.title}</h2>
@@ -618,26 +680,19 @@ export function InvestorsPage({ locale, contactTo }: { locale: Locale; contactTo
 
       <Section className="!py-16 md:!py-20">
         <div className="border border-border bg-[color:var(--color-surface)] p-7 md:p-8">
-          <Eyebrow>{locale === "en" ? "EARLY SUPPORT" : "APOYO TEMPRANO"}</Eyebrow>
-          <h2 className="mt-3 max-w-3xl font-display text-2xl md:text-3xl leading-tight">
-            {locale === "en" ? "Support the launch before the formal investment round." : "Apoya el lanzamiento antes de una ronda formal de inversión."}
-          </h2>
-          <p className="mt-4 max-w-3xl text-sm md:text-base text-muted-foreground leading-relaxed">
-            {locale === "en"
-              ? "For early believers who want to help validate the workshop, strengthen the prototype, and move G-Frame toward MVP without receiving equity or financial return."
-              : "Para early believers que quieren ayudar a validar el workshop, fortalecer el prototipo y llevar G-Frame hacia MVP sin recibir equity ni retorno financiero."}
-          </p>
+          <Eyebrow>{c.support.eyebrow}</Eyebrow>
+          <h2 className="mt-3 max-w-3xl font-display text-2xl md:text-3xl leading-tight">{c.support.title}</h2>
+          <p className="mt-4 max-w-3xl text-sm md:text-base text-muted-foreground leading-relaxed">{c.support.body}</p>
           <CTALink
             to={locale === "en" ? "/en/support-the-launch" : "/apoya-el-lanzamiento"}
             variant="outline"
             className="mt-6"
           >
-            {locale === "en" ? "Support G-Structure" : "Apoya G-Structure"}
+            {c.support.cta}
           </CTALink>
         </div>
       </Section>
 
-      {/* FINAL CTA */}
       <Section tone="deep" className="!py-24 md:!py-36">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.05]">{c.cta.title}</h2>
