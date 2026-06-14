@@ -22,6 +22,7 @@ export type ConversionKey =
   | "brief_pdf_download"
   | "booking_request"
   | "gstruct_waitlist_signup"
+  | "kairon_waitlist_signup"
   | "investor_interest";
 
 // Google Ads conversion labels. `undefined` means: fire GA4 event only,
@@ -33,6 +34,7 @@ const CONVERSION_LABELS: Record<ConversionKey, string | undefined> = {
   booking_request: "AW-18154152582/zzaxCI-jhqscEIbFydBD",
   // No Ads label yet — connect once Google Ads conversion is created.
   gstruct_waitlist_signup: undefined,
+  kairon_waitlist_signup: undefined,
   investor_interest: undefined,
 };
 

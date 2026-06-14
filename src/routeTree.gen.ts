@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as VipPassRouteImport } from './routes/vip-pass'
 import { Route as UnsubscribeRouteImport } from './routes/unsubscribe'
 import { Route as UneteAlEquipoRouteImport } from './routes/unete-al-equipo'
 import { Route as SobreGuillermoRouteImport } from './routes/sobre-guillermo'
@@ -30,6 +31,7 @@ import { Route as AdminRouteImport } from './routes/_admin'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as EnIndexRouteImport } from './routes/en.index'
 import { Route as ArticulosIndexRouteImport } from './routes/articulos.index'
+import { Route as EnVipPassRouteImport } from './routes/en.vip-pass'
 import { Route as EnSupportTheLaunchRouteImport } from './routes/en.support-the-launch'
 import { Route as EnRestructure11RouteImport } from './routes/en.restructure-1-1'
 import { Route as EnNewsletterRouteImport } from './routes/en.newsletter'
@@ -67,6 +69,11 @@ import { Route as LovableEmailTransactionalSendRouteImport } from './routes/lova
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
 
+const VipPassRoute = VipPassRouteImport.update({
+  id: '/vip-pass',
+  path: '/vip-pass',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const UnsubscribeRoute = UnsubscribeRouteImport.update({
   id: '/unsubscribe',
   path: '/unsubscribe',
@@ -171,6 +178,11 @@ const ArticulosIndexRoute = ArticulosIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => ArticulosRoute,
+} as any)
+const EnVipPassRoute = EnVipPassRouteImport.update({
+  id: '/en/vip-pass',
+  path: '/en/vip-pass',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const EnSupportTheLaunchRoute = EnSupportTheLaunchRouteImport.update({
   id: '/en/support-the-launch',
@@ -383,6 +395,7 @@ export interface FileRoutesByFullPath {
   '/sobre-guillermo': typeof SobreGuillermoRoute
   '/unete-al-equipo': typeof UneteAlEquipoRoute
   '/unsubscribe': typeof UnsubscribeRoute
+  '/vip-pass': typeof VipPassRoute
   '/articulos/$slug': typeof ArticulosSlugRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/en/about-guillermo': typeof EnAboutGuillermoRoute
@@ -398,6 +411,7 @@ export interface FileRoutesByFullPath {
   '/en/newsletter': typeof EnNewsletterRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
   '/en/support-the-launch': typeof EnSupportTheLaunchRoute
+  '/en/vip-pass': typeof EnVipPassRoute
   '/articulos/': typeof ArticulosIndexRoute
   '/en/': typeof EnIndexRoute
   '/admin/comentarios': typeof AdminAdminComentariosRoute
@@ -440,6 +454,7 @@ export interface FileRoutesByTo {
   '/sobre-guillermo': typeof SobreGuillermoRoute
   '/unete-al-equipo': typeof UneteAlEquipoRoute
   '/unsubscribe': typeof UnsubscribeRoute
+  '/vip-pass': typeof VipPassRoute
   '/articulos/$slug': typeof ArticulosSlugRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/en/about-guillermo': typeof EnAboutGuillermoRoute
@@ -454,6 +469,7 @@ export interface FileRoutesByTo {
   '/en/newsletter': typeof EnNewsletterRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
   '/en/support-the-launch': typeof EnSupportTheLaunchRoute
+  '/en/vip-pass': typeof EnVipPassRoute
   '/articulos': typeof ArticulosIndexRoute
   '/en': typeof EnIndexRoute
   '/admin/comentarios': typeof AdminAdminComentariosRoute
@@ -499,6 +515,7 @@ export interface FileRoutesById {
   '/sobre-guillermo': typeof SobreGuillermoRoute
   '/unete-al-equipo': typeof UneteAlEquipoRoute
   '/unsubscribe': typeof UnsubscribeRoute
+  '/vip-pass': typeof VipPassRoute
   '/articulos/$slug': typeof ArticulosSlugRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/en/about-guillermo': typeof EnAboutGuillermoRoute
@@ -514,6 +531,7 @@ export interface FileRoutesById {
   '/en/newsletter': typeof EnNewsletterRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
   '/en/support-the-launch': typeof EnSupportTheLaunchRoute
+  '/en/vip-pass': typeof EnVipPassRoute
   '/articulos/': typeof ArticulosIndexRoute
   '/en/': typeof EnIndexRoute
   '/_admin/admin/comentarios': typeof AdminAdminComentariosRoute
@@ -559,6 +577,7 @@ export interface FileRouteTypes {
     | '/sobre-guillermo'
     | '/unete-al-equipo'
     | '/unsubscribe'
+    | '/vip-pass'
     | '/articulos/$slug'
     | '/email/unsubscribe'
     | '/en/about-guillermo'
@@ -574,6 +593,7 @@ export interface FileRouteTypes {
     | '/en/newsletter'
     | '/en/restructure-1-1'
     | '/en/support-the-launch'
+    | '/en/vip-pass'
     | '/articulos/'
     | '/en/'
     | '/admin/comentarios'
@@ -616,6 +636,7 @@ export interface FileRouteTypes {
     | '/sobre-guillermo'
     | '/unete-al-equipo'
     | '/unsubscribe'
+    | '/vip-pass'
     | '/articulos/$slug'
     | '/email/unsubscribe'
     | '/en/about-guillermo'
@@ -630,6 +651,7 @@ export interface FileRouteTypes {
     | '/en/newsletter'
     | '/en/restructure-1-1'
     | '/en/support-the-launch'
+    | '/en/vip-pass'
     | '/articulos'
     | '/en'
     | '/admin/comentarios'
@@ -674,6 +696,7 @@ export interface FileRouteTypes {
     | '/sobre-guillermo'
     | '/unete-al-equipo'
     | '/unsubscribe'
+    | '/vip-pass'
     | '/articulos/$slug'
     | '/email/unsubscribe'
     | '/en/about-guillermo'
@@ -689,6 +712,7 @@ export interface FileRouteTypes {
     | '/en/newsletter'
     | '/en/restructure-1-1'
     | '/en/support-the-launch'
+    | '/en/vip-pass'
     | '/articulos/'
     | '/en/'
     | '/_admin/admin/comentarios'
@@ -734,6 +758,7 @@ export interface RootRouteChildren {
   SobreGuillermoRoute: typeof SobreGuillermoRoute
   UneteAlEquipoRoute: typeof UneteAlEquipoRoute
   UnsubscribeRoute: typeof UnsubscribeRoute
+  VipPassRoute: typeof VipPassRoute
   EmailUnsubscribeRoute: typeof EmailUnsubscribeRoute
   EnAboutGuillermoRoute: typeof EnAboutGuillermoRoute
   EnArticlesRoute: typeof EnArticlesRouteWithChildren
@@ -748,6 +773,7 @@ export interface RootRouteChildren {
   EnNewsletterRoute: typeof EnNewsletterRoute
   EnRestructure11Route: typeof EnRestructure11Route
   EnSupportTheLaunchRoute: typeof EnSupportTheLaunchRoute
+  EnVipPassRoute: typeof EnVipPassRoute
   EnIndexRoute: typeof EnIndexRoute
   ApiPublicArticleCommentsRoute: typeof ApiPublicArticleCommentsRoute
   ApiPublicContactRoute: typeof ApiPublicContactRoute
@@ -766,6 +792,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/vip-pass': {
+      id: '/vip-pass'
+      path: '/vip-pass'
+      fullPath: '/vip-pass'
+      preLoaderRoute: typeof VipPassRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/unsubscribe': {
       id: '/unsubscribe'
       path: '/unsubscribe'
@@ -912,6 +945,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/articulos/'
       preLoaderRoute: typeof ArticulosIndexRouteImport
       parentRoute: typeof ArticulosRoute
+    }
+    '/en/vip-pass': {
+      id: '/en/vip-pass'
+      path: '/en/vip-pass'
+      fullPath: '/en/vip-pass'
+      preLoaderRoute: typeof EnVipPassRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/en/support-the-launch': {
       id: '/en/support-the-launch'
@@ -1236,6 +1276,7 @@ const rootRouteChildren: RootRouteChildren = {
   SobreGuillermoRoute: SobreGuillermoRoute,
   UneteAlEquipoRoute: UneteAlEquipoRoute,
   UnsubscribeRoute: UnsubscribeRoute,
+  VipPassRoute: VipPassRoute,
   EmailUnsubscribeRoute: EmailUnsubscribeRoute,
   EnAboutGuillermoRoute: EnAboutGuillermoRoute,
   EnArticlesRoute: EnArticlesRouteWithChildren,
@@ -1250,6 +1291,7 @@ const rootRouteChildren: RootRouteChildren = {
   EnNewsletterRoute: EnNewsletterRoute,
   EnRestructure11Route: EnRestructure11Route,
   EnSupportTheLaunchRoute: EnSupportTheLaunchRoute,
+  EnVipPassRoute: EnVipPassRoute,
   EnIndexRoute: EnIndexRoute,
   ApiPublicArticleCommentsRoute: ApiPublicArticleCommentsRoute,
   ApiPublicContactRoute: ApiPublicContactRoute,
@@ -1270,13 +1312,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

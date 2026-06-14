@@ -130,18 +130,25 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const isStandalone = pathname === "/vip-pass" || pathname === "/en/vip-pass";
+
   return (
     <QueryClientProvider client={queryClient}>
       <LocaleProvider>
-        <div className="flex min-h-screen flex-col">
-          <Header />
-          <main className="flex-1">
-            <Outlet />
-          </main>
-          <Footer />
-          <WhatsAppFAB />
-          <ScrollTopButton />
-        </div>
+        {isStandalone ? (
+          <Outlet />
+        ) : (
+          <div className="flex min-h-screen flex-col">
+            <Header />
+            <main className="flex-1">
+              <Outlet />
+            </main>
+            <Footer />
+            <WhatsAppFAB />
+            <ScrollTopButton />
+          </div>
+        )}
       </LocaleProvider>
     </QueryClientProvider>
   );
