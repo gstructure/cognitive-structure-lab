@@ -8,7 +8,7 @@ const COPY = {
   es: {
     eyebrow: "ACCESO ANTICIPADO",
     title: "Sé parte del primer grupo.",
-    lead: "KAIRON está en prototipo activo con primeros testers en Ecuador. Los usuarios de la lista de espera tendrán acceso anticipado, precio de fundadores y la oportunidad de dar forma al producto.",
+    lead: "KAIRON ya existe como MVP activo con primeros testers en Ecuador. Los usuarios de la lista de espera tendrán acceso anticipado, precio de fundadores y la oportunidad de dar forma a las siguientes iteraciones del producto.",
     micro: "Lanzamiento Q3 2026 · Solo Ecuador en primera fase.",
     successTitle: "Estás en la lista.",
     successBody: "Te escribimos cuando KAIRON esté listo para ti.",
@@ -23,7 +23,7 @@ const COPY = {
   en: {
     eyebrow: "EARLY ACCESS",
     title: "Be part of the first cohort.",
-    lead: "KAIRON is in active prototype with first testers in Ecuador. Waitlist users get early access, founder pricing, and the chance to shape the product.",
+    lead: "KAIRON already exists as a live MVP with first testers in Ecuador. Waitlist users get early access, founder pricing, and the chance to shape the product's next iterations.",
     micro: "Launch Q3 2026 · Ecuador only in the first phase.",
     successTitle: "You’re on the list.",
     successBody: "We’ll write to you when KAIRON is ready for you.",

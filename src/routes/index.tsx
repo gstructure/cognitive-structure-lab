@@ -22,7 +22,8 @@ import logoCube from "@/assets/g-structure-cube.webp";
 import gFrameLogo from "@/assets/kairon-logo.webp";
 import kaiMascot from "@/assets/kai-mascot.webp";
 import kaiMini from "@/assets/kai-hero-transparent.png";
-import kaironProductCollage from "@/assets/kairon-product-collage.png";
+import kaironProductHomeEs from "@/assets/kairon-product-home-es.webp";
+import kaironProductHomeEn from "@/assets/kairon-product-home-en.webp";
 
 
 import etwBadge from "@/assets/etw-2026-badge.webp";
@@ -42,7 +43,7 @@ const HOME_FAQ = [
   { q: "¿Qué es G-Structure?", a: "Una tech startup construyendo KAIRON: una plataforma cognitivo-conductual de ejecución profesional impulsada por el método I-R-O™." },
   { q: "¿G-Structure ofrece terapia?", a: "No. G-Structure es coaching cognitivo-conductual aplicado a contextos de ejecución profesional. No sustituye atención clínica ni psicoterapia." },
   { q: "¿Qué es el método I-R-O™?", a: "Identificar, Reencuadrar y Optimizar: el framework propietario que impulsa KAIRON y convierte fricción cognitivo-conductual en acción funcional." },
-  { q: "¿Qué es KAIRON?", a: "El producto principal de G-Structure: una app en desarrollo para diagnosticar patrones de ejecución, reencuadrarlos y sostener acciones concretas antes del lanzamiento Q3 2026." },
+  { q: "¿Qué es KAIRON?", a: "El producto principal de G-Structure: un MVP activo para diagnosticar fricción ejecutiva, reencuadrarla en tiempo real y sostener acciones concretas antes del lanzamiento Q3 2026." },
 ];
 
 export const Route = createFileRoute("/")({
@@ -148,7 +149,7 @@ const COPY = {
     },
     gstruct: {
       tag: "EL PRODUCTO · KAIRON",
-      pill: "PROTOTIPO ACTIVO · LANZAMIENTO Q3 2026",
+      pill: "MVP ACTIVO · LANZAMIENTO Q3 2026",
       h2: "KAIRON es el producto principal de G-Structure.",
       lead: (
         <>
@@ -159,7 +160,7 @@ const COPY = {
       disclaimer: "No somos una app de terapia. No hacemos diagnóstico clínico. KAIRON es una herramienta de coaching, psicoeducación y optimización de ejecución basada en principios cognitivo-conductuales.",
       p1: "KAIRON lleva el método I-R-O™ a tu bolsillo. Una app móvil diseñada para identificar la fricción que bloquea tu ejecución, reencuadrarla con metodología CBT coaching, y optimizar tu acción — disponible 24/7.",
       p2: "No es una app de bienestar. No es un diario de pensamientos. No es otra lista de tareas. Es la herramienta que separa a quienes saben lo que hay que hacer de quienes realmente lo hacen.",
-      previewAlt: "Vista previa de la app KAIRON.",
+      previewAlt: "Vista del MVP activo de KAIRON.",
       features: [
         { t: "Motor de Reestructuración", d: "Identifica la situación, nombra la emoción, mide su intensidad, llega a la creencia núcleo. Si puedes medirlo, puedes optimizarlo." },
         { t: "Laboratorio de Pensamientos con IA", d: "Con asistencia de inteligencia artificial, aprende a reencuadrar el pensamiento automático en uno funcional que habilite la acción." },
@@ -249,12 +250,12 @@ const COPY = {
     },
     startup: {
       eyebrow: "UNA STARTUP EN ETAPA TEMPRANA",
-      title: "De prototipo a MVP, con una tesis clara.",
+      title: "MVP activo, con una tesis clara.",
       lead: (
         <>
-          G-Structure se encuentra en etapa de validación, construyendo el camino de prototipo a MVP.
-          El objetivo es convertir <strong className="text-foreground">KAIRON</strong>, impulsado por el método I-R-O™,
-          en una plataforma escalable para profesionales, founders y equipos que necesitan ejecutar mejor bajo presión.
+          G-Structure se encuentra en etapa de validación con <strong className="text-foreground">KAIRON</strong> ya funcionando como MVP.
+          El objetivo ahora es validar uso real, fortalecer el producto impulsado por el método I-R-O™
+          y escalarlo para profesionales, founders y equipos que necesitan ejecutar mejor bajo presión.
         </>
       ),
       routes: [
@@ -391,7 +392,7 @@ const COPY = {
     },
     gstruct: {
       tag: "THE PRODUCT · KAIRON",
-      pill: "ACTIVE PROTOTYPE · LAUNCH Q3 2026",
+      pill: "LIVE MVP · LAUNCH Q3 2026",
       h2: "KAIRON is the main product of G-Structure.",
       lead: (
         <>
@@ -402,7 +403,7 @@ const COPY = {
       disclaimer: "We're not a therapy app. We don't make clinical diagnoses. KAIRON is a coaching, psychoeducation, and execution-optimization tool based on cognitive-behavioral principles.",
       p1: "KAIRON brings the I-R-O™ Method to your pocket. A mobile app designed to identify the friction blocking your execution, reframe it with CBT coaching methodology, and optimize your action — available 24/7.",
       p2: "It's not a wellness app. It's not a thought journal. It's not another to-do list. It's the tool that separates those who know what to do from those who actually do it.",
-      previewAlt: "Preview of the KAIRON app.",
+      previewAlt: "Preview of the live KAIRON MVP.",
       features: [
         { t: "Restructuring Engine", d: "Identify the situation, name the emotion, measure its intensity, reach the core belief. If you can measure it, you can optimize it." },
         { t: "AI Thought Lab", d: "With AI assistance, learn to reframe the automatic thought into a functional one that enables action." },
@@ -492,12 +493,12 @@ const COPY = {
     },
     startup: {
       eyebrow: "AN EARLY-STAGE STARTUP",
-      title: "From prototype to MVP, with a clear thesis.",
+      title: "Live MVP, with a clear thesis.",
       lead: (
         <>
-          G-Structure is in a validation stage, building the path from prototype to MVP.
-          The goal is to turn <strong className="text-foreground">KAIRON</strong>, powered by the I-R-O™ Method,
-          into a scalable platform for professionals, founders, and teams who need to execute better under pressure.
+          G-Structure is in a validation stage with <strong className="text-foreground">KAIRON</strong> already operating as a live MVP.
+          The goal now is to validate real usage, strengthen the product powered by the I-R-O™ Method,
+          and scale it for professionals, founders, and teams who need to execute better under pressure.
         </>
       ),
       routes: [
@@ -1123,19 +1124,21 @@ function ProductTeaser() {
     ? {
         eyebrow: "THE PRODUCT",
         title: "KAIRON turns friction into a next action.",
-        body: "A mobile execution platform that helps professionals identify the pattern behind a block, reframe it, and leave with one concrete action.",
+        body: "A live MVP for cognitive execution coaching: diagnose friction, reframe in real time, and move forward with clarity.",
         cta: "Explore KAIRON",
         waitlist: "Join the waitlist",
-        alt: "KAIRON prototype preview.",
+        alt: "KAIRON live MVP product preview.",
+        image: kaironProductHomeEn,
         points: ["Use the Filter for immediate blocks", "Use the Workshop for repeated frictions", "Use the Restructuring Protocol to work on your pattern"],
       }
     : {
         eyebrow: "EL PRODUCTO",
         title: "KAIRON convierte fricción en una siguiente acción.",
-        body: "Una plataforma móvil de ejecución que ayuda a profesionales a identificar el patrón detrás de un bloqueo, reencuadrarlo y salir con una acción concreta.",
+        body: "Un MVP activo de coaching cognitivo para la ejecución: diagnostica la fricción, reencuadra en tiempo real y avanza con claridad.",
         cta: "Explorar KAIRON",
         waitlist: "Unirme a la waitlist",
-        alt: "Vista previa del prototipo de KAIRON.",
+        alt: "Vista del MVP activo de KAIRON.",
+        image: kaironProductHomeEs,
         points: ["Usa el Filtro para bloqueos inmediatos", "El Taller para fricciones repetidas", "Protocolo de Reestructuración para trabajar tu patrón"],
       };
 
@@ -1164,11 +1167,11 @@ function ProductTeaser() {
               aria-hidden
             />
             <img
-              src={kaironProductCollage}
+              src={copy.image}
               alt={copy.alt}
               loading="lazy"
-              width={1254}
-              height={1254}
+              width={1080}
+              height={1350}
               className="relative mx-auto w-full max-w-[640px] object-contain drop-shadow-[0_34px_44px_rgba(5,50,90,0.22)]"
             />
           </div>
