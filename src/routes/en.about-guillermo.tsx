@@ -7,9 +7,9 @@ export const Route = createFileRoute("/en/about-guillermo")({
   head: () => ({
     meta: buildSeo({
       path: "/en/about-guillermo",
-      title: "Guillermo Suco | Founder & CEO of G-Structure",
+      title: "About | G-Structure · KAIRON",
       description:
-        "Guillermo Suco, Founder & CEO of G-Structure, creator of G-Frame and the I-R-O™ Method. CBT Coach Practitioner accredited by CTAA.",
+        "Meet G-Structure's founding team: Guillermo Suco and Nathanael Guy, building KAIRON as a live MVP for cognitive execution coaching.",
       image: portrait,
       type: "profile",
       locale: "en_US",
@@ -19,7 +19,7 @@ export const Route = createFileRoute("/en/about-guillermo")({
       jsonLdScript(personGuillermoSchema),
       jsonLdScript(breadcrumbSchema([
         { name: "Home", path: "/en" },
-        { name: "About Guillermo", path: "/en/about-guillermo" },
+        { name: "About", path: "/en/about-guillermo" },
       ])),
     ],
   }),
