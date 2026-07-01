@@ -2,6 +2,7 @@ import { Section } from "@/components/site/Section";
 import { Eyebrow } from "@/components/site/Eyebrow";
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
 import { SocialLinks } from "@/components/site/SocialLinks";
+import ecuadorMap from "@/assets/ecuador-south-america-map.webp";
 import guillermoPhoto from "@/assets/guillermo-suco.webp";
 import nathanaelPhoto from "@/assets/nathanael-guy.webp";
 import type { Locale } from "@/lib/i18n";
@@ -190,14 +191,14 @@ const COPY = {
 function TeamCard({ member }: { member: TeamMember }) {
   return (
     <article className="group relative overflow-hidden border border-border bg-[color:var(--color-surface)] shadow-elev-1">
-      <div className="aspect-[4/3] overflow-hidden bg-[color:var(--color-brand-deep)]">
+      <div className="flex aspect-[4/3] items-center justify-center overflow-hidden bg-[color:var(--color-brand-deep)] p-4">
         <img
           src={member.photo}
           alt={member.name}
           width={720}
           height={540}
           loading="lazy"
-          className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
+          className="h-full w-full object-contain object-top transition-transform duration-500 group-hover:scale-[1.03]"
         />
       </div>
       <div className="p-6 md:p-7">
@@ -245,26 +246,6 @@ function StoryTimeline({ moments }: { moments: readonly StoryMoment[] }) {
   );
 }
 
-function EcuadorMark() {
-  return (
-    <div className="relative min-h-[300px] overflow-hidden border border-border bg-[color:var(--color-surface)] p-8">
-      <div className="absolute inset-0 grid-bg opacity-45" aria-hidden />
-      <div className="relative mx-auto flex h-64 max-w-sm items-center justify-center">
-        <div className="absolute h-52 w-40 rotate-6 rounded-[46%_54%_52%_48%] border border-[color:var(--color-brand)]/45" />
-        <div className="absolute left-1/2 top-[28%] h-20 w-20 -translate-x-1/2 rounded-[52%_48%_56%_44%] border border-foreground/35 bg-background/80" />
-        <div className="absolute left-[49%] top-[38%] h-2 w-2 bg-[color:var(--color-brand)] shadow-[0_0_28px_rgba(0,188,212,0.85)]" />
-        <div className="absolute left-[53%] top-[40%] h-px w-24 origin-left -rotate-12 bg-foreground/40" />
-        <span className="absolute left-[72%] top-[31%] text-xs font-semibold uppercase tracking-[0.18em] text-foreground">
-          Ecuador
-        </span>
-        <span className="absolute bottom-2 left-1/2 -translate-x-1/2 text-center font-display text-3xl text-foreground">
-          Guayaquil
-        </span>
-      </div>
-    </div>
-  );
-}
-
 export function AboutGuillermoPage({ locale }: { locale: Locale }) {
   const c = COPY[locale];
 
@@ -300,29 +281,34 @@ export function AboutGuillermoPage({ locale }: { locale: Locale }) {
           <Eyebrow>{c.storyEyebrow}</Eyebrow>
           <h2 className="mt-4 font-display text-3xl leading-[1.08] md:text-5xl">{c.storyTitle}</h2>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">{c.storyIntro}</p>
-          <figure className="mx-auto mt-10 max-w-2xl border-y border-border py-8">
-            <blockquote className="font-display text-2xl leading-snug text-foreground md:text-3xl">
-              "{c.quote}"
-            </blockquote>
-            <figcaption className="mt-4 text-sm text-muted-foreground">- {c.quoteBy}</figcaption>
-          </figure>
         </div>
         <div className="mx-auto mt-14 max-w-5xl">
           <StoryTimeline moments={c.moments} />
         </div>
+        <figure className="mx-auto mt-14 max-w-2xl border-y border-border py-8 text-center">
+          <blockquote className="font-display text-2xl leading-snug text-foreground md:text-3xl">
+            "{c.quote}"
+          </blockquote>
+          <figcaption className="mt-4 text-sm text-muted-foreground">- {c.quoteBy}</figcaption>
+        </figure>
       </Section>
 
       <Section>
-        <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
-          <div className="lg:col-span-6">
-            <Eyebrow>{c.placeEyebrow}</Eyebrow>
-            <h2 className="mt-4 font-display text-3xl leading-[1.08] md:text-5xl">{c.placeTitle}</h2>
-            <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">{c.placeBody}</p>
-            <p className="mt-4 text-base leading-relaxed text-foreground/85">{c.placeNote}</p>
-          </div>
-          <div className="lg:col-span-6">
-            <EcuadorMark />
-          </div>
+        <div className="mx-auto max-w-3xl text-center">
+          <Eyebrow>{c.placeEyebrow}</Eyebrow>
+          <h2 className="mt-4 font-display text-3xl leading-[1.08] md:text-5xl">{c.placeTitle}</h2>
+          <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">{c.placeBody}</p>
+          <p className="mt-4 text-base leading-relaxed text-foreground/85">{c.placeNote}</p>
+        </div>
+        <div className="relative mx-auto mt-12 max-w-6xl overflow-hidden border border-border bg-[color:var(--color-brand-deep)] shadow-[0_34px_70px_-34px_rgba(5,50,90,0.55)]">
+          <img
+            src={ecuadorMap}
+            alt={locale === "en" ? "South America map highlighting Ecuador and Guayaquil" : "Mapa de Sudamérica destacando Ecuador y Guayaquil"}
+            loading="lazy"
+            width={1920}
+            height={914}
+            className="block w-full object-cover"
+          />
         </div>
       </Section>
 
