@@ -31,6 +31,8 @@ import kaironMvpOnboardingEn from "@/assets/kairon-mvp-onboarding-en.webp";
 import { trackConversion, trackCtaClick } from "@/lib/analytics";
 import type { Locale } from "@/lib/i18n";
 
+const KAIRON_APP_URL = "https://getkairon.app";
+
 type Copy = {
   hero: {
     eyebrow: string;
@@ -104,9 +106,9 @@ const COPY: Record<Locale, Copy> = {
       h1: "Kai convierte fricción mental en ejecución.",
       body: "KAIRON no es un gestor de tareas, una app de journaling ni un chatbot genérico. Es un Cognitive Operating System para ejecución: detecta los pensamientos, reglas y patrones que bloquean la acción, los trabaja con el método I-R-O™ y los convierte en un Puente de Acción validado.",
       disclaimer: "KAIRON es un sistema de coaching de ejecución, no un servicio clínico. No diagnostica, no trata y no reemplaza atención psicológica, médica o psiquiátrica.",
-      cta: "Únete a la lista de espera",
+      cta: "Probar KAIRON",
       counter: (n) => `${n} personas ya están en la lista de espera.`,
-      launchNote: "KAIRON ya pasó de prototipo a MVP. Los primeros usuarios ayudarán a validar el producto real en Ecuador.",
+      launchNote: "KAIRON ya está activo como MVP para usuarios tempranos. Puedes probar la versión actual, compartir feedback y ayudarnos a preparar el lanzamiento comercial.",
       osLabel: "KAIRON · COGNITIVE OS",
       iro: "I-R-O™ · IDENTIFICAR · REENCUADRAR · OPTIMIZAR",
       version: "KAI · AI EXECUTION COACH",
@@ -219,9 +221,9 @@ const COPY: Record<Locale, Copy> = {
       h1: "Kai turns mental friction into execution.",
       body: "KAIRON is not a task manager, a journaling app, or a generic chatbot. It is a Cognitive Operating System for execution: it detects the thoughts, rules, and patterns that block action, works them through the I-R-O™ Method, and turns them into a validated Action Bridge.",
       disclaimer: "KAIRON is an execution-coaching system, not a clinical service. It does not diagnose, treat, or replace psychological, medical, or psychiatric care.",
-      cta: "Join the waitlist",
+      cta: "Try KAIRON",
       counter: (n) => `${n} people are already on the waitlist.`,
-      launchNote: "KAIRON has moved from prototype to MVP. Early users will validate the real product in Ecuador.",
+      launchNote: "KAIRON is currently live as an MVP for early users. You can try the current version, share feedback, and help shape the commercial launch.",
       osLabel: "KAIRON · COGNITIVE OS",
       iro: "I-R-O™ · IDENTIFY · REFRAME · OPTIMIZE",
       version: "KAI · AI EXECUTION COACH",
@@ -421,8 +423,10 @@ function Hero({ locale, count }: { locale: Locale; count: number | null }) {
           <p className="mt-3 max-w-xl text-xs text-muted-foreground leading-relaxed">{c.disclaimer}</p>
           <div className="mt-9 flex flex-wrap items-center gap-3">
             <a
-              href="#waitlist"
-              onClick={() => trackCtaClick("kairon_hero_waitlist", { source: "kairon_page" })}
+              href={KAIRON_APP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackCtaClick("kairon_hero_try_mvp", { source: "kairon_page" })}
               className="group inline-flex items-center justify-center gap-2 bg-foreground px-5 min-h-11 py-3 text-[13px] font-medium tracking-wide text-background transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:ring-[color:var(--color-brand)]"
             >
               {c.cta}

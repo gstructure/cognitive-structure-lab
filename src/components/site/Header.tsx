@@ -1,6 +1,6 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, Mail } from "lucide-react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import { Logo } from "@/components/brand/Logo";
 import { LangSwitcher } from "@/components/site/LangSwitcher";
 import { useLocale } from "@/lib/i18n";
@@ -21,12 +21,13 @@ export function Header() {
 
   const NAV = navForLocale(locale);
   const homeTo = locale === "en" ? "/en" : "/";
-  const ctaLabel = locale === "en" ? "Join Waitlist" : "Lista de espera";
+  const ctaLabel = locale === "en" ? "Try KAIRON" : "Probar KAIRON";
+  const kaironAppUrl = "https://getkairon.app";
 
-  // Hide persistent waitlist CTA on investor pages; that flow uses email/deck requests.
-  const hideWaitlistCTA = location.pathname.startsWith("/inversores") || location.pathname.startsWith("/en/investors");
+  // Hide persistent product CTA on investor pages; that flow uses email/deck requests.
+  const hideProductCTA = location.pathname.startsWith("/inversores") || location.pathname.startsWith("/en/investors");
 
-  const onCtaClick = () => trackEvent("nav_waitlist_click", { source: "header" });
+  const onCtaClick = () => trackEvent("nav_try_kairon_click", { source: "header" });
 
   return (
     <header className={`sticky top-0 z-50 border-b bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70 transition-shadow duration-300 ${scrolled ? "border-border shadow-[0_8px_24px_-18px_rgba(5,50,90,0.25)]" : "border-transparent"}`}>
@@ -59,23 +60,25 @@ export function Header() {
 
         <div className="hidden lg:flex items-center gap-3">
           <LangSwitcher />
-          {!hideWaitlistCTA && (
-            <Link
-              to={homeTo as string}
-              hash="waitlist"
+          {!hideProductCTA && (
+            <a
+              href={kaironAppUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={onCtaClick}
               className="inline-flex items-center justify-center bg-foreground px-4 py-2.5 text-[13px] font-medium tracking-wide text-background transition-opacity hover:opacity-90"
             >
               {ctaLabel}
-            </Link>
+            </a>
           )}
         </div>
 
         <div className="lg:hidden flex items-center gap-2">
-          {!hideWaitlistCTA && (
-            <Link
-              to={homeTo as string}
-              hash="waitlist"
+          {!hideProductCTA && (
+            <a
+              href={kaironAppUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => {
                 setOpen(false);
                 onCtaClick();
@@ -83,8 +86,8 @@ export function Header() {
               aria-label={ctaLabel}
               className="inline-flex h-9 w-9 items-center justify-center bg-foreground text-background"
             >
-              <Mail size={16} />
-            </Link>
+              <ArrowUpRight size={16} />
+            </a>
           )}
           <button
             type="button"
@@ -117,10 +120,11 @@ export function Header() {
             ))}
             <div className="mt-4 flex items-center justify-between gap-3">
               <LangSwitcher />
-              {!hideWaitlistCTA && (
-                <Link
-                  to={homeTo as string}
-                  hash="waitlist"
+              {!hideProductCTA && (
+                <a
+                  href={kaironAppUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => {
                     setOpen(false);
                     onCtaClick();
@@ -128,7 +132,7 @@ export function Header() {
                   className="inline-flex flex-1 items-center justify-center bg-foreground px-4 py-3 text-sm font-medium text-background"
                 >
                   {ctaLabel}
-                </Link>
+                </a>
               )}
             </div>
           </div>

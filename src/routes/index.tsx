@@ -31,6 +31,7 @@ import codeLaunchAnnouncement from "@/assets/codelaunch-latam-2026.svg";
 import { buildSeo, canonicalLink, jsonLdScript, faqSchema, breadcrumbSchema } from "@/lib/seo";
 
 const ETW_URL = "https://luma.com/lm4njhiu";
+const KAIRON_APP_URL = "https://getkairon.app";
 
 // Helper: resolve a Spanish canonical path to current-locale path.
 function lp(esPath: string, locale: Locale): string {
@@ -71,7 +72,7 @@ const COPY = {
   es: {
     hero: {
       linkQuiz: "Identifica tu patrón de ejecución",
-      linkWaitlist: "Únete a la waitlist de KAIRON",
+      linkWaitlist: "Probar KAIRON",
       linkEnterprise: "Canal de validación · Enterprise",
       linkInvestors: "Oportunidad de inversión · Pre-seed",
     },
@@ -314,7 +315,7 @@ const COPY = {
   en: {
     hero: {
       linkQuiz: "Identify your execution pattern",
-      linkWaitlist: "Join the KAIRON waitlist",
+      linkWaitlist: "Try KAIRON",
       linkEnterprise: "Validation channel · Enterprise",
       linkInvestors: "Investment opportunity · Pre-seed",
     },
@@ -598,12 +599,9 @@ function Hero() {
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <CTALink to={lp("/g-frame", locale)} hash="waitlist" variant="primary" analyticsLabel="home_hero_waitlist">
+            <CTAExternal href={KAIRON_APP_URL} variant="primary" analyticsLabel="home_hero_try_kairon" target="_blank" rel="noopener noreferrer">
               {c.linkWaitlist}
-            </CTALink>
-            <CTALink to={lp("/g-frame", locale)} hash="waitlist" variant="outline" analyticsLabel="home_hero_tester">
-              {t("home.hero.ctaTester")}
-            </CTALink>
+            </CTAExternal>
           </div>
 
           <div className="mt-9 grid w-full max-w-4xl gap-3 text-[12.5px] text-foreground/72 sm:grid-cols-3">

@@ -11,7 +11,7 @@ export type Dict = DeepReadonly<{
     meta: { title: string; desc: string };
     hero: {
       pillTitle: string; pillSub: string; eyebrow: string; h1: string; lead: string; sub: string;
-      ctaPrimary: string; ctaSecondary: string; ctaTester: string;
+      ctaPrimary: string; ctaSecondary: string;
       trust1: string; trust2: string; trust3: string;
       step1: { t: string; d: string }; step2: { t: string; d: string }; step3: { t: string; d: string };
     };
@@ -84,9 +84,8 @@ export const es: Dict = {
         "KAIRON ayuda a founders, creators y profesionales a detectar los pensamientos que bloquean la ejecución, reencuadrarlos con Kai y convertirlos en acciones validadas de 5 minutos.",
       sub:
         "KAIRON convierte el método I-R-O™ en una experiencia digital para identificar fricción mental, reencuadrar patrones y transformar claridad en acción. G-Structure es la startup que lo está construyendo desde Ecuador.",
-      ctaPrimary: "Explorar KAIRON",
+      ctaPrimary: "Probar KAIRON",
       ctaSecondary: "Ver tesis para inversores",
-      ctaTester: "Ser tester del prototipo",
       trust1: "Basado en principios de coaching cognitivo-conductual.",
       trust2: "Guiado por Kai, tu AI execution coach.",
       trust3: "Diseñado para procrastinación, perfeccionismo, pensamientos de impostor y autosabotaje.",
@@ -205,9 +204,8 @@ export const en: Dict = {
         "KAIRON helps founders, creators, and professionals catch the thoughts that block execution, reframe them with Kai, and convert them into validated 5-minute actions.",
       sub:
         "KAIRON turns the I-R-O™ Method into a digital experience to identify mental friction, reframe patterns, and turn clarity into action. G-Structure is the startup building it from Ecuador.",
-      ctaPrimary: "Explore KAIRON",
+      ctaPrimary: "Try KAIRON",
       ctaSecondary: "See the investor thesis",
-      ctaTester: "Become a Prototype Tester",
       trust1: "Built on cognitive-behavioral coaching principles.",
       trust2: "Guided by Kai, your AI execution coach.",
       trust3: "Designed for procrastination, perfectionism, impostor thoughts, and self-sabotage.",
