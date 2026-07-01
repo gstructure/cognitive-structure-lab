@@ -18,12 +18,16 @@ import {
 import { toast } from "sonner";
 import kaiProductHero from "@/assets/kai-product-hero.png";
 import kaiSectionUpgrade from "@/assets/kai-section-upgrade.png";
-import kaironMockupHome from "@/assets/kairon-mockup-home.webp";
-import kaironMockupScanner from "@/assets/kairon-mockup-scanner.webp";
-import kaironMockupFilter from "@/assets/kairon-mockup-filter.webp";
-import kaironMockupWorkshop from "@/assets/kairon-mockup-workshop.webp";
-import kaironMockupOperations from "@/assets/kairon-mockup-operations.webp";
-import kaironMockupOperationsDetail from "@/assets/kairon-mockup-operations-detail.webp";
+import kaironMvpActionBridge from "@/assets/kairon-mvp-action-bridge.webp";
+import kaironMvpFilter from "@/assets/kairon-mvp-filter.webp";
+import kaironMvpProtocol from "@/assets/kairon-mvp-protocol.webp";
+import kaironMvpScannerReport from "@/assets/kairon-mvp-scanner-report.webp";
+import kaironMvpOnboarding from "@/assets/kairon-mvp-onboarding.webp";
+import kaironMvpActionBridgeEn from "@/assets/kairon-mvp-action-bridge-en.webp";
+import kaironMvpFilterEn from "@/assets/kairon-mvp-filter-en.webp";
+import kaironMvpProtocolEn from "@/assets/kairon-mvp-protocol-en.webp";
+import kaironMvpScannerReportEn from "@/assets/kairon-mvp-scanner-report-en.webp";
+import kaironMvpOnboardingEn from "@/assets/kairon-mvp-onboarding-en.webp";
 import { trackConversion, trackCtaClick } from "@/lib/analytics";
 import type { Locale } from "@/lib/i18n";
 
@@ -96,13 +100,13 @@ type Copy = {
 const COPY: Record<Locale, Copy> = {
   es: {
     hero: {
-      eyebrow: "PRODUCTO PRINCIPAL DE G-STRUCTURE · COGNITIVE OS · LANZAMIENTO Q3 2026",
+      eyebrow: "PRODUCTO PRINCIPAL DE G-STRUCTURE · MVP ACTIVO · LANZAMIENTO Q3 2026",
       h1: "Kai convierte fricción mental en ejecución.",
       body: "KAIRON no es un gestor de tareas, una app de journaling ni un chatbot genérico. Es un Cognitive Operating System para ejecución: detecta los pensamientos, reglas y patrones que bloquean la acción, los trabaja con el método I-R-O™ y los convierte en un Puente de Acción validado.",
       disclaimer: "KAIRON es un sistema de coaching de ejecución, no un servicio clínico. No diagnostica, no trata y no reemplaza atención psicológica, médica o psiquiátrica.",
       cta: "Únete a la lista de espera",
       counter: (n) => `${n} personas ya están en la lista de espera.`,
-      launchNote: "Early access para Ecuador. Los primeros usuarios ayudarán a moldear cómo Kai guía la ejecución.",
+      launchNote: "KAIRON ya pasó de prototipo a MVP. Los primeros usuarios ayudarán a validar el producto real en Ecuador.",
       osLabel: "KAIRON · COGNITIVE OS",
       iro: "I-R-O™ · IDENTIFICAR · REENCUADRAR · OPTIMIZAR",
       version: "KAI · AI EXECUTION COACH",
@@ -132,16 +136,15 @@ const COPY: Record<Locale, Copy> = {
       ],
     },
     prototype: {
-      eyebrow: "PROTOTIPO EN PANTALLA",
-      h2: "Una ruta corta para entender qué te bloquea y convertirlo en acción.",
-      body: "Estos mock-ups muestran la experiencia actual de KAIRON: una pantalla de inicio orientada a la acción, una ruta I-R-O clara y módulos específicos para reencuadrar, profundizar o activar el día.",
+      eyebrow: "MVP EN PANTALLA",
+      h2: "El producto actual: de la fricción ejecutiva a una acción puente.",
+      body: "Estos mockups ya no representan solo una dirección visual. Son pantallas del MVP: onboarding, Escáner con reporte, Filtro guiado por Kai, Protocolo de Reestructuración y Modo Ejecución para cerrar con una acción de 5 minutos.",
       items: [
-        { title: "Inicio", description: "La puerta de entrada: rutas cortas, estado de sesión y próximos pasos.", alt: "Mock-up de Inicio de KAIRON." },
-        { title: "Ruta I-R-O", description: "El usuario no revisa todo: sigue una secuencia guiada para identificar, reencuadrar y optimizar.", alt: "Mock-up de la Ruta I-R-O de KAIRON." },
-        { title: "Motor de Reestructuración", description: "Dos rutas para trabajar un pensamiento: rápido cuando hay bloqueo, profundo cuando el patrón se repite.", alt: "Mock-up del Motor de Reestructuración de KAIRON." },
-        { title: "Quick Reframe", description: "Una intervención breve para ordenar un pensamiento bloqueante y convertirlo en una acción concreta.", alt: "Mock-up de Quick Reframe de KAIRON." },
-        { title: "Restructure Lab", description: "Un flujo más profundo para formular, examinar y reencuadrar patrones recurrentes.", alt: "Mock-up de Restructure Lab de KAIRON." },
-        { title: "Activador matutino", description: "Una decisión de ejecución diaria para preparar el sistema antes de que aparezca la fricción.", alt: "Mock-up del Activador matutino de KAIRON." },
+        { title: "Onboarding", description: "La entrada al Cognitive OS: una promesa clara, enfocada en desbloquear pensamiento, acción y progreso.", alt: "Mockup de onboarding del MVP de KAIRON." },
+        { title: "Escáner + reporte", description: "El usuario visualiza su nivel de fricción, mapa de patrones y lectura dominante.", alt: "Mockup del reporte del Escáner de KAIRON." },
+        { title: "Filtro", description: "Kai guía un reencuadre en tiempo real para destrabar lo que frena al usuario.", alt: "Mockup del Filtro de KAIRON." },
+        { title: "Protocolo", description: "Un programa guiado para reestructurar patrones con módulos y continuidad.", alt: "Mockup del Protocolo de KAIRON." },
+        { title: "Acción Puente", description: "Modo ejecución convierte el insight en una acción concreta de 5 minutos.", alt: "Mockup de Acción Puente de KAIRON." },
       ],
     },
     plans: {
@@ -192,7 +195,7 @@ const COPY: Record<Locale, Copy> = {
     },
     waitlist: {
       h2: "Sé parte del primer grupo.",
-      body: "KAIRON está en construcción activa. Los primeros usuarios tendrán acceso anticipado, precio de fundadores y la oportunidad de ayudar a entrenar una nueva categoría: ejecución guiada por control cognitivo, no por más tareas.",
+      body: "KAIRON ya existe como MVP. Los primeros usuarios tendrán acceso anticipado, precio de fundadores y la oportunidad de ayudar a entrenar una nueva categoría: ejecución guiada por control cognitivo, no por más tareas.",
       emailLabel: "Correo electrónico",
       emailPlaceholder: "tu@correo.com",
       submitIdle: "Quiero acceso anticipado",
@@ -212,13 +215,13 @@ const COPY: Record<Locale, Copy> = {
   },
   en: {
     hero: {
-      eyebrow: "G-STRUCTURE'S MAIN PRODUCT · COGNITIVE OS · LAUNCH Q3 2026",
+      eyebrow: "G-STRUCTURE'S MAIN PRODUCT · LIVE MVP · LAUNCH Q3 2026",
       h1: "Kai turns mental friction into execution.",
       body: "KAIRON is not a task manager, a journaling app, or a generic chatbot. It is a Cognitive Operating System for execution: it detects the thoughts, rules, and patterns that block action, works them through the I-R-O™ Method, and turns them into a validated Action Bridge.",
       disclaimer: "KAIRON is an execution-coaching system, not a clinical service. It does not diagnose, treat, or replace psychological, medical, or psychiatric care.",
       cta: "Join the waitlist",
       counter: (n) => `${n} people are already on the waitlist.`,
-      launchNote: "Early access for Ecuador first. The first users will help shape how Kai guides execution.",
+      launchNote: "KAIRON has moved from prototype to MVP. Early users will validate the real product in Ecuador.",
       osLabel: "KAIRON · COGNITIVE OS",
       iro: "I-R-O™ · IDENTIFY · REFRAME · OPTIMIZE",
       version: "KAI · AI EXECUTION COACH",
@@ -248,16 +251,15 @@ const COPY: Record<Locale, Copy> = {
       ],
     },
     prototype: {
-      eyebrow: "PROTOTYPE SCREENS",
-      h2: "A short route to understand what blocks you and turn it into action.",
-      body: "These mock-ups show the current KAIRON experience: an action-oriented home screen, a clear I-R-O route, and specific modules to reframe, go deeper, or activate the day.",
+      eyebrow: "MVP SCREENS",
+      h2: "The current product: from execution friction to an action bridge.",
+      body: "These mockups no longer represent only a visual direction. They are MVP screens: onboarding, Scanner report, Kai-guided Filter, Restructuring Protocol, and Execution Mode to close with a 5-minute action.",
       items: [
-        { title: "Home", description: "The entry point: short routes, active session state, and next steps.", alt: "KAIRON Home mock-up." },
-        { title: "I-R-O Route", description: "The user does not review everything: they follow a guided sequence to identify, reframe, and optimize.", alt: "KAIRON I-R-O Route mock-up." },
-        { title: "Restructuring Engine", description: "Two paths for working with a thought: quick when blocked, deeper when the pattern repeats.", alt: "KAIRON Restructuring Engine mock-up." },
-        { title: "Quick Reframe", description: "A brief intervention to organize a blocking thought and turn it into a concrete action.", alt: "KAIRON Quick Reframe mock-up." },
-        { title: "Restructure Lab", description: "A deeper flow to formulate, examine, and reframe recurring patterns.", alt: "KAIRON Restructure Lab mock-up." },
-        { title: "Morning Activator", description: "A daily execution decision to prepare the system before friction appears.", alt: "KAIRON Morning Activator mock-up." },
+        { title: "Onboarding", description: "The entry into the Cognitive OS: a clear promise focused on unlocking thought, action, and progress.", alt: "KAIRON MVP onboarding mockup." },
+        { title: "Scanner + report", description: "The user visualizes friction level, pattern map, and dominant reading.", alt: "KAIRON Scanner report mockup." },
+        { title: "Filter", description: "Kai guides a real-time reframe to unlock what is slowing the user down.", alt: "KAIRON Filter mockup." },
+        { title: "Protocol", description: "A guided program to restructure patterns with modules and continuity.", alt: "KAIRON Protocol mockup." },
+        { title: "Action Bridge", description: "Execution Mode turns the insight into a concrete 5-minute action.", alt: "KAIRON Action Bridge mockup." },
       ],
     },
     plans: {
@@ -535,28 +537,26 @@ function ProductScreens({ locale }: { locale: Locale }) {
   const copy = locale === "en"
     ? {
         eyebrow: "PRODUCT IN MOTION",
-        title: "From Kai's guidance to a concrete execution route.",
-        body: "These screens show the current KAIRON direction: Home anchors the project, Operations chooses the route, Scanner detects the pattern, Filter unlocks urgent friction, and Workshop goes deeper when the pattern repeats.",
+        title: "From Kai's guidance to a working MVP flow.",
+        body: "These screens show the current KAIRON MVP: onboarding frames the promise, Scanner reads friction, Filter reframes in real time, Protocol structures deeper change, and Action Bridge moves the user into execution.",
         screens: [
-          { title: "Home", body: "Daily focus, active project, and the fastest path when the user is blocked.", image: kaironMockupHome, alt: "KAIRON Home screen mockup." },
-          { title: "Operations", body: "Kai routes the user between protocol, emergency unblocking, and deeper work.", image: kaironMockupOperations, alt: "KAIRON Operations screen mockup." },
-          { title: "Scanner", body: "A guided execution scanner to map the user's dominant pattern.", image: kaironMockupScanner, alt: "KAIRON Scanner screen mockup." },
-          { title: "Filter", body: "A fast reframe flow for urgent thoughts that are blocking action now.", image: kaironMockupFilter, alt: "KAIRON Filter screen mockup." },
-          { title: "Workshop", body: "A deeper coaching flow for recurring beliefs, interpretations, and patterns.", image: kaironMockupWorkshop, alt: "KAIRON Workshop screen mockup." },
-          { title: "Execution Diary", body: "Actionable proof and progress evidence connected to the active protocol.", image: kaironMockupOperationsDetail, alt: "KAIRON Execution Diary and Operations detail mockup." },
+          { title: "Onboarding", body: "The first screen positions KAIRON as cognitive coaching for better execution.", image: kaironMvpOnboardingEn, alt: "KAIRON MVP onboarding screen." },
+          { title: "Scanner report", body: "The user sees their friction score, pattern map, and dominant execution reading.", image: kaironMvpScannerReportEn, alt: "KAIRON Scanner report MVP screen." },
+          { title: "Filter", body: "Kai guides a real-time reframe when a thought is blocking the next move.", image: kaironMvpFilterEn, alt: "KAIRON Filter MVP screen." },
+          { title: "Protocol", body: "A guided restructuring program gives continuity beyond the immediate block.", image: kaironMvpProtocolEn, alt: "KAIRON Protocol MVP screen." },
+          { title: "Action Bridge", body: "Execution Mode closes the loop with a focused 5-minute action.", image: kaironMvpActionBridgeEn, alt: "KAIRON Action Bridge MVP screen." },
         ],
       }
     : {
         eyebrow: "PRODUCTO EN MOVIMIENTO",
-        title: "De la guía de Kai a una ruta concreta de ejecución.",
-        body: "Estas pantallas muestran la dirección actual de KAIRON: Inicio ancla el proyecto, Operaciones escoge la ruta, Escáner detecta el patrón, Filtro desbloquea fricción urgente y Taller profundiza cuando el patrón se repite.",
+        title: "De la guía de Kai a un flujo MVP funcional.",
+        body: "Estas pantallas muestran el MVP actual de KAIRON: onboarding presenta la promesa, Escáner lee la fricción, Filtro reencuadra en tiempo real, Protocolo estructura el cambio profundo y Acción Puente lleva al usuario a ejecutar.",
         screens: [
-          { title: "Inicio", body: "Enfoque diario, proyecto activo y la ruta más corta cuando el usuario está bloqueado.", image: kaironMockupHome, alt: "Mockup de Inicio de KAIRON." },
-          { title: "Operaciones", body: "Kai enruta al usuario entre protocolo, desbloqueo de emergencia y trabajo profundo.", image: kaironMockupOperations, alt: "Mockup de Operaciones de KAIRON." },
-          { title: "Escáner", body: "Un escáner guiado de ejecución para mapear el patrón dominante del usuario.", image: kaironMockupScanner, alt: "Mockup del Escáner de KAIRON." },
-          { title: "Filtro", body: "Un flujo rápido de reencuadre para pensamientos urgentes que bloquean la acción.", image: kaironMockupFilter, alt: "Mockup del Filtro de KAIRON." },
-          { title: "Taller", body: "Un flujo de coaching más profundo para creencias, interpretaciones y patrones repetidos.", image: kaironMockupWorkshop, alt: "Mockup del Taller de KAIRON." },
-          { title: "Bitácora de Ejecución", body: "Evidencia de avance conectada al protocolo activo y a acciones validadas.", image: kaironMockupOperationsDetail, alt: "Mockup de bitácora y operaciones de KAIRON." },
+          { title: "Onboarding", body: "La primera pantalla posiciona KAIRON como coaching cognitivo para ejecutar mejor.", image: kaironMvpOnboarding, alt: "Pantalla de onboarding del MVP de KAIRON." },
+          { title: "Reporte de Escáner", body: "El usuario ve su índice de fricción, mapa de patrones y lectura dominante.", image: kaironMvpScannerReport, alt: "Pantalla de reporte del Escáner de KAIRON." },
+          { title: "Filtro", body: "Kai guía un reencuadre en tiempo real cuando un pensamiento bloquea el siguiente movimiento.", image: kaironMvpFilter, alt: "Pantalla del Filtro del MVP de KAIRON." },
+          { title: "Protocolo", body: "Un programa guiado de reestructuración da continuidad más allá del bloqueo inmediato.", image: kaironMvpProtocol, alt: "Pantalla del Protocolo del MVP de KAIRON." },
+          { title: "Acción Puente", body: "Modo ejecución cierra el loop con una acción enfocada de 5 minutos.", image: kaironMvpActionBridge, alt: "Pantalla de Acción Puente del MVP de KAIRON." },
         ],
       };
 
@@ -575,22 +575,22 @@ function ProductScreens({ locale }: { locale: Locale }) {
         <div className="lg:col-span-4 border-l-2 border-[color:var(--color-brand)] pl-5">
           <p className="text-sm md:text-[15px] text-foreground/80 leading-relaxed">
             {locale === "en"
-              ? "The product should feel less like a menu and more like a guided route from friction to evidence."
-              : "El producto debe sentirse menos como un menú y más como una ruta guiada desde fricción hacia evidencia."}
+              ? "The prototype validated the structure. The MVP now shows the product path: diagnose, reframe, structure, execute."
+              : "El prototipo validó la estructura. El MVP ya muestra la ruta de producto: diagnosticar, reencuadrar, estructurar, ejecutar."}
           </p>
         </div>
       </div>
 
-      <div className="mt-12 grid gap-5 md:grid-cols-2">
+      <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {copy.screens.map((screen, index) => (
-          <figure key={screen.title} className={index === 0 ? "md:col-span-2" : undefined}>
+          <figure key={screen.title} className={index === 0 ? "sm:col-span-2 lg:col-span-1" : undefined}>
             <div className="overflow-hidden border border-border bg-white">
               <img
                 src={screen.image}
                 alt={screen.alt}
                 loading="lazy"
-                width={1672}
-                height={941}
+                width={945}
+                height={1680}
                 className="w-full object-cover"
               />
             </div>

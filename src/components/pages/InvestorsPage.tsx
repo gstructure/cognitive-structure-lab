@@ -4,12 +4,16 @@ import { Section } from "@/components/site/Section";
 import { Check } from "lucide-react";
 import kaironLogo from "@/assets/kairon-logo.webp";
 import kaiMascot from "@/assets/kai-mascot.webp";
-import mockupHome from "@/assets/kairon-mockup-home.webp";
-import mockupScanner from "@/assets/kairon-mockup-scanner.webp";
-import mockupFilter from "@/assets/kairon-mockup-filter.webp";
-import mockupWorkshop from "@/assets/kairon-mockup-workshop.webp";
-import mockupOperations from "@/assets/kairon-mockup-operations.webp";
-import mockupOperationsDetail from "@/assets/kairon-mockup-operations-detail.webp";
+import mockupOnboarding from "@/assets/kairon-mvp-onboarding.webp";
+import mockupScannerReport from "@/assets/kairon-mvp-scanner-report.webp";
+import mockupFilter from "@/assets/kairon-mvp-filter.webp";
+import mockupProtocol from "@/assets/kairon-mvp-protocol.webp";
+import mockupActionBridge from "@/assets/kairon-mvp-action-bridge.webp";
+import mockupOnboardingEn from "@/assets/kairon-mvp-onboarding-en.webp";
+import mockupScannerReportEn from "@/assets/kairon-mvp-scanner-report-en.webp";
+import mockupFilterEn from "@/assets/kairon-mvp-filter-en.webp";
+import mockupProtocolEn from "@/assets/kairon-mvp-protocol-en.webp";
+import mockupActionBridgeEn from "@/assets/kairon-mvp-action-bridge-en.webp";
 import guillermoPhoto from "@/assets/guillermo-suco.webp";
 import nathanaelPhoto from "@/assets/nathanael-guy.webp";
 import type { Locale } from "@/lib/i18n";
@@ -87,9 +91,9 @@ const COPY: Record<Locale, Copy> = {
       lead: {
         a: "KAIRON convierte el método I-R-O™ en un sistema operativo cognitivo-conductual guiado por Kai. Los canales ",
         channels: "1:1, Enterprise, Workshop y apoyo temprano",
-        b: " existen para validar casos reales, generar revenue temprano y alimentar el producto principal antes del MVP.",
+        b: " existen para validar casos reales, generar revenue temprano y alimentar el MVP.",
       },
-      phoneCaption: "KAIRON · Prototipo activo · Kai como capa operativa",
+      phoneCaption: "KAIRON · MVP activo · Kai como capa operativa",
       phoneAnnotTop: "Escáner de\nEjecución",
       phoneAnnotBottom: "Kai guía el\nsiguiente movimiento",
     },
@@ -136,7 +140,7 @@ const COPY: Record<Locale, Copy> = {
       progressCount: (d, t) => `${d} de ${t} hitos completados`,
       milestones: [
         { tag: "✓ Completado", body: "Método I-R-O™ validado en sesiones reales con emprendedores, profesionales y perfiles de alta exigencia en Ecuador.", done: true },
-        { tag: "✓ Activo", body: "Prototipo KAIRON construido con arquitectura visual, flujos de Escáner, Filtro, Taller, Operaciones y presencia de Kai.", done: true },
+        { tag: "✓ Activo", body: "MVP de KAIRON activo con onboarding, reporte de Escáner, Filtro, Protocolo, Acción Puente y presencia de Kai.", done: true },
         { tag: "Julio 14, 2026", body: "Workshop de Diagnóstico de Ejecución dentro de Ecuador Tech Week: validación pública de categoría, lenguaje y disposición a pagar.", done: false },
         { tag: "Q3 2026", body: "Lanzamiento inicial de KAIRON en Ecuador con primeros testers, lista de espera y medición de activación, retención y conversión.", done: false },
       ],
@@ -183,7 +187,7 @@ const COPY: Record<Locale, Copy> = {
     support: {
       eyebrow: "APOYO TEMPRANO",
       title: "Apoya el lanzamiento antes de una ronda formal de inversión.",
-      body: "Para early believers que quieren ayudar a validar el workshop, fortalecer el prototipo y llevar KAIRON hacia MVP sin recibir equity ni retorno financiero.",
+      body: "Para early believers que quieren ayudar a validar el workshop, fortalecer el MVP de KAIRON y sostener la siguiente etapa sin recibir equity ni retorno financiero.",
       cta: "Apoya G-Structure",
     },
     cta: {
@@ -202,9 +206,9 @@ const COPY: Record<Locale, Copy> = {
       lead: {
         a: "KAIRON turns the I-R-O™ Method into an AI-guided cognitive-behavioral operating system. The ",
         channels: "1:1, Enterprise, Workshop, and early support",
-        b: " channels validate real cases, generate early revenue, and feed the main product before MVP.",
+        b: " channels validate real cases, generate early revenue, and feed the MVP.",
       },
-      phoneCaption: "KAIRON · Active prototype · Kai as the operating layer",
+      phoneCaption: "KAIRON · Live MVP · Kai as the operating layer",
       phoneAnnotTop: "Execution\nScanner",
       phoneAnnotBottom: "Kai guides the\nnext movement",
     },
@@ -251,7 +255,7 @@ const COPY: Record<Locale, Copy> = {
       progressCount: (d, t) => `${d} of ${t} milestones completed`,
       milestones: [
         { tag: "✓ Completed", body: "I-R-O™ Method validated through real sessions with entrepreneurs, professionals, and high-demand profiles in Ecuador.", done: true },
-        { tag: "✓ Active", body: "KAIRON prototype built with visual architecture, Scanner, Filter, Workshop, Operations flows, and Kai presence.", done: true },
+        { tag: "✓ Active", body: "KAIRON live MVP with onboarding, Scanner report, Filter, Protocol, Action Bridge, and Kai presence.", done: true },
         { tag: "July 14, 2026", body: "Execution Diagnostic Workshop inside Ecuador Tech Week: public validation of category, language, and willingness to pay.", done: false },
         { tag: "Q3 2026", body: "Initial KAIRON launch in Ecuador with first testers, waitlist, and measurement of activation, retention, and conversion.", done: false },
       ],
@@ -298,7 +302,7 @@ const COPY: Record<Locale, Copy> = {
     support: {
       eyebrow: "EARLY SUPPORT",
       title: "Support the launch before the formal investment round.",
-      body: "For early believers who want to help validate the workshop, strengthen the prototype, and move KAIRON toward MVP without receiving equity or financial return.",
+      body: "For early believers who want to help validate the workshop, strengthen the KAIRON MVP, and support the next stage without receiving equity or financial return.",
       cta: "Support G-Structure",
     },
     cta: {
@@ -314,23 +318,20 @@ const COPY: Record<Locale, Copy> = {
 
 const productScreens: Record<Locale, { src: string; title: string; body: string }[]> = {
   es: [
-    { src: mockupHome, title: "Inicio", body: "La entrada al ecosistema KAIRON y al acompañamiento de Kai." },
-    { src: mockupScanner, title: "Escáner", body: "Detecta lo que mueve al usuario y lo que está frenando la ejecución." },
-    { src: mockupFilter, title: "Filtro", body: "Atrapa un pensamiento bloqueante y lo procesa con una ruta corta." },
-    { src: mockupWorkshop, title: "Taller", body: "Trabajo profundo para patrones repetidos y bloqueos más complejos." },
-    { src: mockupOperations, title: "Operaciones", body: "Kai prioriza el siguiente movimiento según el estado real del usuario." },
-    { src: mockupOperationsDetail, title: "Bitácora", body: "Convierte avance, protocolo y desbloqueo en seguimiento accionable." },
+    { src: mockupOnboarding, title: "Onboarding", body: "La entrada al Cognitive OS y la promesa central de ejecución." },
+    { src: mockupScannerReport, title: "Escáner + reporte", body: "Visualiza fricción, mapa de patrones y lectura dominante." },
+    { src: mockupFilter, title: "Filtro", body: "Kai guía el reencuadre en tiempo real para destrabar la siguiente acción." },
+    { src: mockupProtocol, title: "Protocolo", body: "Programa guiado para reestructurar patrones con continuidad." },
+    { src: mockupActionBridge, title: "Acción Puente", body: "Convierte insight en una acción concreta de 5 minutos." },
   ],
   en: [
-    { src: mockupHome, title: "Home", body: "The entry point into the KAIRON ecosystem and Kai's guidance." },
-    { src: mockupScanner, title: "Scanner", body: "Detects what moves the user and what is blocking execution." },
-    { src: mockupFilter, title: "Filter", body: "Captures a blocking thought and processes it through a short route." },
-    { src: mockupWorkshop, title: "Workshop", body: "Deep work for repeated patterns and more complex blocks." },
-    { src: mockupOperations, title: "Operations", body: "Kai prioritizes the next movement based on the user's real state." },
-    { src: mockupOperationsDetail, title: "Execution log", body: "Turns progress, protocol, and unblocking into actionable follow-up." },
+    { src: mockupOnboardingEn, title: "Onboarding", body: "The entry into the Cognitive OS and its core execution promise." },
+    { src: mockupScannerReportEn, title: "Scanner + report", body: "Shows friction, pattern map, and the dominant reading." },
+    { src: mockupFilterEn, title: "Filter", body: "Kai guides real-time reframing to unlock the next action." },
+    { src: mockupProtocolEn, title: "Protocol", body: "A guided program to restructure patterns with continuity." },
+    { src: mockupActionBridgeEn, title: "Action Bridge", body: "Turns insight into a concrete 5-minute action." },
   ],
 };
-
 function PhoneMockup({
   copy,
   className = "",
@@ -356,7 +357,7 @@ function PhoneMockup({
       </div>
       <div className={`${widthClass} mx-auto`}>
         <div className="relative overflow-hidden border border-[color:var(--color-brand-deep)] bg-[color:var(--color-brand-deep)] shadow-none">
-          <img src={mockupHome} alt="KAIRON prototype home screen" className="h-auto w-full object-cover" loading="eager" width={1600} height={900} />
+          <img src={copy.phoneCaption.includes("Live MVP") ? mockupOnboardingEn : mockupOnboarding} alt="KAIRON MVP onboarding screen" className="h-auto w-full object-cover" loading="eager" width={945} height={1680} />
         </div>
         <p className="mt-4 text-center text-[11px] tracking-wide text-muted-foreground">{copy.phoneCaption}</p>
       </div>
@@ -524,7 +525,7 @@ function ProductGallery({ locale }: { locale: Locale }) {
         <figure key={screen.title} className="overflow-hidden border border-border bg-[color:var(--color-surface)]">
           <img
             src={screen.src}
-            alt={`${screen.title} KAIRON prototype screen`}
+            alt={`${screen.title} KAIRON MVP screen`}
             loading="lazy"
             width={1600}
             height={900}
