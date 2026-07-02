@@ -40,13 +40,11 @@ type Copy = {
     body: string;
     disclaimer: string;
     cta: string;
-    counter: (n: string) => string;
     launchNote: string;
     osLabel: string;
     iro: string;
     version: string;
     imgAlt: string;
-    captions: string[];
   };
   engine: {
     eyebrow: string;
@@ -95,25 +93,22 @@ type Copy = {
     label: string;
     body: string;
   };
-  counterText: (n: string) => string;
   aiBadge: string;
 };
 
 const COPY: Record<Locale, Copy> = {
   es: {
     hero: {
-      eyebrow: "PRODUCTO PRINCIPAL DE G-STRUCTURE · MVP ACTIVO · LANZAMIENTO Q3 2026",
+      eyebrow: "PRODUCTO PRINCIPAL DE G-STRUCTURE · MVP ACTIVO · AUG 2026",
       h1: "Kai convierte fricción mental en ejecución.",
       body: "KAIRON no es terapia, journal ni chatbot genérico. Es una herramienta de coaching cognitivo con IA: Kai te ayuda a separar situación, emoción e interpretación, llegar a una lectura más precisa y convertirla en una acción concreta en menos de 12 minutos.",
       disclaimer: "KAIRON es un sistema de coaching de ejecución, no un servicio clínico. No diagnostica, no trata y no reemplaza atención psicológica, médica o psiquiátrica.",
       cta: "Probar KAIRON",
-      counter: (n) => `${n} personas ya solicitaron acceso temprano.`,
       launchNote: "KAIRON ya está activo como MVP para usuarios tempranos. Puedes probar la versión actual, compartir feedback y ayudarnos a preparar el lanzamiento comercial.",
       osLabel: "KAIRON · COGNITIVE OS",
       iro: "I-R-O™ · IDENTIFICAR · REENCUADRAR · OPTIMIZAR",
       version: "KAI · AI EXECUTION COACH",
       imgAlt: "Kai, coach de ejecución con IA de KAIRON.",
-      captions: ["Escáner", "Filtro", "Taller", "Protocolo"],
     },
     engine: {
       eyebrow: "CÓMO FUNCIONA",
@@ -212,23 +207,20 @@ const COPY: Record<Locale, Copy> = {
       label: "Nota metodológica",
       body: "KAIRON traduce estructuras cognitivo-conductuales y REBT a lenguaje no clínico enfocado en trabajo, proyectos, ejecución y toma de decisiones. Es coaching de ejecución: no diagnostica, no trata y no reemplaza atención profesional especializada.",
     },
-    counterText: (n) => `${n} personas ya solicitaron acceso temprano.`,
     aiBadge: "IA",
   },
   en: {
     hero: {
-      eyebrow: "G-STRUCTURE'S MAIN PRODUCT · LIVE MVP · LAUNCH Q3 2026",
+      eyebrow: "G-STRUCTURE'S MAIN PRODUCT · LIVE MVP · AUG 2026",
       h1: "Kai turns mental friction into execution.",
       body: "KAIRON is not therapy, a journal, or a generic chatbot. It is an AI cognitive coaching tool: Kai helps you separate the situation, emotion, and interpretation, reach a more precise reading, and turn it into a concrete action in under 12 minutes.",
       disclaimer: "KAIRON is an execution-coaching system, not a clinical service. It does not diagnose, treat, or replace psychological, medical, or psychiatric care.",
       cta: "Try KAIRON",
-      counter: (n) => `${n} people have requested early access.`,
       launchNote: "KAIRON is currently live as an MVP for early users. You can try the current version, share feedback, and help shape the commercial launch.",
       osLabel: "KAIRON · COGNITIVE OS",
       iro: "I-R-O™ · IDENTIFY · REFRAME · OPTIMIZE",
       version: "KAI · AI EXECUTION COACH",
       imgAlt: "Kai, KAIRON's AI execution coach.",
-      captions: ["Scanner", "Filter", "Workshop", "Protocol"],
     },
     engine: {
       eyebrow: "HOW IT WORKS",
@@ -327,7 +319,6 @@ const COPY: Record<Locale, Copy> = {
       label: "Methodological note",
       body: "KAIRON translates cognitive-behavioral and REBT structures into non-clinical language focused on work, projects, execution, and decision-making. It is execution coaching: it does not diagnose, treat, or replace specialized professional care.",
     },
-    counterText: (n) => `${n} people have requested early access.`,
     aiBadge: "AI",
   },
 };
@@ -368,60 +359,35 @@ function useWaitlistCount() {
   return { count, refetch: fetchCount };
 }
 
-function WaitlistCounter({
-  count,
-  locale,
-  tone = "light",
-  className,
-}: {
-  count: number | null;
-  locale: Locale;
-  tone?: "light" | "dark";
-  className?: string;
-}) {
-  if (!count || count <= 0) return null;
-  const color = tone === "dark"
-    ? "text-[color:var(--color-background)]/70"
-    : "text-muted-foreground";
-  const formatted = count.toLocaleString(locale === "es" ? "es-EC" : "en-US");
-  return (
-    <p className={`text-[13px] ${color} ${className ?? ""}`}>
-      <span className="inline-block h-1.5 w-1.5 rounded-full mr-2 align-middle bg-[color:var(--color-brand)]" aria-hidden />
-      {COPY[locale].counterText(formatted)}
-    </p>
-  );
-}
-
 export function GStructPage({ locale }: { locale: Locale }) {
   const waitlist = useWaitlistCount();
   return (
     <>
-      <Hero locale={locale} count={waitlist.count} />
+      <Hero locale={locale} />
       <KaiSection locale={locale} />
       <ProductScreens locale={locale} />
       <Engine locale={locale} />
       <Features locale={locale} />
-      <Plans locale={locale} />
-      <Waitlist locale={locale} count={waitlist.count} refetchCount={waitlist.refetch} />
+      <Waitlist locale={locale} refetchCount={waitlist.refetch} />
       <Note locale={locale} />
     </>
   );
 }
 
-function Hero({ locale, count }: { locale: Locale; count: number | null }) {
+function Hero({ locale }: { locale: Locale }) {
   const c = COPY[locale].hero;
   return (
     <section className="relative overflow-hidden border-b border-border bg-background">
       <div className="absolute inset-0 grid-bg opacity-40" aria-hidden />
-      <div className="container-x relative py-24 md:py-32 grid lg:grid-cols-12 gap-12 items-center">
-        <div className="lg:col-span-7">
+      <div className="container-x relative py-24 md:py-32">
+        <div className="mx-auto max-w-4xl text-center">
           <Eyebrow>{c.eyebrow}</Eyebrow>
-          <h1 className="mt-6 font-display text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.04] text-foreground">
+          <h1 className="mx-auto mt-6 max-w-3xl font-display text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.04] text-foreground">
             {c.h1}
           </h1>
-          <p className="mt-6 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">{c.body}</p>
-          <p className="mt-3 max-w-xl text-xs text-muted-foreground leading-relaxed">{c.disclaimer}</p>
-          <div className="mt-9 flex flex-wrap items-center gap-3">
+          <p className="mx-auto mt-6 max-w-2xl text-base md:text-lg text-muted-foreground leading-relaxed">{c.body}</p>
+          <p className="mx-auto mt-3 max-w-2xl text-xs text-muted-foreground leading-relaxed">{c.disclaimer}</p>
+          <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
             <a
               href={KAIRON_APP_URL}
               target="_blank"
@@ -433,11 +399,10 @@ function Hero({ locale, count }: { locale: Locale; count: number | null }) {
               <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
             </a>
           </div>
-          <WaitlistCounter locale={locale} count={count} className="mt-4" />
-          <p className="mt-2 text-xs text-muted-foreground">{c.launchNote}</p>
+          <p className="mx-auto mt-4 max-w-xl text-xs text-muted-foreground">{c.launchNote}</p>
         </div>
-        <div className="lg:col-span-5">
-          <div className="relative min-h-[420px] overflow-hidden">
+        <div className="mx-auto mt-12 max-w-2xl">
+          <div className="relative min-h-[360px] overflow-hidden md:min-h-[460px]">
             <style>
               {`
                 @keyframes kaiProductFloat {
@@ -460,13 +425,6 @@ function Hero({ locale, count }: { locale: Locale; count: number | null }) {
               height={1254}
               className="relative z-10 mx-auto w-full max-w-[520px] object-contain drop-shadow-[0_36px_52px_rgba(5,50,90,0.26)] motion-safe:animate-[kaiProductFloat_6s_ease-in-out_infinite]"
             />
-          </div>
-          <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 divide-x divide-border border border-border bg-[color:var(--color-surface)] text-center">
-            {c.captions.map((t) => (
-              <p key={t} className="px-2 py-3 text-[10.5px] font-display font-semibold tracking-[0.14em] uppercase text-foreground/75">
-                {t}
-              </p>
-            ))}
           </div>
         </div>
       </div>
@@ -795,11 +753,9 @@ function Plans({ locale }: { locale: Locale }) {
 
 function Waitlist({
   locale,
-  count,
   refetchCount,
 }: {
   locale: Locale;
-  count: number | null;
   refetchCount: () => void;
 }) {
   const c = COPY[locale].waitlist;
@@ -874,7 +830,6 @@ function Waitlist({
             {!done && !submitting ? <ArrowRight size={15} /> : null}
           </button>
         </form>
-        <WaitlistCounter locale={locale} count={count} tone="dark" className="mt-5" />
         <p className="mx-auto mt-4 max-w-xl text-xs text-[color:var(--color-background)]/70 leading-relaxed">{c.foot}</p>
       </div>
     </Section>
