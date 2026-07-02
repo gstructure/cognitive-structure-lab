@@ -9,6 +9,9 @@ type IntercomCommand =
 type IntercomSettings = {
   app_id: string;
   hide_default_launcher?: boolean;
+  language_override?: "en" | "es";
+  custom_launcher_selector?: string;
+  custom_attributes?: Record<string, string | boolean>;
 };
 
 type IntercomFunction = {
@@ -66,12 +69,20 @@ function loadIntercomScript(appId: string) {
   return loadingPromise;
 }
 
-export async function showIntercomMessenger() {
+export async function showIntercomMessenger(locale: "en" | "es") {
   if (!INTERCOM_APP_ID || typeof window === "undefined") return false;
 
   window.intercomSettings = {
     app_id: INTERCOM_APP_ID,
     hide_default_launcher: true,
+    language_override: locale,
+    custom_launcher_selector: "#kai-intercom-fab",
+    custom_attributes: {
+      source: "g_structure_website",
+      interface_language: locale,
+      product_context: "KAIRON",
+      public_mvp_access: true,
+    },
   };
 
   await loadIntercomScript(INTERCOM_APP_ID);

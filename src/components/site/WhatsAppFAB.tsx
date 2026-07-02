@@ -5,7 +5,7 @@ import { useT, useLocale } from "@/lib/i18n";
 import { Assistant } from "./Assistant";
 import { trackContactClick, trackCtaClick } from "@/lib/analytics";
 import { hasIntercomAppId, showIntercomMessenger } from "@/lib/intercom";
-import kaiMascot from "@/assets/kai-mascot.webp";
+import kaiFab from "@/assets/kai-fab.png";
 
 const WA_NUMBER = "593986875121";
 
@@ -143,12 +143,13 @@ export function WhatsAppFAB() {
 
         <button
           type="button"
+          id="kai-intercom-fab"
           aria-label={intercomEnabled ? t("fab.openIntercom") : t("fab.open")}
           onClick={async () => {
             if (intercomEnabled) {
               trackCtaClick("kai_intercom_fab_open", { source: "fab" });
               try {
-                await showIntercomMessenger();
+                await showIntercomMessenger(locale);
               } catch {
                 setIntercomError(true);
                 setOpen(true);
@@ -158,30 +159,57 @@ export function WhatsAppFAB() {
             trackCtaClick("whatsapp_fab_toggle", { state: open ? "close" : "open" });
             setOpen((v) => !v);
           }}
-          className={`relative inline-flex h-14 w-14 items-center justify-center overflow-hidden rounded-full border border-[color:var(--color-brand)]/60 bg-[color:var(--color-brand-deep)] text-[color:var(--color-background)] shadow-[0_18px_42px_-14px_rgba(5,50,90,0.65)] transition-transform hover:-translate-y-0.5 ${
-            open ? "rotate-90" : ""
+          className={`group relative inline-flex h-[68px] w-[68px] items-center justify-center rounded-full border border-cyan-200/70 bg-[radial-gradient(circle_at_50%_28%,#ffffff_0%,#dffbff_34%,#11bdd4_65%,#05325a_100%)] text-[color:var(--color-background)] shadow-[0_22px_46px_-16px_rgba(5,50,90,0.68)] transition-transform duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:ring-cyan-300 ${
+            open && !intercomEnabled ? "rotate-90" : "motion-safe:animate-[kaiFabFloat_4.8s_ease-in-out_infinite]"
           }`}
         >
+          <style>
+            {`
+              @keyframes kaiFabFloat {
+                0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+                50% { transform: translate3d(0, -5px, 0) scale(1.015); }
+              }
+              @keyframes kaiFabGlow {
+                0%, 100% { opacity: 0.34; transform: scale(0.94); }
+                50% { opacity: 0.74; transform: scale(1.1); }
+              }
+              @keyframes kaiFabPing {
+                0%, 100% { opacity: 0.65; transform: scale(1); }
+                50% { opacity: 1; transform: scale(1.16); }
+              }
+            `}
+          </style>
+          <span
+            className="pointer-events-none absolute -inset-3 rounded-full bg-cyan-300/35 blur-xl motion-safe:animate-[kaiFabGlow_3.6s_ease-in-out_infinite]"
+            aria-hidden
+          />
+          <span
+            className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-white/70"
+            aria-hidden
+          />
           {open && !intercomEnabled ? (
-            <X size={18} />
+            <X size={20} className="relative z-10" />
           ) : (
             <img
-              src={kaiMascot}
+              src={kaiFab}
               alt=""
               aria-hidden
-              width={64}
-              height={64}
-              className="h-full w-full scale-125 object-contain object-center drop-shadow-[0_0_14px_rgba(34,211,238,0.45)]"
+              width={1280}
+              height={1280}
+              className="relative z-10 h-[78px] w-[78px] max-w-none translate-y-1 scale-[1.18] object-contain object-center drop-shadow-[0_0_16px_rgba(34,211,238,0.55)] transition-transform duration-300 group-hover:scale-[1.24]"
             />
           )}
           {!open && (
-            <span
-              className="pointer-events-none absolute -inset-1 rounded-full opacity-50"
-              aria-hidden
-              style={{
-                boxShadow: "0 0 0 4px color-mix(in oklch, var(--color-brand) 18%, transparent)",
-              }}
-            />
+            <>
+              <span
+                className="pointer-events-none absolute -inset-1 rounded-full border border-cyan-300/45"
+                aria-hidden
+              />
+              <span
+                className="pointer-events-none absolute right-1 top-1 z-20 h-3 w-3 rounded-full border-2 border-white bg-cyan-300 shadow-[0_0_14px_rgba(34,211,238,0.95)] motion-safe:animate-[kaiFabPing_2.4s_ease-in-out_infinite]"
+                aria-hidden
+              />
+            </>
           )}
         </button>
       </div>
