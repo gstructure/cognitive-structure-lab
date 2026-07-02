@@ -1509,13 +1509,13 @@ function HomeMomentum() {
         items: [
           {
             label: "Startup milestone",
-            title: "Selected for CodeLaunch LATAM 2026.",
-            body: "G-Structure entered the cohort and is moving toward the regional competition in Guadalajara on October 14 and the World Championship in Dallas on November 12.",
+            title: "CodeLaunch LATAM 2026 semifinalist.",
+            body: "G-Structure is waiting to see whether it will be selected for the Guadalajara finals on October 14. If we win that stage, we could advance to Dallas on November 12.",
             to: "/en/articles/g-structure-selected-codelaunch-latam-2026",
             cta: "Read the news",
             external: false,
             image: codeLaunchAnnouncement,
-            imageAlt: "G-Structure selected for CodeLaunch LATAM 2026",
+            imageAlt: "G-Structure CodeLaunch LATAM 2026 semifinalist announcement",
           },
           {
             label: "Launch milestone",
@@ -1538,13 +1538,13 @@ function HomeMomentum() {
         items: [
           {
             label: "Hito startup",
-            title: "Entramos a CodeLaunch LATAM 2026.",
-            body: "G-Structure fue seleccionada para el cohort y avanza hacia la competencia regional en Guadalajara el 14 de octubre y el World Championship en Dallas el 12 de noviembre.",
+            title: "Semifinalistas de CodeLaunch LATAM 2026.",
+            body: "G-Structure espera saber si será seleccionada para las finales en Guadalajara el 14 de octubre. Si ganamos esa etapa, podríamos avanzar a Dallas el 12 de noviembre.",
             to: "/articulos/g-structure-seleccionada-codelaunch-latam-2026",
             cta: "Leer noticia",
             external: false,
             image: codeLaunchAnnouncement,
-            imageAlt: "G-Structure seleccionada para CodeLaunch LATAM 2026",
+            imageAlt: "Anuncio de G-Structure como semifinalista de CodeLaunch LATAM 2026",
           },
           {
             label: "Hito de lanzamiento",

@@ -63,19 +63,6 @@ type Copy = {
     body: string;
     items: { title: string; description: string; alt: string }[];
   };
-  plans: {
-    eyebrow: string;
-    h2: string;
-    featuredBadge: string;
-    cards: {
-      name: string;
-      price: string;
-      items: string[];
-      ctaLabel: string;
-      variant: "primary" | "outline" | "ghost-light";
-      featured?: boolean;
-    }[];
-  };
   waitlist: {
     h2: string;
     body: string;
@@ -144,52 +131,6 @@ const COPY: Record<Locale, Copy> = {
         { title: "Acción Puente", description: "Modo ejecución convierte el insight en una acción concreta de 5 minutos.", alt: "Mockup de Acción Puente de KAIRON." },
       ],
     },
-    plans: {
-      eyebrow: "POR QUÉ PROBAR EL MVP",
-      h2: "Los primeros usuarios van a moldear cómo Kai coachéa.",
-      featuredBadge: "DESTACADO",
-      cards: [
-        {
-          name: "FREE",
-          price: "Gratis",
-          items: [
-            "Acceso inicial a flujos guiados por Kai",
-            "Primeras pruebas del Scanner y Filter",
-            "Updates de producto durante la validación",
-            "Oportunidad de influir en el producto",
-          ],
-          ctaLabel: "Solicitar acceso gratis",
-          variant: "outline",
-        },
-        {
-          name: "PLUS",
-          price: "$20/mes",
-          featured: true,
-          items: [
-            "Acceso prioritario al Cognitive OS",
-            "Filtro y Taller guiados por Kai",
-            "Protocolo de 8 semanas cuando esté disponible",
-            "Bitácora de Ejecución para registrar evidencia",
-            "Founder pricing para early users",
-          ],
-          ctaLabel: "Solicitar Plus",
-          variant: "primary",
-        },
-        {
-          name: "VIP",
-          price: "$50/mes",
-          items: [
-            "Todo lo de Plus",
-            "Sesión mensual de calibración con coach humano",
-            "Auditoría mensual de patrones de ejecución",
-            "Feedback directo para mejorar Kai",
-            "Comunidad privada de builders y high-performers",
-          ],
-          ctaLabel: "Solicitar VIP",
-          variant: "outline",
-        },
-      ],
-    },
     waitlist: {
       h2: "Prueba el MVP activo.",
       body: "KAIRON ya existe como MVP. Los primeros usuarios pueden probar la versión actual, recibir precio de fundadores y ayudar a entrenar una nueva categoría: ejecución guiada por control cognitivo, no por más tareas.",
@@ -254,52 +195,6 @@ const COPY: Record<Locale, Copy> = {
         { title: "Filter", description: "Kai guides a real-time reframe to unlock what is slowing the user down.", alt: "KAIRON Filter mockup." },
         { title: "Protocol", description: "A guided program to restructure patterns with modules and continuity.", alt: "KAIRON Protocol mockup." },
         { title: "Action Bridge", description: "Execution Mode turns the insight into a concrete 5-minute action.", alt: "KAIRON Action Bridge mockup." },
-      ],
-    },
-    plans: {
-      eyebrow: "WHY TRY THE MVP",
-      h2: "Early users will shape how Kai coaches.",
-      featuredBadge: "FEATURED",
-      cards: [
-        {
-          name: "FREE",
-          price: "Free",
-          items: [
-            "Initial access to Kai-guided flows",
-            "First tests of Scanner and Filter",
-            "Product updates during validation",
-            "Opportunity to influence the product",
-          ],
-          ctaLabel: "Request free access",
-          variant: "outline",
-        },
-        {
-          name: "PLUS",
-          price: "$20/mo",
-          featured: true,
-          items: [
-            "Priority access to the Cognitive OS",
-            "Kai-guided Filter and Workshop",
-            "8-week Protocol when available",
-            "Execution Diary for evidence logging",
-            "Founder pricing for early users",
-          ],
-          ctaLabel: "Request Plus",
-          variant: "primary",
-        },
-        {
-          name: "VIP",
-          price: "$50/mo",
-          items: [
-            "Everything in Plus",
-            "Monthly calibration session with a human coach",
-            "Monthly audit of execution patterns",
-            "Direct feedback loop to improve Kai",
-            "Private community of builders and high-performers",
-          ],
-          ctaLabel: "Request VIP",
-          variant: "outline",
-        },
       ],
     },
     waitlist: {
@@ -668,84 +563,6 @@ function Features({ locale }: { locale: Locale }) {
             </div>
           );
         })}
-      </div>
-    </Section>
-  );
-}
-
-function PlanCTA({
-  variant,
-  children,
-}: {
-  variant: "primary" | "outline" | "ghost-light";
-  children: React.ReactNode;
-}) {
-  const styles =
-    variant === "primary"
-      ? "bg-[color:var(--color-brand)] text-[color:var(--color-background)] hover:opacity-90"
-      : variant === "outline"
-        ? "border border-foreground/30 text-foreground hover:border-foreground hover:bg-foreground/5"
-        : "border border-[color:var(--color-background)]/40 text-[color:var(--color-background)] hover:bg-[color:var(--color-background)]/10";
-  return (
-    <a
-      href="#waitlist"
-      onClick={() => trackCtaClick("kairon_plan_waitlist", { plan: String(children) })}
-      className={`group mt-7 inline-flex w-full items-center justify-center gap-2 px-5 min-h-11 py-3 text-[13px] font-medium tracking-wide transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[color:var(--color-brand)] ${
-        variant === "ghost-light" ? "focus-visible:ring-offset-[color:var(--color-brand-deep)]" : "focus-visible:ring-offset-background"
-      } ${styles}`}
-    >
-      {children}
-      <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
-    </a>
-  );
-}
-
-function Plans({ locale }: { locale: Locale }) {
-  const c = COPY[locale].plans;
-  return (
-    <Section id="planes" tone="muted">
-      <Eyebrow>{c.eyebrow}</Eyebrow>
-      <h2 className="mt-4 max-w-3xl font-display text-3xl md:text-4xl leading-[1.08]">{c.h2}</h2>
-      <div className="mt-12 grid gap-6 md:grid-cols-3 items-stretch">
-        {c.cards.map((card) => (
-          <div
-            key={card.name}
-            className={`relative border p-7 md:p-8 flex flex-col ${
-              card.featured
-                ? "border-foreground bg-[color:var(--color-brand-deep)] text-[color:var(--color-background)]"
-                : "border-border bg-[color:var(--color-surface)]"
-            }`}
-          >
-            {card.featured ? (
-              <span className="absolute -top-3 left-7 inline-flex items-center bg-foreground px-2.5 py-1 text-[10px] font-semibold tracking-[0.22em] text-background">
-                {c.featuredBadge}
-              </span>
-            ) : null}
-            <p className={`font-display text-[11px] font-semibold tracking-[0.22em] ${
-              card.featured ? "text-[color:var(--color-background)]/70" : "text-muted-foreground"
-            }`}>
-              {card.name}
-            </p>
-            <p className={`mt-4 font-display text-4xl md:text-5xl font-semibold ${
-              card.featured ? "text-[color:var(--color-background)]" : "text-foreground"
-            }`}>
-              {card.price}
-            </p>
-            <ul className="mt-6 space-y-3 flex-1">
-              {card.items.map((it) => (
-                <li key={it} className="flex gap-2.5 text-sm leading-relaxed">
-                  <Check size={16} className={`mt-0.5 shrink-0 ${
-                    card.featured ? "text-[color:var(--color-background)]" : "text-[color:var(--color-brand)]"
-                  }`} />
-                  <span className={card.featured ? "text-[color:var(--color-background)]/90" : "text-foreground/85"}>
-                    {it}
-                  </span>
-                </li>
-              ))}
-            </ul>
-            <PlanCTA variant={card.variant}>{card.ctaLabel}</PlanCTA>
-          </div>
-        ))}
       </div>
     </Section>
   );
