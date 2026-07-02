@@ -4,6 +4,8 @@ import { useLocation } from "@tanstack/react-router";
 import { useT, useLocale } from "@/lib/i18n";
 import { Assistant } from "./Assistant";
 import { trackContactClick, trackCtaClick } from "@/lib/analytics";
+import { hasIntercomAppId, showIntercomMessenger } from "@/lib/intercom";
+import kaiMascot from "@/assets/kai-mascot.webp";
 
 const WA_NUMBER = "593986875121";
 
@@ -35,9 +37,11 @@ export function WhatsAppFAB() {
   const { locale } = useLocale();
   const [open, setOpen] = useState(false);
   const [showAssistant, setShowAssistant] = useState(false);
+  const [intercomError, setIntercomError] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
   const hidden = location.pathname.startsWith("/inversores");
+  const intercomEnabled = hasIntercomAppId() && !intercomError;
 
   useEffect(() => {
     if (!open) return;
@@ -139,16 +143,37 @@ export function WhatsAppFAB() {
 
         <button
           type="button"
-          aria-label={t("fab.open")}
-          onClick={() => {
+          aria-label={intercomEnabled ? t("fab.openIntercom") : t("fab.open")}
+          onClick={async () => {
+            if (intercomEnabled) {
+              trackCtaClick("kai_intercom_fab_open", { source: "fab" });
+              try {
+                await showIntercomMessenger();
+              } catch {
+                setIntercomError(true);
+                setOpen(true);
+              }
+              return;
+            }
             trackCtaClick("whatsapp_fab_toggle", { state: open ? "close" : "open" });
             setOpen((v) => !v);
           }}
-          className={`relative inline-flex h-12 w-12 items-center justify-center rounded-full border border-[color:var(--color-brand-deep)] bg-[color:var(--color-brand-deep)] text-[color:var(--color-background)] shadow-[0_18px_36px_-12px_rgba(5,50,90,0.55)] transition-transform hover:-translate-y-0.5 ${
+          className={`relative inline-flex h-14 w-14 items-center justify-center overflow-hidden rounded-full border border-[color:var(--color-brand)]/60 bg-[color:var(--color-brand-deep)] text-[color:var(--color-background)] shadow-[0_18px_42px_-14px_rgba(5,50,90,0.65)] transition-transform hover:-translate-y-0.5 ${
             open ? "rotate-90" : ""
           }`}
         >
-          {open ? <X size={18} /> : <MessageCircle size={18} strokeWidth={1.75} />}
+          {open && !intercomEnabled ? (
+            <X size={18} />
+          ) : (
+            <img
+              src={kaiMascot}
+              alt=""
+              aria-hidden
+              width={64}
+              height={64}
+              className="h-full w-full scale-125 object-contain object-center drop-shadow-[0_0_14px_rgba(34,211,238,0.45)]"
+            />
+          )}
           {!open && (
             <span
               className="pointer-events-none absolute -inset-1 rounded-full opacity-50"

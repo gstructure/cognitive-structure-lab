@@ -101,6 +101,7 @@ export const es: Dict = {
   },
   fab: {
     open: "Abrir opciones de contacto",
+    openIntercom: "Hablar con Kai",
     title: "Hablar con G-Structure",
     subtitle: "Elige tu intención y abrimos WhatsApp.",
     options: {
@@ -221,6 +222,7 @@ export const en: Dict = {
   },
   fab: {
     open: "Open contact options",
+    openIntercom: "Talk to Kai",
     title: "Talk to G-Structure",
     subtitle: "Pick your intent and we’ll open WhatsApp.",
     options: {
