@@ -24,7 +24,7 @@ declare global {
   }
 }
 
-const INTERCOM_APP_ID = (import.meta as { env?: Record<string, string | undefined> }).env?.VITE_INTERCOM_APP_ID;
+const INTERCOM_APP_ID = "bpqtriep";
 let booted = false;
 let loadingPromise: Promise<void> | null = null;
 

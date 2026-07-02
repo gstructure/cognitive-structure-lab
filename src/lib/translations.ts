@@ -18,7 +18,7 @@ export type Dict = DeepReadonly<{
   };
   footer: { tagline: string; irO: string };
   fab: {
-    open: string; title: string; subtitle: string;
+    open: string; openIntercom: string; title: string; subtitle: string;
     options: { enterprise: string; reestructura: string; gstruct: string; allies: string; team: string };
     openAssistant: string; note: string;
   };
