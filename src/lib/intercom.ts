@@ -8,6 +8,7 @@ type IntercomCommand =
 
 type IntercomSettings = {
   app_id: string;
+  api_base?: string;
   hide_default_launcher?: boolean;
   language_override?: "en" | "es";
   custom_launcher_selector?: string;
@@ -27,7 +28,8 @@ declare global {
   }
 }
 
-const INTERCOM_APP_ID = "bpqtriep";
+const INTERCOM_APP_ID = "g1zkvebs";
+const INTERCOM_API_BASE = "https://api-iam.intercom.io";
 let booted = false;
 let loadingPromise: Promise<void> | null = null;
 
@@ -74,6 +76,7 @@ export async function showIntercomMessenger(locale: "en" | "es") {
 
   window.intercomSettings = {
     app_id: INTERCOM_APP_ID,
+    api_base: INTERCOM_API_BASE,
     hide_default_launcher: true,
     language_override: locale,
     custom_launcher_selector: "#kai-intercom-fab",

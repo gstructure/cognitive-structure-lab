@@ -82,7 +82,7 @@ export function WhatsAppFAB() {
             <div className="relative flex items-start justify-between gap-3 border-b border-border bg-[color:var(--color-brand-deep)] px-5 py-4 text-[color:var(--color-background)]">
               <div>
                 <p className="text-[10px] font-semibold tracking-[0.22em] opacity-80">
-                  G-STRUCTURE · WHATSAPP
+                  KAI · CONTACT FALLBACK
                 </p>
                 <p className="mt-1 font-display text-base font-semibold">{t("fab.title")}</p>
                 <p className="mt-1 text-[12px] opacity-80">{t("fab.subtitle")}</p>

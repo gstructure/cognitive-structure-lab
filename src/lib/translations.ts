@@ -100,10 +100,10 @@ export const es: Dict = {
     irO: "Método I-R-O™ · Identificar · Reencuadrar · Optimizar",
   },
   fab: {
-    open: "Abrir opciones de contacto",
+    open: "Abrir Kai",
     openIntercom: "Hablar con Kai",
-    title: "Hablar con G-Structure",
-    subtitle: "Elige tu intención y abrimos WhatsApp.",
+    title: "Kai",
+    subtitle: "Si el chat no carga, elige una ruta directa de contacto.",
     options: {
       enterprise: "Soy empresa o equipo",
       reestructura: "Quiero información sobre REESTRUCTURA 1:1",
@@ -112,7 +112,7 @@ export const es: Dict = {
       team: "Quiero unirme al equipo",
     },
     openAssistant: "Abrir asistente de orientación",
-    note: "Respuesta directa con Guillermo.",
+    note: "Fin responde primero cuando Intercom está disponible.",
   },
   assistant: {
     open: "Abrir asistente",
@@ -221,10 +221,10 @@ export const en: Dict = {
     irO: "I-R-O™ Method · Identify · Reframe · Optimize",
   },
   fab: {
-    open: "Open contact options",
+    open: "Open Kai",
     openIntercom: "Talk to Kai",
-    title: "Talk to G-Structure",
-    subtitle: "Pick your intent and we’ll open WhatsApp.",
+    title: "Kai",
+    subtitle: "If chat does not load, choose a direct contact path.",
     options: {
       enterprise: "I’m a company or team",
       reestructura: "I want info about RESTRUCTURE 1:1",
@@ -233,7 +233,7 @@ export const en: Dict = {
       team: "I want to join the team",
     },
     openAssistant: "Open guidance assistant",
-    note: "Direct reply from Guillermo.",
+    note: "Fin replies first when Intercom is available.",
   },
   assistant: {
     open: "Open assistant",
