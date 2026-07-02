@@ -31,7 +31,7 @@ import codeLaunchAnnouncement from "@/assets/codelaunch-latam-2026.svg";
 import { buildSeo, canonicalLink, jsonLdScript, faqSchema, breadcrumbSchema } from "@/lib/seo";
 
 const ETW_URL = "https://luma.com/lm4njhiu";
-const KAIRON_APP_URL = "https://getkairon.app";
+const KAIRON_APP_URL = "https://getkairon.app/start?source=website&campaign=public-mvp-access&cohort=website-prelaunch";
 
 // Helper: resolve a Spanish canonical path to current-locale path.
 function lp(esPath: string, locale: Locale): string {

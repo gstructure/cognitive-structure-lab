@@ -22,7 +22,7 @@ export function Header() {
   const NAV = navForLocale(locale);
   const homeTo = locale === "en" ? "/en" : "/";
   const ctaLabel = locale === "en" ? "Try KAIRON" : "Probar KAIRON";
-  const kaironAppUrl = "https://getkairon.app";
+  const kaironAppUrl = "https://getkairon.app/start?source=website&campaign=public-mvp-access&cohort=website-prelaunch";
 
   // Hide persistent product CTA on investor pages; that flow uses email/deck requests.
   const hideProductCTA = location.pathname.startsWith("/inversores") || location.pathname.startsWith("/en/investors");

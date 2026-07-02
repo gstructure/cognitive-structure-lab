@@ -31,7 +31,7 @@ import kaironMvpOnboardingEn from "@/assets/kairon-mvp-onboarding-en.webp";
 import { trackConversion, trackCtaClick } from "@/lib/analytics";
 import type { Locale } from "@/lib/i18n";
 
-const KAIRON_APP_URL = "https://getkairon.app";
+const KAIRON_APP_URL = "https://getkairon.app/start?source=website&campaign=public-mvp-access&cohort=website-prelaunch";
 
 type Copy = {
   hero: {
