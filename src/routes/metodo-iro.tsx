@@ -11,7 +11,7 @@ export const Route = createFileRoute("/metodo-iro")({
       path: "/metodo-iro",
       title: "Método I-R-O™ | G-Structure",
       description:
-        "I-R-O™ es el método propietario que impulsa G-Frame: Identificar, Reencuadrar y Optimizar la fricción cognitivo-conductual antes de ejecutar.",
+        "I-R-O™ es el método propietario que impulsa KAIRON: Identificar, Reencuadrar y Optimizar la fricción cognitivo-conductual antes de ejecutar.",
     }),
     links: canonicalLink("/metodo-iro"),
     scripts: [jsonLdScript(breadcrumbSchema([{ name: "Método I-R-O™", path: "/metodo-iro" }]))],
@@ -25,7 +25,7 @@ export function IroMethodPage({ locale }: { locale: "es" | "en" }) {
         eyebrow: "THE PROPRIETARY METHOD",
         title: "I-R-O™: Identify. Reframe. Optimize.",
         subtitle:
-          "The framework behind G-Frame: a structured sequence for turning cognitive-behavioral friction into functional action.",
+          "The framework behind KAIRON: a structured sequence for turning cognitive-behavioral friction into functional action.",
         note:
           "I-R-O™ is based on cognitive-behavioral principles adapted to professional execution contexts. It is not therapy and does not replace clinical care.",
       }
@@ -33,7 +33,7 @@ export function IroMethodPage({ locale }: { locale: "es" | "en" }) {
         eyebrow: "EL MÉTODO PROPIETARIO",
         title: "I-R-O™: Identificar. Reencuadrar. Optimizar.",
         subtitle:
-          "El framework que impulsa G-Frame: una secuencia estructurada para convertir fricción cognitivo-conductual en acción funcional.",
+          "El framework que impulsa KAIRON: una secuencia estructurada para convertir fricción cognitivo-conductual en acción funcional.",
         note:
           "I-R-O™ está basado en principios cognitivo-conductuales adaptados a contextos de ejecución profesional. No constituye terapia ni sustituye atención clínica.",
       };

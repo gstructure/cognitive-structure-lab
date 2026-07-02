@@ -10,55 +10,55 @@ export type FAQItem = { q: string; a: string };
 
 const DEFAULT_ES: FAQItem[] = [
   {
-    q: "¿G-Structure es terapia?",
-    a: "No. Es un proceso de coaching cognitivo-conductual aplicado a la ejecución profesional. Si necesitas atención clínica de salud mental, te recomendamos un psicólogo o psicólogo clínico.",
+    q: "¿KAIRON es terapia?",
+    a: "No. KAIRON no es terapia, no diagnostica y no sustituye atención psicológica, médica o psiquiátrica. Es coaching cognitivo estructurado para procesar fricción mental y convertirla en acción.",
   },
   {
-    q: "¿Cómo empieza un proceso?",
-    a: "Con una conversación inicial breve. Permite revisar tu contexto, definir si G-Structure es adecuado y proponer una ruta clara: workshop, proceso individual, intervención Enterprise o continuidad.",
+    q: "¿Qué hace KAIRON?",
+    a: "KAIRON ayuda a profesionales, founders y creators a separar la situación, la emoción y la interpretación que bloquea su ejecución. Kai guía una lectura más precisa y la convierte en una acción concreta en menos de 12 minutos.",
+  },
+  {
+    q: "¿KAIRON es un journal o un chatbot?",
+    a: "No. No es un diario de pensamientos ni un chatbot genérico. Es una herramienta de coaching cognitivo con IA, guiada por Kai y estructurada por el método I-R-O™.",
   },
   {
     q: "¿Trabajan con empresas o solo con individuos?",
-    a: "Ambos. Enterprise está diseñado para equipos, founders y organizaciones. REESTRUCTURA 1:1 es para profesionales, líderes y emprendedores que quieren intervenir su propio patrón de ejecución.",
-  },
-  {
-    q: "¿Qué pasa si no tengo claro qué necesito?",
-    a: "Justamente esa es la función de la conversación inicial. No hace falta llegar con un diagnóstico previo; lo construimos juntos.",
+    a: "Ambos. KAIRON es el producto principal; Enterprise, REESTRUCTURA 1:1 y workshops son canales de validación, aprendizaje y revenue temprano para fortalecer el producto.",
   },
   {
     q: "¿Estoy hablando con una startup o con una firma de coaching?",
-    a: "Con una tech startup. G-Frame es el producto principal. REESTRUCTURA 1:1, Enterprise y workshops son canales de validación, revenue temprano e insight para entrenar el método I-R-O™ antes del lanzamiento.",
+    a: "Con una tech startup. G-Structure construye KAIRON como producto principal: una herramienta de coaching cognitivo con IA para ejecución profesional.",
   },
   {
-    q: "¿Qué es G-Frame y cuándo estará disponible?",
-    a: "G-Frame es la plataforma tecnológica impulsada por el método I-R-O™. Está en desarrollo junto a ÉPICO y su lanzamiento público está previsto para Q3 2026. Puedes sumarte a la lista de espera desde la página G-Frame.",
+    q: "¿KAIRON ya está disponible?",
+    a: "Sí. KAIRON ya está activo como MVP para usuarios tempranos. El producto comercial seguirá evolucionando hacia el lanzamiento público de Q3 2026.",
   },
 ];
 
 const DEFAULT_EN: FAQItem[] = [
   {
-    q: "Is G-Structure therapy?",
-    a: "No. It’s a cognitive-behavioral coaching process applied to professional execution. If you need clinical mental-health care, we recommend a licensed psychologist or clinical psychologist.",
+    q: "Is KAIRON therapy?",
+    a: "No. KAIRON is not therapy, does not diagnose, and does not replace psychological, medical, or psychiatric care. It is structured cognitive coaching for processing mental friction and turning it into action.",
   },
   {
-    q: "How does an engagement begin?",
-    a: "With a short initial conversation. We review your context, define whether G-Structure is the right fit, and propose a clear path: workshop, 1:1 process, Enterprise intervention, or continuity.",
+    q: "What does KAIRON do?",
+    a: "KAIRON helps professionals, founders, and creators separate the situation, the emotion, and the interpretation that blocks execution. Kai guides a more precise reading and turns it into a concrete action in under 12 minutes.",
+  },
+  {
+    q: "Is KAIRON a journal or a chatbot?",
+    a: "No. It is not a thought journal and not a generic chatbot. It is an AI cognitive coaching tool, guided by Kai and structured by the I-R-O™ Method.",
   },
   {
     q: "Do you work with companies or only with individuals?",
-    a: "Both. Enterprise is built for teams, founders, and organizations. RESTRUCTURE 1:1 is for professionals, leaders, and entrepreneurs who want to work on their own execution pattern.",
-  },
-  {
-    q: "What if I’m not sure what I need?",
-    a: "That’s precisely what the initial conversation is for. You don’t need to arrive with a diagnosis; we build it together.",
+    a: "Both. KAIRON is the main product; Enterprise, RESTRUCTURE 1:1, and workshops are validation, learning, and early-revenue channels that strengthen the product.",
   },
   {
     q: "Is this a startup or a coaching firm?",
-    a: "A tech startup. G-Frame is the main product. RESTRUCTURE 1:1, Enterprise, and workshops are validation, early revenue, and insight channels that help train the I-R-O™ Method before launch.",
+    a: "A tech startup. G-Structure is building KAIRON as its main product: an AI cognitive coaching tool for professional execution.",
   },
   {
-    q: "What is G-Frame and when will it be available?",
-    a: "G-Frame is the technology platform powered by the I-R-O™ Method. It is in development with ÉPICO and its public launch is planned for Q3 2026. You can join the waitlist from the G-Frame page.",
+    q: "Is KAIRON already available?",
+    a: "Yes. KAIRON is already live as an MVP for early users. The commercial product will keep evolving toward the Q3 2026 public launch.",
   },
 ];
 

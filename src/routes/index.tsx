@@ -41,19 +41,19 @@ function lp(esPath: string, locale: Locale): string {
 }
 
 const HOME_FAQ = [
-  { q: "¿Qué es G-Structure?", a: "Una tech startup construyendo KAIRON: una plataforma cognitivo-conductual de ejecución profesional impulsada por el método I-R-O™." },
-  { q: "¿G-Structure ofrece terapia?", a: "No. G-Structure es coaching cognitivo-conductual aplicado a contextos de ejecución profesional. No sustituye atención clínica ni psicoterapia." },
+  { q: "¿Qué es G-Structure?", a: "Una tech startup construyendo KAIRON: una herramienta de coaching cognitivo con IA para ayudar a profesionales a procesar la fricción mental que bloquea su ejecución." },
+  { q: "¿G-Structure ofrece terapia?", a: "No. KAIRON no es terapia, no diagnostica y no sustituye atención psicológica, médica o psiquiátrica. Es coaching cognitivo estructurado para ejecución profesional." },
   { q: "¿Qué es el método I-R-O™?", a: "Identificar, Reencuadrar y Optimizar: el framework propietario que impulsa KAIRON y convierte fricción cognitivo-conductual en acción funcional." },
-  { q: "¿Qué es KAIRON?", a: "El producto principal de G-Structure: un MVP activo para diagnosticar fricción ejecutiva, reencuadrarla en tiempo real y sostener acciones concretas antes del lanzamiento Q3 2026." },
+  { q: "¿Qué es KAIRON?", a: "El producto principal de G-Structure: un MVP activo guiado por Kai para separar situación, emoción e interpretación, llegar a una lectura más precisa y convertirla en una acción concreta en menos de 12 minutos." },
 ];
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: buildSeo({
       path: "/",
-      title: "G-Structure | KAIRON · Método I-R-O™ · Startup de ejecución profesional",
+      title: "G-Structure | KAIRON · AI cognitive coaching for execution",
       description:
-        "G-Structure es una tech startup construyendo KAIRON, una plataforma cognitivo-conductual de ejecución profesional impulsada por el método I-R-O™. 1:1, Enterprise y workshops son canales de validación.",
+        "G-Structure es una tech startup construyendo KAIRON, una herramienta de coaching cognitivo con IA guiada por Kai para procesar pensamientos, emociones e interpretaciones que bloquean la ejecución en tiempo real.",
       image: gFrameLogo,
     }),
     links: canonicalLink("/"),

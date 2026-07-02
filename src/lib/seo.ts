@@ -133,18 +133,34 @@ export function gStructSoftwareSchema(locale: "es" | "en" = "es") {
     "@type": "SoftwareApplication",
     name: "KAIRON",
     applicationCategory: "ProductivityApplication",
+    applicationSubCategory: "AI cognitive coaching tool",
     operatingSystem: "iOS, Android, Web",
     url: `${SITE_URL}${isEs ? "/g-frame" : "/en/g-frame"}`,
     inLanguage: isEs ? "es" : "en",
     description: isEs
-      ? "Cognitive OS para ejecución guiado por Kai e impulsado por el método I-R-O."
-      : "Cognitive OS for execution guided by Kai and powered by the I-R-O Method.",
+      ? "Herramienta de coaching cognitivo con IA guiada por Kai para procesar pensamientos, emociones e interpretaciones que bloquean la ejecución, separar situación e interpretación y llegar a una acción concreta en menos de 12 minutos."
+      : "AI cognitive coaching tool guided by Kai to process thoughts, emotions, and interpretations that block execution, separate situation from interpretation, and reach a concrete action in under 12 minutes.",
+    featureList: isEs
+      ? [
+          "Procesamiento de fricción mental en tiempo real",
+          "Coaching cognitivo estructurado guiado por Kai",
+          "Separación de situación, emoción e interpretación",
+          "Acciones concretas en menos de 12 minutos",
+          "No es terapia, journal ni chatbot genérico",
+        ]
+      : [
+          "Real-time mental-friction processing",
+          "Structured cognitive coaching guided by Kai",
+          "Separation of situation, emotion, and interpretation",
+          "Concrete actions in under 12 minutes",
+          "Not therapy, not a journal, not a generic chatbot",
+        ],
     brand: { "@type": "Brand", name: SITE_NAME },
     publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
     creator: { "@type": "Person", name: "Guillermo Suco" },
     offers: {
       "@type": "Offer",
-      availability: "https://schema.org/PreOrder",
+      availability: "https://schema.org/InStock",
       price: "0",
       priceCurrency: "USD",
     },

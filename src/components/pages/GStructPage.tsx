@@ -104,10 +104,10 @@ const COPY: Record<Locale, Copy> = {
     hero: {
       eyebrow: "PRODUCTO PRINCIPAL DE G-STRUCTURE · MVP ACTIVO · LANZAMIENTO Q3 2026",
       h1: "Kai convierte fricción mental en ejecución.",
-      body: "KAIRON no es un gestor de tareas, una app de journaling ni un chatbot genérico. Es un Cognitive Operating System para ejecución: detecta los pensamientos, reglas y patrones que bloquean la acción, los trabaja con el método I-R-O™ y los convierte en un Puente de Acción validado.",
+      body: "KAIRON no es terapia, journal ni chatbot genérico. Es una herramienta de coaching cognitivo con IA: Kai te ayuda a separar situación, emoción e interpretación, llegar a una lectura más precisa y convertirla en una acción concreta en menos de 12 minutos.",
       disclaimer: "KAIRON es un sistema de coaching de ejecución, no un servicio clínico. No diagnostica, no trata y no reemplaza atención psicológica, médica o psiquiátrica.",
       cta: "Probar KAIRON",
-      counter: (n) => `${n} personas ya están en la lista de espera.`,
+      counter: (n) => `${n} personas ya solicitaron acceso temprano.`,
       launchNote: "KAIRON ya está activo como MVP para usuarios tempranos. Puedes probar la versión actual, compartir feedback y ayudarnos a preparar el lanzamiento comercial.",
       osLabel: "KAIRON · COGNITIVE OS",
       iro: "I-R-O™ · IDENTIFICAR · REENCUADRAR · OPTIMIZAR",
@@ -150,7 +150,7 @@ const COPY: Record<Locale, Copy> = {
       ],
     },
     plans: {
-      eyebrow: "POR QUÉ ENTRAR A LA WAITLIST",
+      eyebrow: "POR QUÉ PROBAR EL MVP",
       h2: "Los primeros usuarios van a moldear cómo Kai coachéa.",
       featuredBadge: "DESTACADO",
       cards: [
@@ -163,7 +163,7 @@ const COPY: Record<Locale, Copy> = {
             "Updates de producto durante la validación",
             "Oportunidad de influir en el producto",
           ],
-          ctaLabel: "Acceso gratuito al lanzar",
+          ctaLabel: "Solicitar acceso gratis",
           variant: "outline",
         },
         {
@@ -177,7 +177,7 @@ const COPY: Record<Locale, Copy> = {
             "Bitácora de Ejecución para registrar evidencia",
             "Founder pricing para early users",
           ],
-          ctaLabel: "Unirme con Plus",
+          ctaLabel: "Solicitar Plus",
           variant: "primary",
         },
         {
@@ -190,21 +190,21 @@ const COPY: Record<Locale, Copy> = {
             "Feedback directo para mejorar Kai",
             "Comunidad privada de builders y high-performers",
           ],
-          ctaLabel: "Unirme con VIP",
+          ctaLabel: "Solicitar VIP",
           variant: "outline",
         },
       ],
     },
     waitlist: {
-      h2: "Sé parte del primer grupo.",
-      body: "KAIRON ya existe como MVP. Los primeros usuarios tendrán acceso anticipado, precio de fundadores y la oportunidad de ayudar a entrenar una nueva categoría: ejecución guiada por control cognitivo, no por más tareas.",
+      h2: "Prueba el MVP activo.",
+      body: "KAIRON ya existe como MVP. Los primeros usuarios pueden probar la versión actual, recibir precio de fundadores y ayudar a entrenar una nueva categoría: ejecución guiada por control cognitivo, no por más tareas.",
       emailLabel: "Correo electrónico",
       emailPlaceholder: "tu@correo.com",
-      submitIdle: "Quiero acceso anticipado",
+      submitIdle: "Quiero probar KAIRON",
       submitDone: "Gracias ✓",
       submitLoading: "Enviando…",
-      foot: "Lanzamiento Q3 2026 · Ecuador en primera fase · Sin spam, solo updates reales de producto.",
-      successToast: "Listo. Te avisaremos del lanzamiento.",
+      foot: "MVP activo · Ecuador en primera fase · Sin spam, solo updates reales de producto.",
+      successToast: "Listo. Te enviaremos los siguientes pasos de acceso.",
       errorToast: "No pudimos guardar tu correo. Intenta de nuevo.",
       invalidToast: "Correo inválido. Revisa el formato.",
     },
@@ -212,17 +212,17 @@ const COPY: Record<Locale, Copy> = {
       label: "Nota metodológica",
       body: "KAIRON traduce estructuras cognitivo-conductuales y REBT a lenguaje no clínico enfocado en trabajo, proyectos, ejecución y toma de decisiones. Es coaching de ejecución: no diagnostica, no trata y no reemplaza atención profesional especializada.",
     },
-    counterText: (n) => `${n} personas ya están en la lista de espera.`,
+    counterText: (n) => `${n} personas ya solicitaron acceso temprano.`,
     aiBadge: "IA",
   },
   en: {
     hero: {
       eyebrow: "G-STRUCTURE'S MAIN PRODUCT · LIVE MVP · LAUNCH Q3 2026",
       h1: "Kai turns mental friction into execution.",
-      body: "KAIRON is not a task manager, a journaling app, or a generic chatbot. It is a Cognitive Operating System for execution: it detects the thoughts, rules, and patterns that block action, works them through the I-R-O™ Method, and turns them into a validated Action Bridge.",
+      body: "KAIRON is not therapy, a journal, or a generic chatbot. It is an AI cognitive coaching tool: Kai helps you separate the situation, emotion, and interpretation, reach a more precise reading, and turn it into a concrete action in under 12 minutes.",
       disclaimer: "KAIRON is an execution-coaching system, not a clinical service. It does not diagnose, treat, or replace psychological, medical, or psychiatric care.",
       cta: "Try KAIRON",
-      counter: (n) => `${n} people are already on the waitlist.`,
+      counter: (n) => `${n} people have requested early access.`,
       launchNote: "KAIRON is currently live as an MVP for early users. You can try the current version, share feedback, and help shape the commercial launch.",
       osLabel: "KAIRON · COGNITIVE OS",
       iro: "I-R-O™ · IDENTIFY · REFRAME · OPTIMIZE",
@@ -265,7 +265,7 @@ const COPY: Record<Locale, Copy> = {
       ],
     },
     plans: {
-      eyebrow: "WHY JOIN THE WAITLIST",
+      eyebrow: "WHY TRY THE MVP",
       h2: "Early users will shape how Kai coaches.",
       featuredBadge: "FEATURED",
       cards: [
@@ -278,7 +278,7 @@ const COPY: Record<Locale, Copy> = {
             "Product updates during validation",
             "Opportunity to influence the product",
           ],
-          ctaLabel: "Free access at launch",
+          ctaLabel: "Request free access",
           variant: "outline",
         },
         {
@@ -292,7 +292,7 @@ const COPY: Record<Locale, Copy> = {
             "Execution Diary for evidence logging",
             "Founder pricing for early users",
           ],
-          ctaLabel: "Join with Plus",
+          ctaLabel: "Request Plus",
           variant: "primary",
         },
         {
@@ -305,21 +305,21 @@ const COPY: Record<Locale, Copy> = {
             "Direct feedback loop to improve Kai",
             "Private community of builders and high-performers",
           ],
-          ctaLabel: "Join with VIP",
+          ctaLabel: "Request VIP",
           variant: "outline",
         },
       ],
     },
     waitlist: {
-      h2: "Be part of the first cohort.",
-      body: "KAIRON is in active construction. Early users will get early access, founder pricing, and the chance to help shape a new category: execution guided by cognitive control, not more tasks.",
+      h2: "Try the live MVP.",
+      body: "KAIRON already exists as a live MVP. Early users can try the current version, get founder pricing, and help shape a new category: execution guided by cognitive control, not more tasks.",
       emailLabel: "Email",
       emailPlaceholder: "you@email.com",
-      submitIdle: "I want early access",
+      submitIdle: "I want to try KAIRON",
       submitDone: "Thanks ✓",
       submitLoading: "Sending…",
-      foot: "Launch Q3 2026 · Ecuador in the first phase · No spam, only real product updates.",
-      successToast: "Done. We'll let you know at launch.",
+      foot: "Live MVP · Ecuador in the first phase · No spam, only real product updates.",
+      successToast: "Done. We'll send you the next access steps.",
       errorToast: "We couldn't save your email. Please try again.",
       invalidToast: "Invalid email. Check the format.",
     },
@@ -327,7 +327,7 @@ const COPY: Record<Locale, Copy> = {
       label: "Methodological note",
       body: "KAIRON translates cognitive-behavioral and REBT structures into non-clinical language focused on work, projects, execution, and decision-making. It is execution coaching: it does not diagnose, treat, or replace specialized professional care.",
     },
-    counterText: (n) => `${n} people are already on the waitlist.`,
+    counterText: (n) => `${n} people have requested early access.`,
     aiBadge: "AI",
   },
 };
@@ -579,8 +579,8 @@ function ProductScreens({ locale }: { locale: Locale }) {
         <div className="lg:col-span-4 border-l-2 border-[color:var(--color-brand)] pl-5">
           <p className="text-sm md:text-[15px] text-foreground/80 leading-relaxed">
             {locale === "en"
-              ? "The prototype validated the structure. The MVP now shows the product path: diagnose, reframe, structure, execute."
-              : "El prototipo validó la estructura. El MVP ya muestra la ruta de producto: diagnosticar, reencuadrar, estructurar, ejecutar."}
+              ? "The MVP is live and already shows the product path: diagnose, reframe, structure, execute."
+              : "El MVP ya está activo y muestra la ruta de producto: diagnosticar, reencuadrar, estructurar, ejecutar."}
           </p>
         </div>
       </div>

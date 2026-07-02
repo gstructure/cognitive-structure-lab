@@ -8,7 +8,7 @@ export const Route = createFileRoute("/en/iro-method")({
       path: "/en/iro-method",
       title: "I-R-O™ Method | G-Structure",
       description:
-        "I-R-O™ is the proprietary method behind G-Frame: Identify, Reframe, and Optimize cognitive-behavioral friction before execution.",
+        "I-R-O™ is the proprietary method behind KAIRON: Identify, Reframe, and Optimize cognitive-behavioral friction before execution.",
       locale: "en_US",
     }),
     links: canonicalLink("/en/iro-method"),

@@ -7,9 +7,9 @@ export const Route = createFileRoute("/g-frame")({
   head: () => ({
     meta: buildSeo({
       path: "/g-frame",
-      title: "KAIRON | Cognitive OS para convertir fricción mental en ejecución",
+      title: "KAIRON | Coaching cognitivo con IA para ejecutar mejor",
       description:
-        "KAIRON es el Cognitive OS de G-Structure: una plataforma guiada por Kai para identificar patrones que bloquean la acción, reencuadrarlos y convertirlos en acciones validadas de 5 minutos.",
+        "KAIRON es coaching cognitivo con IA guiado por Kai. Procesa pensamientos, emociones e interpretaciones que bloquean tu ejecución, separa la situación de la lectura mental y te lleva a una acción concreta en menos de 12 minutos.",
       image: kaironLogo,
     }),
     links: canonicalLink("/g-frame"),
