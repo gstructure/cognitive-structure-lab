@@ -28,7 +28,7 @@ declare global {
   }
 }
 
-const INTERCOM_APP_ID = "g1zkvebs";
+const INTERCOM_APP_ID = "bpqtriep";
 const INTERCOM_API_BASE = "https://api-iam.intercom.io";
 let booted = false;
 let loadingPromise: Promise<void> | null = null;
