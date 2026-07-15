@@ -88,8 +88,8 @@ const COPY: Record<Locale, Copy> = {
     hero: {
       eyebrow: "PRODUCTO PRINCIPAL DE G-STRUCTURE · MVP ACTIVO · AUG 2026",
       h1: "Kai convierte fricción mental en ejecución.",
-      body: "KAIRON no es terapia, journal ni chatbot genérico. Es una herramienta de coaching cognitivo con IA: Kai te ayuda a separar situación, emoción e interpretación, llegar a una lectura más precisa y convertirla en una acción concreta en menos de 12 minutos.",
-      disclaimer: "KAIRON es un sistema de coaching de ejecución, no un servicio clínico. No diagnostica, no trata y no reemplaza atención psicológica, médica o psiquiátrica.",
+      body: "KAIRON es una herramienta de coaching cognitivo con IA: Kai te ayuda a separar situación, emoción e interpretación, llegar a una lectura más precisa y convertirla en una acción concreta en menos de 12 minutos.",
+      disclaimer: "Diseñado para ejecución profesional, claridad cognitiva y acción estructurada en momentos de bloqueo.",
       cta: "Probar KAIRON",
       launchNote: "KAIRON ya está activo como MVP para usuarios tempranos. Puedes probar la versión actual, compartir feedback y ayudarnos a preparar el lanzamiento comercial.",
       osLabel: "KAIRON · COGNITIVE OS",
@@ -146,7 +146,7 @@ const COPY: Record<Locale, Copy> = {
     },
     note: {
       label: "Nota metodológica",
-      body: "KAIRON traduce estructuras cognitivo-conductuales y REBT a lenguaje no clínico enfocado en trabajo, proyectos, ejecución y toma de decisiones. Es coaching de ejecución: no diagnostica, no trata y no reemplaza atención profesional especializada.",
+      body: "KAIRON traduce estructuras cognitivo-conductuales y REBT a lenguaje aplicado para trabajo, proyectos, ejecución y toma de decisiones. Su foco es ayudar al usuario a procesar fricción mental y salir con una acción más clara.",
     },
     aiBadge: "IA",
   },
@@ -154,8 +154,8 @@ const COPY: Record<Locale, Copy> = {
     hero: {
       eyebrow: "G-STRUCTURE'S MAIN PRODUCT · LIVE MVP · AUG 2026",
       h1: "Kai turns mental friction into execution.",
-      body: "KAIRON is not therapy, a journal, or a generic chatbot. It is an AI cognitive coaching tool: Kai helps you separate the situation, emotion, and interpretation, reach a more precise reading, and turn it into a concrete action in under 12 minutes.",
-      disclaimer: "KAIRON is an execution-coaching system, not a clinical service. It does not diagnose, treat, or replace psychological, medical, or psychiatric care.",
+      body: "KAIRON is an AI cognitive coaching tool: Kai helps you separate the situation, emotion, and interpretation, reach a more precise reading, and turn it into a concrete action in under 12 minutes.",
+      disclaimer: "Designed for professional execution, cognitive clarity, and structured action in moments of friction.",
       cta: "Try KAIRON",
       launchNote: "KAIRON is currently live as an MVP for early users. You can try the current version, share feedback, and help shape the commercial launch.",
       osLabel: "KAIRON · COGNITIVE OS",
@@ -212,7 +212,7 @@ const COPY: Record<Locale, Copy> = {
     },
     note: {
       label: "Methodological note",
-      body: "KAIRON translates cognitive-behavioral and REBT structures into non-clinical language focused on work, projects, execution, and decision-making. It is execution coaching: it does not diagnose, treat, or replace specialized professional care.",
+      body: "KAIRON translates cognitive-behavioral and REBT structures into applied language for work, projects, execution, and decision-making. Its focus is helping the user process mental friction and leave with a clearer action.",
     },
     aiBadge: "AI",
   },
@@ -331,8 +331,8 @@ function KaiSection({ locale }: { locale: Locale }) {
   const copy = locale === "en"
     ? {
         eyebrow: "MEET KAI",
-        title: "Kai is not a chatbot. Kai is the operating layer.",
-        body: "Most AI apps make the user start from a blank prompt. KAIRON does the opposite: Kai already knows the product structure, the active project, the protocol route, and the next logical action.",
+        title: "Kai is the operating layer.",
+        body: "Kai gives the user a guided starting point: product structure, active project, protocol route, and the next logical action are already part of the experience.",
         items: [
           "Explains each step before asking the user to act.",
           "Turns messy input into a usable thought, emotion, rule, or action.",
@@ -342,8 +342,8 @@ function KaiSection({ locale }: { locale: Locale }) {
       }
     : {
         eyebrow: "CONOCE A KAI",
-        title: "Kai no es un chatbot. Kai es la capa operativa.",
-        body: "La mayoría de apps con IA te dejan frente a una caja vacía. KAIRON hace lo contrario: Kai conoce la estructura del producto, el proyecto activo, la ruta de protocolo y la siguiente acción lógica.",
+        title: "Kai es la capa operativa.",
+        body: "Kai le da al usuario un punto de partida guiado: la estructura del producto, el proyecto activo, la ruta de protocolo y la siguiente acción lógica ya forman parte de la experiencia.",
         items: [
           "Explica cada paso antes de pedirle actuar al usuario.",
           "Convierte entradas confusas en pensamiento, emoción, regla o acción usable.",

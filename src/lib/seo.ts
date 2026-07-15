@@ -146,14 +146,14 @@ export function gStructSoftwareSchema(locale: "es" | "en" = "es") {
           "Coaching cognitivo estructurado guiado por Kai",
           "Separación de situación, emoción e interpretación",
           "Acciones concretas en menos de 12 minutos",
-          "No es terapia, journal ni chatbot genérico",
+          "Flujo I-R-O™ para pasar de lectura interna a acción",
         ]
       : [
           "Real-time mental-friction processing",
           "Structured cognitive coaching guided by Kai",
           "Separation of situation, emotion, and interpretation",
           "Concrete actions in under 12 minutes",
-          "Not therapy, not a journal, not a generic chatbot",
+          "I-R-O™ flow for moving from internal reading to action",
         ],
     brand: { "@type": "Brand", name: SITE_NAME },
     publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },

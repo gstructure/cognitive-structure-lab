@@ -39,10 +39,11 @@ function Page() {
         </div>
       </section>
       <Section tone="muted">
-        <h2 className="font-display text-3xl md:text-4xl leading-[1.08]">This is not therapy. It’s not surface-level motivation either.</h2>
+        <h2 className="font-display text-3xl md:text-4xl leading-[1.08]">An applied process for turning clarity into behavior.</h2>
         <p className="mt-5 max-w-3xl text-base md:text-lg text-muted-foreground leading-relaxed">
           RESTRUCTURE 1:1 combines individual sessions with applied work between sessions so the
-          change translates into real behavior. The focus is professional execution, not clinical care.
+          change translates into real behavior. The focus is professional execution, pattern awareness,
+          and concrete action between sessions.
         </p>
       </Section>
     </>

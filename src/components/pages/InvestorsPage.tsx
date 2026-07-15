@@ -117,14 +117,14 @@ const COPY: Record<Locale, Copy> = {
     thesis: [
       { label: "Problema", title: "La ejecución se rompe antes de la tarea.", body: "La mayoría de herramientas organiza lo externo. KAIRON interviene la fricción interna: pensamientos, reglas, bloqueos y costo mental antes de actuar." },
       { label: "Método", title: "I-R-O™ es el motor propietario.", body: "Identificar, Reencuadrar y Optimizar traduce metodología cognitivo-conductual en una secuencia repetible para software." },
-      { label: "Producto", title: "Kai convierte método en experiencia.", body: "Kai no es un chatbot decorativo. Es la capa operativa que interpreta, guía, ordena y convierte insight en siguiente movimiento." },
+      { label: "Producto", title: "Kai convierte método en experiencia.", body: "Kai es la capa operativa que interpreta, guía, ordena y convierte insight en siguiente movimiento." },
       { label: "Escala", title: "KAIRON nace desde Ecuador para LATAM.", body: "Servicios, workshops y Enterprise validan la categoría; el negocio escalable es el Cognitive OS de ejecución." },
     ],
     product: {
       eyebrow: "QUÉ CONSTRUIMOS",
       title: "KAIRON es el producto.",
       p1: "KAIRON es un Cognitive Operating System para ejecución. Ayuda a founders, profesionales y equipos a escanear su fricción mental, filtrar pensamientos bloqueantes, trabajar patrones repetidos y cerrar cada sesión con un Puente de Acción de 5 minutos.",
-      p2: "No es un task manager, no es journaling genérico y no es terapia. Es infraestructura cognitivo-conductual aplicada a productividad, claridad y ejecución profesional.",
+      p2: "Es infraestructura cognitivo-conductual aplicada a productividad, claridad y ejecución profesional: una capa que conecta lectura interna, decisión y siguiente movimiento.",
       bullets: [
         { highlight: "Kai", rest: " funciona como coach de ejecución dentro del producto: pregunta, interpreta, ordena y guía sin convertirse en terapeuta." },
         { highlight: "El loop I-R-O™", rest: " convierte fricción en acción: Identificar el patrón, Reencuadrar la lectura y Optimizar la salida conductual." },
@@ -232,14 +232,14 @@ const COPY: Record<Locale, Copy> = {
     thesis: [
       { label: "Problem", title: "Execution breaks before the task.", body: "Most tools organize the outside. KAIRON intervenes the inside: thoughts, rules, blocks, and mental cost before action." },
       { label: "Method", title: "I-R-O™ is the proprietary engine.", body: "Identify, Reframe, and Optimize turns cognitive-behavioral methodology into a repeatable software sequence." },
-      { label: "Product", title: "Kai turns method into experience.", body: "Kai is not a decorative chatbot. It is the operating layer that interprets, guides, orders, and converts insight into the next movement." },
+      { label: "Product", title: "Kai turns method into experience.", body: "Kai is the operating layer that interprets, guides, orders, and converts insight into the next movement." },
       { label: "Scale", title: "KAIRON is built from Ecuador for LATAM.", body: "Services, workshops, and Enterprise validate the category; the scalable business is the Cognitive OS for execution." },
     ],
     product: {
       eyebrow: "WHAT WE BUILD",
       title: "KAIRON is the product.",
       p1: "KAIRON is a Cognitive Operating System for execution. It helps founders, professionals, and teams scan mental friction, filter blocking thoughts, work repeated patterns, and close each session with a 5-minute Action Bridge.",
-      p2: "It is not a task manager, generic journaling, or therapy. It is cognitive-behavioral infrastructure applied to productivity, clarity, and professional execution.",
+      p2: "It is cognitive-behavioral infrastructure applied to productivity, clarity, and professional execution: a layer that connects internal reading, decision, and next movement.",
       bullets: [
         { highlight: "Kai", rest: " works as an execution coach inside the product: asking, interpreting, ordering, and guiding without becoming a therapist." },
         { highlight: "The I-R-O™ loop", rest: " turns friction into action: Identify the pattern, Reframe the reading, and Optimize the behavioral output." },

@@ -4,7 +4,7 @@ import { Section } from "@/components/site/Section";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { Eyebrow } from "@/components/site/Eyebrow";
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
-import { Check, ArrowRight, X } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
 import reestructuraLogo from "@/assets/reestructura-1-1-logo.webp";
 import { buildSeo, canonicalLink, jsonLdScript, breadcrumbSchema } from "@/lib/seo";
 import { BookingDialog } from "@/components/booking/BookingDialog";
@@ -233,16 +233,16 @@ function Page() {
         </div>
 
         <div className="mt-12 border border-border bg-[color:var(--color-surface)] p-8 md:p-10">
-          <p className="eyebrow text-muted-foreground">ESTO PROBABLEMENTE NO ES PARA TI SI…</p>
+          <p className="eyebrow text-muted-foreground">FUNCIONA MEJOR CUANDO HAY DISPOSICIÓN A…</p>
           <ul className="mt-5 grid gap-3 md:grid-cols-2">
             {[
-              "Buscas una charla motivacional.",
-              "Esperas soluciones mágicas o inmediatas.",
-              "No estás dispuesto a observar tus propios patrones.",
-              "Necesitas atención clínica especializada en este momento.",
+              "Observar patrones propios con honestidad.",
+              "Trabajar entre sesiones con acciones concretas.",
+              "Cuestionar lecturas internas que bloquean ejecución.",
+              "Sostener un proceso estructurado de cambio aplicado.",
             ].map((i) => (
               <li key={i} className="flex gap-3 text-sm text-foreground/80">
-                <X size={16} className="mt-0.5 shrink-0 text-muted-foreground" />
+                <Check size={16} className="mt-0.5 shrink-0 text-[color:var(--color-brand-deep)]" />
                 <span>{i}</span>
               </li>
             ))}
@@ -256,16 +256,15 @@ function Page() {
           <div className="lg:col-span-5">
             <Eyebrow>ALCANCE DEL PROCESO</Eyebrow>
             <h2 className="mt-4 font-display text-2xl md:text-3xl leading-[1.12]">
-              Esto no es terapia. Tampoco es motivación superficial.
+              Un proceso aplicado para transformar claridad en conducta.
             </h2>
           </div>
           <div className="lg:col-span-7">
             <div className="border-l-2 border-[color:var(--color-brand-deep)] pl-6 md:pl-8">
               <p className="text-base md:text-lg text-foreground/85 leading-relaxed">
                 REESTRUCTURA 1:1 es un proceso de coaching y formación cognitivo-conductual
-                aplicado a la ejecución. No sustituye atención psicológica, médica o
-                psiquiátrica. Si una situación requiere tratamiento clínico, se recomendará
-                buscar apoyo profesional especializado.
+                aplicado a la ejecución. Su foco es ayudar a observar patrones, reencuadrar
+                lecturas internas y convertir claridad en decisiones y acciones sostenibles.
               </p>
             </div>
           </div>

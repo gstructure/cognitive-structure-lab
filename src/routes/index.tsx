@@ -28,6 +28,11 @@ import kaironProductHomeEn from "@/assets/kairon-product-home-en.webp";
 
 import etwBadge from "@/assets/etw-2026-badge.webp";
 import codeLaunchAnnouncement from "@/assets/codelaunch-latam-2026.svg";
+import tractionStagePresenting from "@/assets/traction-stage-presenting.webp";
+import tractionRoomWide from "@/assets/traction-room-wide.webp";
+import tractionAudienceClose from "@/assets/traction-audience-close.webp";
+import tractionUserTesting from "@/assets/traction-user-testing.webp";
+import tractionStageEnergy from "@/assets/traction-stage-energy.webp";
 import { buildSeo, canonicalLink, jsonLdScript, faqSchema, breadcrumbSchema } from "@/lib/seo";
 
 const ETW_URL = "https://luma.com/lm4njhiu";
@@ -42,7 +47,7 @@ function lp(esPath: string, locale: Locale): string {
 
 const HOME_FAQ = [
   { q: "¿Qué es G-Structure?", a: "Una tech startup construyendo KAIRON: una herramienta de coaching cognitivo con IA para ayudar a profesionales a procesar la fricción mental que bloquea su ejecución." },
-  { q: "¿G-Structure ofrece terapia?", a: "No. KAIRON no es terapia, no diagnostica y no sustituye atención psicológica, médica o psiquiátrica. Es coaching cognitivo estructurado para ejecución profesional." },
+  { q: "¿Cómo ayuda KAIRON a ejecutar?", a: "Kai guía al usuario para separar situación, emoción e interpretación, y convertir esa lectura en una siguiente acción concreta." },
   { q: "¿Qué es el método I-R-O™?", a: "Identificar, Reencuadrar y Optimizar: el framework propietario que impulsa KAIRON y convierte fricción cognitivo-conductual en acción funcional." },
   { q: "¿Qué es KAIRON?", a: "El producto principal de G-Structure: un MVP activo guiado por Kai para separar situación, emoción e interpretación, llegar a una lectura más precisa y convertirla en una acción concreta en menos de 12 minutos." },
 ];
@@ -132,8 +137,8 @@ const COPY = {
     method: {
       eyebrow: "EL MÉTODO PROPIETARIO",
       title: "I-R-O™: Identificar. Reencuadrar. Optimizar.",
-      lead: "El framework que impulsa KAIRON: una secuencia estructurada para convertir fricción cognitivo-conductual en acción funcional. Selecciona cada fase para ver el detalle.",
-      footnote: "El método I-R-O™ está basado en principios de la Terapia Cognitivo-Conductual (CBT), adaptados a contextos de ejecución profesional. No constituye terapia ni sustituye atención clínica. I-R-O™ Method es un framework propietario desarrollado por G-Structure.",
+      lead: "El framework propietario que impulsa KAIRON: una secuencia defendible para pasar de fricción mental a una acción concreta sin exponer la mecánica interna del producto.",
+      footnote: "I-R-O™ Method es un framework propietario desarrollado por G-Structure para ejecución profesional, guiado por Kai dentro de KAIRON.",
     },
     faq: {
       eyebrow: "PREGUNTAS FRECUENTES",
@@ -158,9 +163,9 @@ const COPY = {
           una herramienta diaria de ejecución para profesionales, founders y equipos.
         </>
       ),
-      disclaimer: "No somos una app de terapia. No hacemos diagnóstico clínico. KAIRON es una herramienta de coaching, psicoeducación y optimización de ejecución basada en principios cognitivo-conductuales.",
+      disclaimer: "KAIRON es una herramienta de coaching cognitivo con IA para procesar fricción mental, separar situación, emoción e interpretación, y cerrar cada sesión con una acción concreta.",
       p1: "KAIRON lleva el método I-R-O™ a tu bolsillo. Una app móvil diseñada para identificar la fricción que bloquea tu ejecución, reencuadrarla con metodología CBT coaching, y optimizar tu acción — disponible 24/7.",
-      p2: "No es una app de bienestar. No es un diario de pensamientos. No es otra lista de tareas. Es la herramienta que separa a quienes saben lo que hay que hacer de quienes realmente lo hacen.",
+      p2: "Funciona como una capa de ejecución cognitiva: Kai ordena la fricción del momento, guía una lectura más precisa y te ayuda a salir con movimiento.",
       previewAlt: "Vista del MVP activo de KAIRON.",
       features: [
         { t: "Motor de Reestructuración", d: "Identifica la situación, nombra la emoción, mide su intensidad, llega a la creencia núcleo. Si puedes medirlo, puedes optimizarlo." },
@@ -375,8 +380,8 @@ const COPY = {
     method: {
       eyebrow: "THE PROPRIETARY METHOD",
       title: "I-R-O™: Identify. Reframe. Optimize.",
-      lead: "The framework that powers KAIRON: a structured sequence to turn cognitive-behavioral friction into functional action. Select each phase to see the detail.",
-      footnote: "The I-R-O™ Method is based on Cognitive-Behavioral Therapy (CBT) principles, adapted to professional execution contexts. It is not therapy and does not replace clinical care. I-R-O™ Method is a proprietary framework developed by G-Structure.",
+      lead: "The proprietary framework behind KAIRON: a defensible sequence for moving from mental friction to concrete action without exposing the product's internal mechanics.",
+      footnote: "I-R-O™ Method is a proprietary framework developed by G-Structure for professional execution, guided by Kai inside KAIRON.",
     },
     faq: {
       eyebrow: "FREQUENTLY ASKED QUESTIONS",
@@ -401,9 +406,9 @@ const COPY = {
           into a daily execution tool for professionals, founders, and teams.
         </>
       ),
-      disclaimer: "We're not a therapy app. We don't make clinical diagnoses. KAIRON is a coaching, psychoeducation, and execution-optimization tool based on cognitive-behavioral principles.",
+      disclaimer: "KAIRON is an AI cognitive coaching tool for processing mental friction, separating situation, emotion, and interpretation, and closing each session with a concrete action.",
       p1: "KAIRON brings the I-R-O™ Method to your pocket. A mobile app designed to identify the friction blocking your execution, reframe it with CBT coaching methodology, and optimize your action — available 24/7.",
-      p2: "It's not a wellness app. It's not a thought journal. It's not another to-do list. It's the tool that separates those who know what to do from those who actually do it.",
+      p2: "It works as a cognitive execution layer: Kai organizes the friction of the moment, guides a more precise reading, and helps the user leave with movement.",
       previewAlt: "Preview of the live KAIRON MVP.",
       features: [
         { t: "Restructuring Engine", d: "Identify the situation, name the emotion, measure its intensity, reach the core belief. If you can measure it, you can optimize it." },
@@ -1179,6 +1184,163 @@ function ProductTeaser() {
   );
 }
 
+function ValidationTraction() {
+  const { locale } = useLocale();
+  const copy = locale === "en"
+    ? {
+        eyebrow: "VALIDATION",
+        title: "52 people have already tried it.",
+        subtitle: "40 in Ecuador, 12 in the United States. This is what they said.",
+        stats: [
+          { value: "52", label: "real users" },
+          { value: "40", label: "in Ecuador" },
+          { value: "12", label: "in the United States" },
+        ],
+        testimonials: [
+          {
+            role: "HR Manager — Philadelphia",
+            quote: "I tried to cheat it — and it still got my pattern right.",
+            note: "Scanner validated even against deliberate attempts to manipulate it.",
+          },
+          {
+            role: "Marketing Manager — Philadelphia",
+            quote: "This goes to the core of the problem. It's commercially fit and worth selling.",
+          },
+          {
+            role: "Software Engineer — Philadelphia",
+            quote: "Well built, intuitive. I would keep using this.",
+          },
+          {
+            role: "Clinical Psychologist — Guayaquil",
+            quote: "I would use this with my clients. It's not intrusive — it guides you and makes you feel understood and cared for.",
+          },
+          {
+            role: "Founder — Guayaquil",
+            quote: "This should always accompany founders. It helps them break away from their blocks and not give up.",
+          },
+        ],
+        stage:
+          "That same night, G-Structure presented KAIRON at The Stage Pitch Competition, part of Ecuador Tech Week, organized by Startup Grind and Viamatica.",
+        images: [
+          { src: tractionStagePresenting, alt: "G-Structure presenting KAIRON during Ecuador Tech Week." },
+          { src: tractionRoomWide, alt: "Audience testing KAIRON during the Execution Diagnostic Workshop." },
+          { src: tractionUserTesting, alt: "KAIRON being tested with a participant during the workshop." },
+          { src: tractionAudienceClose, alt: "Workshop participants listening during KAIRON validation." },
+          { src: tractionStageEnergy, alt: "G-Structure founder presenting KAIRON at the workshop." },
+        ],
+      }
+    : {
+        eyebrow: "VALIDACIÓN",
+        title: "52 personas ya lo probaron.",
+        subtitle: "40 en Ecuador, 12 en Estados Unidos. Esto es lo que dijeron.",
+        stats: [
+          { value: "52", label: "usuarios reales" },
+          { value: "40", label: "en Ecuador" },
+          { value: "12", label: "en Estados Unidos" },
+        ],
+        testimonials: [
+          {
+            role: "HR Manager — Philadelphia",
+            quote: "Intenté engañarlo — y aun así detectó mi patrón correctamente.",
+            note: "Scanner validado incluso contra intentos deliberados de manipulación.",
+          },
+          {
+            role: "Marketing Manager — Philadelphia",
+            quote: "Esto va al núcleo del problema. Tiene fit comercial y vale la pena venderlo.",
+          },
+          {
+            role: "Software Engineer — Philadelphia",
+            quote: "Bien construido, intuitivo. Lo seguiría usando.",
+          },
+          {
+            role: "Psicóloga clínica — Guayaquil",
+            quote: "Lo usaría con mis clientes. No es intrusivo — te guía y te hace sentir comprendido y cuidado.",
+          },
+          {
+            role: "Founder — Guayaquil",
+            quote: "Esto debería acompañar siempre a los founders. Les ayuda a salir de sus bloqueos y no rendirse.",
+          },
+        ],
+        stage:
+          "Esa misma noche, G-Structure presentó KAIRON en The Stage Pitch Competition, parte de Ecuador Tech Week, organizado por Startup Grind y Viamatica.",
+        images: [
+          { src: tractionStagePresenting, alt: "G-Structure presentando KAIRON durante Ecuador Tech Week." },
+          { src: tractionRoomWide, alt: "Audiencia probando KAIRON durante el Workshop de Diagnóstico de Ejecución." },
+          { src: tractionUserTesting, alt: "KAIRON siendo probado con un participante durante el workshop." },
+          { src: tractionAudienceClose, alt: "Participantes del workshop escuchando durante la validación de KAIRON." },
+          { src: tractionStageEnergy, alt: "Founder de G-Structure presentando KAIRON en el workshop." },
+        ],
+      };
+
+  return (
+    <Section tone="muted">
+      <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
+        <div className="lg:col-span-5">
+          <SectionHeader eyebrow={copy.eyebrow} title={copy.title} subtitle={copy.subtitle} />
+          <div className="mt-8 grid grid-cols-3 gap-px border border-border bg-border">
+            {copy.stats.map((stat) => (
+              <div key={stat.label} className="bg-[color:var(--color-surface)] p-4 md:p-5">
+                <p className="font-display text-3xl md:text-4xl font-semibold leading-none text-[color:var(--color-brand)]">
+                  {stat.value}
+                </p>
+                <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-7 border-l-2 border-[#12786B] pl-5 text-sm md:text-[15px] leading-relaxed text-foreground/80">
+            {copy.stage}
+          </p>
+        </div>
+
+        <div className="lg:col-span-7">
+          <div className="grid gap-px border border-border bg-border md:grid-cols-2">
+            {copy.testimonials.map((item, index) => (
+              <article
+                key={item.role}
+                className={`bg-[color:var(--color-surface)] p-5 md:p-6 ${index === 1 ? "md:row-span-1" : ""}`}
+              >
+                <p className="font-display text-[10px] font-semibold uppercase tracking-[0.2em] text-[#12786B]">
+                  {item.role}
+                </p>
+                <blockquote className="mt-4 font-display text-xl md:text-2xl leading-tight text-foreground">
+                  “{item.quote}”
+                </blockquote>
+                {item.note ? (
+                  <p className="mt-4 text-xs md:text-[13px] leading-relaxed text-muted-foreground">
+                    {item.note}
+                  </p>
+                ) : null}
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-12 grid gap-3 md:grid-cols-12">
+        {copy.images.map((image, index) => (
+          <figure
+            key={image.alt}
+            className={`overflow-hidden border border-border bg-[color:var(--color-surface)] ${
+              index === 0 ? "md:col-span-5" : index === 1 ? "md:col-span-7" : "md:col-span-4"
+            }`}
+          >
+            <img
+              src={image.src}
+              alt={image.alt}
+              loading="lazy"
+              width={1400}
+              height={788}
+              className="h-full min-h-[220px] w-full object-cover transition-transform duration-500 hover:scale-[1.02]"
+            />
+          </figure>
+        ))}
+      </div>
+    </Section>
+  );
+}
+
 function Founder() {
   const { locale } = useLocale();
   const c = COPY[locale].founder;
@@ -1634,6 +1796,7 @@ export function Index() {
     <>
       <Hero />
       <ProductTeaser />
+      <ValidationTraction />
       <StartupStage />
       <HomeMomentum />
       <SupportLaunchTeaser />

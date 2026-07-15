@@ -10,16 +10,16 @@ export type FAQItem = { q: string; a: string };
 
 const DEFAULT_ES: FAQItem[] = [
   {
-    q: "¿KAIRON es terapia?",
-    a: "No. KAIRON no es terapia, no diagnostica y no sustituye atención psicológica, médica o psiquiátrica. Es coaching cognitivo estructurado para procesar fricción mental y convertirla en acción.",
+    q: "¿Qué hace KAIRON cuando me bloqueo?",
+    a: "Kai te guía para separar la situación, la emoción y la interpretación que está cargando tu ejecución. Después convierte esa lectura en una acción concreta para avanzar.",
   },
   {
     q: "¿Qué hace KAIRON?",
     a: "KAIRON ayuda a profesionales, founders y creators a separar la situación, la emoción y la interpretación que bloquea su ejecución. Kai guía una lectura más precisa y la convierte en una acción concreta en menos de 12 minutos.",
   },
   {
-    q: "¿KAIRON es un journal o un chatbot?",
-    a: "No. No es un diario de pensamientos ni un chatbot genérico. Es una herramienta de coaching cognitivo con IA, guiada por Kai y estructurada por el método I-R-O™.",
+    q: "¿Cómo trabaja Kai dentro de KAIRON?",
+    a: "Kai funciona como coach de ejecución con IA: pregunta con estructura, ordena la fricción mental y ayuda a elegir el siguiente movimiento dentro del flujo I-R-O™.",
   },
   {
     q: "¿Trabajan con empresas o solo con individuos?",
@@ -37,16 +37,16 @@ const DEFAULT_ES: FAQItem[] = [
 
 const DEFAULT_EN: FAQItem[] = [
   {
-    q: "Is KAIRON therapy?",
-    a: "No. KAIRON is not therapy, does not diagnose, and does not replace psychological, medical, or psychiatric care. It is structured cognitive coaching for processing mental friction and turning it into action.",
+    q: "What does KAIRON do when I get blocked?",
+    a: "Kai guides you to separate the situation, the emotion, and the interpretation that is loading your execution. Then it turns that reading into a concrete action to move forward.",
   },
   {
     q: "What does KAIRON do?",
     a: "KAIRON helps professionals, founders, and creators separate the situation, the emotion, and the interpretation that blocks execution. Kai guides a more precise reading and turns it into a concrete action in under 12 minutes.",
   },
   {
-    q: "Is KAIRON a journal or a chatbot?",
-    a: "No. It is not a thought journal and not a generic chatbot. It is an AI cognitive coaching tool, guided by Kai and structured by the I-R-O™ Method.",
+    q: "How does Kai work inside KAIRON?",
+    a: "Kai works as an AI execution coach: it asks with structure, organizes mental friction, and helps choose the next movement inside the I-R-O™ flow.",
   },
   {
     q: "Do you work with companies or only with individuals?",
