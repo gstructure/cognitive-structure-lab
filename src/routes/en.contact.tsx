@@ -8,7 +8,7 @@ export const Route = createFileRoute("/en/contact")({
       path: "/en/contact",
       title: "Contact | G-Structure",
       description:
-        "Let’s talk about your context: diagnostic, RESTRUCTURE 1:1, Enterprise intervention, partnerships, or team. Email, WhatsApp, and a direct form with G-Structure.",
+        "Let's talk about KAIRON, the Execution Diagnostic Workshop for companies, press, investment, or team. Email, WhatsApp, and a direct form with G-Structure.",
       locale: "en_US",
     }),
     links: canonicalLink("/en/contact"),

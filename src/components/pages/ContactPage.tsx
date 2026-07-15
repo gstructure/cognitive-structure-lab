@@ -3,38 +3,33 @@ import { useState } from "react";
 import { Section } from "@/components/site/Section";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { Eyebrow } from "@/components/site/Eyebrow";
-import { Mail, Phone, Globe, ArrowRight, ArrowUpRight, Building2, User, Cpu, Handshake, Users, CheckCircle2 } from "lucide-react";
+import { Mail, Phone, Globe, ArrowRight, ArrowUpRight, Building2, Cpu, Users, CheckCircle2 } from "lucide-react";
 import { SocialLinks } from "@/components/site/SocialLinks";
-import { BriefDownloadCard } from "@/components/site/BriefDownloadCard";
 import { trackContactClick, trackConversion } from "@/lib/analytics";
 import type { Locale } from "@/lib/i18n";
 
-type RequestKey = "enterprise" | "reestructura" | "diagnostico" | "g-struct" | "aliados" | "equipo" | "otro";
+type RequestKey = "enterprise" | "diagnostico" | "g-struct" | "equipo" | "otro";
 
 const COPY = {
   es: {
     eyebrow: "CONTACTO",
     h1: "Antes de intervenir, conversamos.",
     lead:
-      "Una conversación inicial permite revisar si G-Structure es adecuado para tu contexto y qué ruta tendría más sentido: diagnóstico, proceso individual, intervención Enterprise o continuidad.",
+      "Una conversación inicial permite revisar si G-Structure es adecuado para tu contexto y qué ruta tendría más sentido: workshop de diagnóstico, KAIRON, empresa o equipo.",
     routeEyebrow: "ELIGE TU RUTA",
     routeTitle: "¿Qué te trae a G-Structure?",
     routeSubtitle:
       "Si ya sabes qué te interesa explorar, ve directo a la página correspondiente. Si no, completa el formulario y nos coordinamos.",
     open: "Ir a la página",
     routes: [
-      { to: "/enterprise", icon: Building2, t: "Enterprise", d: "Workshop, REESTRUCTURA Enterprise y continuidad." },
-      { to: "/reestructura-1-1", icon: User, t: "REESTRUCTURA 1:1", d: "Proceso individual de coaching cognitivo-conductual." },
-      { to: "/g-frame", icon: Cpu, t: "KAIRON", d: "Lista de espera de la app del método." },
-      { to: "/aliados-etw-2026", icon: Handshake, t: "Aliados ETW 2026", d: "Sumarse al Workshop en Ecuador Tech Week 2026." },
+      { to: "/enterprise", icon: Building2, t: "Workshop de Diagnóstico", d: "Lleva el diagnóstico de fricción de ejecución a tu empresa." },
+      { to: "/g-frame", icon: Cpu, t: "KAIRON", d: "MVP activo de coaching cognitivo con IA." },
       { to: "/unete-al-equipo", icon: Users, t: "Únete al equipo", d: "Construir desde una etapa temprana." },
     ],
     requestTypes: {
       enterprise: "Enterprise / equipo",
-      reestructura: "REESTRUCTURA 1:1",
       diagnostico: "Workshop de Diagnóstico",
       "g-struct": "KAIRON",
-      aliados: "Alianza / sponsorship ETW 2026",
       equipo: "Unirme al equipo",
       otro: "Otro",
     },
@@ -78,25 +73,21 @@ const COPY = {
     eyebrow: "CONTACT",
     h1: "Before we intervene, we talk.",
     lead:
-      "An initial conversation helps us see whether G-Structure fits your context and which path makes the most sense: diagnostic, individual process, Enterprise intervention, or continuity.",
+      "An initial conversation helps us see whether G-Structure fits your context and which path makes the most sense: diagnostic workshop, KAIRON, company, or team.",
     routeEyebrow: "CHOOSE YOUR PATH",
     routeTitle: "What brings you to G-Structure?",
     routeSubtitle:
       "If you already know what you want to explore, go directly to the relevant page. If not, complete the form and we will coordinate from there.",
     open: "Open page",
     routes: [
-      { to: "/en/enterprise", icon: Building2, t: "Enterprise", d: "Workshop, RESTRUCTURE Enterprise, and continuity for teams." },
-      { to: "/en/restructure-1-1", icon: User, t: "RESTRUCTURE 1:1", d: "Individual cognitive-behavioral process." },
-      { to: "/en/g-frame", icon: Cpu, t: "KAIRON", d: "Product waitlist, early access, or collaboration." },
-      { to: "/en/etw-2026-partners", icon: Handshake, t: "ETW 2026 Partners", d: "Partnerships for the Diagnostic Workshop." },
+      { to: "/en/enterprise", icon: Building2, t: "Diagnostic Workshop", d: "Bring the execution friction diagnostic to your company." },
+      { to: "/en/g-frame", icon: Cpu, t: "KAIRON", d: "Live MVP for AI cognitive coaching." },
       { to: "/en/join-the-team", icon: Users, t: "Join the team", d: "Build with us from an early stage." },
     ],
     requestTypes: {
       enterprise: "Enterprise / team",
-      reestructura: "RESTRUCTURE 1:1",
       diagnostico: "Diagnostic Workshop",
       "g-struct": "KAIRON",
-      aliados: "Partnership / ETW 2026 sponsorship",
       equipo: "Join the team",
       otro: "Other",
     },
@@ -164,13 +155,9 @@ export function ContactPage({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <Section>
-        <BriefDownloadCard />
-      </Section>
-
       <Section tone="muted">
         <SectionHeader eyebrow={c.routeEyebrow} title={c.routeTitle} subtitle={c.routeSubtitle} />
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {c.routes.map((r) => {
             const Icon = r.icon;
             return (

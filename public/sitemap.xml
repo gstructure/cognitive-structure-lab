@@ -150,23 +150,6 @@
   </url>
 
   <url>
-    <loc>https://g-structure.co/reestructura-1-1</loc>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/reestructura-1-1"/>
-    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/reestructura-1-1"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/restructure-1-1"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/reestructura-1-1"/>
-  </url>
-  <url>
-    <loc>https://g-structure.co/en/restructure-1-1</loc>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/reestructura-1-1"/>
-    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/reestructura-1-1"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/restructure-1-1"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/reestructura-1-1"/>
-  </url>
-
-  <url>
     <loc>https://g-structure.co/inversores</loc>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/inversores"/>
@@ -198,23 +181,6 @@
     <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/sobre-guillermo"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/about-guillermo"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/sobre-guillermo"/>
-  </url>
-
-  <url>
-    <loc>https://g-structure.co/aliados-etw-2026</loc>
-    <priority>0.65</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/aliados-etw-2026"/>
-    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/aliados-etw-2026"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/etw-2026-partners"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/aliados-etw-2026"/>
-  </url>
-  <url>
-    <loc>https://g-structure.co/en/etw-2026-partners</loc>
-    <priority>0.65</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/aliados-etw-2026"/>
-    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/aliados-etw-2026"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/etw-2026-partners"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/aliados-etw-2026"/>
   </url>
 
   <url>

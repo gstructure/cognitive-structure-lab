@@ -127,8 +127,8 @@ const UI_COPY = {
         Tu patrón de ejecución es el punto de partida. <strong className="text-[color:var(--color-background)]">KAIRON</strong> está siendo diseñado para ayudarte a trabajar ese patrón con herramientas de reencuadre, claridad y acción estructurada.
       </>
     ),
-    ctaWaitlist: "Únete a la lista de espera de KAIRON",
-    ctaRestructure: "Conocer REESTRUCTURA 1:1",
+    ctaWaitlist: "Probar KAIRON",
+    ctaRestructure: "Conocer el producto",
     restart: "Volver a empezar",
   },
   en: {
@@ -144,8 +144,8 @@ const UI_COPY = {
         Your execution pattern is the starting point. <strong className="text-[color:var(--color-background)]">KAIRON</strong> is being designed to help you work that pattern with reframing tools, clarity, and structured action.
       </>
     ),
-    ctaWaitlist: "Join the KAIRON waitlist",
-    ctaRestructure: "Learn about RESTRUCTURE 1:1",
+    ctaWaitlist: "Try KAIRON",
+    ctaRestructure: "Learn about the product",
     restart: "Start over",
   },
 } as const;
@@ -251,14 +251,13 @@ export function FrictionQuiz() {
             </p>
             <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3">
               <Link
-                to="/"
-                hash="waitlist"
+                to={locale === "en" ? "/en/g-frame" : "/g-frame"}
                 className="inline-flex items-center gap-2 bg-[color:var(--color-background)] px-5 py-3 text-[13px] font-semibold tracking-wide text-[color:var(--color-brand-deep)] hover:opacity-90"
               >
                 {ui.ctaWaitlist} <ArrowRight size={14} />
               </Link>
               <Link
-                to={locale === "en" ? "/en/restructure-1-1" : "/reestructura-1-1"}
+                to={locale === "en" ? "/en/g-frame" : "/g-frame"}
                 className="inline-flex items-center gap-2 border border-[color:var(--color-background)]/50 px-5 py-3 text-[13px] font-medium text-[color:var(--color-background)] hover:bg-[color:var(--color-background)]/10"
               >
                 {ui.ctaRestructure} <ArrowRight size={14} />

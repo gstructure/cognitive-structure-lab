@@ -13,14 +13,12 @@ I-R-O™ is G-Structure's proprietary method: Identify, Reframe, and Optimize. P
 - [Inicio](/): Visión general de G-Structure, KAIRON, tracción, producto y próximos hitos.
 - [KAIRON](/g-frame): Producto principal de G-Structure y MVP activo de coaching cognitivo con IA.
 - [Método I-R-O™](/metodo-iro): Método propietario de G-Structure explicado desde resultados para el usuario.
-- [Enterprise](/enterprise): Programas y workshops para empresas que quieren trabajar fricción de ejecución en sus equipos.
-- [Reestructura 1:1](/reestructura-1-1): Canal individual de validación y aprendizaje aplicado.
+- [Enterprise](/enterprise): Workshop de Diagnóstico de Ejecución para empresas y equipos que quieren trabajar fricción de ejecución.
 - [Sobre nosotros](/nosotros): Equipo, historia y origen de KAIRON.
 - [Sobre Guillermo](/sobre-guillermo): Trayectoria del founder y creador del método I-R-O™.
 - [Inversores](/inversores): Tesis startup, oportunidad pre-seed y avance del producto.
 - [Apoya el lanzamiento](/apoya-el-lanzamiento): Apoyo temprano para la validación y desarrollo de KAIRON.
 - [Artículos](/articulos): Notas de producto, founder notes y reflexiones sobre ejecución.
-- [Aliados ETW 2026](/aliados-etw-2026): Información del workshop dentro de Ecuador Tech Week 2026.
 - [Únete al equipo](/unete-al-equipo): Oportunidades para sumarse a G-Structure.
 - [Contacto](/contacto): Formulario y canales para iniciar conversación.
 - [Políticas legales](/politicas-legales): Términos, privacidad y límites de uso.
@@ -30,14 +28,12 @@ I-R-O™ is G-Structure's proprietary method: Identify, Reframe, and Optimize. P
 - [Home](/en): G-Structure, KAIRON, traction, product, and startup milestones.
 - [KAIRON](/en/g-frame): G-Structure's main product and live MVP for AI cognitive coaching.
 - [I-R-O™ Method](/en/iro-method): G-Structure's proprietary method explained through user-facing outcomes.
-- [Enterprise](/en/enterprise): Programs and workshops for companies working on execution friction.
-- [Restructure 1:1](/en/restructure-1-1): Individual validation and applied learning channel.
+- [Enterprise](/en/enterprise): Execution Diagnostic Workshop for companies and teams working on execution friction.
 - [About us](/en/about): Team, story, and origin of KAIRON.
 - [About Guillermo](/en/about-guillermo): Founder background and creator of the I-R-O™ Method.
 - [Investors](/en/investors): Startup thesis, pre-seed opportunity, and product progress.
 - [Support the Launch](/en/support-the-launch): Early support for KAIRON validation and development.
 - [Articles](/en/articles): Product notes, founder notes, and essays on execution.
-- [ETW 2026 Partners](/en/etw-2026-partners): Workshop information inside Ecuador Tech Week 2026.
 - [Join the team](/en/join-the-team): Career and collaboration opportunities.
 - [Contact](/en/contact): Get in touch.
 

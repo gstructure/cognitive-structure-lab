@@ -6,10 +6,8 @@ import { Eyebrow } from "@/components/site/Eyebrow";
 import { Reveal } from "@/components/site/Reveal";
 import { MethodTabs } from "@/components/site/MethodTabs";
 import { FAQ } from "@/components/site/FAQ";
-import { BriefDownloadCard } from "@/components/site/BriefDownloadCard";
 import { FrictionQuiz } from "@/components/site/FrictionQuiz";
-import { WaitlistForm } from "@/components/site/WaitlistForm";
-import { SupportLaunchTeaser } from "@/components/site/SupportLaunchTeaser";
+import { WaitlistForm, WaitlistInline } from "@/components/site/WaitlistForm";
 import { ArticleCard } from "@/components/articles/ArticleCard";
 
 import { CTALink, CTAExternal } from "@/components/site/CTAButton";
@@ -22,8 +20,10 @@ import logoCube from "@/assets/g-structure-cube.webp";
 import gFrameLogo from "@/assets/kairon-logo.webp";
 import kaiMascot from "@/assets/kai-mascot.webp";
 import kaiMini from "@/assets/kai-hero-transparent.png";
-import kaironProductHomeEs from "@/assets/kairon-product-home-es.webp";
-import kaironProductHomeEn from "@/assets/kairon-product-home-en.webp";
+import kaironHomeScreen from "@/assets/kairon-home-screen.webp";
+import kaironDailyActivator from "@/assets/kairon-daily-activator.webp";
+import kaironNocturnoChat from "@/assets/kairon-nocturno-chat.webp";
+import kaironFilterConversation from "@/assets/kairon-filter-conversation.webp";
 
 
 import etwBadge from "@/assets/etw-2026-badge.webp";
@@ -95,21 +95,21 @@ const COPY = {
       city: "Guayaquil, Ecuador",
       poweredBy: "Powered by Startup Grind",
       ctaEvent: "Ver evento oficial",
-      ctaPartner: "Quiero ser aliado",
+      ctaPartner: "Solicitar workshop",
       micro: "#SoyHost · Compartimos el propósito de hacer del Ecuador un referente tecnológico regional.",
       badgeAlt: "Badge oficial Host Ecuador Tech Week 2026 — G-Structure",
     },
     announcements: {
       eyebrow: "MOMENTUM",
       title: "Construyendo la siguiente etapa de G-Structure.",
-      subtitle: "Estamos abriendo espacios estratégicos para aliados y colaboradores que quieran ser parte del crecimiento inicial del ecosistema G-Structure.",
+      subtitle: "Estamos abriendo espacios estratégicos para empresas y colaboradores que quieran ser parte del crecimiento inicial del ecosistema G-Structure.",
       allies: {
-        tag: "ALIADOS ETW 2026",
-        title: "Aliados para el Workshop de Diagnóstico de Ejecución",
-        body: "G-Structure está abriendo oportunidades de alianza para marcas, instituciones y empresas que quieran vincularse al Workshop de Diagnóstico de Ejecución durante Ecuador Tech Week 2026.",
-        short: "Buscamos aliados que entiendan el valor de apoyar conversaciones serias sobre ejecución, claridad, tecnología, emprendimiento y desarrollo profesional.",
-        cta: "Quiero ser aliado",
-        micro: "Espacios limitados para aliados estratégicos, experiencia, sede o contenido.",
+        tag: "WORKSHOP B2B",
+        title: "Workshop de Diagnóstico de Ejecución",
+        body: "G-Structure lleva el Workshop de Diagnóstico a empresas y equipos que necesitan entender qué está bloqueando su ejecución.",
+        short: "Una puerta B2B para diagnosticar fricción real, aprender con equipos y fortalecer KAIRON desde problemas vivos de ejecución.",
+        cta: "Solicitar workshop",
+        micro: "Sesiones para empresas, equipos y organizaciones que necesitan claridad antes de intervenir.",
       },
       team: {
         tag: "EQUIPO INICIAL",
@@ -212,17 +212,15 @@ const COPY = {
     channels: {
       eyebrow: "CÓMO ESTAMOS VALIDANDO KAIRON",
       title: "No son negocios separados. Son capas de una misma estrategia.",
-      subtitle: "G-Structure no opera tres negocios separados: usa 1:1, Enterprise y workshops como canales de validación, datos cualitativos y revenue temprano para construir KAIRON como producto digital escalable.",
+      subtitle: "G-Structure usa el Workshop de Diagnóstico como puerta B2B para aprender con equipos reales, generar tracción temprana y fortalecer KAIRON como producto digital escalable.",
       items: [
-        { tag: "01 · CANAL INDIVIDUAL", t: "REESTRUCTURA 1:1", d: "Sesiones individuales que validan el método I-R-O™ con profesionales, líderes y emprendedores que enfrentan fricción de ejecución.", esTo: "/reestructura-1-1", cta: "Conocer 1:1" },
-        { tag: "02 · CANAL B2B", t: "REESTRUCTURA Enterprise", d: "Programa B2B para mapear patrones de ejecución en equipos, founders y organizaciones — y generar revenue temprano para la startup.", esTo: "/enterprise", cta: "Conocer Enterprise" },
-        { tag: "03 · CANAL DE ACTIVACIÓN", t: "Workshop de Diagnóstico de Ejecución", d: "Experiencia grupal diseñada para educar, diagnosticar patrones de ejecución y activar usuarios tempranos para KAIRON.", esTo: "/aliados-etw-2026", cta: "Workshop · ETW 2026" },
-        { tag: "04 · PRODUCTO ESCALABLE", t: "KAIRON App", d: "El producto digital que escala la metodología. Lo que aprendemos en los canales anteriores alimenta directamente su construcción.", esTo: "/g-frame", cta: "Explorar KAIRON" },
+        { tag: "01 · CANAL B2B", t: "Workshop de Diagnóstico de Ejecución", d: "Experiencia grupal para identificar fricción de ejecución en equipos y abrir conversaciones B2B que alimentan la adopción de KAIRON.", esTo: "/enterprise", cta: "Explorar workshop" },
+        { tag: "02 · PRODUCTO ESCALABLE", t: "KAIRON App", d: "El producto digital que escala la metodología. Lo que aprendemos con usuarios y empresas alimenta directamente su construcción.", esTo: "/g-frame", cta: "Explorar KAIRON" },
       ],
       footer: (
         <>
           Compañía: <strong className="text-foreground">G-Structure</strong> · Producto principal: <strong className="text-foreground">KAIRON</strong> ·
-          Canales de validación: <strong className="text-foreground">1:1, Enterprise, Workshop</strong> · Crecimiento: aliados, inversores y equipo.
+          Canales de validación: <strong className="text-foreground">KAIRON, Workshop B2B y usuarios reales</strong> · Crecimiento: inversores, empresas y equipo.
         </>
       ),
     },
@@ -268,7 +266,6 @@ const COPY = {
         { tag: "USUARIOS", t: "Probar o conocer KAIRON", esTo: "/g-frame" },
         { tag: "EMPRESAS", t: "Llevar Enterprise a tu equipo", esTo: "/enterprise" },
         { tag: "INVERSIONISTAS", t: "Revisar la oportunidad de inversión", esTo: "/inversores" },
-        { tag: "ALIADOS", t: "Sumarse al ecosistema · ETW 2026", esTo: "/aliados-etw-2026" },
         { tag: "TALENTO", t: "Unirse al equipo fundador", esTo: "/unete-al-equipo" },
       ],
     },
@@ -312,9 +309,7 @@ const COPY = {
     },
     solutionsItems: [
       { t: "Workshop de Diagnóstico", d: "Sesión estratégica para identificar fricciones de ejecución en profesionales, líderes o equipos.", ideal: "Empresas, founders o equipos que necesitan entender qué está bloqueando la acción antes de diseñar una intervención.", cta: "Explorar workshop", esTo: "/enterprise" },
-      { t: "REESTRUCTURA Enterprise", d: "Programa piloto de 4 semanas para trabajar patrones de procrastinación, perfeccionismo, sobreanálisis y autosabotaje en equipos.", ideal: "Organizaciones que necesitan mejorar claridad, toma de decisiones y consistencia conductual.", cta: "Solicitar información", esTo: "/enterprise" },
-      { t: "REESTRUCTURA 1:1", d: "Proceso individual de coaching cognitivo-conductual para profesionales que necesitan intervenir sus propios bloqueos de ejecución.", ideal: "Líderes, emprendedores y profesionales que quieren trabajar su patrón personal de acción.", cta: "Conocer proceso individual", esTo: "/reestructura-1-1" },
-      { t: "Continuidad Enterprise", d: "Seguimiento mensual o trimestral para consolidar avances, revisar patrones recurrentes y sostener cambios en la ejecución.", ideal: "Equipos que necesitan mantener el trabajo después de una intervención inicial.", cta: "Diseñar continuidad", esTo: "/enterprise" },
+      { t: "KAIRON", d: "MVP activo para diagnosticar fricción, reencuadrar en tiempo real y convertir insight en acción concreta.", ideal: "Profesionales y founders que quieren probar el producto directamente.", cta: "Probar KAIRON", esTo: "/g-frame" },
     ],
   },
   en: {
@@ -338,21 +333,21 @@ const COPY = {
       city: "Guayaquil, Ecuador",
       poweredBy: "Powered by Startup Grind",
       ctaEvent: "View official event",
-      ctaPartner: "I want to be a partner",
+      ctaPartner: "Request workshop",
       micro: "#SoyHost · We share the purpose of making Ecuador a regional tech reference.",
       badgeAlt: "Official Host badge — Ecuador Tech Week 2026 — G-Structure",
     },
     announcements: {
       eyebrow: "MOMENTUM",
       title: "Building the next stage of G-Structure.",
-      subtitle: "We're opening strategic spaces for partners and collaborators who want to be part of the early growth of the G-Structure ecosystem.",
+      subtitle: "We're opening strategic spaces for companies and collaborators who want to be part of the early growth of the G-Structure ecosystem.",
       allies: {
-        tag: "ETW 2026 PARTNERS",
-        title: "Partners for the Execution Diagnostic Workshop",
-        body: "G-Structure is opening partnership opportunities for brands, institutions, and companies that want to connect with the Execution Diagnostic Workshop during Ecuador Tech Week 2026.",
-        short: "We're looking for partners who understand the value of supporting serious conversations about execution, clarity, technology, entrepreneurship, and professional development.",
-        cta: "I want to be a partner",
-        micro: "Limited spaces for strategic, experience, venue, or content partners.",
+        tag: "B2B WORKSHOP",
+        title: "Execution Diagnostic Workshop",
+        body: "G-Structure brings the Execution Diagnostic Workshop to companies and teams that need to understand what is blocking execution.",
+        short: "A B2B entry point to diagnose real friction, learn with teams, and strengthen KAIRON from live execution problems.",
+        cta: "Request workshop",
+        micro: "Sessions for companies, teams, and organizations that need clarity before intervening.",
       },
       team: {
         tag: "FOUNDING TEAM",
@@ -455,17 +450,15 @@ const COPY = {
     channels: {
       eyebrow: "HOW WE'RE VALIDATING KAIRON",
       title: "They're not separate businesses. They're layers of one strategy.",
-      subtitle: "G-Structure is not operating three separate businesses: it uses 1:1, Enterprise, and workshops as validation, qualitative data, and early revenue channels to build KAIRON as the scalable digital product.",
+      subtitle: "G-Structure uses the Diagnostic Workshop as a B2B entry point to learn with real teams, generate early traction, and strengthen KAIRON as the scalable digital product.",
       items: [
-        { tag: "01 · INDIVIDUAL CHANNEL", t: "RESTRUCTURE 1:1", d: "Individual sessions that validate the I-R-O™ Method with professionals, leaders, and entrepreneurs facing execution friction.", esTo: "/reestructura-1-1", cta: "Learn about 1:1" },
-        { tag: "02 · B2B CHANNEL", t: "RESTRUCTURE Enterprise", d: "B2B program to map execution patterns in teams, founders, and organizations — and generate early revenue for the startup.", esTo: "/enterprise", cta: "Learn about Enterprise" },
-        { tag: "03 · ACTIVATION CHANNEL", t: "Execution Diagnostic Workshop", d: "Group experience designed to educate, diagnose execution patterns, and activate early users for KAIRON.", esTo: "/aliados-etw-2026", cta: "Workshop · ETW 2026" },
-        { tag: "04 · SCALABLE PRODUCT", t: "KAIRON App", d: "The digital product that scales the methodology. What we learn in the previous channels feeds directly into its construction.", esTo: "/g-frame", cta: "Explore KAIRON" },
+        { tag: "01 · B2B CHANNEL", t: "Execution Diagnostic Workshop", d: "A group experience to identify execution friction in teams and open B2B conversations that feed KAIRON adoption.", esTo: "/enterprise", cta: "Explore workshop" },
+        { tag: "02 · SCALABLE PRODUCT", t: "KAIRON App", d: "The digital product that scales the methodology. What we learn from users and companies directly feeds its construction.", esTo: "/g-frame", cta: "Explore KAIRON" },
       ],
       footer: (
         <>
           Company: <strong className="text-foreground">G-Structure</strong> · Main product: <strong className="text-foreground">KAIRON</strong> ·
-          Validation channels: <strong className="text-foreground">1:1, Enterprise, Workshop</strong> · Growth: partners, investors, and team.
+          Validation channels: <strong className="text-foreground">KAIRON, B2B workshop, and real users</strong> · Growth: investors, companies, and team.
         </>
       ),
     },
@@ -511,7 +504,6 @@ const COPY = {
         { tag: "USERS", t: "Try or learn about KAIRON", esTo: "/g-frame" },
         { tag: "COMPANIES", t: "Bring Enterprise to your team", esTo: "/enterprise" },
         { tag: "INVESTORS", t: "Review the investment opportunity", esTo: "/inversores" },
-        { tag: "PARTNERS", t: "Join the ecosystem · ETW 2026", esTo: "/aliados-etw-2026" },
         { tag: "TALENT", t: "Join the founding team", esTo: "/unete-al-equipo" },
       ],
     },
@@ -555,9 +547,7 @@ const COPY = {
     },
     solutionsItems: [
       { t: "Diagnostic Workshop", d: "Strategic session to identify execution friction in professionals, leaders, or teams.", ideal: "Companies, founders, or teams that need to understand what's blocking action before designing an intervention.", cta: "Explore workshop", esTo: "/enterprise" },
-      { t: "RESTRUCTURE Enterprise", d: "4-week pilot program to work on procrastination, perfectionism, overthinking, and self-sabotage patterns in teams.", ideal: "Organizations that need to improve clarity, decision-making, and behavioral consistency.", cta: "Request information", esTo: "/enterprise" },
-      { t: "RESTRUCTURE 1:1", d: "Individual cognitive-behavioral coaching process for professionals who need to intervene on their own execution blocks.", ideal: "Leaders, entrepreneurs, and professionals who want to work on their personal action pattern.", cta: "Learn about 1:1 process", esTo: "/reestructura-1-1" },
-      { t: "Enterprise Continuity", d: "Monthly or quarterly follow-up to consolidate progress, review recurring patterns, and sustain execution changes.", ideal: "Teams that need to sustain the work after an initial intervention.", cta: "Design continuity", esTo: "/enterprise" },
+      { t: "KAIRON", d: "Live MVP to diagnose friction, reframe in real time, and convert insight into concrete action.", ideal: "Professionals and founders who want to try the product directly.", cta: "Try KAIRON", esTo: "/g-frame" },
     ],
   },
 } as const;
@@ -566,15 +556,71 @@ const COPY = {
 // Sections
 // =============================================================================
 
-function Hero() {
-  const t = useT();
+const LAUNCH_DATE = new Date("2026-08-11T00:00:00-05:00");
+
+function daysUntilLaunch() {
+  const today = new Date();
+  const diff = LAUNCH_DATE.getTime() - today.getTime();
+  return Math.max(0, Math.ceil(diff / 86_400_000));
+}
+
+function LaunchCountdown({ tone = "light" }: { tone?: "light" | "dark" }) {
   const { locale } = useLocale();
-  const c = COPY[locale].hero;
-  const trustItems = [
-    t("home.hero.trust1"),
-    t("home.hero.trust2"),
-    t("home.hero.trust3"),
-  ];
+  const days = daysUntilLaunch();
+  const copy = locale === "en"
+    ? {
+        date: "August 11",
+        label: days === 1 ? "day until launch" : "days until launch",
+        support: "52 people already tried it. On August 11, everyone can.",
+      }
+    : {
+        date: "11 de agosto",
+        label: days === 1 ? "día para el lanzamiento" : "días para el lanzamiento",
+        support: "Ya lo probaron 52 personas. El 11 de agosto, todos pueden.",
+      };
+  const dark = tone === "dark";
+
+  return (
+    <div className={`inline-flex flex-wrap items-center justify-center gap-2 border px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] ${
+      dark ? "border-white/20 bg-white/10 text-white/85" : "border-[#12786B]/25 bg-[#12786B]/8 text-[#12786B]"
+    }`}>
+      <span className="font-display text-base tracking-normal">{days}</span>
+      <span>{copy.label} — {copy.date}</span>
+      <span className={dark ? "hidden text-white/55 sm:inline" : "hidden text-foreground/45 sm:inline"}>·</span>
+      <span className={dark ? "normal-case tracking-normal text-white/65" : "normal-case tracking-normal text-foreground/65"}>
+        {copy.support}
+      </span>
+    </div>
+  );
+}
+
+function Hero() {
+  const { locale } = useLocale();
+  const copy = locale === "en"
+    ? {
+        eyebrow: "AI COGNITIVE EXECUTION COACH",
+        title: "Turn mental friction into action. In 5 minutes.",
+        lead: "KAIRON helps founders, creators, and professionals catch the thoughts that block execution, reframe them with Kai, and convert them into validated 5-minute actions.",
+        cta: "Reserve my spot for August 11",
+        price: "$9.99/mo LATAM · $18.99/mo US",
+        trust: [
+          "Built on cognitive-behavioral coaching principles",
+          "Guided by Kai, your AI execution coach",
+          "Designed for procrastination, perfectionism, impostor thoughts, and self-sabotage",
+        ],
+      }
+    : {
+        eyebrow: "AI COGNITIVE EXECUTION COACH",
+        title: "Convierte fricción mental en acción. En 5 minutos.",
+        lead: "KAIRON ayuda a founders, creadores y profesionales a detectar los pensamientos que bloquean su ejecución, reencuadrarlos con Kai y convertirlos en acciones validadas de 5 minutos.",
+        cta: "Reservar mi lugar para el 11 de agosto",
+        price: "$9.99/mes LATAM · $18.99/mes US",
+        trust: [
+          "Basado en principios de coaching cognitivo-conductual",
+          "Guiado por Kai, tu coach de ejecución con IA",
+          "Diseñado para procrastinación, perfeccionismo, impostor y autosabotaje",
+        ],
+      };
 
   return (
     <section className="relative overflow-hidden border-b border-border bg-[color:var(--color-background)]">
@@ -595,22 +641,26 @@ function Hero() {
 
       <div className="container-x relative py-14 md:py-20 lg:min-h-[calc(100vh-86px)] lg:py-12">
         <div className="mx-auto flex min-h-[620px] max-w-6xl flex-col items-center justify-center text-center">
-          <Eyebrow>{t("home.hero.eyebrow")}</Eyebrow>
+          <LaunchCountdown />
+          <Eyebrow className="mt-6">{copy.eyebrow}</Eyebrow>
           <h1 className="mt-5 max-w-4xl text-4xl md:text-6xl lg:text-[4.65rem] leading-[1.01] text-foreground">
-            {t("home.hero.h1")}
+            {copy.title}
           </h1>
           <p className="mt-5 max-w-3xl text-base md:text-lg text-foreground/82 leading-relaxed">
-            {t("home.hero.lead")}
+            {copy.lead}
+          </p>
+          <p className="mt-5 font-display text-lg md:text-xl font-semibold text-[#12786B]">
+            {copy.price}
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <CTAExternal href={KAIRON_APP_URL} variant="primary" analyticsLabel="home_hero_try_kairon" target="_blank" rel="noopener noreferrer">
-              {c.linkWaitlist}
+              {copy.cta}
             </CTAExternal>
           </div>
 
           <div className="mt-9 grid w-full max-w-4xl gap-3 text-[12.5px] text-foreground/72 sm:grid-cols-3">
-            {trustItems.map((item) => (
+            {copy.trust.map((item) => (
               <div key={item} className="border-t border-foreground/15 px-3 pt-3 leading-relaxed">
                 {item}
               </div>
@@ -756,7 +806,7 @@ function Announcements() {
             body={c.allies.body}
             short={c.allies.short}
             cta={c.allies.cta}
-            to={lp("/aliados-etw-2026", locale)}
+            to={lp("/enterprise", locale)}
             micro={c.allies.micro}
           />
         </Reveal>
@@ -1126,57 +1176,93 @@ function ProductTeaser() {
   const copy = locale === "en"
     ? {
         eyebrow: "THE PRODUCT",
-        title: "KAIRON turns friction into a next action.",
-        body: "A live MVP for cognitive execution coaching: diagnose friction, reframe in real time, and move forward with clarity.",
-        cta: "Explore KAIRON",
-        waitlist: "Join the waitlist",
-        alt: "KAIRON live MVP product preview.",
-        image: kaironProductHomeEn,
-        points: ["Use the Filter for immediate blocks", "Use the Workshop for repeated frictions", "Use the Restructuring Protocol to work on your pattern"],
+        title: "A cognitive execution system, already active as MVP.",
+        body: "KAIRON helps you set a focus, catch the thought that creates friction, reframe it with Kai, and leave with a next action you can actually do.",
+        cta: "Try KAIRON",
+        altHome: "KAIRON home screen with daily focus and tools.",
+        altActivator: "KAIRON daily activator on mobile.",
+        altFilter: "KAIRON Filter conversation with Kai.",
+        flow: [
+          { title: "Start with today's focus", body: "Your day begins with a short cognitive activator, not a motivational quote." },
+          { title: "Use the right tool", body: "Filter for immediate blocks. Workshop for repeated friction. Protocol for deeper restructuring." },
+          { title: "Reframe with Kai", body: "Kai doesn't soften what you think. He helps you see it clearly and move." },
+        ],
       }
     : {
         eyebrow: "EL PRODUCTO",
-        title: "KAIRON convierte fricción en una siguiente acción.",
-        body: "Un MVP activo de coaching cognitivo para la ejecución: diagnostica la fricción, reencuadra en tiempo real y avanza con claridad.",
-        cta: "Explorar KAIRON",
-        waitlist: "Unirme a la waitlist",
-        alt: "Vista del MVP activo de KAIRON.",
-        image: kaironProductHomeEs,
-        points: ["Usa el Filtro para bloqueos inmediatos", "El Taller para fricciones repetidas", "Protocolo de Reestructuración para trabajar tu patrón"],
+        title: "Un sistema de ejecución cognitiva, ya activo como MVP.",
+        body: "KAIRON te ayuda a definir un foco, atrapar el pensamiento que crea fricción, reencuadrarlo con Kai y salir con una siguiente acción que sí puedes ejecutar.",
+        cta: "Probar KAIRON",
+        altHome: "Pantalla principal de KAIRON con enfoque diario y herramientas.",
+        altActivator: "Activador diario de KAIRON en móvil.",
+        altFilter: "Conversación del Filtro de KAIRON con Kai.",
+        flow: [
+          { title: "Empieza con el foco del día", body: "Tu día inicia con un activador cognitivo breve, no con una frase motivacional." },
+          { title: "Usa la herramienta correcta", body: "Filtro para bloqueos inmediatos. Taller para fricciones repetidas. Protocolo para reestructuración profunda." },
+          { title: "Reencuadra con Kai", body: "Kai no suaviza lo que piensas. Te ayuda a verlo con claridad y moverte." },
+        ],
       };
 
   return (
-    <Section tone="white">
-      <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
-        <div className="lg:col-span-5">
+    <Section tone="white" id="producto">
+      <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
+        <div className="lg:col-span-4 lg:sticky lg:top-28">
           <SectionHeader eyebrow={copy.eyebrow} title={copy.title} subtitle={copy.body} />
-          <ul className="mt-7 space-y-3">
-            {copy.points.map((point) => (
-              <li key={point} className="flex gap-3 text-sm text-foreground/85">
-                <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-foreground" />
-                {point}
+          <ol className="mt-8 space-y-5">
+            {copy.flow.map((item, index) => (
+              <li key={item.title} className="grid grid-cols-[2.5rem_1fr] gap-4">
+                <span className="flex h-10 w-10 items-center justify-center border border-[#12786B]/25 bg-[#12786B]/8 font-display text-sm font-semibold text-[#12786B]">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span>
+                  <strong className="font-display text-base text-foreground">{item.title}</strong>
+                  <span className="mt-1 block text-sm leading-relaxed text-muted-foreground">{item.body}</span>
+                </span>
               </li>
             ))}
-          </ul>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <CTALink to={lp("/g-frame", locale)} variant="primary">{copy.cta}</CTALink>
-            <CTALink to={lp("/g-frame", locale)} hash="waitlist" variant="outline">{copy.waitlist}</CTALink>
+          </ol>
+          <div className="mt-8">
+            <CTAExternal href={KAIRON_APP_URL} variant="primary" analyticsLabel="home_product_try_kairon" target="_blank" rel="noopener noreferrer">
+              {copy.cta}
+            </CTAExternal>
           </div>
         </div>
-        <div className="lg:col-span-7">
-          <div className="relative overflow-hidden border border-border bg-[color:var(--color-background)] p-4 md:p-6">
+        <div className="lg:col-span-8">
+          <div className="grid gap-5 md:grid-cols-2">
+            <figure className="relative overflow-hidden border border-border bg-[color:var(--color-background)] p-4 md:col-span-2 md:p-6">
+              <img
+                src={kaironHomeScreen}
+                alt={copy.altHome}
+                loading="lazy"
+                width={1152}
+                height={1536}
+                className="mx-auto w-full max-w-[520px] object-contain drop-shadow-[0_30px_42px_rgba(5,50,90,0.2)]"
+              />
+            </figure>
+            <figure className="relative overflow-hidden border border-border bg-[color:var(--color-background)] p-4">
+              <img
+                src={kaironDailyActivator}
+                alt={copy.altActivator}
+                loading="lazy"
+                width={1152}
+                height={1536}
+                className="mx-auto w-full max-w-[360px] object-contain drop-shadow-[0_24px_34px_rgba(5,50,90,0.18)]"
+              />
+            </figure>
+            <figure className="relative overflow-hidden border border-border bg-[color:var(--color-background)] p-4">
             <div
-              className="absolute inset-x-10 bottom-8 h-24 rounded-[100%] bg-cyan-400/14 blur-3xl"
+              className="absolute inset-x-10 bottom-8 h-24 rounded-[100%] bg-[#12786B]/12 blur-3xl"
               aria-hidden
             />
             <img
-              src={copy.image}
-              alt={copy.alt}
+              src={kaironFilterConversation}
+              alt={copy.altFilter}
               loading="lazy"
-              width={1080}
-              height={1350}
-              className="relative mx-auto w-full max-w-[640px] object-contain drop-shadow-[0_34px_44px_rgba(5,50,90,0.22)]"
+              width={1023}
+              height={1536}
+              className="relative mx-auto w-full max-w-[360px] object-contain drop-shadow-[0_24px_34px_rgba(5,50,90,0.18)]"
             />
+            </figure>
           </div>
         </div>
       </div>
@@ -1196,6 +1282,7 @@ function ValidationTraction() {
           { value: "40", label: "in Ecuador" },
           { value: "12", label: "in the United States" },
         ],
+        moreLabel: "Read two more testimonials",
         testimonials: [
           {
             role: "HR Manager — Philadelphia",
@@ -1223,10 +1310,7 @@ function ValidationTraction() {
           "That same night, G-Structure presented KAIRON at The Stage Pitch Competition, part of Ecuador Tech Week, organized by Startup Grind and Viamatica.",
         images: [
           { src: tractionStagePresenting, alt: "G-Structure presenting KAIRON during Ecuador Tech Week." },
-          { src: tractionRoomWide, alt: "Audience testing KAIRON during the Execution Diagnostic Workshop." },
           { src: tractionUserTesting, alt: "KAIRON being tested with a participant during the workshop." },
-          { src: tractionAudienceClose, alt: "Workshop participants listening during KAIRON validation." },
-          { src: tractionStageEnergy, alt: "G-Structure founder presenting KAIRON at the workshop." },
         ],
       }
     : {
@@ -1238,6 +1322,7 @@ function ValidationTraction() {
           { value: "40", label: "en Ecuador" },
           { value: "12", label: "en Estados Unidos" },
         ],
+        moreLabel: "Leer dos testimonios más",
         testimonials: [
           {
             role: "HR Manager — Philadelphia",
@@ -1265,12 +1350,11 @@ function ValidationTraction() {
           "Esa misma noche, G-Structure presentó KAIRON en The Stage Pitch Competition, parte de Ecuador Tech Week, organizado por Startup Grind y Viamatica.",
         images: [
           { src: tractionStagePresenting, alt: "G-Structure presentando KAIRON durante Ecuador Tech Week." },
-          { src: tractionRoomWide, alt: "Audiencia probando KAIRON durante el Workshop de Diagnóstico de Ejecución." },
           { src: tractionUserTesting, alt: "KAIRON siendo probado con un participante durante el workshop." },
-          { src: tractionAudienceClose, alt: "Participantes del workshop escuchando durante la validación de KAIRON." },
-          { src: tractionStageEnergy, alt: "Founder de G-Structure presentando KAIRON en el workshop." },
         ],
       };
+  const visibleTestimonials = [copy.testimonials[0], copy.testimonials[1], copy.testimonials[3]];
+  const hiddenTestimonials = [copy.testimonials[2], copy.testimonials[4]];
 
   return (
     <Section tone="muted">
@@ -1295,11 +1379,11 @@ function ValidationTraction() {
         </div>
 
         <div className="lg:col-span-7">
-          <div className="grid gap-px border border-border bg-border md:grid-cols-2">
-            {copy.testimonials.map((item, index) => (
+          <div className="grid gap-px border border-border bg-border md:grid-cols-3">
+            {visibleTestimonials.map((item) => (
               <article
                 key={item.role}
-                className={`bg-[color:var(--color-surface)] p-5 md:p-6 ${index === 1 ? "md:row-span-1" : ""}`}
+                className="bg-[color:var(--color-surface)] p-5 md:p-6"
               >
                 <p className="font-display text-[10px] font-semibold uppercase tracking-[0.2em] text-[#12786B]">
                   {item.role}
@@ -1315,16 +1399,31 @@ function ValidationTraction() {
               </article>
             ))}
           </div>
+          <details className="group mt-4 border border-border bg-[color:var(--color-surface)]">
+            <summary className="cursor-pointer px-5 py-4 font-display text-sm font-semibold text-foreground marker:text-[#12786B]">
+              {copy.moreLabel}
+            </summary>
+            <div className="grid gap-px border-t border-border bg-border md:grid-cols-2">
+              {hiddenTestimonials.map((item) => (
+                <article key={item.role} className="bg-[color:var(--color-surface)] p-5 md:p-6">
+                  <p className="font-display text-[10px] font-semibold uppercase tracking-[0.2em] text-[#12786B]">
+                    {item.role}
+                  </p>
+                  <blockquote className="mt-4 font-display text-xl leading-tight text-foreground">
+                    “{item.quote}”
+                  </blockquote>
+                </article>
+              ))}
+            </div>
+          </details>
         </div>
       </div>
 
-      <div className="mt-12 grid gap-3 md:grid-cols-12">
+      <div className="mt-12 grid gap-3 md:grid-cols-2">
         {copy.images.map((image, index) => (
           <figure
             key={image.alt}
-            className={`overflow-hidden border border-border bg-[color:var(--color-surface)] ${
-              index === 0 ? "md:col-span-5" : index === 1 ? "md:col-span-7" : "md:col-span-4"
-            }`}
+            className="overflow-hidden border border-border bg-[color:var(--color-surface)]"
           >
             <img
               src={image.src}
@@ -1332,10 +1431,174 @@ function ValidationTraction() {
               loading="lazy"
               width={1400}
               height={788}
-              className="h-full min-h-[220px] w-full object-cover transition-transform duration-500 hover:scale-[1.02]"
+              className="h-full min-h-[260px] w-full object-cover transition-transform duration-500 hover:scale-[1.02]"
             />
           </figure>
         ))}
+      </div>
+    </Section>
+  );
+}
+
+function NocturnoSection() {
+  const { locale } = useLocale();
+  const copy = locale === "en"
+    ? {
+        eyebrow: "NIGHT MODE",
+        title: "Night mode. For when your mind won't let you sleep.",
+        body: "A voice conversation with Kai, built for the moment the day ends but the thoughts don't. Close the loop before tomorrow.",
+        cta: "Reserve my spot for August 11",
+        alt: "KAIRON Night mode voice conversation with Kai.",
+      }
+    : {
+        eyebrow: "NOCTURNO",
+        title: "Nocturno. Para cuando tu mente no te deja dormir.",
+        body: "Conversación por voz con Kai, diseñada para el momento en que el día termina pero los pensamientos no. Cierra el ciclo antes de mañana.",
+        cta: "Reservar mi lugar para el 11 de agosto",
+        alt: "Modo Nocturno de KAIRON con conversación por voz con Kai.",
+      };
+
+  return (
+    <section className="relative overflow-hidden bg-[#031b2e] text-white">
+      <div className="absolute inset-0 dot-bg-inverse opacity-[0.08]" aria-hidden />
+      <div className="absolute -right-24 top-10 h-80 w-80 rounded-full bg-[#12786B]/30 blur-3xl" aria-hidden />
+      <div className="container-x relative py-16 md:py-24">
+        <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-5">
+            <LaunchCountdown tone="dark" />
+            <p className="mt-7 font-display text-[11px] font-semibold uppercase tracking-[0.22em] text-cyan-200/80">
+              {copy.eyebrow}
+            </p>
+            <h2 className="mt-4 font-display text-3xl md:text-5xl leading-[1.05]">
+              {copy.title}
+            </h2>
+            <p className="mt-5 max-w-xl text-base md:text-lg leading-relaxed text-white/72">
+              {copy.body}
+            </p>
+            <div className="mt-8">
+              <CTAExternal href={KAIRON_APP_URL} variant="inverse" analyticsLabel="home_nocturno_reserve" target="_blank" rel="noopener noreferrer">
+                {copy.cta}
+              </CTAExternal>
+            </div>
+          </div>
+          <div className="lg:col-span-7">
+            <figure className="relative mx-auto max-w-[520px]">
+              <div className="absolute inset-x-8 bottom-8 h-28 rounded-[100%] bg-cyan-300/20 blur-3xl" aria-hidden />
+              <img
+                src={kaironNocturnoChat}
+                alt={copy.alt}
+                loading="lazy"
+                width={1023}
+                height={1536}
+                className="relative w-full object-contain drop-shadow-[0_38px_54px_rgba(0,0,0,0.5)]"
+              />
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function PricingSection() {
+  const { locale } = useLocale();
+  const copy = locale === "en"
+    ? {
+        eyebrow: "LAUNCH PRICING",
+        title: "Simple founder pricing for the first launch users.",
+        body: "Paddle checkout is not open yet. Reserve your spot now and we'll write to you when access opens for the August 11 launch.",
+        trial: "7-day trial, card required",
+        cta: "Reserve my spot for August 11",
+        plans: [
+          { price: "$9.99/mo", label: "Latin America" },
+          { price: "$18.99/mo", label: "United States" },
+        ],
+      }
+    : {
+        eyebrow: "PRECIO DE LANZAMIENTO",
+        title: "Precio simple para los primeros usuarios del lanzamiento.",
+        body: "El checkout de Paddle todavía no está abierto. Reserva tu lugar ahora y te escribiremos cuando el acceso se abra para el lanzamiento del 11 de agosto.",
+        trial: "7 días de prueba, tarjeta requerida",
+        cta: "Reservar mi lugar para el 11 de agosto",
+        plans: [
+          { price: "$9.99/mes", label: "Latinoamérica" },
+          { price: "$18.99/mes", label: "Estados Unidos" },
+        ],
+      };
+
+  return (
+    <Section tone="white" id="precio">
+      <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
+        <div className="lg:col-span-5">
+          <SectionHeader eyebrow={copy.eyebrow} title={copy.title} subtitle={copy.body} />
+          <p className="mt-4 text-sm font-medium text-[#12786B]">{copy.trial}</p>
+        </div>
+        <div className="lg:col-span-7">
+          <div className="grid gap-px border border-border bg-border md:grid-cols-2">
+            {copy.plans.map((plan) => (
+              <div key={plan.label} className="bg-[color:var(--color-surface)] p-7 md:p-8">
+                <p className="font-display text-4xl md:text-5xl font-semibold text-foreground">{plan.price}</p>
+                <p className="mt-3 font-display text-[11px] font-semibold uppercase tracking-[0.22em] text-[#12786B]">
+                  {plan.label}
+                </p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-5">
+            <WaitlistInline source="home_pricing" submitLabel={copy.cta} compact />
+          </div>
+        </div>
+      </div>
+    </Section>
+  );
+}
+
+function SecondaryPathways() {
+  const { locale } = useLocale();
+  const copy = locale === "en"
+    ? {
+        eyebrow: "FOR TEAMS, INVESTORS, AND BUILDERS",
+        title: "KAIRON is the product. These are the paths around it.",
+        body: "Most visitors should try the MVP. If you're exploring G-Structure from another angle, these paths stay available without competing with the product.",
+        links: [
+          { label: "Bring the workshop to your company", to: "/enterprise" },
+          { label: "Investor information", to: "/inversores" },
+          { label: "Support the launch", to: "/apoya-el-lanzamiento" },
+          { label: "Join the team", to: "/unete-al-equipo" },
+        ],
+      }
+    : {
+        eyebrow: "PARA EQUIPOS, INVERSORES Y BUILDERS",
+        title: "KAIRON es el producto. Estos son los caminos alrededor.",
+        body: "La mayoría de visitantes debería probar el MVP. Si estás explorando G-Structure desde otro ángulo, estos caminos siguen disponibles sin competir con el producto.",
+        links: [
+          { label: "Llevar el workshop a tu empresa", to: "/enterprise" },
+          { label: "Información para inversores", to: "/inversores" },
+          { label: "Apoyar el lanzamiento", to: "/apoya-el-lanzamiento" },
+          { label: "Unirse al equipo", to: "/unete-al-equipo" },
+        ],
+      };
+
+  return (
+    <Section tone="muted">
+      <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
+        <div className="lg:col-span-5">
+          <SectionHeader eyebrow={copy.eyebrow} title={copy.title} subtitle={copy.body} />
+        </div>
+        <div className="lg:col-span-7">
+          <div className="grid gap-px border border-border bg-border sm:grid-cols-2">
+            {copy.links.map((link) => (
+              <Link
+                key={link.label}
+                to={lp(link.to, locale)}
+                className="group flex items-center justify-between gap-4 bg-[color:var(--color-surface)] p-5 font-display text-base font-semibold text-foreground hover:bg-white"
+              >
+                {link.label}
+                <ArrowRight size={16} className="text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:text-foreground" />
+              </Link>
+            ))}
+          </div>
+        </div>
       </div>
     </Section>
   );
@@ -1496,23 +1759,35 @@ function CompanyUpdate() {
 
 function FinalCTA() {
   const { locale } = useLocale();
-  const c = COPY[locale].finalCTA;
+  const copy = locale === "en"
+    ? {
+        title: "Try KAIRON when access opens on August 11.",
+        body: "52 people already tested the MVP. Reserve your place and be part of the first public launch cohort.",
+        cta: "Reserve my spot for August 11",
+        support: "Want to support the launch another way?",
+      }
+    : {
+        title: "Prueba KAIRON cuando el acceso abra el 11 de agosto.",
+        body: "52 personas ya probaron el MVP. Reserva tu lugar y sé parte del primer grupo del lanzamiento público.",
+        cta: "Reservar mi lugar para el 11 de agosto",
+        support: "¿Quieres apoyar el lanzamiento de otra forma?",
+      };
   return (
     <Section tone="deep">
       <div className="max-w-3xl">
+        <LaunchCountdown tone="dark" />
         <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.05]">
-          {c.title}
+          {copy.title}
         </h2>
         <p className="mt-6 text-base md:text-lg text-[color:var(--color-background)]/80 leading-relaxed">
-          {c.body}
+          {copy.body}
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-3">
-          <CTALink to={lp("/g-frame", locale)} variant="inverse">{c.ctaExplore}</CTALink>
-          <CTALink to={lp("/g-frame", locale)} hash="waitlist" variant="inverse" analyticsLabel="home_final_waitlist">
-            {c.ctaWaitlist}
-          </CTALink>
-          <CTALink to={lp("/contacto", locale)} variant="ghost" className="text-[color:var(--color-background)] hover:bg-[color:var(--color-background)]/10">
-            {c.ctaContact}
+          <CTAExternal href={KAIRON_APP_URL} variant="inverse" analyticsLabel="home_final_reserve_kairon" target="_blank" rel="noopener noreferrer">
+            {copy.cta}
+          </CTAExternal>
+          <CTALink to={lp("/apoya-el-lanzamiento", locale)} variant="ghost" className="text-[color:var(--color-background)] hover:bg-[color:var(--color-background)]/10">
+            {copy.support}
           </CTALink>
         </div>
       </div>
@@ -1788,18 +2063,20 @@ export function Index() {
   void WaitlistForm;
   void ValidationChannels;
   void ETWBanner;
-  void BriefDownloadCard;
   void FAQSection;
   void CompanyUpdate;
   void FeaturedArticles;
+  void StartupStage;
+  void HomeMomentum;
   return (
     <>
       <Hero />
       <ProductTeaser />
+      <Problem />
+      <NocturnoSection />
       <ValidationTraction />
-      <StartupStage />
-      <HomeMomentum />
-      <SupportLaunchTeaser />
+      <PricingSection />
+      <SecondaryPathways />
       <FinalCTA />
     </>
   );

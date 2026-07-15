@@ -23,7 +23,7 @@ const DEFAULT_ES: FAQItem[] = [
   },
   {
     q: "¿Trabajan con empresas o solo con individuos?",
-    a: "Ambos. KAIRON es el producto principal; Enterprise, REESTRUCTURA 1:1 y workshops son canales de validación, aprendizaje y revenue temprano para fortalecer el producto.",
+    a: "Ambos. KAIRON es el producto principal; el Workshop de Diagnóstico es la puerta B2B para aprender con equipos reales, generar tracción y fortalecer el producto.",
   },
   {
     q: "¿Estoy hablando con una startup o con una firma de coaching?",
@@ -50,7 +50,7 @@ const DEFAULT_EN: FAQItem[] = [
   },
   {
     q: "Do you work with companies or only with individuals?",
-    a: "Both. KAIRON is the main product; Enterprise, RESTRUCTURE 1:1, and workshops are validation, learning, and early-revenue channels that strengthen the product.",
+    a: "Both. KAIRON is the main product; the Diagnostic Workshop is the B2B entry point to learn with real teams, generate traction, and strengthen the product.",
   },
   {
     q: "Is this a startup or a coaching firm?",

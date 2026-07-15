@@ -50,11 +50,11 @@ export const es: Dict = {
   nav: {
     home: "Inicio",
     enterprise: "Enterprise",
-    reestructura: "REESTRUCTURA 1:1",
+    reestructura: "Workshop de Diagnóstico",
     gstruct: "KAIRON",
     aboutGuillermo: "Sobre Guillermo",
     contact: "Contacto",
-    allies: "Aliados ETW 2026",
+    allies: "Colaboraciones",
     joinTeam: "Únete al equipo",
     opportunities: "Oportunidades",
     navigation: "Navegación",
@@ -106,9 +106,9 @@ export const es: Dict = {
     subtitle: "Si el chat no carga, elige una ruta directa de contacto.",
     options: {
       enterprise: "Soy empresa o equipo",
-      reestructura: "Quiero información sobre REESTRUCTURA 1:1",
+      reestructura: "Quiero información sobre el workshop",
       gstruct: "Quiero conocer KAIRON",
-      allies: "Quiero ser aliado ETW 2026",
+      allies: "Quiero colaborar con G-Structure",
       team: "Quiero unirme al equipo",
     },
     openAssistant: "Abrir asistente de orientación",
@@ -124,21 +124,21 @@ export const es: Dict = {
     q1: "¿Qué estás buscando?",
     options: {
       enterprise: "Mejorar la ejecución en mi equipo",
-      individual: "Trabajar mi procrastinación o perfeccionismo",
+      individual: "Probar KAIRON para mi ejecución",
       gstruct: "Conocer KAIRON",
-      allies: "Ser aliado ETW 2026",
+      allies: "Colaborar con G-Structure",
       team: "Unirme al equipo",
       other: "Otro",
     },
     rec: {
       enterprise:
-        "Enterprise es un canal de validación B2B para KAIRON. Una conversación inicial permite definir si tu equipo encaja para diagnóstico, piloto o continuidad.",
+        "El Workshop de Diagnóstico es la puerta B2B hacia KAIRON. Una conversación inicial permite definir si tu equipo encaja para una sesión de diagnóstico de ejecución.",
       individual:
-        "REESTRUCTURA 1:1 permite validar el método I-R-O™ con casos reales de ejecución. Te conviene una conversación inicial para revisar contexto.",
+        "KAIRON ya está activo como MVP. Puedes probarlo para procesar fricción mental con Kai y convertirla en una acción concreta.",
       gstruct:
         "KAIRON es el producto principal de G-Structure y ya funciona como MVP activo. Puedes probarlo para procesar fricción mental con Kai y convertirla en una acción concreta.",
       allies:
-        "Si tu marca, institución o empresa quiere vincularse al Workshop de Diagnóstico durante Ecuador Tech Week 2026, conversemos directamente.",
+        "Si tu marca, institución o empresa quiere colaborar con G-Structure o llevar el Workshop de Diagnóstico a su equipo, conversemos directamente.",
       team:
         "Estamos formando el equipo inicial de G-Structure y KAIRON. Cuéntale tu perfil a Guillermo y revisamos si encaja.",
       other:
@@ -171,11 +171,11 @@ export const en: Dict = {
   nav: {
     home: "Home",
     enterprise: "Enterprise",
-    reestructura: "RESTRUCTURE 1:1",
+    reestructura: "Diagnostic Workshop",
     gstruct: "KAIRON",
     aboutGuillermo: "About Guillermo",
     contact: "Contact",
-    allies: "ETW 2026 Partners",
+    allies: "Collaborations",
     joinTeam: "Join the team",
     opportunities: "Opportunities",
     navigation: "Navigation",
@@ -227,9 +227,9 @@ export const en: Dict = {
     subtitle: "If chat does not load, choose a direct contact path.",
     options: {
       enterprise: "I’m a company or team",
-      reestructura: "I want info about RESTRUCTURE 1:1",
+      reestructura: "I want info about the workshop",
       gstruct: "I want to learn about KAIRON",
-      allies: "I want to be an ETW 2026 partner",
+      allies: "I want to collaborate with G-Structure",
       team: "I want to join the team",
     },
     openAssistant: "Open guidance assistant",
@@ -245,21 +245,21 @@ export const en: Dict = {
     q1: "What are you looking for?",
     options: {
       enterprise: "Improve execution in my team",
-      individual: "Work on procrastination or perfectionism",
+      individual: "Try KAIRON for my execution",
       gstruct: "Learn about KAIRON",
-      allies: "Become an ETW 2026 partner",
+      allies: "Collaborate with G-Structure",
       team: "Join the team",
       other: "Something else",
     },
     rec: {
       enterprise:
-        "Enterprise is a B2B validation channel for KAIRON. A first conversation defines whether your team fits a diagnostic, pilot, or continuity path.",
+        "The Diagnostic Workshop is the B2B entry point toward KAIRON. A first conversation defines whether your team fits an execution diagnostic session.",
       individual:
-        "RESTRUCTURE 1:1 validates the I-R-O™ Method through real execution cases. A first conversation will review your context.",
+        "KAIRON is already live as an MVP. You can try it to process mental friction with Kai and turn it into a concrete action.",
       gstruct:
         "KAIRON is G-Structure’s main product and already works as a live MVP. You can try it to process mental friction with Kai and turn it into a concrete action.",
       allies:
-        "If your brand, institution, or company wants to join the Diagnostic Workshop during Ecuador Tech Week 2026, let’s talk directly.",
+        "If your brand, institution, or company wants to collaborate with G-Structure or bring the Diagnostic Workshop to your team, let’s talk directly.",
       team:
         "We’re forming the initial team for G-Structure and KAIRON. Share your profile with Guillermo and we’ll see if it fits.",
       other:

@@ -12,7 +12,7 @@ declare global {
   }
 }
 
-const ETW_URL = "https://luma.com/lm4njhiu";
+const KAIRON_APP_URL = "https://getkairon.app/start?source=website&campaign=public-mvp-access&cohort=website-prelaunch";
 
 type PaymentStatus = "idle" | "loading" | "ready" | "success" | "cancelled" | "error";
 
@@ -44,7 +44,7 @@ const TIER_COPY: Record<"es" | "en", Array<{
       id: "early",
       title: "Early Supporter",
       price: "$25",
-      description: "Ayuda a cubrir materiales del evento, recursos de validación y herramientas básicas para el lanzamiento del 14 de julio.",
+      description: "Ayuda a cubrir recursos de validación, herramientas básicas y preparación operativa para el lanzamiento comercial del 11 de agosto.",
       cta: "Apoyar con $25",
     },
     {
@@ -74,7 +74,7 @@ const TIER_COPY: Record<"es" | "en", Array<{
       id: "early",
       title: "Early Supporter",
       price: "$25",
-      description: "Helps cover event materials, validation resources, and basic tools for the July 14 launch.",
+      description: "Helps cover validation resources, basic tools, and launch operations for the August 11 commercial launch.",
       cta: "Support with $25",
     },
     {
@@ -127,11 +127,11 @@ export function SupportLaunchSection() {
     ? {
         eyebrow: "EARLY-STAGE STARTUP SUPPORT",
         title: "Support the Launch",
-        subtitle: "Help us validate and strengthen KAIRON's live MVP.",
-        intro1: "G-Structure is entering a key validation stage.",
-        intro2: "On July 14, 2026, we will have our official launch inside Ecuador Tech Week with the Execution Diagnostic Workshop at EPICO, Plaza Guayarte, Guayaquil. That day will also be part of the initial validation of KAIRON, the cognitive-behavioral platform we are building to help professionals, founders, and teams identify, reframe, and optimize their execution patterns.",
-        intro3: "Before raising institutional investment, we need to strengthen traction, validate with real users, improve the live MVP, and prepare the path toward commercial launch.",
-        intro4: "That is why we are opening an early support path for people who believe in the vision and want to help us build from this first stage.",
+        subtitle: "Help us move KAIRON from public validation into commercial launch.",
+        intro1: "G-Structure is entering its commercial launch stage.",
+        intro2: "On August 11, 2026, we officially launch KAIRON in the market. We have already completed our first public validation with 52 real users — 40 in Ecuador, 12 in the United States — and presented KAIRON at The Stage Pitch Competition during Ecuador Tech Week.",
+        intro3: "Before raising institutional investment, we need to strengthen traction, keep validating with real users, and prepare the path toward the August 11 commercial launch.",
+        intro4: "That is why we are opening an early support path for people who believe in the vision and want to help us build from this stage.",
         levelsTitle: "Early support levels",
         levelsIntro: "If you believe in G-Structure and want to help us validate and strengthen KAIRON's live MVP, you can join as an early supporter in this initial market stage.",
         receivesTitle: "What does an early supporter receive?",
@@ -156,18 +156,18 @@ export function SupportLaunchSection() {
         error: "We could not process the payment right now. Please try again or contact us.",
         returnSite: "Back to site",
         share: "Share G-Structure",
-        workshop: "Register for the July 14 workshop",
+        workshop: "Try KAIRON",
         talk: "Talk to the founder",
         info: "Request information",
       }
     : {
         eyebrow: "APOYO TEMPRANO DE STARTUP",
         title: "Apoya el lanzamiento",
-        subtitle: "Ayúdanos a validar y fortalecer el MVP activo de KAIRON.",
-        intro1: "G-Structure está entrando en una etapa clave de validación.",
-        intro2: "El 14 de julio de 2026 tendremos nuestro lanzamiento oficial dentro de Ecuador Tech Week, con el Workshop de Diagnóstico de Ejecución en ÉPICO, Plaza Guayarte, Guayaquil. Ese día también será parte de la validación inicial de KAIRON, la plataforma cognitivo-conductual que estamos construyendo para ayudar a profesionales, founders y equipos a identificar, reencuadrar y optimizar sus patrones de ejecución.",
-        intro3: "Antes de levantar inversión institucional, necesitamos fortalecer tracción, validar con usuarios reales, mejorar el MVP activo y preparar el camino hacia el lanzamiento comercial.",
-        intro4: "Por eso estamos abriendo una vía de apoyo temprano para personas que creen en la visión y quieren ayudarnos a construir desde esta primera etapa.",
+        subtitle: "Ayúdanos a llevar KAIRON de la validación pública al lanzamiento comercial.",
+        intro1: "G-Structure está entrando en su etapa de lanzamiento comercial.",
+        intro2: "El 11 de agosto de 2026 lanzamos oficialmente KAIRON en el mercado. Ya pasamos nuestra primera validación pública con 52 usuarios reales — 40 en Ecuador, 12 en Estados Unidos — y presentamos KAIRON en The Stage Pitch Competition durante Ecuador Tech Week.",
+        intro3: "Antes de levantar inversión institucional, necesitamos fortalecer tracción, seguir validando con usuarios reales y preparar el camino hacia el lanzamiento comercial del 11 de agosto.",
+        intro4: "Por eso estamos abriendo una vía de apoyo temprano para personas que creen en la visión y quieren ayudarnos a construir desde esta etapa.",
         levelsTitle: "Niveles de apoyo temprano",
         levelsIntro: "Si crees en la visión de G-Structure y quieres ayudarnos a validar y fortalecer el MVP activo de KAIRON, puedes sumarte como early supporter en esta etapa inicial de mercado.",
         receivesTitle: "¿Qué recibe un early supporter?",
@@ -192,7 +192,7 @@ export function SupportLaunchSection() {
         error: "No pudimos procesar el pago en este momento. Inténtalo otra vez o contáctanos.",
         returnSite: "Volver al sitio",
         share: "Compartir G-Structure",
-        workshop: "Registrarme al workshop del 14 de julio",
+        workshop: "Probar KAIRON",
         talk: "Hablar con el founder",
         info: "Solicitar información",
       };
@@ -345,7 +345,7 @@ export function SupportLaunchSection() {
                   >
                     {copy.share}
                   </button>
-                  <a href={ETW_URL} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-foreground px-3 py-2 text-xs font-medium text-background">
+                  <a href={KAIRON_APP_URL} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-foreground px-3 py-2 text-xs font-medium text-background">
                     {copy.workshop}
                   </a>
                 </div>

@@ -12,17 +12,13 @@ const WA_NUMBER = "593986875121";
 const messagesES: Record<string, string> = {
   enterprise:
     "Hola Guillermo, vi G-Structure y quiero información sobre Enterprise / Workshop de Diagnóstico.",
-  reestructura: "Hola Guillermo, quiero información sobre REESTRUCTURA 1:1.",
   gstruct: "Hola Guillermo, quiero información sobre KAIRON.",
-  allies: "Hola Guillermo, quiero conversar sobre una posible alianza para ETW 2026.",
   team: "Hola Guillermo, quiero información sobre cómo unirme al equipo inicial de G-Structure.",
 };
 const messagesEN: Record<string, string> = {
   enterprise:
     "Hi Guillermo, I saw G-Structure and would like info about Enterprise / Diagnostic Workshop.",
-  reestructura: "Hi Guillermo, I'd like info about RESTRUCTURE 1:1.",
   gstruct: "Hi Guillermo, I'd like info about KAIRON.",
-  allies: "Hi Guillermo, I'd like to discuss a possible partnership for ETW 2026.",
   team: "Hi Guillermo, I'd like info about joining the initial G-Structure team.",
 };
 
@@ -62,9 +58,7 @@ export function WhatsAppFAB() {
 
   const intents = [
     { key: "enterprise", label: t("fab.options.enterprise") },
-    { key: "reestructura", label: t("fab.options.reestructura") },
     { key: "gstruct", label: t("fab.options.gstruct") },
-    { key: "allies", label: t("fab.options.allies") },
     { key: "team", label: t("fab.options.team") },
   ];
 

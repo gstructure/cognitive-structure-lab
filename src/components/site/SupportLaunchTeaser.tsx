@@ -11,7 +11,7 @@ export function SupportLaunchTeaser() {
         eyebrow: "EARLY-STAGE STARTUP SUPPORT",
         title: "Support the launch of KAIRON.",
         subtitle:
-          "Help G-Structure validate and strengthen KAIRON's live MVP through early users, product development, and the July 14 launch inside Ecuador Tech Week.",
+          "Help G-Structure move KAIRON from public validation into its August 11 commercial launch through early users, product development, and market traction.",
         note:
           "This is early startup support, not a donation campaign, investment offering, equity sale, or promise of financial return.",
         primary: "Support the launch",
@@ -22,7 +22,7 @@ export function SupportLaunchTeaser() {
         eyebrow: "APOYO TEMPRANO DE STARTUP",
         title: "Apoya el lanzamiento de KAIRON.",
         subtitle:
-          "Ayuda a G-Structure a validar y fortalecer el MVP activo de KAIRON mediante usuarios tempranos, desarrollo de producto y el lanzamiento del 14 de julio dentro de Ecuador Tech Week.",
+          "Ayuda a G-Structure a llevar KAIRON de la validación pública al lanzamiento comercial del 11 de agosto mediante usuarios tempranos, desarrollo de producto y tracción de mercado.",
         note:
           "Esto es apoyo temprano de startup: no es una campaña de donaciones, oferta de inversión, venta de equity ni promesa de retorno financiero.",
         primary: "Apoyar el lanzamiento",

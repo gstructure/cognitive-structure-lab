@@ -16,11 +16,9 @@ export const ROUTES: RouteEntry[] = [
   { es: "/newsletter", en: "/en/newsletter", label: { es: "Newsletter", en: "Newsletter" } },
   { es: "/apoya-el-lanzamiento", en: "/en/support-the-launch", label: { es: "Apoya el lanzamiento", en: "Support the Launch" } },
   { es: "/enterprise", en: "/en/enterprise", label: { es: "Enterprise", en: "Enterprise" } },
-  { es: "/reestructura-1-1", en: "/en/restructure-1-1", label: { es: "REESTRUCTURA 1:1", en: "RESTRUCTURE 1:1" } },
   { es: "/inversores", en: "/en/investors", label: { es: "Inversores", en: "Investors" } },
   { es: "/sobre-guillermo", en: "/en/about-guillermo", label: { es: "Nosotros", en: "About" } },
   { es: "/contacto", en: "/en/contact", label: { es: "Contacto", en: "Contact" } },
-  { es: "/aliados-etw-2026", en: "/en/etw-2026-partners", label: { es: "Aliados ETW 2026", en: "ETW 2026 Partners" } },
   { es: "/unete-al-equipo", en: "/en/join-the-team", label: { es: "Únete al equipo", en: "Join the team" } },
 ];
 
@@ -111,7 +109,7 @@ export function navForLocale(locale: Locale) {
 }
 
 export function opportunitiesForLocale(locale: Locale) {
-  const keys = ["/aliados-etw-2026", "/unete-al-equipo", "/g-frame"];
+  const keys = ["/unete-al-equipo", "/g-frame"];
   return ROUTES.filter((r) => keys.includes(r.es)).map((r) => ({
     to: r[locale],
     label: r.label[locale],

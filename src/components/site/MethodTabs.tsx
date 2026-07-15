@@ -4,32 +4,24 @@ import { useLocale } from "@/lib/i18n";
 export type MethodStep = {
   n: string;
   t: string;
-  headline: string;
   d: string;
-  micro: string;
 };
 
 const STEPS_ES: MethodStep[] = [
   {
     n: "01",
     t: "Identificar",
-    headline: "KAIRON detecta tu patrón específico antes de intervenir.",
     d: "KAIRON detecta tu patrón específico antes de intervenir — sin cuestionarios genéricos.",
-    micro: "Una lectura más precisa crea una salida más clara.",
   },
   {
     n: "02",
     t: "Reencuadrar",
-    headline: "Kai te ayuda a ver la situación desde otro ángulo.",
     d: "Kai te ayuda a ver la situación desde otro ángulo, en tiempo real, sin que tengas que explicar todo desde cero.",
-    micro: "El objetivo es desbloquear la lectura, no decorar el problema.",
   },
   {
     n: "03",
     t: "Optimizar",
-    headline: "Cada sesión termina en una acción concreta.",
     d: "Cada sesión termina en una acción concreta — no en una reflexión que se queda ahí.",
-    micro: "La claridad cuenta cuando se convierte en movimiento.",
   },
 ];
 
@@ -37,23 +29,17 @@ const STEPS_EN: MethodStep[] = [
   {
     n: "01",
     t: "Identify",
-    headline: "KAIRON detects your specific pattern before intervening.",
     d: "KAIRON detects your specific pattern before intervening — without generic questionnaires.",
-    micro: "A more precise reading creates a clearer exit.",
   },
   {
     n: "02",
     t: "Reframe",
-    headline: "Kai helps you see the situation from another angle.",
     d: "Kai helps you see the situation from another angle, in real time, without making you explain everything from scratch.",
-    micro: "The goal is to unlock the reading, not decorate the problem.",
   },
   {
     n: "03",
     t: "Optimize",
-    headline: "Every session ends in a concrete action.",
     d: "Every session ends in a concrete action — not a reflection that stays there.",
-    micro: "Clarity matters when it becomes movement.",
   },
 ];
 
@@ -104,14 +90,8 @@ export function MethodTabs({ steps }: { steps?: MethodStep[] } = {}) {
             <p className="font-display text-[11px] font-semibold tracking-[0.22em] text-[color:var(--color-background)]/60">
               {step.n} — {step.t.toUpperCase()}
             </p>
-            <h3 className="mt-4 font-display text-2xl md:text-3xl leading-snug">
-              {step.headline}
-            </h3>
-            <p className="mt-5 text-base text-[color:var(--color-background)]/80 leading-relaxed">
+            <p className="mt-5 max-w-2xl font-display text-2xl md:text-3xl leading-snug text-[color:var(--color-background)]">
               {step.d}
-            </p>
-            <p className="mt-7 pt-5 border-t border-[color:var(--color-background)]/15 text-xs italic text-[color:var(--color-background)]/65">
-              {step.micro}
             </p>
           </div>
         </div>

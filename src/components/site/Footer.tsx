@@ -22,15 +22,12 @@ export function Footer() {
 
   const validationLinks: FooterLink[] = [
     { to: locale === "en" ? "/en/iro-method" : "/metodo-iro", label: locale === "en" ? "I-R-O™ Method" : "Método I-R-O™" },
-    { to: locale === "en" ? "/en/enterprise" : "/enterprise", label: "Enterprise pilot" },
-    { to: locale === "en" ? "/en/restructure-1-1" : "/reestructura-1-1", label: locale === "en" ? "RESTRUCTURE 1:1" : "REESTRUCTURA 1:1" },
-    { to: locale === "en" ? "/en/etw-2026-partners" : "/aliados-etw-2026", label: "Workshop ETW 2026" },
+    { to: locale === "en" ? "/en/enterprise" : "/enterprise", label: locale === "en" ? "Diagnostic Workshop" : "Workshop de Diagnóstico" },
   ];
 
   const companiaLinks: FooterLink[] = [
     { to: locale === "en" ? "/en/about-guillermo" : "/sobre-guillermo", label: locale === "en" ? "About" : "Nosotros" },
     { to: locale === "en" ? "/en/investors" : "/inversores", label: locale === "en" ? "Investors" : "Inversores" },
-    { to: locale === "en" ? "/en/etw-2026-partners" : "/aliados-etw-2026", label: locale === "en" ? "ETW 2026 Partners" : "Aliados ETW 2026" },
     { to: locale === "en" ? "/en/join-the-team" : "/unete-al-equipo", label: locale === "en" ? "Join the team" : "Únete al equipo" },
     { to: locale === "en" ? "/en/contact" : "/contacto", label: locale === "en" ? "Contact" : "Contacto" },
   ];
