@@ -45,7 +45,7 @@ export function daysUntilLaunch(now = new Date()) {
 const copy: Record<Locale, Record<LaunchPhase, PhaseCopy>> = {
   es: {
     EARLY_ACCESS: {
-      announcement: "Acceso anticipado abierto · Lanzamiento de KAIRON Pro: 11 de agosto · 52 usuarios ya lo probaron",
+      announcement: "Acceso anticipado abierto · Lanzamiento de KAIRON Pro: 11 de agosto • 52 usuarios ya lo probaron",
       primaryCta: "Probar KAIRON gratis ahora",
       secondaryCta: "Ver cómo funciona",
       helper: "Acceso anticipado al MVP. No necesitas tarjeta hoy. KAIRON Pro abre el 11 de agosto.",
