@@ -135,7 +135,7 @@ export function gStructSoftwareSchema(locale: "es" | "en" = "es") {
     applicationCategory: "ProductivityApplication",
     applicationSubCategory: "AI cognitive coaching tool",
     operatingSystem: "iOS, Android, Web",
-    url: `${SITE_URL}${isEs ? "/g-frame" : "/en/g-frame"}`,
+    url: `${SITE_URL}${isEs ? "/kairon" : "/en/kairon"}`,
     inLanguage: isEs ? "es" : "en",
     description: isEs
       ? "Herramienta de coaching cognitivo con IA guiada por Kai para procesar pensamientos, emociones e interpretaciones que bloquean la ejecución, separar situación e interpretación y llegar a una acción concreta en menos de 12 minutos."

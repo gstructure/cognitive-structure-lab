@@ -251,13 +251,13 @@ export function FrictionQuiz() {
             </p>
             <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3">
               <Link
-                to={locale === "en" ? "/en/g-frame" : "/g-frame"}
+                to={locale === "en" ? "/en/kairon" : "/kairon"}
                 className="inline-flex items-center gap-2 bg-[color:var(--color-background)] px-5 py-3 text-[13px] font-semibold tracking-wide text-[color:var(--color-brand-deep)] hover:opacity-90"
               >
                 {ui.ctaWaitlist} <ArrowRight size={14} />
               </Link>
               <Link
-                to={locale === "en" ? "/en/g-frame" : "/g-frame"}
+                to={locale === "en" ? "/en/kairon" : "/kairon"}
                 className="inline-flex items-center gap-2 border border-[color:var(--color-background)]/50 px-5 py-3 text-[13px] font-medium text-[color:var(--color-background)] hover:bg-[color:var(--color-background)]/10"
               >
                 {ui.ctaRestructure} <ArrowRight size={14} />

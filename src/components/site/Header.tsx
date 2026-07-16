@@ -5,7 +5,8 @@ import { Logo } from "@/components/brand/Logo";
 import { LangSwitcher } from "@/components/site/LangSwitcher";
 import { useLocale } from "@/lib/i18n";
 import { navForLocale } from "@/lib/routeMap";
-import { trackEvent } from "@/lib/analytics";
+import { trackAcquisitionEvent, trackOutboundAppOpened } from "@/lib/analytics";
+import { getLaunchPhase, kaironAppUrl, launchCopy } from "@/lib/launchConfig";
 
 export function Header() {
   const { locale } = useLocale();
@@ -21,13 +22,18 @@ export function Header() {
 
   const NAV = navForLocale(locale);
   const homeTo = locale === "en" ? "/en" : "/";
-  const ctaLabel = locale === "en" ? "Try KAIRON" : "Probar KAIRON";
-  const kaironAppUrl = "https://getkairon.app/start?source=website&campaign=public-mvp-access&cohort=website-prelaunch";
+  const phase = getLaunchPhase();
+  const campaignCopy = launchCopy(locale, phase);
+  const ctaLabel = campaignCopy.primaryCta;
+  const appUrl = kaironAppUrl(locale, "header", phase);
 
   // Hide persistent product CTA on investor pages; that flow uses email/deck requests.
   const hideProductCTA = location.pathname.startsWith("/inversores") || location.pathname.startsWith("/en/investors");
 
-  const onCtaClick = () => trackEvent("nav_try_kairon_click", { source: "header" });
+  const onCtaClick = () => {
+    trackAcquisitionEvent("hero_cta_clicked", { cta_location: "header", language: locale, campaign: "aug11_launch" });
+    trackOutboundAppOpened({ cta_location: "header", language: locale, campaign: "aug11_launch" });
+  };
 
   return (
     <header className={`sticky top-0 z-50 border-b bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70 transition-shadow duration-300 ${scrolled ? "border-border shadow-[0_8px_24px_-18px_rgba(5,50,90,0.25)]" : "border-transparent"}`}>
@@ -62,7 +68,7 @@ export function Header() {
           <LangSwitcher />
           {!hideProductCTA && (
             <a
-              href={kaironAppUrl}
+              href={appUrl}
               target="_blank"
               rel="noopener noreferrer"
               onClick={onCtaClick}
@@ -76,7 +82,7 @@ export function Header() {
         <div className="lg:hidden flex items-center gap-2">
           {!hideProductCTA && (
             <a
-              href={kaironAppUrl}
+              href={appUrl}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => {
@@ -122,7 +128,7 @@ export function Header() {
               <LangSwitcher />
               {!hideProductCTA && (
                 <a
-                  href={kaironAppUrl}
+                  href={appUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => {
@@ -137,6 +143,18 @@ export function Header() {
             </div>
           </div>
         </div>
+      ) : null}
+      {!hideProductCTA ? (
+        <a
+          href={appUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={onCtaClick}
+          className="fixed inset-x-4 z-40 inline-flex min-h-12 items-center justify-center rounded-full bg-foreground px-5 text-sm font-semibold text-background shadow-[0_18px_45px_-22px_rgba(5,50,90,0.75)] transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[color:var(--color-brand)] lg:hidden"
+          style={{ bottom: "calc(0.75rem + env(safe-area-inset-bottom))" }}
+        >
+          {ctaLabel}
+        </a>
       ) : null}
     </header>
   );

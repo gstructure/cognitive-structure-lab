@@ -103,7 +103,7 @@ const COPY: Record<Locale, Copy> = {
       stats: [
         { stat: "$67.94B", title: "Mercado global de software de productividad en 2024.", body: "Proyectado a $149.74B para 2030, con crecimiento anual estimado de 14.1%.", source: "Grand View Research, 2024" },
         { stat: "33.37%", title: "Tasa de actividad emprendedora en Ecuador, #1 en LATAM.", body: "3.3 millones de ecuatorianos emprendiendo activamente: un mercado natural para herramientas de ejecución.", source: "GEM Ecuador, 2024-2025" },
-        { stat: "Q3 2026", title: "Ventana de lanzamiento y validación.", body: "Workshop en Ecuador Tech Week, cohort de testers y preparación para CodeLaunch LATAM 2026.", source: "Roadmap G-Structure" },
+        { stat: "AUG 2026", title: "Ventana de lanzamiento y validación.", body: "Workshop en Ecuador Tech Week, cohort de testers y preparación para CodeLaunch LATAM 2026.", source: "Roadmap G-Structure" },
       ],
       priceCompareTitle: "Comparación de acceso · ejecución guiada por IA",
       priceBars: [
@@ -142,7 +142,7 @@ const COPY: Record<Locale, Copy> = {
         { tag: "✓ Completado", body: "Método I-R-O™ validado en sesiones reales con emprendedores, profesionales y perfiles de alta exigencia en Ecuador.", done: true },
         { tag: "✓ Activo", body: "MVP de KAIRON activo con onboarding, reporte de Escáner, Filtro, Protocolo, Acción Puente y presencia de Kai.", done: true },
         { tag: "Julio 14, 2026", body: "Workshop de Diagnóstico de Ejecución dentro de Ecuador Tech Week: validación pública de categoría, lenguaje y disposición a pagar.", done: false },
-        { tag: "Q3 2026", body: "Lanzamiento inicial de KAIRON en Ecuador con primeros testers, lista de espera y medición de activación, retención y conversión.", done: false },
+        { tag: "AUG 2026", body: "Lanzamiento comercial inicial de KAIRON en Ecuador con primeros usuarios, medición de activación, retención y conversión.", done: false },
       ],
       badgeDone: "Completado",
       badgeNext: "Próximo",
@@ -218,7 +218,7 @@ const COPY: Record<Locale, Copy> = {
       stats: [
         { stat: "$67.94B", title: "Global productivity software market in 2024.", body: "Projected at $149.74B by 2030, with estimated 14.1% annual growth.", source: "Grand View Research, 2024" },
         { stat: "33.37%", title: "Entrepreneurial activity rate in Ecuador, #1 in LATAM.", body: "3.3 million Ecuadorians actively building businesses: a natural market for execution tools.", source: "GEM Ecuador, 2024-2025" },
-        { stat: "Q3 2026", title: "Launch and validation window.", body: "Ecuador Tech Week workshop, tester cohort, and preparation for CodeLaunch LATAM 2026.", source: "G-Structure roadmap" },
+        { stat: "AUG 2026", title: "Launch and validation window.", body: "Ecuador Tech Week workshop, tester cohort, and preparation for CodeLaunch LATAM 2026.", source: "G-Structure roadmap" },
       ],
       priceCompareTitle: "Access comparison · AI-guided execution",
       priceBars: [
@@ -257,7 +257,7 @@ const COPY: Record<Locale, Copy> = {
         { tag: "✓ Completed", body: "I-R-O™ Method validated through real sessions with entrepreneurs, professionals, and high-demand profiles in Ecuador.", done: true },
         { tag: "✓ Active", body: "KAIRON live MVP with onboarding, Scanner report, Filter, Protocol, Action Bridge, and Kai presence.", done: true },
         { tag: "July 14, 2026", body: "Execution Diagnostic Workshop inside Ecuador Tech Week: public validation of category, language, and willingness to pay.", done: false },
-        { tag: "Q3 2026", body: "Initial KAIRON launch in Ecuador with first testers, waitlist, and measurement of activation, retention, and conversion.", done: false },
+        { tag: "AUG 2026", body: "Initial KAIRON commercial launch in Ecuador with first users and measurement of activation, retention, and conversion.", done: false },
       ],
       badgeDone: "Completed",
       badgeNext: "Next",

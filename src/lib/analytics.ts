@@ -25,6 +25,29 @@ export type ConversionKey =
   | "kairon_waitlist_signup"
   | "investor_interest";
 
+export type AcquisitionEventName =
+  | "homepage_viewed"
+  | "hero_cta_clicked"
+  | "section_cta_clicked"
+  | "pricing_viewed"
+  | "testimonial_expanded"
+  | "early_access_email_submitted"
+  | "outbound_app_opened";
+
+export type AcquisitionEventParams = {
+  cta_location?: string;
+  language?: "es" | "en";
+  campaign?: string;
+  source?: string;
+  medium?: string;
+  content?: string;
+  device_category?: string;
+  landing_page?: string;
+  first_touch?: string;
+  last_touch?: string;
+  [key: string]: unknown;
+};
+
 // Google Ads conversion labels. `undefined` means: fire GA4 event only,
 // do NOT fire a Google Ads conversion.
 const CONVERSION_LABELS: Record<ConversionKey, string | undefined> = {
@@ -61,6 +84,22 @@ export function trackCtaClick(
   params: Record<string, unknown> = {},
 ) {
   trackEvent("cta_click", { label, ...params });
+}
+
+export function trackAcquisitionEvent(
+  name: AcquisitionEventName,
+  params: AcquisitionEventParams = {},
+) {
+  trackEvent(name, {
+    source: "gstructure",
+    medium: "website",
+    campaign: "aug11_launch",
+    ...params,
+  });
+}
+
+export function trackOutboundAppOpened(params: AcquisitionEventParams = {}) {
+  trackAcquisitionEvent("outbound_app_opened", params);
 }
 
 export function trackContactClick(

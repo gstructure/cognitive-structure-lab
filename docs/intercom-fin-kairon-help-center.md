@@ -92,7 +92,7 @@ KAIRON is already active as an MVP.
 
 The MVP can be tried through the public access link:
 
-https://getkairon.app/start?source=website&campaign=public-mvp-access&cohort=website-prelaunch
+https://getkairon.app/start?source=gstructure&campaign=aug11_launch&cohort=aug11_early_access
 
 The commercial product launch is planned for August 2026.
 
@@ -217,11 +217,11 @@ KAIRON is designed to help users move through mental friction quickly. Some flow
 
 Yes. KAIRON has an active MVP. You can try it here:
 
-https://getkairon.app/start?source=website&campaign=public-mvp-access&cohort=website-prelaunch
+https://getkairon.app/start?source=gstructure&campaign=aug11_launch&cohort=aug11_early_access
 
 ### How much will KAIRON cost?
 
-The planned initial Pro pricing is USD $12.99/month for Ecuadorian and LATAM first launch users, and USD $24.99/month for American/global users. VIP will launch later.
+The planned initial Pro pricing is USD $9.99/month for Ecuadorian and LATAM first launch users, and USD $18.99/month for American/global users. VIP will launch later.
 
 ### Is G-Structure going to Dallas for CodeLaunch?
 
@@ -261,4 +261,3 @@ Fin should route the conversation to G-Structure when the user asks about:
 - Final subscription pricing or payment issues
 - Press, accelerators, or CodeLaunch status verification
 - Anything that requires a guarantee, contract, custom quote, or sensitive personal information
-

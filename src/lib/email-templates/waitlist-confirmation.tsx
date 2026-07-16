@@ -18,7 +18,7 @@ const Email = () => (
         </Text>
         <Text style={text}>
           Eres parte del primer grupo de usuarios en Ecuador que tendrá acceso
-          antes del lanzamiento oficial en Q3 2026.
+          antes del lanzamiento oficial de agosto de 2026.
         </Text>
         <Text style={textBold}>Lo que viene:</Text>
         <Text style={list}>· Acceso anticipado al prototipo antes del lanzamiento público</Text>

@@ -14,10 +14,12 @@ import { Route as UnsubscribeRouteImport } from './routes/unsubscribe'
 import { Route as UneteAlEquipoRouteImport } from './routes/unete-al-equipo'
 import { Route as SobreGuillermoRouteImport } from './routes/sobre-guillermo'
 import { Route as Reestructura11RouteImport } from './routes/reestructura-1-1'
+import { Route as PreciosRouteImport } from './routes/precios'
 import { Route as PoliticasLegalesRouteImport } from './routes/politicas-legales'
 import { Route as NewsletterRouteImport } from './routes/newsletter'
 import { Route as MetodoIroRouteImport } from './routes/metodo-iro'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as KaironRouteImport } from './routes/kairon'
 import { Route as InversoresRouteImport } from './routes/inversores'
 import { Route as GStructRouteImport } from './routes/g-struct'
 import { Route as GFrameRouteImport } from './routes/g-frame'
@@ -34,7 +36,9 @@ import { Route as ArticulosIndexRouteImport } from './routes/articulos.index'
 import { Route as EnVipPassRouteImport } from './routes/en.vip-pass'
 import { Route as EnSupportTheLaunchRouteImport } from './routes/en.support-the-launch'
 import { Route as EnRestructure11RouteImport } from './routes/en.restructure-1-1'
+import { Route as EnPricingRouteImport } from './routes/en.pricing'
 import { Route as EnNewsletterRouteImport } from './routes/en.newsletter'
+import { Route as EnKaironRouteImport } from './routes/en.kairon'
 import { Route as EnJoinTheTeamRouteImport } from './routes/en.join-the-team'
 import { Route as EnIroMethodRouteImport } from './routes/en.iro-method'
 import { Route as EnInvestorsRouteImport } from './routes/en.investors'
@@ -94,6 +98,11 @@ const Reestructura11Route = Reestructura11RouteImport.update({
   path: '/reestructura-1-1',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PreciosRoute = PreciosRouteImport.update({
+  id: '/precios',
+  path: '/precios',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PoliticasLegalesRoute = PoliticasLegalesRouteImport.update({
   id: '/politicas-legales',
   path: '/politicas-legales',
@@ -112,6 +121,11 @@ const MetodoIroRoute = MetodoIroRouteImport.update({
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KaironRoute = KaironRouteImport.update({
+  id: '/kairon',
+  path: '/kairon',
   getParentRoute: () => rootRouteImport,
 } as any)
 const InversoresRoute = InversoresRouteImport.update({
@@ -194,9 +208,19 @@ const EnRestructure11Route = EnRestructure11RouteImport.update({
   path: '/en/restructure-1-1',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EnPricingRoute = EnPricingRouteImport.update({
+  id: '/en/pricing',
+  path: '/en/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EnNewsletterRoute = EnNewsletterRouteImport.update({
   id: '/en/newsletter',
   path: '/en/newsletter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnKaironRoute = EnKaironRouteImport.update({
+  id: '/en/kairon',
+  path: '/en/kairon',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EnJoinTheTeamRoute = EnJoinTheTeamRouteImport.update({
@@ -387,10 +411,12 @@ export interface FileRoutesByFullPath {
   '/g-frame': typeof GFrameRoute
   '/g-struct': typeof GStructRoute
   '/inversores': typeof InversoresRoute
+  '/kairon': typeof KaironRoute
   '/login': typeof LoginRoute
   '/metodo-iro': typeof MetodoIroRoute
   '/newsletter': typeof NewsletterRoute
   '/politicas-legales': typeof PoliticasLegalesRoute
+  '/precios': typeof PreciosRoute
   '/reestructura-1-1': typeof Reestructura11Route
   '/sobre-guillermo': typeof SobreGuillermoRoute
   '/unete-al-equipo': typeof UneteAlEquipoRoute
@@ -408,7 +434,9 @@ export interface FileRoutesByFullPath {
   '/en/investors': typeof EnInvestorsRoute
   '/en/iro-method': typeof EnIroMethodRoute
   '/en/join-the-team': typeof EnJoinTheTeamRoute
+  '/en/kairon': typeof EnKaironRoute
   '/en/newsletter': typeof EnNewsletterRoute
+  '/en/pricing': typeof EnPricingRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
   '/en/support-the-launch': typeof EnSupportTheLaunchRoute
   '/en/vip-pass': typeof EnVipPassRoute
@@ -446,10 +474,12 @@ export interface FileRoutesByTo {
   '/g-frame': typeof GFrameRoute
   '/g-struct': typeof GStructRoute
   '/inversores': typeof InversoresRoute
+  '/kairon': typeof KaironRoute
   '/login': typeof LoginRoute
   '/metodo-iro': typeof MetodoIroRoute
   '/newsletter': typeof NewsletterRoute
   '/politicas-legales': typeof PoliticasLegalesRoute
+  '/precios': typeof PreciosRoute
   '/reestructura-1-1': typeof Reestructura11Route
   '/sobre-guillermo': typeof SobreGuillermoRoute
   '/unete-al-equipo': typeof UneteAlEquipoRoute
@@ -466,7 +496,9 @@ export interface FileRoutesByTo {
   '/en/investors': typeof EnInvestorsRoute
   '/en/iro-method': typeof EnIroMethodRoute
   '/en/join-the-team': typeof EnJoinTheTeamRoute
+  '/en/kairon': typeof EnKaironRoute
   '/en/newsletter': typeof EnNewsletterRoute
+  '/en/pricing': typeof EnPricingRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
   '/en/support-the-launch': typeof EnSupportTheLaunchRoute
   '/en/vip-pass': typeof EnVipPassRoute
@@ -507,10 +539,12 @@ export interface FileRoutesById {
   '/g-frame': typeof GFrameRoute
   '/g-struct': typeof GStructRoute
   '/inversores': typeof InversoresRoute
+  '/kairon': typeof KaironRoute
   '/login': typeof LoginRoute
   '/metodo-iro': typeof MetodoIroRoute
   '/newsletter': typeof NewsletterRoute
   '/politicas-legales': typeof PoliticasLegalesRoute
+  '/precios': typeof PreciosRoute
   '/reestructura-1-1': typeof Reestructura11Route
   '/sobre-guillermo': typeof SobreGuillermoRoute
   '/unete-al-equipo': typeof UneteAlEquipoRoute
@@ -528,7 +562,9 @@ export interface FileRoutesById {
   '/en/investors': typeof EnInvestorsRoute
   '/en/iro-method': typeof EnIroMethodRoute
   '/en/join-the-team': typeof EnJoinTheTeamRoute
+  '/en/kairon': typeof EnKaironRoute
   '/en/newsletter': typeof EnNewsletterRoute
+  '/en/pricing': typeof EnPricingRoute
   '/en/restructure-1-1': typeof EnRestructure11Route
   '/en/support-the-launch': typeof EnSupportTheLaunchRoute
   '/en/vip-pass': typeof EnVipPassRoute
@@ -569,10 +605,12 @@ export interface FileRouteTypes {
     | '/g-frame'
     | '/g-struct'
     | '/inversores'
+    | '/kairon'
     | '/login'
     | '/metodo-iro'
     | '/newsletter'
     | '/politicas-legales'
+    | '/precios'
     | '/reestructura-1-1'
     | '/sobre-guillermo'
     | '/unete-al-equipo'
@@ -590,7 +628,9 @@ export interface FileRouteTypes {
     | '/en/investors'
     | '/en/iro-method'
     | '/en/join-the-team'
+    | '/en/kairon'
     | '/en/newsletter'
+    | '/en/pricing'
     | '/en/restructure-1-1'
     | '/en/support-the-launch'
     | '/en/vip-pass'
@@ -628,10 +668,12 @@ export interface FileRouteTypes {
     | '/g-frame'
     | '/g-struct'
     | '/inversores'
+    | '/kairon'
     | '/login'
     | '/metodo-iro'
     | '/newsletter'
     | '/politicas-legales'
+    | '/precios'
     | '/reestructura-1-1'
     | '/sobre-guillermo'
     | '/unete-al-equipo'
@@ -648,7 +690,9 @@ export interface FileRouteTypes {
     | '/en/investors'
     | '/en/iro-method'
     | '/en/join-the-team'
+    | '/en/kairon'
     | '/en/newsletter'
+    | '/en/pricing'
     | '/en/restructure-1-1'
     | '/en/support-the-launch'
     | '/en/vip-pass'
@@ -688,10 +732,12 @@ export interface FileRouteTypes {
     | '/g-frame'
     | '/g-struct'
     | '/inversores'
+    | '/kairon'
     | '/login'
     | '/metodo-iro'
     | '/newsletter'
     | '/politicas-legales'
+    | '/precios'
     | '/reestructura-1-1'
     | '/sobre-guillermo'
     | '/unete-al-equipo'
@@ -709,7 +755,9 @@ export interface FileRouteTypes {
     | '/en/investors'
     | '/en/iro-method'
     | '/en/join-the-team'
+    | '/en/kairon'
     | '/en/newsletter'
+    | '/en/pricing'
     | '/en/restructure-1-1'
     | '/en/support-the-launch'
     | '/en/vip-pass'
@@ -750,10 +798,12 @@ export interface RootRouteChildren {
   GFrameRoute: typeof GFrameRoute
   GStructRoute: typeof GStructRoute
   InversoresRoute: typeof InversoresRoute
+  KaironRoute: typeof KaironRoute
   LoginRoute: typeof LoginRoute
   MetodoIroRoute: typeof MetodoIroRoute
   NewsletterRoute: typeof NewsletterRoute
   PoliticasLegalesRoute: typeof PoliticasLegalesRoute
+  PreciosRoute: typeof PreciosRoute
   Reestructura11Route: typeof Reestructura11Route
   SobreGuillermoRoute: typeof SobreGuillermoRoute
   UneteAlEquipoRoute: typeof UneteAlEquipoRoute
@@ -770,7 +820,9 @@ export interface RootRouteChildren {
   EnInvestorsRoute: typeof EnInvestorsRoute
   EnIroMethodRoute: typeof EnIroMethodRoute
   EnJoinTheTeamRoute: typeof EnJoinTheTeamRoute
+  EnKaironRoute: typeof EnKaironRoute
   EnNewsletterRoute: typeof EnNewsletterRoute
+  EnPricingRoute: typeof EnPricingRoute
   EnRestructure11Route: typeof EnRestructure11Route
   EnSupportTheLaunchRoute: typeof EnSupportTheLaunchRoute
   EnVipPassRoute: typeof EnVipPassRoute
@@ -827,6 +879,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Reestructura11RouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/precios': {
+      id: '/precios'
+      path: '/precios'
+      fullPath: '/precios'
+      preLoaderRoute: typeof PreciosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/politicas-legales': {
       id: '/politicas-legales'
       path: '/politicas-legales'
@@ -853,6 +912,13 @@ declare module '@tanstack/react-router' {
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kairon': {
+      id: '/kairon'
+      path: '/kairon'
+      fullPath: '/kairon'
+      preLoaderRoute: typeof KaironRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/inversores': {
@@ -967,11 +1033,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnRestructure11RouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/en/pricing': {
+      id: '/en/pricing'
+      path: '/en/pricing'
+      fullPath: '/en/pricing'
+      preLoaderRoute: typeof EnPricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/en/newsletter': {
       id: '/en/newsletter'
       path: '/en/newsletter'
       fullPath: '/en/newsletter'
       preLoaderRoute: typeof EnNewsletterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/kairon': {
+      id: '/en/kairon'
+      path: '/en/kairon'
+      fullPath: '/en/kairon'
+      preLoaderRoute: typeof EnKaironRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/en/join-the-team': {
@@ -1268,10 +1348,12 @@ const rootRouteChildren: RootRouteChildren = {
   GFrameRoute: GFrameRoute,
   GStructRoute: GStructRoute,
   InversoresRoute: InversoresRoute,
+  KaironRoute: KaironRoute,
   LoginRoute: LoginRoute,
   MetodoIroRoute: MetodoIroRoute,
   NewsletterRoute: NewsletterRoute,
   PoliticasLegalesRoute: PoliticasLegalesRoute,
+  PreciosRoute: PreciosRoute,
   Reestructura11Route: Reestructura11Route,
   SobreGuillermoRoute: SobreGuillermoRoute,
   UneteAlEquipoRoute: UneteAlEquipoRoute,
@@ -1288,7 +1370,9 @@ const rootRouteChildren: RootRouteChildren = {
   EnInvestorsRoute: EnInvestorsRoute,
   EnIroMethodRoute: EnIroMethodRoute,
   EnJoinTheTeamRoute: EnJoinTheTeamRoute,
+  EnKaironRoute: EnKaironRoute,
   EnNewsletterRoute: EnNewsletterRoute,
+  EnPricingRoute: EnPricingRoute,
   EnRestructure11Route: EnRestructure11Route,
   EnSupportTheLaunchRoute: EnSupportTheLaunchRoute,
   EnVipPassRoute: EnVipPassRoute,

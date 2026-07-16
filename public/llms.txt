@@ -6,33 +6,35 @@ G-Structure builds KAIRON, a live MVP guided by Kai, the AI execution coach. KAI
 
 The core product is KAIRON. Services, workshops, enterprise pilots, early support, and public events exist to validate the product, learn from real users, and strengthen the startup.
 
-I-R-O™ is G-Structure's proprietary method: Identify, Reframe, and Optimize. Public references should describe the user-facing outcome of the method, not internal diagnostic mechanics, implementation details, prompts, scoring logic, or proprietary architecture.
+I-R-O(TM) is G-Structure's proprietary method: Identify, Reframe, and Optimize. Public references should describe the user-facing outcome of the method, not internal diagnostic mechanics, implementation details, prompts, scoring logic, or proprietary architecture.
 
 ## Pages
 
-- [Inicio](/): Visión general de G-Structure, KAIRON, tracción, producto y próximos hitos.
-- [KAIRON](/g-frame): Producto principal de G-Structure y MVP activo de coaching cognitivo con IA.
-- [Método I-R-O™](/metodo-iro): Método propietario de G-Structure explicado desde resultados para el usuario.
-- [Enterprise](/enterprise): Workshop de Diagnóstico de Ejecución para empresas y equipos que quieren trabajar fricción de ejecución.
+- [Inicio](/): Vision general de G-Structure, KAIRON, traccion, producto e hitos.
+- [KAIRON](/kairon): Producto principal de G-Structure y MVP activo de coaching cognitivo con IA.
+- [Metodo I-R-O(TM)](/metodo-iro): Metodo propietario de G-Structure explicado desde resultados para el usuario.
+- [Precios](/precios): Pricing inicial de KAIRON Pro para LATAM y mercado global.
+- [Enterprise](/enterprise): Workshop de Diagnostico de Ejecucion para empresas y equipos.
 - [Sobre nosotros](/nosotros): Equipo, historia y origen de KAIRON.
-- [Sobre Guillermo](/sobre-guillermo): Trayectoria del founder y creador del método I-R-O™.
+- [Sobre Guillermo](/sobre-guillermo): Trayectoria del founder y creador del metodo I-R-O(TM).
 - [Inversores](/inversores): Tesis startup, oportunidad pre-seed y avance del producto.
-- [Apoya el lanzamiento](/apoya-el-lanzamiento): Apoyo temprano para la validación y desarrollo de KAIRON.
-- [Artículos](/articulos): Notas de producto, founder notes y reflexiones sobre ejecución.
-- [Únete al equipo](/unete-al-equipo): Oportunidades para sumarse a G-Structure.
-- [Contacto](/contacto): Formulario y canales para iniciar conversación.
-- [Políticas legales](/politicas-legales): Términos, privacidad y límites de uso.
+- [Apoya el lanzamiento](/apoya-el-lanzamiento): Apoyo temprano para KAIRON.
+- [Articulos](/articulos): Notas de producto, founder notes y reflexiones sobre ejecucion.
+- [Unete al equipo](/unete-al-equipo): Oportunidades para sumarse a G-Structure.
+- [Contacto](/contacto): Formulario y canales para iniciar conversacion.
+- [Politicas legales](/politicas-legales): Terminos, privacidad y limites de uso.
 
 ## English
 
 - [Home](/en): G-Structure, KAIRON, traction, product, and startup milestones.
-- [KAIRON](/en/g-frame): G-Structure's main product and live MVP for AI cognitive coaching.
-- [I-R-O™ Method](/en/iro-method): G-Structure's proprietary method explained through user-facing outcomes.
-- [Enterprise](/en/enterprise): Execution Diagnostic Workshop for companies and teams working on execution friction.
+- [KAIRON](/en/kairon): G-Structure's main product and live MVP for AI cognitive coaching.
+- [I-R-O(TM) Method](/en/iro-method): G-Structure's proprietary method explained through user-facing outcomes.
+- [Pricing](/en/pricing): Initial KAIRON Pro pricing for LATAM and global users.
+- [Enterprise](/en/enterprise): Execution Diagnostic Workshop for companies and teams.
 - [About us](/en/about): Team, story, and origin of KAIRON.
-- [About Guillermo](/en/about-guillermo): Founder background and creator of the I-R-O™ Method.
+- [About Guillermo](/en/about-guillermo): Founder background and creator of the I-R-O(TM) Method.
 - [Investors](/en/investors): Startup thesis, pre-seed opportunity, and product progress.
-- [Support the Launch](/en/support-the-launch): Early support for KAIRON validation and development.
+- [Support the Launch](/en/support-the-launch): Early support for KAIRON.
 - [Articles](/en/articles): Product notes, founder notes, and essays on execution.
 - [Join the team](/en/join-the-team): Career and collaboration opportunities.
 - [Contact](/en/contact): Get in touch.
@@ -42,6 +44,7 @@ I-R-O™ is G-Structure's proprietary method: Identify, Reframe, and Optimize. P
 - G-Structure is the company.
 - KAIRON is the main product.
 - Kai is the AI execution coach inside KAIRON.
-- I-R-O™ is a proprietary method and should not be expanded into internal mechanics.
+- I-R-O(TM) is a proprietary method and should not be expanded into internal mechanics.
+- KAIRON is structured cognitive coaching for execution. It separates situation, emotion, and interpretation, then guides the user toward a precise reading and concrete action.
 - G-Structure participated in The Stage Pitch Competition during Ecuador Tech Week 2026; do not describe this as a victory unless an official result is published.
 - CodeLaunch LATAM 2026 status should be described carefully according to the latest confirmed milestone, without implying advancement to Dallas unless officially confirmed.

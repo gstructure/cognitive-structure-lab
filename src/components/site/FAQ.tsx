@@ -31,7 +31,7 @@ const DEFAULT_ES: FAQItem[] = [
   },
   {
     q: "¿KAIRON ya está disponible?",
-    a: "Sí. KAIRON ya está activo como MVP para usuarios tempranos. El producto comercial seguirá evolucionando hacia el lanzamiento público de Q3 2026.",
+    a: "Sí. KAIRON ya está activo como MVP para usuarios tempranos. El producto comercial seguirá evolucionando hacia el lanzamiento público de agosto de 2026.",
   },
 ];
 
@@ -58,7 +58,7 @@ const DEFAULT_EN: FAQItem[] = [
   },
   {
     q: "Is KAIRON already available?",
-    a: "Yes. KAIRON is already live as an MVP for early users. The commercial product will keep evolving toward the Q3 2026 public launch.",
+    a: "Yes. KAIRON is already live as an MVP for early users. The commercial product will keep evolving toward the August 2026 public launch.",
   },
 ];
 

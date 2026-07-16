@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { Section } from "@/components/site/Section";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { useLocale } from "@/lib/i18n";
+import { getLaunchPhase, kaironAppUrl } from "@/lib/launchConfig";
 import { SUPPORT_TIERS, type SupportTierId } from "@/lib/support-tiers";
 
 declare global {
@@ -11,8 +12,6 @@ declare global {
     paypal?: any;
   }
 }
-
-const KAIRON_APP_URL = "https://getkairon.app/start?source=website&campaign=public-mvp-access&cohort=website-prelaunch";
 
 type PaymentStatus = "idle" | "loading" | "ready" | "success" | "cancelled" | "error";
 
@@ -103,6 +102,7 @@ const TIER_COPY: Record<"es" | "en", Array<{
 
 export function SupportLaunchSection() {
   const { locale } = useLocale();
+  const kaironUrl = kaironAppUrl(locale, "support_success", getLaunchPhase());
   const [selectedTier, setSelectedTier] = useState<SupportTierId>("early");
   const [form, setForm] = useState<FormState>(initialForm);
   const [status, setStatus] = useState<PaymentStatus>("idle");
@@ -345,7 +345,7 @@ export function SupportLaunchSection() {
                   >
                     {copy.share}
                   </button>
-                  <a href={KAIRON_APP_URL} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-foreground px-3 py-2 text-xs font-medium text-background">
+                  <a href={kaironUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-foreground px-3 py-2 text-xs font-medium text-background">
                     {copy.workshop}
                   </a>
                 </div>

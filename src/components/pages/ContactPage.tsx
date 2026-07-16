@@ -23,7 +23,7 @@ const COPY = {
     open: "Ir a la página",
     routes: [
       { to: "/enterprise", icon: Building2, t: "Workshop de Diagnóstico", d: "Lleva el diagnóstico de fricción de ejecución a tu empresa." },
-      { to: "/g-frame", icon: Cpu, t: "KAIRON", d: "MVP activo de coaching cognitivo con IA." },
+      { to: "/kairon", icon: Cpu, t: "KAIRON", d: "MVP activo de coaching cognitivo con IA." },
       { to: "/unete-al-equipo", icon: Users, t: "Únete al equipo", d: "Construir desde una etapa temprana." },
     ],
     requestTypes: {
@@ -81,7 +81,7 @@ const COPY = {
     open: "Open page",
     routes: [
       { to: "/en/enterprise", icon: Building2, t: "Diagnostic Workshop", d: "Bring the execution friction diagnostic to your company." },
-      { to: "/en/g-frame", icon: Cpu, t: "KAIRON", d: "Live MVP for AI cognitive coaching." },
+      { to: "/en/kairon", icon: Cpu, t: "KAIRON", d: "Live MVP for AI cognitive coaching." },
       { to: "/en/join-the-team", icon: Users, t: "Join the team", d: "Build with us from an early stage." },
     ],
     requestTypes: {

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://g-structure.co/</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/"/>
     <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/"/>
@@ -11,214 +12,68 @@
   </url>
   <url>
     <loc>https://g-structure.co/en</loc>
-    <priority>1.0</priority>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/"/>
     <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/"/>
   </url>
-
   <url>
-    <loc>https://g-structure.co/g-frame</loc>
+    <loc>https://g-structure.co/kairon</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.95</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/g-frame"/>
-    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/g-frame"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/g-frame"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/g-frame"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/kairon"/>
+    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/kairon"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/kairon"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/kairon"/>
   </url>
   <url>
-    <loc>https://g-structure.co/en/g-frame</loc>
-    <priority>0.95</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/g-frame"/>
-    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/g-frame"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/g-frame"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/g-frame"/>
-  </url>
-  <url>
-    <loc>https://g-structure.co/metodo-iro</loc>
+    <loc>https://g-structure.co/en/kairon</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/metodo-iro"/>
-    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/metodo-iro"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/iro-method"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/metodo-iro"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/kairon"/>
+    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/kairon"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/kairon"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/kairon"/>
   </url>
   <url>
-    <loc>https://g-structure.co/en/iro-method</loc>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/metodo-iro"/>
-    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/metodo-iro"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/iro-method"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/metodo-iro"/>
-  </url>
-
-  <url>
-    <loc>https://g-structure.co/articulos</loc>
-    <priority>0.85</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/articulos"/>
-    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/articulos"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/articles"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/articulos"/>
+    <loc>https://g-structure.co/precios</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/precios"/>
+    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/precios"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/pricing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/precios"/>
   </url>
   <url>
-    <loc>https://g-structure.co/en/articles</loc>
-    <priority>0.85</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/articulos"/>
-    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/articulos"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/articles"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/articulos"/>
-  </url>
-  <url>
-    <loc>https://g-structure.co/articulos/g-structure-seleccionada-codelaunch-latam-2026</loc>
-    <priority>0.82</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/articulos/g-structure-seleccionada-codelaunch-latam-2026"/>
-    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/articulos/g-structure-seleccionada-codelaunch-latam-2026"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/articles/g-structure-selected-codelaunch-latam-2026"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/articulos/g-structure-seleccionada-codelaunch-latam-2026"/>
-  </url>
-  <url>
-    <loc>https://g-structure.co/en/articles/g-structure-selected-codelaunch-latam-2026</loc>
-    <priority>0.82</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/articulos/g-structure-seleccionada-codelaunch-latam-2026"/>
-    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/articulos/g-structure-seleccionada-codelaunch-latam-2026"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/articles/g-structure-selected-codelaunch-latam-2026"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/articulos/g-structure-seleccionada-codelaunch-latam-2026"/>
-  </url>
-  <url>
-    <loc>https://g-structure.co/articulos/g-frame-product-update-q3</loc>
-    <priority>0.78</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/articulos/g-frame-product-update-q3"/>
-    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/articulos/g-frame-product-update-q3"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/articles/g-frame-product-update-q3"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/articulos/g-frame-product-update-q3"/>
-  </url>
-  <url>
-    <loc>https://g-structure.co/en/articles/g-frame-product-update-q3</loc>
-    <priority>0.78</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/articulos/g-frame-product-update-q3"/>
-    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/articulos/g-frame-product-update-q3"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/articles/g-frame-product-update-q3"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/articulos/g-frame-product-update-q3"/>
-  </url>
-  <url>
-    <loc>https://g-structure.co/articulos/la-crisis-de-la-ejecucion</loc>
-    <priority>0.78</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/articulos/la-crisis-de-la-ejecucion"/>
-    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/articulos/la-crisis-de-la-ejecucion"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/articles/the-execution-crisis"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/articulos/la-crisis-de-la-ejecucion"/>
-  </url>
-  <url>
-    <loc>https://g-structure.co/en/articles/the-execution-crisis</loc>
-    <priority>0.78</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/articulos/la-crisis-de-la-ejecucion"/>
-    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/articulos/la-crisis-de-la-ejecucion"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/articles/the-execution-crisis"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/articulos/la-crisis-de-la-ejecucion"/>
-  </url>
-  <url>
-    <loc>https://g-structure.co/articulos/la-infraestructura-invisible-del-habito</loc>
-    <priority>0.78</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/articulos/la-infraestructura-invisible-del-habito"/>
-    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/articulos/la-infraestructura-invisible-del-habito"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/articles/the-invisible-infrastructure-of-habit"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/articulos/la-infraestructura-invisible-del-habito"/>
-  </url>
-  <url>
-    <loc>https://g-structure.co/en/articles/the-invisible-infrastructure-of-habit</loc>
-    <priority>0.78</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/articulos/la-infraestructura-invisible-del-habito"/>
-    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/articulos/la-infraestructura-invisible-del-habito"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/articles/the-invisible-infrastructure-of-habit"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/articulos/la-infraestructura-invisible-del-habito"/>
-  </url>
-
-  <url>
-    <loc>https://g-structure.co/enterprise</loc>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/enterprise"/>
-    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/enterprise"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/enterprise"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/enterprise"/>
-  </url>
-  <url>
-    <loc>https://g-structure.co/en/enterprise</loc>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/enterprise"/>
-    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/enterprise"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/enterprise"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/enterprise"/>
-  </url>
-
-  <url>
-    <loc>https://g-structure.co/inversores</loc>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/inversores"/>
-    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/inversores"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/investors"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/inversores"/>
-  </url>
-  <url>
-    <loc>https://g-structure.co/en/investors</loc>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/inversores"/>
-    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/inversores"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/investors"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/inversores"/>
-  </url>
-
-  <url>
-    <loc>https://g-structure.co/sobre-guillermo</loc>
+    <loc>https://g-structure.co/en/pricing</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/sobre-guillermo"/>
-    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/sobre-guillermo"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/about-guillermo"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/sobre-guillermo"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/precios"/>
+    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/precios"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/pricing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/precios"/>
   </url>
-  <url>
-    <loc>https://g-structure.co/en/about-guillermo</loc>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/sobre-guillermo"/>
-    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/sobre-guillermo"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/about-guillermo"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/sobre-guillermo"/>
-  </url>
-
-  <url>
-    <loc>https://g-structure.co/unete-al-equipo</loc>
-    <priority>0.65</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/unete-al-equipo"/>
-    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/unete-al-equipo"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/join-the-team"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/unete-al-equipo"/>
-  </url>
-  <url>
-    <loc>https://g-structure.co/en/join-the-team</loc>
-    <priority>0.65</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/unete-al-equipo"/>
-    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/unete-al-equipo"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/join-the-team"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/unete-al-equipo"/>
-  </url>
-
-  <url>
-    <loc>https://g-structure.co/contacto</loc>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/contacto"/>
-    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/contacto"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/contact"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/contacto"/>
-  </url>
-  <url>
-    <loc>https://g-structure.co/en/contact</loc>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://g-structure.co/contacto"/>
-    <xhtml:link rel="alternate" hreflang="es-EC" href="https://g-structure.co/contacto"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/contact"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/contacto"/>
-  </url>
-
-  <url>
-    <loc>https://g-structure.co/politicas-legales</loc>
-    <priority>0.3</priority>
-  </url>
+  <url><loc>https://g-structure.co/metodo-iro</loc><lastmod>2026-07-15</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://g-structure.co/en/iro-method</loc><lastmod>2026-07-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://g-structure.co/articulos</loc><lastmod>2026-07-15</lastmod><changefreq>weekly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://g-structure.co/en/articles</loc><lastmod>2026-07-15</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://g-structure.co/enterprise</loc><lastmod>2026-07-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://g-structure.co/en/enterprise</loc><lastmod>2026-07-15</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://g-structure.co/inversores</loc><lastmod>2026-07-15</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://g-structure.co/en/investors</loc><lastmod>2026-07-15</lastmod><changefreq>weekly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://g-structure.co/nosotros</loc><lastmod>2026-07-15</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://g-structure.co/en/about</loc><lastmod>2026-07-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://g-structure.co/contacto</loc><lastmod>2026-07-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://g-structure.co/en/contact</loc><lastmod>2026-07-15</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
+  <url><loc>https://g-structure.co/apoya-el-lanzamiento</loc><lastmod>2026-07-15</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://g-structure.co/en/support-the-launch</loc><lastmod>2026-07-15</lastmod><changefreq>weekly</changefreq><priority>0.55</priority></url>
+  <url><loc>https://g-structure.co/newsletter</loc><lastmod>2026-07-15</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://g-structure.co/en/newsletter</loc><lastmod>2026-07-15</lastmod><changefreq>monthly</changefreq><priority>0.45</priority></url>
 </urlset>

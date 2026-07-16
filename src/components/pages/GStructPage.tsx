@@ -28,10 +28,9 @@ import kaironMvpFilterEn from "@/assets/kairon-mvp-filter-en.webp";
 import kaironMvpProtocolEn from "@/assets/kairon-mvp-protocol-en.webp";
 import kaironMvpScannerReportEn from "@/assets/kairon-mvp-scanner-report-en.webp";
 import kaironMvpOnboardingEn from "@/assets/kairon-mvp-onboarding-en.webp";
-import { trackConversion, trackCtaClick } from "@/lib/analytics";
+import { trackAcquisitionEvent, trackConversion, trackCtaClick, trackOutboundAppOpened } from "@/lib/analytics";
+import { getLaunchPhase, kaironAppUrl, launchCopy } from "@/lib/launchConfig";
 import type { Locale } from "@/lib/i18n";
-
-const KAIRON_APP_URL = "https://getkairon.app/start?source=website&campaign=public-mvp-access&cohort=website-prelaunch";
 
 type Copy = {
   hero: {
@@ -132,14 +131,14 @@ const COPY: Record<Locale, Copy> = {
       ],
     },
     waitlist: {
-      h2: "Prueba el MVP activo.",
-      body: "KAIRON ya existe como MVP. Los primeros usuarios pueden probar la versión actual, recibir precio de fundadores y ayudar a entrenar una nueva categoría: ejecución guiada por control cognitivo, no por más tareas.",
+      h2: "¿No estás listo para crear cuenta todavía?",
+      body: "La ruta principal es probar KAIRON ahora. Si prefieres recibir updates antes de entrar, deja tu correo como reserva secundaria.",
       emailLabel: "Correo electrónico",
       emailPlaceholder: "tu@correo.com",
-      submitIdle: "Quiero probar KAIRON",
+      submitIdle: "Recibir updates de acceso",
       submitDone: "Gracias ✓",
       submitLoading: "Enviando…",
-      foot: "MVP activo · Ecuador en primera fase · Sin spam, solo updates reales de producto.",
+      foot: "Formulario secundario · Si quieres usar KAIRON ahora, usa el botón principal de acceso.",
       successToast: "Listo. Te enviaremos los siguientes pasos de acceso.",
       errorToast: "No pudimos guardar tu correo. Intenta de nuevo.",
       invalidToast: "Correo inválido. Revisa el formato.",
@@ -198,14 +197,14 @@ const COPY: Record<Locale, Copy> = {
       ],
     },
     waitlist: {
-      h2: "Try the live MVP.",
-      body: "KAIRON already exists as a live MVP. Early users can try the current version, get founder pricing, and help shape a new category: execution guided by cognitive control, not more tasks.",
+      h2: "Not ready to create an account yet?",
+      body: "The main path is to try KAIRON now. If you prefer updates before entering, leave your email as a secondary reservation.",
       emailLabel: "Email",
       emailPlaceholder: "you@email.com",
-      submitIdle: "I want to try KAIRON",
+      submitIdle: "Get access updates",
       submitDone: "Thanks ✓",
       submitLoading: "Sending…",
-      foot: "Live MVP · Ecuador in the first phase · No spam, only real product updates.",
+      foot: "Secondary form · If you want to use KAIRON now, use the main access button.",
       successToast: "Done. We'll send you the next access steps.",
       errorToast: "We couldn't save your email. Please try again.",
       invalidToast: "Invalid email. Check the format.",
@@ -271,6 +270,9 @@ export function GStructPage({ locale }: { locale: Locale }) {
 
 function Hero({ locale }: { locale: Locale }) {
   const c = COPY[locale].hero;
+  const phase = getLaunchPhase();
+  const campaign = launchCopy(locale, phase);
+  const appUrl = kaironAppUrl(locale, "kairon_product_hero", phase);
   return (
     <section className="relative overflow-hidden border-b border-border bg-background">
       <div className="absolute inset-0 grid-bg opacity-40" aria-hidden />
@@ -284,17 +286,21 @@ function Hero({ locale }: { locale: Locale }) {
           <p className="mx-auto mt-3 max-w-2xl text-xs text-muted-foreground leading-relaxed">{c.disclaimer}</p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
             <a
-              href={KAIRON_APP_URL}
+              href={appUrl}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackCtaClick("kairon_hero_try_mvp", { source: "kairon_page" })}
+              onClick={() => {
+                trackCtaClick("kairon_hero_try_mvp", { source: "kairon_page" });
+                trackAcquisitionEvent("hero_cta_clicked", { cta_location: "kairon_product_hero", language: locale });
+                trackOutboundAppOpened({ cta_location: "kairon_product_hero", language: locale });
+              }}
               className="group inline-flex items-center justify-center gap-2 bg-foreground px-5 min-h-11 py-3 text-[13px] font-medium tracking-wide text-background transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:ring-[color:var(--color-brand)]"
             >
-              {c.cta}
+              {campaign.primaryCta}
               <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
             </a>
           </div>
-          <p className="mx-auto mt-4 max-w-xl text-xs text-muted-foreground">{c.launchNote}</p>
+          <p className="mx-auto mt-4 max-w-xl text-xs text-muted-foreground">{campaign.helper}</p>
         </div>
         <div className="mx-auto mt-12 max-w-2xl">
           <div className="relative min-h-[360px] overflow-hidden md:min-h-[460px]">

@@ -9,33 +9,31 @@ export function Footer() {
   const { locale } = useLocale();
   const t = useT();
 
-  const gStructBase = locale === "en" ? "/en/g-frame" : "/g-frame";
-
   const productoLinks: FooterLink[] = [
-    { to: gStructBase, label: "KAIRON" },
-    { to: locale === "en" ? "/en/articles" : "/articulos", label: locale === "en" ? "Articles" : "Artículos" },
+    { to: locale === "en" ? "/en/kairon" : "/kairon", label: "KAIRON" },
+    { to: locale === "en" ? "/en/pricing" : "/precios", label: locale === "en" ? "Pricing" : "Precio" },
+    { to: locale === "en" ? "/en/articles" : "/articulos", label: locale === "en" ? "Articles" : "Articulos" },
     { to: locale === "en" ? "/en/newsletter" : "/newsletter", label: "Newsletter" },
     { to: locale === "en" ? "/en/support-the-launch" : "/apoya-el-lanzamiento", label: locale === "en" ? "Support G-Structure" : "Apoya G-Structure" },
-    { to: gStructBase + "#waitlist", label: locale === "en" ? "Waitlist" : "Lista de espera" },
-    { to: "/diagnostico-friccion-ejecutiva", label: locale === "en" ? "Execution Diagnostic" : "Diagnóstico de Ejecución" },
+    { to: "/diagnostico-friccion-ejecutiva", label: locale === "en" ? "Execution Diagnostic" : "Diagnostico de Ejecucion" },
   ];
 
   const validationLinks: FooterLink[] = [
-    { to: locale === "en" ? "/en/iro-method" : "/metodo-iro", label: locale === "en" ? "I-R-O™ Method" : "Método I-R-O™" },
-    { to: locale === "en" ? "/en/enterprise" : "/enterprise", label: locale === "en" ? "Diagnostic Workshop" : "Workshop de Diagnóstico" },
+    { to: locale === "en" ? "/en/iro-method" : "/metodo-iro", label: locale === "en" ? "I-R-O(TM) Method" : "Metodo I-R-O(TM)" },
+    { to: locale === "en" ? "/en/enterprise" : "/enterprise", label: locale === "en" ? "Diagnostic Workshop" : "Workshop de Diagnostico" },
   ];
 
   const companiaLinks: FooterLink[] = [
     { to: locale === "en" ? "/en/about-guillermo" : "/sobre-guillermo", label: locale === "en" ? "About" : "Nosotros" },
     { to: locale === "en" ? "/en/investors" : "/inversores", label: locale === "en" ? "Investors" : "Inversores" },
-    { to: locale === "en" ? "/en/join-the-team" : "/unete-al-equipo", label: locale === "en" ? "Join the team" : "Únete al equipo" },
+    { to: locale === "en" ? "/en/join-the-team" : "/unete-al-equipo", label: locale === "en" ? "Join the team" : "Unete al equipo" },
     { to: locale === "en" ? "/en/contact" : "/contacto", label: locale === "en" ? "Contact" : "Contacto" },
   ];
 
-  const COLS = [
+  const cols = [
     { title: locale === "en" ? "Product" : "Producto", links: productoLinks },
-    { title: locale === "en" ? "Validation" : "Validación", links: validationLinks },
-    { title: locale === "en" ? "Company" : "Compañía", links: companiaLinks },
+    { title: locale === "en" ? "Validation" : "Validacion", links: validationLinks },
+    { title: locale === "en" ? "Company" : "Compania", links: companiaLinks },
   ];
 
   return (
@@ -49,7 +47,7 @@ export function Footer() {
             </p>
           </div>
 
-          {COLS.map((col) => (
+          {cols.map((col) => (
             <div key={col.title} className="md:col-span-2">
               <p className="eyebrow mb-4">{col.title}</p>
               <ul className="space-y-2.5">
@@ -117,9 +115,9 @@ export function Footer() {
               © {new Date().getFullYear()} G-Structure. {t("common.rightsReserved")}
             </p>
             <nav aria-label="Legal" className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-muted-foreground lg:justify-center">
-              <Link to="/politicas-legales" className="hover:text-foreground">Políticas Legales</Link>
+              <Link to="/politicas-legales" className="hover:text-foreground">Politicas Legales</Link>
               <a href="/politicas-legales#privacidad" className="hover:text-foreground">Privacidad</a>
-              <a href="/politicas-legales#terminos" className="hover:text-foreground">Términos</a>
+              <a href="/politicas-legales#terminos" className="hover:text-foreground">Terminos</a>
               <a href="/politicas-legales#cookies" className="hover:text-foreground">Cookies</a>
             </nav>
             <p className="text-xs text-muted-foreground tracking-wide lg:shrink-0 lg:text-right">
@@ -131,4 +129,3 @@ export function Footer() {
     </footer>
   );
 }
-
