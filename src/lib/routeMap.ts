@@ -12,15 +12,15 @@ export const ROUTES: RouteEntry[] = [
   { es: "/", en: "/en", label: { es: "Inicio", en: "Home" } },
   { es: "/kairon", en: "/en/kairon", label: { es: "KAIRON", en: "KAIRON" } },
   { es: "/precios", en: "/en/pricing", label: { es: "Precio", en: "Pricing" } },
-  { es: "/metodo-iro", en: "/en/iro-method", label: { es: "Metodo I-R-O(TM)", en: "I-R-O(TM) Method" } },
-  { es: "/articulos", en: "/en/articles", label: { es: "Articulos", en: "Articles" } },
+  { es: "/metodo-iro", en: "/en/iro-method", label: { es: "M\u00e9todo I-R-O\u2122", en: "I-R-O\u2122 Method" } },
+  { es: "/articulos", en: "/en/articles", label: { es: "Art\u00edculos", en: "Articles" } },
   { es: "/newsletter", en: "/en/newsletter", label: { es: "Newsletter", en: "Newsletter" } },
   { es: "/apoya-el-lanzamiento", en: "/en/support-the-launch", label: { es: "Apoya el lanzamiento", en: "Support the Launch" } },
   { es: "/enterprise", en: "/en/enterprise", label: { es: "Enterprise", en: "Enterprise" } },
   { es: "/inversores", en: "/en/investors", label: { es: "Inversores", en: "Investors" } },
   { es: "/sobre-guillermo", en: "/en/about-guillermo", label: { es: "Nosotros", en: "About" } },
   { es: "/contacto", en: "/en/contact", label: { es: "Contacto", en: "Contact" } },
-  { es: "/unete-al-equipo", en: "/en/join-the-team", label: { es: "Unete al equipo", en: "Join the team" } },
+  { es: "/unete-al-equipo", en: "/en/join-the-team", label: { es: "\u00danete al equipo", en: "Join the team" } },
 ];
 
 const LEGACY_ROUTE_PAIRS: Record<string, string> = {
@@ -86,7 +86,7 @@ export function navForLocale(locale: Locale) {
     {
       to: home,
       hash: "como-funciona",
-      label: locale === "en" ? "How it works" : "Como funciona",
+      label: locale === "en" ? "How it works" : "C\u00f3mo funciona",
       exact: false,
       highlight: false,
     },
@@ -105,7 +105,7 @@ export function navForLocale(locale: Locale) {
     },
     {
       to: locale === "en" ? "/en/articles" : "/articulos",
-      label: locale === "en" ? "Articles" : "Articulos",
+      label: locale === "en" ? "Articles" : "Art\u00edculos",
       exact: false,
       highlight: false,
     },

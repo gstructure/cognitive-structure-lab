@@ -6,7 +6,6 @@ import { Eyebrow } from "@/components/site/Eyebrow";
 import { Reveal } from "@/components/site/Reveal";
 import { MethodTabs } from "@/components/site/MethodTabs";
 import { FAQ } from "@/components/site/FAQ";
-import { FrictionQuiz } from "@/components/site/FrictionQuiz";
 import { WaitlistForm, WaitlistInline } from "@/components/site/WaitlistForm";
 import { ArticleCard } from "@/components/articles/ArticleCard";
 
@@ -2119,7 +2118,6 @@ export function Index() {
   void Solutions;
   void ForWhom;
   void Problem;
-  void FrictionQuiz;
   void WaitlistForm;
   void ValidationChannels;
   void ETWBanner;

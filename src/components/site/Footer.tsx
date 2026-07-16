@@ -12,28 +12,36 @@ export function Footer() {
   const productoLinks: FooterLink[] = [
     { to: locale === "en" ? "/en/kairon" : "/kairon", label: "KAIRON" },
     { to: locale === "en" ? "/en/pricing" : "/precios", label: locale === "en" ? "Pricing" : "Precio" },
-    { to: locale === "en" ? "/en/articles" : "/articulos", label: locale === "en" ? "Articles" : "Articulos" },
+    { to: locale === "en" ? "/en/articles" : "/articulos", label: locale === "en" ? "Articles" : "Art\u00edculos" },
     { to: locale === "en" ? "/en/newsletter" : "/newsletter", label: "Newsletter" },
-    { to: locale === "en" ? "/en/support-the-launch" : "/apoya-el-lanzamiento", label: locale === "en" ? "Support G-Structure" : "Apoya G-Structure" },
-    { to: "/diagnostico-friccion-ejecutiva", label: locale === "en" ? "Execution Diagnostic" : "Diagnostico de Ejecucion" },
+    {
+      to: locale === "en" ? "/en/support-the-launch" : "/apoya-el-lanzamiento",
+      label: locale === "en" ? "Support G-Structure" : "Apoya G-Structure",
+    },
   ];
 
   const validationLinks: FooterLink[] = [
-    { to: locale === "en" ? "/en/iro-method" : "/metodo-iro", label: locale === "en" ? "I-R-O(TM) Method" : "Metodo I-R-O(TM)" },
-    { to: locale === "en" ? "/en/enterprise" : "/enterprise", label: locale === "en" ? "Diagnostic Workshop" : "Workshop de Diagnostico" },
+    {
+      to: locale === "en" ? "/en/iro-method" : "/metodo-iro",
+      label: locale === "en" ? "I-R-O\u2122 Method" : "M\u00e9todo I-R-O\u2122",
+    },
+    {
+      to: locale === "en" ? "/en/enterprise" : "/enterprise",
+      label: locale === "en" ? "Diagnostic Workshop" : "Workshop de Diagn\u00f3stico",
+    },
   ];
 
   const companiaLinks: FooterLink[] = [
     { to: locale === "en" ? "/en/about-guillermo" : "/sobre-guillermo", label: locale === "en" ? "About" : "Nosotros" },
     { to: locale === "en" ? "/en/investors" : "/inversores", label: locale === "en" ? "Investors" : "Inversores" },
-    { to: locale === "en" ? "/en/join-the-team" : "/unete-al-equipo", label: locale === "en" ? "Join the team" : "Unete al equipo" },
+    { to: locale === "en" ? "/en/join-the-team" : "/unete-al-equipo", label: locale === "en" ? "Join the team" : "\u00danete al equipo" },
     { to: locale === "en" ? "/en/contact" : "/contacto", label: locale === "en" ? "Contact" : "Contacto" },
   ];
 
   const cols = [
     { title: locale === "en" ? "Product" : "Producto", links: productoLinks },
-    { title: locale === "en" ? "Validation" : "Validacion", links: validationLinks },
-    { title: locale === "en" ? "Company" : "Compania", links: companiaLinks },
+    { title: locale === "en" ? "Validation" : "Validaci\u00f3n", links: validationLinks },
+    { title: locale === "en" ? "Company" : "Compa\u00f1\u00eda", links: companiaLinks },
   ];
 
   return (
@@ -112,12 +120,12 @@ export function Footer() {
         <div className="mt-6 border-t border-border pt-6">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <p className="text-xs text-muted-foreground lg:shrink-0">
-              © {new Date().getFullYear()} G-Structure. {t("common.rightsReserved")}
+              {"\u00a9"} {new Date().getFullYear()} G-Structure. {t("common.rightsReserved")}
             </p>
             <nav aria-label="Legal" className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-muted-foreground lg:justify-center">
-              <Link to="/politicas-legales" className="hover:text-foreground">Politicas Legales</Link>
+              <Link to="/politicas-legales" className="hover:text-foreground">Pol{"\u00ed"}ticas legales</Link>
               <a href="/politicas-legales#privacidad" className="hover:text-foreground">Privacidad</a>
-              <a href="/politicas-legales#terminos" className="hover:text-foreground">Terminos</a>
+              <a href="/politicas-legales#terminos" className="hover:text-foreground">T{"\u00e9"}rminos</a>
               <a href="/politicas-legales#cookies" className="hover:text-foreground">Cookies</a>
             </nav>
             <p className="text-xs text-muted-foreground tracking-wide lg:shrink-0 lg:text-right">
