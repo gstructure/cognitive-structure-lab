@@ -33,6 +33,9 @@ import { Route as AdminRouteImport } from './routes/_admin'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as EnIndexRouteImport } from './routes/en.index'
 import { Route as ArticulosIndexRouteImport } from './routes/articulos.index'
+import { Route as LegalTerminosYCondicionesRouteImport } from './routes/legal.terminos-y-condiciones'
+import { Route as LegalPoliticaDeReembolsosRouteImport } from './routes/legal.politica-de-reembolsos'
+import { Route as LegalPoliticaDePrivacidadRouteImport } from './routes/legal.politica-de-privacidad'
 import { Route as EnVipPassRouteImport } from './routes/en.vip-pass'
 import { Route as EnSupportTheLaunchRouteImport } from './routes/en.support-the-launch'
 import { Route as EnRestructure11RouteImport } from './routes/en.restructure-1-1'
@@ -54,6 +57,9 @@ import { Route as ArticulosSlugRouteImport } from './routes/articulos.$slug'
 import { Route as EnArticlesIndexRouteImport } from './routes/en.articles.index'
 import { Route as AdminAdminIndexRouteImport } from './routes/_admin/admin.index'
 import { Route as LovableEmailSuppressionRouteImport } from './routes/lovable/email/suppression'
+import { Route as EnLegalTermsAndConditionsRouteImport } from './routes/en.legal.terms-and-conditions'
+import { Route as EnLegalRefundPolicyRouteImport } from './routes/en.legal.refund-policy'
+import { Route as EnLegalPrivacyPolicyRouteImport } from './routes/en.legal.privacy-policy'
 import { Route as EnArticlesSlugRouteImport } from './routes/en.articles.$slug'
 import { Route as ApiPublicPaypalSupportCreateOrderRouteImport } from './routes/api/public/paypal-support-create-order'
 import { Route as ApiPublicPaypalSupportConfigRouteImport } from './routes/api/public/paypal-support-config'
@@ -193,6 +199,24 @@ const ArticulosIndexRoute = ArticulosIndexRouteImport.update({
   path: '/',
   getParentRoute: () => ArticulosRoute,
 } as any)
+const LegalTerminosYCondicionesRoute =
+  LegalTerminosYCondicionesRouteImport.update({
+    id: '/legal/terminos-y-condiciones',
+    path: '/legal/terminos-y-condiciones',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LegalPoliticaDeReembolsosRoute =
+  LegalPoliticaDeReembolsosRouteImport.update({
+    id: '/legal/politica-de-reembolsos',
+    path: '/legal/politica-de-reembolsos',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LegalPoliticaDePrivacidadRoute =
+  LegalPoliticaDePrivacidadRouteImport.update({
+    id: '/legal/politica-de-privacidad',
+    path: '/legal/politica-de-privacidad',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const EnVipPassRoute = EnVipPassRouteImport.update({
   id: '/en/vip-pass',
   path: '/en/vip-pass',
@@ -296,6 +320,22 @@ const AdminAdminIndexRoute = AdminAdminIndexRouteImport.update({
 const LovableEmailSuppressionRoute = LovableEmailSuppressionRouteImport.update({
   id: '/lovable/email/suppression',
   path: '/lovable/email/suppression',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnLegalTermsAndConditionsRoute =
+  EnLegalTermsAndConditionsRouteImport.update({
+    id: '/en/legal/terms-and-conditions',
+    path: '/en/legal/terms-and-conditions',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const EnLegalRefundPolicyRoute = EnLegalRefundPolicyRouteImport.update({
+  id: '/en/legal/refund-policy',
+  path: '/en/legal/refund-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnLegalPrivacyPolicyRoute = EnLegalPrivacyPolicyRouteImport.update({
+  id: '/en/legal/privacy-policy',
+  path: '/en/legal/privacy-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EnArticlesSlugRoute = EnArticlesSlugRouteImport.update({
@@ -440,6 +480,9 @@ export interface FileRoutesByFullPath {
   '/en/restructure-1-1': typeof EnRestructure11Route
   '/en/support-the-launch': typeof EnSupportTheLaunchRoute
   '/en/vip-pass': typeof EnVipPassRoute
+  '/legal/politica-de-privacidad': typeof LegalPoliticaDePrivacidadRoute
+  '/legal/politica-de-reembolsos': typeof LegalPoliticaDeReembolsosRoute
+  '/legal/terminos-y-condiciones': typeof LegalTerminosYCondicionesRoute
   '/articulos/': typeof ArticulosIndexRoute
   '/en/': typeof EnIndexRoute
   '/admin/comentarios': typeof AdminAdminComentariosRoute
@@ -457,6 +500,9 @@ export interface FileRoutesByFullPath {
   '/api/public/paypal-support-config': typeof ApiPublicPaypalSupportConfigRoute
   '/api/public/paypal-support-create-order': typeof ApiPublicPaypalSupportCreateOrderRoute
   '/en/articles/$slug': typeof EnArticlesSlugRoute
+  '/en/legal/privacy-policy': typeof EnLegalPrivacyPolicyRoute
+  '/en/legal/refund-policy': typeof EnLegalRefundPolicyRoute
+  '/en/legal/terms-and-conditions': typeof EnLegalTermsAndConditionsRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/admin/': typeof AdminAdminIndexRoute
   '/en/articles/': typeof EnArticlesIndexRoute
@@ -502,6 +548,9 @@ export interface FileRoutesByTo {
   '/en/restructure-1-1': typeof EnRestructure11Route
   '/en/support-the-launch': typeof EnSupportTheLaunchRoute
   '/en/vip-pass': typeof EnVipPassRoute
+  '/legal/politica-de-privacidad': typeof LegalPoliticaDePrivacidadRoute
+  '/legal/politica-de-reembolsos': typeof LegalPoliticaDeReembolsosRoute
+  '/legal/terminos-y-condiciones': typeof LegalTerminosYCondicionesRoute
   '/articulos': typeof ArticulosIndexRoute
   '/en': typeof EnIndexRoute
   '/admin/comentarios': typeof AdminAdminComentariosRoute
@@ -519,6 +568,9 @@ export interface FileRoutesByTo {
   '/api/public/paypal-support-config': typeof ApiPublicPaypalSupportConfigRoute
   '/api/public/paypal-support-create-order': typeof ApiPublicPaypalSupportCreateOrderRoute
   '/en/articles/$slug': typeof EnArticlesSlugRoute
+  '/en/legal/privacy-policy': typeof EnLegalPrivacyPolicyRoute
+  '/en/legal/refund-policy': typeof EnLegalRefundPolicyRoute
+  '/en/legal/terms-and-conditions': typeof EnLegalTermsAndConditionsRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/admin': typeof AdminAdminIndexRoute
   '/en/articles': typeof EnArticlesIndexRoute
@@ -568,6 +620,9 @@ export interface FileRoutesById {
   '/en/restructure-1-1': typeof EnRestructure11Route
   '/en/support-the-launch': typeof EnSupportTheLaunchRoute
   '/en/vip-pass': typeof EnVipPassRoute
+  '/legal/politica-de-privacidad': typeof LegalPoliticaDePrivacidadRoute
+  '/legal/politica-de-reembolsos': typeof LegalPoliticaDeReembolsosRoute
+  '/legal/terminos-y-condiciones': typeof LegalTerminosYCondicionesRoute
   '/articulos/': typeof ArticulosIndexRoute
   '/en/': typeof EnIndexRoute
   '/_admin/admin/comentarios': typeof AdminAdminComentariosRoute
@@ -585,6 +640,9 @@ export interface FileRoutesById {
   '/api/public/paypal-support-config': typeof ApiPublicPaypalSupportConfigRoute
   '/api/public/paypal-support-create-order': typeof ApiPublicPaypalSupportCreateOrderRoute
   '/en/articles/$slug': typeof EnArticlesSlugRoute
+  '/en/legal/privacy-policy': typeof EnLegalPrivacyPolicyRoute
+  '/en/legal/refund-policy': typeof EnLegalRefundPolicyRoute
+  '/en/legal/terms-and-conditions': typeof EnLegalTermsAndConditionsRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/_admin/admin/': typeof AdminAdminIndexRoute
   '/en/articles/': typeof EnArticlesIndexRoute
@@ -634,6 +692,9 @@ export interface FileRouteTypes {
     | '/en/restructure-1-1'
     | '/en/support-the-launch'
     | '/en/vip-pass'
+    | '/legal/politica-de-privacidad'
+    | '/legal/politica-de-reembolsos'
+    | '/legal/terminos-y-condiciones'
     | '/articulos/'
     | '/en/'
     | '/admin/comentarios'
@@ -651,6 +712,9 @@ export interface FileRouteTypes {
     | '/api/public/paypal-support-config'
     | '/api/public/paypal-support-create-order'
     | '/en/articles/$slug'
+    | '/en/legal/privacy-policy'
+    | '/en/legal/refund-policy'
+    | '/en/legal/terms-and-conditions'
     | '/lovable/email/suppression'
     | '/admin/'
     | '/en/articles/'
@@ -696,6 +760,9 @@ export interface FileRouteTypes {
     | '/en/restructure-1-1'
     | '/en/support-the-launch'
     | '/en/vip-pass'
+    | '/legal/politica-de-privacidad'
+    | '/legal/politica-de-reembolsos'
+    | '/legal/terminos-y-condiciones'
     | '/articulos'
     | '/en'
     | '/admin/comentarios'
@@ -713,6 +780,9 @@ export interface FileRouteTypes {
     | '/api/public/paypal-support-config'
     | '/api/public/paypal-support-create-order'
     | '/en/articles/$slug'
+    | '/en/legal/privacy-policy'
+    | '/en/legal/refund-policy'
+    | '/en/legal/terms-and-conditions'
     | '/lovable/email/suppression'
     | '/admin'
     | '/en/articles'
@@ -761,6 +831,9 @@ export interface FileRouteTypes {
     | '/en/restructure-1-1'
     | '/en/support-the-launch'
     | '/en/vip-pass'
+    | '/legal/politica-de-privacidad'
+    | '/legal/politica-de-reembolsos'
+    | '/legal/terminos-y-condiciones'
     | '/articulos/'
     | '/en/'
     | '/_admin/admin/comentarios'
@@ -778,6 +851,9 @@ export interface FileRouteTypes {
     | '/api/public/paypal-support-config'
     | '/api/public/paypal-support-create-order'
     | '/en/articles/$slug'
+    | '/en/legal/privacy-policy'
+    | '/en/legal/refund-policy'
+    | '/en/legal/terms-and-conditions'
     | '/lovable/email/suppression'
     | '/_admin/admin/'
     | '/en/articles/'
@@ -826,6 +902,9 @@ export interface RootRouteChildren {
   EnRestructure11Route: typeof EnRestructure11Route
   EnSupportTheLaunchRoute: typeof EnSupportTheLaunchRoute
   EnVipPassRoute: typeof EnVipPassRoute
+  LegalPoliticaDePrivacidadRoute: typeof LegalPoliticaDePrivacidadRoute
+  LegalPoliticaDeReembolsosRoute: typeof LegalPoliticaDeReembolsosRoute
+  LegalTerminosYCondicionesRoute: typeof LegalTerminosYCondicionesRoute
   EnIndexRoute: typeof EnIndexRoute
   ApiPublicArticleCommentsRoute: typeof ApiPublicArticleCommentsRoute
   ApiPublicContactRoute: typeof ApiPublicContactRoute
@@ -836,6 +915,9 @@ export interface RootRouteChildren {
   ApiPublicPaypalSupportCaptureOrderRoute: typeof ApiPublicPaypalSupportCaptureOrderRoute
   ApiPublicPaypalSupportConfigRoute: typeof ApiPublicPaypalSupportConfigRoute
   ApiPublicPaypalSupportCreateOrderRoute: typeof ApiPublicPaypalSupportCreateOrderRoute
+  EnLegalPrivacyPolicyRoute: typeof EnLegalPrivacyPolicyRoute
+  EnLegalRefundPolicyRoute: typeof EnLegalRefundPolicyRoute
+  EnLegalTermsAndConditionsRoute: typeof EnLegalTermsAndConditionsRoute
   LovableEmailSuppressionRoute: typeof LovableEmailSuppressionRoute
   LovableEmailQueueProcessRoute: typeof LovableEmailQueueProcessRoute
   LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
@@ -1012,6 +1094,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ArticulosIndexRouteImport
       parentRoute: typeof ArticulosRoute
     }
+    '/legal/terminos-y-condiciones': {
+      id: '/legal/terminos-y-condiciones'
+      path: '/legal/terminos-y-condiciones'
+      fullPath: '/legal/terminos-y-condiciones'
+      preLoaderRoute: typeof LegalTerminosYCondicionesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/legal/politica-de-reembolsos': {
+      id: '/legal/politica-de-reembolsos'
+      path: '/legal/politica-de-reembolsos'
+      fullPath: '/legal/politica-de-reembolsos'
+      preLoaderRoute: typeof LegalPoliticaDeReembolsosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/legal/politica-de-privacidad': {
+      id: '/legal/politica-de-privacidad'
+      path: '/legal/politica-de-privacidad'
+      fullPath: '/legal/politica-de-privacidad'
+      preLoaderRoute: typeof LegalPoliticaDePrivacidadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/en/vip-pass': {
       id: '/en/vip-pass'
       path: '/en/vip-pass'
@@ -1157,6 +1260,27 @@ declare module '@tanstack/react-router' {
       path: '/lovable/email/suppression'
       fullPath: '/lovable/email/suppression'
       preLoaderRoute: typeof LovableEmailSuppressionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/legal/terms-and-conditions': {
+      id: '/en/legal/terms-and-conditions'
+      path: '/en/legal/terms-and-conditions'
+      fullPath: '/en/legal/terms-and-conditions'
+      preLoaderRoute: typeof EnLegalTermsAndConditionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/legal/refund-policy': {
+      id: '/en/legal/refund-policy'
+      path: '/en/legal/refund-policy'
+      fullPath: '/en/legal/refund-policy'
+      preLoaderRoute: typeof EnLegalRefundPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/legal/privacy-policy': {
+      id: '/en/legal/privacy-policy'
+      path: '/en/legal/privacy-policy'
+      fullPath: '/en/legal/privacy-policy'
+      preLoaderRoute: typeof EnLegalPrivacyPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/en/articles/$slug': {
@@ -1376,6 +1500,9 @@ const rootRouteChildren: RootRouteChildren = {
   EnRestructure11Route: EnRestructure11Route,
   EnSupportTheLaunchRoute: EnSupportTheLaunchRoute,
   EnVipPassRoute: EnVipPassRoute,
+  LegalPoliticaDePrivacidadRoute: LegalPoliticaDePrivacidadRoute,
+  LegalPoliticaDeReembolsosRoute: LegalPoliticaDeReembolsosRoute,
+  LegalTerminosYCondicionesRoute: LegalTerminosYCondicionesRoute,
   EnIndexRoute: EnIndexRoute,
   ApiPublicArticleCommentsRoute: ApiPublicArticleCommentsRoute,
   ApiPublicContactRoute: ApiPublicContactRoute,
@@ -1388,6 +1515,9 @@ const rootRouteChildren: RootRouteChildren = {
   ApiPublicPaypalSupportConfigRoute: ApiPublicPaypalSupportConfigRoute,
   ApiPublicPaypalSupportCreateOrderRoute:
     ApiPublicPaypalSupportCreateOrderRoute,
+  EnLegalPrivacyPolicyRoute: EnLegalPrivacyPolicyRoute,
+  EnLegalRefundPolicyRoute: EnLegalRefundPolicyRoute,
+  EnLegalTermsAndConditionsRoute: EnLegalTermsAndConditionsRoute,
   LovableEmailSuppressionRoute: LovableEmailSuppressionRoute,
   LovableEmailQueueProcessRoute: LovableEmailQueueProcessRoute,
   LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,

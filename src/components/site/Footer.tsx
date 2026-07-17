@@ -123,10 +123,24 @@ export function Footer() {
               {"\u00a9"} {new Date().getFullYear()} G-Structure. {t("common.rightsReserved")}
             </p>
             <nav aria-label="Legal" className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-muted-foreground lg:justify-center">
-              <Link to="/politicas-legales" className="hover:text-foreground">Pol{"\u00ed"}ticas legales</Link>
-              <a href="/politicas-legales#privacidad" className="hover:text-foreground">Privacidad</a>
-              <a href="/politicas-legales#terminos" className="hover:text-foreground">T{"\u00e9"}rminos</a>
-              <a href="/politicas-legales#cookies" className="hover:text-foreground">Cookies</a>
+              <Link
+                to={locale === "en" ? "/en/legal/terms-and-conditions" : "/legal/terminos-y-condiciones"}
+                className="hover:text-foreground"
+              >
+                {locale === "en" ? "Terms" : "Términos"}
+              </Link>
+              <Link
+                to={locale === "en" ? "/en/legal/privacy-policy" : "/legal/politica-de-privacidad"}
+                className="hover:text-foreground"
+              >
+                {locale === "en" ? "Privacy" : "Privacidad"}
+              </Link>
+              <Link
+                to={locale === "en" ? "/en/legal/refund-policy" : "/legal/politica-de-reembolsos"}
+                className="hover:text-foreground"
+              >
+                {locale === "en" ? "Refunds" : "Reembolsos"}
+              </Link>
             </nav>
             <p className="text-xs text-muted-foreground tracking-wide lg:shrink-0 lg:text-right">
               {t("footer.irO")}
