@@ -103,14 +103,14 @@ export const termsEs: LegalDocument = {
     {
       title: "8. Proveedor de pagos y Merchant of Record",
       body: [
-        "Las compras pueden ser procesadas por Paddle.com Market Ltd. o sus afiliadas como Merchant of Record. Paddle puede actuar como vendedor autorizado, emitir facturas/recibos, cobrar y remitir impuestos aplicables, procesar devoluciones aprobadas y aplicar sus propios términos y políticas al proceso de pago. En caso de conflicto estrictamente relacionado con la mecánica del pago, prevalecerán los términos de Paddle para esa materia; para el Servicio, el contenido, la cuenta, propiedad intelectual, uso aceptable y responsabilidad, prevalecen estos Términos.",
+        "Las compras pueden ser procesadas por Lemon Squeezy, LLC o sus afiliadas como Merchant of Record. Lemon Squeezy, LLC puede actuar como vendedor autorizado, emitir facturas/recibos, cobrar y remitir impuestos aplicables, procesar devoluciones aprobadas y aplicar sus propios términos y políticas al proceso de pago. En caso de conflicto estrictamente relacionado con la mecánica del pago, prevalecerán los términos de Lemon Squeezy, LLC para esa materia; para el Servicio, el contenido, la cuenta, propiedad intelectual, uso aceptable y responsabilidad, prevalecen estos Términos.",
       ],
     },
     {
       title: "9. Cancelación y pagos fallidos",
       body: [
-        "El Usuario puede cancelar su suscripción desde la cuenta, portal de facturación o canal indicado por SUCOSTRUCT/Paddle. La cancelación evita cobros futuros y normalmente surte efecto al final del periodo ya pagado.",
-        "Si un cobro de renovación falla, el acceso a funciones pagadas puede mantenerse durante un periodo de gracia, limitarse o suspenderse. SUCOSTRUCT o Paddle pueden reintentar el cobro y notificar al Usuario. La falta de pago puede ocasionar suspensión o terminación de la suscripción.",
+        "El Usuario puede cancelar su suscripción desde la cuenta, portal de facturación o canal indicado por SUCOSTRUCT/Lemon Squeezy, LLC. La cancelación evita cobros futuros y normalmente surte efecto al final del periodo ya pagado.",
+        "Si un cobro de renovación falla, el acceso a funciones pagadas puede mantenerse durante un periodo de gracia, limitarse o suspenderse. SUCOSTRUCT o Lemon Squeezy, LLC pueden reintentar el cobro y notificar al Usuario. La falta de pago puede ocasionar suspensión o terminación de la suscripción.",
       ],
     },
     {
@@ -153,7 +153,7 @@ export const termsEs: LegalDocument = {
     {
       title: "15. Servicios de terceros",
       body: [
-        "El Servicio puede depender de proveedores como AWS, Amazon Bedrock u otros modelos sucesores, Paddle, Intercom, servicios de notificaciones push, analítica, hosting, soporte o infraestructura. SUCOSTRUCT no controla todos los actos de terceros independientes, pero procurará usar proveedores reputados y contratos adecuados cuando actúen como encargados del tratamiento.",
+        "El Servicio puede depender de proveedores como AWS, Amazon Bedrock u otros modelos sucesores, Lemon Squeezy, LLC, Intercom, servicios de notificaciones push, analítica, hosting, soporte o infraestructura. SUCOSTRUCT no controla todos los actos de terceros independientes, pero procurará usar proveedores reputados y contratos adecuados cuando actúen como encargados del tratamiento.",
       ],
     },
     {
@@ -244,7 +244,7 @@ export const privacyEs: LegalDocument = {
         "Datos de uso: módulos completados, fechas, frecuencia, sesiones, preferencias, eventos técnicos, interacciones con Escáner, Filtro, Taller, Programas y Nocturno.",
         "Datos proporcionados por el Usuario: textos, respuestas, reflexiones, metas, fricciones, patrones de ejecución, contexto profesional y otros contenidos ingresados voluntariamente.",
         "Datos sensibles: información que pueda revelar aspectos del estado emocional, psicológico, mental, patrones conductuales, voz/audio o datos inferidos de interacciones. Se tratan solo con consentimiento explícito, libre, específico, informado e independiente.",
-        "Datos de pago: no almacenamos números completos de tarjeta. Paddle procesa pagos como Merchant of Record y nos entrega metadatos necesarios de suscripción, plan, estado, recibos y región fiscal.",
+        "Datos de pago: no almacenamos números completos de tarjeta. Lemon Squeezy, LLC procesa pagos como Merchant of Record y nos entrega metadatos necesarios de suscripción, plan, estado, recibos y región fiscal.",
         "Datos técnicos: IP, dispositivo, navegador, sistema operativo, logs, identificadores de sesión, tokens de notificación, cookies y datos de diagnóstico.",
       ],
     },
@@ -279,7 +279,7 @@ export const privacyEs: LegalDocument = {
       title: "7. Encargados, proveedores y terceros",
       body: [
         "Compartimos datos solo cuando es necesario con proveedores de infraestructura, IA, pagos, soporte, notificaciones, analítica, asesores profesionales, autoridades o sucesores corporativos.",
-        "Proveedores previstos: AWS/Amazon Bedrock o tecnologías sucesoras; Paddle para pagos; Intercom para soporte; servicios de notificaciones push mediante Web Push (VAPID) y, cuando esté activo, WhatsApp Business; herramientas de analítica si son activadas y consentidas cuando corresponda.",
+        "Proveedores previstos: AWS/Amazon Bedrock o tecnologías sucesoras; Lemon Squeezy, LLC para pagos; Intercom para soporte; servicios de notificaciones push mediante Web Push (VAPID) y, cuando esté activo, WhatsApp Business; herramientas de analítica si son activadas y consentidas cuando corresponda.",
         "Exigiremos acuerdos, condiciones o medidas razonables para que los encargados traten datos conforme a instrucciones, confidencialidad, seguridad y finalidades autorizadas.",
       ],
     },
@@ -349,13 +349,13 @@ export const refundsEs: LegalDocument = {
     {
       title: "1. Ámbito",
       body: [
-        "Esta política aplica a suscripciones, pruebas pagadas, planes Pro y otros planes digitales de KAIRON comprados mediante el sitio, aplicación o Paddle. No aplica a servicios personalizados REESTRUCTURA 1:1, Enterprise, consultoría, talleres o contratos B2B, salvo que el acuerdo respectivo lo incorpore.",
+        "Esta política aplica a suscripciones, pruebas pagadas, planes Pro y otros planes digitales de KAIRON comprados mediante el sitio, aplicación o Lemon Squeezy, LLC. No aplica a servicios personalizados REESTRUCTURA 1:1, Enterprise, consultoría, talleres o contratos B2B, salvo que el acuerdo respectivo lo incorpore.",
       ],
     },
     {
       title: "2. Merchant of Record",
       body: [
-        "Paddle puede actuar como Merchant of Record y procesar cobros, impuestos, facturas y devoluciones al método de pago original. SUCOSTRUCT define criterios comerciales de elegibilidad sin limitar derechos irrenunciables del consumidor.",
+        "Lemon Squeezy, LLC puede actuar como Merchant of Record y procesar cobros, impuestos, facturas y devoluciones al método de pago original. SUCOSTRUCT define criterios comerciales de elegibilidad sin limitar derechos irrenunciables del consumidor.",
       ],
     },
     {
@@ -400,13 +400,13 @@ export const refundsEs: LegalDocument = {
     {
       title: "9. Cómo solicitar",
       body: [
-        "Enviar solicitud a support@g-structure.co, o llamar al +59398-687-5121, con email de cuenta, recibo o datos de compra, motivo y fecha del cobro. También puede usarse el enlace de soporte/reembolso de Paddle. Responderemos en un plazo comercial razonable, procurando hacerlo dentro de cinco (5) días hábiles.",
+        "Enviar solicitud a support@g-structure.co, o llamar al +59398-687-5121, con email de cuenta, recibo o datos de compra, motivo y fecha del cobro. También puede usarse el enlace de soporte/reembolso de Lemon Squeezy, LLC. Responderemos en un plazo comercial razonable, procurando hacerlo dentro de cinco (5) días hábiles.",
       ],
     },
     {
       title: "10. Tiempos de procesamiento",
       body: [
-        "Los reembolsos aprobados son procesados por Paddle o el proveedor de pago. El reflejo bancario puede tardar entre cinco (5) y diez (10) días hábiles, o más según banco/emisor.",
+        "Los reembolsos aprobados son procesados por Lemon Squeezy, LLC o el proveedor de pago. El reflejo bancario puede tardar entre cinco (5) y diez (10) días hábiles, o más según banco/emisor.",
       ],
     },
     {
@@ -484,14 +484,14 @@ export const termsEn: LegalDocument = {
     {
       title: "8. Payment provider and Merchant of Record",
       body: [
-        "Purchases may be processed by Paddle.com Market Ltd. or its affiliates as Merchant of Record. Paddle may act as authorized seller, issue invoices/receipts, collect and remit applicable taxes, process approved refunds, and apply its own terms and policies to the payment process. In the event of a conflict strictly related to payment mechanics, Paddle's terms will prevail for that matter; for the Service, content, account, intellectual property, acceptable use, and liability, these Terms prevail.",
+        "Purchases may be processed by Lemon Squeezy, LLC or its affiliates as Merchant of Record. Lemon Squeezy, LLC may act as authorized seller, issue invoices/receipts, collect and remit applicable taxes, process approved refunds, and apply its own terms and policies to the payment process. In the event of a conflict strictly related to payment mechanics, Lemon Squeezy, LLC's terms will prevail for that matter; for the Service, content, account, intellectual property, acceptable use, and liability, these Terms prevail.",
       ],
     },
     {
       title: "9. Cancellation and failed payments",
       body: [
-        "The User may cancel the subscription from the account, billing portal, or channel indicated by SUCOSTRUCT/Paddle. Cancellation prevents future charges and normally takes effect at the end of the already-paid period.",
-        "If a renewal charge fails, access to paid features may be maintained during a grace period, limited, or suspended. SUCOSTRUCT or Paddle may retry the charge and notify the User. Non-payment may result in suspension or termination of the subscription.",
+        "The User may cancel the subscription from the account, billing portal, or channel indicated by SUCOSTRUCT/Lemon Squeezy, LLC. Cancellation prevents future charges and normally takes effect at the end of the already-paid period.",
+        "If a renewal charge fails, access to paid features may be maintained during a grace period, limited, or suspended. SUCOSTRUCT or Lemon Squeezy, LLC may retry the charge and notify the User. Non-payment may result in suspension or termination of the subscription.",
       ],
     },
     {
@@ -534,7 +534,7 @@ export const termsEn: LegalDocument = {
     {
       title: "15. Third-party services",
       body: [
-        "The Service may depend on providers such as AWS, Amazon Bedrock or successor models, Paddle, Intercom, push-notification services, analytics, hosting, support, or infrastructure. SUCOSTRUCT does not control all actions of independent third parties, but will seek to use reputable providers and appropriate contracts when they act as processors.",
+        "The Service may depend on providers such as AWS, Amazon Bedrock or successor models, Lemon Squeezy, LLC, Intercom, push-notification services, analytics, hosting, support, or infrastructure. SUCOSTRUCT does not control all actions of independent third parties, but will seek to use reputable providers and appropriate contracts when they act as processors.",
       ],
     },
     {
@@ -625,7 +625,7 @@ export const privacyEn: LegalDocument = {
         "Usage data: completed modules, dates, frequency, sessions, preferences, technical events, interactions with Scanner, Filter, Workshop, Programs, and Night Mode.",
         "Data provided by the User: texts, responses, reflections, goals, frictions, execution patterns, professional context, and other content entered voluntarily.",
         "Sensitive data: information that may reveal aspects of emotional, psychological, or mental state, behavioral patterns, voice/audio, or data inferred from interactions. This data is processed only with explicit, free, specific, informed, and independent consent.",
-        "Payment data: we do not store full card numbers. Paddle processes payments as Merchant of Record and provides us with necessary subscription, plan, status, receipt, and tax-region metadata.",
+        "Payment data: we do not store full card numbers. Lemon Squeezy, LLC processes payments as Merchant of Record and provides us with necessary subscription, plan, status, receipt, and tax-region metadata.",
         "Technical data: IP, device, browser, operating system, logs, session identifiers, notification tokens, cookies, and diagnostic data.",
       ],
     },
@@ -660,7 +660,7 @@ export const privacyEn: LegalDocument = {
       title: "7. Processors, providers, and third parties",
       body: [
         "We share data only when necessary with infrastructure, AI, payment, support, notification, analytics providers, professional advisors, authorities, or corporate successors.",
-        "Expected providers include AWS/Amazon Bedrock or successor technologies; Paddle for payments; Intercom for support; push-notification services through Web Push (VAPID) and, when active, WhatsApp Business; and analytics tools if activated and consented to when applicable.",
+        "Expected providers include AWS/Amazon Bedrock or successor technologies; Lemon Squeezy, LLC for payments; Intercom for support; push-notification services through Web Push (VAPID) and, when active, WhatsApp Business; and analytics tools if activated and consented to when applicable.",
         "We will require agreements, conditions, or reasonable measures so processors process data according to instructions, confidentiality, security, and authorized purposes.",
       ],
     },
@@ -730,13 +730,13 @@ export const refundsEn: LegalDocument = {
     {
       title: "1. Scope",
       body: [
-        "This policy applies to subscriptions, paid trials, Pro plans, and other digital KAIRON plans purchased through the website, application, or Paddle. It does not apply to personalized REESTRUCTURA 1:1 services, Enterprise, consulting, workshops, or B2B contracts unless the respective agreement incorporates it.",
+        "This policy applies to subscriptions, paid trials, Pro plans, and other digital KAIRON plans purchased through the website, application, or Lemon Squeezy, LLC. It does not apply to personalized REESTRUCTURA 1:1 services, Enterprise, consulting, workshops, or B2B contracts unless the respective agreement incorporates it.",
       ],
     },
     {
       title: "2. Merchant of Record",
       body: [
-        "Paddle may act as Merchant of Record and process charges, taxes, invoices, and refunds to the original payment method. SUCOSTRUCT defines commercial eligibility criteria without limiting non-waivable consumer rights.",
+        "Lemon Squeezy, LLC may act as Merchant of Record and process charges, taxes, invoices, and refunds to the original payment method. SUCOSTRUCT defines commercial eligibility criteria without limiting non-waivable consumer rights.",
       ],
     },
     {
@@ -781,13 +781,13 @@ export const refundsEn: LegalDocument = {
     {
       title: "9. How to request",
       body: [
-        "Send a request to support@g-structure.co, or call +59398-687-5121, with the account email, receipt or purchase details, reason, and charge date. The Paddle support/refund link may also be used. We will respond within a commercially reasonable time, seeking to do so within five (5) business days.",
+        "Send a request to support@g-structure.co, or call +59398-687-5121, with the account email, receipt or purchase details, reason, and charge date. The Lemon Squeezy, LLC support/refund link may also be used. We will respond within a commercially reasonable time, seeking to do so within five (5) business days.",
       ],
     },
     {
       title: "10. Processing times",
       body: [
-        "Approved refunds are processed by Paddle or the payment provider. Bank reflection may take between five (5) and ten (10) business days, or longer depending on the bank/card issuer.",
+        "Approved refunds are processed by Lemon Squeezy, LLC or the payment provider. Bank reflection may take between five (5) and ten (10) business days, or longer depending on the bank/card issuer.",
       ],
     },
     {
