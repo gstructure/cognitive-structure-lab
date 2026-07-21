@@ -629,7 +629,7 @@ function Hero() {
       }
     : {
         eyebrow: "AI COGNITIVE EXECUTION COACH",
-        title: "Convierte fricción mental en acción. En 5 minutos.",
+        title: "Entiende qué te bloquea. Decide cómo avanzar.",
         lead: "KAIRON ayuda a founders, creadores y profesionales a detectar los pensamientos que bloquean su ejecución, reencuadrarlos con Kai y convertirlos en acciones validadas de 5 minutos.",
         price: `$${KAIRON_PRICING.latamMonthlyUsd}/mes LATAM · $${KAIRON_PRICING.usMonthlyUsd}/mes US`,
         trust: [

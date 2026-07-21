@@ -79,7 +79,7 @@ export const es: Dict = {
       pillTitle: "TECH STARTUP · ETAPA TEMPRANA",
       pillSub: "· KAIRON · Método I-R-O™ · Validación activa",
       eyebrow: "AI Cognitive Execution Coach",
-      h1: "Convierte fricción mental en acción. En 5 minutos.",
+      h1: "Entiende qué te bloquea. Decide cómo avanzar.",
       lead:
         "KAIRON ayuda a founders, creators y profesionales a procesar pensamientos y emociones que bloquean la ejecución, reencuadrarlos con Kai y convertirlos en acciones concretas en menos de 12 minutos.",
       sub:
