@@ -1,0 +1,138 @@
+/* ==========================================================================
+   KAIRON Product Surface — Dark obsidian/gold palette
+   Applied via data-brand="kairon" on the wrapping element.
+   ========================================================================== */
+
+[data-brand="kairon"] {
+  --kairon-bg: #110C08;
+  --kairon-surface: #19110C;
+  --kairon-surface-raised: #211711;
+  --kairon-gold: #EFA831;
+  --kairon-gold-soft: #F7C66F;
+  --kairon-purple: #3A2E8C;
+  --kairon-orange: #F0A046;
+  --kairon-text: #F8F1E8;
+  --kairon-muted: #BDB0A3;
+  --kairon-line: rgb(239 168 49 / 22%);
+  --kairon-focus-ring: #F7C66F;
+
+  /* Override global tokens for components that use them */
+  --background: #110C08;
+  --foreground: #F8F1E8;
+  --surface: #19110C;
+  --brand: #EFA831;
+  --brand-deep: #3A2E8C;
+  --brand-soft: rgb(239 168 49 / 12%);
+  --ink-muted: #BDB0A3;
+  --hairline: rgb(239 168 49 / 15%);
+  --border: rgb(239 168 49 / 15%);
+  --muted-foreground: #BDB0A3;
+
+  background-color: #110C08;
+  color: #F8F1E8;
+  color-scheme: dark;
+}
+
+[data-brand="kairon"] body,
+[data-brand="kairon"] .kairon-layout {
+  background-color: #110C08;
+  color: #F8F1E8;
+  min-height: 100vh;
+}
+
+/* Typography — Manrope as display face for KAIRON surface */
+[data-brand="kairon"] {
+  --font-display: "Manrope", "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+[data-brand="kairon"] h1,
+[data-brand="kairon"] h2,
+[data-brand="kairon"] h3 {
+  font-family: var(--font-display);
+  text-wrap: balance;
+  color: var(--kairon-text);
+}
+
+/* Focus ring */
+[data-brand="kairon"] :focus-visible {
+  outline: 2px solid var(--kairon-focus-ring);
+  outline-offset: 4px;
+}
+
+/* Selection */
+[data-brand="kairon"] ::selection {
+  background-color: var(--kairon-gold);
+  color: var(--kairon-bg);
+}
+
+/* Buttons */
+[data-brand="kairon"] .btn-primary {
+  min-height: 48px;
+  padding: 0.8rem 1.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--kairon-gold);
+  border: 1px solid var(--kairon-gold);
+  color: var(--kairon-bg);
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: transform 160ms ease, opacity 160ms ease;
+}
+
+[data-brand="kairon"] .btn-primary:hover {
+  transform: translateY(-2px);
+  opacity: 0.92;
+}
+
+[data-brand="kairon"] .btn-secondary {
+  min-height: 48px;
+  padding: 0.8rem 1.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: 1px solid var(--kairon-line);
+  color: var(--kairon-text);
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: transform 160ms ease, background-color 160ms ease;
+}
+
+[data-brand="kairon"] .btn-secondary:hover {
+  transform: translateY(-2px);
+  background: rgb(239 168 49 / 8%);
+}
+
+/* Eyebrow override */
+[data-brand="kairon"] .kairon-eyebrow {
+  color: var(--kairon-gold);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* Section hairlines */
+[data-brand="kairon"] .kairon-section-border {
+  border-color: var(--kairon-line);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  [data-brand="kairon"] *,
+  [data-brand="kairon"] *::before,
+  [data-brand="kairon"] *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

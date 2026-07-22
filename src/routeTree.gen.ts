@@ -9,149 +9,105 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as VipPassRouteImport } from './routes/vip-pass'
-import { Route as UnsubscribeRouteImport } from './routes/unsubscribe'
-import { Route as UneteAlEquipoRouteImport } from './routes/unete-al-equipo'
-import { Route as SobreGuillermoRouteImport } from './routes/sobre-guillermo'
-import { Route as Reestructura11RouteImport } from './routes/reestructura-1-1'
-import { Route as PreciosRouteImport } from './routes/precios'
-import { Route as PoliticasLegalesRouteImport } from './routes/politicas-legales'
-import { Route as NewsletterRouteImport } from './routes/newsletter'
-import { Route as MetodoIroRouteImport } from './routes/metodo-iro'
-import { Route as LoginRouteImport } from './routes/login'
-import { Route as KaironRouteImport } from './routes/kairon'
-import { Route as InversoresRouteImport } from './routes/inversores'
-import { Route as GStructRouteImport } from './routes/g-struct'
-import { Route as GFrameRouteImport } from './routes/g-frame'
-import { Route as EnterpriseRouteImport } from './routes/enterprise'
-import { Route as DiagnosticoFriccionEjecutivaRouteImport } from './routes/diagnostico-friccion-ejecutiva'
-import { Route as ContactoRouteImport } from './routes/contacto'
-import { Route as ArticulosRouteImport } from './routes/articulos'
-import { Route as ApoyaElLanzamientoRouteImport } from './routes/apoya-el-lanzamiento'
-import { Route as AliadosEtw2026RouteImport } from './routes/aliados-etw-2026'
-import { Route as AdminRouteImport } from './routes/_admin'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as EnIndexRouteImport } from './routes/en.index'
+import { Route as AdminRouteImport } from './routes/_admin'
+import { Route as AliadosEtw2026RouteImport } from './routes/aliados-etw-2026'
+import { Route as ApoyaElLanzamientoRouteImport } from './routes/apoya-el-lanzamiento'
+import { Route as ArticulosRouteImport } from './routes/articulos'
+import { Route as ContactoRouteImport } from './routes/contacto'
+import { Route as DiagnosticoFriccionEjecutivaRouteImport } from './routes/diagnostico-friccion-ejecutiva'
+import { Route as EnterpriseRouteImport } from './routes/enterprise'
+import { Route as GFrameRouteImport } from './routes/g-frame'
+import { Route as GStructRouteImport } from './routes/g-struct'
+import { Route as InversoresRouteImport } from './routes/inversores'
+import { Route as KaironRouteImport } from './routes/kairon'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as MetodoIroRouteImport } from './routes/metodo-iro'
+import { Route as NewsletterRouteImport } from './routes/newsletter'
+import { Route as PoliticasLegalesRouteImport } from './routes/politicas-legales'
+import { Route as PreciosRouteImport } from './routes/precios'
+import { Route as Reestructura11RouteImport } from './routes/reestructura-1-1'
+import { Route as SobreGuillermoRouteImport } from './routes/sobre-guillermo'
+import { Route as UneteAlEquipoRouteImport } from './routes/unete-al-equipo'
+import { Route as UnsubscribeRouteImport } from './routes/unsubscribe'
+import { Route as VipPassRouteImport } from './routes/vip-pass'
 import { Route as ArticulosIndexRouteImport } from './routes/articulos.index'
-import { Route as LegalTerminosYCondicionesRouteImport } from './routes/legal.terminos-y-condiciones'
-import { Route as LegalPoliticaDeReembolsosRouteImport } from './routes/legal.politica-de-reembolsos'
-import { Route as LegalPoliticaDePrivacidadRouteImport } from './routes/legal.politica-de-privacidad'
-import { Route as EnVipPassRouteImport } from './routes/en.vip-pass'
-import { Route as EnSupportTheLaunchRouteImport } from './routes/en.support-the-launch'
-import { Route as EnRestructure11RouteImport } from './routes/en.restructure-1-1'
-import { Route as EnPricingRouteImport } from './routes/en.pricing'
-import { Route as EnNewsletterRouteImport } from './routes/en.newsletter'
-import { Route as EnKaironRouteImport } from './routes/en.kairon'
-import { Route as EnJoinTheTeamRouteImport } from './routes/en.join-the-team'
-import { Route as EnIroMethodRouteImport } from './routes/en.iro-method'
-import { Route as EnInvestorsRouteImport } from './routes/en.investors'
-import { Route as EnGStructRouteImport } from './routes/en.g-struct'
-import { Route as EnGFrameRouteImport } from './routes/en.g-frame'
-import { Route as EnEtw2026PartnersRouteImport } from './routes/en.etw-2026-partners'
-import { Route as EnEnterpriseRouteImport } from './routes/en.enterprise'
-import { Route as EnContactRouteImport } from './routes/en.contact'
-import { Route as EnArticlesRouteImport } from './routes/en.articles'
-import { Route as EnAboutGuillermoRouteImport } from './routes/en.about-guillermo'
-import { Route as EmailUnsubscribeRouteImport } from './routes/email/unsubscribe'
 import { Route as ArticulosSlugRouteImport } from './routes/articulos.$slug'
-import { Route as EnArticlesIndexRouteImport } from './routes/en.articles.index'
+import { Route as EmailUnsubscribeRouteImport } from './routes/email/unsubscribe'
+import { Route as EnIndexRouteImport } from './routes/en.index'
+import { Route as EnAboutGuillermoRouteImport } from './routes/en.about-guillermo'
+import { Route as EnArticlesRouteImport } from './routes/en.articles'
+import { Route as EnContactRouteImport } from './routes/en.contact'
+import { Route as EnEnterpriseRouteImport } from './routes/en.enterprise'
+import { Route as EnEtw2026PartnersRouteImport } from './routes/en.etw-2026-partners'
+import { Route as EnGFrameRouteImport } from './routes/en.g-frame'
+import { Route as EnGStructRouteImport } from './routes/en.g-struct'
+import { Route as EnInvestorsRouteImport } from './routes/en.investors'
+import { Route as EnIroMethodRouteImport } from './routes/en.iro-method'
+import { Route as EnJoinTheTeamRouteImport } from './routes/en.join-the-team'
+import { Route as EnKaironRouteImport } from './routes/en.kairon'
+import { Route as EnNewsletterRouteImport } from './routes/en.newsletter'
+import { Route as EnPricingRouteImport } from './routes/en.pricing'
+import { Route as EnRestructure11RouteImport } from './routes/en.restructure-1-1'
+import { Route as EnSupportTheLaunchRouteImport } from './routes/en.support-the-launch'
+import { Route as EnVipPassRouteImport } from './routes/en.vip-pass'
+import { Route as LegalPoliticaDePrivacidadRouteImport } from './routes/legal.politica-de-privacidad'
+import { Route as LegalPoliticaDeReembolsosRouteImport } from './routes/legal.politica-de-reembolsos'
+import { Route as LegalTerminosYCondicionesRouteImport } from './routes/legal.terminos-y-condiciones'
+import { Route as MockupCorporateHomeRouteImport } from './routes/mockup.corporate-home'
+import { Route as MockupKaironHeroRouteImport } from './routes/mockup.kairon-hero'
 import { Route as AdminAdminIndexRouteImport } from './routes/_admin/admin.index'
-import { Route as LovableEmailSuppressionRouteImport } from './routes/lovable/email/suppression'
-import { Route as EnLegalTermsAndConditionsRouteImport } from './routes/en.legal.terms-and-conditions'
-import { Route as EnLegalRefundPolicyRouteImport } from './routes/en.legal.refund-policy'
-import { Route as EnLegalPrivacyPolicyRouteImport } from './routes/en.legal.privacy-policy'
-import { Route as EnArticlesSlugRouteImport } from './routes/en.articles.$slug'
-import { Route as ApiPublicPaypalSupportCreateOrderRouteImport } from './routes/api/public/paypal-support-create-order'
-import { Route as ApiPublicPaypalSupportConfigRouteImport } from './routes/api/public/paypal-support-config'
-import { Route as ApiPublicPaypalSupportCaptureOrderRouteImport } from './routes/api/public/paypal-support-capture-order'
-import { Route as ApiPublicNewsletterSubscribeRouteImport } from './routes/api/public/newsletter-subscribe'
-import { Route as ApiPublicGstructWaitlistCountRouteImport } from './routes/api/public/gstruct-waitlist-count'
-import { Route as ApiPublicGstructWaitlistRouteImport } from './routes/api/public/gstruct-waitlist'
-import { Route as ApiPublicDiagnosticoSubmitRouteImport } from './routes/api/public/diagnostico-submit'
-import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
-import { Route as ApiPublicArticleCommentsRouteImport } from './routes/api/public/article-comments'
-import { Route as AdminAdminWaitlistRouteImport } from './routes/_admin/admin.waitlist'
-import { Route as AdminAdminSupportersRouteImport } from './routes/_admin/admin.supporters'
-import { Route as AdminAdminReservasRouteImport } from './routes/_admin/admin.reservas'
-import { Route as AdminAdminDiagnosticosRouteImport } from './routes/_admin/admin.diagnosticos'
 import { Route as AdminAdminComentariosRouteImport } from './routes/_admin/admin.comentarios'
-import { Route as LovableEmailTransactionalSendRouteImport } from './routes/lovable/email/transactional/send'
-import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
+import { Route as AdminAdminDiagnosticosRouteImport } from './routes/_admin/admin.diagnosticos'
+import { Route as AdminAdminReservasRouteImport } from './routes/_admin/admin.reservas'
+import { Route as AdminAdminSupportersRouteImport } from './routes/_admin/admin.supporters'
+import { Route as AdminAdminWaitlistRouteImport } from './routes/_admin/admin.waitlist'
+import { Route as ApiPublicArticleCommentsRouteImport } from './routes/api/public/article-comments'
+import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
+import { Route as ApiPublicDiagnosticoSubmitRouteImport } from './routes/api/public/diagnostico-submit'
+import { Route as ApiPublicGstructWaitlistRouteImport } from './routes/api/public/gstruct-waitlist'
+import { Route as ApiPublicGstructWaitlistCountRouteImport } from './routes/api/public/gstruct-waitlist-count'
+import { Route as ApiPublicNewsletterSubscribeRouteImport } from './routes/api/public/newsletter-subscribe'
+import { Route as ApiPublicPaypalSupportCaptureOrderRouteImport } from './routes/api/public/paypal-support-capture-order'
+import { Route as ApiPublicPaypalSupportConfigRouteImport } from './routes/api/public/paypal-support-config'
+import { Route as ApiPublicPaypalSupportCreateOrderRouteImport } from './routes/api/public/paypal-support-create-order'
+import { Route as EnArticlesIndexRouteImport } from './routes/en.articles.index'
+import { Route as EnArticlesSlugRouteImport } from './routes/en.articles.$slug'
+import { Route as EnLegalPrivacyPolicyRouteImport } from './routes/en.legal.privacy-policy'
+import { Route as EnLegalRefundPolicyRouteImport } from './routes/en.legal.refund-policy'
+import { Route as EnLegalTermsAndConditionsRouteImport } from './routes/en.legal.terms-and-conditions'
+import { Route as LovableEmailSuppressionRouteImport } from './routes/lovable/email/suppression'
 import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
+import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
+import { Route as LovableEmailTransactionalSendRouteImport } from './routes/lovable/email/transactional/send'
 
-const VipPassRoute = VipPassRouteImport.update({
-  id: '/vip-pass',
-  path: '/vip-pass',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const UnsubscribeRoute = UnsubscribeRouteImport.update({
-  id: '/unsubscribe',
-  path: '/unsubscribe',
+const AdminRoute = AdminRouteImport.update({
+  id: '/_admin',
   getParentRoute: () => rootRouteImport,
 } as any)
-const UneteAlEquipoRoute = UneteAlEquipoRouteImport.update({
-  id: '/unete-al-equipo',
-  path: '/unete-al-equipo',
+const AliadosEtw2026Route = AliadosEtw2026RouteImport.update({
+  id: '/aliados-etw-2026',
+  path: '/aliados-etw-2026',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SobreGuillermoRoute = SobreGuillermoRouteImport.update({
-  id: '/sobre-guillermo',
-  path: '/sobre-guillermo',
+const ApoyaElLanzamientoRoute = ApoyaElLanzamientoRouteImport.update({
+  id: '/apoya-el-lanzamiento',
+  path: '/apoya-el-lanzamiento',
   getParentRoute: () => rootRouteImport,
 } as any)
-const Reestructura11Route = Reestructura11RouteImport.update({
-  id: '/reestructura-1-1',
-  path: '/reestructura-1-1',
+const ArticulosRoute = ArticulosRouteImport.update({
+  id: '/articulos',
+  path: '/articulos',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PreciosRoute = PreciosRouteImport.update({
-  id: '/precios',
-  path: '/precios',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PoliticasLegalesRoute = PoliticasLegalesRouteImport.update({
-  id: '/politicas-legales',
-  path: '/politicas-legales',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const NewsletterRoute = NewsletterRouteImport.update({
-  id: '/newsletter',
-  path: '/newsletter',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MetodoIroRoute = MetodoIroRouteImport.update({
-  id: '/metodo-iro',
-  path: '/metodo-iro',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LoginRoute = LoginRouteImport.update({
-  id: '/login',
-  path: '/login',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const KaironRoute = KaironRouteImport.update({
-  id: '/kairon',
-  path: '/kairon',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const InversoresRoute = InversoresRouteImport.update({
-  id: '/inversores',
-  path: '/inversores',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GStructRoute = GStructRouteImport.update({
-  id: '/g-struct',
-  path: '/g-struct',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GFrameRoute = GFrameRouteImport.update({
-  id: '/g-frame',
-  path: '/g-frame',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EnterpriseRoute = EnterpriseRouteImport.update({
-  id: '/enterprise',
-  path: '/enterprise',
+const ContactoRoute = ContactoRouteImport.update({
+  id: '/contacto',
+  path: '/contacto',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DiagnosticoFriccionEjecutivaRoute =
@@ -160,38 +116,79 @@ const DiagnosticoFriccionEjecutivaRoute =
     path: '/diagnostico-friccion-ejecutiva',
     getParentRoute: () => rootRouteImport,
   } as any)
-const ContactoRoute = ContactoRouteImport.update({
-  id: '/contacto',
-  path: '/contacto',
+const EnterpriseRoute = EnterpriseRouteImport.update({
+  id: '/enterprise',
+  path: '/enterprise',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ArticulosRoute = ArticulosRouteImport.update({
-  id: '/articulos',
-  path: '/articulos',
+const GFrameRoute = GFrameRouteImport.update({
+  id: '/g-frame',
+  path: '/g-frame',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApoyaElLanzamientoRoute = ApoyaElLanzamientoRouteImport.update({
-  id: '/apoya-el-lanzamiento',
-  path: '/apoya-el-lanzamiento',
+const GStructRoute = GStructRouteImport.update({
+  id: '/g-struct',
+  path: '/g-struct',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AliadosEtw2026Route = AliadosEtw2026RouteImport.update({
-  id: '/aliados-etw-2026',
-  path: '/aliados-etw-2026',
+const InversoresRoute = InversoresRouteImport.update({
+  id: '/inversores',
+  path: '/inversores',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminRoute = AdminRouteImport.update({
-  id: '/_admin',
+const KaironRoute = KaironRouteImport.update({
+  id: '/kairon',
+  path: '/kairon',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EnIndexRoute = EnIndexRouteImport.update({
-  id: '/en/',
-  path: '/en/',
+const MetodoIroRoute = MetodoIroRouteImport.update({
+  id: '/metodo-iro',
+  path: '/metodo-iro',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsletterRoute = NewsletterRouteImport.update({
+  id: '/newsletter',
+  path: '/newsletter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PoliticasLegalesRoute = PoliticasLegalesRouteImport.update({
+  id: '/politicas-legales',
+  path: '/politicas-legales',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PreciosRoute = PreciosRouteImport.update({
+  id: '/precios',
+  path: '/precios',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Reestructura11Route = Reestructura11RouteImport.update({
+  id: '/reestructura-1-1',
+  path: '/reestructura-1-1',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SobreGuillermoRoute = SobreGuillermoRouteImport.update({
+  id: '/sobre-guillermo',
+  path: '/sobre-guillermo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UneteAlEquipoRoute = UneteAlEquipoRouteImport.update({
+  id: '/unete-al-equipo',
+  path: '/unete-al-equipo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UnsubscribeRoute = UnsubscribeRouteImport.update({
+  id: '/unsubscribe',
+  path: '/unsubscribe',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VipPassRoute = VipPassRouteImport.update({
+  id: '/vip-pass',
+  path: '/vip-pass',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ArticulosIndexRoute = ArticulosIndexRouteImport.update({
@@ -199,10 +196,105 @@ const ArticulosIndexRoute = ArticulosIndexRouteImport.update({
   path: '/',
   getParentRoute: () => ArticulosRoute,
 } as any)
-const LegalTerminosYCondicionesRoute =
-  LegalTerminosYCondicionesRouteImport.update({
-    id: '/legal/terminos-y-condiciones',
-    path: '/legal/terminos-y-condiciones',
+const ArticulosSlugRoute = ArticulosSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ArticulosRoute,
+} as any)
+const EmailUnsubscribeRoute = EmailUnsubscribeRouteImport.update({
+  id: '/email/unsubscribe',
+  path: '/email/unsubscribe',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnIndexRoute = EnIndexRouteImport.update({
+  id: '/en/',
+  path: '/en/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnAboutGuillermoRoute = EnAboutGuillermoRouteImport.update({
+  id: '/en/about-guillermo',
+  path: '/en/about-guillermo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnArticlesRoute = EnArticlesRouteImport.update({
+  id: '/en/articles',
+  path: '/en/articles',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnContactRoute = EnContactRouteImport.update({
+  id: '/en/contact',
+  path: '/en/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnEnterpriseRoute = EnEnterpriseRouteImport.update({
+  id: '/en/enterprise',
+  path: '/en/enterprise',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnEtw2026PartnersRoute = EnEtw2026PartnersRouteImport.update({
+  id: '/en/etw-2026-partners',
+  path: '/en/etw-2026-partners',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnGFrameRoute = EnGFrameRouteImport.update({
+  id: '/en/g-frame',
+  path: '/en/g-frame',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnGStructRoute = EnGStructRouteImport.update({
+  id: '/en/g-struct',
+  path: '/en/g-struct',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnInvestorsRoute = EnInvestorsRouteImport.update({
+  id: '/en/investors',
+  path: '/en/investors',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnIroMethodRoute = EnIroMethodRouteImport.update({
+  id: '/en/iro-method',
+  path: '/en/iro-method',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnJoinTheTeamRoute = EnJoinTheTeamRouteImport.update({
+  id: '/en/join-the-team',
+  path: '/en/join-the-team',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnKaironRoute = EnKaironRouteImport.update({
+  id: '/en/kairon',
+  path: '/en/kairon',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnNewsletterRoute = EnNewsletterRouteImport.update({
+  id: '/en/newsletter',
+  path: '/en/newsletter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnPricingRoute = EnPricingRouteImport.update({
+  id: '/en/pricing',
+  path: '/en/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnRestructure11Route = EnRestructure11RouteImport.update({
+  id: '/en/restructure-1-1',
+  path: '/en/restructure-1-1',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnSupportTheLaunchRoute = EnSupportTheLaunchRouteImport.update({
+  id: '/en/support-the-launch',
+  path: '/en/support-the-launch',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnVipPassRoute = EnVipPassRouteImport.update({
+  id: '/en/vip-pass',
+  path: '/en/vip-pass',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LegalPoliticaDePrivacidadRoute =
+  LegalPoliticaDePrivacidadRouteImport.update({
+    id: '/legal/politica-de-privacidad',
+    path: '/legal/politica-de-privacidad',
     getParentRoute: () => rootRouteImport,
   } as any)
 const LegalPoliticaDeReembolsosRoute =
@@ -211,166 +303,67 @@ const LegalPoliticaDeReembolsosRoute =
     path: '/legal/politica-de-reembolsos',
     getParentRoute: () => rootRouteImport,
   } as any)
-const LegalPoliticaDePrivacidadRoute =
-  LegalPoliticaDePrivacidadRouteImport.update({
-    id: '/legal/politica-de-privacidad',
-    path: '/legal/politica-de-privacidad',
+const LegalTerminosYCondicionesRoute =
+  LegalTerminosYCondicionesRouteImport.update({
+    id: '/legal/terminos-y-condiciones',
+    path: '/legal/terminos-y-condiciones',
     getParentRoute: () => rootRouteImport,
   } as any)
-const EnVipPassRoute = EnVipPassRouteImport.update({
-  id: '/en/vip-pass',
-  path: '/en/vip-pass',
+const MockupCorporateHomeRoute = MockupCorporateHomeRouteImport.update({
+  id: '/mockup/corporate-home',
+  path: '/mockup/corporate-home',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EnSupportTheLaunchRoute = EnSupportTheLaunchRouteImport.update({
-  id: '/en/support-the-launch',
-  path: '/en/support-the-launch',
+const MockupKaironHeroRoute = MockupKaironHeroRouteImport.update({
+  id: '/mockup/kairon-hero',
+  path: '/mockup/kairon-hero',
   getParentRoute: () => rootRouteImport,
-} as any)
-const EnRestructure11Route = EnRestructure11RouteImport.update({
-  id: '/en/restructure-1-1',
-  path: '/en/restructure-1-1',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EnPricingRoute = EnPricingRouteImport.update({
-  id: '/en/pricing',
-  path: '/en/pricing',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EnNewsletterRoute = EnNewsletterRouteImport.update({
-  id: '/en/newsletter',
-  path: '/en/newsletter',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EnKaironRoute = EnKaironRouteImport.update({
-  id: '/en/kairon',
-  path: '/en/kairon',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EnJoinTheTeamRoute = EnJoinTheTeamRouteImport.update({
-  id: '/en/join-the-team',
-  path: '/en/join-the-team',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EnIroMethodRoute = EnIroMethodRouteImport.update({
-  id: '/en/iro-method',
-  path: '/en/iro-method',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EnInvestorsRoute = EnInvestorsRouteImport.update({
-  id: '/en/investors',
-  path: '/en/investors',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EnGStructRoute = EnGStructRouteImport.update({
-  id: '/en/g-struct',
-  path: '/en/g-struct',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EnGFrameRoute = EnGFrameRouteImport.update({
-  id: '/en/g-frame',
-  path: '/en/g-frame',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EnEtw2026PartnersRoute = EnEtw2026PartnersRouteImport.update({
-  id: '/en/etw-2026-partners',
-  path: '/en/etw-2026-partners',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EnEnterpriseRoute = EnEnterpriseRouteImport.update({
-  id: '/en/enterprise',
-  path: '/en/enterprise',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EnContactRoute = EnContactRouteImport.update({
-  id: '/en/contact',
-  path: '/en/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EnArticlesRoute = EnArticlesRouteImport.update({
-  id: '/en/articles',
-  path: '/en/articles',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EnAboutGuillermoRoute = EnAboutGuillermoRouteImport.update({
-  id: '/en/about-guillermo',
-  path: '/en/about-guillermo',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EmailUnsubscribeRoute = EmailUnsubscribeRouteImport.update({
-  id: '/email/unsubscribe',
-  path: '/email/unsubscribe',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ArticulosSlugRoute = ArticulosSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => ArticulosRoute,
-} as any)
-const EnArticlesIndexRoute = EnArticlesIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => EnArticlesRoute,
 } as any)
 const AdminAdminIndexRoute = AdminAdminIndexRouteImport.update({
   id: '/admin/',
   path: '/admin/',
   getParentRoute: () => AdminRoute,
 } as any)
-const LovableEmailSuppressionRoute = LovableEmailSuppressionRouteImport.update({
-  id: '/lovable/email/suppression',
-  path: '/lovable/email/suppression',
+const AdminAdminComentariosRoute = AdminAdminComentariosRouteImport.update({
+  id: '/admin/comentarios',
+  path: '/admin/comentarios',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAdminDiagnosticosRoute = AdminAdminDiagnosticosRouteImport.update({
+  id: '/admin/diagnosticos',
+  path: '/admin/diagnosticos',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAdminReservasRoute = AdminAdminReservasRouteImport.update({
+  id: '/admin/reservas',
+  path: '/admin/reservas',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAdminSupportersRoute = AdminAdminSupportersRouteImport.update({
+  id: '/admin/supporters',
+  path: '/admin/supporters',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAdminWaitlistRoute = AdminAdminWaitlistRouteImport.update({
+  id: '/admin/waitlist',
+  path: '/admin/waitlist',
+  getParentRoute: () => AdminRoute,
+} as any)
+const ApiPublicArticleCommentsRoute =
+  ApiPublicArticleCommentsRouteImport.update({
+    id: '/api/public/article-comments',
+    path: '/api/public/article-comments',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiPublicContactRoute = ApiPublicContactRouteImport.update({
+  id: '/api/public/contact',
+  path: '/api/public/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EnLegalTermsAndConditionsRoute =
-  EnLegalTermsAndConditionsRouteImport.update({
-    id: '/en/legal/terms-and-conditions',
-    path: '/en/legal/terms-and-conditions',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const EnLegalRefundPolicyRoute = EnLegalRefundPolicyRouteImport.update({
-  id: '/en/legal/refund-policy',
-  path: '/en/legal/refund-policy',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EnLegalPrivacyPolicyRoute = EnLegalPrivacyPolicyRouteImport.update({
-  id: '/en/legal/privacy-policy',
-  path: '/en/legal/privacy-policy',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EnArticlesSlugRoute = EnArticlesSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => EnArticlesRoute,
-} as any)
-const ApiPublicPaypalSupportCreateOrderRoute =
-  ApiPublicPaypalSupportCreateOrderRouteImport.update({
-    id: '/api/public/paypal-support-create-order',
-    path: '/api/public/paypal-support-create-order',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const ApiPublicPaypalSupportConfigRoute =
-  ApiPublicPaypalSupportConfigRouteImport.update({
-    id: '/api/public/paypal-support-config',
-    path: '/api/public/paypal-support-config',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const ApiPublicPaypalSupportCaptureOrderRoute =
-  ApiPublicPaypalSupportCaptureOrderRouteImport.update({
-    id: '/api/public/paypal-support-capture-order',
-    path: '/api/public/paypal-support-capture-order',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const ApiPublicNewsletterSubscribeRoute =
-  ApiPublicNewsletterSubscribeRouteImport.update({
-    id: '/api/public/newsletter-subscribe',
-    path: '/api/public/newsletter-subscribe',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const ApiPublicGstructWaitlistCountRoute =
-  ApiPublicGstructWaitlistCountRouteImport.update({
-    id: '/api/public/gstruct-waitlist-count',
-    path: '/api/public/gstruct-waitlist-count',
+const ApiPublicDiagnosticoSubmitRoute =
+  ApiPublicDiagnosticoSubmitRouteImport.update({
+    id: '/api/public/diagnostico-submit',
+    path: '/api/public/diagnostico-submit',
     getParentRoute: () => rootRouteImport,
   } as any)
 const ApiPublicGstructWaitlistRoute =
@@ -379,52 +372,71 @@ const ApiPublicGstructWaitlistRoute =
     path: '/api/public/gstruct-waitlist',
     getParentRoute: () => rootRouteImport,
   } as any)
-const ApiPublicDiagnosticoSubmitRoute =
-  ApiPublicDiagnosticoSubmitRouteImport.update({
-    id: '/api/public/diagnostico-submit',
-    path: '/api/public/diagnostico-submit',
+const ApiPublicGstructWaitlistCountRoute =
+  ApiPublicGstructWaitlistCountRouteImport.update({
+    id: '/api/public/gstruct-waitlist-count',
+    path: '/api/public/gstruct-waitlist-count',
     getParentRoute: () => rootRouteImport,
   } as any)
-const ApiPublicContactRoute = ApiPublicContactRouteImport.update({
-  id: '/api/public/contact',
-  path: '/api/public/contact',
+const ApiPublicNewsletterSubscribeRoute =
+  ApiPublicNewsletterSubscribeRouteImport.update({
+    id: '/api/public/newsletter-subscribe',
+    path: '/api/public/newsletter-subscribe',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiPublicPaypalSupportCaptureOrderRoute =
+  ApiPublicPaypalSupportCaptureOrderRouteImport.update({
+    id: '/api/public/paypal-support-capture-order',
+    path: '/api/public/paypal-support-capture-order',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiPublicPaypalSupportConfigRoute =
+  ApiPublicPaypalSupportConfigRouteImport.update({
+    id: '/api/public/paypal-support-config',
+    path: '/api/public/paypal-support-config',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiPublicPaypalSupportCreateOrderRoute =
+  ApiPublicPaypalSupportCreateOrderRouteImport.update({
+    id: '/api/public/paypal-support-create-order',
+    path: '/api/public/paypal-support-create-order',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const EnArticlesIndexRoute = EnArticlesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => EnArticlesRoute,
+} as any)
+const EnArticlesSlugRoute = EnArticlesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => EnArticlesRoute,
+} as any)
+const EnLegalPrivacyPolicyRoute = EnLegalPrivacyPolicyRouteImport.update({
+  id: '/en/legal/privacy-policy',
+  path: '/en/legal/privacy-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiPublicArticleCommentsRoute =
-  ApiPublicArticleCommentsRouteImport.update({
-    id: '/api/public/article-comments',
-    path: '/api/public/article-comments',
+const EnLegalRefundPolicyRoute = EnLegalRefundPolicyRouteImport.update({
+  id: '/en/legal/refund-policy',
+  path: '/en/legal/refund-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnLegalTermsAndConditionsRoute =
+  EnLegalTermsAndConditionsRouteImport.update({
+    id: '/en/legal/terms-and-conditions',
+    path: '/en/legal/terms-and-conditions',
     getParentRoute: () => rootRouteImport,
   } as any)
-const AdminAdminWaitlistRoute = AdminAdminWaitlistRouteImport.update({
-  id: '/admin/waitlist',
-  path: '/admin/waitlist',
-  getParentRoute: () => AdminRoute,
+const LovableEmailSuppressionRoute = LovableEmailSuppressionRouteImport.update({
+  id: '/lovable/email/suppression',
+  path: '/lovable/email/suppression',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const AdminAdminSupportersRoute = AdminAdminSupportersRouteImport.update({
-  id: '/admin/supporters',
-  path: '/admin/supporters',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminAdminReservasRoute = AdminAdminReservasRouteImport.update({
-  id: '/admin/reservas',
-  path: '/admin/reservas',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminAdminDiagnosticosRoute = AdminAdminDiagnosticosRouteImport.update({
-  id: '/admin/diagnosticos',
-  path: '/admin/diagnosticos',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminAdminComentariosRoute = AdminAdminComentariosRouteImport.update({
-  id: '/admin/comentarios',
-  path: '/admin/comentarios',
-  getParentRoute: () => AdminRoute,
-} as any)
-const LovableEmailTransactionalSendRoute =
-  LovableEmailTransactionalSendRouteImport.update({
-    id: '/lovable/email/transactional/send',
-    path: '/lovable/email/transactional/send',
+const LovableEmailQueueProcessRoute =
+  LovableEmailQueueProcessRouteImport.update({
+    id: '/lovable/email/queue/process',
+    path: '/lovable/email/queue/process',
     getParentRoute: () => rootRouteImport,
   } as any)
 const LovableEmailTransactionalPreviewRoute =
@@ -433,10 +445,10 @@ const LovableEmailTransactionalPreviewRoute =
     path: '/lovable/email/transactional/preview',
     getParentRoute: () => rootRouteImport,
   } as any)
-const LovableEmailQueueProcessRoute =
-  LovableEmailQueueProcessRouteImport.update({
-    id: '/lovable/email/queue/process',
-    path: '/lovable/email/queue/process',
+const LovableEmailTransactionalSendRoute =
+  LovableEmailTransactionalSendRouteImport.update({
+    id: '/lovable/email/transactional/send',
+    path: '/lovable/email/transactional/send',
     getParentRoute: () => rootRouteImport,
   } as any)
 
@@ -483,6 +495,8 @@ export interface FileRoutesByFullPath {
   '/legal/politica-de-privacidad': typeof LegalPoliticaDePrivacidadRoute
   '/legal/politica-de-reembolsos': typeof LegalPoliticaDeReembolsosRoute
   '/legal/terminos-y-condiciones': typeof LegalTerminosYCondicionesRoute
+  '/mockup/corporate-home': typeof MockupCorporateHomeRoute
+  '/mockup/kairon-hero': typeof MockupKaironHeroRoute
   '/articulos/': typeof ArticulosIndexRoute
   '/en/': typeof EnIndexRoute
   '/admin/comentarios': typeof AdminAdminComentariosRoute
@@ -551,6 +565,8 @@ export interface FileRoutesByTo {
   '/legal/politica-de-privacidad': typeof LegalPoliticaDePrivacidadRoute
   '/legal/politica-de-reembolsos': typeof LegalPoliticaDeReembolsosRoute
   '/legal/terminos-y-condiciones': typeof LegalTerminosYCondicionesRoute
+  '/mockup/corporate-home': typeof MockupCorporateHomeRoute
+  '/mockup/kairon-hero': typeof MockupKaironHeroRoute
   '/articulos': typeof ArticulosIndexRoute
   '/en': typeof EnIndexRoute
   '/admin/comentarios': typeof AdminAdminComentariosRoute
@@ -623,6 +639,8 @@ export interface FileRoutesById {
   '/legal/politica-de-privacidad': typeof LegalPoliticaDePrivacidadRoute
   '/legal/politica-de-reembolsos': typeof LegalPoliticaDeReembolsosRoute
   '/legal/terminos-y-condiciones': typeof LegalTerminosYCondicionesRoute
+  '/mockup/corporate-home': typeof MockupCorporateHomeRoute
+  '/mockup/kairon-hero': typeof MockupKaironHeroRoute
   '/articulos/': typeof ArticulosIndexRoute
   '/en/': typeof EnIndexRoute
   '/_admin/admin/comentarios': typeof AdminAdminComentariosRoute
@@ -695,6 +713,8 @@ export interface FileRouteTypes {
     | '/legal/politica-de-privacidad'
     | '/legal/politica-de-reembolsos'
     | '/legal/terminos-y-condiciones'
+    | '/mockup/corporate-home'
+    | '/mockup/kairon-hero'
     | '/articulos/'
     | '/en/'
     | '/admin/comentarios'
@@ -763,6 +783,8 @@ export interface FileRouteTypes {
     | '/legal/politica-de-privacidad'
     | '/legal/politica-de-reembolsos'
     | '/legal/terminos-y-condiciones'
+    | '/mockup/corporate-home'
+    | '/mockup/kairon-hero'
     | '/articulos'
     | '/en'
     | '/admin/comentarios'
@@ -834,6 +856,8 @@ export interface FileRouteTypes {
     | '/legal/politica-de-privacidad'
     | '/legal/politica-de-reembolsos'
     | '/legal/terminos-y-condiciones'
+    | '/mockup/corporate-home'
+    | '/mockup/kairon-hero'
     | '/articulos/'
     | '/en/'
     | '/_admin/admin/comentarios'
@@ -905,6 +929,8 @@ export interface RootRouteChildren {
   LegalPoliticaDePrivacidadRoute: typeof LegalPoliticaDePrivacidadRoute
   LegalPoliticaDeReembolsosRoute: typeof LegalPoliticaDeReembolsosRoute
   LegalTerminosYCondicionesRoute: typeof LegalTerminosYCondicionesRoute
+  MockupCorporateHomeRoute: typeof MockupCorporateHomeRoute
+  MockupKaironHeroRoute: typeof MockupKaironHeroRoute
   EnIndexRoute: typeof EnIndexRoute
   ApiPublicArticleCommentsRoute: typeof ApiPublicArticleCommentsRoute
   ApiPublicContactRoute: typeof ApiPublicContactRoute
@@ -926,144 +952,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/vip-pass': {
-      id: '/vip-pass'
-      path: '/vip-pass'
-      fullPath: '/vip-pass'
-      preLoaderRoute: typeof VipPassRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/unsubscribe': {
-      id: '/unsubscribe'
-      path: '/unsubscribe'
-      fullPath: '/unsubscribe'
-      preLoaderRoute: typeof UnsubscribeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/unete-al-equipo': {
-      id: '/unete-al-equipo'
-      path: '/unete-al-equipo'
-      fullPath: '/unete-al-equipo'
-      preLoaderRoute: typeof UneteAlEquipoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sobre-guillermo': {
-      id: '/sobre-guillermo'
-      path: '/sobre-guillermo'
-      fullPath: '/sobre-guillermo'
-      preLoaderRoute: typeof SobreGuillermoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/reestructura-1-1': {
-      id: '/reestructura-1-1'
-      path: '/reestructura-1-1'
-      fullPath: '/reestructura-1-1'
-      preLoaderRoute: typeof Reestructura11RouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/precios': {
-      id: '/precios'
-      path: '/precios'
-      fullPath: '/precios'
-      preLoaderRoute: typeof PreciosRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/politicas-legales': {
-      id: '/politicas-legales'
-      path: '/politicas-legales'
-      fullPath: '/politicas-legales'
-      preLoaderRoute: typeof PoliticasLegalesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/newsletter': {
-      id: '/newsletter'
-      path: '/newsletter'
-      fullPath: '/newsletter'
-      preLoaderRoute: typeof NewsletterRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/metodo-iro': {
-      id: '/metodo-iro'
-      path: '/metodo-iro'
-      fullPath: '/metodo-iro'
-      preLoaderRoute: typeof MetodoIroRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/login': {
-      id: '/login'
-      path: '/login'
-      fullPath: '/login'
-      preLoaderRoute: typeof LoginRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/kairon': {
-      id: '/kairon'
-      path: '/kairon'
-      fullPath: '/kairon'
-      preLoaderRoute: typeof KaironRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/inversores': {
-      id: '/inversores'
-      path: '/inversores'
-      fullPath: '/inversores'
-      preLoaderRoute: typeof InversoresRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/g-struct': {
-      id: '/g-struct'
-      path: '/g-struct'
-      fullPath: '/g-struct'
-      preLoaderRoute: typeof GStructRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/g-frame': {
-      id: '/g-frame'
-      path: '/g-frame'
-      fullPath: '/g-frame'
-      preLoaderRoute: typeof GFrameRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/enterprise': {
-      id: '/enterprise'
-      path: '/enterprise'
-      fullPath: '/enterprise'
-      preLoaderRoute: typeof EnterpriseRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/diagnostico-friccion-ejecutiva': {
-      id: '/diagnostico-friccion-ejecutiva'
-      path: '/diagnostico-friccion-ejecutiva'
-      fullPath: '/diagnostico-friccion-ejecutiva'
-      preLoaderRoute: typeof DiagnosticoFriccionEjecutivaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contacto': {
-      id: '/contacto'
-      path: '/contacto'
-      fullPath: '/contacto'
-      preLoaderRoute: typeof ContactoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/articulos': {
-      id: '/articulos'
-      path: '/articulos'
-      fullPath: '/articulos'
-      preLoaderRoute: typeof ArticulosRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/apoya-el-lanzamiento': {
-      id: '/apoya-el-lanzamiento'
-      path: '/apoya-el-lanzamiento'
-      fullPath: '/apoya-el-lanzamiento'
-      preLoaderRoute: typeof ApoyaElLanzamientoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/aliados-etw-2026': {
-      id: '/aliados-etw-2026'
-      path: '/aliados-etw-2026'
-      fullPath: '/aliados-etw-2026'
-      preLoaderRoute: typeof AliadosEtw2026RouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_admin': {
@@ -1073,18 +966,144 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/aliados-etw-2026': {
+      id: '/aliados-etw-2026'
+      path: '/aliados-etw-2026'
+      fullPath: '/aliados-etw-2026'
+      preLoaderRoute: typeof AliadosEtw2026RouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/en/': {
-      id: '/en/'
-      path: '/en'
-      fullPath: '/en/'
-      preLoaderRoute: typeof EnIndexRouteImport
+    '/apoya-el-lanzamiento': {
+      id: '/apoya-el-lanzamiento'
+      path: '/apoya-el-lanzamiento'
+      fullPath: '/apoya-el-lanzamiento'
+      preLoaderRoute: typeof ApoyaElLanzamientoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/articulos': {
+      id: '/articulos'
+      path: '/articulos'
+      fullPath: '/articulos'
+      preLoaderRoute: typeof ArticulosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contacto': {
+      id: '/contacto'
+      path: '/contacto'
+      fullPath: '/contacto'
+      preLoaderRoute: typeof ContactoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/diagnostico-friccion-ejecutiva': {
+      id: '/diagnostico-friccion-ejecutiva'
+      path: '/diagnostico-friccion-ejecutiva'
+      fullPath: '/diagnostico-friccion-ejecutiva'
+      preLoaderRoute: typeof DiagnosticoFriccionEjecutivaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/enterprise': {
+      id: '/enterprise'
+      path: '/enterprise'
+      fullPath: '/enterprise'
+      preLoaderRoute: typeof EnterpriseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/g-frame': {
+      id: '/g-frame'
+      path: '/g-frame'
+      fullPath: '/g-frame'
+      preLoaderRoute: typeof GFrameRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/g-struct': {
+      id: '/g-struct'
+      path: '/g-struct'
+      fullPath: '/g-struct'
+      preLoaderRoute: typeof GStructRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/inversores': {
+      id: '/inversores'
+      path: '/inversores'
+      fullPath: '/inversores'
+      preLoaderRoute: typeof InversoresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kairon': {
+      id: '/kairon'
+      path: '/kairon'
+      fullPath: '/kairon'
+      preLoaderRoute: typeof KaironRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/metodo-iro': {
+      id: '/metodo-iro'
+      path: '/metodo-iro'
+      fullPath: '/metodo-iro'
+      preLoaderRoute: typeof MetodoIroRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/newsletter': {
+      id: '/newsletter'
+      path: '/newsletter'
+      fullPath: '/newsletter'
+      preLoaderRoute: typeof NewsletterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/politicas-legales': {
+      id: '/politicas-legales'
+      path: '/politicas-legales'
+      fullPath: '/politicas-legales'
+      preLoaderRoute: typeof PoliticasLegalesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/precios': {
+      id: '/precios'
+      path: '/precios'
+      fullPath: '/precios'
+      preLoaderRoute: typeof PreciosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reestructura-1-1': {
+      id: '/reestructura-1-1'
+      path: '/reestructura-1-1'
+      fullPath: '/reestructura-1-1'
+      preLoaderRoute: typeof Reestructura11RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sobre-guillermo': {
+      id: '/sobre-guillermo'
+      path: '/sobre-guillermo'
+      fullPath: '/sobre-guillermo'
+      preLoaderRoute: typeof SobreGuillermoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/unete-al-equipo': {
+      id: '/unete-al-equipo'
+      path: '/unete-al-equipo'
+      fullPath: '/unete-al-equipo'
+      preLoaderRoute: typeof UneteAlEquipoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/unsubscribe': {
+      id: '/unsubscribe'
+      path: '/unsubscribe'
+      fullPath: '/unsubscribe'
+      preLoaderRoute: typeof UnsubscribeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vip-pass': {
+      id: '/vip-pass'
+      path: '/vip-pass'
+      fullPath: '/vip-pass'
+      preLoaderRoute: typeof VipPassRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/articulos/': {
@@ -1094,130 +1113,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ArticulosIndexRouteImport
       parentRoute: typeof ArticulosRoute
     }
-    '/legal/terminos-y-condiciones': {
-      id: '/legal/terminos-y-condiciones'
-      path: '/legal/terminos-y-condiciones'
-      fullPath: '/legal/terminos-y-condiciones'
-      preLoaderRoute: typeof LegalTerminosYCondicionesRouteImport
+    '/articulos/$slug': {
+      id: '/articulos/$slug'
+      path: '/$slug'
+      fullPath: '/articulos/$slug'
+      preLoaderRoute: typeof ArticulosSlugRouteImport
+      parentRoute: typeof ArticulosRoute
+    }
+    '/email/unsubscribe': {
+      id: '/email/unsubscribe'
+      path: '/email/unsubscribe'
+      fullPath: '/email/unsubscribe'
+      preLoaderRoute: typeof EmailUnsubscribeRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/legal/politica-de-reembolsos': {
-      id: '/legal/politica-de-reembolsos'
-      path: '/legal/politica-de-reembolsos'
-      fullPath: '/legal/politica-de-reembolsos'
-      preLoaderRoute: typeof LegalPoliticaDeReembolsosRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/legal/politica-de-privacidad': {
-      id: '/legal/politica-de-privacidad'
-      path: '/legal/politica-de-privacidad'
-      fullPath: '/legal/politica-de-privacidad'
-      preLoaderRoute: typeof LegalPoliticaDePrivacidadRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/en/vip-pass': {
-      id: '/en/vip-pass'
-      path: '/en/vip-pass'
-      fullPath: '/en/vip-pass'
-      preLoaderRoute: typeof EnVipPassRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/en/support-the-launch': {
-      id: '/en/support-the-launch'
-      path: '/en/support-the-launch'
-      fullPath: '/en/support-the-launch'
-      preLoaderRoute: typeof EnSupportTheLaunchRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/en/restructure-1-1': {
-      id: '/en/restructure-1-1'
-      path: '/en/restructure-1-1'
-      fullPath: '/en/restructure-1-1'
-      preLoaderRoute: typeof EnRestructure11RouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/en/pricing': {
-      id: '/en/pricing'
-      path: '/en/pricing'
-      fullPath: '/en/pricing'
-      preLoaderRoute: typeof EnPricingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/en/newsletter': {
-      id: '/en/newsletter'
-      path: '/en/newsletter'
-      fullPath: '/en/newsletter'
-      preLoaderRoute: typeof EnNewsletterRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/en/kairon': {
-      id: '/en/kairon'
-      path: '/en/kairon'
-      fullPath: '/en/kairon'
-      preLoaderRoute: typeof EnKaironRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/en/join-the-team': {
-      id: '/en/join-the-team'
-      path: '/en/join-the-team'
-      fullPath: '/en/join-the-team'
-      preLoaderRoute: typeof EnJoinTheTeamRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/en/iro-method': {
-      id: '/en/iro-method'
-      path: '/en/iro-method'
-      fullPath: '/en/iro-method'
-      preLoaderRoute: typeof EnIroMethodRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/en/investors': {
-      id: '/en/investors'
-      path: '/en/investors'
-      fullPath: '/en/investors'
-      preLoaderRoute: typeof EnInvestorsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/en/g-struct': {
-      id: '/en/g-struct'
-      path: '/en/g-struct'
-      fullPath: '/en/g-struct'
-      preLoaderRoute: typeof EnGStructRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/en/g-frame': {
-      id: '/en/g-frame'
-      path: '/en/g-frame'
-      fullPath: '/en/g-frame'
-      preLoaderRoute: typeof EnGFrameRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/en/etw-2026-partners': {
-      id: '/en/etw-2026-partners'
-      path: '/en/etw-2026-partners'
-      fullPath: '/en/etw-2026-partners'
-      preLoaderRoute: typeof EnEtw2026PartnersRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/en/enterprise': {
-      id: '/en/enterprise'
-      path: '/en/enterprise'
-      fullPath: '/en/enterprise'
-      preLoaderRoute: typeof EnEnterpriseRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/en/contact': {
-      id: '/en/contact'
-      path: '/en/contact'
-      fullPath: '/en/contact'
-      preLoaderRoute: typeof EnContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/en/articles': {
-      id: '/en/articles'
-      path: '/en/articles'
-      fullPath: '/en/articles'
-      preLoaderRoute: typeof EnArticlesRouteImport
+    '/en/': {
+      id: '/en/'
+      path: '/en'
+      fullPath: '/en/'
+      preLoaderRoute: typeof EnIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/en/about-guillermo': {
@@ -1227,158 +1141,151 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnAboutGuillermoRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/email/unsubscribe': {
-      id: '/email/unsubscribe'
-      path: '/email/unsubscribe'
-      fullPath: '/email/unsubscribe'
-      preLoaderRoute: typeof EmailUnsubscribeRouteImport
+    '/en/articles': {
+      id: '/en/articles'
+      path: '/en/articles'
+      fullPath: '/en/articles'
+      preLoaderRoute: typeof EnArticlesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/articulos/$slug': {
-      id: '/articulos/$slug'
-      path: '/$slug'
-      fullPath: '/articulos/$slug'
-      preLoaderRoute: typeof ArticulosSlugRouteImport
-      parentRoute: typeof ArticulosRoute
+    '/en/contact': {
+      id: '/en/contact'
+      path: '/en/contact'
+      fullPath: '/en/contact'
+      preLoaderRoute: typeof EnContactRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/en/articles/': {
-      id: '/en/articles/'
-      path: '/'
-      fullPath: '/en/articles/'
-      preLoaderRoute: typeof EnArticlesIndexRouteImport
-      parentRoute: typeof EnArticlesRoute
+    '/en/enterprise': {
+      id: '/en/enterprise'
+      path: '/en/enterprise'
+      fullPath: '/en/enterprise'
+      preLoaderRoute: typeof EnEnterpriseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/etw-2026-partners': {
+      id: '/en/etw-2026-partners'
+      path: '/en/etw-2026-partners'
+      fullPath: '/en/etw-2026-partners'
+      preLoaderRoute: typeof EnEtw2026PartnersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/g-frame': {
+      id: '/en/g-frame'
+      path: '/en/g-frame'
+      fullPath: '/en/g-frame'
+      preLoaderRoute: typeof EnGFrameRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/g-struct': {
+      id: '/en/g-struct'
+      path: '/en/g-struct'
+      fullPath: '/en/g-struct'
+      preLoaderRoute: typeof EnGStructRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/investors': {
+      id: '/en/investors'
+      path: '/en/investors'
+      fullPath: '/en/investors'
+      preLoaderRoute: typeof EnInvestorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/iro-method': {
+      id: '/en/iro-method'
+      path: '/en/iro-method'
+      fullPath: '/en/iro-method'
+      preLoaderRoute: typeof EnIroMethodRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/join-the-team': {
+      id: '/en/join-the-team'
+      path: '/en/join-the-team'
+      fullPath: '/en/join-the-team'
+      preLoaderRoute: typeof EnJoinTheTeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/kairon': {
+      id: '/en/kairon'
+      path: '/en/kairon'
+      fullPath: '/en/kairon'
+      preLoaderRoute: typeof EnKaironRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/newsletter': {
+      id: '/en/newsletter'
+      path: '/en/newsletter'
+      fullPath: '/en/newsletter'
+      preLoaderRoute: typeof EnNewsletterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/pricing': {
+      id: '/en/pricing'
+      path: '/en/pricing'
+      fullPath: '/en/pricing'
+      preLoaderRoute: typeof EnPricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/restructure-1-1': {
+      id: '/en/restructure-1-1'
+      path: '/en/restructure-1-1'
+      fullPath: '/en/restructure-1-1'
+      preLoaderRoute: typeof EnRestructure11RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/support-the-launch': {
+      id: '/en/support-the-launch'
+      path: '/en/support-the-launch'
+      fullPath: '/en/support-the-launch'
+      preLoaderRoute: typeof EnSupportTheLaunchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/vip-pass': {
+      id: '/en/vip-pass'
+      path: '/en/vip-pass'
+      fullPath: '/en/vip-pass'
+      preLoaderRoute: typeof EnVipPassRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/legal/politica-de-privacidad': {
+      id: '/legal/politica-de-privacidad'
+      path: '/legal/politica-de-privacidad'
+      fullPath: '/legal/politica-de-privacidad'
+      preLoaderRoute: typeof LegalPoliticaDePrivacidadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/legal/politica-de-reembolsos': {
+      id: '/legal/politica-de-reembolsos'
+      path: '/legal/politica-de-reembolsos'
+      fullPath: '/legal/politica-de-reembolsos'
+      preLoaderRoute: typeof LegalPoliticaDeReembolsosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/legal/terminos-y-condiciones': {
+      id: '/legal/terminos-y-condiciones'
+      path: '/legal/terminos-y-condiciones'
+      fullPath: '/legal/terminos-y-condiciones'
+      preLoaderRoute: typeof LegalTerminosYCondicionesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mockup/corporate-home': {
+      id: '/mockup/corporate-home'
+      path: '/mockup/corporate-home'
+      fullPath: '/mockup/corporate-home'
+      preLoaderRoute: typeof MockupCorporateHomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mockup/kairon-hero': {
+      id: '/mockup/kairon-hero'
+      path: '/mockup/kairon-hero'
+      fullPath: '/mockup/kairon-hero'
+      preLoaderRoute: typeof MockupKaironHeroRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/_admin/admin/': {
       id: '/_admin/admin/'
       path: '/admin'
       fullPath: '/admin/'
       preLoaderRoute: typeof AdminAdminIndexRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/lovable/email/suppression': {
-      id: '/lovable/email/suppression'
-      path: '/lovable/email/suppression'
-      fullPath: '/lovable/email/suppression'
-      preLoaderRoute: typeof LovableEmailSuppressionRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/en/legal/terms-and-conditions': {
-      id: '/en/legal/terms-and-conditions'
-      path: '/en/legal/terms-and-conditions'
-      fullPath: '/en/legal/terms-and-conditions'
-      preLoaderRoute: typeof EnLegalTermsAndConditionsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/en/legal/refund-policy': {
-      id: '/en/legal/refund-policy'
-      path: '/en/legal/refund-policy'
-      fullPath: '/en/legal/refund-policy'
-      preLoaderRoute: typeof EnLegalRefundPolicyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/en/legal/privacy-policy': {
-      id: '/en/legal/privacy-policy'
-      path: '/en/legal/privacy-policy'
-      fullPath: '/en/legal/privacy-policy'
-      preLoaderRoute: typeof EnLegalPrivacyPolicyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/en/articles/$slug': {
-      id: '/en/articles/$slug'
-      path: '/$slug'
-      fullPath: '/en/articles/$slug'
-      preLoaderRoute: typeof EnArticlesSlugRouteImport
-      parentRoute: typeof EnArticlesRoute
-    }
-    '/api/public/paypal-support-create-order': {
-      id: '/api/public/paypal-support-create-order'
-      path: '/api/public/paypal-support-create-order'
-      fullPath: '/api/public/paypal-support-create-order'
-      preLoaderRoute: typeof ApiPublicPaypalSupportCreateOrderRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/public/paypal-support-config': {
-      id: '/api/public/paypal-support-config'
-      path: '/api/public/paypal-support-config'
-      fullPath: '/api/public/paypal-support-config'
-      preLoaderRoute: typeof ApiPublicPaypalSupportConfigRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/public/paypal-support-capture-order': {
-      id: '/api/public/paypal-support-capture-order'
-      path: '/api/public/paypal-support-capture-order'
-      fullPath: '/api/public/paypal-support-capture-order'
-      preLoaderRoute: typeof ApiPublicPaypalSupportCaptureOrderRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/public/newsletter-subscribe': {
-      id: '/api/public/newsletter-subscribe'
-      path: '/api/public/newsletter-subscribe'
-      fullPath: '/api/public/newsletter-subscribe'
-      preLoaderRoute: typeof ApiPublicNewsletterSubscribeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/public/gstruct-waitlist-count': {
-      id: '/api/public/gstruct-waitlist-count'
-      path: '/api/public/gstruct-waitlist-count'
-      fullPath: '/api/public/gstruct-waitlist-count'
-      preLoaderRoute: typeof ApiPublicGstructWaitlistCountRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/public/gstruct-waitlist': {
-      id: '/api/public/gstruct-waitlist'
-      path: '/api/public/gstruct-waitlist'
-      fullPath: '/api/public/gstruct-waitlist'
-      preLoaderRoute: typeof ApiPublicGstructWaitlistRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/public/diagnostico-submit': {
-      id: '/api/public/diagnostico-submit'
-      path: '/api/public/diagnostico-submit'
-      fullPath: '/api/public/diagnostico-submit'
-      preLoaderRoute: typeof ApiPublicDiagnosticoSubmitRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/public/contact': {
-      id: '/api/public/contact'
-      path: '/api/public/contact'
-      fullPath: '/api/public/contact'
-      preLoaderRoute: typeof ApiPublicContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/public/article-comments': {
-      id: '/api/public/article-comments'
-      path: '/api/public/article-comments'
-      fullPath: '/api/public/article-comments'
-      preLoaderRoute: typeof ApiPublicArticleCommentsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_admin/admin/waitlist': {
-      id: '/_admin/admin/waitlist'
-      path: '/admin/waitlist'
-      fullPath: '/admin/waitlist'
-      preLoaderRoute: typeof AdminAdminWaitlistRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/_admin/admin/supporters': {
-      id: '/_admin/admin/supporters'
-      path: '/admin/supporters'
-      fullPath: '/admin/supporters'
-      preLoaderRoute: typeof AdminAdminSupportersRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/_admin/admin/reservas': {
-      id: '/_admin/admin/reservas'
-      path: '/admin/reservas'
-      fullPath: '/admin/reservas'
-      preLoaderRoute: typeof AdminAdminReservasRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/_admin/admin/diagnosticos': {
-      id: '/_admin/admin/diagnosticos'
-      path: '/admin/diagnosticos'
-      fullPath: '/admin/diagnosticos'
-      preLoaderRoute: typeof AdminAdminDiagnosticosRouteImport
       parentRoute: typeof AdminRoute
     }
     '/_admin/admin/comentarios': {
@@ -1388,11 +1295,144 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminAdminComentariosRouteImport
       parentRoute: typeof AdminRoute
     }
-    '/lovable/email/transactional/send': {
-      id: '/lovable/email/transactional/send'
-      path: '/lovable/email/transactional/send'
-      fullPath: '/lovable/email/transactional/send'
-      preLoaderRoute: typeof LovableEmailTransactionalSendRouteImport
+    '/_admin/admin/diagnosticos': {
+      id: '/_admin/admin/diagnosticos'
+      path: '/admin/diagnosticos'
+      fullPath: '/admin/diagnosticos'
+      preLoaderRoute: typeof AdminAdminDiagnosticosRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/_admin/admin/reservas': {
+      id: '/_admin/admin/reservas'
+      path: '/admin/reservas'
+      fullPath: '/admin/reservas'
+      preLoaderRoute: typeof AdminAdminReservasRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/_admin/admin/supporters': {
+      id: '/_admin/admin/supporters'
+      path: '/admin/supporters'
+      fullPath: '/admin/supporters'
+      preLoaderRoute: typeof AdminAdminSupportersRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/_admin/admin/waitlist': {
+      id: '/_admin/admin/waitlist'
+      path: '/admin/waitlist'
+      fullPath: '/admin/waitlist'
+      preLoaderRoute: typeof AdminAdminWaitlistRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/api/public/article-comments': {
+      id: '/api/public/article-comments'
+      path: '/api/public/article-comments'
+      fullPath: '/api/public/article-comments'
+      preLoaderRoute: typeof ApiPublicArticleCommentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/contact': {
+      id: '/api/public/contact'
+      path: '/api/public/contact'
+      fullPath: '/api/public/contact'
+      preLoaderRoute: typeof ApiPublicContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/diagnostico-submit': {
+      id: '/api/public/diagnostico-submit'
+      path: '/api/public/diagnostico-submit'
+      fullPath: '/api/public/diagnostico-submit'
+      preLoaderRoute: typeof ApiPublicDiagnosticoSubmitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/gstruct-waitlist': {
+      id: '/api/public/gstruct-waitlist'
+      path: '/api/public/gstruct-waitlist'
+      fullPath: '/api/public/gstruct-waitlist'
+      preLoaderRoute: typeof ApiPublicGstructWaitlistRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/gstruct-waitlist-count': {
+      id: '/api/public/gstruct-waitlist-count'
+      path: '/api/public/gstruct-waitlist-count'
+      fullPath: '/api/public/gstruct-waitlist-count'
+      preLoaderRoute: typeof ApiPublicGstructWaitlistCountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/newsletter-subscribe': {
+      id: '/api/public/newsletter-subscribe'
+      path: '/api/public/newsletter-subscribe'
+      fullPath: '/api/public/newsletter-subscribe'
+      preLoaderRoute: typeof ApiPublicNewsletterSubscribeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/paypal-support-capture-order': {
+      id: '/api/public/paypal-support-capture-order'
+      path: '/api/public/paypal-support-capture-order'
+      fullPath: '/api/public/paypal-support-capture-order'
+      preLoaderRoute: typeof ApiPublicPaypalSupportCaptureOrderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/paypal-support-config': {
+      id: '/api/public/paypal-support-config'
+      path: '/api/public/paypal-support-config'
+      fullPath: '/api/public/paypal-support-config'
+      preLoaderRoute: typeof ApiPublicPaypalSupportConfigRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/paypal-support-create-order': {
+      id: '/api/public/paypal-support-create-order'
+      path: '/api/public/paypal-support-create-order'
+      fullPath: '/api/public/paypal-support-create-order'
+      preLoaderRoute: typeof ApiPublicPaypalSupportCreateOrderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/articles/': {
+      id: '/en/articles/'
+      path: '/'
+      fullPath: '/en/articles/'
+      preLoaderRoute: typeof EnArticlesIndexRouteImport
+      parentRoute: typeof EnArticlesRoute
+    }
+    '/en/articles/$slug': {
+      id: '/en/articles/$slug'
+      path: '/$slug'
+      fullPath: '/en/articles/$slug'
+      preLoaderRoute: typeof EnArticlesSlugRouteImport
+      parentRoute: typeof EnArticlesRoute
+    }
+    '/en/legal/privacy-policy': {
+      id: '/en/legal/privacy-policy'
+      path: '/en/legal/privacy-policy'
+      fullPath: '/en/legal/privacy-policy'
+      preLoaderRoute: typeof EnLegalPrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/legal/refund-policy': {
+      id: '/en/legal/refund-policy'
+      path: '/en/legal/refund-policy'
+      fullPath: '/en/legal/refund-policy'
+      preLoaderRoute: typeof EnLegalRefundPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/legal/terms-and-conditions': {
+      id: '/en/legal/terms-and-conditions'
+      path: '/en/legal/terms-and-conditions'
+      fullPath: '/en/legal/terms-and-conditions'
+      preLoaderRoute: typeof EnLegalTermsAndConditionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lovable/email/suppression': {
+      id: '/lovable/email/suppression'
+      path: '/lovable/email/suppression'
+      fullPath: '/lovable/email/suppression'
+      preLoaderRoute: typeof LovableEmailSuppressionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lovable/email/queue/process': {
+      id: '/lovable/email/queue/process'
+      path: '/lovable/email/queue/process'
+      fullPath: '/lovable/email/queue/process'
+      preLoaderRoute: typeof LovableEmailQueueProcessRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/lovable/email/transactional/preview': {
@@ -1402,11 +1442,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LovableEmailTransactionalPreviewRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/lovable/email/queue/process': {
-      id: '/lovable/email/queue/process'
-      path: '/lovable/email/queue/process'
-      fullPath: '/lovable/email/queue/process'
-      preLoaderRoute: typeof LovableEmailQueueProcessRouteImport
+    '/lovable/email/transactional/send': {
+      id: '/lovable/email/transactional/send'
+      path: '/lovable/email/transactional/send'
+      fullPath: '/lovable/email/transactional/send'
+      preLoaderRoute: typeof LovableEmailTransactionalSendRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -1503,6 +1543,8 @@ const rootRouteChildren: RootRouteChildren = {
   LegalPoliticaDePrivacidadRoute: LegalPoliticaDePrivacidadRoute,
   LegalPoliticaDeReembolsosRoute: LegalPoliticaDeReembolsosRoute,
   LegalTerminosYCondicionesRoute: LegalTerminosYCondicionesRoute,
+  MockupCorporateHomeRoute: MockupCorporateHomeRoute,
+  MockupKaironHeroRoute: MockupKaironHeroRoute,
   EnIndexRoute: EnIndexRoute,
   ApiPublicArticleCommentsRoute: ApiPublicArticleCommentsRoute,
   ApiPublicContactRoute: ApiPublicContactRoute,
@@ -1526,13 +1568,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

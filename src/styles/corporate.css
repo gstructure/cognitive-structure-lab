@@ -1,0 +1,52 @@
+/* ==========================================================================
+   G-Structure Corporate Surface — Light palette
+   Applied via data-brand="corporate" on the wrapping element.
+   These tokens match the existing root defaults, making this mostly
+   a semantic declaration for clarity and future-proofing.
+   ========================================================================== */
+
+[data-brand="corporate"] {
+  --corp-bg: #FAFAF7;
+  --corp-ink: #193550;
+  --corp-deep: #092038;
+  --corp-soft: #DBE6F0;
+  --corp-surface: #FFFFFF;
+  --corp-muted: #697783;
+  --corp-hairline: #E2E8EE;
+  --corp-focus-ring: #193550;
+
+  /* Override global tokens */
+  --background: #FAFAF7;
+  --foreground: #193550;
+  --surface: #FFFFFF;
+  --brand: #193550;
+  --brand-deep: #092038;
+  --brand-soft: #DBE6F0;
+  --ink-muted: #697783;
+  --hairline: #E2E8EE;
+  --border: #E2E8EE;
+  --muted-foreground: #697783;
+
+  background-color: #FAFAF7;
+  color: #193550;
+  color-scheme: light;
+}
+
+[data-brand="corporate"] body,
+[data-brand="corporate"] .corporate-layout {
+  background-color: #FAFAF7;
+  color: #193550;
+  min-height: 100vh;
+}
+
+/* Focus ring */
+[data-brand="corporate"] :focus-visible {
+  outline: 2px solid var(--corp-focus-ring);
+  outline-offset: 4px;
+}
+
+/* Selection */
+[data-brand="corporate"] ::selection {
+  background-color: var(--corp-ink);
+  color: var(--corp-bg);
+}
