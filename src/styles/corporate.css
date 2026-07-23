@@ -50,3 +50,70 @@
   background-color: var(--corp-ink);
   color: var(--corp-bg);
 }
+
+/* ==========================================================================
+   DEPTH SYSTEM — editorial gradient mesh, bento containment
+   Corporate surface stays light and institutional, but the "Purple Cow"
+   pass applies the same depth logic: soft navy blooms instead of flat
+   white, fine-bordered bento cards instead of full-bleed text blocks.
+   ========================================================================== */
+
+[data-brand="corporate"] .corp-mesh {
+  position: relative;
+  isolation: isolate;
+}
+
+[data-brand="corporate"] .corp-mesh::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(720px 480px at 88% -8%, rgb(25 53 80 / 7%), transparent 62%),
+    radial-gradient(640px 520px at -6% 46%, rgb(9 32 56 / 6%), transparent 60%);
+}
+
+[data-brand="corporate"] .corp-mesh > * {
+  position: relative;
+  z-index: 1;
+}
+
+[data-brand="corporate"] .corp-bento {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid #E2E8EE;
+  box-shadow:
+    0 1px 0 0 rgb(5 50 90 / 3%),
+    0 24px 48px -30px rgb(5 50 90 / 16%);
+}
+
+[data-brand="corporate"] .corp-gradient-text {
+  background: linear-gradient(100deg, #193550 30%, #092038 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+[data-brand="corporate"] .corp-divider {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #E2E8EE 20%,
+    #E2E8EE 80%,
+    transparent
+  );
+}
+
+/* Ghost slot — placeholder for future products in the constellation */
+[data-brand="corporate"] .corp-ghost-slot {
+  border: 1px dashed #D3DCE4;
+  background: repeating-linear-gradient(
+    135deg,
+    rgb(25 53 80 / 3%) 0px,
+    rgb(25 53 80 / 3%) 6px,
+    transparent 6px,
+    transparent 14px
+  );
+}
