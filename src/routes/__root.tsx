@@ -129,8 +129,8 @@ function RootShell({ children }: { children: React.ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const pathname = useRouterState({ select: (state) => state.location.pathname });
-  const isStandalone = pathname === "/vip-pass" || pathname === "/en/vip-pass";
-
+  const isStandalone =
+    pathname === "/vip-pass" || pathname === "/en/vip-pass" || pathname === "/kairon-for-teams";
   return (
     <QueryClientProvider client={queryClient}>
       <LocaleProvider>
