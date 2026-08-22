@@ -1596,7 +1596,7 @@ function PricingSection() {
             >
               {campaign.primaryCta}
             </CTAExternal>
-            <CTALink to={lp("/precios", locale)} variant="secondary" analyticsLabel="home_pricing_details">
+            <CTALink to={lp("/precios", locale)} variant="outline" analyticsLabel="home_pricing_details">
               {copy.cta}
             </CTALink>
           </div>

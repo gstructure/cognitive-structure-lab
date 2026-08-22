@@ -11,7 +11,7 @@ const ContactSchema = z.object({
   country: z.string().trim().max(120).optional().or(z.literal("")),
   requestType: z.string().trim().min(1, "request_type_required").max(80),
   message: z.string().trim().min(1, "message_required").max(4000),
-  consent: z.literal(true, { errorMap: () => ({ message: "consent_required" }) }),
+  consent: z.literal(true, { error: () => "consent_required" }),
   // Honeypot — must be empty.
   website: z.string().max(0).optional().or(z.literal("")),
   pageOrigin: z.string().max(255).optional().or(z.literal("")),

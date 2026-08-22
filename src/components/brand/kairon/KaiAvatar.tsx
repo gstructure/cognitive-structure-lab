@@ -45,7 +45,7 @@ export function KaiAvatar({ className }: KaiAvatarProps) {
   const target = useRef({ x: 0, y: 0 });
   const pos = useRef({ x: 0, y: 0 });
   const vel = useRef({ x: 0, y: 0 });
-  const rafId = useRef<number>();
+  const rafId = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     const mql = window.matchMedia("(prefers-reduced-motion: reduce)");
