@@ -12,6 +12,7 @@ import kaironProgreso from "@/assets/kaironprogreso.webp";
 import kaironRuta from "@/assets/kaironruta.webp";
 import kaironNocturno from "@/assets/kaironnocturno.webp";
 import { KAIRON_THEME } from "@/lib/kaironTheme";
+import { DocDropdown, type DocNavItem } from "@/components/site/KaironDocChrome";
 
 /**
  * Full dark-theme homepage redesign ("Testimonios en español para KAIRON"
@@ -350,8 +351,40 @@ export function HomePage({ locale }: { locale: Locale }) {
 }
 
 function SiteHeader({ c, locale }: { c: Copy; locale: Locale }) {
+  const [menu, setMenu] = useState<"metodologia" | null>(null);
+  const rootRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const onDocClick = (e: globalThis.MouseEvent) => {
+      if (rootRef.current && !rootRef.current.contains(e.target as Node)) setMenu(null);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenu(null);
+    };
+    document.addEventListener("click", onDocClick);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("click", onDocClick);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, []);
+
+  const metodologiaItems: DocNavItem[] = locale === "en"
+    ? [
+        { label: "I-R-O™ Method", href: "/en/iro-method" },
+        { label: "Execution blocks", href: "/en/execution-blocks" },
+        { label: "Friction Index", href: "/en/friction-index" },
+      ]
+    : [
+        { label: "Método I-R-O™", href: "/metodo-iro" },
+        { label: "Bloqueos de ejecución", href: "/bloqueos" },
+        { label: "Índice de Fricción", href: "/indice-friccion" },
+      ];
+  const vsNotionHref = locale === "en" ? "/en/kairon/vs/notion" : "/kairon/vs/notion";
+
   return (
     <header
+      ref={rootRef}
       style={{
         position: "sticky", top: 0, zIndex: 60,
         background: "rgba(10,10,11,0.82)", backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)",
@@ -366,7 +399,14 @@ function SiteHeader({ c, locale }: { c: Copy; locale: Locale }) {
           <a href="#espejo" className="gs-nav-link" style={{ color: "rgba(245,243,240,0.6)", fontSize: "13.5px", whiteSpace: "nowrap" }}>{c.navMirror}</a>
           <a href="#producto" className="gs-nav-link" style={{ color: "rgba(245,243,240,0.6)", fontSize: "13.5px", whiteSpace: "nowrap" }}>KAIRON</a>
           <a href="#metodo" className="gs-nav-link" style={{ color: "rgba(245,243,240,0.6)", fontSize: "13.5px", whiteSpace: "nowrap" }}>{c.navMethod}</a>
+          <DocDropdown
+            label={locale === "en" ? "Methodology" : "Metodología"}
+            items={metodologiaItems}
+            open={menu === "metodologia"}
+            onToggle={(e) => { e.stopPropagation(); setMenu((m) => (m === "metodologia" ? null : "metodologia")); }}
+          />
           <Link to="/teams" className="gs-nav-link" style={{ color: "rgba(245,243,240,0.6)", fontSize: "13.5px", whiteSpace: "nowrap" }}>{c.navTeams}</Link>
+          <a href={vsNotionHref} className="gs-nav-link" style={{ color: "rgba(245,243,240,0.6)", fontSize: "13.5px", whiteSpace: "nowrap" }}>KAIRON vs Notion</a>
           <a href="#precio" className="gs-nav-link" style={{ color: "rgba(245,243,240,0.6)", fontSize: "13.5px", whiteSpace: "nowrap" }}>{c.navPricing}</a>
           <div role="group" aria-label="Language" style={{ display: "flex", border: "1px solid rgba(245,243,240,0.14)", borderRadius: 999, overflow: "hidden", flex: "none" }}>
             <Link to="/" className="gs-lang-btn" aria-current={locale === "es" ? "page" : undefined} style={langBtnStyle(locale === "es")}>ES</Link>
@@ -379,6 +419,14 @@ function SiteHeader({ c, locale }: { c: Copy; locale: Locale }) {
         .gs-nav-link:hover { color: #F5F3F0; }
         .gs-cta-pill:hover { background: ${ORANGE_HOVER}; }
         .gs-nav-link:focus-visible, .gs-cta-pill:focus-visible, .gs-lang-btn:focus-visible {
+          outline: 2px solid ${ORANGE}; outline-offset: 3px; border-radius: 4px;
+        }
+        .kdh-trigger { background: none; border: 0; padding: 6px 0; font-size: 13.5px; cursor: pointer; display: flex; align-items: center; gap: 6px; white-space: nowrap; color: rgba(245,243,240,0.6); font-family: inherit; }
+        .kdh-trigger:hover { color: #F5F3F0; }
+        .kdh-panel { position: absolute; top: calc(100% + 14px); left: -14px; min-width: 244px; background: ${KAIRON_THEME.surface2}; border: 1px solid ${KAIRON_THEME.borderStrong}; border-radius: 14px; padding: 8px; display: grid; gap: 1px; box-shadow: 0 20px 46px rgba(0,0,0,0.6); z-index: 80; }
+        .kdh-item { display: block; padding: 10px 12px; border-radius: 9px; font-size: 14px; color: rgba(245,243,240,0.74); }
+        .kdh-item:hover { background: rgba(245,243,240,0.06); color: #F5F3F0; }
+        .kdh-trigger:focus-visible, .kdh-item:focus-visible {
           outline: 2px solid ${ORANGE}; outline-offset: 3px; border-radius: 4px;
         }
       `}</style>
@@ -892,7 +940,13 @@ function SiteFooter({ c, locale }: { c: Copy; locale: Locale }) {
           <div style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(245,243,240,0.35)", marginBottom: 4 }}>{c.footProduct}</div>
           <a href="#producto" className="gs-footer-link" style={{ color: "rgba(245,243,240,0.62)" }}>KAIRON</a>
           <a href="#precio" className="gs-footer-link" style={{ color: "rgba(245,243,240,0.62)" }}>{c.navPricing}</a>
-          <a href="#metodo" className="gs-footer-link" style={{ color: "rgba(245,243,240,0.62)" }}>Método I-R-O™</a>
+          <a href={locale === "en" ? "/en/kairon/vs/notion" : "/kairon/vs/notion"} className="gs-footer-link" style={{ color: "rgba(245,243,240,0.62)" }}>KAIRON vs Notion</a>
+        </div>
+        <div style={{ display: "grid", gap: 9, fontSize: 14, alignContent: "start" }}>
+          <div style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(245,243,240,0.35)", marginBottom: 4 }}>{locale === "en" ? "Methodology" : "Metodología"}</div>
+          <a href={locale === "en" ? "/en/iro-method" : "/metodo-iro"} className="gs-footer-link" style={{ color: "rgba(245,243,240,0.62)" }}>{locale === "en" ? "I-R-O™ Method" : "Método I-R-O™"}</a>
+          <a href={locale === "en" ? "/en/execution-blocks" : "/bloqueos"} className="gs-footer-link" style={{ color: "rgba(245,243,240,0.62)" }}>{locale === "en" ? "Execution blocks" : "Bloqueos de ejecución"}</a>
+          <a href={locale === "en" ? "/en/friction-index" : "/indice-friccion"} className="gs-footer-link" style={{ color: "rgba(245,243,240,0.62)" }}>{locale === "en" ? "Friction Index" : "Índice de Fricción"}</a>
         </div>
         <div style={{ display: "grid", gap: 9, fontSize: 14, alignContent: "start" }}>
           <div style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(245,243,240,0.35)", marginBottom: 4 }}>{c.footCompany}</div>
