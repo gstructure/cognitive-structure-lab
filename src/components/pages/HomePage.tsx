@@ -19,8 +19,11 @@ import kaironNocturno from "@/assets/kaironnocturno.webp";
  * `/` and `/en`, matching the rest of the site's locale routing.
  *
  * The "Espejo" panel is a placeholder: it does not call a live LLM (no
- * Anthropic integration exists yet). It replies with canned copy matched
- * against the three example chips, or a generic fallback for free text.
+ * Anthropic integration exists yet). It scores the user's free text against
+ * per-pattern keyword lists (procrastination, perfectionism, overanalysis,
+ * self-sabotage, impostor syndrome) and replies with a pseudo-randomly
+ * picked variant from the winning pattern, or a generic fallback when
+ * nothing matches — see `mirrorPatterns` below.
  */
 
 const ORANGE = "#F0A046";
@@ -31,6 +34,9 @@ const PRODUCT_SHOTS_ES = [kaironInicio, kaironBrujula, kaironTaller, kaironTalle
 const PRODUCT_SHOTS_EN = [kaironInicio, kaironBrujula, kaironFiltro, kaironTaller, kaironProgreso, kaironRuta];
 
 type PatternKey = 0 | 1 | 2 | 3;
+
+type MirrorReply = { reply: string; pattern: string; friction: number; action: string };
+type MirrorPattern = { keywords: string[]; variants: MirrorReply[] };
 
 type Copy = {
   cta: string;
@@ -65,8 +71,8 @@ type Copy = {
   endTitle: string; endSub: string;
   footAbout: string; footProduct: string; footCompany: string; footContact: string;
   footEnterprise: string; footInvestors: string; footTeam: string; footLegal: string;
-  mirrorReplies: { reply: string; pattern: string; friction: number; action: string }[];
-  mirrorGeneric: { reply: string; pattern: string; friction: number; action: string };
+  mirrorPatterns: MirrorPattern[];
+  mirrorGeneric: MirrorReply[];
 };
 
 const COPY: Record<Locale, Copy> = {
@@ -151,12 +157,47 @@ const COPY: Record<Locale, Copy> = {
     footProduct: "Producto", footCompany: "Compañía", footContact: "Contacto",
     footEnterprise: "KAIRON for Teams", footInvestors: "Inversores", footTeam: "Únete al equipo",
     footLegal: "Nuestros contenidos no sustituyen atención psicológica, médica o psiquiátrica.",
-    mirrorReplies: [
-      { reply: "Llevas semanas dándole vueltas a algo que ya sabes cómo empezar. El problema no es el momento: es que esperar se siente más seguro que actuar.", pattern: "Procrastinación", friction: 62, action: "Bloquea 5 minutos ahora y da el primer paso, aunque no sea perfecto." },
-      { reply: "\"Listo\" es un estándar que tú mismo mueves cada vez que te acercas. Mientras más esperas, más grande se vuelve lo que hay que soltar.", pattern: "Perfeccionismo", friction: 71, action: "Comparte la versión actual con una persona hoy, sin pulirla más." },
-      { reply: "Investigar se siente productivo, pero ya tienes suficiente para dar el primer paso. Seguir buscando es postergar con estilo.", pattern: "Sobreanálisis", friction: 58, action: "Ponle un límite de 10 minutos a la investigación y después decide." },
+    mirrorPatterns: [
+      {
+        keywords: ["no es el momento", "no tengo tiempo", "luego", "mañana", "otro día", "ocupado", "cuando tenga tiempo", "no es prioridad", "prioridades"],
+        variants: [
+          { reply: "Llevas semanas dándole vueltas a algo que ya sabes cómo empezar. El problema no es el momento: es que esperar se siente más seguro que actuar.", pattern: "Procrastinación", friction: 62, action: "Bloquea 5 minutos ahora y da el primer paso, aunque no sea perfecto." },
+          { reply: "Cada vez que dices \"todavía no\", le compras un día más al miedo. El calendario no es el obstáculo, es la excusa con mejor coartada.", pattern: "Procrastinación", friction: 66, action: "Elige la parte más pequeña de la tarea y hazla en los próximos 5 minutos." },
+        ],
+      },
+      {
+        keywords: ["todavía no está listo", "no está listo", "no está lista", "perfecto", "perfecta", "pulir", "revisar una vez más", "no se ve bien", "falta algo", "una vez más"],
+        variants: [
+          { reply: "\"Listo\" es un estándar que tú mismo mueves cada vez que te acercas. Mientras más esperas, más grande se vuelve lo que hay que soltar.", pattern: "Perfeccionismo", friction: 71, action: "Comparte la versión actual con una persona hoy, sin pulirla más." },
+          { reply: "No estás protegiendo la calidad, te estás protegiendo de que alguien lo vea antes de que sea \"suficiente\". Ese punto no existe.", pattern: "Perfeccionismo", friction: 68, action: "Fija una fecha límite hoy mismo y entrega lo que tengas en ese momento." },
+        ],
+      },
+      {
+        keywords: ["necesito investigar", "investigar un poco más", "más información", "no estoy seguro", "no estoy segura", "necesito saber más", "analizar", "comparar opciones", "leyendo sobre", "sigo investigando"],
+        variants: [
+          { reply: "Investigar se siente productivo, pero ya tienes suficiente para dar el primer paso. Seguir buscando es postergar con estilo.", pattern: "Sobreanálisis", friction: 58, action: "Ponle un límite de 10 minutos a la investigación y después decide." },
+          { reply: "Ya no estás reuniendo información, estás evitando decidir con la que ya tienes. Eso también es una decisión.", pattern: "Sobreanálisis", friction: 60, action: "Elige entre las dos mejores opciones ahora, sin abrir una pestaña más." },
+        ],
+      },
+      {
+        keywords: ["siempre lo arruino", "me boicoteo", "no lo merezco", "algo va a salir mal", "prefiero no arriesgarme", "mejor no", "para qué intentarlo", "va a fallar", "no va a funcionar igual", "seguro se cae"],
+        variants: [
+          { reply: "Lo que describes no es mala suerte: es un patrón que se repite justo antes de que algo funcione. Frenar ahí también es una forma de control.", pattern: "Autosabotaje", friction: 74, action: "Nombra en voz alta qué tienes miedo de que pase si esto sale bien, y da el paso de todas formas." },
+          { reply: "Elegir la opción segura-que-no-va-a-doler es más fácil que arriesgarte a que funcione y tener que sostenerlo. Pero el costo lo pagas igual.", pattern: "Autosabotaje", friction: 70, action: "Haz la versión mínima de la acción que estás evitando, hoy, sin condiciones." },
+        ],
+      },
+      {
+        keywords: ["no soy lo suficientemente bueno", "no soy lo suficientemente buena", "no sé si puedo", "otros saben más", "van a descubrir que no sé", "no merezco estar aquí", "fue solo suerte", "no soy experto", "no soy experta", "quién soy yo para"],
+        variants: [
+          { reply: "No es que no sepas lo suficiente: es que estás midiendo tu preparación contra un estándar que nadie te pidió cumplir.", pattern: "Síndrome del impostor", friction: 65, action: "Escribe tres cosas que ya sabes hacer sobre esto y da el paso con esa lista al lado." },
+          { reply: "El miedo a que \"descubran\" que no sabes es información sobre tu ansiedad, no sobre tu capacidad real. Los dos no son lo mismo.", pattern: "Síndrome del impostor", friction: 63, action: "Pide feedback concreto a una persona hoy, en vez de seguir adivinando qué piensan de ti." },
+        ],
+      },
     ],
-    mirrorGeneric: { reply: "Lo que escribiste tiene forma de razón, pero funciona como pausa. Nombrar el patrón es el primer paso para moverlo.", pattern: "Fricción de ejecución", friction: 55, action: "Da el primer paso de 5 minutos ahora, sin buscar la versión perfecta." },
+    mirrorGeneric: [
+      { reply: "Lo que escribiste tiene forma de razón, pero funciona como pausa. Nombrar el patrón es el primer paso para moverlo.", pattern: "Fricción de ejecución", friction: 55, action: "Da el primer paso de 5 minutos ahora, sin buscar la versión perfecta." },
+      { reply: "Hay una razón detrás de lo que escribiste, pero no es la que estás nombrando. Vale la pena mirar qué hay debajo antes de esperar más.", pattern: "Fricción de ejecución", friction: 58, action: "Da un paso pequeño y concreto en los próximos 5 minutos, sin esperar más claridad." },
+    ],
   },
   en: {
     cta: "Start 7-day trial",
@@ -239,12 +280,47 @@ const COPY: Record<Locale, Copy> = {
     footProduct: "Product", footCompany: "Company", footContact: "Contact",
     footEnterprise: "KAIRON for Teams", footInvestors: "Investors", footTeam: "Join the team",
     footLegal: "Our content is not a substitute for psychological, medical or psychiatric care.",
-    mirrorReplies: [
-      { reply: "You've spent weeks circling something you already know how to start. The problem isn't timing: waiting just feels safer than acting.", pattern: "Procrastination", friction: 62, action: "Block 5 minutes right now and take the first step, imperfect is fine." },
-      { reply: "\"Ready\" is a bar you keep moving every time you get close. The longer you wait, the bigger the thing you have to let go of.", pattern: "Perfectionism", friction: 71, action: "Share the current version with one person today, no more polishing." },
-      { reply: "Researching feels productive, but you already have enough to take the first step. More digging is procrastination with better manners.", pattern: "Overanalysis", friction: 58, action: "Put a 10-minute cap on research, then decide." },
+    mirrorPatterns: [
+      {
+        keywords: ["not the right time", "no time", "later", "tomorrow", "another day", "busy", "when i have time", "not a priority"],
+        variants: [
+          { reply: "You've spent weeks circling something you already know how to start. The problem isn't timing: waiting just feels safer than acting.", pattern: "Procrastination", friction: 62, action: "Block 5 minutes right now and take the first step, imperfect is fine." },
+          { reply: "Every time you say \"not yet,\" you buy fear one more day. The calendar isn't the obstacle, it's the excuse with the best alibi.", pattern: "Procrastination", friction: 66, action: "Pick the smallest piece of the task and do it in the next 5 minutes." },
+        ],
+      },
+      {
+        keywords: ["not ready to show", "not ready", "perfect", "polish", "one more pass", "doesn't look right", "something's missing", "improve it a bit more"],
+        variants: [
+          { reply: "\"Ready\" is a bar you keep moving every time you get close. The longer you wait, the bigger the thing you have to let go of.", pattern: "Perfectionism", friction: 71, action: "Share the current version with one person today, no more polishing." },
+          { reply: "You're not protecting quality, you're protecting yourself from anyone seeing it before it's \"enough.\" That point doesn't exist.", pattern: "Perfectionism", friction: 68, action: "Set a deadline for today and ship whatever you have at that moment." },
+        ],
+      },
+      {
+        keywords: ["research a bit more", "need to research", "more information", "not sure", "need to know more", "analyze", "compare options", "reading about", "still researching"],
+        variants: [
+          { reply: "Researching feels productive, but you already have enough to take the first step. More digging is procrastination with better manners.", pattern: "Overanalysis", friction: 58, action: "Put a 10-minute cap on research, then decide." },
+          { reply: "You're no longer gathering information, you're avoiding a decision with the information you already have. That's a decision too.", pattern: "Overanalysis", friction: 60, action: "Pick between your two best options right now, no more open tabs." },
+        ],
+      },
+      {
+        keywords: ["always mess it up", "self-sabotage", "don't deserve it", "something will go wrong", "rather not risk it", "better not", "why bother", "it's going to fail", "it won't work anyway"],
+        variants: [
+          { reply: "What you're describing isn't bad luck: it's a pattern that shows up right before something starts working. Stopping there is its own kind of control.", pattern: "Self-sabotage", friction: 74, action: "Say out loud what you're afraid will happen if this goes well, then take the step anyway." },
+          { reply: "Picking the safe option that definitely won't hurt is easier than risking it working and having to carry it. But you pay the cost either way.", pattern: "Self-sabotage", friction: 70, action: "Do the smallest version of the thing you're avoiding, today, no conditions." },
+        ],
+      },
+      {
+        keywords: ["not good enough", "don't know if i can", "others know more", "find out i don't know", "don't deserve to be here", "just luck", "not an expert", "who am i to"],
+        variants: [
+          { reply: "It's not that you don't know enough: you're measuring your readiness against a bar nobody actually asked you to clear.", pattern: "Impostor syndrome", friction: 65, action: "Write down three things you already know how to do here, and take the step with that list next to you." },
+          { reply: "The fear that people will \"find out\" isn't information about your ability, it's information about your anxiety. The two aren't the same thing.", pattern: "Impostor syndrome", friction: 63, action: "Ask one person for concrete feedback today instead of guessing what they think of you." },
+        ],
+      },
     ],
-    mirrorGeneric: { reply: "What you wrote looks like a reason, but it works like a pause. Naming the pattern is the first step to moving it.", pattern: "Execution friction", friction: 55, action: "Take the first 5-minute step now, skip the perfect version." },
+    mirrorGeneric: [
+      { reply: "What you wrote looks like a reason, but it works like a pause. Naming the pattern is the first step to moving it.", pattern: "Execution friction", friction: 55, action: "Take the first 5-minute step now, skip the perfect version." },
+      { reply: "There's a reason behind what you wrote, but it's not the one you're naming. Worth looking at what's underneath before you wait any longer.", pattern: "Execution friction", friction: 58, action: "Take one small, concrete step in the next 5 minutes, don't wait for more clarity." },
+    ],
   },
 };
 
@@ -372,15 +448,27 @@ function Hero({ c, appHref, locale }: { c: Copy; appHref: (content: string) => s
 function Mirror({ c }: { c: Copy }) {
   const [excuse, setExcuse] = useState("");
   const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState<{ reply: string; pattern: string; friction: number; action: string } | null>(null);
+  const [result, setResult] = useState<MirrorReply | null>(null);
 
   const ask = () => {
     const text = excuse.trim();
     if (!text || loading) return;
     setLoading(true);
     setResult(null);
-    const matchIndex = c.mirrorEx.findIndex((ex) => ex.trim().toLowerCase() === text.toLowerCase());
-    const canned = matchIndex >= 0 ? c.mirrorReplies[matchIndex] : c.mirrorGeneric;
+
+    // Keyword scan across every pattern; the pattern with the most hits wins.
+    // Ties keep the first (earliest-defined) pattern. No match falls back to
+    // the generic variants. Fully client-side — no LLM call involved.
+    const lower = text.toLowerCase();
+    let bestIndex = -1;
+    let bestScore = 0;
+    c.mirrorPatterns.forEach((p, i) => {
+      const score = p.keywords.reduce((n, kw) => n + (lower.includes(kw) ? 1 : 0), 0);
+      if (score > bestScore) { bestScore = score; bestIndex = i; }
+    });
+    const variants = bestIndex >= 0 ? c.mirrorPatterns[bestIndex].variants : c.mirrorGeneric;
+    const canned = variants[Math.floor(Math.random() * variants.length)];
+
     window.setTimeout(() => {
       setLoading(false);
       setResult(canned);
