@@ -140,6 +140,7 @@ function RootComponent() {
     pathname === "/bloqueos" ||
     pathname === "/en/execution-blocks" ||
     pathname === "/indice-friccion" ||
+    pathname === "/en/friction-index" ||
     pathname === "/kairon/vs/notion";
   return (
     <QueryClientProvider client={queryClient}>

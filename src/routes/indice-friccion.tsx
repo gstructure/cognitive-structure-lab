@@ -30,5 +30,5 @@ export const Route = createFileRoute("/indice-friccion")({
       ),
     ],
   }),
-  component: () => <IndiceFriccionPage />,
+  component: () => <IndiceFriccionPage locale="es" />,
 });
