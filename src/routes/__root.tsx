@@ -138,6 +138,7 @@ function RootComponent() {
     pathname === "/metodo-iro" ||
     pathname === "/en/iro-method" ||
     pathname === "/bloqueos" ||
+    pathname === "/en/execution-blocks" ||
     pathname === "/indice-friccion" ||
     pathname === "/kairon/vs/notion";
   return (

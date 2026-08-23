@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo, breadcrumbSchema, definedTermSetSchema, canonicalLink, jsonLdScript } from "@/lib/seo";
-import { BloqueosPage, BLOQUEOS } from "@/components/pages/BloqueosPage";
+import { BloqueosPage, BLOQUEOS_COPY } from "@/components/pages/BloqueosPage";
 
 export const Route = createFileRoute("/bloqueos")({
   head: () => ({
@@ -22,11 +22,10 @@ export const Route = createFileRoute("/bloqueos")({
           terms: [
             {
               name: "Fricción de ejecución",
-              description:
-                "Resistencia interna que separa la intención de la acción en una persona que ya tiene la información, los recursos y la capacidad necesarios para actuar. No es falta de tiempo ni de motivación: es una interpretación activa que vuelve razonable no empezar.",
+              description: BLOQUEOS_COPY.es.frictionBody,
               url: "https://g-structure.co/bloqueos",
             },
-            ...BLOQUEOS.map((b) => ({
+            ...BLOQUEOS_COPY.es.blocks.map((b) => ({
               name: b.name,
               description: b.lede,
               url: `https://g-structure.co/bloqueos#${b.anchor}`,
@@ -36,5 +35,5 @@ export const Route = createFileRoute("/bloqueos")({
       ),
     ],
   }),
-  component: () => <BloqueosPage />,
+  component: () => <BloqueosPage locale="es" />,
 });
