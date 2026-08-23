@@ -203,6 +203,33 @@ export function howToSchema({
   };
 }
 
+export function definedTermSetSchema({
+  name,
+  description,
+  url,
+  terms,
+}: {
+  name: string;
+  description: string;
+  url: string;
+  terms: { name: string; description: string; url: string }[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "DefinedTermSet",
+    name,
+    description,
+    url,
+    hasDefinedTerm: terms.map((t) => ({
+      "@type": "DefinedTerm",
+      name: t.name,
+      description: t.description,
+      url: t.url,
+      inDefinedTermSet: url,
+    })),
+  };
+}
+
 export function faqSchema(qa: { q: string; a: string }[]) {
   return {
     "@context": "https://schema.org",

@@ -13,6 +13,7 @@ export const ROUTES: RouteEntry[] = [
   { es: "/kairon", en: "/en/kairon", label: { es: "KAIRON", en: "KAIRON" } },
   { es: "/precios", en: "/en/pricing", label: { es: "Precio", en: "Pricing" } },
   { es: "/metodo-iro", en: "/en/iro-method", label: { es: "M\u00e9todo I-R-O\u2122", en: "I-R-O\u2122 Method" } },
+  { es: "/bloqueos", en: "/en/execution-blocks", label: { es: "Bloqueos de ejecuci\u00f3n", en: "Execution blocks" } },
   { es: "/articulos", en: "/en/articles", label: { es: "Art\u00edculos", en: "Articles" } },
   { es: "/newsletter", en: "/en/newsletter", label: { es: "Newsletter", en: "Newsletter" } },
   { es: "/apoya-el-lanzamiento", en: "/en/support-the-launch", label: { es: "Apoya el lanzamiento", en: "Support the Launch" } },
