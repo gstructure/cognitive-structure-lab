@@ -136,7 +136,8 @@ function RootComponent() {
     pathname === "/en/vip-pass" ||
     pathname === "/teams" ||
     pathname === "/metodo-iro" ||
-    pathname === "/bloqueos";
+    pathname === "/bloqueos" ||
+    pathname === "/indice-friccion";
   return (
     <QueryClientProvider client={queryClient}>
       <LocaleProvider>

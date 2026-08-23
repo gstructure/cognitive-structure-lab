@@ -230,6 +230,34 @@ export function definedTermSetSchema({
   };
 }
 
+export function datasetSchema({
+  name,
+  description,
+  url,
+  license,
+  temporalCoverage,
+  variables,
+}: {
+  name: string;
+  description: string;
+  url: string;
+  license: string;
+  temporalCoverage: string;
+  variables: string[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    name,
+    description,
+    url,
+    license,
+    temporalCoverage,
+    variableMeasured: variables,
+    creator: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+  };
+}
+
 export function faqSchema(qa: { q: string; a: string }[]) {
   return {
     "@context": "https://schema.org",
