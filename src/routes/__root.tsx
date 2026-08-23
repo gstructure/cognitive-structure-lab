@@ -130,7 +130,11 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const pathname = useRouterState({ select: (state) => state.location.pathname });
   const isStandalone =
-    pathname === "/vip-pass" || pathname === "/en/vip-pass" || pathname === "/teams";
+    pathname === "/" ||
+    pathname === "/en" ||
+    pathname === "/vip-pass" ||
+    pathname === "/en/vip-pass" ||
+    pathname === "/teams";
   return (
     <QueryClientProvider client={queryClient}>
       <LocaleProvider>
