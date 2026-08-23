@@ -1,8 +1,10 @@
-import { useState } from "react";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { KaironMark } from "@/components/brand/kairon/KaironMark";
+import { useEffect, useRef, useState } from "react";
+import { Link } from "@tanstack/react-router";
+import { CheckCircle2 } from "lucide-react";
+import gsLogoLight from "@/assets/gslogolight.webp";
 import { trackContactClick, trackConversion } from "@/lib/analytics";
 import { KAIRON_THEME } from "@/lib/kaironTheme";
+import { DocDropdown, type DocNavItem } from "@/components/site/KaironDocChrome";
 
 /**
  * Standalone B2B landing page for the KAIRON Corporate Pilot, aimed at
@@ -14,14 +16,14 @@ import { KAIRON_THEME } from "@/lib/kaironTheme";
 
 const ORANGE = KAIRON_THEME.accent;
 const ORANGE_HOVER = KAIRON_THEME.accentHover;
-const INK = "#0C1114";
-const INK_2 = "#080B0D";
+const INK = KAIRON_THEME.bg;
+const INK_2 = KAIRON_THEME.footerBg;
 
 const PROBLEMS = [
-  { n: "01", t: "Procrastinación", d: "La tarea es clara, el inicio se posterga." },
-  { n: "02", t: "Perfeccionismo", d: "Nada se entrega hasta que sea impecable." },
-  { n: "03", t: "Autosabotaje", d: "Decisiones que frenan el propio avance." },
-  { n: "04", t: "Síndrome del impostor", d: "Capacidad real, confianza en duda." },
+  { n: "01", t: "Procrastinación", d: "La tarea es clara, el inicio se posterga.", anchor: "procrastinacion" },
+  { n: "02", t: "Perfeccionismo", d: "Nada se entrega hasta que sea impecable.", anchor: "perfeccionismo" },
+  { n: "03", t: "Autosabotaje", d: "Decisiones que frenan el propio avance.", anchor: "autosabotaje" },
+  { n: "04", t: "Síndrome del impostor", d: "Capacidad real, confianza en duda.", anchor: "impostor" },
 ];
 
 const BUSINESS_TAGS = [
@@ -100,15 +102,13 @@ const AUDIENCE = [
 ];
 
 const NAV = [
-  { href: "#problema", label: "El problema" },
-  { href: "#metodo", label: "Método" },
   { href: "#pilot", label: "Corporate Pilot" },
   { href: "#privacidad", label: "Privacidad" },
 ];
 
 export function KaironForTeamsPage() {
   return (
-    <div style={{ background: "#F6F5F2", color: "#0C1114", overflowX: "hidden" }}>
+    <div style={{ background: KAIRON_THEME.bg, color: KAIRON_THEME.text, overflowX: "hidden" }}>
       <SiteHeader />
       <Hero />
       <ProblemSection />
@@ -124,17 +124,49 @@ export function KaironForTeamsPage() {
   );
 }
 
+const PRODUCTO_ITEMS: DocNavItem[] = [
+  { label: "KAIRON", href: "/#producto" },
+  { label: "Precio", href: "/#precio" },
+  { label: "KAIRON for Teams", to: "/teams" },
+  { label: "KAIRON vs Notion", href: "/kairon/vs/notion" },
+];
+
+const METODOLOGIA_ITEMS: DocNavItem[] = [
+  { label: "Método I-R-O™", href: "/metodo-iro" },
+  { label: "Bloqueos de ejecución", href: "/bloqueos" },
+  { label: "Índice de Fricción", href: "/indice-friccion" },
+];
+
 function SiteHeader() {
+  const [menu, setMenu] = useState<"producto" | "metodologia" | null>(null);
+  const rootRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const onDocClick = (e: MouseEvent) => {
+      if (rootRef.current && !rootRef.current.contains(e.target as Node)) setMenu(null);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenu(null);
+    };
+    document.addEventListener("click", onDocClick);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("click", onDocClick);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, []);
+
   return (
     <header
+      ref={rootRef}
       style={{
         position: "sticky",
         top: 0,
         zIndex: 50,
-        background: "rgba(12,17,20,0.92)",
-        backdropFilter: "blur(12px)",
-        WebkitBackdropFilter: "blur(12px)",
-        borderBottom: "1px solid rgba(255,255,255,0.08)",
+        background: "rgba(10,10,11,0.82)",
+        backdropFilter: "blur(16px)",
+        WebkitBackdropFilter: "blur(16px)",
+        borderBottom: "1px solid rgba(245,243,240,0.07)",
       }}
     >
       <div
@@ -148,18 +180,28 @@ function SiteHeader() {
           justifyContent: "space-between",
         }}
       >
-        <div style={{ display: "flex", alignItems: "baseline", gap: 10 }}>
-          <KaironMark title="KAIRON" width={18} height={18} style={{ color: ORANGE }} />
-          <span className="font-display" style={{ fontWeight: 600, fontSize: 17, letterSpacing: "0.14em", color: "#fff" }}>
-            KAIRON
-          </span>
-          <span style={{ fontSize: 12, letterSpacing: "0.16em", textTransform: "uppercase", color: ORANGE }}>
+        <Link to="/" style={{ display: "flex", alignItems: "center", gap: 13, flex: "none" }}>
+          <img src={gsLogoLight} alt="G-Structure" style={{ height: 26, width: "auto", display: "block" }} />
+          <span style={{ fontSize: 11.5, letterSpacing: "0.16em", textTransform: "uppercase", color: ORANGE, whiteSpace: "nowrap" }}>
             for Teams
           </span>
-        </div>
-        <nav aria-label="Principal" style={{ display: "flex", alignItems: "center", gap: "clamp(14px,2.4vw,30px)", flexWrap: "wrap", justifyContent: "flex-end" }}>
+        </Link>
+        <nav aria-label="Principal" style={{ display: "flex", alignItems: "center", gap: "clamp(14px,2.2vw,28px)", flexWrap: "wrap", justifyContent: "flex-end" }}>
+          <DocDropdown
+            label="Producto"
+            items={PRODUCTO_ITEMS}
+            open={menu === "producto"}
+            onToggle={(e) => { e.stopPropagation(); setMenu((m) => (m === "producto" ? null : "producto")); }}
+          />
+          <DocDropdown
+            label="Metodología"
+            items={METODOLOGIA_ITEMS}
+            open={menu === "metodologia"}
+            onToggle={(e) => { e.stopPropagation(); setMenu((m) => (m === "metodologia" ? null : "metodologia")); }}
+          />
+          <span className="kft-nav-link" style={{ color: "#fff", fontSize: 13.5 }}>Equipos</span>
           {NAV.map((n) => (
-            <a key={n.href} href={n.href} className="kft-nav-link" style={{ color: "rgba(255,255,255,0.66)", fontSize: 14 }}>
+            <a key={n.href} href={n.href} className="kft-nav-link" style={{ color: "rgba(255,255,255,0.66)", fontSize: 13.5 }}>
               {n.label}
             </a>
           ))}
@@ -176,6 +218,14 @@ function SiteHeader() {
         .kft-nav-link:hover { color: #fff; }
         .kft-cta-pill:hover { background: ${ORANGE_HOVER}; }
         .kft-nav-link:focus-visible, .kft-cta-pill:focus-visible {
+          outline: 2px solid ${ORANGE}; outline-offset: 3px; border-radius: 4px;
+        }
+        .kdh-trigger { background: none; border: 0; padding: 6px 0; font-size: 13.5px; cursor: pointer; display: flex; align-items: center; gap: 6px; white-space: nowrap; color: rgba(255,255,255,0.66); font-family: inherit; }
+        .kdh-trigger:hover { color: #fff; }
+        .kdh-panel { position: absolute; top: calc(100% + 14px); left: -14px; min-width: 244px; background: ${KAIRON_THEME.surface2}; border: 1px solid ${KAIRON_THEME.borderStrong}; border-radius: 14px; padding: 8px; display: grid; gap: 1px; box-shadow: 0 20px 46px rgba(0,0,0,0.6); z-index: 80; }
+        .kdh-item { display: block; padding: 10px 12px; border-radius: 9px; font-size: 14px; color: rgba(245,243,240,0.74); }
+        .kdh-item:hover { background: rgba(245,243,240,0.06); color: #F5F3F0; }
+        .kdh-trigger:focus-visible, .kdh-item:focus-visible {
           outline: 2px solid ${ORANGE}; outline-offset: 3px; border-radius: 4px;
         }
       `}</style>
@@ -265,9 +315,10 @@ function Hero() {
               color: "rgba(255,255,255,0.5)",
             }}
           >
-            <span>42 usuarios activos</span>
-            <span>Semifinalista CodeLaunch LATAM 2026</span>
-            <span>Ecuador Tech Week 2026</span>
+            <span>52 personas ya lo probaron</span>
+            <span>Semifinalistas CodeLaunch LATAM 2026</span>
+            <span>Hosts de Ecuador Tech Week 2026</span>
+            <span>Boostcamp 2026 · i3lab ESPOL</span>
           </div>
         </div>
 
@@ -351,37 +402,40 @@ function ProblemSection() {
     <section id="problema" style={{ padding: "clamp(64px,9vw,120px) clamp(20px,5vw,40px)" }}>
       <div style={{ maxWidth: 1180, margin: "0 auto" }}>
         <div style={{ maxWidth: 720 }}>
-          <div style={{ fontSize: 12, letterSpacing: "0.16em", textTransform: "uppercase", color: "#A65A10" }}>El problema</div>
+          <div style={{ fontSize: 12, letterSpacing: "0.16em", textTransform: "uppercase", color: ORANGE }}>El problema</div>
           <h2 className="font-display" style={{ fontWeight: 600, fontSize: "clamp(28px,4vw,46px)", lineHeight: 1.1, letterSpacing: "-0.015em", margin: "16px 0 0" }}>
             No siempre es tiempo, disciplina o motivación
           </h2>
-          <p style={{ fontSize: "clamp(16px,1.7vw,19px)", lineHeight: 1.6, color: "rgba(12,17,20,0.62)", margin: "20px 0 0" }}>
+          <p style={{ fontSize: "clamp(16px,1.7vw,19px)", lineHeight: 1.6, color: "rgba(245,243,240,0.62)", margin: "20px 0 0" }}>
             En muchas organizaciones las personas saben exactamente qué hacer. Algo las bloquea justo en el momento de ejecutar.
           </p>
         </div>
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(230px,1fr))", gap: 18, marginTop: 48 }}>
           {PROBLEMS.map((p) => (
-            <div key={p.n} className="kft-problem-card" style={{ background: "#fff", border: "1px solid rgba(12,17,20,0.09)", borderRadius: 14, padding: 26 }}>
-              <div className="font-display" style={{ fontSize: 13, color: "#A65A10" }}>{p.n}</div>
+            <a key={p.n} href={`/bloqueos#${p.anchor}`} className="kft-problem-card" style={{ background: KAIRON_THEME.surface, border: `1px solid ${KAIRON_THEME.border}`, borderRadius: 14, padding: 26, display: "block", color: "inherit", textDecoration: "none" }}>
+              <div className="font-display" style={{ fontSize: 13, color: ORANGE }}>{p.n}</div>
               <div className="font-display" style={{ fontSize: 20, fontWeight: 600, marginTop: 14 }}>{p.t}</div>
-              <p style={{ fontSize: "14.5px", lineHeight: 1.55, color: "rgba(12,17,20,0.58)", margin: "10px 0 0" }}>{p.d}</p>
-            </div>
+              <p style={{ fontSize: "14.5px", lineHeight: 1.55, color: "rgba(245,243,240,0.58)", margin: "10px 0 0" }}>{p.d}</p>
+            </a>
           ))}
         </div>
 
-        <div style={{ marginTop: 44, borderTop: "1px solid rgba(12,17,20,0.1)", paddingTop: 32 }}>
-          <div style={{ fontSize: 13, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(12,17,20,0.45)" }}>En lenguaje de negocio</div>
+        <div style={{ marginTop: 44, borderTop: `1px solid ${KAIRON_THEME.border}`, paddingTop: 32 }}>
+          <div style={{ fontSize: 13, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(245,243,240,0.45)" }}>En lenguaje de negocio</div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 18 }}>
             {BUSINESS_TAGS.map((t) => (
-              <span key={t} style={{ border: "1px solid rgba(12,17,20,0.14)", borderRadius: 999, padding: "9px 16px", fontSize: "14.5px" }}>
+              <span key={t} style={{ border: `1px solid ${KAIRON_THEME.borderStrong}`, borderRadius: 999, padding: "9px 16px", fontSize: "14.5px" }}>
                 {t}
               </span>
             ))}
           </div>
         </div>
       </div>
-      <style>{`.kft-problem-card:hover { border-color: rgba(240,160,70,0.7); }`}</style>
+      <style>{`
+        .kft-problem-card:hover { border-color: rgba(240,160,70,0.7); }
+        .kft-problem-card:focus-visible { outline: 2px solid ${ORANGE}; outline-offset: 3px; }
+      `}</style>
     </section>
   );
 }
@@ -390,28 +444,28 @@ function MethodSection() {
   return (
     <section
       id="metodo"
-      style={{ padding: "clamp(64px,9vw,120px) clamp(20px,5vw,40px)", background: "#fff", borderTop: "1px solid rgba(12,17,20,0.08)", borderBottom: "1px solid rgba(12,17,20,0.08)" }}
+      style={{ padding: "clamp(64px,9vw,120px) clamp(20px,5vw,40px)", background: KAIRON_THEME.surface, borderTop: `1px solid ${KAIRON_THEME.border}`, borderBottom: `1px solid ${KAIRON_THEME.border}` }}
     >
       <div style={{ maxWidth: 1180, margin: "0 auto" }}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(300px,1fr))", gap: "clamp(32px,5vw,64px)", alignItems: "start" }}>
           <div>
-            <div style={{ fontSize: 12, letterSpacing: "0.16em", textTransform: "uppercase", color: "#A65A10" }}>Qué hace diferente a KAIRON</div>
+            <div style={{ fontSize: 12, letterSpacing: "0.16em", textTransform: "uppercase", color: ORANGE }}>Qué hace diferente a KAIRON</div>
             <h2 className="font-display" style={{ fontWeight: 600, fontSize: "clamp(28px,4vw,46px)", lineHeight: 1.1, letterSpacing: "-0.015em", margin: "16px 0 0" }}>
               El bloqueo no espera a la próxima sesión
             </h2>
           </div>
           <div style={{ display: "grid", gap: 18 }}>
             <div style={{ display: "flex", gap: 16, alignItems: "flex-start" }}>
-              <span style={{ flexShrink: 0, width: 8, height: 8, borderRadius: "50%", background: "rgba(12,17,20,0.2)", marginTop: 9 }} />
-              <p style={{ margin: 0, fontSize: 17, lineHeight: 1.55, color: "rgba(12,17,20,0.72)" }}>El coaching tradicional ocurre en una sesión.</p>
+              <span style={{ flexShrink: 0, width: 8, height: 8, borderRadius: "50%", background: "rgba(245,243,240,0.2)", marginTop: 9 }} />
+              <p style={{ margin: 0, fontSize: 17, lineHeight: 1.55, color: "rgba(245,243,240,0.72)" }}>El coaching tradicional ocurre en una sesión.</p>
             </div>
             <div style={{ display: "flex", gap: 16, alignItems: "flex-start" }}>
-              <span style={{ flexShrink: 0, width: 8, height: 8, borderRadius: "50%", background: "rgba(12,17,20,0.2)", marginTop: 9 }} />
-              <p style={{ margin: 0, fontSize: 17, lineHeight: 1.55, color: "rgba(12,17,20,0.72)" }}>El bloqueo ocurre en cualquier momento.</p>
+              <span style={{ flexShrink: 0, width: 8, height: 8, borderRadius: "50%", background: "rgba(245,243,240,0.2)", marginTop: 9 }} />
+              <p style={{ margin: 0, fontSize: 17, lineHeight: 1.55, color: "rgba(245,243,240,0.72)" }}>El bloqueo ocurre en cualquier momento.</p>
             </div>
             <div style={{ display: "flex", gap: 16, alignItems: "flex-start" }}>
               <span style={{ flexShrink: 0, width: 8, height: 8, borderRadius: "50%", background: ORANGE, marginTop: 9 }} />
-              <p style={{ margin: 0, fontSize: 17, lineHeight: 1.55, color: "#0C1114", fontWeight: 500 }}>
+              <p style={{ margin: 0, fontSize: 17, lineHeight: 1.55, color: KAIRON_THEME.text, fontWeight: 500 }}>
                 KAIRON acompaña al colaborador cuando la fricción realmente aparece.
               </p>
             </div>
@@ -424,7 +478,7 @@ function MethodSection() {
             gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))",
             gap: 0,
             marginTop: 56,
-            border: "1px solid rgba(12,17,20,0.1)",
+            border: `1px solid ${KAIRON_THEME.border}`,
             borderRadius: 16,
             overflow: "hidden",
           }}
@@ -434,12 +488,12 @@ function MethodSection() {
               key={s.letter}
               style={{
                 padding: "clamp(26px,3vw,36px)",
-                borderRight: i < IRO_STEPS.length - 1 ? "1px solid rgba(12,17,20,0.1)" : undefined,
+                borderRight: i < IRO_STEPS.length - 1 ? `1px solid ${KAIRON_THEME.border}` : undefined,
               }}
             >
               <div className="font-display" style={{ fontSize: 44, fontWeight: 600, color: ORANGE, lineHeight: 1 }}>{s.letter}</div>
               <div className="font-display" style={{ fontSize: 22, fontWeight: 600, marginTop: 14 }}>{s.t}</div>
-              <p style={{ fontSize: 15, lineHeight: 1.6, color: "rgba(12,17,20,0.6)", margin: "12px 0 0" }}>{s.d}</p>
+              <p style={{ fontSize: 15, lineHeight: 1.6, color: "rgba(245,243,240,0.6)", margin: "12px 0 0" }}>{s.d}</p>
             </div>
           ))}
         </div>
@@ -499,25 +553,25 @@ function PilotSection() {
 
 function PrivacySection() {
   return (
-    <section id="privacidad" style={{ padding: "clamp(64px,9vw,120px) clamp(20px,5vw,40px)", background: "#fff", borderBottom: "1px solid rgba(12,17,20,0.08)" }}>
+    <section id="privacidad" style={{ padding: "clamp(64px,9vw,120px) clamp(20px,5vw,40px)", background: KAIRON_THEME.surface, borderBottom: `1px solid ${KAIRON_THEME.border}` }}>
       <div style={{ maxWidth: 1180, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(320px,1fr))", gap: "clamp(32px,5vw,64px)", alignItems: "center" }}>
         <div>
-          <div style={{ fontSize: 12, letterSpacing: "0.16em", textTransform: "uppercase", color: "#A65A10" }}>Privacidad por diseño</div>
+          <div style={{ fontSize: 12, letterSpacing: "0.16em", textTransform: "uppercase", color: ORANGE }}>Privacidad por diseño</div>
           <h2 className="font-display" style={{ fontWeight: 600, fontSize: "clamp(28px,4vw,46px)", lineHeight: 1.1, letterSpacing: "-0.015em", margin: "16px 0 0" }}>
             KAIRON pertenece al colaborador, no al supervisor.
           </h2>
-          <p style={{ fontSize: 17, lineHeight: 1.6, color: "rgba(12,17,20,0.62)", margin: "20px 0 0" }}>
+          <p style={{ fontSize: 17, lineHeight: 1.6, color: "rgba(245,243,240,0.62)", margin: "20px 0 0" }}>
             La confianza es la condición para que la herramienta funcione. Por eso la separación de datos es estructural, no una política opcional.
           </p>
         </div>
         <div style={{ display: "grid", gap: 14 }}>
           {PRIVACY_POINTS.map((p) =>
             p.strong ? (
-              <div key={p.text} style={{ background: "rgba(240,160,70,0.1)", border: "1px solid rgba(240,160,70,0.32)", borderRadius: 12, padding: "20px 22px", fontSize: "15.5px", lineHeight: 1.5, color: "#0C1114", fontWeight: 500 }}>
+              <div key={p.text} style={{ background: "rgba(240,160,70,0.1)", border: "1px solid rgba(240,160,70,0.32)", borderRadius: 12, padding: "20px 22px", fontSize: "15.5px", lineHeight: 1.5, color: KAIRON_THEME.text, fontWeight: 500 }}>
                 {p.text}
               </div>
             ) : (
-              <div key={p.text} style={{ background: "#F6F5F2", border: "1px solid rgba(12,17,20,0.08)", borderRadius: 12, padding: "20px 22px", fontSize: "15.5px", lineHeight: 1.5, color: "rgba(12,17,20,0.78)" }}>
+              <div key={p.text} style={{ background: KAIRON_THEME.surface2, border: `1px solid ${KAIRON_THEME.border}`, borderRadius: 12, padding: "20px 22px", fontSize: "15.5px", lineHeight: 1.5, color: "rgba(245,243,240,0.78)" }}>
                 {p.text}
               </div>
             ),
@@ -528,23 +582,26 @@ function PrivacySection() {
   );
 }
 
+const STATS = [
+  { big: "52", label: "personas ya probaron KAIRON" },
+  { big: "Semifinalistas\nCodeLaunch LATAM 2026", label: "competencia de startups tecnológicas de la región" },
+  { big: "Hosts de\nEcuador Tech Week 2026", label: "G-Structure como anfitriona, junto a Startup Grind y Viamatica" },
+  { big: "Boostcamp 2026", label: "Programa de Pre Aceleración de i3lab, ESPOL, con financiamiento del Banco Interamericano de Desarrollo" },
+];
+
 function ProofSection() {
   return (
     <section style={{ padding: "clamp(64px,9vw,120px) clamp(20px,5vw,40px)" }}>
       <div style={{ maxWidth: 1180, margin: "0 auto" }}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))", gap: 20 }}>
-          <div style={{ background: "#fff", border: "1px solid rgba(12,17,20,0.09)", borderRadius: 14, padding: 26 }}>
-            <div className="font-display" style={{ fontSize: "clamp(34px,4vw,46px)", fontWeight: 600, lineHeight: 1 }}>42</div>
-            <div style={{ fontSize: "14.5px", color: "rgba(12,17,20,0.6)", marginTop: 10 }}>usuarios activos actualmente</div>
-          </div>
-          <div style={{ background: "#fff", border: "1px solid rgba(12,17,20,0.09)", borderRadius: 14, padding: 26 }}>
-            <div className="font-display" style={{ fontSize: 18, fontWeight: 600, lineHeight: 1.3 }}>Semifinalista<br />CodeLaunch LATAM 2026</div>
-            <div style={{ fontSize: "14.5px", color: "rgba(12,17,20,0.6)", marginTop: 10 }}>validación de producto</div>
-          </div>
-          <div style={{ background: "#fff", border: "1px solid rgba(12,17,20,0.09)", borderRadius: 14, padding: 26 }}>
-            <div className="font-display" style={{ fontSize: 18, fontWeight: 600, lineHeight: 1.3 }}>Ecuador Tech Week 2026</div>
-            <div style={{ fontSize: "14.5px", color: "rgba(12,17,20,0.6)", marginTop: 10 }}>presentado en el evento, con G-Structure como anfitriona</div>
-          </div>
+          {STATS.map((s, i) => (
+            <div key={s.label} style={{ background: KAIRON_THEME.surface, border: `1px solid ${KAIRON_THEME.border}`, borderRadius: 14, padding: 26 }}>
+              <div className="font-display" style={i === 0 ? { fontSize: "clamp(34px,4vw,46px)", fontWeight: 600, lineHeight: 1 } : { fontSize: 18, fontWeight: 600, lineHeight: 1.3, whiteSpace: "pre-line" }}>
+                {s.big}
+              </div>
+              <div style={{ fontSize: "14.5px", color: "rgba(245,243,240,0.6)", marginTop: 10 }}>{s.label}</div>
+            </div>
+          ))}
         </div>
 
         <h2 className="font-display" style={{ fontWeight: 600, fontSize: "clamp(26px,3.4vw,38px)", lineHeight: 1.15, letterSpacing: "-0.015em", margin: "64px 0 0" }}>
@@ -553,9 +610,9 @@ function ProofSection() {
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(290px,1fr))", gap: 18, marginTop: 32 }}>
           {TESTIMONIALS.map((t) => (
-            <div key={t.who} style={{ background: "#fff", border: "1px solid rgba(12,17,20,0.09)", borderRadius: 14, padding: 28, display: "flex", flexDirection: "column", gap: 18 }}>
-              <p style={{ margin: 0, fontSize: 17, lineHeight: 1.55, color: "#0C1114" }}>“{t.quote}”</p>
-              <div style={{ marginTop: "auto", fontSize: "13.5px", color: "rgba(12,17,20,0.55)", borderTop: "1px solid rgba(12,17,20,0.09)", paddingTop: 16 }}>
+            <div key={t.who} style={{ background: KAIRON_THEME.surface, border: `1px solid ${KAIRON_THEME.border}`, borderRadius: 14, padding: 28, display: "flex", flexDirection: "column", gap: 18 }}>
+              <p style={{ margin: 0, fontFamily: "'Newsreader', Georgia, serif", fontSize: 19, lineHeight: 1.45, color: KAIRON_THEME.text }}>“{t.quote}”</p>
+              <div style={{ marginTop: "auto", fontSize: "13.5px", color: "rgba(245,243,240,0.55)", borderTop: `1px solid ${KAIRON_THEME.border}`, paddingTop: 16 }}>
                 {t.who}
               </div>
             </div>
@@ -568,15 +625,15 @@ function ProofSection() {
 
 function BilingualSection() {
   return (
-    <section style={{ padding: "clamp(56px,8vw,100px) clamp(20px,5vw,40px)", background: "#fff", borderTop: "1px solid rgba(12,17,20,0.08)", borderBottom: "1px solid rgba(12,17,20,0.08)" }}>
+    <section style={{ padding: "clamp(56px,8vw,100px) clamp(20px,5vw,40px)", background: KAIRON_THEME.surface, borderTop: `1px solid ${KAIRON_THEME.border}`, borderBottom: `1px solid ${KAIRON_THEME.border}` }}>
       <div style={{ maxWidth: 1180, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(300px,1fr))", gap: "clamp(28px,5vw,64px)", alignItems: "center" }}>
         <div>
-          <div style={{ fontSize: 12, letterSpacing: "0.16em", textTransform: "uppercase", color: "#A65A10" }}>Bilingüe</div>
+          <div style={{ fontSize: 12, letterSpacing: "0.16em", textTransform: "uppercase", color: ORANGE }}>Bilingüe</div>
           <h2 className="font-display" style={{ fontWeight: 600, fontSize: "clamp(26px,3.4vw,38px)", lineHeight: 1.15, letterSpacing: "-0.015em", margin: "14px 0 0" }}>
             Español o inglés, de punta a punta
           </h2>
         </div>
-        <div style={{ display: "grid", gap: 12, fontSize: 16, lineHeight: 1.55, color: "rgba(12,17,20,0.72)" }}>
+        <div style={{ display: "grid", gap: 12, fontSize: 16, lineHeight: 1.55, color: "rgba(245,243,240,0.72)" }}>
           {BILINGUAL_POINTS.map((p) => (
             <div key={p} style={{ display: "flex", gap: 12 }}>
               <span style={{ color: ORANGE }}>—</span>
@@ -598,7 +655,7 @@ function AudienceSection() {
         </h2>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))", gap: 14, marginTop: 32 }}>
           {AUDIENCE.map((a) => (
-            <div key={a} style={{ border: "1px solid rgba(12,17,20,0.13)", borderRadius: 12, padding: 22, fontSize: 16, fontWeight: 500 }}>
+            <div key={a} style={{ border: `1px solid ${KAIRON_THEME.borderStrong}`, borderRadius: 12, padding: 22, fontSize: 16, fontWeight: 500 }}>
               {a}
             </div>
           ))}
@@ -894,10 +951,9 @@ function SiteFooter() {
     <footer style={{ background: INK_2, color: "rgba(255,255,255,0.6)", padding: "clamp(44px,6vw,72px) clamp(20px,5vw,40px)" }}>
       <div style={{ maxWidth: 1180, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(230px,1fr))", gap: 32 }}>
         <div>
-          <div style={{ display: "flex", alignItems: "baseline", gap: 10 }}>
-            <span className="font-display" style={{ fontWeight: 600, fontSize: 16, letterSpacing: "0.14em", color: "#fff" }}>KAIRON</span>
-            <span style={{ fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", color: ORANGE }}>G-Structure</span>
-          </div>
+          <Link to="/" style={{ display: "block", width: "fit-content" }}>
+            <img src={gsLogoLight} alt="G-Structure" style={{ height: 30, width: "auto", display: "block" }} />
+          </Link>
           <p style={{ fontSize: 14, lineHeight: 1.6, margin: "14px 0 0", maxWidth: "26em" }}>
             Plataforma de coaching cognitivo con IA para equipos que necesitan ejecutar.
           </p>
@@ -914,9 +970,19 @@ function SiteFooter() {
           </a>
         </div>
         <div style={{ display: "grid", gap: 10, fontSize: "14.5px" }}>
+          <div style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", marginBottom: 4 }}>Esta página</div>
           <a href="#pilot" className="kft-footer-link" style={{ color: "rgba(255,255,255,0.7)" }}>Corporate Pilot</a>
           <a href="#privacidad" className="kft-footer-link" style={{ color: "rgba(255,255,255,0.7)" }}>Privacidad por diseño</a>
           <a href="#contacto" className="kft-footer-link" style={{ color: "rgba(255,255,255,0.7)" }}>Agendar conversación</a>
+        </div>
+        <div style={{ display: "grid", gap: 10, fontSize: "14.5px" }}>
+          <div style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", marginBottom: 4 }}>G-Structure</div>
+          <Link to="/" className="kft-footer-link" style={{ color: "rgba(255,255,255,0.7)" }}>Inicio</Link>
+          <a href="/#producto" className="kft-footer-link" style={{ color: "rgba(255,255,255,0.7)" }}>KAIRON (individual)</a>
+          <a href="/metodo-iro" className="kft-footer-link" style={{ color: "rgba(255,255,255,0.7)" }}>Método I-R-O™</a>
+          <a href="/bloqueos" className="kft-footer-link" style={{ color: "rgba(255,255,255,0.7)" }}>Bloqueos de ejecución</a>
+          <a href="/indice-friccion" className="kft-footer-link" style={{ color: "rgba(255,255,255,0.7)" }}>Índice de Fricción</a>
+          <a href="/#precio" className="kft-footer-link" style={{ color: "rgba(255,255,255,0.7)" }}>Precio</a>
         </div>
       </div>
       <div style={{ maxWidth: 1180, margin: "36px auto 0", paddingTop: 22, borderTop: "1px solid rgba(255,255,255,0.09)", fontSize: 13, color: "rgba(255,255,255,0.38)" }}>

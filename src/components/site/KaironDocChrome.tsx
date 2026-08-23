@@ -13,14 +13,21 @@ const ORANGE_HOVER = KAIRON_THEME.accentHover;
  * Shared dark-theme header/footer for the KAIRON "documentation" pages
  * from the design handoff (Método I-R-O, Bloqueos, Índice de Fricción,
  * KAIRON vs Notion — all four share this exact header per the handoff's
- * "Header (compartido)" spec, in both languages). Unlike Home/Teams' flat
- * nav, this one has the two click-to-open dropdowns ("Producto"/"Product"
- * and "Metodología"/"Methodology"): opens on click, closes on outside
- * click or Escape, one panel open at a time, keyboard-operable via native
- * <button>/<a> semantics, and collapses to a <details> accordion on
- * mobile. Which dropdown shows as "active" (current-section styling)
- * depends on `current` — vs-notion lives under Producto, the other three
- * under Metodología.
+ * "Header (compartido)" spec, in both languages). Has the two
+ * click-to-open dropdowns ("Producto"/"Product" and "Metodología"/
+ * "Methodology"): opens on click, closes on outside click or Escape, one
+ * panel open at a time, keyboard-operable via native <button>/<a>
+ * semantics, and collapses to a <details> accordion on mobile. Which
+ * dropdown shows as "active" (current-section styling) depends on
+ * `current` — vs-notion lives under Producto, the other three under
+ * Metodología.
+ *
+ * `DocDropdown` is also exported standalone — HomePage.tsx's own header
+ * uses it directly for a "Metodología" menu, since Home's header has
+ * enough real behavioral differences (nav CTA scrolls to #precio instead
+ * of linking out to the app, no mobile hamburger, an extra "El Espejo"
+ * link) that swapping it wholesale for KaironDocHeader would silently
+ * change that behavior.
  *
  * The language switcher links to the translation of the *same* page (per
  * the handoff's English-translation task list), not to the home page —
@@ -28,7 +35,7 @@ const ORANGE_HOVER = KAIRON_THEME.accentHover;
  * as the site-wide LangSwitcher.
  */
 
-type DocNavItem = { label: string; href?: string; to?: string; current?: boolean };
+export type DocNavItem = { label: string; href?: string; to?: string; current?: boolean };
 
 function productoItems(locale: Locale, current?: DocPage): DocNavItem[] {
   const home = locale === "en" ? "/en" : "/";
@@ -226,7 +233,7 @@ function DocLangSwitch({ locale }: { locale: Locale }) {
   );
 }
 
-function DocDropdown({
+export function DocDropdown({
   label, items, open, onToggle, active,
 }: {
   label: string; items: DocNavItem[]; open: boolean; onToggle: (e: MouseEvent) => void; active?: boolean;
