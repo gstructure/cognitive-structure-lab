@@ -11,6 +11,7 @@ import kaironTaller from "@/assets/kairontaller.webp";
 import kaironProgreso from "@/assets/kaironprogreso.webp";
 import kaironRuta from "@/assets/kaironruta.webp";
 import kaironNocturno from "@/assets/kaironnocturno.webp";
+import { KAIRON_THEME } from "@/lib/kaironTheme";
 
 /**
  * Full dark-theme homepage redesign ("Testimonios en español para KAIRON"
@@ -26,9 +27,9 @@ import kaironNocturno from "@/assets/kaironnocturno.webp";
  * nothing matches — see `mirrorPatterns` below.
  */
 
-const ORANGE = "#F0A046";
-const ORANGE_HOVER = "#F7BE7B";
-const BG = "#0A0A0B";
+const ORANGE = KAIRON_THEME.accent;
+const ORANGE_HOVER = KAIRON_THEME.accentHover;
+const BG = KAIRON_THEME.bg;
 
 const PRODUCT_SHOTS_ES = [kaironInicio, kaironBrujula, kaironTaller, kaironTaller, kaironProgreso, kaironRuta];
 const PRODUCT_SHOTS_EN = [kaironInicio, kaironBrujula, kaironFiltro, kaironTaller, kaironProgreso, kaironRuta];
@@ -374,15 +375,15 @@ function SiteHeader({ c, locale }: { c: Copy; locale: Locale }) {
         <a href="#top" style={{ display: "flex", alignItems: "center", flex: "none" }}>
           <img src={gsLogoLight} alt="G-Structure" style={{ height: 30, width: "auto", display: "block" }} />
         </a>
-        <nav style={{ display: "flex", alignItems: "center", gap: "clamp(12px,2vw,26px)", flexWrap: "wrap", justifyContent: "flex-end" }}>
+        <nav aria-label={locale === "es" ? "Principal" : "Main"} style={{ display: "flex", alignItems: "center", gap: "clamp(12px,2vw,26px)", flexWrap: "wrap", justifyContent: "flex-end" }}>
           <a href="#espejo" className="gs-nav-link" style={{ color: "rgba(245,243,240,0.6)", fontSize: "13.5px", whiteSpace: "nowrap" }}>{c.navMirror}</a>
           <a href="#producto" className="gs-nav-link" style={{ color: "rgba(245,243,240,0.6)", fontSize: "13.5px", whiteSpace: "nowrap" }}>KAIRON</a>
           <a href="#metodo" className="gs-nav-link" style={{ color: "rgba(245,243,240,0.6)", fontSize: "13.5px", whiteSpace: "nowrap" }}>{c.navMethod}</a>
           <Link to="/teams" className="gs-nav-link" style={{ color: "rgba(245,243,240,0.6)", fontSize: "13.5px", whiteSpace: "nowrap" }}>{c.navTeams}</Link>
           <a href="#precio" className="gs-nav-link" style={{ color: "rgba(245,243,240,0.6)", fontSize: "13.5px", whiteSpace: "nowrap" }}>{c.navPricing}</a>
-          <div style={{ display: "flex", border: "1px solid rgba(245,243,240,0.14)", borderRadius: 999, overflow: "hidden", flex: "none" }}>
-            <Link to="/" style={langBtnStyle(locale === "es")}>ES</Link>
-            <Link to="/en" style={langBtnStyle(locale === "en")}>EN</Link>
+          <div role="group" aria-label="Language" style={{ display: "flex", border: "1px solid rgba(245,243,240,0.14)", borderRadius: 999, overflow: "hidden", flex: "none" }}>
+            <Link to="/" className="gs-lang-btn" aria-current={locale === "es" ? "page" : undefined} style={langBtnStyle(locale === "es")}>ES</Link>
+            <Link to="/en" className="gs-lang-btn" aria-current={locale === "en" ? "page" : undefined} style={langBtnStyle(locale === "en")}>EN</Link>
           </div>
           <a href="#precio" className="gs-cta-pill" style={{ background: ORANGE, color: "#1A1000", fontWeight: 600, fontSize: "13.5px", padding: "10px 17px", borderRadius: 999, whiteSpace: "nowrap" }}>{c.cta}</a>
         </nav>
@@ -390,6 +391,9 @@ function SiteHeader({ c, locale }: { c: Copy; locale: Locale }) {
       <style>{`
         .gs-nav-link:hover { color: #F5F3F0; }
         .gs-cta-pill:hover { background: ${ORANGE_HOVER}; }
+        .gs-nav-link:focus-visible, .gs-cta-pill:focus-visible, .gs-lang-btn:focus-visible {
+          outline: 2px solid ${ORANGE}; outline-offset: 3px; border-radius: 4px;
+        }
       `}</style>
     </header>
   );
@@ -919,7 +923,10 @@ function SiteFooter({ c, locale }: { c: Copy; locale: Locale }) {
         <span>© 2026 G-Structure. KAIRON™ · Método I-R-O™.</span>
         <span style={{ maxWidth: "44em" }}>{c.footLegal}</span>
       </div>
-      <style>{`.gs-footer-link:hover { color: ${ORANGE}; }`}</style>
+      <style>{`
+        .gs-footer-link:hover { color: ${ORANGE}; }
+        .gs-footer-link:focus-visible { outline: 2px solid ${ORANGE}; outline-offset: 3px; border-radius: 4px; }
+      `}</style>
     </footer>
   );
 }

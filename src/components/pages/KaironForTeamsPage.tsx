@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { KaironMark } from "@/components/brand/kairon/KaironMark";
 import { trackContactClick, trackConversion } from "@/lib/analytics";
+import { KAIRON_THEME } from "@/lib/kaironTheme";
 
 /**
  * Standalone B2B landing page for the KAIRON Corporate Pilot, aimed at
@@ -11,8 +12,8 @@ import { trackContactClick, trackConversion } from "@/lib/analytics";
  * dark obsidian/amber surface end to end.
  */
 
-const ORANGE = "#F0A046";
-const ORANGE_HOVER = "#F7B76B";
+const ORANGE = KAIRON_THEME.accent;
+const ORANGE_HOVER = KAIRON_THEME.accentHover;
 const INK = "#0C1114";
 const INK_2 = "#080B0D";
 
@@ -156,7 +157,7 @@ function SiteHeader() {
             for Teams
           </span>
         </div>
-        <nav style={{ display: "flex", alignItems: "center", gap: "clamp(14px,2.4vw,30px)", flexWrap: "wrap", justifyContent: "flex-end" }}>
+        <nav aria-label="Principal" style={{ display: "flex", alignItems: "center", gap: "clamp(14px,2.4vw,30px)", flexWrap: "wrap", justifyContent: "flex-end" }}>
           {NAV.map((n) => (
             <a key={n.href} href={n.href} className="kft-nav-link" style={{ color: "rgba(255,255,255,0.66)", fontSize: 14 }}>
               {n.label}
@@ -174,6 +175,9 @@ function SiteHeader() {
       <style>{`
         .kft-nav-link:hover { color: #fff; }
         .kft-cta-pill:hover { background: ${ORANGE_HOVER}; }
+        .kft-nav-link:focus-visible, .kft-cta-pill:focus-visible {
+          outline: 2px solid ${ORANGE}; outline-offset: 3px; border-radius: 4px;
+        }
       `}</style>
     </header>
   );
@@ -918,7 +922,10 @@ function SiteFooter() {
       <div style={{ maxWidth: 1180, margin: "36px auto 0", paddingTop: 22, borderTop: "1px solid rgba(255,255,255,0.09)", fontSize: 13, color: "rgba(255,255,255,0.38)" }}>
         © 2026 G-Structure. KAIRON™ · Método I-R-O™.
       </div>
-      <style>{`.kft-footer-link:hover { color: ${ORANGE}; }`}</style>
+      <style>{`
+        .kft-footer-link:hover { color: ${ORANGE}; }
+        .kft-footer-link:focus-visible { outline: 2px solid ${ORANGE}; outline-offset: 3px; border-radius: 4px; }
+      `}</style>
     </footer>
   );
 }
