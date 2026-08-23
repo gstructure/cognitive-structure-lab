@@ -137,7 +137,8 @@ function RootComponent() {
     pathname === "/teams" ||
     pathname === "/metodo-iro" ||
     pathname === "/bloqueos" ||
-    pathname === "/indice-friccion";
+    pathname === "/indice-friccion" ||
+    pathname === "/kairon/vs/notion";
   return (
     <QueryClientProvider client={queryClient}>
       <LocaleProvider>

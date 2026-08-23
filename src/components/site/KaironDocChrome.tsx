@@ -9,24 +9,27 @@ const ORANGE_HOVER = KAIRON_THEME.accentHover;
 
 /**
  * Shared dark-theme header/footer for the KAIRON "documentation" pages
- * from the design handoff (Método I-R-O today; Bloqueos, Índice de
- * Fricción and KAIRON vs Notion once they exist — all four share this
- * exact header per the handoff's "Header (compartido)" spec). Unlike
- * Home/Teams' flat nav, this one has the two click-to-open dropdowns
- * ("Producto" and "Metodología"): opens on click, closes on outside
- * click or Escape, one panel open at a time, keyboard-operable via
- * native <button>/<a> semantics, and collapses to a <details> accordion
- * on mobile.
+ * from the design handoff (Método I-R-O, Bloqueos, Índice de Fricción,
+ * KAIRON vs Notion — all four share this exact header per the handoff's
+ * "Header (compartido)" spec). Unlike Home/Teams' flat nav, this one has
+ * the two click-to-open dropdowns ("Producto" and "Metodología"): opens
+ * on click, closes on outside click or Escape, one panel open at a time,
+ * keyboard-operable via native <button>/<a> semantics, and collapses to
+ * a <details> accordion on mobile. Which dropdown shows as "active"
+ * (current-section styling) depends on `current` — vs-notion lives under
+ * Producto, the other three under Metodología.
  */
 
 type DocNavItem = { label: string; href?: string; to?: string; current?: boolean };
 
-const PRODUCTO_ITEMS: DocNavItem[] = [
-  { label: "KAIRON", href: "/#producto" },
-  { label: "Precio", href: "/#precio" },
-  { label: "KAIRON for Teams", to: "/teams" },
-  { label: "KAIRON vs Notion", href: "/kairon/vs/notion" },
-];
+function productoItems(current?: DocPage): DocNavItem[] {
+  return [
+    { label: "KAIRON", href: "/#producto" },
+    { label: "Precio", href: "/#precio" },
+    { label: "KAIRON for Teams", to: "/teams" },
+    { label: "KAIRON vs Notion", href: "/kairon/vs/notion", current: current === "vs-notion" },
+  ];
+}
 
 function metodologiaItems(current?: DocPage): DocNavItem[] {
   return [
@@ -36,7 +39,7 @@ function metodologiaItems(current?: DocPage): DocNavItem[] {
   ];
 }
 
-export type DocPage = "metodo-iro" | "bloqueos" | "indice-friccion";
+export type DocPage = "metodo-iro" | "bloqueos" | "indice-friccion" | "vs-notion";
 
 export function KaironDocHeader({
   current,
@@ -50,7 +53,9 @@ export function KaironDocHeader({
   const [menu, setMenu] = useState<"producto" | "metodologia" | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const rootRef = useRef<HTMLElement>(null);
+  const producto = productoItems(current);
   const metodologia = metodologiaItems(current);
+  const productoActive = current === "vs-notion";
 
   useEffect(() => {
     const onDocClick = (e: globalThis.MouseEvent) => {
@@ -90,8 +95,8 @@ export function KaironDocHeader({
         </Link>
 
         <nav aria-label="Principal" className="kdh-nav-desktop" style={{ display: "flex", alignItems: "center", gap: "clamp(14px,2.2vw,28px)", flexWrap: "wrap", justifyContent: "flex-end" }}>
-          <DocDropdown label="Producto" items={PRODUCTO_ITEMS} open={menu === "producto"} onToggle={toggle("producto")} />
-          <DocDropdown label="Metodología" items={metodologia} open={menu === "metodologia"} onToggle={toggle("metodologia")} active />
+          <DocDropdown label="Producto" items={producto} open={menu === "producto"} onToggle={toggle("producto")} active={productoActive} />
+          <DocDropdown label="Metodología" items={metodologia} open={menu === "metodologia"} onToggle={toggle("metodologia")} active={!productoActive} />
           <Link to="/teams" className="kdh-link">Equipos</Link>
           <a href={ctaHref} target="_blank" rel="noopener noreferrer" onClick={onCtaClick} className="kdh-cta">Empezar prueba de 7 días</a>
         </nav>
@@ -109,7 +114,7 @@ export function KaironDocHeader({
 
       {mobileOpen ? (
         <div className="kdh-mobile-panel">
-          <MobileGroup title="Producto" items={PRODUCTO_ITEMS} onNavigate={() => setMobileOpen(false)} />
+          <MobileGroup title="Producto" items={producto} onNavigate={() => setMobileOpen(false)} />
           <MobileGroup title="Metodología" items={metodologia} onNavigate={() => setMobileOpen(false)} />
           <Link to="/teams" className="kdh-mobile-link" onClick={() => setMobileOpen(false)}>Equipos</Link>
           <a
@@ -210,7 +215,11 @@ function MobileGroup({ title, items, onNavigate }: { title: string; items: DocNa
   );
 }
 
-export function KaironDocFooter() {
+export function KaironDocFooter({
+  legalNote = "KAIRON no sustituye atención psicológica ni médica profesional.",
+}: {
+  legalNote?: string;
+} = {}) {
   return (
     <footer style={{ background: KAIRON_THEME.footerBg, borderTop: `1px solid ${KAIRON_THEME.border}`, padding: "clamp(46px,6vw,76px) clamp(18px,5vw,40px)" }}>
       <div style={{ maxWidth: 1240, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(210px,1fr))", gap: 34 }}>
@@ -240,7 +249,7 @@ export function KaironDocFooter() {
       </div>
       <div style={{ maxWidth: 1240, margin: "44px auto 0", paddingTop: 22, borderTop: `1px solid ${KAIRON_THEME.border}`, fontSize: "12.5px", color: "rgba(245,243,240,0.32)", display: "flex", flexWrap: "wrap", gap: 14, justifyContent: "space-between" }}>
         <span>© 2026 G-Structure. Guayaquil, Ecuador.</span>
-        <span style={{ maxWidth: "44em" }}>KAIRON no sustituye atención psicológica ni médica profesional.</span>
+        <span style={{ maxWidth: "44em" }}>{legalNote}</span>
       </div>
       <style>{`
         .kdh-foot-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(245,243,240,0.35); margin-bottom: 4px; }
