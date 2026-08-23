@@ -899,25 +899,26 @@ function SiteFooter() {
           </p>
         </div>
         <div style={{ display: "grid", gap: 10, fontSize: "14.5px" }}>
-          <a href="mailto:guillermo@g-structure.co" style={{ color: "rgba(255,255,255,0.7)" }}>
+          <a href="mailto:guillermo@g-structure.co" className="kft-footer-link" style={{ color: "rgba(255,255,255,0.7)" }}>
             guillermo@g-structure.co
           </a>
-          <a href="https://wa.me/593986875121" style={{ color: "rgba(255,255,255,0.7)" }}>
+          <a href="https://wa.me/593986875121" className="kft-footer-link" style={{ color: "rgba(255,255,255,0.7)" }}>
             WhatsApp 0986875121
           </a>
-          <a href="https://g-structure.co" style={{ color: "rgba(255,255,255,0.7)" }}>
+          <a href="https://g-structure.co" className="kft-footer-link" style={{ color: "rgba(255,255,255,0.7)" }}>
             g-structure.co
           </a>
         </div>
         <div style={{ display: "grid", gap: 10, fontSize: "14.5px" }}>
-          <a href="#pilot" style={{ color: "rgba(255,255,255,0.7)" }}>Corporate Pilot</a>
-          <a href="#privacidad" style={{ color: "rgba(255,255,255,0.7)" }}>Privacidad por diseño</a>
-          <a href="#contacto" style={{ color: "rgba(255,255,255,0.7)" }}>Agendar conversación</a>
+          <a href="#pilot" className="kft-footer-link" style={{ color: "rgba(255,255,255,0.7)" }}>Corporate Pilot</a>
+          <a href="#privacidad" className="kft-footer-link" style={{ color: "rgba(255,255,255,0.7)" }}>Privacidad por diseño</a>
+          <a href="#contacto" className="kft-footer-link" style={{ color: "rgba(255,255,255,0.7)" }}>Agendar conversación</a>
         </div>
       </div>
       <div style={{ maxWidth: 1180, margin: "36px auto 0", paddingTop: 22, borderTop: "1px solid rgba(255,255,255,0.09)", fontSize: 13, color: "rgba(255,255,255,0.38)" }}>
         © 2026 G-Structure. KAIRON™ · Método I-R-O™.
       </div>
+      <style>{`.kft-footer-link:hover { color: ${ORANGE}; }`}</style>
     </footer>
   );
 }
