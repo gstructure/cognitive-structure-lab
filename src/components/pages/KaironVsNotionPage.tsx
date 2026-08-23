@@ -55,7 +55,7 @@ export function KaironVsNotionPage() {
 
   return (
     <div style={{ background: KAIRON_THEME.bg, color: KAIRON_THEME.text, overflowX: "hidden" }}>
-      <KaironDocHeader current="vs-notion" ctaHref={navHref} onCtaClick={() => trackCta("vs_nav")} />
+      <KaironDocHeader locale="es" current="vs-notion" ctaHref={navHref} onCtaClick={() => trackCta("vs_nav")} />
 
       <section style={{ padding: "clamp(56px,8vw,110px) clamp(18px,5vw,40px) clamp(40px,5vw,60px)" }}>
         <div style={{ maxWidth: 820, margin: "0 auto" }}>

@@ -136,6 +136,7 @@ function RootComponent() {
     pathname === "/en/vip-pass" ||
     pathname === "/teams" ||
     pathname === "/metodo-iro" ||
+    pathname === "/en/iro-method" ||
     pathname === "/bloqueos" ||
     pathname === "/indice-friccion" ||
     pathname === "/kairon/vs/notion";

@@ -91,7 +91,7 @@ export function BloqueosPage() {
 
   return (
     <div style={{ background: KAIRON_THEME.bg, color: KAIRON_THEME.text, overflowX: "hidden" }}>
-      <KaironDocHeader current="bloqueos" ctaHref={navHref} onCtaClick={() => trackCta("bloqueos_nav")} />
+      <KaironDocHeader locale="es" current="bloqueos" ctaHref={navHref} onCtaClick={() => trackCta("bloqueos_nav")} />
 
       <section style={{ padding: "clamp(56px,8vw,110px) clamp(18px,5vw,40px) clamp(40px,5vw,60px)" }}>
         <div style={{ maxWidth: 820, margin: "0 auto" }}>

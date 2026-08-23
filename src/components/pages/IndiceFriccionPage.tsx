@@ -50,7 +50,7 @@ export function IndiceFriccionPage() {
 
   return (
     <div style={{ background: KAIRON_THEME.bg, color: KAIRON_THEME.text, overflowX: "hidden" }}>
-      <KaironDocHeader current="indice-friccion" ctaHref={navHref} onCtaClick={() => trackCta("ife_nav")} />
+      <KaironDocHeader locale="es" current="indice-friccion" ctaHref={navHref} onCtaClick={() => trackCta("ife_nav")} />
 
       <section style={{ padding: "clamp(56px,8vw,110px) clamp(18px,5vw,40px) clamp(40px,5vw,60px)" }}>
         <div style={{ maxWidth: 820, margin: "0 auto" }}>
