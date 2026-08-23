@@ -640,8 +640,8 @@ function ProductScroll({ c, locale }: { c: Copy; locale: Locale }) {
           <p style={{ fontSize: "clamp(16px,1.8vw,19.5px)", lineHeight: 1.6, color: "rgba(245,243,240,0.62)", margin: "18px 0 0" }}>{c.prodSub}</p>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(340px,1fr))", gap: "clamp(24px,4vw,60px)", marginTop: "clamp(36px,5vw,64px)", alignItems: "start" }}>
-          <div style={{ display: "grid", gap: "clamp(48px,9vh,120px)", padding: "6vh 0" }}>
+        <div className="gs-prod-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(340px,1fr))", gap: "clamp(24px,4vw,60px)", marginTop: "clamp(36px,5vw,64px)", alignItems: "start" }}>
+          <div className="gs-prod-steps" style={{ display: "grid", gap: "clamp(48px,9vh,120px)", padding: "6vh 0" }}>
             {c.steps.map((s, i) => (
               <div key={s.t} data-shot={i} ref={(el) => { refs.current[i] = el; }} style={{ minHeight: "34vh" }}>
                 <div className="font-display" style={{ fontSize: 12, color: "rgba(245,243,240,0.35)", letterSpacing: "0.12em" }}>{String(i + 1).padStart(2, "0")}</div>
@@ -651,7 +651,7 @@ function ProductScroll({ c, locale }: { c: Copy; locale: Locale }) {
             ))}
           </div>
 
-          <div style={{ position: "sticky", top: "15vh", display: "grid", placeItems: "center", minHeight: "70vh" }}>
+          <div className="gs-prod-sticky" style={{ position: "sticky", top: "15vh", display: "grid", placeItems: "center", minHeight: "70vh" }}>
             <div aria-hidden style={{ position: "absolute", width: "110%", height: "70%", background: "radial-gradient(closest-side, rgba(240,160,70,0.16), transparent 75%)", pointerEvents: "none" }} />
             <div style={{ position: "relative", width: "100%", maxWidth: 340 }}>
               <img
@@ -669,6 +669,13 @@ function ProductScroll({ c, locale }: { c: Copy; locale: Locale }) {
           </div>
         </div>
       </div>
+      <style>{`
+        @media (max-width: 760px) {
+          .gs-prod-grid { grid-template-columns: 1fr !important; }
+          .gs-prod-sticky { order: -1; top: 70px !important; min-height: auto !important; margin-bottom: 8px; }
+          .gs-prod-steps { padding: 0 !important; gap: clamp(28px,7vh,60px) !important; }
+        }
+      `}</style>
     </section>
   );
 }

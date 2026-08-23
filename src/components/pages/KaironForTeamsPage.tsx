@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { KaironMark } from "@/components/brand/kairon/KaironMark";
 import { trackContactClick, trackConversion } from "@/lib/analytics";
 import { KAIRON_THEME } from "@/lib/kaironTheme";
+import { DocDropdown, type DocNavItem } from "@/components/site/KaironDocChrome";
 
 /**
  * Standalone B2B landing page for the KAIRON Corporate Pilot, aimed at
@@ -124,9 +126,34 @@ export function KaironForTeamsPage() {
   );
 }
 
+const METODOLOGIA_ITEMS: DocNavItem[] = [
+  { label: "Método I-R-O™", href: "/metodo-iro" },
+  { label: "Bloqueos de ejecución", href: "/bloqueos" },
+  { label: "Índice de Fricción", href: "/indice-friccion" },
+];
+
 function SiteHeader() {
+  const [menu, setMenu] = useState<"metodologia" | null>(null);
+  const rootRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const onDocClick = (e: MouseEvent) => {
+      if (rootRef.current && !rootRef.current.contains(e.target as Node)) setMenu(null);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenu(null);
+    };
+    document.addEventListener("click", onDocClick);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("click", onDocClick);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, []);
+
   return (
     <header
+      ref={rootRef}
       style={{
         position: "sticky",
         top: 0,
@@ -148,7 +175,7 @@ function SiteHeader() {
           justifyContent: "space-between",
         }}
       >
-        <div style={{ display: "flex", alignItems: "baseline", gap: 10 }}>
+        <Link to="/" style={{ display: "flex", alignItems: "baseline", gap: 10 }}>
           <KaironMark title="KAIRON" width={18} height={18} style={{ color: ORANGE }} />
           <span className="font-display" style={{ fontWeight: 600, fontSize: 17, letterSpacing: "0.14em", color: "#fff" }}>
             KAIRON
@@ -156,13 +183,22 @@ function SiteHeader() {
           <span style={{ fontSize: 12, letterSpacing: "0.16em", textTransform: "uppercase", color: ORANGE }}>
             for Teams
           </span>
-        </div>
+        </Link>
         <nav aria-label="Principal" style={{ display: "flex", alignItems: "center", gap: "clamp(14px,2.4vw,30px)", flexWrap: "wrap", justifyContent: "flex-end" }}>
           {NAV.map((n) => (
             <a key={n.href} href={n.href} className="kft-nav-link" style={{ color: "rgba(255,255,255,0.66)", fontSize: 14 }}>
               {n.label}
             </a>
           ))}
+          <DocDropdown
+            label="Metodología"
+            items={METODOLOGIA_ITEMS}
+            open={menu === "metodologia"}
+            onToggle={(e) => { e.stopPropagation(); setMenu((m) => (m === "metodologia" ? null : "metodologia")); }}
+          />
+          <a href="/kairon/vs/notion" className="kft-nav-link" style={{ color: "rgba(255,255,255,0.66)", fontSize: 14 }}>
+            KAIRON vs Notion
+          </a>
           <a
             href="#contacto"
             className="kft-cta-pill"
@@ -176,6 +212,14 @@ function SiteHeader() {
         .kft-nav-link:hover { color: #fff; }
         .kft-cta-pill:hover { background: ${ORANGE_HOVER}; }
         .kft-nav-link:focus-visible, .kft-cta-pill:focus-visible {
+          outline: 2px solid ${ORANGE}; outline-offset: 3px; border-radius: 4px;
+        }
+        .kdh-trigger { background: none; border: 0; padding: 6px 0; font-size: 14px; cursor: pointer; display: flex; align-items: center; gap: 6px; white-space: nowrap; color: rgba(255,255,255,0.66); font-family: inherit; }
+        .kdh-trigger:hover { color: #fff; }
+        .kdh-panel { position: absolute; top: calc(100% + 14px); left: -14px; min-width: 220px; background: ${KAIRON_THEME.surface2}; border: 1px solid ${KAIRON_THEME.borderStrong}; border-radius: 14px; padding: 8px; display: grid; gap: 1px; box-shadow: 0 20px 46px rgba(0,0,0,0.6); z-index: 80; }
+        .kdh-item { display: block; padding: 10px 12px; border-radius: 9px; font-size: 14px; color: rgba(245,243,240,0.74); }
+        .kdh-item:hover { background: rgba(245,243,240,0.06); color: #F5F3F0; }
+        .kdh-trigger:focus-visible, .kdh-item:focus-visible {
           outline: 2px solid ${ORANGE}; outline-offset: 3px; border-radius: 4px;
         }
       `}</style>
@@ -894,29 +938,38 @@ function SiteFooter() {
     <footer style={{ background: INK_2, color: "rgba(255,255,255,0.6)", padding: "clamp(44px,6vw,72px) clamp(20px,5vw,40px)" }}>
       <div style={{ maxWidth: 1180, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(230px,1fr))", gap: 32 }}>
         <div>
-          <div style={{ display: "flex", alignItems: "baseline", gap: 10 }}>
+          <Link to="/" style={{ display: "flex", alignItems: "baseline", gap: 10, width: "fit-content" }}>
             <span className="font-display" style={{ fontWeight: 600, fontSize: 16, letterSpacing: "0.14em", color: "#fff" }}>KAIRON</span>
             <span style={{ fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", color: ORANGE }}>G-Structure</span>
-          </div>
+          </Link>
           <p style={{ fontSize: 14, lineHeight: 1.6, margin: "14px 0 0", maxWidth: "26em" }}>
             Plataforma de coaching cognitivo con IA para equipos que necesitan ejecutar.
           </p>
         </div>
         <div style={{ display: "grid", gap: 10, fontSize: "14.5px" }}>
+          <div style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", marginBottom: 4 }}>Metodología</div>
+          <a href="/metodo-iro" className="kft-footer-link" style={{ color: "rgba(255,255,255,0.7)" }}>Método I-R-O™</a>
+          <a href="/bloqueos" className="kft-footer-link" style={{ color: "rgba(255,255,255,0.7)" }}>Bloqueos de ejecución</a>
+          <a href="/indice-friccion" className="kft-footer-link" style={{ color: "rgba(255,255,255,0.7)" }}>Índice de Fricción</a>
+          <a href="/kairon/vs/notion" className="kft-footer-link" style={{ color: "rgba(255,255,255,0.7)" }}>KAIRON vs Notion</a>
+        </div>
+        <div style={{ display: "grid", gap: 10, fontSize: "14.5px" }}>
+          <div style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", marginBottom: 4 }}>Teams</div>
+          <a href="#pilot" className="kft-footer-link" style={{ color: "rgba(255,255,255,0.7)" }}>Corporate Pilot</a>
+          <a href="#privacidad" className="kft-footer-link" style={{ color: "rgba(255,255,255,0.7)" }}>Privacidad por diseño</a>
+          <a href="#contacto" className="kft-footer-link" style={{ color: "rgba(255,255,255,0.7)" }}>Agendar conversación</a>
+        </div>
+        <div style={{ display: "grid", gap: 10, fontSize: "14.5px" }}>
+          <div style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", marginBottom: 4 }}>Contacto</div>
           <a href="mailto:guillermo@g-structure.co" className="kft-footer-link" style={{ color: "rgba(255,255,255,0.7)" }}>
             guillermo@g-structure.co
           </a>
           <a href="https://wa.me/593986875121" className="kft-footer-link" style={{ color: "rgba(255,255,255,0.7)" }}>
             WhatsApp 0986875121
           </a>
-          <a href="https://g-structure.co" className="kft-footer-link" style={{ color: "rgba(255,255,255,0.7)" }}>
-            g-structure.co
-          </a>
-        </div>
-        <div style={{ display: "grid", gap: 10, fontSize: "14.5px" }}>
-          <a href="#pilot" className="kft-footer-link" style={{ color: "rgba(255,255,255,0.7)" }}>Corporate Pilot</a>
-          <a href="#privacidad" className="kft-footer-link" style={{ color: "rgba(255,255,255,0.7)" }}>Privacidad por diseño</a>
-          <a href="#contacto" className="kft-footer-link" style={{ color: "rgba(255,255,255,0.7)" }}>Agendar conversación</a>
+          <Link to="/" className="kft-footer-link" style={{ color: "rgba(255,255,255,0.7)" }}>
+            Volver al inicio
+          </Link>
         </div>
       </div>
       <div style={{ maxWidth: 1180, margin: "36px auto 0", paddingTop: 22, borderTop: "1px solid rgba(255,255,255,0.09)", fontSize: 13, color: "rgba(255,255,255,0.38)" }}>
