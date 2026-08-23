@@ -2,23 +2,44 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/site/Section";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { MethodTabs } from "@/components/site/MethodTabs";
-import { buildSeo, breadcrumbSchema, canonicalLink, jsonLdScript } from "@/lib/seo";
+import { buildSeo, breadcrumbSchema, faqSchema, howToSchema, canonicalLink, jsonLdScript } from "@/lib/seo";
 import logoCube from "@/assets/g-structure-cube.webp";
+import { MetodoIroPage, IRO_FAQ } from "@/components/pages/MetodoIroPage";
 
 export const Route = createFileRoute("/metodo-iro")({
   head: () => ({
     meta: buildSeo({
       path: "/metodo-iro",
-      title: "Método I-R-O™ | G-Structure",
+      title: "Método I-R-O™ — Identificar, Reestructurar, Optimizar | G-Structure",
       description:
-        "I-R-O™ es el método propietario que impulsa KAIRON: Identificar, Reencuadrar y Optimizar para convertir fricción mental en acción concreta.",
+        "Definición canónica del Método I-R-O™: el marco de tres fases que KAIRON usa para identificar bloqueos de ejecución, reestructurar la interpretación que los sostiene y convertir la claridad en acción.",
     }),
     links: canonicalLink("/metodo-iro"),
-    scripts: [jsonLdScript(breadcrumbSchema([{ name: "Método I-R-O™", path: "/metodo-iro" }]))],
+    scripts: [
+      jsonLdScript(breadcrumbSchema([{ name: "Método I-R-O™", path: "/metodo-iro" }])),
+      jsonLdScript(faqSchema(IRO_FAQ)),
+      jsonLdScript(
+        howToSchema({
+          name: "Método I-R-O™",
+          description:
+            "Protocolo de tres fases que interviene sobre el pensamiento que sostiene un bloqueo de ejecución, en el momento en que aparece.",
+          steps: [
+            { name: "Identificar", text: "Nombrar el patrón cognitivo activo y la creencia específica que sostiene el bloqueo." },
+            { name: "Reestructurar", text: "Someter la creencia a prueba y llegar a una lectura alternativa más precisa." },
+            { name: "Optimizar", text: "Convertir la lectura alternativa en una acción de cinco minutos, concreta y verificable." },
+          ],
+        }),
+      ),
+    ],
   }),
-  component: () => <IroMethodPage locale="es" />,
+  component: () => <MetodoIroPage />,
 });
 
+// Legacy light-theme bilingual page. The ES route above now renders the
+// canonical dark-theme MetodoIroPage; this stays in place only because
+// /en/iro-method still imports it — the English canonical translation is
+// tracked separately (design_handoff_gstructure_site/README.md, "Tarea
+// principal: versiones en inglés").
 export function IroMethodPage({ locale }: { locale: "es" | "en" }) {
   const copy = locale === "en"
     ? {

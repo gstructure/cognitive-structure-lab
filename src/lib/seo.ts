@@ -180,6 +180,29 @@ export function breadcrumbSchema(items: { name: string; path: string }[]) {
   };
 }
 
+export function howToSchema({
+  name,
+  description,
+  steps,
+}: {
+  name: string;
+  description: string;
+  steps: { name: string; text: string }[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name,
+    description,
+    step: steps.map((s, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: s.name,
+      text: s.text,
+    })),
+  };
+}
+
 export function faqSchema(qa: { q: string; a: string }[]) {
   return {
     "@context": "https://schema.org",
