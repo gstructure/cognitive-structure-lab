@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as VipPassRouteImport } from './routes/vip-pass'
 import { Route as UnsubscribeRouteImport } from './routes/unsubscribe'
 import { Route as UneteAlEquipoRouteImport } from './routes/unete-al-equipo'
+import { Route as TeamsRouteImport } from './routes/teams'
 import { Route as SobreGuillermoRouteImport } from './routes/sobre-guillermo'
 import { Route as Reestructura11RouteImport } from './routes/reestructura-1-1'
 import { Route as PreciosRouteImport } from './routes/precios'
@@ -19,14 +20,15 @@ import { Route as PoliticasLegalesRouteImport } from './routes/politicas-legales
 import { Route as NewsletterRouteImport } from './routes/newsletter'
 import { Route as MetodoIroRouteImport } from './routes/metodo-iro'
 import { Route as LoginRouteImport } from './routes/login'
-import { Route as KaironForTeamsRouteImport } from './routes/kairon-for-teams'
 import { Route as KaironRouteImport } from './routes/kairon'
 import { Route as InversoresRouteImport } from './routes/inversores'
+import { Route as IndiceFriccionRouteImport } from './routes/indice-friccion'
 import { Route as GStructRouteImport } from './routes/g-struct'
 import { Route as GFrameRouteImport } from './routes/g-frame'
 import { Route as EnterpriseRouteImport } from './routes/enterprise'
 import { Route as DiagnosticoFriccionEjecutivaRouteImport } from './routes/diagnostico-friccion-ejecutiva'
 import { Route as ContactoRouteImport } from './routes/contacto'
+import { Route as BloqueosRouteImport } from './routes/bloqueos'
 import { Route as ArticulosRouteImport } from './routes/articulos'
 import { Route as ApoyaElLanzamientoRouteImport } from './routes/apoya-el-lanzamiento'
 import { Route as AliadosEtw2026RouteImport } from './routes/aliados-etw-2026'
@@ -50,6 +52,8 @@ import { Route as EnIroMethodRouteImport } from './routes/en.iro-method'
 import { Route as EnInvestorsRouteImport } from './routes/en.investors'
 import { Route as EnGStructRouteImport } from './routes/en.g-struct'
 import { Route as EnGFrameRouteImport } from './routes/en.g-frame'
+import { Route as EnFrictionIndexRouteImport } from './routes/en.friction-index'
+import { Route as EnExecutionBlocksRouteImport } from './routes/en.execution-blocks'
 import { Route as EnEtw2026PartnersRouteImport } from './routes/en.etw-2026-partners'
 import { Route as EnEnterpriseRouteImport } from './routes/en.enterprise'
 import { Route as EnContactRouteImport } from './routes/en.contact'
@@ -60,6 +64,7 @@ import { Route as ArticulosSlugRouteImport } from './routes/articulos.$slug'
 import { Route as EnArticlesIndexRouteImport } from './routes/en.articles.index'
 import { Route as AdminAdminIndexRouteImport } from './routes/_admin/admin.index'
 import { Route as LovableEmailSuppressionRouteImport } from './routes/lovable/email/suppression'
+import { Route as KaironVsNotionRouteImport } from './routes/kairon_.vs.notion'
 import { Route as EnLegalTermsAndConditionsRouteImport } from './routes/en.legal.terms-and-conditions'
 import { Route as EnLegalRefundPolicyRouteImport } from './routes/en.legal.refund-policy'
 import { Route as EnLegalPrivacyPolicyRouteImport } from './routes/en.legal.privacy-policy'
@@ -81,6 +86,7 @@ import { Route as AdminAdminComentariosRouteImport } from './routes/_admin/admin
 import { Route as LovableEmailTransactionalSendRouteImport } from './routes/lovable/email/transactional/send'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
+import { Route as EnKaironVsNotionRouteImport } from './routes/en.kairon_.vs.notion'
 
 const VipPassRoute = VipPassRouteImport.update({
   id: '/vip-pass',
@@ -95,6 +101,11 @@ const UnsubscribeRoute = UnsubscribeRouteImport.update({
 const UneteAlEquipoRoute = UneteAlEquipoRouteImport.update({
   id: '/unete-al-equipo',
   path: '/unete-al-equipo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeamsRoute = TeamsRouteImport.update({
+  id: '/teams',
+  path: '/teams',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SobreGuillermoRoute = SobreGuillermoRouteImport.update({
@@ -132,11 +143,6 @@ const LoginRoute = LoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
-const KaironForTeamsRoute = KaironForTeamsRouteImport.update({
-  id: '/kairon-for-teams',
-  path: '/kairon-for-teams',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const KaironRoute = KaironRouteImport.update({
   id: '/kairon',
   path: '/kairon',
@@ -145,6 +151,11 @@ const KaironRoute = KaironRouteImport.update({
 const InversoresRoute = InversoresRouteImport.update({
   id: '/inversores',
   path: '/inversores',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndiceFriccionRoute = IndiceFriccionRouteImport.update({
+  id: '/indice-friccion',
+  path: '/indice-friccion',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GStructRoute = GStructRouteImport.update({
@@ -171,6 +182,11 @@ const DiagnosticoFriccionEjecutivaRoute =
 const ContactoRoute = ContactoRouteImport.update({
   id: '/contacto',
   path: '/contacto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BloqueosRoute = BloqueosRouteImport.update({
+  id: '/bloqueos',
+  path: '/bloqueos',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ArticulosRoute = ArticulosRouteImport.update({
@@ -290,6 +306,16 @@ const EnGFrameRoute = EnGFrameRouteImport.update({
   path: '/en/g-frame',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EnFrictionIndexRoute = EnFrictionIndexRouteImport.update({
+  id: '/en/friction-index',
+  path: '/en/friction-index',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnExecutionBlocksRoute = EnExecutionBlocksRouteImport.update({
+  id: '/en/execution-blocks',
+  path: '/en/execution-blocks',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EnEtw2026PartnersRoute = EnEtw2026PartnersRouteImport.update({
   id: '/en/etw-2026-partners',
   path: '/en/etw-2026-partners',
@@ -338,6 +364,11 @@ const AdminAdminIndexRoute = AdminAdminIndexRouteImport.update({
 const LovableEmailSuppressionRoute = LovableEmailSuppressionRouteImport.update({
   id: '/lovable/email/suppression',
   path: '/lovable/email/suppression',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KaironVsNotionRoute = KaironVsNotionRouteImport.update({
+  id: '/kairon_/vs/notion',
+  path: '/kairon/vs/notion',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EnLegalTermsAndConditionsRoute =
@@ -457,20 +488,26 @@ const LovableEmailQueueProcessRoute =
     path: '/lovable/email/queue/process',
     getParentRoute: () => rootRouteImport,
   } as any)
+const EnKaironVsNotionRoute = EnKaironVsNotionRouteImport.update({
+  id: '/en/kairon_/vs/notion',
+  path: '/en/kairon/vs/notion',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/aliados-etw-2026': typeof AliadosEtw2026Route
   '/apoya-el-lanzamiento': typeof ApoyaElLanzamientoRoute
   '/articulos': typeof ArticulosRouteWithChildren
+  '/bloqueos': typeof BloqueosRoute
   '/contacto': typeof ContactoRoute
   '/diagnostico-friccion-ejecutiva': typeof DiagnosticoFriccionEjecutivaRoute
   '/enterprise': typeof EnterpriseRoute
   '/g-frame': typeof GFrameRoute
   '/g-struct': typeof GStructRoute
+  '/indice-friccion': typeof IndiceFriccionRoute
   '/inversores': typeof InversoresRoute
   '/kairon': typeof KaironRoute
-  '/kairon-for-teams': typeof KaironForTeamsRoute
   '/login': typeof LoginRoute
   '/metodo-iro': typeof MetodoIroRoute
   '/newsletter': typeof NewsletterRoute
@@ -478,6 +515,7 @@ export interface FileRoutesByFullPath {
   '/precios': typeof PreciosRoute
   '/reestructura-1-1': typeof Reestructura11Route
   '/sobre-guillermo': typeof SobreGuillermoRoute
+  '/teams': typeof TeamsRoute
   '/unete-al-equipo': typeof UneteAlEquipoRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/vip-pass': typeof VipPassRoute
@@ -488,6 +526,8 @@ export interface FileRoutesByFullPath {
   '/en/contact': typeof EnContactRoute
   '/en/enterprise': typeof EnEnterpriseRoute
   '/en/etw-2026-partners': typeof EnEtw2026PartnersRoute
+  '/en/execution-blocks': typeof EnExecutionBlocksRoute
+  '/en/friction-index': typeof EnFrictionIndexRoute
   '/en/g-frame': typeof EnGFrameRoute
   '/en/g-struct': typeof EnGStructRoute
   '/en/investors': typeof EnInvestorsRoute
@@ -524,9 +564,11 @@ export interface FileRoutesByFullPath {
   '/en/legal/privacy-policy': typeof EnLegalPrivacyPolicyRoute
   '/en/legal/refund-policy': typeof EnLegalRefundPolicyRoute
   '/en/legal/terms-and-conditions': typeof EnLegalTermsAndConditionsRoute
+  '/kairon/vs/notion': typeof KaironVsNotionRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/admin/': typeof AdminAdminIndexRoute
   '/en/articles/': typeof EnArticlesIndexRoute
+  '/en/kairon/vs/notion': typeof EnKaironVsNotionRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
   '/lovable/email/transactional/send': typeof LovableEmailTransactionalSendRoute
@@ -535,14 +577,15 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/aliados-etw-2026': typeof AliadosEtw2026Route
   '/apoya-el-lanzamiento': typeof ApoyaElLanzamientoRoute
+  '/bloqueos': typeof BloqueosRoute
   '/contacto': typeof ContactoRoute
   '/diagnostico-friccion-ejecutiva': typeof DiagnosticoFriccionEjecutivaRoute
   '/enterprise': typeof EnterpriseRoute
   '/g-frame': typeof GFrameRoute
   '/g-struct': typeof GStructRoute
+  '/indice-friccion': typeof IndiceFriccionRoute
   '/inversores': typeof InversoresRoute
   '/kairon': typeof KaironRoute
-  '/kairon-for-teams': typeof KaironForTeamsRoute
   '/login': typeof LoginRoute
   '/metodo-iro': typeof MetodoIroRoute
   '/newsletter': typeof NewsletterRoute
@@ -550,6 +593,7 @@ export interface FileRoutesByTo {
   '/precios': typeof PreciosRoute
   '/reestructura-1-1': typeof Reestructura11Route
   '/sobre-guillermo': typeof SobreGuillermoRoute
+  '/teams': typeof TeamsRoute
   '/unete-al-equipo': typeof UneteAlEquipoRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/vip-pass': typeof VipPassRoute
@@ -559,6 +603,8 @@ export interface FileRoutesByTo {
   '/en/contact': typeof EnContactRoute
   '/en/enterprise': typeof EnEnterpriseRoute
   '/en/etw-2026-partners': typeof EnEtw2026PartnersRoute
+  '/en/execution-blocks': typeof EnExecutionBlocksRoute
+  '/en/friction-index': typeof EnFrictionIndexRoute
   '/en/g-frame': typeof EnGFrameRoute
   '/en/g-struct': typeof EnGStructRoute
   '/en/investors': typeof EnInvestorsRoute
@@ -595,9 +641,11 @@ export interface FileRoutesByTo {
   '/en/legal/privacy-policy': typeof EnLegalPrivacyPolicyRoute
   '/en/legal/refund-policy': typeof EnLegalRefundPolicyRoute
   '/en/legal/terms-and-conditions': typeof EnLegalTermsAndConditionsRoute
+  '/kairon/vs/notion': typeof KaironVsNotionRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/admin': typeof AdminAdminIndexRoute
   '/en/articles': typeof EnArticlesIndexRoute
+  '/en/kairon/vs/notion': typeof EnKaironVsNotionRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
   '/lovable/email/transactional/send': typeof LovableEmailTransactionalSendRoute
@@ -609,14 +657,15 @@ export interface FileRoutesById {
   '/aliados-etw-2026': typeof AliadosEtw2026Route
   '/apoya-el-lanzamiento': typeof ApoyaElLanzamientoRoute
   '/articulos': typeof ArticulosRouteWithChildren
+  '/bloqueos': typeof BloqueosRoute
   '/contacto': typeof ContactoRoute
   '/diagnostico-friccion-ejecutiva': typeof DiagnosticoFriccionEjecutivaRoute
   '/enterprise': typeof EnterpriseRoute
   '/g-frame': typeof GFrameRoute
   '/g-struct': typeof GStructRoute
+  '/indice-friccion': typeof IndiceFriccionRoute
   '/inversores': typeof InversoresRoute
   '/kairon': typeof KaironRoute
-  '/kairon-for-teams': typeof KaironForTeamsRoute
   '/login': typeof LoginRoute
   '/metodo-iro': typeof MetodoIroRoute
   '/newsletter': typeof NewsletterRoute
@@ -624,6 +673,7 @@ export interface FileRoutesById {
   '/precios': typeof PreciosRoute
   '/reestructura-1-1': typeof Reestructura11Route
   '/sobre-guillermo': typeof SobreGuillermoRoute
+  '/teams': typeof TeamsRoute
   '/unete-al-equipo': typeof UneteAlEquipoRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/vip-pass': typeof VipPassRoute
@@ -634,6 +684,8 @@ export interface FileRoutesById {
   '/en/contact': typeof EnContactRoute
   '/en/enterprise': typeof EnEnterpriseRoute
   '/en/etw-2026-partners': typeof EnEtw2026PartnersRoute
+  '/en/execution-blocks': typeof EnExecutionBlocksRoute
+  '/en/friction-index': typeof EnFrictionIndexRoute
   '/en/g-frame': typeof EnGFrameRoute
   '/en/g-struct': typeof EnGStructRoute
   '/en/investors': typeof EnInvestorsRoute
@@ -670,9 +722,11 @@ export interface FileRoutesById {
   '/en/legal/privacy-policy': typeof EnLegalPrivacyPolicyRoute
   '/en/legal/refund-policy': typeof EnLegalRefundPolicyRoute
   '/en/legal/terms-and-conditions': typeof EnLegalTermsAndConditionsRoute
+  '/kairon_/vs/notion': typeof KaironVsNotionRoute
   '/lovable/email/suppression': typeof LovableEmailSuppressionRoute
   '/_admin/admin/': typeof AdminAdminIndexRoute
   '/en/articles/': typeof EnArticlesIndexRoute
+  '/en/kairon_/vs/notion': typeof EnKaironVsNotionRoute
   '/lovable/email/queue/process': typeof LovableEmailQueueProcessRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
   '/lovable/email/transactional/send': typeof LovableEmailTransactionalSendRoute
@@ -684,14 +738,15 @@ export interface FileRouteTypes {
     | '/aliados-etw-2026'
     | '/apoya-el-lanzamiento'
     | '/articulos'
+    | '/bloqueos'
     | '/contacto'
     | '/diagnostico-friccion-ejecutiva'
     | '/enterprise'
     | '/g-frame'
     | '/g-struct'
+    | '/indice-friccion'
     | '/inversores'
     | '/kairon'
-    | '/kairon-for-teams'
     | '/login'
     | '/metodo-iro'
     | '/newsletter'
@@ -699,6 +754,7 @@ export interface FileRouteTypes {
     | '/precios'
     | '/reestructura-1-1'
     | '/sobre-guillermo'
+    | '/teams'
     | '/unete-al-equipo'
     | '/unsubscribe'
     | '/vip-pass'
@@ -709,6 +765,8 @@ export interface FileRouteTypes {
     | '/en/contact'
     | '/en/enterprise'
     | '/en/etw-2026-partners'
+    | '/en/execution-blocks'
+    | '/en/friction-index'
     | '/en/g-frame'
     | '/en/g-struct'
     | '/en/investors'
@@ -745,9 +803,11 @@ export interface FileRouteTypes {
     | '/en/legal/privacy-policy'
     | '/en/legal/refund-policy'
     | '/en/legal/terms-and-conditions'
+    | '/kairon/vs/notion'
     | '/lovable/email/suppression'
     | '/admin/'
     | '/en/articles/'
+    | '/en/kairon/vs/notion'
     | '/lovable/email/queue/process'
     | '/lovable/email/transactional/preview'
     | '/lovable/email/transactional/send'
@@ -756,14 +816,15 @@ export interface FileRouteTypes {
     | '/'
     | '/aliados-etw-2026'
     | '/apoya-el-lanzamiento'
+    | '/bloqueos'
     | '/contacto'
     | '/diagnostico-friccion-ejecutiva'
     | '/enterprise'
     | '/g-frame'
     | '/g-struct'
+    | '/indice-friccion'
     | '/inversores'
     | '/kairon'
-    | '/kairon-for-teams'
     | '/login'
     | '/metodo-iro'
     | '/newsletter'
@@ -771,6 +832,7 @@ export interface FileRouteTypes {
     | '/precios'
     | '/reestructura-1-1'
     | '/sobre-guillermo'
+    | '/teams'
     | '/unete-al-equipo'
     | '/unsubscribe'
     | '/vip-pass'
@@ -780,6 +842,8 @@ export interface FileRouteTypes {
     | '/en/contact'
     | '/en/enterprise'
     | '/en/etw-2026-partners'
+    | '/en/execution-blocks'
+    | '/en/friction-index'
     | '/en/g-frame'
     | '/en/g-struct'
     | '/en/investors'
@@ -816,9 +880,11 @@ export interface FileRouteTypes {
     | '/en/legal/privacy-policy'
     | '/en/legal/refund-policy'
     | '/en/legal/terms-and-conditions'
+    | '/kairon/vs/notion'
     | '/lovable/email/suppression'
     | '/admin'
     | '/en/articles'
+    | '/en/kairon/vs/notion'
     | '/lovable/email/queue/process'
     | '/lovable/email/transactional/preview'
     | '/lovable/email/transactional/send'
@@ -829,14 +895,15 @@ export interface FileRouteTypes {
     | '/aliados-etw-2026'
     | '/apoya-el-lanzamiento'
     | '/articulos'
+    | '/bloqueos'
     | '/contacto'
     | '/diagnostico-friccion-ejecutiva'
     | '/enterprise'
     | '/g-frame'
     | '/g-struct'
+    | '/indice-friccion'
     | '/inversores'
     | '/kairon'
-    | '/kairon-for-teams'
     | '/login'
     | '/metodo-iro'
     | '/newsletter'
@@ -844,6 +911,7 @@ export interface FileRouteTypes {
     | '/precios'
     | '/reestructura-1-1'
     | '/sobre-guillermo'
+    | '/teams'
     | '/unete-al-equipo'
     | '/unsubscribe'
     | '/vip-pass'
@@ -854,6 +922,8 @@ export interface FileRouteTypes {
     | '/en/contact'
     | '/en/enterprise'
     | '/en/etw-2026-partners'
+    | '/en/execution-blocks'
+    | '/en/friction-index'
     | '/en/g-frame'
     | '/en/g-struct'
     | '/en/investors'
@@ -890,9 +960,11 @@ export interface FileRouteTypes {
     | '/en/legal/privacy-policy'
     | '/en/legal/refund-policy'
     | '/en/legal/terms-and-conditions'
+    | '/kairon_/vs/notion'
     | '/lovable/email/suppression'
     | '/_admin/admin/'
     | '/en/articles/'
+    | '/en/kairon_/vs/notion'
     | '/lovable/email/queue/process'
     | '/lovable/email/transactional/preview'
     | '/lovable/email/transactional/send'
@@ -904,14 +976,15 @@ export interface RootRouteChildren {
   AliadosEtw2026Route: typeof AliadosEtw2026Route
   ApoyaElLanzamientoRoute: typeof ApoyaElLanzamientoRoute
   ArticulosRoute: typeof ArticulosRouteWithChildren
+  BloqueosRoute: typeof BloqueosRoute
   ContactoRoute: typeof ContactoRoute
   DiagnosticoFriccionEjecutivaRoute: typeof DiagnosticoFriccionEjecutivaRoute
   EnterpriseRoute: typeof EnterpriseRoute
   GFrameRoute: typeof GFrameRoute
   GStructRoute: typeof GStructRoute
+  IndiceFriccionRoute: typeof IndiceFriccionRoute
   InversoresRoute: typeof InversoresRoute
   KaironRoute: typeof KaironRoute
-  KaironForTeamsRoute: typeof KaironForTeamsRoute
   LoginRoute: typeof LoginRoute
   MetodoIroRoute: typeof MetodoIroRoute
   NewsletterRoute: typeof NewsletterRoute
@@ -919,6 +992,7 @@ export interface RootRouteChildren {
   PreciosRoute: typeof PreciosRoute
   Reestructura11Route: typeof Reestructura11Route
   SobreGuillermoRoute: typeof SobreGuillermoRoute
+  TeamsRoute: typeof TeamsRoute
   UneteAlEquipoRoute: typeof UneteAlEquipoRoute
   UnsubscribeRoute: typeof UnsubscribeRoute
   VipPassRoute: typeof VipPassRoute
@@ -928,6 +1002,8 @@ export interface RootRouteChildren {
   EnContactRoute: typeof EnContactRoute
   EnEnterpriseRoute: typeof EnEnterpriseRoute
   EnEtw2026PartnersRoute: typeof EnEtw2026PartnersRoute
+  EnExecutionBlocksRoute: typeof EnExecutionBlocksRoute
+  EnFrictionIndexRoute: typeof EnFrictionIndexRoute
   EnGFrameRoute: typeof EnGFrameRoute
   EnGStructRoute: typeof EnGStructRoute
   EnInvestorsRoute: typeof EnInvestorsRoute
@@ -957,7 +1033,9 @@ export interface RootRouteChildren {
   EnLegalPrivacyPolicyRoute: typeof EnLegalPrivacyPolicyRoute
   EnLegalRefundPolicyRoute: typeof EnLegalRefundPolicyRoute
   EnLegalTermsAndConditionsRoute: typeof EnLegalTermsAndConditionsRoute
+  KaironVsNotionRoute: typeof KaironVsNotionRoute
   LovableEmailSuppressionRoute: typeof LovableEmailSuppressionRoute
+  EnKaironVsNotionRoute: typeof EnKaironVsNotionRoute
   LovableEmailQueueProcessRoute: typeof LovableEmailQueueProcessRoute
   LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
   LovableEmailTransactionalSendRoute: typeof LovableEmailTransactionalSendRoute
@@ -984,6 +1062,13 @@ declare module '@tanstack/react-router' {
       path: '/unete-al-equipo'
       fullPath: '/unete-al-equipo'
       preLoaderRoute: typeof UneteAlEquipoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/teams': {
+      id: '/teams'
+      path: '/teams'
+      fullPath: '/teams'
+      preLoaderRoute: typeof TeamsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sobre-guillermo': {
@@ -1035,13 +1120,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/kairon-for-teams': {
-      id: '/kairon-for-teams'
-      path: '/kairon-for-teams'
-      fullPath: '/kairon-for-teams'
-      preLoaderRoute: typeof KaironForTeamsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/kairon': {
       id: '/kairon'
       path: '/kairon'
@@ -1054,6 +1132,13 @@ declare module '@tanstack/react-router' {
       path: '/inversores'
       fullPath: '/inversores'
       preLoaderRoute: typeof InversoresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/indice-friccion': {
+      id: '/indice-friccion'
+      path: '/indice-friccion'
+      fullPath: '/indice-friccion'
+      preLoaderRoute: typeof IndiceFriccionRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/g-struct': {
@@ -1089,6 +1174,13 @@ declare module '@tanstack/react-router' {
       path: '/contacto'
       fullPath: '/contacto'
       preLoaderRoute: typeof ContactoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bloqueos': {
+      id: '/bloqueos'
+      path: '/bloqueos'
+      fullPath: '/bloqueos'
+      preLoaderRoute: typeof BloqueosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/articulos': {
@@ -1252,6 +1344,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnGFrameRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/en/friction-index': {
+      id: '/en/friction-index'
+      path: '/en/friction-index'
+      fullPath: '/en/friction-index'
+      preLoaderRoute: typeof EnFrictionIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/execution-blocks': {
+      id: '/en/execution-blocks'
+      path: '/en/execution-blocks'
+      fullPath: '/en/execution-blocks'
+      preLoaderRoute: typeof EnExecutionBlocksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/en/etw-2026-partners': {
       id: '/en/etw-2026-partners'
       path: '/en/etw-2026-partners'
@@ -1320,6 +1426,13 @@ declare module '@tanstack/react-router' {
       path: '/lovable/email/suppression'
       fullPath: '/lovable/email/suppression'
       preLoaderRoute: typeof LovableEmailSuppressionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kairon_/vs/notion': {
+      id: '/kairon_/vs/notion'
+      path: '/kairon/vs/notion'
+      fullPath: '/kairon/vs/notion'
+      preLoaderRoute: typeof KaironVsNotionRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/en/legal/terms-and-conditions': {
@@ -1469,6 +1582,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LovableEmailQueueProcessRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/en/kairon_/vs/notion': {
+      id: '/en/kairon_/vs/notion'
+      path: '/en/kairon/vs/notion'
+      fullPath: '/en/kairon/vs/notion'
+      preLoaderRoute: typeof EnKaironVsNotionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -1526,14 +1646,15 @@ const rootRouteChildren: RootRouteChildren = {
   AliadosEtw2026Route: AliadosEtw2026Route,
   ApoyaElLanzamientoRoute: ApoyaElLanzamientoRoute,
   ArticulosRoute: ArticulosRouteWithChildren,
+  BloqueosRoute: BloqueosRoute,
   ContactoRoute: ContactoRoute,
   DiagnosticoFriccionEjecutivaRoute: DiagnosticoFriccionEjecutivaRoute,
   EnterpriseRoute: EnterpriseRoute,
   GFrameRoute: GFrameRoute,
   GStructRoute: GStructRoute,
+  IndiceFriccionRoute: IndiceFriccionRoute,
   InversoresRoute: InversoresRoute,
   KaironRoute: KaironRoute,
-  KaironForTeamsRoute: KaironForTeamsRoute,
   LoginRoute: LoginRoute,
   MetodoIroRoute: MetodoIroRoute,
   NewsletterRoute: NewsletterRoute,
@@ -1541,6 +1662,7 @@ const rootRouteChildren: RootRouteChildren = {
   PreciosRoute: PreciosRoute,
   Reestructura11Route: Reestructura11Route,
   SobreGuillermoRoute: SobreGuillermoRoute,
+  TeamsRoute: TeamsRoute,
   UneteAlEquipoRoute: UneteAlEquipoRoute,
   UnsubscribeRoute: UnsubscribeRoute,
   VipPassRoute: VipPassRoute,
@@ -1550,6 +1672,8 @@ const rootRouteChildren: RootRouteChildren = {
   EnContactRoute: EnContactRoute,
   EnEnterpriseRoute: EnEnterpriseRoute,
   EnEtw2026PartnersRoute: EnEtw2026PartnersRoute,
+  EnExecutionBlocksRoute: EnExecutionBlocksRoute,
+  EnFrictionIndexRoute: EnFrictionIndexRoute,
   EnGFrameRoute: EnGFrameRoute,
   EnGStructRoute: EnGStructRoute,
   EnInvestorsRoute: EnInvestorsRoute,
@@ -1581,7 +1705,9 @@ const rootRouteChildren: RootRouteChildren = {
   EnLegalPrivacyPolicyRoute: EnLegalPrivacyPolicyRoute,
   EnLegalRefundPolicyRoute: EnLegalRefundPolicyRoute,
   EnLegalTermsAndConditionsRoute: EnLegalTermsAndConditionsRoute,
+  KaironVsNotionRoute: KaironVsNotionRoute,
   LovableEmailSuppressionRoute: LovableEmailSuppressionRoute,
+  EnKaironVsNotionRoute: EnKaironVsNotionRoute,
   LovableEmailQueueProcessRoute: LovableEmailQueueProcessRoute,
   LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
   LovableEmailTransactionalSendRoute: LovableEmailTransactionalSendRoute,
@@ -1589,13 +1715,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

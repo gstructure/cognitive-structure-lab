@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo, breadcrumbSchema, faqSchema, canonicalLink, jsonLdScript } from "@/lib/seo";
 import { KaironVsNotionPage, VS_NOTION_COPY } from "@/components/pages/KaironVsNotionPage";
 
-export const Route = createFileRoute("/en/kairon/vs/notion")({
+export const Route = createFileRoute("/en/kairon_/vs/notion")({
   head: () => ({
     meta: buildSeo({
       path: "/en/kairon/vs/notion",
