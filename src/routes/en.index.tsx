@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo, canonicalLink, jsonLdScript, faqSchema, breadcrumbSchema } from "@/lib/seo";
 import kaironLogo from "@/assets/kairon-logo.webp";
-import { Index } from "./index";
+import { HomePage } from "@/components/pages/HomePage";
 
 const HOME_FAQ_EN = [
   { q: "What is G-Structure?", a: "A tech startup building KAIRON: an AI cognitive coaching tool that helps professionals process the mental friction blocking execution." },
@@ -14,9 +14,9 @@ export const Route = createFileRoute("/en/")({
   head: () => ({
     meta: buildSeo({
       path: "/en",
-      title: "G-Structure | KAIRON · AI cognitive coaching for execution",
+      title: "G-Structure · KAIRON — Your AI keeps agreeing with you. Kai won't.",
       description:
-        "G-Structure is a tech startup building KAIRON, an AI cognitive coaching tool guided by Kai to process thoughts, emotions, and interpretations that block execution in real time.",
+        "KAIRON catches the thought that is stalling your execution, takes it apart, and hands you back a 5-minute action. AI cognitive coaching from G-Structure.",
       image: kaironLogo,
       locale: "en_US",
     }),
@@ -26,5 +26,5 @@ export const Route = createFileRoute("/en/")({
       jsonLdScript(breadcrumbSchema([{ name: "Home", path: "/en" }])),
     ],
   }),
-  component: Index,
+  component: () => <HomePage locale="en" />,
 });
