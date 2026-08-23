@@ -1,3 +1,18 @@
+# Explicit allows for the AI/GEO crawlers this site targets. Do not add a
+# Disallow for any of these — blocking them defeats the citation strategy
+# in design_handoff_gstructure_site/README.md ("Acceso para agentes").
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
 User-agent: *
 Allow: /
 Disallow: /login

@@ -134,7 +134,15 @@ function RootComponent() {
     pathname === "/en" ||
     pathname === "/vip-pass" ||
     pathname === "/en/vip-pass" ||
-    pathname === "/teams";
+    pathname === "/teams" ||
+    pathname === "/metodo-iro" ||
+    pathname === "/en/iro-method" ||
+    pathname === "/bloqueos" ||
+    pathname === "/en/execution-blocks" ||
+    pathname === "/indice-friccion" ||
+    pathname === "/en/friction-index" ||
+    pathname === "/kairon/vs/notion" ||
+    pathname === "/en/kairon/vs/notion";
   return (
     <QueryClientProvider client={queryClient}>
       <LocaleProvider>

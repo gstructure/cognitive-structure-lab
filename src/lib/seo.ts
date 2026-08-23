@@ -180,6 +180,84 @@ export function breadcrumbSchema(items: { name: string; path: string }[]) {
   };
 }
 
+export function howToSchema({
+  name,
+  description,
+  steps,
+}: {
+  name: string;
+  description: string;
+  steps: { name: string; text: string }[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name,
+    description,
+    step: steps.map((s, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: s.name,
+      text: s.text,
+    })),
+  };
+}
+
+export function definedTermSetSchema({
+  name,
+  description,
+  url,
+  terms,
+}: {
+  name: string;
+  description: string;
+  url: string;
+  terms: { name: string; description: string; url: string }[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "DefinedTermSet",
+    name,
+    description,
+    url,
+    hasDefinedTerm: terms.map((t) => ({
+      "@type": "DefinedTerm",
+      name: t.name,
+      description: t.description,
+      url: t.url,
+      inDefinedTermSet: url,
+    })),
+  };
+}
+
+export function datasetSchema({
+  name,
+  description,
+  url,
+  license,
+  temporalCoverage,
+  variables,
+}: {
+  name: string;
+  description: string;
+  url: string;
+  license: string;
+  temporalCoverage: string;
+  variables: string[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    name,
+    description,
+    url,
+    license,
+    temporalCoverage,
+    variableMeasured: variables,
+    creator: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+  };
+}
+
 export function faqSchema(qa: { q: string; a: string }[]) {
   return {
     "@context": "https://schema.org",

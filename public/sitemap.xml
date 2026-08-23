@@ -60,8 +60,14 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://g-structure.co/en/pricing"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://g-structure.co/precios"/>
   </url>
-  <url><loc>https://g-structure.co/metodo-iro</loc><lastmod>2026-07-15</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://g-structure.co/en/iro-method</loc><lastmod>2026-07-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://g-structure.co/metodo-iro</loc><lastmod>2026-08-23</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://g-structure.co/en/iro-method</loc><lastmod>2026-08-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://g-structure.co/bloqueos</loc><lastmod>2026-08-23</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://g-structure.co/en/execution-blocks</loc><lastmod>2026-08-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://g-structure.co/indice-friccion</loc><lastmod>2026-08-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://g-structure.co/en/friction-index</loc><lastmod>2026-08-23</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://g-structure.co/kairon/vs/notion</loc><lastmod>2026-08-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://g-structure.co/en/kairon/vs/notion</loc><lastmod>2026-08-23</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
   <url><loc>https://g-structure.co/articulos</loc><lastmod>2026-07-15</lastmod><changefreq>weekly</changefreq><priority>0.75</priority></url>
   <url><loc>https://g-structure.co/en/articles</loc><lastmod>2026-07-15</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://g-structure.co/enterprise</loc><lastmod>2026-07-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
