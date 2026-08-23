@@ -141,7 +141,8 @@ function RootComponent() {
     pathname === "/en/execution-blocks" ||
     pathname === "/indice-friccion" ||
     pathname === "/en/friction-index" ||
-    pathname === "/kairon/vs/notion";
+    pathname === "/kairon/vs/notion" ||
+    pathname === "/en/kairon/vs/notion";
   return (
     <QueryClientProvider client={queryClient}>
       <LocaleProvider>

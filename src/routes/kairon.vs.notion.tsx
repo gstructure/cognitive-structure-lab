@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { buildSeo, breadcrumbSchema, faqSchema, canonicalLink, jsonLdScript } from "@/lib/seo";
-import { KaironVsNotionPage, VS_NOTION_FAQ } from "@/components/pages/KaironVsNotionPage";
+import { KaironVsNotionPage, VS_NOTION_COPY } from "@/components/pages/KaironVsNotionPage";
 
 export const Route = createFileRoute("/kairon/vs/notion")({
   head: () => ({
@@ -18,8 +18,8 @@ export const Route = createFileRoute("/kairon/vs/notion")({
           { name: "KAIRON vs Notion", path: "/kairon/vs/notion" },
         ]),
       ),
-      jsonLdScript(faqSchema(VS_NOTION_FAQ)),
+      jsonLdScript(faqSchema(VS_NOTION_COPY.es.faq)),
     ],
   }),
-  component: () => <KaironVsNotionPage />,
+  component: () => <KaironVsNotionPage locale="es" />,
 });
