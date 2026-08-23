@@ -21,10 +21,11 @@ import { KAIRON_THEME } from "@/lib/kaironTheme";
  *
  * The "Espejo" panel is a placeholder: it does not call a live LLM (no
  * Anthropic integration exists yet). It scores the user's free text against
- * per-pattern keyword lists (procrastination, perfectionism, overanalysis,
- * self-sabotage, impostor syndrome) and replies with a pseudo-randomly
- * picked variant from the winning pattern, or a generic fallback when
- * nothing matches — see `mirrorPatterns` below.
+ * per-pattern keyword lists for the four canonical execution blocks
+ * (procrastination, perfectionism, self-sabotage, impostor syndrome — same
+ * taxonomy as /bloqueos/) and replies with a pseudo-randomly picked variant
+ * from the winning pattern, or a generic fallback when nothing matches —
+ * see `mirrorPatterns` below.
  */
 
 const ORANGE = KAIRON_THEME.accent;
@@ -88,7 +89,7 @@ const COPY: Record<Locale, Copy> = {
     mirrorKicker: "El Espejo",
     mirrorTitle: "Escribe la razón por la que no lo has hecho todavía.",
     mirrorSub: "Kai la va a leer y te va a decir qué patrón hay debajo. Sin cuenta, sin tarjeta, aquí mismo.",
-    mirrorEx: ["No es el momento adecuado", "Todavía no está listo para mostrarlo", "Necesito investigar un poco más"],
+    mirrorEx: ["No es el momento adecuado", "Todavía no está listo para mostrarlo", "Prefiero no arriesgarme a que salga mal"],
     mirrorPlaceholder: "Ej. Llevo tres semanas sin enviar la propuesta porque quiero revisarla una vez más.",
     mirrorDisclaimer: "No guardamos lo que escribes. Esto no sustituye atención psicológica.",
     mirrorAsk: "Que Kai lo lea", mirrorAsking: "Kai está leyendo…",
@@ -174,13 +175,6 @@ const COPY: Record<Locale, Copy> = {
         ],
       },
       {
-        keywords: ["necesito investigar", "investigar un poco más", "más información", "no estoy seguro", "no estoy segura", "necesito saber más", "analizar", "comparar opciones", "leyendo sobre", "sigo investigando"],
-        variants: [
-          { reply: "Investigar se siente productivo, pero ya tienes suficiente para dar el primer paso. Seguir buscando es postergar con estilo.", pattern: "Sobreanálisis", friction: 58, action: "Ponle un límite de 10 minutos a la investigación y después decide." },
-          { reply: "Ya no estás reuniendo información, estás evitando decidir con la que ya tienes. Eso también es una decisión.", pattern: "Sobreanálisis", friction: 60, action: "Elige entre las dos mejores opciones ahora, sin abrir una pestaña más." },
-        ],
-      },
-      {
         keywords: ["siempre lo arruino", "me boicoteo", "no lo merezco", "algo va a salir mal", "prefiero no arriesgarme", "mejor no", "para qué intentarlo", "va a fallar", "no va a funcionar igual", "seguro se cae"],
         variants: [
           { reply: "Lo que describes no es mala suerte: es un patrón que se repite justo antes de que algo funcione. Frenar ahí también es una forma de control.", pattern: "Autosabotaje", friction: 74, action: "Nombra en voz alta qué tienes miedo de que pase si esto sale bien, y da el paso de todas formas." },
@@ -211,7 +205,7 @@ const COPY: Record<Locale, Copy> = {
     mirrorKicker: "The Mirror",
     mirrorTitle: "Write the reason you haven't done it yet.",
     mirrorSub: "Kai will read it and name the pattern underneath. No account, no card, right here.",
-    mirrorEx: ["It's not the right time", "It's not ready to show yet", "I need to research a bit more"],
+    mirrorEx: ["It's not the right time", "It's not ready to show yet", "I'd rather not risk it going wrong"],
     mirrorPlaceholder: "e.g. The proposal has been sitting for three weeks because I want one more pass at it.",
     mirrorDisclaimer: "We don't store what you write. This is not a substitute for professional care.",
     mirrorAsk: "Let Kai read it", mirrorAsking: "Kai is reading…",
@@ -294,13 +288,6 @@ const COPY: Record<Locale, Copy> = {
         variants: [
           { reply: "\"Ready\" is a bar you keep moving every time you get close. The longer you wait, the bigger the thing you have to let go of.", pattern: "Perfectionism", friction: 71, action: "Share the current version with one person today, no more polishing." },
           { reply: "You're not protecting quality, you're protecting yourself from anyone seeing it before it's \"enough.\" That point doesn't exist.", pattern: "Perfectionism", friction: 68, action: "Set a deadline for today and ship whatever you have at that moment." },
-        ],
-      },
-      {
-        keywords: ["research a bit more", "need to research", "more information", "not sure", "need to know more", "analyze", "compare options", "reading about", "still researching"],
-        variants: [
-          { reply: "Researching feels productive, but you already have enough to take the first step. More digging is procrastination with better manners.", pattern: "Overanalysis", friction: 58, action: "Put a 10-minute cap on research, then decide." },
-          { reply: "You're no longer gathering information, you're avoiding a decision with the information you already have. That's a decision too.", pattern: "Overanalysis", friction: 60, action: "Pick between your two best options right now, no more open tabs." },
         ],
       },
       {
