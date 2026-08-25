@@ -18,6 +18,7 @@ const ORANGE = KAIRON_THEME.accent;
 const ORANGE_HOVER = KAIRON_THEME.accentHover;
 const INK = KAIRON_THEME.bg;
 const INK_2 = KAIRON_THEME.footerBg;
+const CALENDLY_URL = "https://calendly.com/contacto-guillermosuco/llamada-de-orientacion";
 
 const PROBLEMS = [
   { n: "01", t: "Procrastinación", d: "La tarea es clara, el inicio se posterga.", anchor: "procrastinacion" },
@@ -688,10 +689,12 @@ function ContactSection() {
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 14, marginTop: 32 }}>
               <a
-                href="mailto:guillermo@g-structure.co?subject=Agendar%20conversaci%C3%B3n%20KAIRON%20Corporate%20Pilot"
+                href={CALENDLY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="kft-cta-pill"
                 style={{ background: ORANGE, color: "#241300", fontWeight: 600, fontSize: 16, padding: "16px 28px", borderRadius: 999 }}
-                onClick={() => trackContactClick("email", { source: "kairon_for_teams_hero" })}
+                onClick={() => trackContactClick("external", { source: "kairon_for_teams_hero", tool: "calendly" })}
               >
                 Agendar conversación
               </a>
@@ -703,8 +706,8 @@ function ContactSection() {
                 Solicitar información
               </a>
             </div>
-            <div style={{ marginTop: 40, border: "1px dashed rgba(255,255,255,0.2)", borderRadius: 14, padding: 24, fontSize: 14, color: "rgba(255,255,255,0.5)", lineHeight: 1.6 }}>
-              Espacio reservado para el calendario embebido (Calendly / Google Calendar).
+            <div style={{ marginTop: 40 }}>
+              <CalendlyEmbed />
             </div>
           </div>
 
@@ -713,6 +716,31 @@ function ContactSection() {
       </div>
       <style>{`.kft-outline-pill:hover { border-color: #fff; }`}</style>
     </section>
+  );
+}
+
+function loadCalendlyScript() {
+  if (document.querySelector<HTMLScriptElement>("script[data-gstructure-calendly]")) return;
+  const script = document.createElement("script");
+  script.src = "https://assets.calendly.com/assets/external/widget.js";
+  script.async = true;
+  script.dataset.gstructureCalendly = "true";
+  document.head.appendChild(script);
+}
+
+function CalendlyEmbed() {
+  useEffect(() => {
+    loadCalendlyScript();
+  }, []);
+
+  const embedUrl = `${CALENDLY_URL}?background_color=0a0a0b&text_color=f5f3f0&primary_color=f0a046`;
+
+  return (
+    <div
+      className="calendly-inline-widget"
+      data-url={embedUrl}
+      style={{ minWidth: 280, height: 680, borderRadius: 14, overflow: "hidden" }}
+    />
   );
 }
 
