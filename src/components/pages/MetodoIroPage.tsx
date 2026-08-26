@@ -1,4 +1,4 @@
-import { KaironDocHeader, KaironDocFooter } from "@/components/site/KaironDocChrome";
+import { KaironDocHeader, KaironDocFooter, MobileStickyCta } from "@/components/site/KaironDocChrome";
 import { trackAcquisitionEvent, trackOutboundAppOpened } from "@/lib/analytics";
 import { getLaunchPhase, kaironAppUrl } from "@/lib/launchConfig";
 import { KAIRON_THEME } from "@/lib/kaironTheme";
@@ -198,6 +198,7 @@ export function MetodoIroPage({ locale = "es" }: { locale?: Locale }) {
   const c = METODO_IRO_COPY[locale];
   const navHref = kaironAppUrl(locale, "metodo_nav", getLaunchPhase());
   const finalHref = kaironAppUrl(locale, "metodo_final", getLaunchPhase());
+  const mobileHref = kaironAppUrl(locale, "mobile_sticky", getLaunchPhase());
   const homePath = locale === "en" ? "/en" : "/";
 
   return (
@@ -356,6 +357,12 @@ export function MetodoIroPage({ locale = "es" }: { locale?: Locale }) {
       </section>
 
       <KaironDocFooter locale={locale} />
+      <MobileStickyCta
+        href={mobileHref}
+        label={locale === "en" ? "Try KAIRON" : "Probar KAIRON"}
+        external
+        onClick={() => trackCta(locale, "mobile_sticky")}
+      />
 
       <style>{`
         .iro-link { color: rgba(245,243,240,0.4); }

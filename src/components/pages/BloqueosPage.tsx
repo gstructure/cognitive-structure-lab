@@ -1,4 +1,4 @@
-import { KaironDocHeader, KaironDocFooter } from "@/components/site/KaironDocChrome";
+import { KaironDocHeader, KaironDocFooter, MobileStickyCta } from "@/components/site/KaironDocChrome";
 import { trackAcquisitionEvent, trackOutboundAppOpened } from "@/lib/analytics";
 import { getLaunchPhase, kaironAppUrl } from "@/lib/launchConfig";
 import { KAIRON_THEME } from "@/lib/kaironTheme";
@@ -207,6 +207,7 @@ function trackCta(locale: Locale, location: string) {
 export function BloqueosPage({ locale = "es" }: { locale?: Locale }) {
   const c = BLOQUEOS_COPY[locale];
   const navHref = kaironAppUrl(locale, "bloqueos_nav", getLaunchPhase());
+  const mobileHref = kaironAppUrl(locale, "mobile_sticky", getLaunchPhase());
   const homePath = locale === "en" ? "/en" : "/";
 
   return (
@@ -327,6 +328,12 @@ export function BloqueosPage({ locale = "es" }: { locale?: Locale }) {
       </section>
 
       <KaironDocFooter locale={locale} />
+      <MobileStickyCta
+        href={mobileHref}
+        label={locale === "en" ? "Try KAIRON" : "Probar KAIRON"}
+        external
+        onClick={() => trackCta(locale, "mobile_sticky")}
+      />
 
       <style>{`
         .blq-link { color: rgba(245,243,240,0.4); }

@@ -4,7 +4,7 @@ import { CheckCircle2 } from "lucide-react";
 import gsLogoLight from "@/assets/gslogolight.webp";
 import { trackContactClick, trackConversion } from "@/lib/analytics";
 import { KAIRON_THEME } from "@/lib/kaironTheme";
-import { DocDropdown, type DocNavItem } from "@/components/site/KaironDocChrome";
+import { DocDropdown, MobileStickyCta, mobileNavItems, type DocNavItem } from "@/components/site/KaironDocChrome";
 
 /**
  * Standalone B2B landing page for the KAIRON Corporate Pilot, aimed at
@@ -122,6 +122,7 @@ export function KaironForTeamsPage() {
       <AudienceSection />
       <ContactSection />
       <SiteFooter />
+      <MobileStickyCta href="mailto:guillermo@g-structure.co" label="Agendar 15 minutos" />
     </div>
   );
 }
@@ -141,14 +142,19 @@ const METODOLOGIA_ITEMS: DocNavItem[] = [
 
 function SiteHeader() {
   const [menu, setMenu] = useState<"producto" | "metodologia" | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const rootRef = useRef<HTMLElement>(null);
+  const mobileNav = mobileNavItems("es");
 
   useEffect(() => {
     const onDocClick = (e: MouseEvent) => {
       if (rootRef.current && !rootRef.current.contains(e.target as Node)) setMenu(null);
     };
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setMenu(null);
+      if (e.key === "Escape") {
+        setMenu(null);
+        setMobileOpen(false);
+      }
     };
     document.addEventListener("click", onDocClick);
     document.addEventListener("keydown", onKey);
@@ -188,7 +194,7 @@ function SiteHeader() {
             for Teams
           </span>
         </Link>
-        <nav aria-label="Principal" style={{ display: "flex", alignItems: "center", gap: "clamp(14px,2.2vw,28px)", flexWrap: "wrap", justifyContent: "flex-end" }}>
+        <nav aria-label="Principal" className="kft-nav-desktop" style={{ display: "flex", alignItems: "center", gap: "clamp(14px,2.2vw,28px)", flexWrap: "wrap", justifyContent: "flex-end" }}>
           <DocDropdown
             label="Producto"
             items={PRODUCTO_ITEMS}
@@ -215,7 +221,36 @@ function SiteHeader() {
             Agendar 15 min
           </a>
         </nav>
+
+        <button
+          type="button"
+          className="kft-hamburger"
+          aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}
+          aria-expanded={mobileOpen}
+          onClick={(e) => { e.stopPropagation(); setMobileOpen((v) => !v); }}
+        >
+          <span aria-hidden="true" className="kft-burger-bar" data-open={mobileOpen} data-bar="top" />
+          <span aria-hidden="true" className="kft-burger-bar" data-open={mobileOpen} data-bar="mid" />
+        </button>
       </div>
+
+      {mobileOpen ? (
+        <div className="kft-mobile-panel">
+          {mobileNav.map((item) =>
+            item.to ? (
+              <Link key={item.label} to={item.to as string} className="kft-mobile-row" onClick={() => setMobileOpen(false)}>
+                {item.label}
+              </Link>
+            ) : (
+              <a key={item.label} href={item.href} className="kft-mobile-row" onClick={() => setMobileOpen(false)}>
+                {item.label}
+              </a>
+            ),
+          )}
+          <a href="#contacto" className="kft-mobile-cta" onClick={() => setMobileOpen(false)}>Agendar 15 min</a>
+        </div>
+      ) : null}
+
       <style>{`
         .kft-nav-link:hover { color: #fff; }
         .kft-cta-pill:hover { background: ${ORANGE_HOVER}; }
@@ -229,6 +264,21 @@ function SiteHeader() {
         .kdh-item:hover { background: rgba(245,243,240,0.06); color: #F5F3F0; }
         .kdh-trigger:focus-visible, .kdh-item:focus-visible {
           outline: 2px solid ${ORANGE}; outline-offset: 3px; border-radius: 4px;
+        }
+        .kft-hamburger { display: none; width: 44px; height: 44px; margin-right: -10px; border: 0; background: none; flex-direction: column; align-items: center; justify-content: center; gap: 5px; cursor: pointer; }
+        .kft-burger-bar { width: 20px; height: 1.5px; background: #F5F3F0; transition: transform 200ms ease; }
+        .kft-burger-bar[data-bar="top"][data-open="true"] { transform: translateY(3.25px) rotate(45deg); }
+        .kft-burger-bar[data-bar="mid"][data-open="true"] { transform: translateY(-3.25px) rotate(-45deg); }
+        .kft-mobile-panel { display: none; }
+        @media (max-width: 768px) {
+          .kft-nav-desktop { display: none; }
+          .kft-hamburger { display: flex; }
+          .kft-mobile-panel { display: flex; flex-direction: column; gap: 0; padding: 0 clamp(20px,5vw,40px) 20px; border-top: 1px solid rgba(255,255,255,0.07); }
+        }
+        .kft-mobile-row { display: flex; align-items: center; min-height: 50px; font-size: 16.5px; color: #F5F3F0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+        .kft-mobile-cta { display: flex; align-items: center; justify-content: center; min-height: 52px; margin-top: 14px; background: ${ORANGE}; color: #241300; font-weight: 600; font-size: 16.5px; border-radius: 999px; }
+        .kft-hamburger:focus-visible, .kft-mobile-row:focus-visible, .kft-mobile-cta:focus-visible {
+          outline: 2px solid ${ORANGE}; outline-offset: 3px;
         }
       `}</style>
     </header>
@@ -289,7 +339,7 @@ function Hero() {
           <p style={{ fontSize: 16, lineHeight: 1.6, color: "rgba(255,255,255,0.52)", margin: "18px 0 0", maxWidth: "34em" }}>
             No es otra capacitación de productividad ni un programa de bienestar. Es un sistema para trabajar la fricción cognitiva que aparece antes de que la ejecución se rompa.
           </p>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 14, marginTop: 38 }}>
+          <div className="kft-hero-ctas" style={{ display: "flex", flexWrap: "wrap", gap: 14, marginTop: 38 }}>
             <a
               href="#contacto"
               className="kft-cta-pill"
@@ -326,7 +376,13 @@ function Hero() {
 
         <ExecutionDiagnosticCard />
       </div>
-      <style>{`.kft-outline-pill:hover { border-color: #fff; }`}</style>
+      <style>{`
+        .kft-outline-pill:hover { border-color: #fff; }
+        @media (max-width: 768px) {
+          .kft-hero-ctas { flex-direction: column; align-items: stretch; gap: 10px; }
+          .kft-hero-ctas .kft-cta-pill, .kft-hero-ctas .kft-outline-pill { min-height: 54px; display: flex; align-items: center; justify-content: center; }
+        }
+      `}</style>
     </section>
   );
 }
@@ -400,6 +456,8 @@ function ExecutionDiagnosticCard() {
 }
 
 function ProblemSection() {
+  const [openAcc, setOpenAcc] = useState<number | null>(null);
+
   return (
     <section id="problema" style={{ padding: "clamp(64px,9vw,120px) clamp(20px,5vw,40px)" }}>
       <div style={{ maxWidth: 1180, margin: "0 auto" }}>
@@ -413,7 +471,7 @@ function ProblemSection() {
           </p>
         </div>
 
-        <div style={{ display: "grid", gap: 12, marginTop: 44 }}>
+        <div className="kft-problem-desktop" style={{ display: "grid", gap: 12, marginTop: 44 }}>
           {PROBLEMS.map((p) => (
             <a
               key={p.n}
@@ -450,11 +508,60 @@ function ProblemSection() {
           ))}
         </div>
 
+        <div className="kft-problem-accordion" style={{ display: "grid", gap: 8, marginTop: 24 }}>
+          {PROBLEMS.map((p, i) => {
+            const open = openAcc === i;
+            return (
+              <div key={p.n}>
+                <button
+                  type="button"
+                  className="kft-acc-btn"
+                  aria-expanded={open}
+                  aria-controls={`kft-acc-panel-${i}`}
+                  onClick={() => setOpenAcc((v) => (v === i ? null : i))}
+                >
+                  <span style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                    <span className="font-display" style={{ fontSize: "11.5px", color: ORANGE }}>{p.n}</span>
+                    <span className="font-display" style={{ fontSize: 17, fontWeight: 600 }}>{p.t}</span>
+                  </span>
+                  <span aria-hidden="true" className="kft-acc-sign" data-open={open}>+</span>
+                </button>
+                <div id={`kft-acc-panel-${i}`} className="kft-acc-panel" hidden={!open}>
+                  <div style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(245,243,240,0.42)" }}>Puede aparecer como</div>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 11 }}>
+                    {p.signs.map((s) => (
+                      <span key={s} style={{ border: `1px solid ${KAIRON_THEME.borderStrong}`, borderRadius: 999, padding: "8px 13px", fontSize: 14, color: "rgba(245,243,240,0.78)" }}>
+                        {s}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
         <p style={{ fontSize: 14, lineHeight: 1.6, color: "rgba(245,243,240,0.42)", margin: "28px 0 0", maxWidth: "52em" }}>
           Estos patrones se describen como conductas observables de ejecución. KAIRON no diagnostica ni afirma causalidad clínica.
         </p>
       </div>
       <style>{`
+        .kft-problem-accordion { display: none; }
+        @media (max-width: 768px) {
+          .kft-problem-desktop { display: none !important; }
+          .kft-problem-accordion { display: grid !important; }
+        }
+        .kft-acc-btn {
+          width: 100%; min-height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+          background: ${KAIRON_THEME.surface}; border: 1px solid ${KAIRON_THEME.border}; border-radius: 14px; padding: 0 18px;
+          color: #F5F3F0; cursor: pointer; text-align: left;
+        }
+        .kft-acc-sign { font-size: 20px; color: rgba(245,243,240,0.5); transition: transform 200ms ease; flex: none; }
+        .kft-acc-sign[data-open="true"] { transform: rotate(45deg); color: ${ORANGE}; }
+        .kft-acc-panel {
+          margin-top: 8px; border: 1px solid rgba(240,160,70,0.32); background: rgba(240,160,70,0.06); border-radius: 14px; padding: 16px 18px;
+        }
+        .kft-acc-btn:focus-visible { outline: 2px solid ${ORANGE}; outline-offset: 3px; }
         .kft-problem-card:hover { border-color: rgba(240,160,70,0.7); }
         .kft-problem-card:focus-visible { outline: 2px solid ${ORANGE}; outline-offset: 3px; }
       `}</style>

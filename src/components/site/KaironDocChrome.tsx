@@ -70,6 +70,34 @@ function metodologiaItems(locale: Locale, current?: DocPage): DocNavItem[] {
 
 export type DocPage = "metodo-iro" | "bloqueos" | "indice-friccion" | "vs-ia-generativa";
 
+/**
+ * Flat mobile nav order, per the "Diseño Mobile KAIRON" handoff (Tarea 1):
+ * the desktop Producto/Metodología dropdown split collapses to a single
+ * list in this exact order — no submenus or accordions inside the mobile
+ * sheet. Precio is intentionally not included (it's a Home anchor, not a
+ * standalone page); Teams is deliberately last.
+ */
+export function mobileNavItems(locale: Locale, current?: DocPage): DocNavItem[] {
+  const home = locale === "en" ? "/en" : "/";
+  return locale === "en"
+    ? [
+        { label: "KAIRON", href: `${home}#producto` },
+        { label: "KAIRON vs generative AI", href: "/en/vs-generative-ai", current: current === "vs-ia-generativa" },
+        { label: "I-R-O™ Method", href: "/en/iro-method", current: current === "metodo-iro" },
+        { label: "Execution blocks", href: "/en/execution-blocks", current: current === "bloqueos" },
+        { label: "Friction Index", href: "/en/friction-index", current: current === "indice-friccion" },
+        { label: "KAIRON for Teams", to: "/teams" },
+      ]
+    : [
+        { label: "KAIRON", href: `${home}#producto` },
+        { label: "KAIRON vs IA generativa", href: "/vs-ia-generativa", current: current === "vs-ia-generativa" },
+        { label: "Método I-R-O™", href: "/metodo-iro", current: current === "metodo-iro" },
+        { label: "Bloqueos de ejecución", href: "/bloqueos", current: current === "bloqueos" },
+        { label: "Índice de Fricción", href: "/indice-friccion", current: current === "indice-friccion" },
+        { label: "KAIRON for Teams", to: "/teams" },
+      ];
+}
+
 export function KaironDocHeader({
   locale,
   current,
@@ -86,6 +114,7 @@ export function KaironDocHeader({
   const rootRef = useRef<HTMLElement>(null);
   const producto = productoItems(locale, current);
   const metodologia = metodologiaItems(locale, current);
+  const mobileNav = mobileNavItems(locale, current);
   const productoActive = current === "vs-ia-generativa";
   const productoLabel = locale === "en" ? "Product" : "Producto";
   const metodologiaLabel = locale === "en" ? "Methodology" : "Metodología";
@@ -145,16 +174,32 @@ export function KaironDocHeader({
           aria-expanded={mobileOpen}
           onClick={(e) => { e.stopPropagation(); setMobileOpen((v) => !v); }}
         >
-          <span aria-hidden="true">{mobileOpen ? "✕" : "☰"}</span>
+          <span aria-hidden="true" className="kdh-burger-bar" data-open={mobileOpen} data-bar="top" />
+          <span aria-hidden="true" className="kdh-burger-bar" data-open={mobileOpen} data-bar="mid" />
         </button>
       </div>
 
       {mobileOpen ? (
         <div className="kdh-mobile-panel">
-          <MobileGroup title={productoLabel} items={producto} onNavigate={() => setMobileOpen(false)} />
-          <MobileGroup title={metodologiaLabel} items={metodologia} onNavigate={() => setMobileOpen(false)} />
-          <Link to="/teams" className="kdh-mobile-link" onClick={() => setMobileOpen(false)}>{teamsLabel}</Link>
-          <div style={{ marginTop: 6 }}>
+          {mobileNav.map((item) =>
+            item.to ? (
+              <Link key={item.label} to={item.to as string} className="kdh-mobile-row" onClick={() => setMobileOpen(false)}>
+                {item.label}
+              </Link>
+            ) : (
+              <a
+                key={item.label}
+                href={item.href}
+                aria-current={item.current ? "page" : undefined}
+                className="kdh-mobile-row"
+                onClick={() => setMobileOpen(false)}
+              >
+                {item.label}
+                {item.current ? <span aria-hidden="true" className="kdh-mobile-dot" /> : null}
+              </a>
+            ),
+          )}
+          <div style={{ marginTop: 10 }}>
             <DocLangSwitch locale={locale} />
           </div>
           <a
@@ -184,21 +229,22 @@ export function KaironDocHeader({
         .kdh-lang-btn { border: none; background: transparent; color: rgba(245,243,240,0.5); font-size: 11.5px; font-weight: 600; letter-spacing: 0.08em; padding: 8px 11px; cursor: pointer; }
         .kdh-lang-btn[data-active="true"] { background: rgba(240,160,70,0.16); color: ${ORANGE}; }
         .kdh-link:focus-visible, .kdh-cta:focus-visible, .kdh-trigger:focus-visible, .kdh-item:focus-visible,
-        .kdh-hamburger:focus-visible, .kdh-mobile-link:focus-visible, .kdh-mobile-cta:focus-visible, .kdh-lang-btn:focus-visible {
+        .kdh-hamburger:focus-visible, .kdh-mobile-row:focus-visible, .kdh-mobile-cta:focus-visible, .kdh-lang-btn:focus-visible {
           outline: 2px solid ${ORANGE}; outline-offset: 3px; border-radius: 4px;
         }
-        .kdh-hamburger { display: none; border: 0; background: none; color: #F5F3F0; font-size: 19px; padding: 6px; cursor: pointer; line-height: 1; }
+        .kdh-hamburger { display: none; width: 44px; height: 44px; margin-right: -10px; border: 0; background: none; flex-direction: column; align-items: center; justify-content: center; gap: 5px; cursor: pointer; }
+        .kdh-burger-bar { width: 20px; height: 1.5px; background: #F5F3F0; transition: transform 200ms ease, opacity 200ms ease; }
+        .kdh-burger-bar[data-bar="top"][data-open="true"] { transform: translateY(3.25px) rotate(45deg); }
+        .kdh-burger-bar[data-bar="mid"][data-open="true"] { transform: translateY(-3.25px) rotate(-45deg); }
         .kdh-mobile-panel { display: none; }
-        @media (max-width: 860px) {
+        @media (max-width: 768px) {
           .kdh-nav-desktop { display: none; }
-          .kdh-hamburger { display: inline-flex; }
-          .kdh-mobile-panel { display: flex; flex-direction: column; gap: 2px; padding: 6px clamp(18px,5vw,40px) 20px; border-top: 1px solid ${KAIRON_THEME.border}; }
+          .kdh-hamburger { display: flex; }
+          .kdh-mobile-panel { display: flex; flex-direction: column; gap: 0; padding: 0 clamp(18px,5vw,40px) 20px; border-top: 1px solid ${KAIRON_THEME.border}; }
         }
-        .kdh-mobile-group summary { cursor: pointer; padding: 12px 4px; font-size: 14px; color: #F5F3F0; list-style: none; display: flex; justify-content: space-between; align-items: center; }
-        .kdh-mobile-group summary::-webkit-details-marker { display: none; }
-        .kdh-mobile-link, .kdh-mobile-group a { display: block; padding: 10px 4px; font-size: 14px; color: rgba(245,243,240,0.72); }
-        .kdh-mobile-group a[aria-current="page"] { color: ${ORANGE}; }
-        .kdh-mobile-cta { display: inline-flex; justify-content: center; margin-top: 10px; background: ${ORANGE}; color: #1A1000; font-weight: 600; font-size: 14px; padding: 12px 20px; border-radius: 999px; }
+        .kdh-mobile-row { display: flex; align-items: center; justify-content: space-between; min-height: 50px; font-size: 16.5px; color: #F5F3F0; border-bottom: 1px solid ${KAIRON_THEME.border}; }
+        .kdh-mobile-dot { width: 6px; height: 6px; border-radius: 50%; background: ${ORANGE}; flex: none; }
+        .kdh-mobile-cta { display: flex; align-items: center; justify-content: center; min-height: 52px; margin-top: 14px; background: ${ORANGE}; color: #1A1000; font-weight: 600; font-size: 16.5px; border-radius: 999px; }
       `}</style>
     </header>
   );
@@ -265,27 +311,6 @@ export function DocDropdown({
   );
 }
 
-function MobileGroup({ title, items, onNavigate }: { title: string; items: DocNavItem[]; onNavigate: () => void }) {
-  return (
-    <details className="kdh-mobile-group">
-      <summary>
-        {title} <span aria-hidden="true" style={{ fontSize: 9, opacity: 0.65 }}>▼</span>
-      </summary>
-      <div style={{ display: "grid" }}>
-        {items.map((item) =>
-          item.to ? (
-            <Link key={item.label} to={item.to as string} onClick={onNavigate}>{item.label}</Link>
-          ) : (
-            <a key={item.label} href={item.href} aria-current={item.current ? "page" : undefined} onClick={onNavigate}>
-              {item.label}
-            </a>
-          ),
-        )}
-      </div>
-    </details>
-  );
-}
-
 export function KaironDocFooter({
   locale = "es",
   legalNote,
@@ -337,5 +362,60 @@ export function KaironDocFooter({
         .kdh-foot-link:focus-visible { outline: 2px solid ${ORANGE}; outline-offset: 3px; border-radius: 4px; }
       `}</style>
     </footer>
+  );
+}
+
+/**
+ * Mobile-only sticky bottom CTA bar (Tarea 2 of the "Diseño Mobile KAIRON"
+ * handoff) — new in mobile, doesn't exist in desktop at all. Rendered on
+ * every page; hidden above the 768px breakpoint via CSS only (not a JS
+ * conditional) so there's no hydration mismatch and no risk of a
+ * flash-of-wrong-layout on desktop.
+ */
+export function MobileStickyCta({
+  href,
+  label,
+  external,
+  onClick,
+}: {
+  href: string;
+  label: string;
+  external?: boolean;
+  onClick?: () => void;
+}) {
+  return (
+    <div className="kdh-sticky-cta">
+      <a
+        href={href}
+        target={external ? "_blank" : undefined}
+        rel={external ? "noopener noreferrer" : undefined}
+        onClick={onClick}
+        className="kdh-sticky-cta-btn"
+      >
+        {label}
+      </a>
+      <style>{`
+        .kdh-sticky-cta { display: none; }
+        @media (max-width: 768px) {
+          .kdh-sticky-cta {
+            display: block;
+            position: sticky;
+            bottom: 0;
+            z-index: 80;
+            background: rgba(10,10,11,0.92);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-top: 1px solid rgba(245,243,240,0.09);
+            padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+          }
+        }
+        .kdh-sticky-cta-btn {
+          display: flex; align-items: center; justify-content: center; min-height: 52px;
+          background: ${ORANGE}; color: #1A1000; font-weight: 600; font-size: 16.5px; border-radius: 999px;
+        }
+        .kdh-sticky-cta-btn:hover { background: ${ORANGE_HOVER}; }
+        .kdh-sticky-cta-btn:focus-visible { outline: 2px solid ${ORANGE}; outline-offset: 3px; }
+      `}</style>
+    </div>
   );
 }
