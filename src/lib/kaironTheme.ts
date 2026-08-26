@@ -1,7 +1,7 @@
 /**
  * Shared design tokens for the dark KAIRON marketing pages (Home, Teams,
  * and the remaining pages from the "design_handoff_gstructure_site"
- * package: Método I-R-O, Bloqueos, Índice de Fricción, KAIRON vs Notion).
+ * package: Método I-R-O, Bloqueos, Índice de Fricción, KAIRON vs IA generativa).
  * Values match the handoff's Design Tokens table verbatim — this is the
  * single source of truth, don't hardcode these hex values in a page
  * component. Hard rule from the handoff: one accent color site-wide

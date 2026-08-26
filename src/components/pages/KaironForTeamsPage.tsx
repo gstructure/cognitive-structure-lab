@@ -21,19 +21,10 @@ const INK_2 = KAIRON_THEME.footerBg;
 const CALENDLY_URL = "https://calendly.com/contacto-guillermosuco/llamada-de-orientacion";
 
 const PROBLEMS = [
-  { n: "01", t: "Procrastinación", d: "La tarea es clara, el inicio se posterga.", anchor: "procrastinacion" },
-  { n: "02", t: "Perfeccionismo", d: "Nada se entrega hasta que sea impecable.", anchor: "perfeccionismo" },
-  { n: "03", t: "Autosabotaje", d: "Decisiones que frenan el propio avance.", anchor: "autosabotaje" },
-  { n: "04", t: "Síndrome del impostor", d: "Capacidad real, confianza en duda.", anchor: "impostor" },
-];
-
-const BUSINESS_TAGS = [
-  "Retrasos",
-  "Retrabajo",
-  "Dificultad para delegar",
-  "Menor participación",
-  "Pérdida de momentum",
-  "Presión innecesaria",
+  { n: "01", t: "Procrastinación", anchor: "procrastinacion", signs: ["Tareas críticas postergadas", "Urgencias evitables", "Ejecución reactiva"] },
+  { n: "02", t: "Perfeccionismo", anchor: "perfeccionismo", signs: ["Retrasos", "Retrabajo", "Dificultad para delegar", "Exceso de revisión"] },
+  { n: "03", t: "Autosabotaje", anchor: "autosabotaje", signs: ["Abandono", "Inconsistencia", "Conductas que interfieren con objetivos definidos"] },
+  { n: "04", t: "Síndrome del impostor", anchor: "impostor", signs: ["Evitación de oportunidades", "Menor participación", "Inseguridad ante decisiones"] },
 ];
 
 const IRO_STEPS = [
@@ -71,11 +62,20 @@ const PILOT_STEPS = [
   },
 ];
 
+const PILOT_QUESTIONS = [
+  "¿Los colaboradores reconocen sus patrones?",
+  "¿Vuelven a usar KAIRON cuando aparece la fricción?",
+  "¿Definen acciones concretas?",
+  "¿Ejecutan esas acciones?",
+  "¿Perciben valor suficiente para continuar?",
+  "¿Hay adopción real, no solo curiosidad inicial?",
+];
+
 const PRIVACY_POINTS = [
   { text: "La empresa no ve conversaciones individuales", strong: false },
   { text: "No ve resultados personales del Scanner", strong: false },
   { text: "No accede al contenido interno de cada usuario", strong: false },
-  { text: "Solo recibe datos agregados y anónimos", strong: true },
+  { text: "Solo recibe adopción agregada, tendencias y distribución anónima de patrones", strong: true },
 ];
 
 const TESTIMONIALS = [
@@ -95,11 +95,11 @@ const BILINGUAL_POINTS = [
 
 const AUDIENCE = [
   "Empresas de tecnología",
-  "Equipos administrativos",
+  "Knowledge workers",
+  "Equipos de proyecto",
+  "Equipos comerciales",
   "Mandos medios",
   "Instituciones educativas",
-  "Equipos de conocimiento",
-  "Organizaciones con presión por ejecución",
 ];
 
 const NAV = [
@@ -115,6 +115,7 @@ export function KaironForTeamsPage() {
       <ProblemSection />
       <MethodSection />
       <PilotSection />
+      <ChatGptObjectionSection />
       <PrivacySection />
       <ProofSection />
       <BilingualSection />
@@ -129,7 +130,7 @@ const PRODUCTO_ITEMS: DocNavItem[] = [
   { label: "KAIRON", href: "/#producto" },
   { label: "Precio", href: "/#precio" },
   { label: "KAIRON for Teams", to: "/teams" },
-  { label: "KAIRON vs Notion", href: "/kairon/vs/notion" },
+  { label: "KAIRON vs IA generativa", href: "/vs-ia-generativa" },
 ];
 
 const METODOLOGIA_ITEMS: DocNavItem[] = [
@@ -280,13 +281,13 @@ function Hero() {
             className="font-display"
             style={{ fontWeight: 600, fontSize: "clamp(38px,6vw,68px)", lineHeight: 1.03, letterSpacing: "-0.02em", margin: "26px 0 0" }}
           >
-            ¿Qué está frenando la ejecución de tu equipo?
+            Tu equipo sabe qué tiene que hacer. ¿Qué está impidiendo que lo ejecute?
           </h1>
           <p style={{ fontSize: "clamp(17px,2vw,21px)", lineHeight: 1.55, color: "rgba(255,255,255,0.74)", margin: "24px 0 0", maxWidth: "34em" }}>
-            KAIRON ayuda a identificar y trabajar bloqueos como procrastinación, perfeccionismo, autosabotaje y síndrome del impostor.
+            KAIRON ayuda a identificar patrones como procrastinación, perfeccionismo, autosabotaje y síndrome del impostor, y da a cada colaborador una herramienta para trabajarlos cuando realmente aparecen.
           </p>
           <p style={{ fontSize: 16, lineHeight: 1.6, color: "rgba(255,255,255,0.52)", margin: "18px 0 0", maxWidth: "34em" }}>
-            No es otra capacitación de productividad. Es una herramienta continua para trabajar la fricción cognitiva que afecta la ejecución.
+            No es otra capacitación de productividad ni un programa de bienestar. Es un sistema para trabajar la fricción cognitiva que aparece antes de que la ejecución se rompa.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 14, marginTop: 38 }}>
             <a
@@ -294,14 +295,14 @@ function Hero() {
               className="kft-cta-pill"
               style={{ background: ORANGE, color: "#241300", fontWeight: 600, fontSize: 16, padding: "16px 28px", borderRadius: 999 }}
             >
-              Agenda una conversación de 15 minutos
+              Explorar un Corporate Pilot
             </a>
             <a
               href="#contacto"
               className="kft-outline-pill"
               style={{ border: "1px solid rgba(255,255,255,0.28)", color: "#fff", fontWeight: 500, fontSize: 16, padding: "16px 28px", borderRadius: 999 }}
             >
-              Solicitar información del piloto
+              Agenda 15 minutos
             </a>
           </div>
           <div
@@ -316,7 +317,7 @@ function Hero() {
               color: "rgba(255,255,255,0.5)",
             }}
           >
-            <span>52 personas ya lo probaron</span>
+            <span>Validación inicial: 52 personas ya lo probaron</span>
             <span>Semifinalistas CodeLaunch LATAM 2026</span>
             <span>Hosts de Ecuador Tech Week 2026</span>
             <span>Boostcamp 2026 · i3lab ESPOL</span>
@@ -412,26 +413,46 @@ function ProblemSection() {
           </p>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(230px,1fr))", gap: 18, marginTop: 48 }}>
+        <div style={{ display: "grid", gap: 12, marginTop: 44 }}>
           {PROBLEMS.map((p) => (
-            <a key={p.n} href={`/bloqueos#${p.anchor}`} className="kft-problem-card" style={{ background: KAIRON_THEME.surface, border: `1px solid ${KAIRON_THEME.border}`, borderRadius: 14, padding: 26, display: "block", color: "inherit", textDecoration: "none" }}>
-              <div className="font-display" style={{ fontSize: 13, color: ORANGE }}>{p.n}</div>
-              <div className="font-display" style={{ fontSize: 20, fontWeight: 600, marginTop: 14 }}>{p.t}</div>
-              <p style={{ fontSize: "14.5px", lineHeight: 1.55, color: "rgba(245,243,240,0.58)", margin: "10px 0 0" }}>{p.d}</p>
+            <a
+              key={p.n}
+              href={`/bloqueos#${p.anchor}`}
+              className="kft-problem-card"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "minmax(180px,1fr) 2fr",
+                gap: "clamp(14px,3vw,34px)",
+                alignItems: "start",
+                background: KAIRON_THEME.surface,
+                border: `1px solid ${KAIRON_THEME.border}`,
+                borderRadius: 14,
+                padding: "22px 24px",
+                color: "inherit",
+                textDecoration: "none",
+              }}
+            >
+              <div>
+                <div className="font-display" style={{ fontSize: "12.5px", color: ORANGE }}>{p.n}</div>
+                <div className="font-display" style={{ fontSize: 19, fontWeight: 600, marginTop: 8 }}>{p.t}</div>
+              </div>
+              <div>
+                <div style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(245,243,240,0.42)" }}>Puede aparecer como</div>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 11 }}>
+                  {p.signs.map((s) => (
+                    <span key={s} style={{ border: `1px solid ${KAIRON_THEME.borderStrong}`, borderRadius: 999, padding: "7px 14px", fontSize: 14, color: "rgba(245,243,240,0.78)" }}>
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </a>
           ))}
         </div>
 
-        <div style={{ marginTop: 44, borderTop: `1px solid ${KAIRON_THEME.border}`, paddingTop: 32 }}>
-          <div style={{ fontSize: 13, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(245,243,240,0.45)" }}>En lenguaje de negocio</div>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 18 }}>
-            {BUSINESS_TAGS.map((t) => (
-              <span key={t} style={{ border: `1px solid ${KAIRON_THEME.borderStrong}`, borderRadius: 999, padding: "9px 16px", fontSize: "14.5px" }}>
-                {t}
-              </span>
-            ))}
-          </div>
-        </div>
+        <p style={{ fontSize: 14, lineHeight: 1.6, color: "rgba(245,243,240,0.42)", margin: "28px 0 0", maxWidth: "52em" }}>
+          Estos patrones se describen como conductas observables de ejecución. KAIRON no diagnostica ni afirma causalidad clínica.
+        </p>
       </div>
       <style>{`
         .kft-problem-card:hover { border-color: rgba(240,160,70,0.7); }
@@ -510,10 +531,10 @@ function PilotSection() {
         <div style={{ maxWidth: 720 }}>
           <div style={{ fontSize: 12, letterSpacing: "0.16em", textTransform: "uppercase", color: ORANGE }}>Corporate Pilot</div>
           <h2 className="font-display" style={{ fontWeight: 600, fontSize: "clamp(28px,4vw,46px)", lineHeight: 1.1, letterSpacing: "-0.015em", margin: "16px 0 0" }}>
-            Cómo funciona
+            Empiece pequeño. Mida. Decida con evidencia.
           </h2>
           <p style={{ fontSize: "clamp(16px,1.7vw,19px)", lineHeight: 1.6, color: "rgba(255,255,255,0.6)", margin: "20px 0 0" }}>
-            Tres pasos, un ciclo de 30 días, una decisión con evidencia al final.
+            Una cohorte controlada durante 30 días. Sin implementación masiva y sin compromiso anual para empezar.
           </p>
         </div>
 
@@ -538,14 +559,80 @@ function PilotSection() {
           ))}
         </div>
 
-        <div style={{ marginTop: 40 }}>
+        <div style={{ marginTop: 44, border: "1px solid rgba(255,255,255,0.13)", borderRadius: 16, padding: "clamp(24px,3.5vw,38px)", background: "rgba(255,255,255,0.02)" }}>
+          <div style={{ fontSize: 12, letterSpacing: "0.16em", textTransform: "uppercase", color: ORANGE }}>Qué responde el piloto</div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(250px,1fr))", gap: "14px 34px", marginTop: 20 }}>
+            {PILOT_QUESTIONS.map((q) => (
+              <div key={q} style={{ display: "flex", gap: 12, fontSize: "15.5px", lineHeight: 1.5, color: "rgba(255,255,255,0.78)" }}>
+                <span style={{ color: ORANGE }}>—</span>
+                <span>{q}</span>
+              </div>
+            ))}
+          </div>
+          <div style={{ marginTop: 24, paddingTop: 20, borderTop: "1px solid rgba(255,255,255,0.1)", fontSize: 14, lineHeight: 1.6, color: "rgba(255,255,255,0.5)", maxWidth: "46em" }}>
+            Talento Humano recibe adopción agregada, tendencias y distribución anónima de patrones. Las métricas de resultado se definen con usted al inicio del piloto: no prometemos cifras que todavía no hemos demostrado.
+          </div>
           <a
             href="#contacto"
             className="kft-cta-pill"
-            style={{ display: "inline-block", background: ORANGE, color: "#241300", fontWeight: 600, fontSize: 16, padding: "15px 26px", borderRadius: 999 }}
+            style={{ display: "inline-block", marginTop: 26, background: ORANGE, color: "#241300", fontWeight: 600, fontSize: 16, padding: "15px 26px", borderRadius: 999 }}
           >
-            Solicitar información del piloto
+            Explorar un Corporate Pilot
           </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const CHATGPT_LICENSE_POINTS = [
+  "Conversación abierta",
+  "Resultado dependiente del prompt",
+  "Propósito amplio",
+  "Sin flujo organizacional específico",
+  "Sin lectura agregada de patrones",
+];
+
+const CHATGPT_PILOT_POINTS = [
+  "Scanner y protocolos estructurados",
+  "Método I-R-O™ como experiencia consistente",
+  "Intervención orientada a acción",
+  "Privacidad individual por diseño",
+  "Cohortes, adopción y reporting agregado",
+];
+
+function ChatGptObjectionSection() {
+  return (
+    <section id="por-que-no-chatgpt" style={{ padding: "clamp(64px,9vw,120px) clamp(20px,5vw,40px)", background: INK, borderTop: `1px solid ${KAIRON_THEME.border}` }}>
+      <div style={{ maxWidth: 1180, margin: "0 auto" }}>
+        <div style={{ maxWidth: 740 }}>
+          <div style={{ fontSize: 12, letterSpacing: "0.16em", textTransform: "uppercase", color: ORANGE }}>La objeción honesta</div>
+          <h2 className="font-display" style={{ fontWeight: 600, fontSize: "clamp(28px,4vw,46px)", lineHeight: 1.1, letterSpacing: "-0.015em", margin: "16px 0 0" }}>
+            ¿Por qué no darle ChatGPT al equipo?
+          </h2>
+          <p style={{ fontSize: "clamp(16px,1.7vw,19px)", lineHeight: 1.6, color: "rgba(245,243,240,0.62)", margin: "20px 0 0" }}>
+            Porque el problema no es el acceso a inteligencia artificial. El problema es convertir esa capacidad en un proceso consistente, delimitado y repetible para trabajar fricción de ejecución.
+          </p>
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: 18, marginTop: 44 }}>
+          <div style={{ border: `1px solid ${KAIRON_THEME.border}`, borderRadius: 16, padding: 26, background: KAIRON_THEME.surface }}>
+            <div style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(245,243,240,0.45)" }}>Licencia de IA generalista</div>
+            <div style={{ display: "grid", gap: 9, marginTop: 16, fontSize: 15, lineHeight: 1.5, color: "rgba(245,243,240,0.62)" }}>
+              {CHATGPT_LICENSE_POINTS.map((p) => <div key={p}>{p}</div>)}
+            </div>
+          </div>
+          <div style={{ border: "1px solid rgba(240,160,70,0.34)", borderRadius: 16, padding: 26, background: "rgba(240,160,70,0.06)" }}>
+            <div style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: ORANGE }}>KAIRON Corporate Pilot</div>
+            <div style={{ display: "grid", gap: 9, marginTop: 16, fontSize: 15, lineHeight: 1.5, color: "rgba(245,243,240,0.8)" }}>
+              {CHATGPT_PILOT_POINTS.map((p) => <div key={p}>{p}</div>)}
+            </div>
+          </div>
+        </div>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 24, alignItems: "center", justifyContent: "space-between", marginTop: 40, borderLeft: `2px solid ${ORANGE}`, padding: "8px 0 8px 24px" }}>
+          <p style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: "clamp(20px,2.6vw,30px)", lineHeight: 1.35, margin: 0, maxWidth: "28em" }}>
+            La empresa no está comprando acceso a un modelo de IA. Está implementando un sistema específico para ejecución cognitiva.
+          </p>
+          <a href="/vs-ia-generativa" style={{ fontSize: "15.5px", whiteSpace: "nowrap" }}>Ver la comparación completa →</a>
         </div>
       </div>
     </section>
@@ -654,6 +741,9 @@ function AudienceSection() {
         <h2 className="font-display" style={{ fontWeight: 600, fontSize: "clamp(26px,3.4vw,38px)", lineHeight: 1.15, letterSpacing: "-0.015em", margin: 0 }}>
           Para quién es ideal
         </h2>
+        <p style={{ fontSize: 16, lineHeight: 1.6, color: "rgba(245,243,240,0.55)", margin: "14px 0 0", maxWidth: "36em" }}>
+          Organizaciones donde la ejecución depende de decisiones, priorización y coordinación, y donde las personas tienen autonomía real sobre su trabajo. No es para toda empresa.
+        </p>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))", gap: 14, marginTop: 32 }}>
           {AUDIENCE.map((a) => (
             <div key={a} style={{ border: `1px solid ${KAIRON_THEME.borderStrong}`, borderRadius: 12, padding: 22, fontSize: 16, fontWeight: 500 }}>
@@ -1010,11 +1100,16 @@ function SiteFooter() {
           <a href="/metodo-iro" className="kft-footer-link" style={{ color: "rgba(255,255,255,0.7)" }}>Método I-R-O™</a>
           <a href="/bloqueos" className="kft-footer-link" style={{ color: "rgba(255,255,255,0.7)" }}>Bloqueos de ejecución</a>
           <a href="/indice-friccion" className="kft-footer-link" style={{ color: "rgba(255,255,255,0.7)" }}>Índice de Fricción</a>
+          <a href="/vs-ia-generativa" className="kft-footer-link" style={{ color: "rgba(255,255,255,0.7)" }}>KAIRON vs IA generativa</a>
           <a href="/#precio" className="kft-footer-link" style={{ color: "rgba(255,255,255,0.7)" }}>Precio</a>
         </div>
       </div>
       <div style={{ maxWidth: 1180, margin: "36px auto 0", paddingTop: 22, borderTop: "1px solid rgba(255,255,255,0.09)", fontSize: 13, color: "rgba(255,255,255,0.38)" }}>
         © 2026 G-Structure. KAIRON™ · Método I-R-O™.
+        <br />
+        <span style={{ display: "inline-block", marginTop: 10, maxWidth: "60em" }}>
+          KAIRON es una herramienta de coaching y desarrollo personal y profesional. No diagnostica ni trata condiciones de salud mental y no sustituye la atención clínica profesional.
+        </span>
       </div>
       <style>{`
         .kft-footer-link:hover { color: ${ORANGE}; }

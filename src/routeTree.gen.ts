@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as VsIaGenerativaRouteImport } from './routes/vs-ia-generativa'
 import { Route as VipPassRouteImport } from './routes/vip-pass'
 import { Route as UnsubscribeRouteImport } from './routes/unsubscribe'
 import { Route as UneteAlEquipoRouteImport } from './routes/unete-al-equipo'
@@ -41,6 +42,7 @@ import { Route as MockupCorporateHomeRouteImport } from './routes/mockup.corpora
 import { Route as LegalTerminosYCondicionesRouteImport } from './routes/legal.terminos-y-condiciones'
 import { Route as LegalPoliticaDeReembolsosRouteImport } from './routes/legal.politica-de-reembolsos'
 import { Route as LegalPoliticaDePrivacidadRouteImport } from './routes/legal.politica-de-privacidad'
+import { Route as EnVsGenerativeAiRouteImport } from './routes/en.vs-generative-ai'
 import { Route as EnVipPassRouteImport } from './routes/en.vip-pass'
 import { Route as EnSupportTheLaunchRouteImport } from './routes/en.support-the-launch'
 import { Route as EnRestructure11RouteImport } from './routes/en.restructure-1-1'
@@ -88,6 +90,11 @@ import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/l
 import { Route as LovableEmailQueueProcessRouteImport } from './routes/lovable/email/queue/process'
 import { Route as EnKaironVsNotionRouteImport } from './routes/en.kairon_.vs.notion'
 
+const VsIaGenerativaRoute = VsIaGenerativaRouteImport.update({
+  id: '/vs-ia-generativa',
+  path: '/vs-ia-generativa',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const VipPassRoute = VipPassRouteImport.update({
   id: '/vip-pass',
   path: '/vip-pass',
@@ -251,6 +258,11 @@ const LegalPoliticaDePrivacidadRoute =
     path: '/legal/politica-de-privacidad',
     getParentRoute: () => rootRouteImport,
   } as any)
+const EnVsGenerativeAiRoute = EnVsGenerativeAiRouteImport.update({
+  id: '/en/vs-generative-ai',
+  path: '/en/vs-generative-ai',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EnVipPassRoute = EnVipPassRouteImport.update({
   id: '/en/vip-pass',
   path: '/en/vip-pass',
@@ -519,6 +531,7 @@ export interface FileRoutesByFullPath {
   '/unete-al-equipo': typeof UneteAlEquipoRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/vip-pass': typeof VipPassRoute
+  '/vs-ia-generativa': typeof VsIaGenerativaRoute
   '/articulos/$slug': typeof ArticulosSlugRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/en/about-guillermo': typeof EnAboutGuillermoRoute
@@ -539,6 +552,7 @@ export interface FileRoutesByFullPath {
   '/en/restructure-1-1': typeof EnRestructure11Route
   '/en/support-the-launch': typeof EnSupportTheLaunchRoute
   '/en/vip-pass': typeof EnVipPassRoute
+  '/en/vs-generative-ai': typeof EnVsGenerativeAiRoute
   '/legal/politica-de-privacidad': typeof LegalPoliticaDePrivacidadRoute
   '/legal/politica-de-reembolsos': typeof LegalPoliticaDeReembolsosRoute
   '/legal/terminos-y-condiciones': typeof LegalTerminosYCondicionesRoute
@@ -597,6 +611,7 @@ export interface FileRoutesByTo {
   '/unete-al-equipo': typeof UneteAlEquipoRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/vip-pass': typeof VipPassRoute
+  '/vs-ia-generativa': typeof VsIaGenerativaRoute
   '/articulos/$slug': typeof ArticulosSlugRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/en/about-guillermo': typeof EnAboutGuillermoRoute
@@ -616,6 +631,7 @@ export interface FileRoutesByTo {
   '/en/restructure-1-1': typeof EnRestructure11Route
   '/en/support-the-launch': typeof EnSupportTheLaunchRoute
   '/en/vip-pass': typeof EnVipPassRoute
+  '/en/vs-generative-ai': typeof EnVsGenerativeAiRoute
   '/legal/politica-de-privacidad': typeof LegalPoliticaDePrivacidadRoute
   '/legal/politica-de-reembolsos': typeof LegalPoliticaDeReembolsosRoute
   '/legal/terminos-y-condiciones': typeof LegalTerminosYCondicionesRoute
@@ -677,6 +693,7 @@ export interface FileRoutesById {
   '/unete-al-equipo': typeof UneteAlEquipoRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/vip-pass': typeof VipPassRoute
+  '/vs-ia-generativa': typeof VsIaGenerativaRoute
   '/articulos/$slug': typeof ArticulosSlugRoute
   '/email/unsubscribe': typeof EmailUnsubscribeRoute
   '/en/about-guillermo': typeof EnAboutGuillermoRoute
@@ -697,6 +714,7 @@ export interface FileRoutesById {
   '/en/restructure-1-1': typeof EnRestructure11Route
   '/en/support-the-launch': typeof EnSupportTheLaunchRoute
   '/en/vip-pass': typeof EnVipPassRoute
+  '/en/vs-generative-ai': typeof EnVsGenerativeAiRoute
   '/legal/politica-de-privacidad': typeof LegalPoliticaDePrivacidadRoute
   '/legal/politica-de-reembolsos': typeof LegalPoliticaDeReembolsosRoute
   '/legal/terminos-y-condiciones': typeof LegalTerminosYCondicionesRoute
@@ -758,6 +776,7 @@ export interface FileRouteTypes {
     | '/unete-al-equipo'
     | '/unsubscribe'
     | '/vip-pass'
+    | '/vs-ia-generativa'
     | '/articulos/$slug'
     | '/email/unsubscribe'
     | '/en/about-guillermo'
@@ -778,6 +797,7 @@ export interface FileRouteTypes {
     | '/en/restructure-1-1'
     | '/en/support-the-launch'
     | '/en/vip-pass'
+    | '/en/vs-generative-ai'
     | '/legal/politica-de-privacidad'
     | '/legal/politica-de-reembolsos'
     | '/legal/terminos-y-condiciones'
@@ -836,6 +856,7 @@ export interface FileRouteTypes {
     | '/unete-al-equipo'
     | '/unsubscribe'
     | '/vip-pass'
+    | '/vs-ia-generativa'
     | '/articulos/$slug'
     | '/email/unsubscribe'
     | '/en/about-guillermo'
@@ -855,6 +876,7 @@ export interface FileRouteTypes {
     | '/en/restructure-1-1'
     | '/en/support-the-launch'
     | '/en/vip-pass'
+    | '/en/vs-generative-ai'
     | '/legal/politica-de-privacidad'
     | '/legal/politica-de-reembolsos'
     | '/legal/terminos-y-condiciones'
@@ -915,6 +937,7 @@ export interface FileRouteTypes {
     | '/unete-al-equipo'
     | '/unsubscribe'
     | '/vip-pass'
+    | '/vs-ia-generativa'
     | '/articulos/$slug'
     | '/email/unsubscribe'
     | '/en/about-guillermo'
@@ -935,6 +958,7 @@ export interface FileRouteTypes {
     | '/en/restructure-1-1'
     | '/en/support-the-launch'
     | '/en/vip-pass'
+    | '/en/vs-generative-ai'
     | '/legal/politica-de-privacidad'
     | '/legal/politica-de-reembolsos'
     | '/legal/terminos-y-condiciones'
@@ -996,6 +1020,7 @@ export interface RootRouteChildren {
   UneteAlEquipoRoute: typeof UneteAlEquipoRoute
   UnsubscribeRoute: typeof UnsubscribeRoute
   VipPassRoute: typeof VipPassRoute
+  VsIaGenerativaRoute: typeof VsIaGenerativaRoute
   EmailUnsubscribeRoute: typeof EmailUnsubscribeRoute
   EnAboutGuillermoRoute: typeof EnAboutGuillermoRoute
   EnArticlesRoute: typeof EnArticlesRouteWithChildren
@@ -1015,6 +1040,7 @@ export interface RootRouteChildren {
   EnRestructure11Route: typeof EnRestructure11Route
   EnSupportTheLaunchRoute: typeof EnSupportTheLaunchRoute
   EnVipPassRoute: typeof EnVipPassRoute
+  EnVsGenerativeAiRoute: typeof EnVsGenerativeAiRoute
   LegalPoliticaDePrivacidadRoute: typeof LegalPoliticaDePrivacidadRoute
   LegalPoliticaDeReembolsosRoute: typeof LegalPoliticaDeReembolsosRoute
   LegalTerminosYCondicionesRoute: typeof LegalTerminosYCondicionesRoute
@@ -1043,6 +1069,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/vs-ia-generativa': {
+      id: '/vs-ia-generativa'
+      path: '/vs-ia-generativa'
+      fullPath: '/vs-ia-generativa'
+      preLoaderRoute: typeof VsIaGenerativaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/vip-pass': {
       id: '/vip-pass'
       path: '/vip-pass'
@@ -1265,6 +1298,13 @@ declare module '@tanstack/react-router' {
       path: '/legal/politica-de-privacidad'
       fullPath: '/legal/politica-de-privacidad'
       preLoaderRoute: typeof LegalPoliticaDePrivacidadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/vs-generative-ai': {
+      id: '/en/vs-generative-ai'
+      path: '/en/vs-generative-ai'
+      fullPath: '/en/vs-generative-ai'
+      preLoaderRoute: typeof EnVsGenerativeAiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/en/vip-pass': {
@@ -1666,6 +1706,7 @@ const rootRouteChildren: RootRouteChildren = {
   UneteAlEquipoRoute: UneteAlEquipoRoute,
   UnsubscribeRoute: UnsubscribeRoute,
   VipPassRoute: VipPassRoute,
+  VsIaGenerativaRoute: VsIaGenerativaRoute,
   EmailUnsubscribeRoute: EmailUnsubscribeRoute,
   EnAboutGuillermoRoute: EnAboutGuillermoRoute,
   EnArticlesRoute: EnArticlesRouteWithChildren,
@@ -1685,6 +1726,7 @@ const rootRouteChildren: RootRouteChildren = {
   EnRestructure11Route: EnRestructure11Route,
   EnSupportTheLaunchRoute: EnSupportTheLaunchRoute,
   EnVipPassRoute: EnVipPassRoute,
+  EnVsGenerativeAiRoute: EnVsGenerativeAiRoute,
   LegalPoliticaDePrivacidadRoute: LegalPoliticaDePrivacidadRoute,
   LegalPoliticaDeReembolsosRoute: LegalPoliticaDeReembolsosRoute,
   LegalTerminosYCondicionesRoute: LegalTerminosYCondicionesRoute,

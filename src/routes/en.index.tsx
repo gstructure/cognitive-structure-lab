@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { buildSeo, canonicalLink, jsonLdScript, faqSchema, breadcrumbSchema, organizationSchema, websiteSchema } from "@/lib/seo";
+import { buildSeo, canonicalLink, jsonLdScript, faqSchema, breadcrumbSchema, organizationSchema, websiteSchema, gStructSoftwareSchema } from "@/lib/seo";
 import kaironLogo from "@/assets/kairon-logo.webp";
 import { HomePage } from "@/components/pages/HomePage";
 
@@ -8,6 +8,7 @@ const HOME_FAQ_EN = [
   { q: "How does KAIRON help users execute?", a: "Kai guides users to separate situation, emotion, and interpretation, then turn that reading into a concrete next action." },
   { q: "What is the I-R-O™ Method?", a: "Identify, Restructure, and Optimize: the proprietary framework that powers KAIRON and turns cognitive-behavioral friction into functional action." },
   { q: "What is KAIRON?", a: "G-Structure's main product: a live MVP guided by Kai to separate situation, emotion, and interpretation, reach a more precise reading, and turn it into a concrete action in under 12 minutes." },
+  { q: "Why not just use ChatGPT?", a: "Because the difference isn't the intelligence of the model, it's the design of the process. General AI is optimized for open conversation and for following your instruction. KAIRON is built with flows that detect, question and restructure the interpretation holding the block in place." },
 ];
 
 export const Route = createFileRoute("/en/")({
@@ -24,6 +25,7 @@ export const Route = createFileRoute("/en/")({
     scripts: [
       jsonLdScript(organizationSchema),
       jsonLdScript(websiteSchema),
+      jsonLdScript(gStructSoftwareSchema("en")),
       jsonLdScript(faqSchema(HOME_FAQ_EN)),
       jsonLdScript(breadcrumbSchema([{ name: "Home", path: "/en" }])),
     ],
