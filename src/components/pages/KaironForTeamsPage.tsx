@@ -23,9 +23,8 @@ const CALENDLY_URL = "https://calendly.com/contacto-guillermosuco/llamada-de-ori
 const PROBLEMS = [
   { n: "01", t: "Procrastinación", anchor: "procrastinacion", signs: ["Tareas críticas postergadas", "Urgencias evitables", "Ejecución reactiva"] },
   { n: "02", t: "Perfeccionismo", anchor: "perfeccionismo", signs: ["Retrasos", "Retrabajo", "Dificultad para delegar", "Exceso de revisión"] },
-  { n: "03", t: "Sobreanálisis", anchor: null, signs: ["Decisiones lentas", "Búsqueda excesiva de certeza", "Pérdida de momentum"] },
+  { n: "03", t: "Autosabotaje", anchor: "autosabotaje", signs: ["Abandono", "Inconsistencia", "Conductas que interfieren con objetivos definidos"] },
   { n: "04", t: "Síndrome del impostor", anchor: "impostor", signs: ["Evitación de oportunidades", "Menor participación", "Inseguridad ante decisiones"] },
-  { n: "05", t: "Autosabotaje", anchor: "autosabotaje", signs: ["Abandono", "Inconsistencia", "Conductas que interfieren con objetivos definidos"] },
 ];
 
 const IRO_STEPS = [
@@ -285,7 +284,7 @@ function Hero() {
             Tu equipo sabe qué tiene que hacer. ¿Qué está impidiendo que lo ejecute?
           </h1>
           <p style={{ fontSize: "clamp(17px,2vw,21px)", lineHeight: 1.55, color: "rgba(255,255,255,0.74)", margin: "24px 0 0", maxWidth: "34em" }}>
-            KAIRON ayuda a identificar patrones como procrastinación, perfeccionismo, sobreanálisis, autosabotaje e impostor, y da a cada colaborador una herramienta para trabajarlos cuando realmente aparecen.
+            KAIRON ayuda a identificar patrones como procrastinación, perfeccionismo, autosabotaje y síndrome del impostor, y da a cada colaborador una herramienta para trabajarlos cuando realmente aparecen.
           </p>
           <p style={{ fontSize: 16, lineHeight: 1.6, color: "rgba(255,255,255,0.52)", margin: "18px 0 0", maxWidth: "34em" }}>
             No es otra capacitación de productividad ni un programa de bienestar. Es un sistema para trabajar la fricción cognitiva que aparece antes de que la ejecución se rompa.
@@ -418,7 +417,7 @@ function ProblemSection() {
           {PROBLEMS.map((p) => (
             <a
               key={p.n}
-              href={p.anchor ? `/bloqueos#${p.anchor}` : "/bloqueos"}
+              href={`/bloqueos#${p.anchor}`}
               className="kft-problem-card"
               style={{
                 display: "grid",

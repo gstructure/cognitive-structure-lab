@@ -8,7 +8,7 @@ export const Route = createFileRoute("/teams")({
       path: "/teams",
       title: "KAIRON for Teams — Coaching cognitivo para empresas | G-Structure",
       description:
-        "KAIRON ayuda a identificar y trabajar patrones de procrastinación laboral, perfeccionismo, sobreanálisis, autosabotaje y síndrome del impostor en la ejecución de equipos. Corporate Pilot para talento humano, people & culture y desarrollo organizacional.",
+        "KAIRON ayuda a identificar y trabajar patrones de procrastinación laboral, perfeccionismo, autosabotaje y síndrome del impostor en la ejecución de equipos. Corporate Pilot para talento humano, people & culture y desarrollo organizacional.",
     }),
     links: canonicalLink("/teams"),
     scripts: [
