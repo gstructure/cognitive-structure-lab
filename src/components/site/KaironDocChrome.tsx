@@ -12,14 +12,14 @@ const ORANGE_HOVER = KAIRON_THEME.accentHover;
 /**
  * Shared dark-theme header/footer for the KAIRON "documentation" pages
  * from the design handoff (Método I-R-O, Bloqueos, Índice de Fricción,
- * KAIRON vs Notion — all four share this exact header per the handoff's
- * "Header (compartido)" spec, in both languages). Has the two
+ * KAIRON vs IA generativa — all four share this exact header per the
+ * handoff's "Header (compartido)" spec, in both languages). Has the two
  * click-to-open dropdowns ("Producto"/"Product" and "Metodología"/
  * "Methodology"): opens on click, closes on outside click or Escape, one
  * panel open at a time, keyboard-operable via native <button>/<a>
  * semantics, and collapses to a <details> accordion on mobile. Which
  * dropdown shows as "active" (current-section styling) depends on
- * `current` — vs-notion lives under Producto, the other three under
+ * `current` — vs-ia-generativa lives under Producto, the other three under
  * Metodología.
  *
  * `DocDropdown` is also exported standalone — HomePage.tsx's own header
@@ -44,13 +44,13 @@ function productoItems(locale: Locale, current?: DocPage): DocNavItem[] {
         { label: "KAIRON", href: `${home}#producto` },
         { label: "Pricing", href: `${home}#precio` },
         { label: "KAIRON for Teams", to: "/teams" },
-        { label: "KAIRON vs Notion", href: "/en/kairon/vs/notion", current: current === "vs-notion" },
+        { label: "KAIRON vs generative AI", href: "/en/vs-generative-ai", current: current === "vs-ia-generativa" },
       ]
     : [
         { label: "KAIRON", href: `${home}#producto` },
         { label: "Precio", href: `${home}#precio` },
         { label: "KAIRON for Teams", to: "/teams" },
-        { label: "KAIRON vs Notion", href: "/kairon/vs/notion", current: current === "vs-notion" },
+        { label: "KAIRON vs IA generativa", href: "/vs-ia-generativa", current: current === "vs-ia-generativa" },
       ];
 }
 
@@ -68,7 +68,7 @@ function metodologiaItems(locale: Locale, current?: DocPage): DocNavItem[] {
       ];
 }
 
-export type DocPage = "metodo-iro" | "bloqueos" | "indice-friccion" | "vs-notion";
+export type DocPage = "metodo-iro" | "bloqueos" | "indice-friccion" | "vs-ia-generativa";
 
 export function KaironDocHeader({
   locale,
@@ -86,7 +86,7 @@ export function KaironDocHeader({
   const rootRef = useRef<HTMLElement>(null);
   const producto = productoItems(locale, current);
   const metodologia = metodologiaItems(locale, current);
-  const productoActive = current === "vs-notion";
+  const productoActive = current === "vs-ia-generativa";
   const productoLabel = locale === "en" ? "Product" : "Producto";
   const metodologiaLabel = locale === "en" ? "Methodology" : "Metodología";
   const teamsLabel = locale === "en" ? "Teams" : "Equipos";
@@ -318,7 +318,7 @@ export function KaironDocFooter({
           <div className="kdh-foot-label">{isEn ? "Product" : "Producto"}</div>
           <a href={`${home}#producto`} className="kdh-foot-link">KAIRON</a>
           <Link to="/teams" className="kdh-foot-link">KAIRON for Teams</Link>
-          <a href={isEn ? "/en/kairon/vs/notion" : "/kairon/vs/notion"} className="kdh-foot-link">KAIRON vs Notion</a>
+          <a href={isEn ? "/en/vs-generative-ai" : "/vs-ia-generativa"} className="kdh-foot-link">{isEn ? "KAIRON vs generative AI" : "KAIRON vs IA generativa"}</a>
         </div>
         <div style={{ display: "grid", gap: 9, fontSize: 14, alignContent: "start" }}>
           <div className="kdh-foot-label">{isEn ? "Contact" : "Contacto"}</div>

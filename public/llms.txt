@@ -21,7 +21,7 @@ I-R-O™ is G-Structure's proprietary method: Identify, Restructure, and Optimiz
 - [Método I-R-O™](/metodo-iro): Método propietario de G-Structure explicado desde resultados para el usuario, con sus tres fases (Identificar, Reestructurar, Optimizar).
 - [Bloqueos de ejecución](/bloqueos): Taxonomía abierta de los cuatro patrones que bloquean la ejecución: procrastinación, perfeccionismo, autosabotaje y síndrome del impostor.
 - [Índice de Fricción](/indice-friccion): Índice de Fricción de Ejecución (IFE), edición preliminar, con metodología abierta y datos agregados de la muestra piloto de KAIRON.
-- [KAIRON vs Notion](/kairon/vs/notion): Comparación honesta entre KAIRON y herramientas de organización como Notion, ClickUp y Todoist.
+- [KAIRON vs IA generativa](/vs-ia-generativa): Por qué KAIRON no compite con ChatGPT ni Claude en inteligencia de modelo — la diferencia es el diseño de un proceso específico para ejecución cognitiva.
 - [Precios](/precios): Pricing inicial de KAIRON Pro para LATAM y mercado global.
 - [Enterprise](/enterprise): Workshop de Diagnóstico de Ejecución para empresas y equipos.
 - [Sobre nosotros](/nosotros): Equipo, historia y origen de KAIRON.
@@ -40,7 +40,7 @@ I-R-O™ is G-Structure's proprietary method: Identify, Restructure, and Optimiz
 - [I-R-O™ Method](/en/iro-method): G-Structure's proprietary method explained through user-facing outcomes, with its three phases (Identify, Restructure, Optimize).
 - [Execution blocks](/en/execution-blocks): Open taxonomy of the four patterns that block execution: procrastination, perfectionism, self-sabotage, and impostor syndrome.
 - [Friction Index](/en/friction-index): Execution Friction Index (EFI), preliminary edition, with open methodology and aggregated data from KAIRON's pilot sample.
-- [KAIRON vs Notion](/en/kairon/vs/notion): Honest comparison between KAIRON and organization tools like Notion, ClickUp, and Todoist.
+- [KAIRON vs generative AI](/en/vs-generative-ai): Why KAIRON doesn't compete with ChatGPT or Claude on model intelligence — the difference is the design of a specific process for cognitive execution.
 - [Pricing](/en/pricing): Initial KAIRON Pro pricing for LATAM and global users.
 - [Enterprise](/en/enterprise): Execution Diagnostic Workshop for companies and teams.
 - [About us](/en/about): Team, story, and origin of KAIRON.

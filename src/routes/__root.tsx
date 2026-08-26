@@ -16,6 +16,7 @@ import { Footer } from "@/components/site/Footer";
 import { LocaleProvider } from "@/lib/i18n";
 import { WhatsAppFAB } from "@/components/site/WhatsAppFAB";
 import { ScrollTopButton } from "@/components/site/ScrollTopButton";
+import { jsonLdScript, organizationSchema } from "@/lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -101,6 +102,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'AW-18154152582', {'allow_enhanced_conversions': true});",
       },
       { src: "https://www.googletagmanager.com/gtag/js?id=AW-18154152582", async: true },
+      jsonLdScript(organizationSchema),
     ],
   }),
   shellComponent: RootShell,
@@ -141,8 +143,8 @@ function RootComponent() {
     pathname === "/en/execution-blocks" ||
     pathname === "/indice-friccion" ||
     pathname === "/en/friction-index" ||
-    pathname === "/kairon/vs/notion" ||
-    pathname === "/en/kairon/vs/notion";
+    pathname === "/vs-ia-generativa" ||
+    pathname === "/en/vs-generative-ai";
   return (
     <QueryClientProvider client={queryClient}>
       <LocaleProvider>

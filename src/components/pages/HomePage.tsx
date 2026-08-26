@@ -43,7 +43,7 @@ type MirrorPattern = { keywords: string[]; variants: MirrorReply[] };
 
 type Copy = {
   cta: string;
-  navMirror: string; navMethod: string; navPricing: string; navTeams: string;
+  navMirror: string; navMethod: string; navPricing: string; navTeams: string; navVsAi: string;
   heroKicker: string; heroL1: string; heroL2: string; heroSub: string;
   heroCta: string; heroCta2: string; heroNote: string;
   mirrorKicker: string; mirrorTitle: string; mirrorSub: string;
@@ -54,10 +54,19 @@ type Copy = {
   prodKicker: string; prodTitle: string; prodSub: string;
   steps: { t: string; b: string }[];
   nocKicker: string; nocTitle: string; nocBody: string; nocCta: string;
+  gapKicker: string; gapTitle: string; gapSub: string;
+  gapKnow: string; gapKnowEx: string;
+  gapFriction: string; gapF: [string, string, string]; gapHere: string; gapHereBody: string;
+  gapBehavior: string; gapB: [string, string, string];
+  gapResult: string; gapResultEx: string; gapQuestion: string;
   patKicker: string; patTitle: string; patWhat: string; patHow: string;
   patterns: { name: string; q: string; d: string; h: string }[];
   iroKicker: string; iroSub: string;
   iro: { t: string; b: string }[];
+  vsKicker: string; vsTitle: string; vsSub: string;
+  vsGenTitle: string; vsGen: [string, string, string];
+  vsKaiTitle: string; vsKai: [string, string, string];
+  vsLine: string; vsCta: string;
   valKicker: string; valTitle: string; valUsers: string; valEc: string; valUs: string;
   valFeatured: string;
   testimonials: { q: string; a: string }[];
@@ -81,7 +90,7 @@ type Copy = {
 const COPY: Record<Locale, Copy> = {
   es: {
     cta: "Empezar prueba de 7 días",
-    navMirror: "El Espejo", navMethod: "Método", navPricing: "Precio", navTeams: "Equipos",
+    navMirror: "El Espejo", navMethod: "Método", navPricing: "Precio", navTeams: "Equipos", navVsAi: "KAIRON vs IA generativa",
     heroKicker: "Coach cognitivo de ejecución con IA",
     heroL1: "Tu IA te está dando la razón.", heroL2: "Kai no.",
     heroSub: "KAIRON detecta el pensamiento que está frenando tu ejecución, lo desarma y te devuelve una acción de 5 minutos. Basado en principios cognitivo-conductuales, no en frases motivacionales.",
@@ -111,6 +120,20 @@ const COPY: Record<Locale, Copy> = {
     nocTitle: "Para cuando tu mente no te deja dormir.",
     nocBody: "Conversación por voz con Kai, diseñada para el momento en que el día termina pero los pensamientos no. Cierra el ciclo antes de mañana.",
     nocCta: "Probar Nocturno",
+    gapKicker: "La brecha de ejecución",
+    gapTitle: "El problema no es siempre saber qué hacer.",
+    gapSub: "Tienes tareas, calendario, consejos, IA y un sistema de productividad. Y aun así hay cosas que no salen. Entre saber y ejecutar hay una capa que casi nadie trabaja.",
+    gapKnow: "Sabes",
+    gapKnowEx: "“Sé que tengo que enviar la propuesta.”",
+    gapFriction: "Fricción cognitiva",
+    gapF: ["“Todavía no está suficientemente bien.”", "“¿Y si me rechazan?”", "“Quizás debería revisarla una vez más.”"],
+    gapHere: "KAIRON interviene aquí",
+    gapHereBody: "En la capa de interpretación, antes de que el patrón se convierta otra vez en conducta.",
+    gapBehavior: "Conducta",
+    gapB: ["Postergar", "Sobreanalizar", "Evitar"],
+    gapResult: "Resultado",
+    gapResultEx: "La propuesta no sale.",
+    gapQuestion: "¿Qué está ocurriendo en tu pensamiento justo antes de no hacerlo?",
     patKicker: "El problema",
     patTitle: "No siempre falta capacidad. A veces sobra fricción.",
     patWhat: "Qué es", patHow: "Qué hace KAIRON",
@@ -127,9 +150,18 @@ const COPY: Record<Locale, Copy> = {
       { t: "Reestructurar", b: "La interpretación se desarma y se reformula. Kai no la suaviza: la hace verificable." },
       { t: "Optimizar", b: "La claridad sale como una siguiente acción concreta, de cinco minutos, validada." },
     ],
-    valKicker: "Validación", valTitle: "52 personas ya lo probaron.",
+    vsKicker: "La objeción honesta",
+    vsTitle: "¿Por qué no simplemente usar ChatGPT?",
+    vsSub: "Porque la diferencia no está en la inteligencia del modelo, está en el diseño del proceso. Las IA generalistas están optimizadas para conversaciones abiertas y para seguir tu instrucción. KAIRON está construido con flujos que buscan detectar, cuestionar y reestructurar la interpretación que sostiene el bloqueo.",
+    vsGenTitle: "IA generativa general",
+    vsGen: ["Empieza con una página en blanco: tú debes saber qué preguntar.", "Trabaja dentro del marco que tú planteas.", "Puede producir ideas, recomendaciones o reflexión."],
+    vsKaiTitle: "KAIRON",
+    vsKai: ["Empieza con contexto estructurado: Scanner, patrones y memoria de ejecución.", "Está diseñado para cuestionar el marco, no solo continuar tu narrativa.", "La sesión desemboca en una acción concreta de cinco minutos."],
+    vsLine: "No necesitas otra IA que converse contigo. Necesitas una que sepa cuándo desafiarte.",
+    vsCta: "Ver la comparación completa →",
+    valKicker: "Validación inicial", valTitle: "52 personas ya lo probaron.",
     valUsers: "usuarios reales", valEc: "en Ecuador", valUs: "en Estados Unidos",
-    valFeatured: "Avalado por salud mental",
+    valFeatured: "Avalado por una psicóloga clínica",
     testimonials: [
       { q: "“Intenté engañarlo y aun así detectó mi patrón correctamente.”", a: "HR Manager · Philadelphia" },
       { q: "“Esto va al núcleo del problema. Tiene fit comercial y vale la pena venderlo.”", a: "Marketing Manager · Philadelphia" },
@@ -159,7 +191,7 @@ const COPY: Record<Locale, Copy> = {
     footAbout: "Tech startup construyendo herramientas de ejecución cognitivo-conductual. KAIRON es nuestro primer producto.",
     footProduct: "Producto", footCompany: "Compañía", footContact: "Contacto",
     footEnterprise: "KAIRON for Teams", footInvestors: "Inversores", footTeam: "Únete al equipo",
-    footLegal: "Nuestros contenidos no sustituyen atención psicológica, médica o psiquiátrica.",
+    footLegal: "KAIRON es una herramienta de coaching y desarrollo personal y profesional. No diagnostica ni trata condiciones de salud mental y no sustituye la atención clínica profesional.",
     mirrorPatterns: [
       {
         keywords: ["no es el momento", "no tengo tiempo", "luego", "mañana", "otro día", "ocupado", "cuando tenga tiempo", "no es prioridad", "prioridades"],
@@ -197,7 +229,7 @@ const COPY: Record<Locale, Copy> = {
   },
   en: {
     cta: "Start 7-day trial",
-    navMirror: "The Mirror", navMethod: "Method", navPricing: "Pricing", navTeams: "Teams",
+    navMirror: "The Mirror", navMethod: "Method", navPricing: "Pricing", navTeams: "Teams", navVsAi: "KAIRON vs generative AI",
     heroKicker: "AI cognitive execution coach",
     heroL1: "Your AI keeps agreeing with you.", heroL2: "Kai won't.",
     heroSub: "KAIRON catches the thought that is stalling your execution, takes it apart, and hands you back a 5-minute action. Built on cognitive-behavioral principles, not motivational quotes.",
@@ -227,6 +259,20 @@ const COPY: Record<Locale, Copy> = {
     nocTitle: "For when your mind won't let you sleep.",
     nocBody: "A voice conversation with Kai, built for the moment the day ends but the thoughts don't. Close the loop before tomorrow.",
     nocCta: "Try Nocturne",
+    gapKicker: "The execution gap",
+    gapTitle: "The problem isn't always knowing what to do.",
+    gapSub: "You have tasks, a calendar, advice, AI and a productivity system. And some things still don't happen. Between knowing and executing there is a layer almost nobody works on.",
+    gapKnow: "You know",
+    gapKnowEx: "“I know I have to send the proposal.”",
+    gapFriction: "Cognitive friction",
+    gapF: ["“It isn't good enough yet.”", "“What if they say no?”", "“Maybe I should review it one more time.”"],
+    gapHere: "KAIRON works here",
+    gapHereBody: "At the interpretation layer, before the pattern turns into behavior again.",
+    gapBehavior: "Behavior",
+    gapB: ["Postpone", "Overanalyze", "Avoid"],
+    gapResult: "Outcome",
+    gapResultEx: "The proposal never goes out.",
+    gapQuestion: "What is happening in your thinking right before you don't do it?",
     patKicker: "The problem",
     patTitle: "It's rarely a lack of capability. It's an excess of friction.",
     patWhat: "What it is", patHow: "What KAIRON does",
@@ -243,7 +289,16 @@ const COPY: Record<Locale, Copy> = {
       { t: "Restructure", b: "The interpretation gets taken apart and rebuilt. Kai doesn't soften it: Kai makes it testable." },
       { t: "Optimize", b: "Clarity exits as one concrete, five-minute, validated next action." },
     ],
-    valKicker: "Validation", valTitle: "52 people have already tested it.",
+    vsKicker: "The honest objection",
+    vsTitle: "Why not just use ChatGPT?",
+    vsSub: "Because the difference isn't the intelligence of the model, it's the design of the process. General AI is optimized for open conversation and for following your instruction. KAIRON is built with flows that detect, question and restructure the interpretation holding the block in place.",
+    vsGenTitle: "General generative AI",
+    vsGen: ["Starts with a blank page: you have to know what to ask.", "Works inside the frame you bring to it.", "Can produce ideas, recommendations or reflection."],
+    vsKaiTitle: "KAIRON",
+    vsKai: ["Starts with structured context: Scanner, patterns and execution memory.", "Designed to question the frame, not just continue your narrative.", "The session ends in one concrete five-minute action."],
+    vsLine: "You don't need another AI that talks with you. You need one that knows when to challenge you.",
+    vsCta: "See the full comparison →",
+    valKicker: "Early validation", valTitle: "52 people have already tested it.",
     valUsers: "real users", valEc: "in Ecuador", valUs: "in the United States",
     valFeatured: "Endorsed by a mental health professional",
     testimonials: [
@@ -275,7 +330,7 @@ const COPY: Record<Locale, Copy> = {
     footAbout: "Tech startup building cognitive-behavioral execution tools. KAIRON is our first product.",
     footProduct: "Product", footCompany: "Company", footContact: "Contact",
     footEnterprise: "KAIRON for Teams", footInvestors: "Investors", footTeam: "Join the team",
-    footLegal: "Our content is not a substitute for psychological, medical or psychiatric care.",
+    footLegal: "KAIRON is a coaching and personal and professional development tool. It does not diagnose or treat mental health conditions and is not a substitute for professional clinical care.",
     mirrorPatterns: [
       {
         keywords: ["not the right time", "no time", "later", "tomorrow", "another day", "busy", "when i have time", "not a priority"],
@@ -338,8 +393,10 @@ export function HomePage({ locale }: { locale: Locale }) {
         <Mirror c={c} />
         <ProductScroll c={c} locale={locale} />
         <Nocturne c={c} />
+        <GapSection c={c} />
         <Patterns c={c} />
         <Method c={c} />
+        <VsAiSection c={c} locale={locale} />
         <Validation c={c} />
         <Pricing c={c} appHref={appHref} locale={locale} />
         <House c={c} />
@@ -374,13 +431,13 @@ function SiteHeader({ c, locale }: { c: Copy; locale: Locale }) {
         { label: "KAIRON", href: "#producto" },
         { label: "Pricing", href: "#precio" },
         { label: "KAIRON for Teams", to: "/teams" },
-        { label: "KAIRON vs Notion", href: "/en/kairon/vs/notion" },
+        { label: c.navVsAi, href: "/en/vs-generative-ai" },
       ]
     : [
         { label: "KAIRON", href: "#producto" },
         { label: "Precio", href: "#precio" },
         { label: "KAIRON for Teams", to: "/teams" },
-        { label: "KAIRON vs Notion", href: "/kairon/vs/notion" },
+        { label: c.navVsAi, href: "/vs-ia-generativa" },
       ];
   const metodologiaItems: DocNavItem[] = locale === "en"
     ? [
@@ -714,6 +771,56 @@ function Nocturne({ c }: { c: Copy }) {
   );
 }
 
+function GapSection({ c }: { c: Copy }) {
+  return (
+    <section id="brecha" style={{ padding: "clamp(60px,9vw,120px) clamp(18px,5vw,40px)", position: "relative", zIndex: 2, borderTop: "1px solid rgba(245,243,240,0.07)" }}>
+      <div style={{ maxWidth: 1000, margin: "0 auto" }}>
+        <div style={{ fontSize: "11.5px", letterSpacing: "0.19em", textTransform: "uppercase", color: ORANGE }}>{c.gapKicker}</div>
+        <h2 className="font-display" style={{ fontWeight: 600, fontSize: "clamp(28px,4.6vw,52px)", lineHeight: 1.05, letterSpacing: "-0.03em", margin: "15px 0 0", maxWidth: "24em" }}>{c.gapTitle}</h2>
+        <p style={{ fontSize: "16.5px", lineHeight: 1.6, color: "rgba(245,243,240,0.6)", margin: "16px 0 0", maxWidth: "34em" }}>{c.gapSub}</p>
+
+        <div style={{ display: "grid", gap: 10, marginTop: "clamp(30px,4vw,46px)" }}>
+          <div style={{ border: "1px solid rgba(245,243,240,0.11)", borderRadius: 16, background: KAIRON_THEME.surface, padding: "22px 24px" }}>
+            <div style={{ fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", color: "rgba(245,243,240,0.45)" }}>{c.gapKnow}</div>
+            <p style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: "clamp(18px,2.2vw,24px)", lineHeight: 1.4, margin: "10px 0 0" }}>{c.gapKnowEx}</p>
+          </div>
+          <div aria-hidden style={{ textAlign: "center", fontSize: 15, color: "rgba(245,243,240,0.3)", lineHeight: 1 }}>↓</div>
+          <div style={{ border: "1px solid rgba(240,160,70,0.4)", borderRadius: 16, background: "rgba(240,160,70,0.07)", padding: "22px 24px" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center", justifyContent: "space-between" }}>
+              <div style={{ fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", color: ORANGE }}>{c.gapFriction}</div>
+              <div style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", color: "#1A1000", background: ORANGE, borderRadius: 999, padding: "5px 11px", fontWeight: 600 }}>{c.gapHere}</div>
+            </div>
+            <div style={{ display: "grid", gap: 8, marginTop: 14 }}>
+              {c.gapF.map((f) => (
+                <div key={f} style={{ fontFamily: "'Newsreader', Georgia, serif", fontStyle: "italic", fontSize: "clamp(17px,2vw,21px)", lineHeight: 1.4, color: "rgba(245,243,240,0.9)" }}>{f}</div>
+              ))}
+            </div>
+            <div style={{ marginTop: 16, paddingTop: 14, borderTop: "1px solid rgba(240,160,70,0.24)", fontSize: 15, lineHeight: 1.55, color: "rgba(245,243,240,0.72)", maxWidth: "38em" }}>{c.gapHereBody}</div>
+          </div>
+          <div aria-hidden style={{ textAlign: "center", fontSize: 15, color: "rgba(245,243,240,0.3)", lineHeight: 1 }}>↓</div>
+          <div style={{ border: "1px solid rgba(245,243,240,0.11)", borderRadius: 16, background: KAIRON_THEME.surface, padding: "22px 24px" }}>
+            <div style={{ fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", color: "rgba(245,243,240,0.45)" }}>{c.gapBehavior}</div>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 12 }}>
+              {c.gapB.map((b) => (
+                <span key={b} style={{ border: "1px solid rgba(245,243,240,0.14)", borderRadius: 999, padding: "8px 15px", fontSize: 15 }}>{b}</span>
+              ))}
+            </div>
+          </div>
+          <div aria-hidden style={{ textAlign: "center", fontSize: 15, color: "rgba(245,243,240,0.3)", lineHeight: 1 }}>↓</div>
+          <div style={{ border: "1px solid rgba(245,243,240,0.11)", borderRadius: 16, background: KAIRON_THEME.surface, padding: "22px 24px" }}>
+            <div style={{ fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", color: "rgba(245,243,240,0.45)" }}>{c.gapResult}</div>
+            <p style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: "clamp(18px,2.2vw,24px)", lineHeight: 1.4, margin: "10px 0 0" }}>{c.gapResultEx}</p>
+          </div>
+        </div>
+
+        <div style={{ marginTop: "clamp(34px,5vw,56px)", borderLeft: `2px solid ${ORANGE}`, padding: "8px 0 8px 24px", maxWidth: "32em" }}>
+          <p className="font-display" style={{ fontWeight: 600, fontSize: "clamp(22px,3.2vw,38px)", lineHeight: 1.15, letterSpacing: "-0.02em", margin: 0 }}>{c.gapQuestion}</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Patterns({ c }: { c: Copy }) {
   const [pat, setPat] = useState<PatternKey>(0);
   const active = c.patterns[pat];
@@ -782,6 +889,40 @@ function Method({ c }: { c: Copy }) {
           ))}
         </div>
       </div>
+    </section>
+  );
+}
+
+function VsAiSection({ c, locale }: { c: Copy; locale: Locale }) {
+  const href = locale === "en" ? "/en/vs-generative-ai" : "/vs-ia-generativa";
+  return (
+    <section id="vsai" style={{ padding: "clamp(60px,9vw,120px) clamp(18px,5vw,40px)", position: "relative", zIndex: 2, borderTop: "1px solid rgba(245,243,240,0.07)" }}>
+      <div style={{ maxWidth: 1240, margin: "0 auto" }}>
+        <div style={{ maxWidth: 760 }}>
+          <div style={{ fontSize: "11.5px", letterSpacing: "0.19em", textTransform: "uppercase", color: ORANGE }}>{c.vsKicker}</div>
+          <h2 className="font-display" style={{ fontWeight: 600, fontSize: "clamp(28px,4.6vw,52px)", lineHeight: 1.05, letterSpacing: "-0.03em", margin: "15px 0 0" }}>{c.vsTitle}</h2>
+          <p style={{ fontSize: "16.5px", lineHeight: 1.6, color: "rgba(245,243,240,0.62)", margin: "18px 0 0" }}>{c.vsSub}</p>
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(300px,1fr))", gap: 16, marginTop: "clamp(32px,4vw,50px)", alignItems: "start" }}>
+          <div style={{ border: "1px solid rgba(245,243,240,0.11)", borderRadius: 18, background: KAIRON_THEME.surface, padding: "clamp(22px,3vw,32px)" }}>
+            <div className="font-display" style={{ fontSize: 18, fontWeight: 600, color: "rgba(245,243,240,0.8)" }}>{c.vsGenTitle}</div>
+            <div style={{ display: "grid", gap: 12, marginTop: 20, fontSize: "15.5px", lineHeight: 1.55, color: "rgba(245,243,240,0.6)" }}>
+              {c.vsGen.map((g) => <div key={g}>{g}</div>)}
+            </div>
+          </div>
+          <div style={{ border: "1px solid rgba(240,160,70,0.34)", borderRadius: 18, background: "rgba(240,160,70,0.06)", padding: "clamp(22px,3vw,32px)" }}>
+            <div className="font-display" style={{ fontSize: 18, fontWeight: 600 }}>{c.vsKaiTitle}</div>
+            <div style={{ display: "grid", gap: 12, marginTop: 20, fontSize: "15.5px", lineHeight: 1.55, color: "rgba(245,243,240,0.78)" }}>
+              {c.vsKai.map((k) => <div key={k}>{k}</div>)}
+            </div>
+          </div>
+        </div>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 24, alignItems: "center", justifyContent: "space-between", marginTop: "clamp(28px,4vw,40px)" }}>
+          <p style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: "clamp(19px,2.4vw,28px)", lineHeight: 1.4, margin: 0, maxWidth: "26em" }}>{c.vsLine}</p>
+          <a href={href} className="gs-vsai-cta" style={{ border: "1px solid rgba(245,243,240,0.22)", color: "#F5F3F0", fontWeight: 500, fontSize: "15.5px", padding: "15px 26px", borderRadius: 999, whiteSpace: "nowrap" }}>{c.vsCta}</a>
+        </div>
+      </div>
+      <style>{`.gs-vsai-cta:hover { border-color: #F5F3F0; }`}</style>
     </section>
   );
 }
@@ -964,7 +1105,7 @@ function SiteFooter({ c, locale }: { c: Copy; locale: Locale }) {
           <a href={locale === "en" ? "/en/iro-method" : "/metodo-iro"} className="gs-footer-link" style={{ color: "rgba(245,243,240,0.62)" }}>{locale === "en" ? "I-R-O™ Method" : "Método I-R-O™"}</a>
           <a href={locale === "en" ? "/en/execution-blocks" : "/bloqueos"} className="gs-footer-link" style={{ color: "rgba(245,243,240,0.62)" }}>{locale === "en" ? "Execution blocks" : "Bloqueos de ejecución"}</a>
           <a href={locale === "en" ? "/en/friction-index" : "/indice-friccion"} className="gs-footer-link" style={{ color: "rgba(245,243,240,0.62)" }}>{locale === "en" ? "Friction Index" : "Índice de Fricción"}</a>
-          <a href={locale === "en" ? "/en/kairon/vs/notion" : "/kairon/vs/notion"} className="gs-footer-link" style={{ color: "rgba(245,243,240,0.62)" }}>KAIRON vs Notion</a>
+          <a href={locale === "en" ? "/en/vs-generative-ai" : "/vs-ia-generativa"} className="gs-footer-link" style={{ color: "rgba(245,243,240,0.62)" }}>{c.navVsAi}</a>
         </div>
         <div style={{ display: "grid", gap: 9, fontSize: 14, alignContent: "start" }}>
           <div style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(245,243,240,0.35)", marginBottom: 4 }}>{c.footCompany}</div>
