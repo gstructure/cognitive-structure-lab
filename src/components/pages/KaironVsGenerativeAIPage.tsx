@@ -1,4 +1,4 @@
-import { KaironDocHeader, KaironDocFooter } from "@/components/site/KaironDocChrome";
+import { KaironDocHeader, KaironDocFooter, MobileStickyCta } from "@/components/site/KaironDocChrome";
 import { trackAcquisitionEvent, trackOutboundAppOpened } from "@/lib/analytics";
 import { getLaunchPhase, kaironAppUrl } from "@/lib/launchConfig";
 import { KAIRON_THEME } from "@/lib/kaironTheme";
@@ -185,6 +185,7 @@ export function KaironVsGenerativeAIPage({ locale = "es" }: { locale?: Locale })
   const navHref = kaironAppUrl(locale, "vsai_nav", getLaunchPhase());
   const heroHref = kaironAppUrl(locale, "vsai_hero", getLaunchPhase());
   const finalHref = kaironAppUrl(locale, "vsai_final", getLaunchPhase());
+  const mobileHref = kaironAppUrl(locale, "mobile_sticky", getLaunchPhase());
   const homeHref = locale === "en" ? "/en" : "/";
   const teamsHref = "/teams";
   const methodHref = locale === "en" ? "/en/iro-method" : "/metodo-iro";
@@ -215,7 +216,7 @@ export function KaironVsGenerativeAIPage({ locale = "es" }: { locale?: Locale })
             >
               {c.heroCta}
             </a>
-            <a href="#comparacion" className="vsai-outline-pill" style={{ border: "1px solid rgba(245,243,240,0.22)", color: "#F5F3F0", fontWeight: 500, fontSize: 16, padding: "17px 30px", borderRadius: 999 }}>
+            <a href="#comparacion" className="vsai-outline-pill vsai-hero-secondary" style={{ border: "1px solid rgba(245,243,240,0.22)", color: "#F5F3F0", fontWeight: 500, fontSize: 16, padding: "17px 30px", borderRadius: 999 }}>
               {c.heroCta2}
             </a>
           </div>
@@ -231,8 +232,8 @@ export function KaironVsGenerativeAIPage({ locale = "es" }: { locale?: Locale })
             <p style={{ fontSize: "16.5px", lineHeight: 1.6, color: "rgba(245,243,240,0.6)", margin: "16px 0 0" }}>{c.splitSub}</p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(320px,1fr))", gap: 18, marginTop: "clamp(30px,4vw,46px)", alignItems: "start" }}>
-            <div style={{ border: `1px solid ${KAIRON_THEME.borderStrong}`, borderRadius: 18, background: KAIRON_THEME.surface, padding: "clamp(22px,3vw,30px)" }}>
+          <div className="vsai-split-rail" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(320px,1fr))", gap: 18, marginTop: "clamp(30px,4vw,46px)", alignItems: "start" }}>
+            <div className="vsai-split-card" style={{ border: `1px solid ${KAIRON_THEME.borderStrong}`, borderRadius: 18, background: KAIRON_THEME.surface, padding: "clamp(22px,3vw,30px)" }}>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
                 <div className="font-display" style={{ fontSize: 15, fontWeight: 600, color: "rgba(245,243,240,0.78)" }}>{c.openLabel}</div>
                 <span style={{ fontSize: 10, letterSpacing: "0.13em", textTransform: "uppercase", color: "rgba(245,243,240,0.42)", border: "1px solid rgba(245,243,240,0.14)", borderRadius: 999, padding: "4px 9px" }}>{c.openBadge}</span>
@@ -244,7 +245,7 @@ export function KaironVsGenerativeAIPage({ locale = "es" }: { locale?: Locale })
               <div style={{ marginTop: 22, paddingTop: 18, borderTop: `1px solid ${KAIRON_THEME.border}`, fontSize: "13.5px", lineHeight: 1.6, color: "rgba(245,243,240,0.5)" }}>{c.openFoot}</div>
             </div>
 
-            <div style={{ border: "1px solid rgba(240,160,70,0.34)", borderRadius: 18, background: "linear-gradient(180deg,#16130F,#101011)", padding: "clamp(22px,3vw,30px)" }}>
+            <div className="vsai-split-card" style={{ border: "1px solid rgba(240,160,70,0.34)", borderRadius: 18, background: "linear-gradient(180deg,#16130F,#101011)", padding: "clamp(22px,3vw,30px)" }}>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
                 <div className="font-display" style={{ fontSize: 15, fontWeight: 600 }}>{c.flowLabel}</div>
                 <span style={{ fontSize: 10, letterSpacing: "0.13em", textTransform: "uppercase", color: ORANGE, border: "1px solid rgba(240,160,70,0.38)", borderRadius: 999, padding: "4px 9px" }}>{c.flowBadge}</span>
@@ -262,6 +263,9 @@ export function KaironVsGenerativeAIPage({ locale = "es" }: { locale?: Locale })
               </div>
             </div>
           </div>
+          <p className="vsai-swipe-hint" style={{ fontSize: 13, color: "rgba(245,243,240,0.4)", margin: "10px 0 0" }}>
+            {locale === "en" ? "Swipe to compare" : "Desliza para comparar"}
+          </p>
           <p style={{ fontSize: 13, lineHeight: 1.6, color: "rgba(245,243,240,0.38)", margin: "18px 0 0", maxWidth: "60em" }}>{c.dialogueDisclaimer}</p>
         </div>
       </section>
@@ -330,7 +334,7 @@ export function KaironVsGenerativeAIPage({ locale = "es" }: { locale?: Locale })
             <h2 className="font-display" style={{ fontWeight: 600, fontSize: "clamp(28px,4.4vw,50px)", lineHeight: 1.06, letterSpacing: "-0.025em", margin: "15px 0 0" }}>{c.b2bTitle}</h2>
             <p style={{ fontSize: "16.5px", lineHeight: 1.6, color: "rgba(245,243,240,0.62)", margin: "16px 0 0" }}>{c.b2bSub}</p>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: 18, marginTop: "clamp(28px,4vw,44px)" }}>
+          <div className="vsai-b2b-cards" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: 18, marginTop: "clamp(28px,4vw,44px)" }}>
             <div style={{ border: `1px solid ${KAIRON_THEME.borderStrong}`, borderRadius: 16, padding: 26, background: KAIRON_THEME.surface }}>
               <div style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(245,243,240,0.45)" }}>{c.b2bGenLabel}</div>
               <div style={{ display: "grid", gap: 9, marginTop: 16, fontSize: 15, lineHeight: 1.5, color: "rgba(245,243,240,0.62)" }}>
@@ -382,12 +386,35 @@ export function KaironVsGenerativeAIPage({ locale = "es" }: { locale?: Locale })
       </section>
 
       <KaironDocFooter locale={locale} legalNote={c.legalNote} />
+      <MobileStickyCta
+        href={mobileHref}
+        label={c.finalCta}
+        external
+        onClick={() => trackCta(locale, "mobile_sticky")}
+      />
 
       <style>{`
         .vsai-cta-pill:hover { background: ${KAIRON_THEME.accentHover}; }
         .vsai-outline-pill:hover { border-color: #F5F3F0; }
         .vsai-cta-pill:focus-visible, .vsai-outline-pill:focus-visible {
           outline: 2px solid ${ORANGE}; outline-offset: 3px; border-radius: 4px;
+        }
+        .vsai-swipe-hint { display: none; }
+        @media (max-width: 768px) {
+          .vsai-hero-secondary { display: none; }
+          .vsai-b2b-cards { display: none; }
+          .vsai-swipe-hint { display: block; }
+          .vsai-split-rail {
+            display: flex !important;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            margin: 0 -20px;
+            padding: 0 20px 6px !important;
+          }
+          .vsai-split-rail::-webkit-scrollbar { display: none; }
+          .vsai-split-card { flex: 0 0 290px; scroll-snap-align: center; }
         }
       `}</style>
     </div>

@@ -12,7 +12,7 @@ import kaironProgreso from "@/assets/kaironprogreso.webp";
 import kaironRuta from "@/assets/kaironruta.webp";
 import kaironNocturno from "@/assets/kaironnocturno.webp";
 import { KAIRON_THEME } from "@/lib/kaironTheme";
-import { DocDropdown, type DocNavItem } from "@/components/site/KaironDocChrome";
+import { DocDropdown, MobileStickyCta, type DocNavItem } from "@/components/site/KaironDocChrome";
 
 /**
  * Full dark-theme homepage redesign ("Testimonios en español para KAIRON"
@@ -35,6 +35,30 @@ const BG = KAIRON_THEME.bg;
 
 const PRODUCT_SHOTS_ES = [kaironInicio, kaironBrujula, kaironTaller, kaironTaller, kaironProgreso, kaironRuta];
 const PRODUCT_SHOTS_EN = [kaironInicio, kaironBrujula, kaironFiltro, kaironTaller, kaironProgreso, kaironRuta];
+
+// Mobile-only carousel cards (Tarea 3, "Diseño Mobile KAIRON" handoff): the
+// desktop sticky-phone crossfade doesn't translate to a narrow viewport, so
+// mobile gets a horizontal snap rail of six situational cards instead. New
+// copy scoped to this mobile-only element — it doesn't touch c.steps (the
+// desktop copy), per the handoff's "no copy changes" rule for existing content.
+const PRODUCT_CAROUSEL = {
+  es: [
+    { name: "Filtro", img: kaironFiltro, body: "Estás bloqueado ahora. Se destraba en minutos." },
+    { name: "Taller", img: kaironTaller, body: "Cuando el problema necesita más que una respuesta rápida." },
+    { name: "Scanner", img: kaironBrujula, body: "Descubre qué patrón aparece cuando tu ejecución se rompe." },
+    { name: "Nocturno", img: kaironNocturno, body: "Saca el ruido de tu cabeza antes de llevarlo contigo a mañana." },
+    { name: "Ruta", img: kaironRuta, body: "Deja de reaccionar al patrón. Aprende a reconocerlo antes." },
+    { name: "Progreso", img: kaironProgreso, body: "Tu Índice de Fricción a lo largo del tiempo." },
+  ],
+  en: [
+    { name: "Filter", img: kaironFiltro, body: "You're blocked right now. It unsticks in minutes." },
+    { name: "Workshop", img: kaironTaller, body: "When the problem needs more than a quick answer." },
+    { name: "Scanner", img: kaironBrujula, body: "Discover which pattern shows up when your execution breaks." },
+    { name: "Nocturne", img: kaironNocturno, body: "Get the noise out of your head before carrying it into tomorrow." },
+    { name: "Path", img: kaironRuta, body: "Stop reacting to the pattern. Learn to recognize it before it starts." },
+    { name: "Progress", img: kaironProgreso, body: "Your Friction Index over time." },
+  ],
+};
 
 type PatternKey = 0 | 1 | 2 | 3;
 
@@ -402,6 +426,12 @@ export function HomePage({ locale }: { locale: Locale }) {
         <House c={c} />
         <FinalCta c={c} appHref={appHref} locale={locale} />
         <SiteFooter c={c} locale={locale} />
+        <MobileStickyCta
+          href={appHref("mobile_sticky")}
+          label={locale === "en" ? "Try KAIRON" : "Probar KAIRON"}
+          external
+          onClick={() => trackAppCta(locale, "mobile_sticky")}
+        />
       </div>
     </div>
   );
@@ -409,6 +439,7 @@ export function HomePage({ locale }: { locale: Locale }) {
 
 function SiteHeader({ c, locale }: { c: Copy; locale: Locale }) {
   const [menu, setMenu] = useState<"producto" | "metodologia" | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const rootRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -416,7 +447,10 @@ function SiteHeader({ c, locale }: { c: Copy; locale: Locale }) {
       if (rootRef.current && !rootRef.current.contains(e.target as Node)) setMenu(null);
     };
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setMenu(null);
+      if (e.key === "Escape") {
+        setMenu(null);
+        setMobileOpen(false);
+      }
     };
     document.addEventListener("click", onDocClick);
     document.addEventListener("keydown", onKey);
@@ -450,6 +484,13 @@ function SiteHeader({ c, locale }: { c: Copy; locale: Locale }) {
         { label: "Bloqueos de ejecución", href: "/bloqueos" },
         { label: "Índice de Fricción", href: "/indice-friccion" },
       ];
+  const mobileNavItems: DocNavItem[] = [
+    { label: c.navMirror, href: "#espejo" },
+    { label: "KAIRON", href: "#producto" },
+    { label: c.navVsAi, href: locale === "en" ? "/en/vs-generative-ai" : "/vs-ia-generativa" },
+    ...metodologiaItems,
+    { label: "KAIRON for Teams", to: "/teams" },
+  ];
 
   return (
     <header
@@ -464,7 +505,7 @@ function SiteHeader({ c, locale }: { c: Copy; locale: Locale }) {
         <a href="#top" style={{ display: "flex", alignItems: "center", flex: "none" }}>
           <img src={gsLogoLight} alt="G-Structure" style={{ height: 30, width: "auto", display: "block" }} />
         </a>
-        <nav aria-label={locale === "es" ? "Principal" : "Main"} style={{ display: "flex", alignItems: "center", gap: "clamp(12px,2vw,26px)", flexWrap: "wrap", justifyContent: "flex-end" }}>
+        <nav aria-label={locale === "es" ? "Principal" : "Main"} className="gs-nav-desktop" style={{ display: "flex", alignItems: "center", gap: "clamp(12px,2vw,26px)", flexWrap: "wrap", justifyContent: "flex-end" }}>
           <a href="#espejo" className="gs-nav-link" style={{ color: "rgba(245,243,240,0.6)", fontSize: "13.5px", whiteSpace: "nowrap" }}>{c.navMirror}</a>
           <DocDropdown
             label={locale === "en" ? "Product" : "Producto"}
@@ -485,7 +526,42 @@ function SiteHeader({ c, locale }: { c: Copy; locale: Locale }) {
           </div>
           <a href="#precio" className="gs-cta-pill" style={{ background: ORANGE, color: "#1A1000", fontWeight: 600, fontSize: "13.5px", padding: "10px 17px", borderRadius: 999, whiteSpace: "nowrap" }}>{c.cta}</a>
         </nav>
+
+        <button
+          type="button"
+          className="gs-hamburger"
+          aria-label={mobileOpen ? (locale === "en" ? "Close menu" : "Cerrar menú") : (locale === "en" ? "Open menu" : "Abrir menú")}
+          aria-expanded={mobileOpen}
+          onClick={(e) => { e.stopPropagation(); setMobileOpen((v) => !v); }}
+        >
+          <span aria-hidden="true" className="gs-burger-bar" data-open={mobileOpen} data-bar="top" />
+          <span aria-hidden="true" className="gs-burger-bar" data-open={mobileOpen} data-bar="mid" />
+        </button>
       </div>
+
+      {mobileOpen ? (
+        <div className="gs-mobile-panel">
+          {mobileNavItems.map((item) =>
+            item.to ? (
+              <Link key={item.label} to={item.to as string} className="gs-mobile-row" onClick={() => setMobileOpen(false)}>
+                {item.label}
+              </Link>
+            ) : (
+              <a key={item.label} href={item.href} className="gs-mobile-row" onClick={() => setMobileOpen(false)}>
+                {item.label}
+              </a>
+            ),
+          )}
+          <div style={{ marginTop: 10 }}>
+            <div role="group" aria-label="Language" style={{ display: "flex", border: "1px solid rgba(245,243,240,0.14)", borderRadius: 999, overflow: "hidden", width: "fit-content" }}>
+              <Link to="/" className="gs-lang-btn" aria-current={locale === "es" ? "page" : undefined} style={langBtnStyle(locale === "es")}>ES</Link>
+              <Link to="/en" className="gs-lang-btn" aria-current={locale === "en" ? "page" : undefined} style={langBtnStyle(locale === "en")}>EN</Link>
+            </div>
+          </div>
+          <a href="#precio" className="gs-mobile-cta" onClick={() => setMobileOpen(false)}>{c.cta}</a>
+        </div>
+      ) : null}
+
       <style>{`
         .gs-nav-link:hover { color: #F5F3F0; }
         .gs-cta-pill:hover { background: ${ORANGE_HOVER}; }
@@ -499,6 +575,21 @@ function SiteHeader({ c, locale }: { c: Copy; locale: Locale }) {
         .kdh-item:hover { background: rgba(245,243,240,0.06); color: #F5F3F0; }
         .kdh-trigger:focus-visible, .kdh-item:focus-visible {
           outline: 2px solid ${ORANGE}; outline-offset: 3px; border-radius: 4px;
+        }
+        .gs-hamburger { display: none; width: 44px; height: 44px; margin-right: -10px; border: 0; background: none; flex-direction: column; align-items: center; justify-content: center; gap: 5px; cursor: pointer; }
+        .gs-burger-bar { width: 20px; height: 1.5px; background: #F5F3F0; transition: transform 200ms ease; }
+        .gs-burger-bar[data-bar="top"][data-open="true"] { transform: translateY(3.25px) rotate(45deg); }
+        .gs-burger-bar[data-bar="mid"][data-open="true"] { transform: translateY(-3.25px) rotate(-45deg); }
+        .gs-mobile-panel { display: none; }
+        @media (max-width: 768px) {
+          .gs-nav-desktop { display: none; }
+          .gs-hamburger { display: flex; }
+          .gs-mobile-panel { display: flex; flex-direction: column; gap: 0; padding: 0 clamp(18px,5vw,40px) 20px; border-top: 1px solid rgba(245,243,240,0.07); }
+        }
+        .gs-mobile-row { display: flex; align-items: center; min-height: 50px; font-size: 16.5px; color: #F5F3F0; border-bottom: 1px solid rgba(245,243,240,0.07); }
+        .gs-mobile-cta { display: flex; align-items: center; justify-content: center; min-height: 52px; margin-top: 14px; background: ${ORANGE}; color: #1A1000; font-weight: 600; font-size: 16.5px; border-radius: 999px; }
+        .gs-hamburger:focus-visible, .gs-mobile-row:focus-visible, .gs-mobile-cta:focus-visible {
+          outline: 2px solid ${ORANGE}; outline-offset: 3px;
         }
       `}</style>
     </header>
@@ -526,7 +617,7 @@ function Hero({ c, appHref, locale }: { c: Copy; appHref: (content: string) => s
           {c.heroL1}<br /><span style={{ color: ORANGE }}>{c.heroL2}</span>
         </h1>
         <p style={{ fontSize: "clamp(16.5px,1.9vw,21px)", lineHeight: 1.55, color: "rgba(245,243,240,0.66)", margin: "clamp(20px,3vw,30px) auto 0", maxWidth: "40em" }}>{c.heroSub}</p>
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 13, justifyContent: "center", marginTop: "clamp(30px,4vw,44px)" }}>
+        <div className="gs-hero-ctas" style={{ display: "flex", flexWrap: "wrap", gap: 13, justifyContent: "center", marginTop: "clamp(30px,4vw,44px)" }}>
           <a
             href="#espejo"
             className="gs-cta-pill"
@@ -550,6 +641,10 @@ function Hero({ c, appHref, locale }: { c: Copy; appHref: (content: string) => s
       <style>{`
         .gs-cta-pill:hover { background: ${ORANGE_HOVER}; }
         .gs-outline-pill:hover { border-color: #F5F3F0; color: #F5F3F0; }
+        @media (max-width: 768px) {
+          .gs-hero-ctas { flex-direction: column; align-items: stretch; gap: 10px; }
+          .gs-hero-ctas .gs-cta-pill, .gs-hero-ctas .gs-outline-pill { min-height: 54px; display: flex; align-items: center; justify-content: center; }
+        }
       `}</style>
     </section>
   );
@@ -739,12 +834,37 @@ function ProductScroll({ c, locale }: { c: Copy; locale: Locale }) {
             </div>
           </div>
         </div>
+
+        <p className="gs-prod-mobile-hint" style={{ fontSize: 16, lineHeight: 1.6, color: "rgba(245,243,240,0.6)", margin: "14px 0 0" }}>
+          {locale === "en" ? "Swipe to see each one." : "Desliza para ver cada una."}
+        </p>
+        <div className="gs-prod-rail" style={{ gap: 14, marginTop: 24 }}>
+          {PRODUCT_CAROUSEL[locale].map((card) => (
+            <div key={card.name} className="gs-prod-card" style={{ border: "1px solid rgba(245,243,240,0.1)", borderRadius: 20, background: "#101011", padding: "16px 16px 18px" }}>
+              <img src={card.img} alt={card.name} style={{ width: "100%", borderRadius: 13, display: "block", background: "#0A0A0B" }} />
+              <div className="font-display" style={{ fontSize: 17, fontWeight: 600, marginTop: 15 }}>{card.name}</div>
+              <div style={{ fontSize: "14.5px", lineHeight: 1.5, color: "rgba(245,243,240,0.58)", marginTop: 6 }}>{card.body}</div>
+            </div>
+          ))}
+        </div>
       </div>
       <style>{`
-        @media (max-width: 760px) {
-          .gs-prod-grid { grid-template-columns: 1fr !important; }
-          .gs-prod-sticky { order: -1; top: 70px !important; min-height: auto !important; margin-bottom: 8px; }
-          .gs-prod-steps { padding: 0 !important; gap: clamp(28px,7vh,60px) !important; }
+        .gs-prod-rail { display: none; }
+        .gs-prod-mobile-hint { display: none; }
+        @media (max-width: 768px) {
+          .gs-prod-grid { display: none !important; }
+          .gs-prod-mobile-hint { display: block; }
+          .gs-prod-rail {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            margin: 0 -20px;
+            padding: 0 20px 6px;
+          }
+          .gs-prod-rail::-webkit-scrollbar { display: none; }
+          .gs-prod-card { flex: 0 0 254px; scroll-snap-align: center; }
         }
       `}</style>
     </section>
